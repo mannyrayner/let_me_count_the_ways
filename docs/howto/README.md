@@ -1,27 +1,33 @@
 # Initial pipeline runbooks
 
-These runbooks are designed for a Cygwin Bash terminal on Windows. Run them in
-order, one document at a time. Each runbook ends at a review checkpoint: stop,
-share the named outputs, and agree any changes before proceeding.
+These runbooks follow the C-LARA-2 operating convention: use persistent Cygwin
+environment variables, keep the checkout under `/home/github`, expose small
+top-level commands, and stop for review after each step.
+
+Run one document at a time. Each runbook ends at a review checkpoint; share the
+named outputs and agree changes before proceeding.
 
 | Step | Runbook | Result to review |
 | --- | --- | --- |
-| 0 | [Set up and verify](00_setup_and_verify.md) | Environment and passing checks |
-| 1 | [Generate target candidates](01_generate_targets.md) | Raw AI candidate response |
-| 2 | [Review and approve targets](02_review_targets.md) | Versioned approved manifest |
-| 3 | [Acquire one approved text](03_acquire_one_text.md) | Raw text and provenance draft |
-| 4 | [Extract passages](04_extract_passages.md) | Occurrence JSONL |
-| 5 | [Classify one passage](05_classify_one_passage.md) | Raw structured AI analysis |
+| 0 | [Configure Cygwin](00_configure_cygwin.md) | Persistent environment variables |
+| 1 | [Check out and verify](01_checkout_and_verify.md) | Checkout and passing checks |
+| 2 | [Configure a model and generate targets](02_configure_model_and_generate_targets.md) | Priced model snapshot and raw candidates |
+| 3 | [Review and approve targets](03_review_targets.md) | Versioned approved manifest |
+| 4 | [Acquire one approved text](04_acquire_one_text.md) | Raw text and provenance draft |
+| 5 | [Extract passages](05_extract_passages.md) | Occurrence JSONL |
+| 6 | [Classify one passage](06_classify_one_passage.md) | Costed structured AI analysis |
 
 ## Conventions
 
-- Replace `C:/path/to/let_me_count_the_ways` with the actual Windows checkout
-  path in the first command of each terminal session. `cygpath` converts it to a
-  Cygwin path safely.
-- Commands assume they are run from the repository root.
-- Never paste an API key into a file or command-line argument. The runbooks read
-  it silently into an environment variable for the current shell.
-- Do not commit downloaded texts or model outputs until their provenance,
-  licensing, and research role have been reviewed.
-- If a command fails, stop. Keep any generated run directory: the scripts retain
-  request metadata and error details for diagnosis.
+- `LMCW` points to `C:\cygwin64\home\github\LMCW`, the sister checkout to
+  C-LARA-2. Every later runbook begins with `cd "$LMCW"`.
+- `OPENAI_API_KEY` is the existing global credential shared by OpenAI-based
+  projects. Commands check it but never print it or place it on the command line.
+- Every API top-level command takes `--model ALIAS`; the alias resolves to an
+  exact API identifier and a human-verified pricing snapshot in
+  `config/api_models.json`.
+- API runs retain token usage, estimated USD cost, the pricing snapshot, exact
+  request, raw response, prompt/input/schema hashes, and errors.
+- Do not commit downloads or model outputs until provenance, licensing, and the
+  research role have been reviewed.
+- If a command fails, stop and retain its run directory for diagnosis.
