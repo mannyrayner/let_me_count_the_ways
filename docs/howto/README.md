@@ -7,6 +7,10 @@ top-level commands, and stop for review after each step.
 Run one document at a time. Each runbook ends at a review checkpoint; share the
 named outputs and agree changes before proceeding.
 
+The table below is authoritative. Some checkouts may temporarily retain older,
+unlinked runbooks from the first draft; they can be ignored while repository
+history is cleaned up and do not block the current sequence.
+
 | Step | Runbook | Result to review |
 | --- | --- | --- |
 | 0 | [Configure Cygwin](00_configure_cygwin.md) | Persistent environment variables |
@@ -19,8 +23,8 @@ named outputs and agree changes before proceeding.
 
 ## Conventions
 
-- `LMCW` points to `C:\cygwin64\home\github\LMCW`, the sister checkout to
-  C-LARA-2. Every later runbook begins with `cd "$LMCW"`.
+- `LMCW` points to `C:\cygwin64\home\github\let_me_count_the_ways`, the sister
+  checkout to C-LARA-2. Every later runbook begins with `cd "$LMCW"`.
 - `OPENAI_API_KEY` is the existing global credential shared by OpenAI-based
   projects. Commands check it but never print it or place it on the command line.
 - Every API top-level command takes `--model ALIAS`; the alias resolves to an

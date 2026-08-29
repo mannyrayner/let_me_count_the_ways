@@ -10,7 +10,7 @@ define it:
 ```bash
 mkdir -p /home/github
 grep -q '^export LMCW=' "$HOME/.bash_profile" 2>/dev/null || \
-  printf '%s\n' "export LMCW='C:\\cygwin64\\home\\github\\LMCW'" >> "$HOME/.bash_profile"
+  printf '%s\n' "export LMCW='C:\\cygwin64\\home\\github\\let_me_count_the_ways'" >> "$HOME/.bash_profile"
 source "$HOME/.bash_profile"
 printf 'LMCW=%s\n' "$LMCW"
 test -n "${OPENAI_API_KEY:-}" && echo 'OPENAI_API_KEY is set' || \
