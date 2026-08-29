@@ -12,7 +12,8 @@ the initial working copy is byte-for-byte identical:
 
 ```bash
 cd "$LMCW"
-RUN_DIR="$(find results/development_runs/target_discovery -mindepth 1 \
+RUN_ROOT='results/development_runs/target_discovery'
+RUN_DIR="$(find "$RUN_ROOT" -mindepth 1 \
   -maxdepth 1 -type d | sort | tail -1)"
 REVIEW_JSON='data/development/target_candidates_review_v0_1.json'
 python -m json.tool "$RUN_DIR/output.txt" >/dev/null
@@ -45,6 +46,9 @@ Do not delete a potentially useful candidate merely because its exact phrase or
 source has not yet been verified. Correct clear factual or structural problems
 and retain uncertainty as a concrete `verification_needed` task.
 
+The completed review and its known limitations are recorded in
+[`docs/notes/target_discovery_review_v0_1.md`](../notes/target_discovery_review_v0_1.md).
+
 ## Promote the reviewed candidate list
 
 Run this block only after we have reviewed the working file together and agreed
@@ -65,9 +69,39 @@ git diff --no-index /dev/null "$APPROVED_JSON" || true
 “Approved” here means approved for source verification, not cleared for download,
 corpus inclusion, or quotation.
 
+## Preserve the completed discovery run
+
+After the approved file has the expected hash, remove the now-redundant editable
+copy and commit the approved candidates together with the exact API artifacts and
+pricing catalogue used for the run:
+
+```bash
+cd "$LMCW"
+RUN_ROOT='results/development_runs/target_discovery'
+RUN_DIR="$(find "$RUN_ROOT" -mindepth 1 \
+  -maxdepth 1 -type d | sort | tail -1)"
+REVIEW_JSON='data/development/target_candidates_review_v0_1.json'
+APPROVED_JSON='data/development/target_candidates_v0_1.json'
+cmp "$RUN_DIR/output.txt" "$APPROVED_JSON"
+rm "$REVIEW_JSON"
+find "$RUN_ROOT" -mindepth 2 -maxdepth 2 -type f -print | sort
+git add config/api_models.json "$APPROVED_JSON" "$RUN_ROOT"
+git diff --cached --check
+git status --short
+git commit -m 'Record initial target discovery run'
+git push origin main
+```
+
+The review copy is deleted because it remained byte-identical to both the raw
+output and approved candidate file. Every timestamped attempt under `RUN_ROOT`
+is retained, including failed calls and retries: these may contain a request,
+metadata, and `error.txt` rather than a response and cost. The successful run’s
+raw API envelope, exact request, output, metadata, pricing snapshot, and cost
+record remain intact; the approved candidate file is the stable input to later
+stages. The API runner never writes `OPENAI_API_KEY` into these artifacts.
+
 ## Review checkpoint
 
-For the first half of this step, stop after staging the review copy and share its
-path, checksum output, summary, and the file itself. We will review and correct
-that complete file together before running the promotion block or selecting one
-specific edition for the Step 4 acquisition trial.
+After promotion, stop again and share the full `git status --short` output. Once
+the preservation commit and push succeed, Step 3 is complete and we can select
+one specific edition for the Step 4 acquisition trial.
