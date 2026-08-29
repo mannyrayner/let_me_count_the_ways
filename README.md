@@ -28,3 +28,8 @@ research reporting.
 
 See `docs/research_plan.md` for the initial plan and
 `docs/research_handoff.md` for the current project state.
+
+## Background reading
+
+- [“On saying ‘I love you’”](docs/notes/on_saying_i_love_you.md): an earlier
+  essay motivating the project’s central semantic question
