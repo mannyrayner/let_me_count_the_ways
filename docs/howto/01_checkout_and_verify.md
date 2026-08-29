@@ -23,6 +23,7 @@ python --version
 python -m unittest discover -s scripts/api -p 'test_*.py' -v
 python -m unittest discover -s scripts/docs -p 'test_*.py' -v
 python -m unittest discover -s scripts/extraction -p 'test_*.py' -v
+python -m unittest discover -s scripts/ontology_development -p 'test_*.py' -v
 python -m json.tool config/api_models.json >/dev/null
 python -m json.tool data/development/search_patterns_v0_1.json >/dev/null
 python -m json.tool prompts/annotation/classification_schema_v0_1.json >/dev/null

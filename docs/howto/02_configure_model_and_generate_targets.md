@@ -57,6 +57,9 @@ python -m json.tool "$RUN_DIR/metadata.json"
 python -m json.tool "$RUN_DIR/pricing_snapshot.json"
 python -m json.tool "$RUN_DIR/cost.json"
 python -m json.tool "$RUN_DIR/response.json" >/dev/null
+python -m json.tool "$RUN_DIR/output.txt" >/dev/null
+python scripts/ontology_development/summarize_target_candidates.py \
+  "$RUN_DIR/output.txt"
 sed -n '1,240p' "$RUN_DIR/output.txt"
 ```
 
@@ -68,7 +71,8 @@ find results/development_runs/target_discovery -name error.txt -print -exec cat 
 
 ## Review checkpoint
 
-Stop and share `metadata.json`, `pricing_snapshot.json`, `cost.json`, and
-`output.txt`. We should check model identity, pricing freshness, candidate
-diversity, likely phrase coverage, factual uncertainty, and valid JSON before
-approving any source.
+Stop and share `metadata.json`, `pricing_snapshot.json`, `cost.json`, the compact
+summary, and `output.txt`. If the output is too long to paste in full, share the
+summary and the file itself rather than only its first 240 lines. We should check
+model identity, pricing freshness, candidate diversity, likely phrase coverage,
+factual uncertainty, and valid JSON before approving any source.
