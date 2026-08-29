@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Initial I-love-you passage classification",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "occurrence_id", "label_support", "construals", "features", "evidence",
+    "needs_more_context", "typology_adequate", "typology_diagnosis",
+    "confidence"
+  ],
+  "properties": {
+    "occurrence_id": {"type": "string"},
+    "label_support": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["truth_conditional", "performative", "exclamatory_reflexive"],
+      "properties": {
+        "truth_conditional": {"type": "integer", "minimum": 0, "maximum": 4},
+        "performative": {"type": "integer", "minimum": 0, "maximum": 4},
+        "exclamatory_reflexive": {"type": "integer", "minimum": 0, "maximum": 4}
+      }
+    },
+    "construals": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["perspective", "analysis"],
+        "properties": {
+          "perspective": {
+            "enum": ["speaker", "hearer", "narrator_or_text", "reader"]
+          },
+          "analysis": {"type": "string"}
+        }
+      }
+    },
+    "features": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "quoted", "negated", "metalinguistic", "conventionally_scripted",
+          "strategically_ambiguous", "deceptive_or_manipulative",
+          "participant_disagreement", "mixed_reading", "none_of_these"
+        ]
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["text", "supports"],
+        "properties": {
+          "text": {"type": "string"},
+          "supports": {"type": "string"}
+        }
+      }
+    },
+    "needs_more_context": {"type": "boolean"},
+    "context_request": {"type": ["string", "null"]},
+    "typology_adequate": {"type": "boolean"},
+    "typology_diagnosis": {"type": "string"},
+    "proposed_missing_dimensions": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1}
+  }
+}
