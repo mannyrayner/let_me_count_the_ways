@@ -33,3 +33,9 @@ See `docs/research_plan.md` for the initial plan and
 
 - [“On saying ‘I love you’”](docs/notes/on_saying_i_love_you.md): an earlier
   essay motivating the project’s central semantic question
+
+## Source acquisition
+
+- [`provenance/required_sources.md`](provenance/required_sources.md) tracks
+  required works, lawful access options, verification questions, and intended
+  repository treatment.
