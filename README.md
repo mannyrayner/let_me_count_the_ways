@@ -45,3 +45,6 @@ See `docs/research_plan.md` for the initial plan and
 See [`docs/initial_pipeline.md`](docs/initial_pipeline.md) for the staged target
 selection, acquisition, extraction, and diagnostic annotation plan. Versioned
 search patterns and prompts live under `data/development/` and `prompts/`.
+
+Cygwin-compatible, checkpointed commands for running the pipeline one step at a
+time are in [`docs/howto/`](docs/howto/README.md).
