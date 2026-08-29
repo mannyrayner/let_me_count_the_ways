@@ -93,12 +93,22 @@ git push origin main
 ```
 
 The review copy is deleted because it remained byte-identical to both the raw
-output and approved candidate file. Every timestamped attempt under `RUN_ROOT`
-is retained, including failed calls and retries: these may contain a request,
-metadata, and `error.txt` rather than a response and cost. The successful run’s
-raw API envelope, exact request, output, metadata, pricing snapshot, and cost
-record remain intact; the approved candidate file is the stable input to later
-stages. The API runner never writes `OPENAI_API_KEY` into these artifacts.
+output and approved candidate file. Before `git add`, audit every timestamped
+directory listed by `find`:
+
+- retain successful calls, billed calls, and failures that are methodologically
+  or diagnostically relevant;
+- delete a purely local setup mistake when it produced no response or cost and
+  retaining it would add no research evidence—for example, a `model_not_found`
+  error caused only by mistyping an API model identifier;
+- never delete an ambiguous run until its metadata, request, error, response,
+  and cost files have been inspected.
+
+After that audit, staging `RUN_ROOT` preserves all remaining attempts. A
+successful run retains its raw API envelope, exact request, output, metadata,
+pricing snapshot, and cost record; the approved candidate file is the stable
+input to later stages. The API runner never writes `OPENAI_API_KEY` into these
+artifacts.
 
 ## Review checkpoint
 
