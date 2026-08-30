@@ -8,8 +8,8 @@ each API call.
 | Substep | Status | Case | Occurrence ID | Primary diagnostic question |
 | --- | --- | --- | --- | --- |
 | 7A | Completed | Quoted repetition | `bronte-jane-eyre-14913cd0a6a4` | Does the model distinguish Jane’s earlier avowal from Rochester’s present quotation and uptake? |
-| 7B | Run next | Imagined utterance | `bronte-jane-eyre-f221719b1af4` | Does the model recognize that “he seemed to say” attributes words that were not spoken aloud? |
-| 7C | Blocked pending 7B review | Sisterly love | `bronte-jane-eyre-b57472f62694` | Does the model avoid treating a direct avowal as romantic merely because it says “I love you”? |
+| 7B | Completed | Imagined utterance | `bronte-jane-eyre-f221719b1af4` | Does the model recognize that “he seemed to say” attributes words that were not spoken aloud? |
+| 7C | Run next | Sisterly love | `bronte-jane-eyre-b57472f62694` | Does the model avoid treating a direct avowal as romantic merely because it says “I love you”? |
 
 ## Completed substep 7A
 
@@ -162,4 +162,91 @@ Review whether the result:
 - requests additional context only for claims the passage cannot settle;
 - remains comparable with 7A because the prompt and schema are unchanged.
 
-Do not run 7C or commit the 7B artifacts until this review is complete.
+## Reviewed result and preservation for 7B
+
+The 7B result passed validation and is reviewed in
+[`docs/notes/diagnostic_classification_review_7b.md`](../notes/diagnostic_classification_review_7b.md).
+Preserve its exact input and run artifacts:
+
+```bash
+cd "$LMCW"
+CASE_NAME='imagined_utterance'
+OCCURRENCE_ID='bronte-jane-eyre-f221719b1af4'
+CLASSIFICATION_INPUT="results/development_runs/classification_inputs/$OCCURRENCE_ID.json"
+RUN_ROOT="results/development_runs/classification_diagnostics/$CASE_NAME"
+find "$RUN_ROOT" -mindepth 2 -maxdepth 2 -type f -print | sort
+git add "$CLASSIFICATION_INPUT" "$RUN_ROOT"
+git diff --cached --check
+git status --short
+git commit -m 'Record imagined-utterance diagnostic classification'
+git push origin main
+git status --short
+```
+
+## Provisional design direction
+
+The 7A and 7B results support retaining T/P/E for the core construction while
+separately representing embedding context and its effect on interpretation.
+They also motivate passing explicit title, author, edition, and relative location
+metadata in a future input format. Do not revise the prompt yet: run 7C with the
+unchanged v0.1 artifacts to complete the comparable diagnostic set.
+
+## Substep 7C: sisterly love
+
+```bash
+cd "$LMCW"
+SOURCE_ID='gutenberg-1260'
+CASE_NAME='sisterly_love'
+OCCURRENCE_ID='bronte-jane-eyre-b57472f62694'
+PASSAGES_FILE="data/development/passages/$SOURCE_ID.jsonl"
+CLASSIFICATION_INPUT="results/development_runs/classification_inputs/$OCCURRENCE_ID.json"
+RUN_ROOT="results/development_runs/classification_diagnostics/$CASE_NAME"
+
+python scripts/annotation/prepare_classification_input.py \
+  "$PASSAGES_FILE" "$CLASSIFICATION_INPUT" \
+  --occurrence-id "$OCCURRENCE_ID"
+python -m json.tool "$CLASSIFICATION_INPUT"
+```
+
+Make one API call with the unchanged v0.1 prompt and schema:
+
+```bash
+test -n "${OPENAI_API_KEY:-}" || { echo 'OPENAI_API_KEY is not set'; exit 1; }
+python scripts/api/call_responses.py \
+  --model '5.6' \
+  --prompt prompts/annotation/classify_passage_v0_1.md \
+  --input "$CLASSIFICATION_INPUT" \
+  --schema prompts/annotation/classification_schema_v0_1.json \
+  --output-root "$RUN_ROOT"
+```
+
+Inspect and validate the result:
+
+```bash
+RUN_DIR="$(find "$RUN_ROOT" -mindepth 1 -maxdepth 1 -type d | sort | tail -1)"
+printf 'Run directory: %s\n' "$RUN_DIR"
+python -m json.tool "$RUN_DIR/metadata.json"
+python -m json.tool "$RUN_DIR/pricing_snapshot.json"
+python -m json.tool "$RUN_DIR/cost.json"
+python -m json.tool "$RUN_DIR/output.txt" >/dev/null
+python scripts/annotation/validate_classification.py "$RUN_DIR/output.txt" \
+  --expected-occurrence-id "$OCCURRENCE_ID"
+sed -n '1,260p' "$RUN_DIR/output.txt"
+```
+
+## Review checkpoint for 7C
+
+Stop and share `metadata.json`, `cost.json`, and the complete `output.txt`.
+Review whether the result:
+
+- recognizes the explicitly supplied sibling relation and avoids defaulting to
+  romantic love;
+- classifies the core avowal independently of relationship type;
+- represents “as a sister” as context that constrains interpretation of the
+  core construction rather than as a competing T/P/E label;
+- distinguishes affection from commitment to travel or marry;
+- requests more context only for unresolved claims;
+- remains comparable with 7A and 7B under the unchanged v0.1 artifacts.
+
+Do not revise the prompt, schema, or input format until 7C has been reviewed and
+the three diagnostic results have been compared together.
