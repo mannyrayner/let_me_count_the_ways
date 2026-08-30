@@ -21,6 +21,7 @@ Then run the self-contained verification commands:
 ```bash
 python --version
 python -m unittest discover -s scripts/api -p 'test_*.py' -v
+python -m unittest discover -s scripts/annotation -p 'test_*.py' -v
 python -m unittest discover -s scripts/docs -p 'test_*.py' -v
 python -m unittest discover -s scripts/extraction -p 'test_*.py' -v
 python -m unittest discover -s scripts/ontology_development -p 'test_*.py' -v
