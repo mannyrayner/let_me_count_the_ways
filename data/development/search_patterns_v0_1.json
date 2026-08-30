@@ -1,0 +1,55 @@
+{
+  "schema_version": "0.1",
+  "matching": {
+    "engine": "Python-compatible Unicode regular expressions",
+    "default_flags": ["IGNORECASE"],
+    "normalization": "Search NFC text; preserve the original match and offsets."
+  },
+  "languages": {
+    "en": {
+      "name": "English",
+      "patterns": [
+        {"id": "en_i_love_you", "regex": "\\bI\\s+love\\s+you\\b"}
+      ]
+    },
+    "sv": {
+      "name": "Swedish",
+      "patterns": [
+        {"id": "sv_jag_alskar_dig_er", "regex": "\\bjag\\s+älskar\\s+(?:dig|er)\\b"}
+      ]
+    },
+    "fr": {
+      "name": "French",
+      "patterns": [
+        {"id": "fr_je_taime", "regex": "\\bje\\s+t[’']aime\\b"},
+        {"id": "fr_je_vous_aime", "regex": "\\bje\\s+vous\\s+aime\\b"}
+      ]
+    },
+    "no": {
+      "name": "Norwegian",
+      "patterns": [
+        {"id": "no_jeg_elsker_deg_dere", "regex": "\\bjeg\\s+elsker\\s+(?:deg|dere)\\b"}
+      ]
+    },
+    "da": {
+      "name": "Danish",
+      "patterns": [
+        {"id": "da_jeg_elsker_dig_jer", "regex": "\\bjeg\\s+elsker\\s+(?:dig|jer)\\b"}
+      ]
+    },
+    "de": {
+      "name": "German",
+      "patterns": [
+        {"id": "de_ich_liebe_dich_euch_sie", "regex": "\\bich\\s+liebe\\s+(?:dich|euch|Sie)\\b"}
+      ]
+    },
+    "it": {
+      "name": "Italian",
+      "patterns": [
+        {"id": "it_ti_amo", "regex": "\\bti\\s+amo\\b"},
+        {"id": "it_io_amo_te", "regex": "\\bio\\s+amo\\s+te\\b"},
+        {"id": "it_vi_la_amo", "regex": "\\b(?:vi|La)\\s+amo\\b"}
+      ]
+    }
+  }
+}
