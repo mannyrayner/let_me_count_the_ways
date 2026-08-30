@@ -9,7 +9,7 @@ each API call.
 | --- | --- | --- | --- | --- |
 | 7A | Completed | Quoted repetition | `bronte-jane-eyre-14913cd0a6a4` | Does the model distinguish Jane’s earlier avowal from Rochester’s present quotation and uptake? |
 | 7B | Completed | Imagined utterance | `bronte-jane-eyre-f221719b1af4` | Does the model recognize that “he seemed to say” attributes words that were not spoken aloud? |
-| 7C | Run next | Sisterly love | `bronte-jane-eyre-b57472f62694` | Does the model avoid treating a direct avowal as romantic merely because it says “I love you”? |
+| 7C | Completed | Sisterly love | `bronte-jane-eyre-b57472f62694` | Does the model avoid treating a direct avowal as romantic merely because it says “I love you”? |
 
 ## Completed substep 7A
 
@@ -248,5 +248,51 @@ Review whether the result:
 - requests more context only for unresolved claims;
 - remains comparable with 7A and 7B under the unchanged v0.1 artifacts.
 
-Do not revise the prompt, schema, or input format until 7C has been reviewed and
-the three diagnostic results have been compared together.
+## Reviewed result and preservation for 7C
+
+The 7C result passed validation and is reviewed in
+[`docs/notes/diagnostic_classification_review_7c.md`](../notes/diagnostic_classification_review_7c.md).
+It correctly treated the core phrase as predominantly truth-conditional and
+“as a sister” as a relationship constraint rather than a T/P/E category.
+
+Preserve the exact input and complete run from the machine on which the API call
+was made:
+
+```bash
+cd "$LMCW"
+CASE_NAME='sisterly_love'
+OCCURRENCE_ID='bronte-jane-eyre-b57472f62694'
+CLASSIFICATION_INPUT="results/development_runs/classification_inputs/$OCCURRENCE_ID.json"
+RUN_ROOT="results/development_runs/classification_diagnostics/$CASE_NAME"
+find "$RUN_ROOT" -mindepth 2 -maxdepth 2 -type f -print | sort
+git add "$CLASSIFICATION_INPUT" "$RUN_ROOT" \
+  docs/notes/diagnostic_classification_review_7c.md \
+  docs/howto/07_classify_diagnostic_passages.md
+git diff --cached --check
+git status --short
+git commit -m 'Record sisterly-love diagnostic classification'
+git push origin main
+git status --short
+```
+
+## Step 7 complete: stop for comparative review
+
+The three comparable v0.1 diagnostics are now complete. Do not make another API
+call from this runbook and do not revise the prompt, schema, validator, or input
+format yet. First invite review of the recorded 7A, 7B, and 7C results.
+
+The provisional design questions for that review are:
+
+- whether T/P/E remains the core construction classification;
+- which controlled vocabulary represents ordinary dialogue, direct quotation,
+  reported speech, imagined speech, nonverbal verbalization, and metalinguistic
+  reuse without conflating them;
+- how to record the embedding context's effect on the core interpretation;
+- how relationship type should be represented independently;
+- how to scope `needs_more_context` separately for the core construction and
+  the wider discourse;
+- which bibliographic and positional metadata should be supplied; and
+- how evidence from the passage, supplied metadata, and model background
+  knowledge should be kept distinct.
+
+Only after that review should a versioned v0.2 prompt and schema be proposed.
