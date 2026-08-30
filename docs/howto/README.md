@@ -20,6 +20,7 @@ history is cleaned up and do not block the current sequence.
 | 4 | [Acquire one approved text](04_acquire_one_text.md) | Raw text and provenance draft |
 | 5 | [Extract passages](05_extract_passages.md) | Occurrence JSONL |
 | 6 | [Classify one passage](06_classify_one_passage.md) | Costed structured AI analysis |
+| 7 | [Classify diagnostic passages](07_classify_diagnostic_passages.md) | Quoted, imagined, and sisterly pilot analyses |
 
 ## Conventions
 

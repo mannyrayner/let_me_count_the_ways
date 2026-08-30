@@ -15,20 +15,9 @@ OCCURRENCE_ID='bronte-jane-eyre-d0cd60fde247'
 PASSAGES_FILE="data/development/passages/$SOURCE_ID.jsonl"
 CLASSIFICATION_INPUT='results/development_runs/classification_inputs/one_passage.json'
 mkdir -p results/development_runs/classification_inputs
-python - "$PASSAGES_FILE" "$CLASSIFICATION_INPUT" "$OCCURRENCE_ID" <<'PY'
-import json
-import sys
-from pathlib import Path
-
-source = Path(sys.argv[1])
-destination = Path(sys.argv[2])
-occurrence_id = sys.argv[3]
-records = [json.loads(line) for line in source.read_text(encoding="utf-8").splitlines()]
-selected = [record for record in records if record["occurrence_id"] == occurrence_id]
-assert len(selected) == 1, f"expected one {occurrence_id} record, found {len(selected)}"
-destination.write_text(json.dumps(selected[0], ensure_ascii=False) + "\n",
-                       encoding="utf-8")
-PY
+python scripts/annotation/prepare_classification_input.py \
+  "$PASSAGES_FILE" "$CLASSIFICATION_INPUT" \
+  --occurrence-id "$OCCURRENCE_ID"
 python -m json.tool "$CLASSIFICATION_INPUT"
 ```
 

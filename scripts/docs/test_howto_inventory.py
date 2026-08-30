@@ -14,6 +14,7 @@ CANONICAL = {
     "04_acquire_one_text.md",
     "05_extract_passages.md",
     "06_classify_one_passage.md",
+    "07_classify_diagnostic_passages.md",
 }
 
 
