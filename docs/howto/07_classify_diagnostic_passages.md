@@ -72,6 +72,28 @@ whether the result:
 - requests more context if the supplied passage cannot settle a claim;
 - uses `mixed_reading` only for genuinely supported simultaneous readings.
 
+## Reviewed result and preservation
+
+The 7A result passed validation and is reviewed in
+[`docs/notes/diagnostic_classification_review_7a.md`](../notes/diagnostic_classification_review_7a.md).
+Preserve the exact input and complete case-specific run before inviting further
+commentary or proceeding to 7B:
+
+```bash
+cd "$LMCW"
+CASE_NAME='quoted_repetition'
+OCCURRENCE_ID='bronte-jane-eyre-14913cd0a6a4'
+CLASSIFICATION_INPUT="results/development_runs/classification_inputs/$OCCURRENCE_ID.json"
+RUN_ROOT="results/development_runs/classification_diagnostics/$CASE_NAME"
+find "$RUN_ROOT" -mindepth 2 -maxdepth 2 -type f -print | sort
+git add "$CLASSIFICATION_INPUT" "$RUN_ROOT"
+git diff --cached --check
+git status --short
+git commit -m 'Record quoted-repetition diagnostic classification'
+git push origin main
+git status --short
+```
+
 Do not run 7B yet. After 7A is reviewed, this runbook will be instantiated with
 the 7B values from the table; the same will happen for 7C only after 7B review.
 Preservation and any prompt revision will likewise be specified from the actual
