@@ -57,3 +57,31 @@ PY
 Stop and share the occurrence count and JSON for the first few records. We should
 inspect false positives, missed spelling variants, boilerplate matches, context
 size, and the contribution of this work before sampling or classification.
+
+## Reviewed result
+
+The 2026-08-30 trial produced six records, and every normalized-text offset
+recovered its exact match. The set is substantively useful: it includes romantic
+avowals, Rochester’s repetition of Jane’s words, imagined rather than spoken
+language, explicitly sisterly love, and a later comparative avowal. Newline-
+separated `I\nlove you` was correctly found by the whitespace-aware pattern.
+
+The third record is quoted repetition and the fourth is language Rochester only
+“seemed to say”; these are not false positives. They are valuable tests of the
+annotation features for quotation, attributed function, and construal. Some
+contexts end before the surrounding paragraph does because the 1,000-character
+radius was reached, so the classifier must remain able to request more context.
+
+Before classification, preserve the reviewed derived data:
+
+```bash
+cd "$LMCW"
+PASSAGES_FILE='data/development/passages/gutenberg-1260.jsonl'
+python -m json.tool --json-lines "$PASSAGES_FILE" >/dev/null
+sha256sum "$PASSAGES_FILE"
+git add "$PASSAGES_FILE"
+git diff --cached --check
+git status --short
+git commit -m 'Add initial Jane Eyre passage extraction'
+git push origin main
+```
