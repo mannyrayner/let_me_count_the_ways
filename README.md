@@ -26,8 +26,10 @@ research reporting.
 - Version prompts, models, parameters, annotation schemes, and derived datasets.
 - Avoid committing secrets, API keys, or restricted source texts.
 
-See `docs/research_plan.md` for the initial plan and
-`docs/research_handoff.md` for the current project state.
+See `docs/research_plan.md` for the initial plan,
+`docs/research_handoff.md` for the initial project handoff, and
+[`docs/next_development_phase_handoff.md`](docs/next_development_phase_handoff.md)
+for the current development-phase handover.
 
 ## Background reading
 
