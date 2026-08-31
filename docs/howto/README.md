@@ -21,6 +21,7 @@ history is cleaned up and do not block the current sequence.
 | 5 | [Extract passages](05_extract_passages.md) | Occurrence JSONL |
 | 6 | [Classify one passage](06_classify_one_passage.md) | Costed structured AI analysis |
 | 7 | [Classify diagnostic passages](07_classify_diagnostic_passages.md) | Quoted, imagined, and sisterly pilot analyses |
+| 8 | [Complete Jane Eyre v0.1](08_complete_jane_eyre_v0_1.md) | All six comparable v0.1 analyses |
 
 ## Conventions
 

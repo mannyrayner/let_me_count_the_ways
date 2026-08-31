@@ -15,6 +15,7 @@ CANONICAL = {
     "05_extract_passages.md",
     "06_classify_one_passage.md",
     "07_classify_diagnostic_passages.md",
+    "08_complete_jane_eyre_v0_1.md",
 }
 
 
