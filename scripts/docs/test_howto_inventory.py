@@ -16,6 +16,7 @@ CANONICAL = {
     "06_classify_one_passage.md",
     "07_classify_diagnostic_passages.md",
     "08_complete_jane_eyre_v0_1.md",
+    "09_run_single_text_pipeline.md",
 }
 
 
