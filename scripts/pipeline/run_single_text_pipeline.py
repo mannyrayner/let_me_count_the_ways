@@ -257,6 +257,158 @@ def summarize_attempts(run_dir: Path, occurrence_ids: list[str]) -> tuple[dict, 
     return {"attempts": attempts, **states}, {**usage, "estimated_total_cost_usd": total_cost}
 
 
+def preferred_attempt(annotation_root: Path, combination: dict) -> tuple[Path, dict] | None:
+    """Return the newest compatible valid attempt, or the newest attempt of any state."""
+    attempts = []
+    for status_path in sorted(annotation_root.glob("attempt-*/status.json"), reverse=True):
+        status = read_json(status_path)
+        attempts.append((status_path.parent, status))
+        if status.get("state") == "valid" and status.get("combination") == combination:
+            return status_path.parent, status
+    return attempts[0] if attempts else None
+
+
+def markdown_quote(text: str) -> str:
+    lines = text.splitlines() or [""]
+    return "\n".join(f"> {line}" if line else ">" for line in lines)
+
+
+def annotation_highlights(output: dict) -> list[str]:
+    """Create a short readable digest while preserving complete JSON below it."""
+    lines = []
+    core = output.get("core_love_content")
+    if isinstance(core, dict):
+        support = core.get("label_support", {})
+        if isinstance(support, dict):
+            lines.append(
+                "- **Core T/P/E support:** "
+                f"{support.get('truth_conditional', '—')} / "
+                f"{support.get('performative', '—')} / "
+                f"{support.get('exclamatory_reflexive', '—')}"
+            )
+        lines.append(f"- **Core analysis:** {core.get('analysis', '—')}")
+    realisation = output.get("realisation")
+    if isinstance(realisation, dict):
+        lines.append(
+            f"- **Realisation:** {', '.join(realisation.get('types', [])) or '—'} "
+            f"(actuality: {realisation.get('actuality', '—')})"
+        )
+    act = output.get("current_discourse_act")
+    if isinstance(act, dict):
+        lines.append(f"- **Current discourse act:** {', '.join(act.get('types', [])) or '—'}")
+        lines.append(f"- **Current-act analysis:** {act.get('analysis', '—')}")
+    modification = output.get("contextual_modification")
+    if isinstance(modification, dict):
+        lines.append(
+            f"- **Contextual modification:** "
+            f"{', '.join(modification.get('effects', [])) or '—'}"
+        )
+    ontology = output.get("ontology_assessment")
+    if isinstance(ontology, dict):
+        lines.append(
+            f"- **Ontology adequate:** {ontology.get('adequate', '—')} — "
+            f"{ontology.get('diagnosis', '—')}"
+        )
+    if not lines and "label_support" in output:  # v0.1 compatibility
+        support = output["label_support"]
+        lines.extend([
+            "- **T/P/E support:** "
+            f"{support.get('truth_conditional', '—')} / "
+            f"{support.get('performative', '—')} / "
+            f"{support.get('exclamatory_reflexive', '—')}",
+            f"- **Typology adequate:** {output.get('typology_adequate', '—')} — "
+            f"{output.get('typology_diagnosis', '—')}",
+        ])
+    return lines
+
+
+def write_markdown_report(run_dir: Path, records: list[dict], inputs: list[tuple[str, dict, Path]],
+                          manifest: dict, combination: dict, repo_root: Path) -> Path:
+    """Rebuild the human-readable report entirely from preserved run artifacts."""
+    prepared_by_id = {occurrence_id: prepared for occurrence_id, prepared, _ in inputs}
+    lines = [
+        f"# Single-text pipeline report: {manifest['title']}",
+        "",
+        "## Run summary",
+        "",
+        f"- **Run ID:** `{manifest['run_id']}`",
+        f"- **Work:** *{manifest['title']}* by {manifest['author']}",
+        f"- **Source:** `{manifest['source_id']}`",
+        f"- **Annotation:** v{manifest['annotation_version']} with `{manifest['api_model']}`",
+        f"- **Status:** `{manifest['status']}`",
+        f"- **Extracted occurrences:** {manifest['extracted_occurrences']}",
+        f"- **Valid occurrences:** {manifest['valid_occurrences']}",
+        f"- **Failed/invalid attempts:** {manifest['invalid_or_failed_attempts']}",
+        f"- **Estimated total cost:** USD {manifest['usage_and_cost']['estimated_total_cost_usd']:.6f}",
+        "",
+        "This report is generated from the preserved extraction, inputs, and annotation attempts. "
+        "Rerunning the pipeline rebuilds it without repeating valid annotations unless `--force` is used.",
+        "",
+        "## Occurrences",
+    ]
+    for index, record in enumerate(records, start=1):
+        occurrence_id = record["occurrence_id"]
+        prepared = prepared_by_id[occurrence_id]
+        metadata = prepared["metadata"]
+        location = metadata["location"]
+        context = metadata["supplied_context"]
+        lines.extend([
+            "",
+            f"### {index}. `{occurrence_id}`",
+            "",
+            f"- **Exact match:** `{record['match'].replace(chr(10), ' / ')}`",
+            f"- **Pattern:** `{record['pattern_id']}` (v{record['pattern_version']})",
+            f"- **Source offsets:** {location['source_start']}–{location['source_end']}",
+            f"- **Relative position:** {location['relative_position']:.6f}",
+            f"- **Chapter/section:** {location['chapter_or_section'] or 'Unavailable'}",
+            f"- **Supplied context:** {context['characters']} characters "
+            f"({context['characters_before_match']} before; {context['characters_after_match']} after)",
+            "",
+            "#### Passage",
+            "",
+            markdown_quote(record["context"]),
+            "",
+            "#### Annotation",
+            "",
+        ])
+        selected = preferred_attempt(run_dir / "annotations" / occurrence_id, combination)
+        if selected is None:
+            lines.append("No annotation attempt has been recorded.")
+            continue
+        attempt_dir, attempt_status = selected
+        relative_attempt = attempt_dir.relative_to(repo_root)
+        lines.extend([
+            f"- **Selected attempt:** `{relative_attempt}`",
+            f"- **State:** `{attempt_status.get('state', 'unknown')}`",
+        ])
+        output_path = attempt_dir / "output.json"
+        if output_path.exists():
+            output = read_json(output_path)
+            lines.extend(annotation_highlights(output))
+            lines.extend([
+                "",
+                "<details>",
+                "<summary>Complete structured annotation</summary>",
+                "",
+                "```json",
+                json.dumps(output, indent=2, ensure_ascii=False),
+                "```",
+                "",
+                "</details>",
+            ])
+        failure_path = attempt_dir / "failure.json"
+        if failure_path.exists():
+            failure = read_json(failure_path)
+            lines.extend([
+                f"- **Failure stage:** `{failure.get('stage', 'unknown')}`",
+                f"- **Failure:** {failure.get('error_type', 'Error')}: "
+                f"{failure.get('error_message', 'No message')}",
+            ])
+    report_path = run_dir / "report.md"
+    report_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    return report_path
+
+
 def failure_record(occurrence_id: str, state: str, error: Exception, attempt: int,
                    timestamp: str) -> dict:
     stages = {"api_failure": "annotation", "parse_failure": "parsing", "invalid": "validation"}
@@ -278,11 +430,16 @@ def run_pipeline(*, repo_root: Path, provenance_path: Path, patterns_path: Path,
                  run_dir: Path | None = None, context_chars: int = 1000,
                  dry_run: bool = False, force: bool = False,
                  annotator: Callable[[dict], dict] | None = None,
-                 now: Callable[[], datetime] = utc_now) -> Path:
+                 now: Callable[[], datetime] = utc_now,
+                 trace: Callable[[str], None] | None = None) -> Path:
+    # Keep stdout machine-readable (the final run path only) for a future batch
+    # orchestrator while still showing live progress to an interactive user.
+    emit = trace if trace is not None else lambda message: print(message, file=sys.stderr, flush=True)
     repo_root = repo_root.resolve()
     provenance_path = (repo_root / provenance_path).resolve() if not provenance_path.is_absolute() else provenance_path
     patterns_path = (repo_root / patterns_path).resolve() if not patterns_path.is_absolute() else patterns_path
     output_root = (repo_root / output_root).resolve() if not output_root.is_absolute() else output_root
+    emit("[1/6] Resolving approved source, annotation contract, and model configuration...")
     contract = resolve_annotation_contract(annotation_version, repo_root)
     provenance, source_path, source_bytes = resolve_source(provenance_path, repo_root)
     # Match the extraction CLI's text-mode universal-newline behavior so offsets
@@ -302,6 +459,7 @@ def run_pipeline(*, repo_root: Path, provenance_path: Path, patterns_path: Path,
     elif not run_dir.is_absolute():
         run_dir = (repo_root / run_dir).resolve()
     run_dir.mkdir(parents=True, exist_ok=True)
+    emit(f"      Run directory: {run_dir}")
 
     previous_manifest_path = run_dir / "manifest.json"
     previous_manifest = read_json(previous_manifest_path) if previous_manifest_path.exists() else None
@@ -330,11 +488,13 @@ def run_pipeline(*, repo_root: Path, provenance_path: Path, patterns_path: Path,
     extraction_path = run_dir / "extraction/passages.jsonl"
     extraction_metadata_path = run_dir / "extraction/metadata.json"
     extraction_reused = False
+    emit("[2/6] Extracting occurrences...")
     if extraction_path.exists() and extraction_metadata_path.exists():
         if read_json(extraction_metadata_path)["fingerprint"] != extraction_meta:
             raise ValueError("existing extraction is incompatible with this run configuration")
         records = read_jsonl(extraction_path)
         extraction_reused = True
+        emit(f"      Reused compatible extraction with {len(records)} occurrence(s).")
     else:
         records = extract(
             source_text, provenance["language"], provenance["work_id"],
@@ -346,6 +506,7 @@ def run_pipeline(*, repo_root: Path, provenance_path: Path, patterns_path: Path,
             "inventory_sha256": sha256_file(extraction_path),
             "occurrence_count": len(records),
         })
+        emit(f"      Extracted {len(records)} occurrence(s).")
 
     source_reference = {
         "provenance_path": str(provenance_path.relative_to(repo_root)),
@@ -359,6 +520,7 @@ def run_pipeline(*, repo_root: Path, provenance_path: Path, patterns_path: Path,
     write_json(run_dir / "source_reference.json", source_reference)
     write_json(run_dir / "pricing_snapshot.json", pricing)
 
+    emit("[3/6] Preparing metadata-enriched annotation inputs...")
     inputs = []
     for record in records:
         prepared = enrich_occurrence(record, provenance, source_text)
@@ -370,6 +532,7 @@ def run_pipeline(*, repo_root: Path, provenance_path: Path, patterns_path: Path,
         else:
             write_json(input_path, prepared)
         inputs.append((record["occurrence_id"], prepared, input_path))
+    emit(f"      Prepared {len(inputs)} input(s).")
 
     combination = {
         "annotation_version": annotation_version,
@@ -380,20 +543,26 @@ def run_pipeline(*, repo_root: Path, provenance_path: Path, patterns_path: Path,
     }
     attempted_this_invocation = 0
     skipped_valid = 0
+    emit("[4/6] Processing annotations...")
     if not dry_run:
         if annotator is None:
             api_key = os.environ.get("OPENAI_API_KEY")
             if not api_key:
                 raise ValueError("OPENAI_API_KEY is required unless --dry-run is used")
             annotator = ApiAnnotator(api_key)
-        for occurrence_id, prepared, _ in inputs:
+        for position, (occurrence_id, prepared, _) in enumerate(inputs, start=1):
             annotation_root = run_dir / "annotations" / occurrence_id
             if not force and valid_completion(annotation_root, combination):
                 skipped_valid += 1
+                emit(f"      [{position}/{len(inputs)}] {occurrence_id}: valid result exists; skipped.")
                 continue
             attempt_dir = next_attempt_directory(annotation_root)
             attempt_dir.mkdir(parents=True)
             attempt_number = int(attempt_dir.name.split("-")[1])
+            emit(
+                f"      [{position}/{len(inputs)}] {occurrence_id}: "
+                f"starting annotation attempt {attempt_number}..."
+            )
             attempt_time = now().isoformat()
             combined_input = (
                 f"{contract.prompt}\n\n## Input\n\n"
@@ -418,6 +587,7 @@ def run_pipeline(*, repo_root: Path, provenance_path: Path, patterns_path: Path,
                 write_json(attempt_dir / "failure.json", failure)
                 write_json(attempt_dir / "status.json", {"state": "api_failure", "combination": combination})
                 write_json(run_dir / "failures" / f"{occurrence_id}-attempt-{attempt_number:03d}.json", failure)
+                emit(f"      [{position}/{len(inputs)}] {occurrence_id}: API failure preserved.")
                 continue
 
             parsed_text = output_text(response)
@@ -431,6 +601,7 @@ def run_pipeline(*, repo_root: Path, provenance_path: Path, patterns_path: Path,
                 write_json(attempt_dir / "failure.json", failure)
                 write_json(attempt_dir / "status.json", {"state": "parse_failure", "combination": combination})
                 write_json(run_dir / "failures" / f"{occurrence_id}-attempt-{attempt_number:03d}.json", failure)
+                emit(f"      [{position}/{len(inputs)}] {occurrence_id}: parse failure preserved.")
                 continue
             write_json(attempt_dir / "output.json", parsed)
             try:
@@ -441,10 +612,15 @@ def run_pipeline(*, repo_root: Path, provenance_path: Path, patterns_path: Path,
                 write_json(attempt_dir / "failure.json", failure)
                 write_json(attempt_dir / "status.json", {"state": "invalid", "combination": combination})
                 write_json(run_dir / "failures" / f"{occurrence_id}-attempt-{attempt_number:03d}.json", failure)
+                emit(f"      [{position}/{len(inputs)}] {occurrence_id}: invalid output preserved.")
                 continue
             write_json(attempt_dir / "validation.json", {"valid": True, "schema_version": annotation_version})
             write_json(attempt_dir / "status.json", {"state": "valid", "combination": combination})
+            emit(f"      [{position}/{len(inputs)}] {occurrence_id}: annotation valid.")
+    else:
+        emit(f"      Dry run: no API calls made; {len(inputs)} annotation call(s) pending.")
 
+    emit("[5/6] Aggregating attempt status, token usage, and cost...")
     occurrence_ids = [record["occurrence_id"] for record in records]
     attempt_counts, totals = summarize_attempts(run_dir, occurrence_ids)
     valid_occurrences = sum(
@@ -501,6 +677,8 @@ def run_pipeline(*, repo_root: Path, provenance_path: Path, patterns_path: Path,
         "status": status,
     }
     write_json(run_dir / "manifest.json", manifest)
+    emit("[6/6] Rebuilding JSON and Markdown summaries...")
+    report_path = write_markdown_report(run_dir, records, inputs, manifest, combination, repo_root)
     write_json(run_dir / "summary.json", {
         "run_id": run_dir.name,
         "text": f"{provenance['title']} by {provenance['author']}",
@@ -518,8 +696,14 @@ def run_pipeline(*, repo_root: Path, provenance_path: Path, patterns_path: Path,
             "inputs": str((run_dir / "inputs").relative_to(repo_root)),
             "annotations": str((run_dir / "annotations").relative_to(repo_root)),
             "failures": str((run_dir / "failures").relative_to(repo_root)),
+            "human_readable_report": str(report_path.relative_to(repo_root)),
         },
     })
+    emit(f"      Human-readable report: {report_path}")
+    emit(
+        f"Pipeline {status}: {valid_occurrences}/{len(records)} valid occurrence(s), "
+        f"{manifest['invalid_or_failed_attempts']} failed/invalid attempt(s)."
+    )
     return run_dir
 
 

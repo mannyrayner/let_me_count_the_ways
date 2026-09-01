@@ -144,7 +144,8 @@ class SingleTextPipelineTests(unittest.TestCase):
         return json.loads((run_dir / "extraction/passages.jsonl").read_text())["occurrence_id"]
 
     def test_dry_run_extracts_enriches_and_summarizes_without_api(self):
-        run_dir = self.execute_pipeline(dry_run=True)
+        trace = []
+        run_dir = self.execute_pipeline(dry_run=True, trace=trace.append)
         records = (run_dir / "extraction/passages.jsonl").read_text().splitlines()
         self.assertEqual(len(records), 1)
         occurrence_id = json.loads(records[0])["occurrence_id"]
@@ -160,6 +161,12 @@ class SingleTextPipelineTests(unittest.TestCase):
         self.assertEqual(summary["model_calls_needed"], 1)
         self.assertEqual(summary["status"], "prepared")
         self.assertFalse((run_dir / "annotations").exists())
+        report = (run_dir / "report.md").read_text()
+        self.assertIn("Single-text pipeline report: Title", report)
+        self.assertIn("Before I love you after.", report)
+        self.assertIn("No annotation attempt has been recorded.", report)
+        self.assertTrue(any("Extracted 1 occurrence" in message for message in trace))
+        self.assertTrue(any("Dry run" in message for message in trace))
 
     def test_annotation_version_selection_is_explicit(self):
         contract = resolve_annotation_contract("0.1", self.repo)
@@ -180,12 +187,15 @@ class SingleTextPipelineTests(unittest.TestCase):
             self.assertNotIn(prohibited, serialized)
 
     def test_valid_annotation_is_preserved_and_manifested(self):
+        trace = []
         annotator = RecordingAnnotator(
             lambda request: api_response(valid_v0_1_result(
                 supplied_input(request)["occurrence"]["occurrence_id"]
             ))
         )
-        run_dir = self.execute_pipeline(annotation_version="0.1", annotator=annotator)
+        run_dir = self.execute_pipeline(
+            annotation_version="0.1", annotator=annotator, trace=trace.append,
+        )
         occurrence_id = self.occurrence_id(run_dir)
         attempt = run_dir / "annotations" / occurrence_id / "attempt-001"
         self.assertEqual(json.loads((attempt / "status.json").read_text())["state"], "valid")
@@ -195,6 +205,11 @@ class SingleTextPipelineTests(unittest.TestCase):
         self.assertEqual(manifest["status"], "complete")
         self.assertEqual(manifest["usage_and_cost"]["input_tokens"], 100)
         self.assertGreater(manifest["usage_and_cost"]["estimated_total_cost_usd"], 0)
+        report = (run_dir / "report.md").read_text()
+        self.assertIn("**T/P/E support:** 4 / 1 / 0", report)
+        self.assertIn("Complete structured annotation", report)
+        self.assertTrue(any("starting annotation attempt 1" in message for message in trace))
+        self.assertTrue(any("annotation valid" in message for message in trace))
 
     def test_resume_skips_valid_result_and_force_creates_new_attempt(self):
         def response(request):
@@ -203,8 +218,10 @@ class SingleTextPipelineTests(unittest.TestCase):
 
         annotator = RecordingAnnotator(response)
         run_dir = self.execute_pipeline(annotation_version="0.1", annotator=annotator)
+        (run_dir / "report.md").unlink()
         self.execute_pipeline(annotation_version="0.1", annotator=annotator, run_dir=run_dir)
         self.assertEqual(len(annotator.requests), 1)
+        self.assertTrue((run_dir / "report.md").exists())
         manifest = json.loads((run_dir / "manifest.json").read_text())
         self.assertTrue(manifest["extraction_reused"])
         self.assertEqual(manifest["skipped_valid_this_invocation"], 1)

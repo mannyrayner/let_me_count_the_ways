@@ -29,6 +29,10 @@ python -m json.tool --json-lines "$RUN_DIR/extraction/passages.jsonl" >/dev/null
 find "$RUN_DIR/inputs" -maxdepth 1 -type f -name '*.json' -print | sort
 ```
 
+During execution, the runner prints progress for source resolution, extraction,
+input preparation, every annotation attempt, aggregation, and report creation.
+The final path printed remains the run directory.
+
 Each prepared input contains occurrence data plus deterministic bibliographic,
 source-location, chapter, relative-position, and context-extent metadata. It
 does not inject speaker, addressee, relationship, deception, or embedding
@@ -74,6 +78,25 @@ python scripts/pipeline/run_single_text_pipeline.py \
 
 `--force` does not delete or replace previous attempts.
 
+Every invocation also rebuilds `report.md` from preserved artifacts. Rerunning
+the normal command after annotations are complete skips the valid model calls
+and refreshes the report idempotently. This is useful after pulling reporting
+improvements:
+
+```bash
+python scripts/pipeline/run_single_text_pipeline.py \
+  provenance/sources/gutenberg-1260.json \
+  --patterns data/development/search_patterns_v0_1.json \
+  --annotation-version 0.2 \
+  --model 5.6 \
+  --run-dir "$RUN_DIR"
+```
+
+Open `$RUN_DIR/report.md` for one human-readable document containing the run
+totals and, for every occurrence, its passage, deterministic metadata,
+annotation highlights, and complete structured annotation JSON. Do not add
+`--force` when the purpose is only to rebuild the report.
+
 ## Artifact layout
 
 ```text
@@ -101,11 +124,13 @@ python scripts/pipeline/run_single_text_pipeline.py \
         <occurrence-and-attempt>.json
     manifest.json
     summary.json
+    report.md
 ```
 
 The source text itself is referenced, not copied. Extraction, prepared inputs,
 requests, raw responses, parsed outputs, validation, failures, usage, cost, and
-run summaries remain independently inspectable.
+run summaries remain independently inspectable. `summary.json` also points to
+the generated human-readable report.
 
 ## Failure and context policy
 
