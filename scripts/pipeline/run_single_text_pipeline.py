@@ -40,7 +40,7 @@ ANNOTATION_FILES = {
     ),
 }
 APPROVED_STATUSES = {"approved_for_development_processing"}
-CHAPTER_PATTERN = re.compile(r"(?m)^CHAPTER ([^\n]+?)\s*$")
+CHAPTER_PATTERN = re.compile(r"(?m)^(CHAPTER|CHAPITRE)\s+([^\n]+?)\s*$", re.IGNORECASE)
 
 
 def utc_now() -> datetime:
@@ -136,7 +136,10 @@ def resolve_source(provenance_path: Path, repo_root: Path) -> tuple[dict, Path, 
 
 
 def chapter_locations(text: str) -> list[tuple[int, str]]:
-    return [(match.start(), f"CHAPTER {match.group(1).strip()}") for match in CHAPTER_PATTERN.finditer(text)]
+    return [
+        (match.start(), f"{match.group(1).upper()} {match.group(2).strip()}")
+        for match in CHAPTER_PATTERN.finditer(text)
+    ]
 
 
 def chapter_at(locations: list[tuple[int, str]], offset: int) -> str | None:

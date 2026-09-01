@@ -6,6 +6,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from scripts.pipeline.run_single_text_pipeline import (
+    chapter_at,
+    chapter_locations,
     enrich_occurrence,
     resolve_annotation_contract,
     run_pipeline,
@@ -174,6 +176,11 @@ class SingleTextPipelineTests(unittest.TestCase):
         self.assertIn("v0_1", str(contract.prompt_path))
         with self.assertRaisesRegex(ValueError, "unsupported annotation version"):
             resolve_annotation_contract("9.9", self.repo)
+
+    def test_french_chapter_location_is_recovered(self):
+        text = "Préface\n\nCHAPITRE PREMIER\n\nJe t’aime.\n"
+        locations = chapter_locations(text)
+        self.assertEqual(chapter_at(locations, text.index("Je t’aime")), "CHAPITRE PREMIER")
 
     def test_enrichment_contains_no_interpretive_metadata(self):
         record = {
