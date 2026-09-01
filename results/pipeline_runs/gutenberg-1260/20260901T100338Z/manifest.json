@@ -1,0 +1,55 @@
+{
+  "run_id": "20260901T100338Z",
+  "started_at": "2026-09-01T10:03:38.554236+00:00",
+  "ended_at": "2026-09-01T11:01:59.564963+00:00",
+  "work_id": "bronte-jane-eyre",
+  "source_id": "gutenberg-1260",
+  "source_sha256": "13414dee2951c3ee731d76d2ffd822016b2479c892162760c5d0eb2aa5fa7631",
+  "title": "Jane Eyre",
+  "author": "Charlotte Brontë",
+  "language": "en",
+  "search_pattern_version": "0.1",
+  "annotation_version": "0.2",
+  "model_alias": "5.6",
+  "api_model": "gpt-5.6-sol",
+  "prompt_path": "prompts\\annotation\\classify_passage_v0_2.md",
+  "prompt_sha256": "9b76912a3f222d095390fb4534a8e11ae13654f0a4ef21cd1bf05da7c26828e1",
+  "schema_path": "prompts\\annotation\\classification_schema_v0_2.json",
+  "schema_sha256": "cc0f155f22128f0194ee9a6416a50f65901a7ef1125c181da873a7d1fb4d99ef",
+  "extraction_fingerprint": {
+    "source_sha256": "13414dee2951c3ee731d76d2ffd822016b2479c892162760c5d0eb2aa5fa7631",
+    "patterns_sha256": "96530336dd7c6f00e5118feccad2ad2fd86f1dda86417b701ccb2ffa738af2e0",
+    "pattern_version": "0.1",
+    "context_characters": 1000,
+    "extractor_sha256": "784a8e5c00c752558c699fc36f70f498765346274d67ff6cd47dd0564189adcb"
+  },
+  "extraction_reused": true,
+  "extracted_occurrences": 6,
+  "attempted_this_invocation": 0,
+  "skipped_valid_this_invocation": 6,
+  "valid_occurrences": 6,
+  "invalid_or_failed_attempts": 0,
+  "attempt_counts": {
+    "attempts": 6,
+    "valid": 6,
+    "invalid": 0,
+    "api_failure": 0,
+    "parse_failure": 0
+  },
+  "usage_and_cost": {
+    "input_tokens": 28850,
+    "cached_input_tokens": 0,
+    "output_tokens": 21348,
+    "estimated_total_cost_usd": 0.54236
+  },
+  "software": {
+    "git_commit": "487908eabfbe15184c4ffc82929e9d97afb3c535",
+    "runner_sha256": "a215724e9abdd5e048439b225f95f5e82d65dd0f875b77bc856c9a454cd23a97",
+    "extractor_sha256": "784a8e5c00c752558c699fc36f70f498765346274d67ff6cd47dd0564189adcb",
+    "validator_sha256": "92c3cf41d53248a22c873a48d46f9a00ad5dd1ac535cb4ce13b2c056994f3e2d",
+    "model_catalog_sha256": "9facd8d8e66c9e477bf0f691d87836c112562be088517eed77d2d961c39b1c05"
+  },
+  "dry_run": false,
+  "context_expansion_policy": "record_only_no_automatic_rerun",
+  "status": "complete"
+}
