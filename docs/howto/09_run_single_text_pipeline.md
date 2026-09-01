@@ -21,7 +21,7 @@ python scripts/pipeline/run_single_text_pipeline.py \
 The command prints the new run directory. Inspect:
 
 ```bash
-RUN_DIR='results/pipeline_runs/gutenberg-1260/<run-id>'
+RUN_DIR='results/pipeline_runs/gutenberg-1260/20260901T100338Z'
 python -m json.tool "$RUN_DIR/manifest.json"
 python -m json.tool "$RUN_DIR/summary.json"
 python -m json.tool "$RUN_DIR/extraction/metadata.json"
