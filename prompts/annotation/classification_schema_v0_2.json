@@ -1,0 +1,266 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Layered I-love-you passage classification v0.2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "occurrence_id", "core_love_content", "realisation", "current_discourse_act",
+    "contextual_modification", "participant_construals", "disagreements",
+    "assessments", "evidence", "background_knowledge", "context_needs",
+    "ontology_assessment", "notes"
+  ],
+  "properties": {
+    "occurrence_id": {"type": "string", "minLength": 1},
+    "core_love_content": {"$ref": "#/$defs/coreLoveContent"},
+    "realisation": {"$ref": "#/$defs/realisation"},
+    "current_discourse_act": {"$ref": "#/$defs/currentDiscourseAct"},
+    "contextual_modification": {"$ref": "#/$defs/contextualModification"},
+    "participant_construals": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/participantConstrual"}
+    },
+    "disagreements": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/disagreement"}
+    },
+    "assessments": {"$ref": "#/$defs/assessments"},
+    "evidence": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/evidenceItem"}
+    },
+    "background_knowledge": {"$ref": "#/$defs/backgroundKnowledge"},
+    "context_needs": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/contextNeed"}
+    },
+    "ontology_assessment": {"$ref": "#/$defs/ontologyAssessment"},
+    "notes": {"type": ["string", "null"]}
+  },
+  "$defs": {
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+    "nonEmptyString": {"type": "string", "minLength": 1},
+    "coreLoveContent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["label_support", "mixed_reading", "relationship_modifier", "analysis", "confidence"],
+      "properties": {
+        "label_support": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["truth_conditional", "performative", "exclamatory_reflexive"],
+          "properties": {
+            "truth_conditional": {"type": "integer", "minimum": 0, "maximum": 4},
+            "performative": {"type": "integer", "minimum": 0, "maximum": 4},
+            "exclamatory_reflexive": {"type": "integer", "minimum": 0, "maximum": 4}
+          }
+        },
+        "mixed_reading": {"$ref": "#/$defs/mixedReading"},
+        "relationship_modifier": {"type": ["string", "null"]},
+        "analysis": {"$ref": "#/$defs/nonEmptyString"},
+        "confidence": {"$ref": "#/$defs/confidence"}
+      }
+    },
+    "mixedReading": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["is_mixed", "basis", "justification"],
+      "properties": {
+        "is_mixed": {"type": "boolean"},
+        "basis": {"enum": ["none", "substantial_multiple_support", "qualitative_interaction"]},
+        "justification": {"type": ["string", "null"]}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"is_mixed": {"const": false}}, "required": ["is_mixed"]},
+          "then": {"properties": {"basis": {"const": "none"}, "justification": {"type": "null"}}}
+        },
+        {
+          "if": {"properties": {"is_mixed": {"const": true}}, "required": ["is_mixed"]},
+          "then": {
+            "properties": {
+              "basis": {"enum": ["substantial_multiple_support", "qualitative_interaction"]},
+              "justification": {"$ref": "#/$defs/nonEmptyString"}
+            }
+          }
+        }
+      ]
+    },
+    "realisation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["types", "other_description", "actuality", "analysis", "confidence"],
+      "properties": {
+        "types": {
+          "type": "array", "minItems": 1, "uniqueItems": true,
+          "items": {"enum": [
+            "direct_represented_speech", "quotation_revoicing", "reported_speech",
+            "narratively_attributed_speech", "imagined_speech",
+            "verbalisation_of_nonverbal_behaviour", "hypothetical_counterfactual",
+            "hedged", "negated", "metalinguistic_mention", "other"
+          ]}
+        },
+        "other_description": {"type": ["string", "null"]},
+        "actuality": {"enum": ["spoken", "written", "not_spoken", "uncertain", "not_applicable"]},
+        "analysis": {"$ref": "#/$defs/nonEmptyString"},
+        "confidence": {"$ref": "#/$defs/confidence"}
+      },
+      "allOf": [{
+        "if": {"properties": {"types": {"contains": {"const": "other"}}}, "required": ["types"]},
+        "then": {"properties": {"other_description": {"$ref": "#/$defs/nonEmptyString"}}},
+        "else": {"properties": {"other_description": {"type": "null"}}}
+      }]
+    },
+    "currentDiscourseAct": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["types", "other_description", "analysis", "confidence"],
+      "properties": {
+        "types": {
+          "type": "array", "minItems": 1, "uniqueItems": true,
+          "items": {"enum": [
+            "direct_avowal", "reassurance", "explanation", "quotation",
+            "elicitation_of_reaffirmation", "pressure", "use_as_evidence",
+            "distancing", "hedging", "rejection", "reinterpretation",
+            "manipulation", "irony", "other"
+          ]}
+        },
+        "other_description": {"type": ["string", "null"]},
+        "analysis": {"$ref": "#/$defs/nonEmptyString"},
+        "confidence": {"$ref": "#/$defs/confidence"}
+      },
+      "allOf": [{
+        "if": {"properties": {"types": {"contains": {"const": "other"}}}, "required": ["types"]},
+        "then": {"properties": {"other_description": {"$ref": "#/$defs/nonEmptyString"}}},
+        "else": {"properties": {"other_description": {"type": "null"}}}
+      }]
+    },
+    "contextualModification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["effects", "other_description", "analysis", "confidence"],
+      "properties": {
+        "effects": {
+          "type": "array", "minItems": 1, "uniqueItems": true,
+          "items": {"enum": [
+            "preserves", "weakens", "strengthens", "redirects", "quotes",
+            "distances", "challenges", "manipulates", "other"
+          ]}
+        },
+        "other_description": {"type": ["string", "null"]},
+        "analysis": {"$ref": "#/$defs/nonEmptyString"},
+        "confidence": {"$ref": "#/$defs/confidence"}
+      },
+      "allOf": [{
+        "if": {"properties": {"effects": {"contains": {"const": "other"}}}, "required": ["effects"]},
+        "then": {"properties": {"other_description": {"$ref": "#/$defs/nonEmptyString"}}},
+        "else": {"properties": {"other_description": {"type": "null"}}}
+      }]
+    },
+    "participantConstrual": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["role", "discourse_level", "status", "analysis", "confidence"],
+      "properties": {
+        "role": {"$ref": "#/$defs/nonEmptyString"},
+        "discourse_level": {"enum": ["core_love_content", "current_discourse_act", "both"]},
+        "status": {"enum": ["supported", "uncertain", "unavailable"]},
+        "analysis": {"type": ["string", "null"]},
+        "confidence": {"anyOf": [{"$ref": "#/$defs/confidence"}, {"type": "null"}]}
+      },
+      "allOf": [{
+        "if": {"properties": {"status": {"const": "unavailable"}}},
+        "then": {"properties": {"analysis": {"$ref": "#/$defs/nonEmptyString"}, "confidence": {"type": "null"}}},
+        "else": {"properties": {"analysis": {"$ref": "#/$defs/nonEmptyString"}, "confidence": {"$ref": "#/$defs/confidence"}}}
+      }]
+    },
+    "disagreement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["parties", "subject", "description", "evidence_ids", "confidence"],
+      "properties": {
+        "parties": {"type": "array", "minItems": 2, "uniqueItems": true, "items": {"$ref": "#/$defs/nonEmptyString"}},
+        "subject": {"$ref": "#/$defs/nonEmptyString"},
+        "description": {"$ref": "#/$defs/nonEmptyString"},
+        "evidence_ids": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/nonEmptyString"}},
+        "confidence": {"$ref": "#/$defs/confidence"}
+      }
+    },
+    "assessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "analysis", "confidence"],
+      "properties": {
+        "status": {"enum": ["supported", "unsupported", "uncertain_not_assessable"]},
+        "analysis": {"$ref": "#/$defs/nonEmptyString"},
+        "confidence": {"$ref": "#/$defs/confidence"}
+      }
+    },
+    "assessments": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["deception_misrepresentation", "manipulation_pressure", "strategic_ambiguity"],
+      "properties": {
+        "deception_misrepresentation": {"$ref": "#/$defs/assessment"},
+        "manipulation_pressure": {"$ref": "#/$defs/assessment"},
+        "strategic_ambiguity": {"$ref": "#/$defs/assessment"}
+      }
+    },
+    "evidenceItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["evidence_id", "source", "quotation_or_description", "supports", "confidence"],
+      "properties": {
+        "evidence_id": {"$ref": "#/$defs/nonEmptyString"},
+        "source": {"enum": ["local_text", "supplied_metadata", "background_knowledge"]},
+        "quotation_or_description": {"$ref": "#/$defs/nonEmptyString"},
+        "supports": {"$ref": "#/$defs/nonEmptyString"},
+        "confidence": {"$ref": "#/$defs/confidence"}
+      }
+    },
+    "backgroundKnowledge": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["used", "familiarity", "confidence", "contribution", "notes"],
+      "properties": {
+        "used": {"type": "boolean"},
+        "familiarity": {"enum": ["none", "limited", "moderate", "extensive"]},
+        "confidence": {"anyOf": [{"$ref": "#/$defs/confidence"}, {"type": "null"}]},
+        "contribution": {"type": ["string", "null"]},
+        "notes": {"type": ["string", "null"]}
+      },
+      "allOf": [{
+        "if": {"properties": {"used": {"const": false}}},
+        "then": {"properties": {"confidence": {"type": "null"}, "contribution": {"type": "null"}}},
+        "else": {"properties": {"confidence": {"$ref": "#/$defs/confidence"}, "contribution": {"$ref": "#/$defs/nonEmptyString"}}}
+      }]
+    },
+    "contextNeed": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["need", "layers", "claim", "request"],
+      "properties": {
+        "need": {"enum": ["required_for_core_classification", "useful_for_richer_interpretation"]},
+        "layers": {
+          "type": "array", "minItems": 1, "uniqueItems": true,
+          "items": {"enum": [
+            "core_love_content", "realisation", "current_discourse_act",
+            "contextual_modification", "participant_construals", "disagreements",
+            "assessments", "background_knowledge", "ontology_assessment"
+          ]}
+        },
+        "claim": {"$ref": "#/$defs/nonEmptyString"},
+        "request": {"$ref": "#/$defs/nonEmptyString"}
+      }
+    },
+    "ontologyAssessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["adequate", "diagnosis", "proposed_missing_dimensions"],
+      "properties": {
+        "adequate": {"type": "boolean"},
+        "diagnosis": {"$ref": "#/$defs/nonEmptyString"},
+        "proposed_missing_dimensions": {"type": "array", "items": {"$ref": "#/$defs/nonEmptyString"}}
+      }
+    }
+  }
+}
