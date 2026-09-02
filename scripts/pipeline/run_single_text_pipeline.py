@@ -22,7 +22,7 @@ REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
 if str(REPOSITORY_ROOT) not in sys.path:
     sys.path.insert(0, str(REPOSITORY_ROOT))
 
-from scripts.annotation.validate_classification import validate, validate_v0_2
+from scripts.annotation.validate_classification import validate, validate_v0_2, validate_v0_3
 from scripts.api.call_responses import calculate_cost, output_text, resolve_model
 from scripts.extraction.extract_passages import extract, load_patterns
 
@@ -37,6 +37,11 @@ ANNOTATION_FILES = {
         Path("prompts/annotation/classify_passage_v0_2.md"),
         Path("prompts/annotation/classification_schema_v0_2.json"),
         validate_v0_2,
+    ),
+    "0.3": (
+        Path("prompts/annotation/classify_passage_v0_3.md"),
+        Path("prompts/annotation/classification_schema_v0_3.json"),
+        validate_v0_3,
     ),
 }
 APPROVED_STATUSES = {"approved_for_development_processing"}
@@ -280,14 +285,17 @@ def annotation_highlights(output: dict) -> list[str]:
     """Create a short readable digest while preserving complete JSON below it."""
     lines = []
     core = output.get("core_love_content")
+    if not isinstance(core, dict):
+        core = output.get("core_classification")
     if isinstance(core, dict):
         support = core.get("label_support", {})
         if isinstance(support, dict):
             lines.append(
-                "- **Core T/P/E support:** "
+                "- **Core T/P/E/O support:** "
                 f"{support.get('truth_conditional', '—')} / "
                 f"{support.get('performative', '—')} / "
-                f"{support.get('exclamatory_reflexive', '—')}"
+                f"{support.get('exclamatory_reflexive', '—')} / "
+                f"{support.get('other', '—')}"
             )
         lines.append(f"- **Core analysis:** {core.get('analysis', '—')}")
     realisation = output.get("realisation")
@@ -308,10 +316,8 @@ def annotation_highlights(output: dict) -> list[str]:
         )
     ontology = output.get("ontology_assessment")
     if isinstance(ontology, dict):
-        lines.append(
-            f"- **Ontology adequate:** {ontology.get('adequate', '—')} — "
-            f"{ontology.get('diagnosis', '—')}"
-        )
+        fit = ontology.get("fit", ontology.get("adequate", "—"))
+        lines.append(f"- **Ontology fit:** {fit} — {ontology.get('diagnosis', '—')}")
     if not lines and "label_support" in output:  # v0.1 compatibility
         support = output["label_support"]
         lines.extend([
