@@ -12,6 +12,7 @@ from scripts.pipeline.run_single_text_pipeline import (
     resolve_annotation_contract,
     run_pipeline,
 )
+from scripts.pipeline.audit_pipeline_run import audit_run
 
 
 FIXED_TIME = datetime(2026, 9, 1, 12, 0, tzinfo=timezone.utc)
@@ -217,6 +218,14 @@ class SingleTextPipelineTests(unittest.TestCase):
         self.assertIn("Complete structured annotation", report)
         self.assertTrue(any("starting annotation attempt 1" in message for message in trace))
         self.assertTrue(any("annotation valid" in message for message in trace))
+        audit = audit_run(run_dir, self.repo, expected_occurrences=1)
+        self.assertEqual(audit["status"], "complete")
+        self.assertEqual(audit["occurrences"], 1)
+
+    def test_audit_rejects_prepared_dry_run(self):
+        run_dir = self.execute_pipeline(dry_run=True)
+        with self.assertRaisesRegex(ValueError, "not 'complete'"):
+            audit_run(run_dir, self.repo, expected_occurrences=1)
 
     def test_resume_skips_valid_result_and_force_creates_new_attempt(self):
         def response(request):

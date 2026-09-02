@@ -24,6 +24,7 @@ history is cleaned up and do not block the current sequence.
 | 8 | [Complete Jane Eyre v0.1](08_complete_jane_eyre_v0_1.md) | All six comparable v0.1 analyses |
 | 9 | [Run the single-text pipeline](09_run_single_text_pipeline.md) | Dry-run inputs, then a resumable text-level annotation run |
 | 10 | [Acquire and dry-run the next texts](10_acquire_and_dry_run_next_texts.md) | Verified *Little Women* and *Madame Bovary* sources and inspected dry runs |
+| 11 | [Annotate the next texts with v0.2](11_annotate_next_texts_v0_2.md) | Complete, audited *Little Women* and *Madame Bovary* v0.2 runs |
 
 ## Conventions
 
