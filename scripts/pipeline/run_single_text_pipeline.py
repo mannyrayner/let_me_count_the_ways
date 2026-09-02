@@ -22,7 +22,7 @@ REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
 if str(REPOSITORY_ROOT) not in sys.path:
     sys.path.insert(0, str(REPOSITORY_ROOT))
 
-from scripts.annotation.validate_classification import validate, validate_v0_2
+from scripts.annotation.validate_classification import validate, validate_v0_2, validate_v0_3
 from scripts.api.call_responses import calculate_cost, output_text, resolve_model
 from scripts.extraction.extract_passages import extract, load_patterns
 
@@ -37,6 +37,11 @@ ANNOTATION_FILES = {
         Path("prompts/annotation/classify_passage_v0_2.md"),
         Path("prompts/annotation/classification_schema_v0_2.json"),
         validate_v0_2,
+    ),
+    "0.3": (
+        Path("prompts/annotation/classify_passage_v0_3.md"),
+        Path("prompts/annotation/classification_schema_v0_3.json"),
+        validate_v0_3,
     ),
 }
 APPROVED_STATUSES = {"approved_for_development_processing"}
