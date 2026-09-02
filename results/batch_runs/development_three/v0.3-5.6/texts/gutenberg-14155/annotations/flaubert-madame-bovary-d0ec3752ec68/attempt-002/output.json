@@ -1,0 +1,58 @@
+{
+  "occurrence_id": "flaubert-madame-bovary-d0ec3752ec68",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 1,
+      "other": 0
+    },
+    "confidence": 0.94,
+    "analysis": "“Je t’aime!” is primarily a direct avowal presented as true: the speaker answers with a declaration of her loving state. The exclamation mark and simultaneous embrace add emotional intensity, but the framing as a reply gives it clear propositional force. No distinct commitment or relational undertaking is expressed.",
+    "ambiguity": "The exclamation and embrace provide limited support for E, but the brief context does not show that the utterance is predominantly reflex-like rather than an intelligible avowal."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "A directly uttered line of dialogue within the narrated scene, followed by the narrator’s description of the speaker embracing the addressee."
+  },
+  "contextual_interpretation": "The utterance is an emphatic response accompanied by putting her arms around the addressee’s neck. This bodily gesture reinforces affectionate engagement and emotional intensity. Nothing in the supplied passage establishes irony, deception, coercion, or an undertaking extending beyond the present avowal.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "“Je t’aime!”",
+      "supports": "The conventional first-person declaration explicitly presents the speaker’s love as true, strongly supporting T; the exclamation mark gives slight support to E.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "“répondit-elle”",
+      "supports": "The speech is framed as an answer, supporting a deliberate propositional avowal rather than a purely reflexive exclamation.",
+      "confidence": 0.97
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "“en lui passant les bras autour du cou”",
+      "supports": "The simultaneous embrace reinforces affectionate and emotionally engaged delivery, while not by itself creating an undertaking.",
+      "confidence": 0.96
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the dominant avowal, while a low E score records the emotionally emphatic delivery. P is unnecessary because neither the words nor the immediate framing establish a commitment or obligation, and no residual core force requires O.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

@@ -1,0 +1,58 @@
+{
+  "occurrence_id": "flaubert-madame-bovary-47361213aeaa",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 1,
+      "other": 0
+    },
+    "confidence": 0.95,
+    "analysis": "“Je vous aime” is an emphatic direct avowal presented as true of the speaker’s emotional state. Its excited delivery gives it limited exclamatory force, but it neither clearly undertakes a relational obligation nor requires a category beyond T/P/E.",
+    "ambiguity": "The exclamation and urgent surrounding appeals create some E pressure, but the utterance retains strong, explicit propositional force."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "A character directly addresses another in dialogue: “je vous aime.”"
+  },
+  "contextual_interpretation": "The speaker emphatically rejects or corrects something with “Non,” reduces the explanation to love alone (“voilà tout”), insists that the addressee must not doubt it, and urgently requests verbal confirmation. This makes the avowal emotionally intense and responsive, but the request for “un mot” belongs to the surrounding exchange rather than turning the core declaration into an undertaking.",
+  "evidence": [
+    {
+      "evidence_id": "E1",
+      "source": "local_text",
+      "quotation_or_description": "“Non, je vous aime, voilà tout!”",
+      "supports": "The first-person present-tense declaration explicitly presents the speaker’s love as true, strongly supporting T; “Non” and the exclamation mark add limited emotional or exclamatory force.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "E2",
+      "source": "local_text",
+      "quotation_or_description": "“Vous n’en doutez pas! Dites-le-moi; un mot! un seul mot!”",
+      "supports": "The urgent demand for reassurance shows emotional intensity and confirms that the declaration is addressed directly to an interlocutor, while providing no clear evidence that the core utterance itself enacts a commitment.",
+      "confidence": 0.97
+    },
+    {
+      "evidence_id": "E3",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is identified as French dialogue in Gustave Flaubert’s Madame Bovary, with the matched phrase “je vous aime.”",
+      "supports": "Confirms the work, language, and precise expression being classified without adding unsupported plot assumptions.",
+      "confidence": 1.0
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the emphatic avowal, while a low E score records its excited delivery. The passage supplies no clear undertaking force and no residual core feature requiring O.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

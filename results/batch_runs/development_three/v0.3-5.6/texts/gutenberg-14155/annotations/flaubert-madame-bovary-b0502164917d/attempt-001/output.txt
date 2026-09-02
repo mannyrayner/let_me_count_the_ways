@@ -1,0 +1,58 @@
+{
+  "occurrence_id": "flaubert-madame-bovary-b0502164917d",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 3,
+      "other": 0
+    },
+    "confidence": 0.94,
+    "analysis": "The highlighted « je t’aime » occurs within the emphatic construction « Si je t’aime! », presenting the speaker's love as true while also functioning as an emotionally charged exclamation. Repetition and escalation to « je t’adore » strengthen both the avowal and its exclamatory delivery. Nothing in the supplied passage establishes an undertaking or relational commitment.",
+    "ambiguity": "The exclamatory form is prominent, but it does not displace the utterance's clear propositional avowal; the precise balance between T and E is therefore somewhat gradient."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "A character directly addresses another with the spoken declaration « Si je t’aime! », repeated and intensified by « mais je t’adore, mon amour! »."
+  },
+  "contextual_interpretation": "The idiomatic « Si je t’aime! » is an emphatic confirmation, plausibly answering or resisting doubt about the speaker's love. Repetition, exclamation marks, direct second-person address, and the escalation from loving to adoring make the delivery highly affective. The narrow extract does not identify the participants or establish whether the declaration is sincere, deceptive, or strategically reassuring, but those possibilities do not alter its presented T/E force.",
+  "evidence": [
+    {
+      "evidence_id": "E1",
+      "source": "local_text",
+      "quotation_or_description": "« Si je t’aime! si je t’aime! »",
+      "supports": "The repeated idiomatic assertion emphatically presents the speaker's love as true, supporting strong truth-conditional force and substantial exclamatory force.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "E2",
+      "source": "local_text",
+      "quotation_or_description": "« mais je t’adore, mon amour! »",
+      "supports": "The escalation from « je t’aime » to « je t’adore », together with the endearment and exclamation mark, reinforces emotional intensity without clearly undertaking a commitment.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "E3",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is identified as French dialogue in Gustave Flaubert's Madame Bovary, from Project Gutenberg source 14155.",
+      "supports": "Confirms the linguistic and literary-dialogue setting in which the French construction is interpreted; it does not by itself determine sincerity or speaker identity.",
+      "confidence": 0.99
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "moderate",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T and E naturally capture the utterance as a clear avowal delivered in an emphatic, emotionally heightened manner. P is unnecessary because no commitment or obligation is enacted, and there is no residual core force requiring O.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": "The classification is based on the supplied extract; no wider-scene identification or assumptions about sincerity were required."
+}

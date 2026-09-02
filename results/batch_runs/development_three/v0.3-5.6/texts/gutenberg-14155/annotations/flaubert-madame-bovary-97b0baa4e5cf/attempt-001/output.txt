@@ -1,0 +1,58 @@
+{
+  "occurrence_id": "flaubert-madame-bovary-97b0baa4e5cf",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 4,
+      "other": 0
+    },
+    "confidence": 0.96,
+    "analysis": "The highlighted first “je t’aime” is an emphatic avowal of love and therefore has strong truth-conditional force. Its rhetorical construction, repetition, exclamation marks, and escalation to “je t’adore” also give it very strong exclamatory force. Nothing in the supplied text indicates that the utterance itself undertakes or renews a commitment.",
+    "ambiguity": "The exclamatory delivery does not erase the clear avowal: T and E are both strongly supported. The wider sincerity or strategic purpose of the declaration cannot be determined from the short extract."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "The highlighted phrase is the first directly spoken “je t’aime” in the dialogue line “Si je t’aime! si je t’aime! mais je t’adore, mon amour!”"
+  },
+  "contextual_interpretation": "The French construction “Si je t’aime!” functions here as an emphatic response akin to “Do I love you!” rather than as an unresolved condition. Immediate repetition and the stronger continuation “mais je t’adore, mon amour!” intensify the declaration. The excerpt supplies no secure evidence about sincerity, deception, manipulation, or any concrete relational undertaking, and those issues are not needed to represent the core force as combined T and E.",
+  "evidence": [
+    {
+      "evidence_id": "E1",
+      "source": "local_text",
+      "quotation_or_description": "“Si je t’aime!”",
+      "supports": "The highlighted utterance explicitly presents the speaker's love as true while using an emphatic exclamatory construction.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "E2",
+      "source": "local_text",
+      "quotation_or_description": "“si je t’aime! mais je t’adore, mon amour!”",
+      "supports": "Repetition, exclamation marks, direct address, and escalation from loving to adoring strongly support exclamatory intensity while reinforcing the avowal.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "E3",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence metadata identifies the match as French “je t’aime” in Gustave Flaubert's Madame Bovary and locates it within direct-dialogue punctuation.",
+      "supports": "Confirms the language, work, and exact highlighted occurrence without adding unsupported plot claims.",
+      "confidence": 1.0
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "moderate",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "A strong combination of T and E naturally captures both the explicit avowal and its highly exclamatory delivery. No important core-force residue requires O, and the passage provides no undertaking force sufficient for P.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": "The classification targets the first highlighted “je t’aime”; the immediate repetition is treated as evidence about its force."
+}

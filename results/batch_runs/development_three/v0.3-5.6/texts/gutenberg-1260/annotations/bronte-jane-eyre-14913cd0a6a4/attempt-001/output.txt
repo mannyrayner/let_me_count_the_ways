@@ -1,0 +1,79 @@
+{
+  "occurrence_id": "bronte-jane-eyre-14913cd0a6a4",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 1,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.95,
+    "analysis": "Jane's embedded “I love you” is principally an avowal presenting her love for Edward as true. Its connection to the hope of living with him gives it slight commitment-related shading, especially in their engaged relationship, but the love clause does not itself clearly undertake or renew an obligation. Its described solemn, clear, and soft delivery is deliberate rather than reflex-like or exclamatory.",
+    "ambiguity": "The text gives Rochester's exact revoicing of Jane's earlier words rather than the original speaking event directly; however, both his framing and the quoted sentence strongly support an original truth-conditional avowal."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "quoted_or_revoiced",
+    "description": "Rochester quotes and revoices an earlier utterance by Jane, embedding “I love you” within her stated hope of living with Edward."
+  },
+  "contextual_interpretation": "Rochester treats Jane's earlier words as a definite, audible declaration and insistently asks her to repeat them. His possessive reassurance-seeking and their prospective shared life add relational pressure, but they do not transform the core clause into a clear undertaking. The nearby references to Jane's troubling dreams contrast her anxiety with Rochester's appeal to their supposedly “real happiness.”",
+  "evidence": [
+    {
+      "evidence_id": "E1",
+      "source": "local_text",
+      "quotation_or_description": "“I think it is a glorious thing to have the hope of living with you, Edward, because I love you.”",
+      "supports": "The causal clause explicitly presents Jane's loving emotional state as the reason for her hope of living with Edward, strongly supporting truth-conditional force and only weakly suggesting relational commitment.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "E2",
+      "source": "local_text",
+      "quotation_or_description": "Rochester says, “You say you love me, Janet” and “you cannot deny it.”",
+      "supports": "He construes the earlier utterance as a definite avowal that Jane has made, reinforcing the truth-conditional reading.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "E3",
+      "source": "local_text",
+      "quotation_or_description": "Rochester describes the words as heard “clear and soft” and as “a thought too solemn perhaps, but sweet as music.”",
+      "supports": "The utterance is framed as articulate and solemn rather than as an involuntary or weakly propositional exclamation.",
+      "confidence": 0.97
+    },
+    {
+      "evidence_id": "E4",
+      "source": "local_text",
+      "quotation_or_description": "“Do you love me, Jane?—repeat it.”",
+      "supports": "Rochester's request confirms that the highlighted wording is his quotation of Jane's prior speech and shows his use of it for reassurance.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "E5",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is located in Chapter XXV of Charlotte Brontë's Jane Eyre.",
+      "supports": "This anchors the passage bibliographically and locates it in the late courtship and pre-wedding portion of the novel.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "E6",
+      "source": "background_knowledge",
+      "quotation_or_description": "In Chapter XXV, Jane and Rochester are engaged and approaching their planned wedding while Jane reports ominous dreams and anxieties.",
+      "supports": "The engagement explains the weak commitment shading and the contrast between Jane's apprehension and Rochester's demand for reassurance, without displacing the core avowal reading.",
+      "confidence": 0.94
+    }
+  ],
+  "background_knowledge": {
+    "used": true,
+    "familiarity": "extensive",
+    "confidence": 0.94,
+    "contribution": "Knowledge of the engagement and imminent planned wedding supports the slight performative shading and clarifies Rochester's reassurance-seeking, while the local text determines the principal truth-conditional classification."
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T/P/E adequately represents the core force: a strong avowal with slight relationship-commitment shading and no substantial exclamatory force. Quotation, Rochester's pressure for repetition, and the ominous narrative context are contextual complications rather than residual ontology failures.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": "The classification targets Jane's earlier utterance as precisely revoiced by Rochester, not Rochester's separate question asking whether she loves him."
+}

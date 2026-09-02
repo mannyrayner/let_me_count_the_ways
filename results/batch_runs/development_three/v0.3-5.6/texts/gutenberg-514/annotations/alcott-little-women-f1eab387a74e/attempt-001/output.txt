@@ -1,0 +1,65 @@
+{
+  "occurrence_id": "alcott-little-women-f1eab387a74e",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 1,
+      "other": 0
+    },
+    "confidence": 0.97,
+    "analysis": "The core event is Amy's spoken, grammatically embedded avowal in “how much I love you.” It presents her love as an existing emotional state and emphasizes its degree. Although emotionally charged, it remains a deliberate assertion rather than a predominantly reflexive exclamation. It reassures her addressee about her motives, but the core clause does not itself undertake or renew a commitment.",
+    "ambiguity": "The emphatic “how much” and the emotional surrounding speech give slight exclamatory force, but not enough to compete substantially with the clear truth-conditional avowal."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "Amy directly speaks the love avowal to its addressee, although “I love you” is grammatically embedded within “show how much I love you” and a hypothetical wish."
+  },
+  "contextual_interpretation": "Amy is rebutting the implication that wealth motivated her acceptance. Her claims that she forgot he was rich and would have married him penniless frame the love avowal as sincere reassurance about her emotional state and marital motives. The narrator's statement that she gave “convincing proofs” explicitly endorses the truth of her words. This validating and affectionate context strengthens T but does not turn the embedded avowal itself into a distinct commitment-performing act.",
+  "evidence": [
+    {
+      "evidence_id": "E1",
+      "source": "local_text",
+      "quotation_or_description": "“I sometimes wish you were poor that I might show how much I love you.”",
+      "supports": "The embedded clause directly presents Amy's love and its degree as an existing emotional fact, strongly supporting truth-conditional force; “how much” adds limited emotional emphasis.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "E2",
+      "source": "local_text",
+      "quotation_or_description": "“I forgot you were rich when I said ‘Yes’. I’d have married you if you hadn’t a penny”",
+      "supports": "The avowal functions contextually as reassurance that love rather than wealth motivated Amy, while the marriage claims remain surrounding evidence rather than commitment force encoded by the core clause.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "E3",
+      "source": "local_text",
+      "quotation_or_description": "The narrator says Amy “gave convincing proofs of the truth of her words.”",
+      "supports": "The narration explicitly treats Amy's speech as truth-evaluable and validates its sincerity, reinforcing the truth-conditional reading.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "E4",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is identified as spoken narrative dialogue in Chapter Forty-Four of Louisa May Alcott's Little Women, Project Gutenberg source 514.",
+      "supports": "Establishes the bibliographic and narrative location of the classified occurrence without adding independent semantic force.",
+      "confidence": 1.0
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T/P/E adequately represents the core force: it is principally an avowal of a loving state, with slight affective emphasis and no substantial undertaking force. The surrounding reassurance, hypothetical framing, and narrative validation require contextual explanation but create no residual ontology pressure.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

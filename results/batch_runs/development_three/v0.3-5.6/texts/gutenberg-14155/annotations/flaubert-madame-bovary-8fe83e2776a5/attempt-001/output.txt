@@ -1,0 +1,66 @@
+{
+  "occurrence_id": "flaubert-madame-bovary-8fe83e2776a5",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 1,
+      "other": 0
+    },
+    "confidence": 0.89,
+    "analysis": "The speaker directly affirms that he loves the addressee. “Mais oui” presents the declaration as an emphatic confirmation, so its dominant force is truth-conditional avowal. The exclamation mark adds expressive emphasis, but the utterance remains a clear proposition rather than a primarily reflex-like exclamation. No commitment or relational undertaking is explicitly enacted.",
+    "ambiguity": "The narrow excerpt does not establish whether the avowal is sincere, impatient, habitual, or strategically reassuring. These possibilities affect contextual interpretation but not its strongly truth-conditional mode."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "A male character's spoken reply is represented in direct dialogue by the narrator."
+  },
+  "contextual_interpretation": "The affirmative phrase “Mais oui” makes “je t’aime” a response to an implied doubt or request for confirmation. The reporting clause “répondait-il,” in the imperfect, may present this as a habitual or iterated reply rather than a uniquely spontaneous outburst. It can therefore carry reassurance or mild impatience, but neither possibility supplies undertaking force, and sincerity cannot be determined from the supplied excerpt."
+  },
+  "evidence": [
+    {
+      "evidence_id": "E1",
+      "source": "local_text",
+      "quotation_or_description": "“je t’aime”",
+      "supports": "This is an explicit first-person present-tense avowal of love directed to the interlocutor, strongly supporting truth-conditional force.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "E2",
+      "source": "local_text",
+      "quotation_or_description": "“Mais oui, je t’aime!”",
+      "supports": "“Mais oui” frames the avowal as emphatic confirmation, while the exclamation mark supplies limited expressive or exclamatory coloring.",
+      "confidence": 0.95
+    },
+    {
+      "evidence_id": "E3",
+      "source": "local_text",
+      "quotation_or_description": "“répondait-il”",
+      "supports": "The narrator explicitly identifies the utterance as a reply. The imperfect form can suggest repeated or habitual responding, which weakens a strongly spontaneous or reflexive interpretation.",
+      "confidence": 0.87
+    },
+    {
+      "evidence_id": "E4",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is identified as French dialogue in Gustave Flaubert's Madame Bovary, sourced from Project Gutenberg ebook 14155.",
+      "supports": "This establishes the bibliographic and fictional narrative setting without adding unsupported wording or plot claims.",
+      "confidence": 0.99
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "moderate",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T/P/E adequately represents the core force as a propositional avowal with minor emphatic-exclamatory coloring and no clear undertaking. Possible insincerity, impatience, or routinization belongs to context and does not create residual ontology pressure.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": "Classification is based on the supplied 36-character context; no wider-work plot identification was used."
+}

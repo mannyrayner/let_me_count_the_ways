@@ -1,0 +1,59 @@
+{
+  "occurrence_id": "flaubert-madame-bovary-47361213aeaa",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 1,
+      "other": 0
+    },
+    "confidence": 0.94,
+    "analysis": "The core utterance is the direct declaration “je vous aime.” It clearly presents the speaker's love as true and is therefore strongly truth-conditional. The exclamation and “voilà tout!” add emotional emphasis, but the utterance retains clear avowal force rather than functioning chiefly as a reflexive cry. It does not itself undertake a commitment or obligation.",
+    "ambiguity": "The urgent exclamatory delivery gives limited E support, but there is no strong evidence that emotional ejaculation displaces the clear proposition. The courtship pressure in the surrounding appeal does not by itself establish P."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "A character directly tells another character “je vous aime” within spoken dialogue."
+  },
+  "contextual_interpretation": "The declaration answers or rejects something with “Non,” then reduces the speaker's position to the avowal alone: “voilà tout!” The follow-up insists that the addressee acknowledge not doubting it and urgently requests “un mot.” This makes the declaration emphatic and interpersonally pressuring, but it remains primarily an assertion or avowal of love rather than a promise or relational undertaking. The short extract does not establish whether the avowal is sincere."
+  },
+  "evidence": [
+    {
+      "evidence_id": "E1",
+      "source": "local_text",
+      "quotation_or_description": "“Non, je vous aime, voilà tout!”",
+      "supports": "The literal first-person declaration strongly supports truth-conditional avowal; “Non” and the exclamation add responsive emotional emphasis.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "E2",
+      "source": "local_text",
+      "quotation_or_description": "“Vous n’en doutez pas! Dites-le-moi; un mot! un seul mot!”",
+      "supports": "The speaker seeks acknowledgment that the avowal is believed, reinforcing its presented-as-true force and showing urgency without creating a clear commitment.",
+      "confidence": 0.97
+    },
+    {
+      "evidence_id": "E3",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is a French-language match in Gustave Flaubert's Madame Bovary, recorded as “je vous aime” within dash-led dialogue.",
+      "supports": "Confirms that the classified event is embedded fictional direct speech rather than narration, writing, or merely reported wording.",
+      "confidence": 0.99
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "moderate",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T captures the clear avowal, while low E captures its exclamatory urgency. P is unnecessary because neither the declaration nor the request for acknowledgment explicitly undertakes an obligation. No important aspect of the core force falls outside T/P/E.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

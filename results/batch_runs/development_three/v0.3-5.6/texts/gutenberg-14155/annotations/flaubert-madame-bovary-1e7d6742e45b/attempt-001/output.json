@@ -1,0 +1,72 @@
+{
+  "occurrence_id": "flaubert-madame-bovary-1e7d6742e45b",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 2,
+      "exclamatory_reflexive": 2,
+      "other": 0
+    },
+    "confidence": 0.89,
+    "analysis": "The direct declaration “Je t’aime” primarily avows a present loving state. Its placement within an urgent apology and beside “je t’aimerai toujours” gives it a secondary function of reassurance and relational recommitment. The exclamations and rapid sequence lend emotional spontaneity, but the utterance retains clear propositional force.",
+    "ambiguity": "The future-tense continuation can be heard either as a prediction of enduring feeling or as a promise-like undertaking, so the precise degree of performative force is uncertain."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "A male speaker directly addresses a female interlocutor in represented dialogue, declaring “Je t’aime” as part of an apology and reassurance."
+  },
+  "contextual_interpretation": "The speaker asks forgiveness, calls himself foolish and cruel, asserts that the addressee is the only woman who pleases him, and then declares present and lasting love. This makes the declaration strongly avowal-like while also using it to repair a strained interaction. The local passage does not establish whether the profession is sincere, calculated, or durable; those questions do not alter its principally truth-conditional and secondarily commitment-invoking force.",
+  "evidence": [
+    {
+      "evidence_id": "E1",
+      "source": "local_text",
+      "quotation_or_description": "“Je t’aime”",
+      "supports": "The unhedged first-person present declaration directly presents the speaker's loving emotional state as true.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "E2",
+      "source": "local_text",
+      "quotation_or_description": "“Ah! pardonne-moi! ... J’ai été imbécile et méchant!”",
+      "supports": "The declaration occurs within an emotionally heightened apology and attempted relational repair, supporting some exclamatory and reassurance-related force.",
+      "confidence": 0.97
+    },
+    {
+      "evidence_id": "E3",
+      "source": "local_text",
+      "quotation_or_description": "“tu es la seule qui me plaise”",
+      "supports": "The claim that the addressee is uniquely pleasing reinforces the declaration as an avowal directed specifically to her.",
+      "confidence": 0.96
+    },
+    {
+      "evidence_id": "E4",
+      "source": "local_text",
+      "quotation_or_description": "“je t’aimerai toujours!”",
+      "supports": "The immediately following claim of permanent future love gives the sequence limited promise-like or recommitting force, although it can also be read simply as a prediction about emotion.",
+      "confidence": 0.92
+    },
+    {
+      "evidence_id": "E5",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is identified as French dialogue from Gustave Flaubert's Madame Bovary in Project Gutenberg source 14155.",
+      "supports": "This establishes the bibliographic provenance and confirms that the highlighted French wording is being assessed as a represented fictional utterance.",
+      "confidence": 0.99
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "moderate",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T/P/E naturally captures the utterance as chiefly an avowal, with secondary relational-repair and emotionally heightened force. Questions about sincerity or manipulation belong to contextual interpretation rather than indicating an unrepresented core-force category.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": "Scores apply to the highlighted declaration while treating its immediately adjacent apology and future-tense repetition as evidence of pragmatic force."
+}

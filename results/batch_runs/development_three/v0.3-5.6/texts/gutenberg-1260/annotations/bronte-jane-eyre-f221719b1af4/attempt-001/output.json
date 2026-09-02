@@ -1,0 +1,79 @@
+{
+  "occurrence_id": "bronte-jane-eyre-f221719b1af4",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 1,
+      "other": 0
+    },
+    "confidence": 0.95,
+    "analysis": "The narrator verbalises St John’s look as an avowal of an existing loving state. Its force is predominantly truth-conditional: he appears to communicate that he loves Rosamond. It does not undertake a relationship or commitment; the accompanying revoiced speech instead explains why he will remain silent and sacrifice that love. His involuntary bodily reactions give slight support to reflex-like emotional expression, but the rendered utterance itself is propositionally explicit.",
+    "ambiguity": "The words are Jane’s interpretation of nonverbal signs rather than St John’s spoken formulation, so the exact intentional force of his expression is inferential."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "nonverbal_verbalised",
+    "description": "St John does not say the words aloud; Jane renders his sad, resolute look and visible emotional reactions as the equivalent of an extended first-person utterance."
+  },
+  "contextual_interpretation": "Jane interprets St John’s trembling hand, burning eye, and look as disclosing love for Rosamond and confidence that she would accept him. The disclosure is framed by renunciation: he remains verbally silent because he considers his heart already consecrated to a sacred vocation. Thus the imagined address avows love while explicitly withholding any offer or relational undertaking.",
+  "evidence": [
+    {
+      "evidence_id": "E1",
+      "source": "local_text",
+      "quotation_or_description": "“He seemed to say, with his sad and resolute look, if he did not say it with his lips, ‘I love you’”",
+      "supports": "Establishes that the core event is a narrator-verbalised nonverbal avowal rather than an audible direct utterance.",
+      "confidence": 1.0
+    },
+    {
+      "evidence_id": "E2",
+      "source": "local_text",
+      "quotation_or_description": "“his hand would tremble and his eye burn” when she addressed and smiled at him",
+      "supports": "Shows involuntary emotional manifestation, providing limited exclamatory or reflexive force while evidencing the attributed loving state.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "E3",
+      "source": "local_text",
+      "quotation_or_description": "“It is not despair of success that keeps me dumb. If I offered my heart, I believe you would accept it.”",
+      "supports": "Distinguishes avowal from undertaking: the imagined speaker believes courtship could succeed but remains silent and makes no offer.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "E4",
+      "source": "local_text",
+      "quotation_or_description": "“But that heart is already laid on a sacred altar ... It will soon be no more than a sacrifice consumed.”",
+      "supports": "Frames the love as renounced in favor of a sacred commitment, weighing strongly against performative relational force.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "E5",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is located in Chapter XXXII of Charlotte Brontë’s Jane Eyre.",
+      "supports": "Locates the passage within the supplied work and supports interpretation in its relevant narrative episode.",
+      "confidence": 1.0
+    },
+    {
+      "evidence_id": "E6",
+      "source": "background_knowledge",
+      "quotation_or_description": "In this episode, the unnamed figures are St John Rivers and Rosamond Oliver; St John loves Rosamond but rejects marriage to her in favor of his missionary vocation.",
+      "supports": "Clarifies the participants and confirms that the sacred-sacrifice language refers to renouncing romantic love rather than undertaking a relationship.",
+      "confidence": 0.96
+    }
+  ],
+  "background_knowledge": {
+    "used": true,
+    "familiarity": "extensive",
+    "confidence": 0.96,
+    "contribution": "It identifies St John Rivers and Rosamond Oliver and situates the avowal within St John’s decision to subordinate his love to his missionary vocation."
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T/P/E adequately represents the core force: a strongly propositional avowal inferred from nonverbal expression, with slight reflexive coloring and no substantial relational undertaking. Its mediated, unspoken form is captured by utterance status rather than requiring O.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

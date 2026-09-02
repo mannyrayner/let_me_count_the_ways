@@ -1,0 +1,72 @@
+{
+  "occurrence_id": "flaubert-madame-bovary-acc8280ba5f0",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 2,
+      "other": 0
+    },
+    "confidence": 0.92,
+    "analysis": "The highlighted “je t’aime” is primarily an emphatic avowal of the speaker’s love, immediately elaborated as emotional dependence and jealous longing. The interjection, exclamation marks, repetition, and escalating praise give it substantial exclamatory force, but its propositional avowal remains clear. It does not itself undertake a commitment or create an obligation.",
+    "ambiguity": "The highly emotional delivery creates some overlap between truth-conditional avowal and exclamatory expression, but there is little evidence of performative undertaking force."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "A directly represented spoken declaration in dialogue, introduced by the speech tag “reprenait-elle”; the highlighted occurrence is followed by an immediate repetition."
+  },
+  "contextual_interpretation": "The speaker presents her love as overwhelming dependence, jealousy, and idealisation: she cannot do without the addressee, imagines him approaching other women, and calls herself his servant and concubine while calling him her king and idol. This extravagant rhetoric may be theatrical and is situated within the novel’s unequal, ultimately disenchanted adulterous relationship, but it still functions locally as an intelligible avowal rather than as a semantically empty token. The surrounding declarations of submission intensify the relationship rhetoric without turning the core “je t’aime” into a clear commitment-making act.",
+  "evidence": [
+    {
+      "evidence_id": "E1",
+      "source": "local_text",
+      "quotation_or_description": "“Oh! c’est que je t’aime! reprenait-elle, je t’aime à ne pouvoir me passer de toi”",
+      "supports": "The explicit declaration and its paraphrase as inability to live without the addressee strongly support truth-conditional avowal; “Oh!”, repetition, and exclamation marks support secondary exclamatory force.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "E2",
+      "source": "local_text",
+      "quotation_or_description": "The speaker describes “toutes les colères de l’amour,” imagines the addressee speaking to other women, and anxiously asks whether any of them pleases him.",
+      "supports": "The jealousy and emotional agitation contextualise the declaration as an intense, affectively triggered expression while preserving its clear claim of love.",
+      "confidence": 0.97
+    },
+    {
+      "evidence_id": "E3",
+      "source": "local_text",
+      "quotation_or_description": "“Je suis ta servante et ta concubine! Tu es mon roi, mon idole!”",
+      "supports": "These hyperbolic relational and devotional formulations reinforce dependence and idealisation. They provide context for the declaration but do not establish that the highlighted core utterance performs a definite undertaking.",
+      "confidence": 0.96
+    },
+    {
+      "evidence_id": "E4",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The supplied metadata identifies the passage as French dialogue from Gustave Flaubert’s Madame Bovary, approximately 54.3% through the Gutenberg source.",
+      "supports": "This establishes the work, language, and narrative location used when relating the local declaration to the novel’s broader treatment of romantic rhetoric.",
+      "confidence": 1.0
+    },
+    {
+      "evidence_id": "E5",
+      "source": "background_knowledge",
+      "quotation_or_description": "In the wider novel, Emma’s adulterous love rhetoric is marked by romantic idealisation, while her lover’s perspective increasingly exposes an asymmetry between her emotional investment and his more jaded response.",
+      "supports": "This helps explain the declaration’s extravagant and potentially conventionalised language without displacing its local force as an avowal. The exact immediate addressee is not independently established by the supplied excerpt alone.",
+      "confidence": 0.86
+    }
+  ],
+  "background_knowledge": {
+    "used": true,
+    "familiarity": "extensive",
+    "confidence": 0.88,
+    "contribution": "Knowledge of the novel’s adulterous relationships and its ironic treatment of romantic language supports reading the speech as intensely idealising and relationally asymmetrical, while the T/P/E scores remain chiefly grounded in the supplied text."
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T and E naturally capture the declaration’s clear avowal and its emotionally heightened delivery. P is unnecessary because neither the declaration nor its elaboration clearly creates or renews an undertaking. No important aspect of the core force remains outside T/P/E.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

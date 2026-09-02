@@ -1,0 +1,58 @@
+{
+  "occurrence_id": "flaubert-madame-bovary-06903c63a2d7",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 3,
+      "performative": 0,
+      "exclamatory_reflexive": 4,
+      "other": 0
+    },
+    "confidence": 0.96,
+    "analysis": "The mother's repeated « comme je t’aime ! » both avows her love and, more prominently, expresses it in an emotionally heightened, exclamatory outburst. Nothing indicates that the utterance undertakes a commitment or has force outside T/E.",
+    "ambiguity": "The main overlap is between a sincere truth-conditional avowal and an exclamation whose intensified form foregrounds immediate emotion; both forces are substantially present."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "The highlighted words are the mother's second directly spoken « comme je t’aime ! », addressed to her daughter and repeated in the same speech turn."
+  },
+  "contextual_interpretation": "The mother calls for her daughter, rushes to embrace her, addresses her compassionately as « ma pauvre enfant », and repeats the declaration with exclamation marks. The embrace, repetition, and « comme » construction strongly frame the utterance as an immediate surge of maternal affection, while its ordinary assertion of love remains intact. The passage supplies no distinct undertaking or promise.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "« Comme je t’aime, ma pauvre enfant! comme je t’aime! »",
+      "supports": "The literal declaration supports truth-conditional avowal, while repetition, exclamation marks, and the intensifying « comme » strongly support exclamatory/reflexive force.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "« dit sa mère se précipitant pour l’embrasser »",
+      "supports": "The mother's rush to embrace her daughter presents the words as an emotionally activated expression of maternal affection rather than a relational undertaking.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "e3",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The matched span is the final « je t’aime » in the supplied French context from Gustave Flaubert's Madame Bovary.",
+      "supports": "Identifies the classified occurrence as the second declaration in a repeated direct utterance.",
+      "confidence": 1.0
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "A combination of strong E and substantial T naturally captures the core force; no residual aspect requires O.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": "The highlighted match is the second « je t’aime » in the repeated exclamation."
+}

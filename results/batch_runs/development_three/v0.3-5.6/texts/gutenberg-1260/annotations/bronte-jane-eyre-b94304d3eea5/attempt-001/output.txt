@@ -1,0 +1,73 @@
+{
+  "occurrence_id": "bronte-jane-eyre-b94304d3eea5",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 1,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.96,
+    "analysis": "Jane directly avows that she loves Rochester, specifically asserting that her love is now greater than when he was proudly independent. The comparative and explanatory construction presents her emotional state as a considered truth. In the reunion context it also weakly renews relational devotion, but it does not itself clearly promise or undertake a future obligation.",
+    "ambiguity": "The surrounding reunion and Jane's willingness to care for Rochester give the avowal some commitment-like force, but the core wording remains primarily an assertion of feeling rather than an explicit undertaking."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "Jane directly addresses Rochester in dialogue: “I love you better now.”"
+  },
+  "contextual_interpretation": "Jane answers Rochester's concerns by dismissing them as obstacles and explaining that his loss of proud independence allows her to be useful to him. Her declaration is a reflective, comparative avowal rather than an impulsive exclamation. The reversal of their former giver-dependent relationship strengthens its reassurance and devotion, while the wider reunion context lends weak performative pressure without converting the sentence into a promise."
+  },
+  "evidence": [
+    {
+      "evidence_id": "E1",
+      "source": "local_text",
+      "quotation_or_description": "“I love you better now”",
+      "supports": "This is an explicit first-person avowal of present love, with “better now” making a comparative claim about the strength of Jane's emotional state.",
+      "confidence": 1.0
+    },
+    {
+      "evidence_id": "E2",
+      "source": "local_text",
+      "quotation_or_description": "“when I can really be useful to you, than I did in your state of proud independence”",
+      "supports": "Jane gives a reasoned temporal comparison, supporting strong truth-conditional force and arguing against a predominantly reflexive or exclamatory reading.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "E3",
+      "source": "local_text",
+      "quotation_or_description": "“Which are none, sir, to me.”",
+      "supports": "Jane dismisses the concerns just raised as impediments to her, framing the love avowal as deliberate reassurance within a direct exchange.",
+      "confidence": 0.94
+    },
+    {
+      "evidence_id": "E4",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is located in Chapter XXXVII, at relative position 0.966313 of the Project Gutenberg text.",
+      "supports": "The late-novel location is consistent with the climactic reunion context rather than an imagined, reported, or merely hypothetical declaration.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "E5",
+      "source": "background_knowledge",
+      "quotation_or_description": "In Chapter XXXVII, Jane has reunited with Rochester after his disabling injuries; she is independently able to choose the relationship, and their reunion leads to marriage.",
+      "supports": "The wider narrative supports reading the statement as sincere relational reaffirmation with some commitment-adjacent force, while its grammatical form remains chiefly an avowal of feeling.",
+      "confidence": 0.97
+    }
+  ],
+  "background_knowledge": {
+    "used": true,
+    "familiarity": "extensive",
+    "confidence": 0.97,
+    "contribution": "Knowledge of Jane's reunion with the disabled Rochester and their subsequent marriage clarifies the declaration's deliberate reassurance and weak commitment-like resonance."
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T/P/E adequately represents the utterance: it is overwhelmingly a truth-conditional avowal, with slight performative resonance from the relational reunion and no substantial exclamatory or residual force.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

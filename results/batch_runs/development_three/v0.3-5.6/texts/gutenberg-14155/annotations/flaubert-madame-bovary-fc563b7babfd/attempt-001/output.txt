@@ -1,0 +1,66 @@
+{
+  "occurrence_id": "flaubert-madame-bovary-fc563b7babfd",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 1,
+      "other": 0
+    },
+    "confidence": 0.91,
+    "analysis": "The core utterance is “Tu sais bien que je t’aime!” It presents the speaker’s love as an established fact already known to the addressee, giving it strong truth-conditional avowal and reassurance force. Its exclamation mark and agitated setting add limited exclamatory force, but the utterance remains clearly propositional. It does not itself undertake or renew a commitment.",
+    "ambiguity": "The narrow extract does not establish the speaker’s sincerity or the wider relational circumstances. Those issues affect the avowal’s credibility, not its predominantly truth-conditional mode."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "A character directly tells another character, in spoken dialogue, “Tu sais bien que je t’aime!”"
+  },
+  "contextual_interpretation": "The speaker is startled by the addressee’s apparent distress and repeats questions before urging calm. In that setting, “Tu sais bien que je t’aime!” functions chiefly as reassurance: it invokes the claimed love as something already mutually recognized in order to calm or persuade the addressee. The surrounding urgency gives the delivery emotional intensity, while “viens!” is a separate directive rather than part of the love utterance’s undertaking force."
+  },
+  "evidence": [
+    {
+      "evidence_id": "E1",
+      "source": "local_text",
+      "quotation_or_description": "“Tu sais bien que je t’aime!”",
+      "supports": "The complement of “tu sais bien que” explicitly presents the speaker’s love as a fact supposedly already known, strongly supporting truth-conditional force.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "E2",
+      "source": "local_text",
+      "quotation_or_description": "“Qu’as-tu? qu’as-tu? répétait-il stupéfait. Calme-toi! reprends-toi!...”",
+      "supports": "The speaker’s surprise and commands to regain composure establish an urgent consoling context, supporting a reassuring use and modest exclamatory intensity.",
+      "confidence": 0.97
+    },
+    {
+      "evidence_id": "E3",
+      "source": "local_text",
+      "quotation_or_description": "The love avowal is followed by the separate imperative “viens!”",
+      "supports": "The explicit directive is grammatically separate, so its action-oriented force should not be attributed to “je t’aime” as performative commitment.",
+      "confidence": 0.94
+    },
+    {
+      "evidence_id": "E4",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is identified as French dialogue in Gustave Flaubert’s Madame Bovary, sourced from Project Gutenberg ebook 14155.",
+      "supports": "Confirms the bibliographic setting and that the highlighted French expression is the classified occurrence; it does not independently determine sincerity or speaker identity.",
+      "confidence": 0.99
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "moderate",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T/P/E adequately represents the core force: a strong factual avowal used for reassurance, with slight exclamatory coloring and no substantial undertaking force. Questions of sincerity, persuasion, or relational instability belong to contextual interpretation rather than requiring O.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": "Classification is restricted to the highlighted love utterance; the adjacent command “viens!” is treated as a separate speech act."
+}
