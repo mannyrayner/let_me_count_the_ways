@@ -170,6 +170,170 @@ PY
 Commit each reviewed source and provenance record before deriving pipeline
 artifacts. Separate commits make edition approval easy to audit.
 
+### Required provenance fields before check-in
+
+An approved record must preserve more than the checksum and a prose rights
+conclusion. Before committing, add the following edition-level fields from the
+downloaded header, live catalogue page, and local review:
+
+- `gutenberg_release_date`;
+- `gutenberg_last_updated`;
+- `observed_format` (the output of `file`, including line-ending observations
+  where relevant);
+- `rights_guidance_url` (the exact Australian guidance page actually reviewed);
+- `reviewed_on` (UTC calendar date).
+
+The `rights_note` should identify its sources rather than merely naming an
+institution. It should record the publication and author-death facts used in
+the Australian assessment and where those facts were checked, rather than only
+saying that an independent determination occurred. Keep the Project Gutenberg
+warning and the independently reviewed Australian basis distinct. This is a
+provenance record, not legal advice.
+
+For the downloads retrieved on 2026-09-01, the collaborator reported these
+checksums:
+
+```text
+gutenberg-514    677d034b4a3d1cea92d075939878f852a7a3ec757dc9ed05ef0c40cab5c1e6de
+gutenberg-14155  93f0a2259dbaf5fde6e7b96adc22346d52f80eb1e9319336c8381a045efe40cd
+```
+
+These hashes identify those downloads; they do not independently establish
+edition identity or rights. After adding the fields above, run the following
+pre-commit audit. It checks the exact reported files, hashes, source identities,
+required metadata, Project Gutenberg boundary text, and absence of credentials:
+
+```bash
+cd "$LMCW"
+test -z "$(git diff --cached --name-only)" || {
+  echo 'The index already contains staged files; review or unstage them first.' >&2
+  exit 1
+}
+
+python - <<'PY'
+import hashlib
+import json
+from pathlib import Path
+
+expected = {
+    "gutenberg-514": {
+        "work_id": "alcott-little-women",
+        "author": "Louisa May Alcott",
+        "title": "Little Women",
+        "language": "en",
+        "local_path": "data/raw/alcott-little-women/gutenberg-514.txt",
+        "sha256": "677d034b4a3d1cea92d075939878f852a7a3ec757dc9ed05ef0c40cab5c1e6de",
+    },
+    "gutenberg-14155": {
+        "work_id": "flaubert-madame-bovary",
+        "author": "Gustave Flaubert",
+        "title": "Madame Bovary",
+        "language": "fr",
+        "local_path": "data/raw/flaubert-madame-bovary/gutenberg-14155.txt",
+        "sha256": "93f0a2259dbaf5fde6e7b96adc22346d52f80eb1e9319336c8381a045efe40cd",
+    },
+}
+required_review_fields = {
+    "gutenberg_release_date", "gutenberg_last_updated", "observed_format",
+    "rights_guidance_url", "reviewed_on",
+}
+
+for source_id, wanted in expected.items():
+    provenance_path = Path("provenance/sources") / f"{source_id}.json"
+    record = json.loads(provenance_path.read_text(encoding="utf-8"))
+    assert record["source_id"] == source_id
+    assert record["repository"] == "Project Gutenberg"
+    assert record["repository_ebook_id"] == source_id.removeprefix("gutenberg-")
+    for key, value in wanted.items():
+        assert record[key] == value, (source_id, key, record[key], value)
+    missing = required_review_fields - record.keys()
+    assert not missing, f"{source_id} lacks review fields: {sorted(missing)}"
+    assert record["review_status"] == "approved_for_development_processing"
+    assert "PENDING" not in record["rights_note"]
+    assert record["rights_guidance_url"].startswith("https://")
+
+    source_path = Path(record["local_path"])
+    raw = source_path.read_bytes()
+    assert hashlib.sha256(raw).hexdigest() == record["sha256"]
+    text = raw.decode("utf-8")
+    upper = text.upper()
+    assert "PROJECT GUTENBERG EBOOK" in upper
+    assert "START OF" in upper and "END OF" in upper
+    print(f"Source audit passed: {record['title']} ({source_id})")
+PY
+
+if rg -n --hidden 'OPENAI_API_KEY|Authorization:[[:space:]]*Bearer|sk-[A-Za-z0-9_-]{16,}' \
+  provenance/sources/gutenberg-514.json \
+  provenance/sources/gutenberg-14155.json \
+  data/raw/alcott-little-women/gutenberg-514.txt \
+  data/raw/flaubert-madame-bovary/gutenberg-14155.txt; then
+  echo 'Possible credential found; do not stage the sources.' >&2
+  exit 1
+else
+  echo 'Credential scan passed.'
+fi
+```
+
+Inspect the headers and provenance one final time:
+
+```bash
+for SOURCE_ID in gutenberg-514 gutenberg-14155; do
+  PROVENANCE_FILE="provenance/sources/$SOURCE_ID.json"
+  SOURCE_FILE="$(python -c 'import json,sys; print(json.load(open(sys.argv[1], encoding="utf-8"))["local_path"])' "$PROVENANCE_FILE")"
+  echo "===== $SOURCE_ID ====="
+  python -m json.tool "$PROVENANCE_FILE"
+  sed -n '1,45p' "$SOURCE_FILE"
+  tail -45 "$SOURCE_FILE"
+done
+```
+
+Commit the two editions separately, then update the living source inventory:
+
+```bash
+git add \
+  data/raw/alcott-little-women/gutenberg-514.txt \
+  provenance/sources/gutenberg-514.json
+git diff --cached --check -- . ':(exclude)data/raw/**'
+git diff --cached --stat
+git status --short
+git commit -m 'Add Project Gutenberg Little Women source'
+
+git add \
+  data/raw/flaubert-madame-bovary/gutenberg-14155.txt \
+  provenance/sources/gutenberg-14155.json
+git diff --cached --check -- . ':(exclude)data/raw/**'
+git diff --cached --stat
+git status --short
+git commit -m 'Add Project Gutenberg Madame Bovary source'
+
+python - <<'PY'
+from pathlib import Path
+
+path = Path("provenance/required_sources.md")
+text = path.read_text(encoding="utf-8")
+replacements = {
+    "### Louisa May Alcott, *Little Women* — `locating`":
+        "### Louisa May Alcott, *Little Women* — `cleared`",
+    "### Gustave Flaubert, *Madame Bovary* — `locating`":
+        "### Gustave Flaubert, *Madame Bovary* — `cleared`",
+}
+for old, new in replacements.items():
+    assert old in text, old
+    text = text.replace(old, new, 1)
+path.write_text(text, encoding="utf-8")
+PY
+git add provenance/required_sources.md
+git diff --cached --check
+git diff --cached --stat
+git commit -m 'Mark next development sources cleared'
+
+git push origin HEAD
+git status --short
+```
+
+Do not continue to the dry runs until all three commits succeed and the working
+tree contains no unexpected source or provenance changes.
+
 ## Dry-run *Little Women*
 
 ```bash
