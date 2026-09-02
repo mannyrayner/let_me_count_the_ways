@@ -1,0 +1,55 @@
+{
+  "run_id": "20260902T043409Z",
+  "started_at": "2026-09-02T04:34:09.887449+00:00",
+  "ended_at": "2026-09-02T05:28:48.868721+00:00",
+  "work_id": "flaubert-madame-bovary",
+  "source_id": "gutenberg-14155",
+  "source_sha256": "93f0a2259dbaf5fde6e7b96adc22346d52f80eb1e9319336c8381a045efe40cd",
+  "title": "Madame Bovary",
+  "author": "Gustave Flaubert",
+  "language": "fr",
+  "search_pattern_version": "0.2",
+  "annotation_version": "0.2",
+  "model_alias": "5.6",
+  "api_model": "gpt-5.6-sol",
+  "prompt_path": "prompts\\annotation\\classify_passage_v0_2.md",
+  "prompt_sha256": "9b76912a3f222d095390fb4534a8e11ae13654f0a4ef21cd1bf05da7c26828e1",
+  "schema_path": "prompts\\annotation\\classification_schema_v0_2.json",
+  "schema_sha256": "cc0f155f22128f0194ee9a6416a50f65901a7ef1125c181da873a7d1fb4d99ef",
+  "extraction_fingerprint": {
+    "source_sha256": "93f0a2259dbaf5fde6e7b96adc22346d52f80eb1e9319336c8381a045efe40cd",
+    "patterns_sha256": "71b5d37cba5f20bf471b726970f59e0c64fd150548a7a612d90c03fd2a24633b",
+    "pattern_version": "0.2",
+    "context_characters": 1000,
+    "extractor_sha256": "784a8e5c00c752558c699fc36f70f498765346274d67ff6cd47dd0564189adcb"
+  },
+  "extraction_reused": true,
+  "extracted_occurrences": 12,
+  "attempted_this_invocation": 12,
+  "skipped_valid_this_invocation": 0,
+  "valid_occurrences": 12,
+  "invalid_or_failed_attempts": 0,
+  "attempt_counts": {
+    "attempts": 12,
+    "valid": 12,
+    "invalid": 0,
+    "api_failure": 0,
+    "parse_failure": 0
+  },
+  "usage_and_cost": {
+    "input_tokens": 56629,
+    "cached_input_tokens": 0,
+    "output_tokens": 40271,
+    "estimated_total_cost_usd": 1.0319360000000002
+  },
+  "software": {
+    "git_commit": "c344aead6f099e0053b0f7055c55f16cbbe75d1a",
+    "runner_sha256": "d318890f5896a8e76d81c2760323e31bca03bc2c9b4ac6697ede7191dc0b7424",
+    "extractor_sha256": "784a8e5c00c752558c699fc36f70f498765346274d67ff6cd47dd0564189adcb",
+    "validator_sha256": "92c3cf41d53248a22c873a48d46f9a00ad5dd1ac535cb4ce13b2c056994f3e2d",
+    "model_catalog_sha256": "9facd8d8e66c9e477bf0f691d87836c112562be088517eed77d2d961c39b1c05"
+  },
+  "dry_run": false,
+  "context_expansion_policy": "record_only_no_automatic_rerun",
+  "status": "complete"
+}

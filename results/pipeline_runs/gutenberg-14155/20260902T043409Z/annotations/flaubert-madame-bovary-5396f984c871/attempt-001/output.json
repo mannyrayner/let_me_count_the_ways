@@ -1,0 +1,147 @@
+{
+  "occurrence_id": "flaubert-madame-bovary-5396f984c871",
+  "core_love_content": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 1
+    },
+    "mixed_reading": {
+      "is_mixed": false,
+      "basis": "none",
+      "justification": null
+    },
+    "relationship_modifier": null,
+    "analysis": "The explicit declarative “je vous aime” presents the speaker's love as true. Its exclamation mark and placement within an urgent plea give it emotional intensity, but its propositional force remains clear, so the exclamatory/reflexive reading is secondary rather than independently substantial. It does not itself undertake or renew a commitment.",
+    "confidence": 0.97
+  },
+  "realisation": {
+    "types": [
+      "direct_represented_speech"
+    ],
+    "other_description": null,
+    "actuality": "spoken",
+    "analysis": "The dialogue dash, imperative addressed to another person, and exclamation marks represent a character currently speaking in the fictional world. Nothing in the supplied text indicates quotation, report, imagination, writing, negation, or hedging.",
+    "confidence": 0.97
+  },
+  "current_discourse_act": {
+    "types": [
+      "direct_avowal",
+      "other"
+    ],
+    "other_description": "Pleading with or attempting to persuade the addressee to remain",
+    "analysis": "The speaker directly avows love while pleading “De grâce, restez!” The avowal functions pragmatically as an emotionally forceful reason for the requested action. The short extract supports pleading and persuasion, but not by itself coercion or manipulation.",
+    "confidence": 0.94
+  },
+  "contextual_modification": {
+    "effects": [
+      "preserves",
+      "strengthens",
+      "redirects"
+    ],
+    "other_description": null,
+    "analysis": "The context preserves the ordinary avowal of love, while the urgent request and repeated exclamatory punctuation intensify its emotional presentation. Its discourse function is also redirected toward supporting the immediate plea that the addressee stay.",
+    "confidence": 0.91
+  },
+  "participant_construals": [
+    {
+      "role": "current_speaker_and_original_avower",
+      "discourse_level": "both",
+      "status": "supported",
+      "analysis": "The speaker presents themself as loving the addressee and uses that avowal as part of a plea for the addressee to remain.",
+      "confidence": 0.96
+    },
+    {
+      "role": "current_addressee",
+      "discourse_level": "both",
+      "status": "unavailable",
+      "analysis": "The extract supplies neither the addressee's response nor evidence of whether the addressee accepts the avowal as sincere or the plea as legitimate.",
+      "confidence": null
+    },
+    {
+      "role": "reader",
+      "discourse_level": "both",
+      "status": "supported",
+      "analysis": "At the local level, a reader can construe the line as an explicit love avowal intensified and pragmatically mobilized by an urgent request to stay; the speaker's ultimate sincerity remains unsettled.",
+      "confidence": 0.92
+    }
+  ],
+  "disagreements": [],
+  "assessments": {
+    "deception_misrepresentation": {
+      "status": "uncertain_not_assessable",
+      "analysis": "The explicit avowal supplies no local marker of lying, but the very short extract cannot establish whether the speaker actually feels the professed love or is misrepresenting it.",
+      "confidence": 0.92
+    },
+    "manipulation_pressure": {
+      "status": "uncertain_not_assessable",
+      "analysis": "The avowal is used persuasively in an urgent request for the addressee to stay, creating some emotional pressure in an ordinary sense. The extract does not establish that this rises to manipulation, coercion, or an abusive pattern.",
+      "confidence": 0.86
+    },
+    "strategic_ambiguity": {
+      "status": "unsupported",
+      "analysis": "The love-content is linguistically direct and unhedged. Uncertainty about sincerity is not evidence that the wording itself is strategically ambiguous.",
+      "confidence": 0.91
+    }
+  },
+  "evidence": [
+    {
+      "evidence_id": "E1",
+      "source": "local_text",
+      "quotation_or_description": "“je vous aime!”",
+      "supports": "A maximally explicit, unhedged first-person avowal presenting love for the addressee as true.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "E2",
+      "source": "local_text",
+      "quotation_or_description": "“De grâce, restez!”",
+      "supports": "The current act includes an urgent, deferential plea that the addressee remain.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "E3",
+      "source": "local_text",
+      "quotation_or_description": "The plea and avowal are adjacent within one dash-introduced, doubly exclamatory utterance.",
+      "supports": "The love avowal is emotionally intensified and used as part of the attempt to persuade the addressee to stay; the typography also supports direct represented speech.",
+      "confidence": 0.97
+    },
+    {
+      "evidence_id": "E4",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The supplied metadata identifies the source as Gustave Flaubert's French novel Madame Bovary.",
+      "supports": "Establishes the identified literary work and language without supplying the missing identities or response in this excerpt.",
+      "confidence": 0.99
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "moderate",
+    "confidence": null,
+    "contribution": null,
+    "notes": "General familiarity with Madame Bovary was not used to identify this scene because recollection of the precise speaker, addressee, and immediate circumstances was insufficiently reliable."
+  },
+  "context_needs": [
+    {
+      "need": "useful_for_richer_interpretation",
+      "layers": [
+        "current_discourse_act",
+        "contextual_modification",
+        "participant_construals",
+        "disagreements",
+        "assessments"
+      ],
+      "claim": "The identities, motives, sincerity, and possible manipulative force of the plea cannot be established from the 33-character extract.",
+      "request": "Provide the surrounding paragraph or scene, including attribution of the speech, the circumstances prompting the request to stay, and the addressee's response."
+    }
+  ],
+  "ontology_assessment": {
+    "adequate": true,
+    "diagnosis": "The scheme naturally distinguishes the explicit truth-conditional avowal from its present persuasive use. The small current-act inventory lacks a dedicated pleading or requesting category, but the open “other” field preserves that central function without distorting the core as performative.",
+    "proposed_missing_dimensions": [
+      "A dedicated current-discourse-act category for pleading or requesting",
+      "A graded distinction between ordinary emotional persuasion, interpersonal pressure, and coercive manipulation"
+    ]
+  },
+  "notes": "The line's emotional urgency does not erase its clear propositional assertion, and its use to support “restez” should not be mistaken for a core relational undertaking."
+}

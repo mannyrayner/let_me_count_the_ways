@@ -1,0 +1,177 @@
+{
+  "occurrence_id": "flaubert-madame-bovary-47361213aeaa",
+  "core_love_content": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 1,
+      "exclamatory_reflexive": 1
+    },
+    "mixed_reading": {
+      "is_mixed": false,
+      "basis": "none",
+      "justification": null
+    },
+    "relationship_modifier": "An avowal in an extramarital courtship and seduction, addressed by Rodolphe to Emma.",
+    "analysis": "The declarative “je vous aime” straightforwardly presents the speaker's love as true, reinforced by “voilà tout,” which frames love as the simple and sufficient explanation. It does not itself clearly undertake a durable obligation or relational commitment. The exclamation and urgent continuation add emotional intensity, but the utterance retains strong propositional force rather than functioning principally as a reflexive cry.",
+    "confidence": 0.96
+  },
+  "realisation": {
+    "types": [
+      "direct_represented_speech"
+    ],
+    "other_description": null,
+    "actuality": "spoken",
+    "analysis": "The dash introduces words currently uttered by a character in the fictional scene. Nothing in the supplied text indicates quotation of an earlier utterance, writing, imagination, negation, or metalinguistic mention.",
+    "confidence": 0.97
+  },
+  "current_discourse_act": {
+    "types": [
+      "direct_avowal",
+      "reassurance",
+      "elicitation_of_reaffirmation",
+      "pressure",
+      "manipulation"
+    ],
+    "other_description": null,
+    "analysis": "The speaker directly avows love and insists that the addressee should not doubt it. “Dites-le-moi; un mot! un seul mot!” urgently solicits verbal confirmation that she believes or accepts the avowal, rather than clearly asking her to avow her own love. The repeated imperatives and narrowing demand for even one word exert pressure. Knowledge of Rodolphe's calculated seduction of Emma supports interpreting this pressure as manipulative, although that does not turn the core proposition into a performative commitment.",
+    "confidence": 0.88
+  },
+  "contextual_modification": {
+    "effects": [
+      "strengthens",
+      "weakens",
+      "manipulates"
+    ],
+    "other_description": null,
+    "analysis": "Locally, “voilà tout,” the denial of possible doubt, the exclamation marks, and the demand for an answer rhetorically strengthen the avowal's urgency and apparent certainty. In the wider novel, Rodolphe's calculated pursuit and eventual abandonment of Emma weaken the credibility of the claim as an avowal of deep or durable love. The immediate demand for confirmation also uses the love-content to press Emma toward emotional acquiescence.",
+    "confidence": 0.86
+  },
+  "participant_construals": [
+    {
+      "role": "original_avower_and_current_speaker_Rodolphe",
+      "discourse_level": "both",
+      "status": "supported",
+      "analysis": "Rodolphe presents his love as a simple, certain fact and seeks an immediate acknowledgment from Emma. The wider characterization of his courtship indicates that this presentation is also serving his seduction strategy.",
+      "confidence": 0.88
+    },
+    {
+      "role": "current_addressee_Emma",
+      "discourse_level": "both",
+      "status": "unavailable",
+      "analysis": "The excerpt contains Rodolphe's assertion about Emma's presumed lack of doubt, but it does not include Emma's response or independently establish how she construes either his sincerity or his demand at this moment.",
+      "confidence": null
+    },
+    {
+      "role": "narrator_or_text",
+      "discourse_level": "both",
+      "status": "supported",
+      "analysis": "Across the wider work, Rodolphe's calculated approach to seducing Emma and his later conduct invite critical distance from the avowal's surface sincerity and durability.",
+      "confidence": 0.84
+    },
+    {
+      "role": "informed_reader",
+      "discourse_level": "both",
+      "status": "supported",
+      "analysis": "A reader using the wider characterization can recognize a genuine grammatical avowal whose credibility and relational implications are compromised by Rodolphe's strategic motives and limited commitment.",
+      "confidence": 0.87
+    }
+  ],
+  "disagreements": [
+    {
+      "parties": [
+        "original_avower_and_current_speaker_Rodolphe",
+        "narrator_or_text"
+      ],
+      "subject": "Sincerity and durability of the professed love",
+      "description": "Rodolphe's present wording frames love as an uncomplicated and certain truth, while the wider narrative characterization encourages doubt that it represents deep, durable, or committed love rather than attraction deployed in a calculated seduction.",
+      "evidence_ids": [
+        "E1",
+        "E2",
+        "E5"
+      ],
+      "confidence": 0.82
+    }
+  ],
+  "assessments": {
+    "deception_misrepresentation": {
+      "status": "supported",
+      "analysis": "Rodolphe appears attracted to Emma, so the evidence does not require the conclusion that every feeling is fabricated. Nevertheless, his calculated seduction and later abandonment support the narrower claim that the unqualified profession misrepresents the depth, durability, or commitment of his attachment.",
+      "confidence": 0.8
+    },
+    "manipulation_pressure": {
+      "status": "supported",
+      "analysis": "The local imperatives demand an immediate validating response—“Dites-le-moi; un mot! un seul mot!”—and the wider courtship context supports treating this urgency as part of Rodolphe's manipulative seduction.",
+      "confidence": 0.91
+    },
+    "strategic_ambiguity": {
+      "status": "unsupported",
+      "analysis": "The central proposition is linguistically explicit rather than strategically equivocal: the speaker says directly that he loves the addressee. Although “love” leaves the degree and practical implications of commitment unspecified, the available evidence more strongly supports exaggeration and manipulation than a deliberate reliance on semantic ambiguity.",
+      "confidence": 0.76
+    }
+  },
+  "evidence": [
+    {
+      "evidence_id": "E1",
+      "source": "local_text",
+      "quotation_or_description": "“Non, je vous aime, voilà tout!”",
+      "supports": "A direct, emphatic truth-conditional avowal framed as the speaker's simple and sufficient explanation.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "E2",
+      "source": "local_text",
+      "quotation_or_description": "“Vous n’en doutez pas! Dites-le-moi; un mot! un seul mot!”",
+      "supports": "The speaker presumes or urges belief in the avowal and pressures the addressee to provide immediate verbal confirmation.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "E3",
+      "source": "local_text",
+      "quotation_or_description": "The passage uses a dialogue dash, direct first- and second-person forms, exclamation marks, and imperatives.",
+      "supports": "Direct spoken realization and heightened emotional and interpersonal urgency.",
+      "confidence": 0.97
+    },
+    {
+      "evidence_id": "E4",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is identified as coming from Gustave Flaubert's Madame Bovary in the supplied Project Gutenberg source.",
+      "supports": "Identification of the work to which the remembered characterization and plot context apply.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "E5",
+      "source": "background_knowledge",
+      "quotation_or_description": "In the wider novel, Rodolphe approaches Emma as an experienced and calculating seducer; their affair does not become a durable commitment, and he eventually abandons their plan to elope.",
+      "supports": "Identification of the speaker and addressee, critical distance from the avowal's apparent depth and durability, and the assessments of manipulation and partial misrepresentation.",
+      "confidence": 0.86
+    }
+  ],
+  "background_knowledge": {
+    "used": true,
+    "familiarity": "moderate",
+    "confidence": 0.86,
+    "contribution": "It identifies the exchange as part of Rodolphe's pursuit of Emma and supplies the broader pattern of calculated seduction and eventual abandonment. This does not alter the core linguistic classification as an avowal, but it materially weakens credibility and supports the manipulation and misrepresentation assessments.",
+    "notes": "The broad relationship and plot trajectory are remembered confidently. Because the supplied excerpt is very short and does not name either participant, exact placement within the courtship scene is less certain than the interpretation of Rodolphe's general motives."
+  },
+  "context_needs": [
+    {
+      "need": "useful_for_richer_interpretation",
+      "layers": [
+        "current_discourse_act",
+        "participant_construals",
+        "disagreements",
+        "assessments"
+      ],
+      "claim": "The exact immediate trigger for Rodolphe's denial and the way Emma receives or answers his demand.",
+      "request": "Provide the preceding and following paragraphs, especially the preceding exchange and Emma's next response."
+    }
+  ],
+  "ontology_assessment": {
+    "adequate": true,
+    "diagnosis": "The scheme naturally separates the avowal's strong truth-conditional form from its pressured and manipulative present use and from the wider narrative weakening of its credibility. The main residual complexity is that sincerity is scalar: Rodolphe may feel attraction while misrepresenting it as deeper or more durable love.",
+    "proposed_missing_dimensions": [
+      "A scalar sincerity dimension distinguishing total fabrication from exaggeration of emotional depth, exclusivity, durability, or commitment."
+    ]
+  },
+  "notes": "The requested “one word” most naturally seeks confirmation that Emma does not doubt Rodolphe, not necessarily a reciprocal declaration of love. Accordingly, elicitation_of_reaffirmation is used in the broader sense of eliciting acknowledgment of the avowal."
+}

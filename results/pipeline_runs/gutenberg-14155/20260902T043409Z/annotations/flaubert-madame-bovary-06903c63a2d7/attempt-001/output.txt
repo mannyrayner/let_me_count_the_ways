@@ -1,0 +1,154 @@
+{
+  "occurrence_id": "flaubert-madame-bovary-06903c63a2d7",
+  "core_love_content": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 3
+    },
+    "mixed_reading": {
+      "is_mixed": true,
+      "basis": "substantial_multiple_support",
+      "justification": "The mother clearly avows that she loves the child, while the exclamative construction, immediate repetition, and impulsive movement to kiss her independently support an emotionally triggered outburst."
+    },
+    "relationship_modifier": "Maternal love, colored by tenderness and compassion toward the addressed “pauvre enfant.”",
+    "analysis": "“Comme je t’aime!” presents the mother's love as true with maximal directness. Its exclamative syntax and repetition make it substantially expressive or reflex-like, but do not erase its clear propositional content. It does not undertake a new commitment or obligation.",
+    "confidence": 0.98
+  },
+  "realisation": {
+    "types": [
+      "direct_represented_speech"
+    ],
+    "other_description": null,
+    "actuality": "spoken",
+    "analysis": "The narrator's speech tag, “dit sa mère,” represents the mother as currently speaking the quoted words in the fictional world. This is neither a citation of an earlier utterance nor narration that merely supplies words for nonverbal behavior.",
+    "confidence": 0.99
+  },
+  "current_discourse_act": {
+    "types": [
+      "direct_avowal"
+    ],
+    "other_description": null,
+    "analysis": "The mother directly avows her love to the child. The exclamation, repetition, affectionate vocative, and accompanying attempt to kiss her intensify the avowal; the limited context does not firmly establish a separate act such as reassurance.",
+    "confidence": 0.97
+  },
+  "contextual_modification": {
+    "effects": [
+      "preserves",
+      "strengthens"
+    ],
+    "other_description": null,
+    "analysis": "Direct represented speech preserves the love-content without quotation, negation, or distancing. Repetition and the congruent action of rushing to kiss the child strengthen its emotional intensity and apparent sincerity.",
+    "confidence": 0.96
+  },
+  "participant_construals": [
+    {
+      "role": "original_avower_and_current_speaker: the mother",
+      "discourse_level": "both",
+      "status": "supported",
+      "analysis": "Her words construe the content as a sincere, intensely felt maternal avowal, and her rush to kiss the child behaviorally aligns with that presentation.",
+      "confidence": 0.96
+    },
+    {
+      "role": "current_addressee: the mother's child",
+      "discourse_level": "both",
+      "status": "unavailable",
+      "analysis": "The child is explicitly addressed through “t’” and “ma pauvre enfant,” but the supplied passage contains no response or evidence of how she understands or receives the avowal.",
+      "confidence": null
+    },
+    {
+      "role": "narrator_or_text",
+      "discourse_level": "both",
+      "status": "supported",
+      "analysis": "The narration frames the utterance as direct speech and places it alongside an affectionate physical action, presenting it as an emotionally intense maternal avowal without explicit irony or challenge.",
+      "confidence": 0.94
+    },
+    {
+      "role": "reader",
+      "discourse_level": "both",
+      "status": "supported",
+      "analysis": "On the supplied evidence, a reader can naturally construe the words as both a genuine assertion of maternal love and an affective exclamation.",
+      "confidence": 0.95
+    }
+  ],
+  "disagreements": [],
+  "assessments": {
+    "deception_misrepresentation": {
+      "status": "unsupported",
+      "analysis": "Nothing in the passage indicates that the mother is falsely representing her feelings; her movement to kiss the child is congruent with the avowal.",
+      "confidence": 0.92
+    },
+    "manipulation_pressure": {
+      "status": "unsupported",
+      "analysis": "The imperative concerns bringing the child to the mother, but the love-avowal itself is not used here to demand reciprocation, impose an obligation, or exert identifiable pressure.",
+      "confidence": 0.9
+    },
+    "strategic_ambiguity": {
+      "status": "unsupported",
+      "analysis": "The repeated formulation is direct and emphatic rather than strategically equivocal about either the emotion or its addressee.",
+      "confidence": 0.96
+    }
+  },
+  "evidence": [
+    {
+      "evidence_id": "E1",
+      "source": "local_text",
+      "quotation_or_description": "“Comme je t’aime, ma pauvre enfant! comme je t’aime!”",
+      "supports": "The mother explicitly and repeatedly presents her love for the addressed child as true; the exclamative form also supports an emotionally expressive reading.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "E2",
+      "source": "local_text",
+      "quotation_or_description": "“dit sa mère”",
+      "supports": "Identifies the speaker as the child's mother and establishes the occurrence as direct represented spoken speech.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "E3",
+      "source": "local_text",
+      "quotation_or_description": "The mother is described as “se précipitant pour l’embrasser.”",
+      "supports": "The impulsive attempt to kiss the child strengthens the reading of intense affection and provides behavior congruent with the avowal.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "E4",
+      "source": "local_text",
+      "quotation_or_description": "The avowal occurs twice in immediate succession, with the vocative “ma pauvre enfant.”",
+      "supports": "Repetition and the compassionate maternal address strengthen the exclamatory force and characterize the love as tender maternal affection.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "E5",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The supplied metadata identifies the work as Gustave Flaubert's French-language novel Madame Bovary.",
+      "supports": "Establishes the bibliographic source and fictional-narrative context; it does not independently determine the local utterance's sincerity or function.",
+      "confidence": 0.99
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "moderate",
+    "confidence": null,
+    "contribution": null,
+    "notes": "The local passage is sufficient for the core classification. No remembered non-local plot event was used to identify the mother and child or to infer irony, deception, or later consequences."
+  },
+  "context_needs": [
+    {
+      "need": "useful_for_richer_interpretation",
+      "layers": [
+        "current_discourse_act",
+        "participant_construals",
+        "assessments"
+      ],
+      "claim": "Whether the avowal specifically functions as consolation or reassurance, and how the child receives it.",
+      "request": "Provide the surrounding paragraph or scene, especially the event prompting “ma pauvre enfant” and the child's subsequent response."
+    }
+  ],
+  "ontology_assessment": {
+    "adequate": true,
+    "diagnosis": "The scheme naturally captures the important combination of propositional avowal and affective exclamation, while separating that combination from performative commitment and from contextual intensification by repetition and kissing.",
+    "proposed_missing_dimensions": []
+  },
+  "notes": "The classification applies to the highlighted second “je t’aime,” interpreted in light of the immediately preceding identical avowal. The repetition is intensifying rather than quotation-revoicing."
+}

@@ -1,0 +1,168 @@
+{
+  "occurrence_id": "flaubert-madame-bovary-97b0baa4e5cf",
+  "core_love_content": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 1
+    },
+    "mixed_reading": {
+      "is_mixed": false,
+      "basis": "none",
+      "justification": null
+    },
+    "relationship_modifier": "Intense romantic or erotic love, expressed within an intimate relationship.",
+    "analysis": "The idiomatic elliptical construction “Si je t’aime!” emphatically affirms that the speaker loves the addressee; the continuation “mais je t’adore, mon amour” makes its propositional avowal especially clear. Repetition and exclamation give the utterance expressive intensity, but it is not merely reflex-like and retains strong truth-conditional force. It does not itself undertake or renew a defined commitment.",
+    "confidence": 0.97
+  },
+  "realisation": {
+    "types": [
+      "direct_represented_speech"
+    ],
+    "other_description": null,
+    "actuality": "spoken",
+    "analysis": "The dialogue dash and first-person address present the words as currently spoken by a character in the fictional world. Nothing in the supplied text marks them as a citation of an earlier or hypothetical utterance.",
+    "confidence": 0.96
+  },
+  "current_discourse_act": {
+    "types": [
+      "direct_avowal",
+      "reassurance"
+    ],
+    "other_description": null,
+    "analysis": "The speaker directly avows love and intensifies the answer from loving to adoring. The responsive idiom “Si je t’aime!” strongly suggests an emphatic answer to an expressed or implied doubt or question, so reassurance is also likely, although the eliciting turn is not supplied.",
+    "confidence": 0.89
+  },
+  "contextual_modification": {
+    "effects": [
+      "preserves",
+      "strengthens",
+      "distances"
+    ],
+    "other_description": null,
+    "analysis": "Locally, repetition, exclamation, “je t’adore,” and the endearment “mon amour” preserve and strengthen the avowal. Background knowledge of Rodolphe’s calculated seduction of Emma and his eventual abandonment of her introduces likely dramatic or narratorial distance between the declaration’s extravagant surface and its reliability. Because the excerpt does not identify the speaker or include surrounding narration, that distancing interpretation is less certain than the local intensification.",
+    "confidence": 0.79
+  },
+  "participant_construals": [
+    {
+      "role": "original_avower/current_speaker, probably Rodolphe",
+      "discourse_level": "both",
+      "status": "uncertain",
+      "analysis": "The speaker presents himself as loving and indeed adoring the addressee, apparently in order to affirm or reassure her. The supplied excerpt does not name him; identification as Rodolphe depends on moderately confident memory of the wider work.",
+      "confidence": 0.79
+    },
+    {
+      "role": "current_addressee, probably Emma",
+      "discourse_level": "both",
+      "status": "uncertain",
+      "analysis": "The addressee is directly positioned as the speaker’s beloved and is probably Emma. The responsive wording suggests that her doubt or request for affirmation prompted the answer, but neither her preceding words nor her reaction is supplied.",
+      "confidence": 0.76
+    },
+    {
+      "role": "narrator_or_text",
+      "discourse_level": "both",
+      "status": "uncertain",
+      "analysis": "The text directly stages an emphatic romantic declaration. In the wider novel, Rodolphe’s cynical characterization likely gives such language ironic distance, but the local excerpt contains no explicit narratorial evaluation.",
+      "confidence": 0.72
+    },
+    {
+      "role": "reader informed by the wider work",
+      "discourse_level": "both",
+      "status": "supported",
+      "analysis": "A reader aware of Rodolphe’s treatment and eventual abandonment of Emma can understand the utterance simultaneously as an unambiguous avowal within the scene and as potentially unreliable or strategically exaggerated.",
+      "confidence": 0.81
+    }
+  ],
+  "disagreements": [
+    {
+      "parties": [
+        "original_avower/current_speaker, probably Rodolphe",
+        "reader informed by the wider work"
+      ],
+      "subject": "Reliability and sincerity of the professed love",
+      "description": "The speaker explicitly presents intense love as true, while a reader informed by Rodolphe’s broader conduct has reason to doubt that the declaration accurately represents a durable loving state.",
+      "evidence_ids": [
+        "E1",
+        "E2",
+        "E4"
+      ],
+      "confidence": 0.74
+    }
+  ],
+  "assessments": {
+    "deception_misrepresentation": {
+      "status": "supported",
+      "analysis": "The local wording alone supplies no proof of lying, but moderately confident background knowledge identifies this as likely Rodolphe speaking to Emma. His calculated approach to the affair, waning attachment, and eventual abandonment support reading the extravagant declaration as at least exaggerating or misrepresenting the depth and durability of his feelings. Conscious deception at this exact moment remains less certain than general unreliability.",
+      "confidence": 0.68
+    },
+    "manipulation_pressure": {
+      "status": "uncertain_not_assessable",
+      "analysis": "The declaration may reassure Emma and help sustain Rodolphe’s influence within the affair, but the supplied excerpt does not show a demand, threat, or immediate strategic objective. Wider characterization raises the possibility of manipulation without settling the function of this particular utterance.",
+      "confidence": 0.61
+    },
+    "strategic_ambiguity": {
+      "status": "unsupported",
+      "analysis": "The love-content is not strategically equivocal: the idiom, repetition, escalation to adoration, and endearment all make the avowal emphatic. Possible insincerity is distinct from ambiguity.",
+      "confidence": 0.91
+    }
+  },
+  "evidence": [
+    {
+      "evidence_id": "E1",
+      "source": "local_text",
+      "quotation_or_description": "“Si je t’aime! si je t’aime!”",
+      "supports": "The repeated idiomatic expression emphatically affirms the truth of the speaker’s love and realizes it as direct represented speech.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "E2",
+      "source": "local_text",
+      "quotation_or_description": "“mais je t’adore, mon amour!”",
+      "supports": "The speaker strengthens the avowal from love to adoration and uses an intimate endearment.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "E3",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is identified as coming from Gustave Flaubert’s Madame Bovary, at relative source position approximately 0.564.",
+      "supports": "Identifies the work and gives approximate placement, enabling cautious use of remembered narrative context without treating metadata as passage wording.",
+      "confidence": 1.0
+    },
+    {
+      "evidence_id": "E4",
+      "source": "background_knowledge",
+      "quotation_or_description": "This occurrence is likely from Emma’s affair with Rodolphe; Rodolphe approaches the relationship calculatingly, becomes less attached, and ultimately abandons the planned elopement.",
+      "supports": "Supports likely participant identification and the interpretation that the avowal may be exaggerated, unreliable, or viewed with dramatic irony.",
+      "confidence": 0.78
+    }
+  ],
+  "background_knowledge": {
+    "used": true,
+    "familiarity": "moderate",
+    "confidence": 0.78,
+    "contribution": "Background knowledge was used to identify the speaker and addressee provisionally as Rodolphe and Emma and to assess possible dramatic irony, misrepresentation, and manipulation in light of Rodolphe’s broader conduct.",
+    "notes": "The relationship and plot trajectory are remembered confidently in general, but the exact placement and attribution of this isolated line are less certain because the supplied excerpt omits speaker tags and adjacent narration."
+  },
+  "context_needs": [
+    {
+      "need": "useful_for_richer_interpretation",
+      "layers": [
+        "current_discourse_act",
+        "contextual_modification",
+        "participant_construals",
+        "disagreements",
+        "assessments"
+      ],
+      "claim": "The speaker is Rodolphe, the addressee is Emma, and the avowal answers her request for reassurance while functioning as a strategically unreliable declaration.",
+      "request": "Provide the preceding and following paragraphs, especially any speaker tags, Emma’s preceding question, and narratorial commentary on Rodolphe’s thoughts or manner."
+    }
+  ],
+  "ontology_assessment": {
+    "adequate": true,
+    "diagnosis": "The scheme naturally distinguishes the utterance’s strong propositional avowal from its reassuring conversational use and from contextual questions of sincerity or manipulation. The exclamatory category is somewhat coarse because this utterance has exclamatory syntax and affective intensity without weak propositional force, but the support score and analysis can preserve that distinction.",
+    "proposed_missing_dimensions": [
+      "A dedicated dimension for rhetorical or affective intensification that does not imply reflex-like production or weakened propositional force."
+    ]
+  },
+  "notes": "French “Si je t’aime!” is an emphatic elliptical response, approximately “Do I love you!” or “Indeed I love you,” rather than a genuinely conditional or hedged statement. Any claim about Rodolphe’s exact intention should remain provisional until the adjacent context confirms attribution and narrative framing."
+}
