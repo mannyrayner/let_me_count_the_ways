@@ -285,14 +285,17 @@ def annotation_highlights(output: dict) -> list[str]:
     """Create a short readable digest while preserving complete JSON below it."""
     lines = []
     core = output.get("core_love_content")
+    if not isinstance(core, dict):
+        core = output.get("core_classification")
     if isinstance(core, dict):
         support = core.get("label_support", {})
         if isinstance(support, dict):
             lines.append(
-                "- **Core T/P/E support:** "
+                "- **Core T/P/E/O support:** "
                 f"{support.get('truth_conditional', '—')} / "
                 f"{support.get('performative', '—')} / "
-                f"{support.get('exclamatory_reflexive', '—')}"
+                f"{support.get('exclamatory_reflexive', '—')} / "
+                f"{support.get('other', '—')}"
             )
         lines.append(f"- **Core analysis:** {core.get('analysis', '—')}")
     realisation = output.get("realisation")
@@ -313,10 +316,8 @@ def annotation_highlights(output: dict) -> list[str]:
         )
     ontology = output.get("ontology_assessment")
     if isinstance(ontology, dict):
-        lines.append(
-            f"- **Ontology adequate:** {ontology.get('adequate', '—')} — "
-            f"{ontology.get('diagnosis', '—')}"
-        )
+        fit = ontology.get("fit", ontology.get("adequate", "—"))
+        lines.append(f"- **Ontology fit:** {fit} — {ontology.get('diagnosis', '—')}")
     if not lines and "label_support" in output:  # v0.1 compatibility
         support = output["label_support"]
         lines.extend([
