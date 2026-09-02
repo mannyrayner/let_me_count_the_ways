@@ -74,6 +74,8 @@ class SingleTextPipelineTests(unittest.TestCase):
             "prompts/annotation/classification_schema_v0_1.json",
             "prompts/annotation/classify_passage_v0_2.md",
             "prompts/annotation/classification_schema_v0_2.json",
+            "prompts/annotation/classify_passage_v0_3.md",
+            "prompts/annotation/classification_schema_v0_3.json",
         ]:
             target = self.repo / relative
             target.parent.mkdir(parents=True, exist_ok=True)
@@ -175,6 +177,9 @@ class SingleTextPipelineTests(unittest.TestCase):
         contract = resolve_annotation_contract("0.1", self.repo)
         self.assertEqual(contract.version, "0.1")
         self.assertIn("v0_1", str(contract.prompt_path))
+        compact = resolve_annotation_contract("0.3", self.repo)
+        self.assertEqual(compact.version, "0.3")
+        self.assertEqual(compact.schema_path.name, "classification_schema_v0_3.json")
         with self.assertRaisesRegex(ValueError, "unsupported annotation version"):
             resolve_annotation_contract("9.9", self.repo)
 
@@ -245,6 +250,37 @@ class SingleTextPipelineTests(unittest.TestCase):
         self.assertEqual(len(annotator.requests), 2)
         occurrence_id = self.occurrence_id(run_dir)
         self.assertTrue((run_dir / "annotations" / occurrence_id / "attempt-002").exists())
+
+    def test_v0_3_request_uses_structured_outputs(self):
+        def response(request):
+            occurrence_id = supplied_input(request)["occurrence"]["occurrence_id"]
+            result = {
+                "occurrence_id": occurrence_id,
+                "core_classification": {
+                    "label_support": {"truth_conditional": 4, "performative": 0,
+                                      "exclamatory_reflexive": 0, "other": 0},
+                    "confidence": 0.9, "analysis": "An avowal.", "ambiguity": None,
+                },
+                "other_diagnosis": {"tpe_failure": None, "core_not_context": None},
+                "utterance_status": {"status": "direct", "description": "Direct speech."},
+                "contextual_interpretation": "The passage presents an avowal.",
+                "evidence": [{"evidence_id": "e1", "source": "local_text",
+                              "quotation_or_description": "I love you", "supports": "Avowal.",
+                              "confidence": 1.0}],
+                "background_knowledge": {"used": False, "familiarity": "none",
+                                         "confidence": None, "contribution": None},
+                "ontology_assessment": {"fit": "natural", "diagnosis": "T fits.",
+                                        "candidate_recurrent_dimension": None},
+                "notes": None,
+            }
+            return api_response(result)
+
+        annotator = RecordingAnnotator(response)
+        self.execute_pipeline(annotation_version="0.3", annotator=annotator)
+        response_format = annotator.requests[0]["text"]["format"]
+        self.assertEqual(response_format["type"], "json_schema")
+        self.assertTrue(response_format["strict"])
+        self.assertNotIn("allOf", response_format["schema"])
 
     def test_invalid_annotation_is_excluded_and_preserved_as_failure(self):
         def invalid(request):

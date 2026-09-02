@@ -14,6 +14,47 @@ from datetime import date, datetime, timezone
 from pathlib import Path
 
 
+def parse_json_output(text: str) -> tuple[dict, str]:
+    """Parse an object, tolerating only a single surrounding Markdown JSON fence."""
+    try:
+        value = json.loads(text)
+        method = "exact_json"
+    except json.JSONDecodeError as original_error:
+        stripped = text.strip()
+        lines = stripped.splitlines()
+        if len(lines) < 3 or lines[0].strip().lower() not in {"```json", "```"} \
+                or lines[-1].strip() != "```":
+            raise original_error
+        fenced = "\n".join(lines[1:-1]).strip()
+        value = json.loads(fenced)
+        method = "markdown_json_fence_removed"
+    if not isinstance(value, dict):
+        raise TypeError("annotation output must be a JSON object")
+    return value, method
+
+
+def structured_output_format(schema: dict, name: str) -> dict:
+    """Build the Responses API Structured Outputs configuration."""
+    # The API enforces shape and primitive constraints. Cross-field conditionals
+    # remain the responsibility of the versioned local validator.
+    def supported_subset(value):
+        if isinstance(value, dict):
+            return {
+                key: supported_subset(item) for key, item in value.items()
+                if key not in {"$schema", "allOf", "minLength", "minimum", "maximum"}
+            }
+        if isinstance(value, list):
+            return [supported_subset(item) for item in value]
+        return value
+
+    api_schema = supported_subset(schema)
+    return {
+        "format": {
+            "type": "json_schema", "name": name, "strict": True, "schema": api_schema,
+        }
+    }
+
+
 def output_text(response: dict) -> str:
     parts = []
     for item in response.get("output", []):
