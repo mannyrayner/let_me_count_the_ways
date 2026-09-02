@@ -129,6 +129,10 @@ only from the age of the underlying novel.
 for SOURCE_ID in gutenberg-514 gutenberg-14155; do
   PROVENANCE_FILE="provenance/sources/$SOURCE_ID.json"
   SOURCE_FILE="$(python -c 'import json,sys; print(json.load(open(sys.argv[1], encoding="utf-8"))["local_path"])' "$PROVENANCE_FILE")"
+  # Native Windows Python writes CRLF to stdout; Cygwin command substitution
+  # removes the LF but can leave the CR attached to the filename.
+  SOURCE_FILE="${SOURCE_FILE%$'\r'}"
+  test -n "$SOURCE_FILE" || { echo "Empty source path for $SOURCE_ID" >&2; exit 1; }
   echo "===== $SOURCE_ID ====="
   python -m json.tool "$PROVENANCE_FILE"
   sha256sum "$SOURCE_FILE"
@@ -137,6 +141,11 @@ for SOURCE_ID in gutenberg-514 gutenberg-14155; do
   tail -45 "$SOURCE_FILE"
 done
 ```
+
+The explicit carriage-return removal is necessary when Cygwin invokes a native
+Windows Python. Without it, commands such as `tail` receive a filename ending in
+an invisible `\r` and report a misleading “No such file or directory” even
+though the JSON value and the actual file are correct.
 
 Edit each provenance JSON to replace the pending rights note with the reviewed,
 edition-specific finding and add observed release/update/format details. Only
@@ -282,6 +291,8 @@ Inspect the headers and provenance one final time:
 for SOURCE_ID in gutenberg-514 gutenberg-14155; do
   PROVENANCE_FILE="provenance/sources/$SOURCE_ID.json"
   SOURCE_FILE="$(python -c 'import json,sys; print(json.load(open(sys.argv[1], encoding="utf-8"))["local_path"])' "$PROVENANCE_FILE")"
+  SOURCE_FILE="${SOURCE_FILE%$'\r'}"
+  test -n "$SOURCE_FILE" || { echo "Empty source path for $SOURCE_ID" >&2; exit 1; }
   echo "===== $SOURCE_ID ====="
   python -m json.tool "$PROVENANCE_FILE"
   sed -n '1,45p' "$SOURCE_FILE"
