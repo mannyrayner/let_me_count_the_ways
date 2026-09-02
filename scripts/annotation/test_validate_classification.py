@@ -1,6 +1,6 @@
 import unittest
 
-from validate_classification import validate, validate_v0_2
+from validate_classification import validate, validate_v0_2, validate_v0_3
 
 
 def valid_result():
@@ -100,6 +100,48 @@ def valid_v0_2_result():
             "adequate": True,
             "diagnosis": "The layered scheme represents the case.",
             "proposed_missing_dimensions": [],
+        },
+        "notes": None,
+    }
+
+
+def valid_v0_3_result():
+    return {
+        "occurrence_id": "occurrence-3",
+        "core_classification": {
+            "label_support": {
+                "truth_conditional": 4,
+                "performative": 1,
+                "exclamatory_reflexive": 0,
+                "other": 0,
+            },
+            "confidence": 0.95,
+            "analysis": "The utterance avows a loving state.",
+            "ambiguity": None,
+        },
+        "other_diagnosis": {"tpe_failure": None, "core_not_context": None},
+        "utterance_status": {
+            "status": "direct",
+            "description": "The character speaks the core utterance directly.",
+        },
+        "contextual_interpretation": "The local exchange supports a direct avowal.",
+        "evidence": [{
+            "evidence_id": "e1",
+            "source": "local_text",
+            "quotation_or_description": "I love you",
+            "supports": "The phrase directly presents love as true.",
+            "confidence": 1.0,
+        }],
+        "background_knowledge": {
+            "used": False,
+            "familiarity": "moderate",
+            "confidence": None,
+            "contribution": None,
+        },
+        "ontology_assessment": {
+            "fit": "natural",
+            "diagnosis": "T/P/E gives a natural account.",
+            "candidate_recurrent_dimension": None,
         },
         "notes": None,
     }
@@ -215,6 +257,54 @@ class ClassificationV02ValidationTests(unittest.TestCase):
         }]
         with self.assertRaisesRegex(ValueError, "at least 1"):
             validate_v0_2(result)
+
+
+class ClassificationV03ValidationTests(unittest.TestCase):
+    def test_accepts_valid_result(self):
+        validate_v0_3(valid_v0_3_result(), "occurrence-3")
+
+    def test_requires_four_independent_scores(self):
+        result = valid_v0_3_result()
+        del result["core_classification"]["label_support"]["other"]
+        with self.assertRaisesRegex(ValueError, "label_support must contain exactly"):
+            validate_v0_3(result)
+
+    def test_rejects_other_without_diagnosis(self):
+        result = valid_v0_3_result()
+        result["core_classification"]["label_support"]["other"] = 1
+        with self.assertRaisesRegex(ValueError, "tpe_failure"):
+            validate_v0_3(result)
+
+    def test_accepts_genuine_other_with_diagnosis(self):
+        result = valid_v0_3_result()
+        result["core_classification"]["label_support"].update(
+            truth_conditional=0, performative=0, exclamatory_reflexive=0, other=4)
+        result["other_diagnosis"] = {
+            "tpe_failure": "This is an instrumental sound check, not love-content.",
+            "core_not_context": "Producing a test signal is the phrase's present function.",
+        }
+        result["ontology_assessment"].update(
+            fit="inadequate", diagnosis="The instrumental use falls outside T/P/E.")
+        validate_v0_3(result)
+
+    def test_rejects_diagnosis_when_other_is_zero(self):
+        result = valid_v0_3_result()
+        result["other_diagnosis"]["tpe_failure"] = "Merely conceivable alternative."
+        with self.assertRaisesRegex(ValueError, "must be null"):
+            validate_v0_3(result)
+
+    def test_requires_auditable_background_knowledge(self):
+        result = valid_v0_3_result()
+        result["background_knowledge"].update(
+            used=True, confidence=0.8, contribution="A later revelation bears on sincerity.")
+        with self.assertRaisesRegex(ValueError, "requires at least one"):
+            validate_v0_3(result)
+
+    def test_rejects_duplicate_evidence_ids(self):
+        result = valid_v0_3_result()
+        result["evidence"].append(dict(result["evidence"][0]))
+        with self.assertRaisesRegex(ValueError, "unique"):
+            validate_v0_3(result)
 
 if __name__ == "__main__":
     unittest.main()
