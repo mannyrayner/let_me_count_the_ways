@@ -219,6 +219,26 @@ def valid_completion(annotation_root: Path, fingerprint: dict) -> bool:
     return False
 
 
+def unresolved_failure_count(run_dir: Path, occurrence_ids: list[str], fingerprint: dict) -> int:
+    """Count occurrences that have failures and still lack a usable valid result."""
+    count = 0
+    failure_states = {"invalid", "api_failure", "parse_failure"}
+    for occurrence_id in occurrence_ids:
+        annotation_root = run_dir / "annotations" / occurrence_id
+        if valid_completion(annotation_root, fingerprint):
+            continue
+        statuses = [
+            read_json(path) for path in annotation_root.glob("attempt-*/status.json")
+        ]
+        if any(
+            status.get("combination") == fingerprint
+            and status.get("state") in failure_states
+            for status in statuses
+        ):
+            count += 1
+    return count
+
+
 def recover_parse_failure(annotation_root: Path, fingerprint: dict,
                           validator: Callable[[dict, str | None], None],
                           occurrence_id: str) -> Path | None:
@@ -379,7 +399,8 @@ def write_markdown_report(run_dir: Path, records: list[dict], inputs: list[tuple
         f"- **Status:** `{manifest['status']}`",
         f"- **Extracted occurrences:** {manifest['extracted_occurrences']}",
         f"- **Valid occurrences:** {manifest['valid_occurrences']}",
-        f"- **Failed/invalid attempts:** {manifest['invalid_or_failed_attempts']}",
+        f"- **Unresolved failed occurrences:** {manifest['unresolved_failed_occurrences']}",
+        f"- **Historical failed/invalid attempts:** {manifest['invalid_or_failed_attempts']}",
         f"- **Estimated total cost:** USD {manifest['usage_and_cost']['estimated_total_cost_usd']:.6f}",
         "",
         "This report is generated from the preserved extraction, inputs, and annotation attempts. "
@@ -683,6 +704,7 @@ def run_pipeline(*, repo_root: Path, provenance_path: Path, patterns_path: Path,
         valid_completion(run_dir / "annotations" / occurrence_id, combination)
         for occurrence_id in occurrence_ids
     )
+    unresolved_failures = unresolved_failure_count(run_dir, occurrence_ids, combination)
     ended = now()
     if dry_run:
         status = "prepared"
@@ -720,6 +742,7 @@ def run_pipeline(*, repo_root: Path, provenance_path: Path, patterns_path: Path,
         "invalid_or_failed_attempts": (
             attempt_counts["invalid"] + attempt_counts["api_failure"] + attempt_counts["parse_failure"]
         ),
+        "unresolved_failed_occurrences": unresolved_failures,
         "attempt_counts": attempt_counts,
         "usage_and_cost": totals,
         "software": {
@@ -743,7 +766,8 @@ def run_pipeline(*, repo_root: Path, provenance_path: Path, patterns_path: Path,
         "model": api_model,
         "extracted_occurrences": len(records),
         "valid_occurrences": valid_occurrences,
-        "failed_attempts": manifest["invalid_or_failed_attempts"],
+        "failed_attempts": unresolved_failures,
+        "historical_failed_attempts": manifest["invalid_or_failed_attempts"],
         "estimated_total_cost_usd": totals["estimated_total_cost_usd"],
         "model_calls_needed": len(records) - valid_occurrences,
         "status": status,
@@ -759,7 +783,8 @@ def run_pipeline(*, repo_root: Path, provenance_path: Path, patterns_path: Path,
     emit(f"      Human-readable report: {report_path}")
     emit(
         f"Pipeline {status}: {valid_occurrences}/{len(records)} valid occurrence(s), "
-        f"{manifest['invalid_or_failed_attempts']} failed/invalid attempt(s)."
+        f"{unresolved_failures} unresolved failed occurrence(s) "
+        f"({manifest['invalid_or_failed_attempts']} historical failed/invalid attempt(s))."
     )
     return run_dir
 

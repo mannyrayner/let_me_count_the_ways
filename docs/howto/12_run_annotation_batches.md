@@ -82,3 +82,80 @@ registered in the single-text pipeline.
 Additional historic pattern candidates can be supplied by repeating
 `--patterns PATH`. This affects only validation of a reused extraction's
 fingerprint; it does not change corpus membership or trigger re-extraction.
+
+## Audit and check in a completed batch
+
+Set the batch directory after a successful or resumed run:
+
+```bash
+BATCH_DIR=results/batch_runs/development_three/v0.3-5.6
+```
+
+First require a complete aggregate with no unresolved failures, all 22
+annotations valid, and a complete v0.2 comparison. Historical failed attempts
+are expected to remain in the scientific record and do not make the completed
+batch unsuccessful:
+
+```bash
+python - <<'PY'
+import json
+from pathlib import Path
+
+root = Path("results/batch_runs/development_three/v0.3-5.6")
+summary = json.loads((root / "summary.json").read_text(encoding="utf-8"))
+comparison = json.loads((root / "comparison.json").read_text(encoding="utf-8"))
+assert summary["status"] == "complete", summary
+assert summary["texts_completed"] == summary["texts_requested"] == 3, summary
+assert summary["valid_annotations"] == summary["occurrences"] == 22, summary
+assert summary["failures"] == 0, summary
+assert summary["model_calls_needed"] == 0, summary
+assert comparison["matched_occurrences"] == 22, comparison
+assert not comparison["unmatched"], comparison["unmatched"]
+print("Complete batch and comparison: 3 texts, 22/22 valid, 0 unresolved failures.")
+PY
+```
+
+Audit each underlying single-text run using the existing audit command:
+
+```bash
+python scripts/pipeline/audit_pipeline_run.py "$BATCH_DIR/texts/gutenberg-1260" \
+  --expected-occurrences 6
+python scripts/pipeline/audit_pipeline_run.py "$BATCH_DIR/texts/gutenberg-514" \
+  --expected-occurrences 4
+python scripts/pipeline/audit_pipeline_run.py "$BATCH_DIR/texts/gutenberg-14155" \
+  --expected-occurrences 12
+```
+
+Inspect the aggregate and comparison reports, inventory the artifacts, and run
+the credential scanner before staging anything:
+
+```bash
+sed -n '1,220p' "$BATCH_DIR/report.md"
+sed -n '1,260p' "$BATCH_DIR/comparison.md"
+find "$BATCH_DIR" -type f -print | sort
+python scripts/security/scan_credentials.py "$BATCH_DIR"
+git status --short "$BATCH_DIR"
+```
+
+Finally ensure that the index is initially empty, stage the complete batch as a
+unit, inspect the staged change, commit, and push:
+
+```bash
+test -z "$(git diff --cached --name-only)" || {
+  echo 'The index already contains staged files; review or unstage them first.' >&2
+  exit 1
+}
+git add "$BATCH_DIR"
+git diff --cached --check
+git diff --cached --stat
+git status --short
+git commit -m 'Record development-three v0.3 batch run'
+git push origin HEAD
+git status --short
+```
+
+Stop before `git add` if the batch is partial, an audit fails, the comparison
+has unmatched occurrences, or credential scanning reports a finding. Do not
+delete failed attempts from an otherwise successful run: the aggregate now
+distinguishes zero **unresolved failed occurrences** from the retained count of
+**historical failed/invalid attempts**.

@@ -97,6 +97,7 @@ def audit_run(run_dir: Path, repo_root: Path, expected_occurrences: int | None =
         "occurrences": len(passages),
         "attempts": manifest["attempt_counts"]["attempts"],
         "failed_or_invalid_attempts": manifest["invalid_or_failed_attempts"],
+        "unresolved_failed_occurrences": manifest.get("unresolved_failed_occurrences", 0),
         "estimated_total_cost_usd": manifest["usage_and_cost"]["estimated_total_cost_usd"],
         "status": manifest["status"],
     }

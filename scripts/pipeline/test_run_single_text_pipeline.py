@@ -251,6 +251,30 @@ class SingleTextPipelineTests(unittest.TestCase):
         occurrence_id = self.occurrence_id(run_dir)
         self.assertTrue((run_dir / "annotations" / occurrence_id / "attempt-002").exists())
 
+    def test_successful_retry_clears_unresolved_but_preserves_failure_history(self):
+        calls = 0
+
+        def response(request):
+            nonlocal calls
+            calls += 1
+            if calls == 1:
+                return {"output": [{"content": [{"type": "output_text", "text": "not json"}]}]}
+            supplied = supplied_input(request)
+            return api_response(valid_v0_1_result(supplied["occurrence"]["occurrence_id"]))
+
+        annotator = RecordingAnnotator(response)
+        run_dir = self.execute_pipeline(annotation_version="0.1", annotator=annotator)
+        first = json.loads((run_dir / "summary.json").read_text())
+        self.assertEqual(first["failed_attempts"], 1)
+        self.execute_pipeline(
+            annotation_version="0.1", annotator=annotator, run_dir=run_dir)
+        summary = json.loads((run_dir / "summary.json").read_text())
+        self.assertEqual(summary["failed_attempts"], 0)
+        self.assertEqual(summary["historical_failed_attempts"], 1)
+        report = (run_dir / "report.md").read_text()
+        self.assertIn("Unresolved failed occurrences:** 0", report)
+        self.assertIn("Historical failed/invalid attempts:** 1", report)
+
     def test_v0_3_request_uses_structured_outputs(self):
         def response(request):
             occurrence_id = supplied_input(request)["occurrence"]["occurrence_id"]
