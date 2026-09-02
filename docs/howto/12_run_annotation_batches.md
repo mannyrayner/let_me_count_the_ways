@@ -46,6 +46,13 @@ failed cases receive new preserved attempts. `--force` intentionally creates a
 new attempt even where a valid output exists; it does not overwrite old
 attempts.
 
+On resume, the pipeline first tries to recover prior parse failures that consist
+of one valid JSON object surrounded only by a Markdown JSON fence. Successful
+recovery is recorded in `recovery.json` and costs no additional model call.
+Arbitrary trailing prose or multiple JSON objects are not silently discarded.
+New v0.3 calls request strict JSON-schema Structured Outputs from the Responses
+API, while the local v0.3 validator continues to enforce cross-field rules.
+
 One source failure does not abort other sources. Raw responses, malformed
 outputs, validation errors, retry state, requests, parameters, token usage, and
 cost remain in each single-text result exactly as before. The batch summary

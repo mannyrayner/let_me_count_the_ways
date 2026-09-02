@@ -156,6 +156,8 @@ def run_batch(*, repo_root: Path, manifest_path: Path, annotation_version: str,
                 "valid_occurrences": text_manifest["valid_occurrences"],
                 "failures": text_manifest["invalid_or_failed_attempts"],
                 "skipped_valid_this_invocation": text_manifest["skipped_valid_this_invocation"],
+                "recovered_without_model_call_this_invocation": text_manifest.get(
+                    "recovered_without_model_call_this_invocation", 0),
                 "estimated_total_cost_usd": text_manifest["usage_and_cost"]["estimated_total_cost_usd"],
                 "cost_per_valid_annotation_usd": (
                     text_manifest["usage_and_cost"]["estimated_total_cost_usd"] /
@@ -173,6 +175,7 @@ def run_batch(*, repo_root: Path, manifest_path: Path, annotation_version: str,
                 "valid_occurrences": existing.get("valid_occurrences", 0),
                 "failures": existing.get("invalid_or_failed_attempts", 0) + 1,
                 "skipped_valid_this_invocation": 0,
+                "recovered_without_model_call_this_invocation": 0,
                 "estimated_total_cost_usd": existing.get("usage_and_cost", {}).get(
                     "estimated_total_cost_usd", 0.0),
                 "cost_per_valid_annotation_usd": (
@@ -190,6 +193,8 @@ def run_batch(*, repo_root: Path, manifest_path: Path, annotation_version: str,
         "texts_completed": sum(t["status"] == "complete" for t in texts),
         "texts_partial_or_failed": sum(t["status"] in {"partial", "error"} for t in texts),
         "texts_resumed_or_skipped": sum(t["skipped_valid_this_invocation"] > 0 for t in texts),
+        "annotations_recovered_without_model_call": sum(
+            t["recovered_without_model_call_this_invocation"] for t in texts),
         "occurrences": sum(t["extracted_occurrences"] for t in texts),
         "occurrences_attempted_this_invocation": sum(t["attempted_this_invocation"] for t in texts),
         "valid_annotations": sum(t["valid_occurrences"] for t in texts),

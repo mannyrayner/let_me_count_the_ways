@@ -23,7 +23,9 @@ if str(REPOSITORY_ROOT) not in sys.path:
     sys.path.insert(0, str(REPOSITORY_ROOT))
 
 from scripts.annotation.validate_classification import validate, validate_v0_2, validate_v0_3
-from scripts.api.call_responses import calculate_cost, output_text, resolve_model
+from scripts.api.call_responses import (
+    calculate_cost, output_text, parse_json_output, resolve_model, structured_output_format,
+)
 from scripts.extraction.extract_passages import extract, load_patterns
 
 
@@ -215,6 +217,36 @@ def valid_completion(annotation_root: Path, fingerprint: dict) -> bool:
         if status.get("state") == "valid" and status.get("combination") == fingerprint:
             return True
     return False
+
+
+def recover_parse_failure(annotation_root: Path, fingerprint: dict,
+                          validator: Callable[[dict, str | None], None],
+                          occurrence_id: str) -> Path | None:
+    """Recover a prior fenced-JSON response without making another model call."""
+    for status_path in sorted(annotation_root.glob("attempt-*/status.json"), reverse=True):
+        status = read_json(status_path)
+        attempt_dir = status_path.parent
+        output_path = attempt_dir / "output.txt"
+        if (status.get("state") != "parse_failure" or status.get("combination") != fingerprint
+                or not output_path.exists()):
+            continue
+        try:
+            parsed, method = parse_json_output(output_path.read_text(encoding="utf-8"))
+            validator(parsed, occurrence_id)
+        except (ValueError, TypeError, json.JSONDecodeError):
+            continue
+        write_json(attempt_dir / "output.json", parsed)
+        write_json(attempt_dir / "validation.json", {
+            "valid": True, "schema_version": fingerprint["annotation_version"],
+            "recovered_from_parse_failure": True,
+        })
+        write_json(attempt_dir / "recovery.json", {
+            "method": method,
+            "note": "The preserved raw output was reparsed; no model call was made.",
+        })
+        write_json(status_path, {"state": "valid", "combination": fingerprint})
+        return attempt_dir
+    return None
 
 
 class ApiAnnotator:
@@ -552,6 +584,7 @@ def run_pipeline(*, repo_root: Path, provenance_path: Path, patterns_path: Path,
     }
     attempted_this_invocation = 0
     skipped_valid = 0
+    recovered_without_model_call = 0
     emit("[4/6] Processing annotations...")
     if not dry_run:
         if annotator is None:
@@ -564,6 +597,14 @@ def run_pipeline(*, repo_root: Path, provenance_path: Path, patterns_path: Path,
             if not force and valid_completion(annotation_root, combination):
                 skipped_valid += 1
                 emit(f"      [{position}/{len(inputs)}] {occurrence_id}: valid result exists; skipped.")
+                continue
+            if not force and recover_parse_failure(
+                    annotation_root, combination, contract.validator, occurrence_id):
+                recovered_without_model_call += 1
+                emit(
+                    f"      [{position}/{len(inputs)}] {occurrence_id}: "
+                    "recovered preserved fenced JSON; no model call made."
+                )
                 continue
             attempt_dir = next_attempt_directory(annotation_root)
             attempt_dir.mkdir(parents=True)
@@ -579,6 +620,11 @@ def run_pipeline(*, repo_root: Path, provenance_path: Path, patterns_path: Path,
                 f"## JSON Schema\n\n{contract.schema}"
             )
             request_payload = {"model": api_model, "input": combined_input}
+            if annotation_version == "0.3":
+                request_payload["text"] = structured_output_format(
+                    json.loads(contract.schema),
+                    f"passage_classification_v{annotation_version.replace('.', '_')}",
+                )
             write_json(attempt_dir / "request.json", request_payload)
             write_json(attempt_dir / "metadata.json", {
                 "occurrence_id": occurrence_id,
@@ -604,7 +650,7 @@ def run_pipeline(*, repo_root: Path, provenance_path: Path, patterns_path: Path,
             usage = response.get("usage", {})
             write_json(attempt_dir / "cost.json", calculate_cost(usage, pricing))
             try:
-                parsed = json.loads(parsed_text)
+                parsed, parsing_method = parse_json_output(parsed_text)
             except (json.JSONDecodeError, TypeError) as exc:
                 failure = failure_record(occurrence_id, "parse_failure", exc, attempt_number, now().isoformat())
                 write_json(attempt_dir / "failure.json", failure)
@@ -613,6 +659,7 @@ def run_pipeline(*, repo_root: Path, provenance_path: Path, patterns_path: Path,
                 emit(f"      [{position}/{len(inputs)}] {occurrence_id}: parse failure preserved.")
                 continue
             write_json(attempt_dir / "output.json", parsed)
+            write_json(attempt_dir / "parsing.json", {"method": parsing_method})
             try:
                 contract.validator(parsed, occurrence_id)
             except (ValueError, TypeError) as exc:
@@ -668,6 +715,7 @@ def run_pipeline(*, repo_root: Path, provenance_path: Path, patterns_path: Path,
         "extracted_occurrences": len(records),
         "attempted_this_invocation": attempted_this_invocation,
         "skipped_valid_this_invocation": skipped_valid,
+        "recovered_without_model_call_this_invocation": recovered_without_model_call,
         "valid_occurrences": valid_occurrences,
         "invalid_or_failed_attempts": (
             attempt_counts["invalid"] + attempt_counts["api_failure"] + attempt_counts["parse_failure"]

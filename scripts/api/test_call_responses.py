@@ -4,7 +4,9 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 import json
 
-from call_responses import calculate_cost, output_text, resolve_model
+from call_responses import (
+    calculate_cost, output_text, parse_json_output, resolve_model, structured_output_format,
+)
 
 
 class OutputTextTests(unittest.TestCase):
@@ -20,6 +22,29 @@ class OutputTextTests(unittest.TestCase):
     def test_ignores_non_text_content(self):
         response = {"output": [{"content": [{"type": "refusal", "refusal": "no"}]}]}
         self.assertEqual(output_text(response), "")
+
+    def test_parses_exact_and_markdown_fenced_json(self):
+        self.assertEqual(parse_json_output('{"value": 1}'), ({"value": 1}, "exact_json"))
+        self.assertEqual(
+            parse_json_output('```json\n{"value": 1}\n```'),
+            ({"value": 1}, "markdown_json_fence_removed"),
+        )
+
+    def test_does_not_silently_discard_arbitrary_trailing_text(self):
+        with self.assertRaises(json.JSONDecodeError):
+            parse_json_output('{"value": 1}\nHere is an explanation.')
+
+    def test_structured_format_removes_local_conditional_keywords(self):
+        result = structured_output_format({
+            "$schema": "draft", "type": "object", "allOf": [{"if": {}}], "minLength": 1,
+            "$defs": {"item": {"type": "object", "allOf": [{"then": {}}]}},
+        }, "classification")
+        schema = result["format"]["schema"]
+        self.assertNotIn("$schema", schema)
+        self.assertNotIn("allOf", schema)
+        self.assertNotIn("minLength", schema)
+        self.assertNotIn("allOf", schema["$defs"]["item"])
+        self.assertTrue(result["format"]["strict"])
 
     def test_calculates_cached_and_uncached_cost(self):
         usage = {
