@@ -220,13 +220,12 @@ directory before staging it. The following command should print the success
 message and no matching file content:
 
 ```bash
-if rg -n --hidden 'OPENAI_API_KEY|Authorization:[[:space:]]*Bearer|sk-[A-Za-z0-9_-]{16,}' "$RUN_DIR"; then
-  echo 'Possible credential found; do not stage the run.' >&2
-  exit 1
-else
-  echo 'Credential scan passed.'
-fi
+python scripts/security/scan_credentials.py "$RUN_DIR"
 ```
+
+The scanner exits nonzero if a likely credential is found, if a requested path
+does not exist, or if scanning cannot be completed. It reports only file and
+line locations, not the possible secret itself.
 
 Inspect the human-readable report and the set of files before committing:
 

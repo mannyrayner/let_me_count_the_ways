@@ -262,17 +262,19 @@ for source_id, wanted in expected.items():
     print(f"Source audit passed: {record['title']} ({source_id})")
 PY
 
-if rg -n --hidden 'OPENAI_API_KEY|Authorization:[[:space:]]*Bearer|sk-[A-Za-z0-9_-]{16,}' \
+python scripts/security/scan_credentials.py \
   provenance/sources/gutenberg-514.json \
   provenance/sources/gutenberg-14155.json \
   data/raw/alcott-little-women/gutenberg-514.txt \
-  data/raw/flaubert-madame-bovary/gutenberg-14155.txt; then
-  echo 'Possible credential found; do not stage the sources.' >&2
-  exit 1
-else
-  echo 'Credential scan passed.'
-fi
+  data/raw/flaubert-madame-bovary/gutenberg-14155.txt
 ```
+
+This repository-native scanner has no `ripgrep` dependency. It fails nonzero
+when a likely credential is found, a path is missing, or a file cannot be read;
+it cannot silently turn a missing scanner command into a successful result.
+Do not wrap an optional external scanner as `if scanner ...; then ...; else
+passed; fi`: Bash treats “command not found” as a false condition and therefore
+runs that misleading success branch.
 
 Inspect the headers and provenance one final time:
 
