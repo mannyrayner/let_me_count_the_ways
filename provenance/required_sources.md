@@ -145,6 +145,40 @@ Add complete records as the design develops for:
 These should be promoted to **Priority sources** when they become necessary for
 an argument, annotation decision, or validation procedure.
 
+## Development-corpus candidates
+
+### Louisa May Alcott, *Little Women* — `locating`
+
+- **Research role:** next English v0.2 pressure test, selected to broaden the
+  relationship space beyond the predominantly romantic *Jane Eyre* cases.
+- **Candidate source:** Project Gutenberg ebook 514, English original,
+  catalogue page `https://www.gutenberg.org/ebooks/514`, with candidate UTF-8
+  text URL `https://www.gutenberg.org/cache/epub/514/pg514.txt`.
+- **Verification status:** the identifiers and URLs are acquisition candidates,
+  not yet an approved edition. The current execution environment returned an
+  HTTP 403 before the landing page or file could be inspected. A collaborator
+  must verify the live page, downloaded header/footer, edition identity, rights
+  statement, format, and checksum before approval.
+- **Repository treatment:** after edition-level review, retain the verified raw
+  public-domain source, provenance JSON, extraction, pipeline artifacts, and
+  diagnostic review. Do not create an approved record from this candidate note.
+
+### Gustave Flaubert, *Madame Bovary* — `locating`
+
+- **Research role:** first French v0.2 pressure test, including the transfer from
+  English “I love you” to Barthes's `je t’aime` object.
+- **Candidate source:** Project Gutenberg ebook 14155, candidate French
+  original, catalogue page `https://www.gutenberg.org/ebooks/14155`, with
+  candidate UTF-8 text URL
+  `https://www.gutenberg.org/cache/epub/14155/pg14155.txt`.
+- **Verification status:** the work, language, edition presentation, URLs,
+  rights statement, encoding, header/footer, and checksum remain to be checked
+  against the live source. The current execution environment returned HTTP 403,
+  so this note deliberately does not mark the source cleared or approved.
+- **Repository treatment:** preserve the verified original-language source only
+  after provenance review. Treat a translation as a separate source and do not
+  substitute one for this experiment.
+
 ## Practical next actions
 
 1. Ask a research librarian to locate Barthes’s 1977 French edition and the
