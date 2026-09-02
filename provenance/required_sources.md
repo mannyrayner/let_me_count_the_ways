@@ -147,7 +147,7 @@ an argument, annotation decision, or validation procedure.
 
 ## Development-corpus candidates
 
-### Louisa May Alcott, *Little Women* — `locating`
+### Louisa May Alcott, *Little Women* — `cleared`
 
 - **Research role:** next English v0.2 pressure test, selected to broaden the
   relationship space beyond the predominantly romantic *Jane Eyre* cases.
@@ -163,7 +163,7 @@ an argument, annotation decision, or validation procedure.
   public-domain source, provenance JSON, extraction, pipeline artifacts, and
   diagnostic review. Do not create an approved record from this candidate note.
 
-### Gustave Flaubert, *Madame Bovary* — `locating`
+### Gustave Flaubert, *Madame Bovary* — `cleared`
 
 - **Research role:** first French v0.2 pressure test, including the transfer from
   English “I love you” to Barthes's `je t’aime` object.
