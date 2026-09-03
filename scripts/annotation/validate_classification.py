@@ -452,10 +452,13 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("input", type=Path)
     parser.add_argument("--expected-occurrence-id")
-    parser.add_argument("--schema-version", choices=["0.1", "0.2", "0.3"], default="0.1")
+    parser.add_argument("--schema-version", choices=["0.1", "0.2", "0.3", "0.3.1"], default="0.1")
     args = parser.parse_args()
     result = json.loads(args.input.read_text(encoding="utf-8"))
-    validators = {"0.1": validate, "0.2": validate_v0_2, "0.3": validate_v0_3}
+    validators = {
+        "0.1": validate, "0.2": validate_v0_2,
+        "0.3": validate_v0_3, "0.3.1": validate_v0_3,
+    }
     validator = validators[args.schema_version]
     validator(result, args.expected_occurrence_id)
     print(f"Classification v{args.schema_version} validation passed: {result['occurrence_id']}")

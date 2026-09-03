@@ -83,7 +83,34 @@ Additional historic pattern candidates can be supplied by repeating
 `--patterns PATH`. This affects only validation of a reused extraction's
 fingerprint; it does not change corpus membership or trigger re-extraction.
 
+## Run the calibrated-E prompt experiment
+
+Prompt v0.3.1 reuses the v0.3 schema but has a distinct prompt hash and result
+directory. Run it against the same extractions and compare it with v0.3:
+
+```bash
+python scripts/pipeline/run_batch.py \
+  --manifest data/batches/development_three.json \
+  --annotation-version 0.3.1 \
+  --model 5.6 \
+  --compare-with 0.3
+```
+
+The result is stored alongside, rather than over, v0.3 at
+`results/batch_runs/development_three/v0.3.1-5.6/`. Its comparison reports every
+E change, marks E changes of magnitude at least two, and also exposes changes in
+O, ontology fit, and confidence. The comparison is diagnostic: neither prompt
+version is treated as ground truth and lower E is not automatically preferred.
+
 ## Audit and check in a completed batch
+
+Keep implementation changes and generated research results separate. A prompt,
+schema, validator, or runner pull request must not include dry-run placeholders,
+credential-failure summaries, or regenerated copies of an already authoritative
+batch. Merge the implementation first; then run, audit, and check in only the
+completed new result directory in a dedicated results commit or pull request.
+This prevents generated files on an implementation branch from conflicting with
+authoritative results produced meanwhile on the target branch.
 
 Set the batch directory after a successful or resumed run:
 

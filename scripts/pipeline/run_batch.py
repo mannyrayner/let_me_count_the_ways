@@ -214,8 +214,10 @@ def run_batch(*, repo_root: Path, manifest_path: Path, annotation_version: str,
     write_json(batch_dir / "summary.json", summary)
     (batch_dir / "report.md").write_text(markdown_summary(summary), encoding="utf-8")
     if compare_with:
+        batch_reference = batch_dir.parent / f"v{compare_with}-{model_alias}" / "texts"
+        comparison_root = batch_reference if batch_reference.exists() else extraction_root
         comparison, report = compare(
-            batch_summary_path=batch_dir / "summary.json", reference_root=extraction_root,
+            batch_summary_path=batch_dir / "summary.json", reference_root=comparison_root,
             old_version=compare_with,
         )
         write_json(batch_dir / "comparison.json", comparison)

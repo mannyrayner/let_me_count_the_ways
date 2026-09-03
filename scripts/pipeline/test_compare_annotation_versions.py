@@ -1,6 +1,11 @@
+import json
+import tempfile
 import unittest
+from pathlib import Path
 
-from scripts.pipeline.compare_annotation_versions import old_context_summary, scores
+from scripts.pipeline.compare_annotation_versions import (
+    context_summary, latest_reference_run, scores,
+)
 
 
 class AnnotationComparisonTests(unittest.TestCase):
@@ -22,9 +27,23 @@ class AnnotationComparisonTests(unittest.TestCase):
                 "manipulation_pressure": {"status": "unsupported"},
             },
         }
-        summary = old_context_summary(output)
+        summary = context_summary(output, "0.2")
         self.assertIn("Calculated reassurance", summary)
         self.assertIn("deception_misrepresentation", summary)
+
+    def test_new_context_summary_uses_open_interpretation(self):
+        output = {"contextual_interpretation": "Passion accompanies a T avowal."}
+        self.assertEqual(context_summary(output, "0.3"), output["contextual_interpretation"])
+
+    def test_finds_stable_batch_text_as_reference_run(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            source = root / "source"
+            source.mkdir()
+            (source / "manifest.json").write_text(json.dumps({
+                "annotation_version": "0.3", "status": "complete",
+            }), encoding="utf-8")
+            self.assertEqual(latest_reference_run(root, "source", "0.3"), source)
 
 
 if __name__ == "__main__":

@@ -76,6 +76,7 @@ class SingleTextPipelineTests(unittest.TestCase):
             "prompts/annotation/classification_schema_v0_2.json",
             "prompts/annotation/classify_passage_v0_3.md",
             "prompts/annotation/classification_schema_v0_3.json",
+            "prompts/annotation/classify_passage_v0_3_1.md",
         ]:
             target = self.repo / relative
             target.parent.mkdir(parents=True, exist_ok=True)
@@ -180,6 +181,9 @@ class SingleTextPipelineTests(unittest.TestCase):
         compact = resolve_annotation_contract("0.3", self.repo)
         self.assertEqual(compact.version, "0.3")
         self.assertEqual(compact.schema_path.name, "classification_schema_v0_3.json")
+        calibrated = resolve_annotation_contract("0.3.1", self.repo)
+        self.assertEqual(calibrated.prompt_path.name, "classify_passage_v0_3_1.md")
+        self.assertEqual(calibrated.schema_path, compact.schema_path)
         with self.assertRaisesRegex(ValueError, "unsupported annotation version"):
             resolve_annotation_contract("9.9", self.repo)
 

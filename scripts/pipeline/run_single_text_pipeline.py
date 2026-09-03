@@ -45,6 +45,11 @@ ANNOTATION_FILES = {
         Path("prompts/annotation/classification_schema_v0_3.json"),
         validate_v0_3,
     ),
+    "0.3.1": (
+        Path("prompts/annotation/classify_passage_v0_3_1.md"),
+        Path("prompts/annotation/classification_schema_v0_3.json"),
+        validate_v0_3,
+    ),
 }
 APPROVED_STATUSES = {"approved_for_development_processing"}
 CHAPTER_PATTERN = re.compile(r"(?m)^(CHAPTER|CHAPITRE)\s+([^\n]+?)\s*$", re.IGNORECASE)
@@ -641,7 +646,7 @@ def run_pipeline(*, repo_root: Path, provenance_path: Path, patterns_path: Path,
                 f"## JSON Schema\n\n{contract.schema}"
             )
             request_payload = {"model": api_model, "input": combined_input}
-            if annotation_version == "0.3":
+            if annotation_version in {"0.3", "0.3.1"}:
                 request_payload["text"] = structured_output_format(
                     json.loads(contract.schema),
                     f"passage_classification_v{annotation_version.replace('.', '_')}",
