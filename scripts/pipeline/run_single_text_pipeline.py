@@ -175,7 +175,9 @@ def enrich_occurrence(record: dict, provenance: dict, source_text: str) -> dict:
             "edition_source": {
                 "repository": provenance.get("repository"),
                 "repository_ebook_id": provenance.get("repository_ebook_id"),
+                "repository_ebook_ids": provenance.get("repository_ebook_ids"),
                 "source_url": provenance.get("source_url"),
+                "source_urls": provenance.get("source_urls"),
                 "retrieved_at": provenance.get("retrieved_at"),
             },
             "location": {

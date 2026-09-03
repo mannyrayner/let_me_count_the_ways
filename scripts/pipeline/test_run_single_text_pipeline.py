@@ -203,6 +203,18 @@ class SingleTextPipelineTests(unittest.TestCase):
         for prohibited in ["speaker", "addressee", "romantic", "deceptive", "revoicing"]:
             self.assertNotIn(prohibited, serialized)
 
+    def test_enrichment_preserves_multi_volume_source_provenance(self):
+        record = {"start": 1, "end": 2, "context_start": 0, "context_end": 3}
+        provenance = json.loads(self.provenance.read_text())
+        provenance.update({
+            "repository_ebook_ids": ["2407", "2408"],
+            "source_urls": ["https://example.test/2407", "https://example.test/2408"],
+        })
+        edition = enrich_occurrence(record, provenance, self.source_text)["metadata"][
+            "edition_source"]
+        self.assertEqual(edition["repository_ebook_ids"], ["2407", "2408"])
+        self.assertEqual(len(edition["source_urls"]), 2)
+
     def test_valid_annotation_is_preserved_and_manifested(self):
         trace = []
         annotator = RecordingAnnotator(
