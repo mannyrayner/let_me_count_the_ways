@@ -50,12 +50,16 @@ acquire_gutenberg () {
   SOURCE_ID="$1" WORK_ID="$2" SOURCE_URL="$3" TRIM_GUTENBERG="$4"
   SOURCE_DIR="data/raw/$WORK_ID"
   DOWNLOAD="$SOURCE_DIR/source-download.txt"
+  PARTIAL="$DOWNLOAD.part"
   SOURCE_FILE="$SOURCE_DIR/$SOURCE_ID.txt"
   mkdir -p "$SOURCE_DIR"
-  test ! -e "$DOWNLOAD" && test ! -e "$SOURCE_FILE" || {
+  test ! -e "$DOWNLOAD" && test ! -e "$PARTIAL" && test ! -e "$SOURCE_FILE" || {
     echo "Refusing to overwrite $SOURCE_DIR" >&2; return 1;
   }
-  curl --fail --location --retry 3 --output "$DOWNLOAD" "$SOURCE_URL" || return 1
+  curl --fail --location --retry 3 --output "$PARTIAL" "$SOURCE_URL" || {
+    rm -f "$PARTIAL"; return 1;
+  }
+  mv "$PARTIAL" "$DOWNLOAD"
   python - "$DOWNLOAD" "$SOURCE_FILE" "$TRIM_GUTENBERG" <<'PY'
 import re, sys
 from pathlib import Path
@@ -80,10 +84,28 @@ PY
 acquire_gutenberg gutenberg-1256 rostand-cyrano-de-bergerac \
   'https://www.gutenberg.org/cache/epub/1256/pg1256.txt' 0
 acquire_gutenberg gutenberg-19794 goethe-die-leiden-des-jungen-werther \
-  'https://www.gutenberg.org/cache/epub/19794/pg19794.txt' 0
+  'https://www.gutenberg.org/files/19794/19794-8.txt' 0
 acquire_gutenberg gutenberg-18797 lafayette-la-princesse-de-cleves \
   'https://www.gutenberg.org/cache/epub/18797/pg18797.txt' 1
 unset -f acquire_gutenberg
+```
+
+Project Gutenberg #19794 is an older deposit whose German plain text is at the
+archive path `files/19794/19794-8.txt`; unlike the other two books, it does not
+have the assumed `cache/epub/19794/pg19794.txt` representation. If the failed
+command from an earlier version of this runbook left an empty destination,
+remove only that confirmed-empty file and retry the corrected command:
+
+```bash
+WERTHER_DIR='data/raw/goethe-die-leiden-des-jungen-werther'
+test ! -e "$WERTHER_DIR/source-download.txt" || {
+  test ! -s "$WERTHER_DIR/source-download.txt" || {
+    echo 'Refusing to remove a non-empty prior download.' >&2; exit 1;
+  }
+  rm "$WERTHER_DIR/source-download.txt"
+}
+acquire_gutenberg gutenberg-19794 goethe-die-leiden-des-jungen-werther \
+  'https://www.gutenberg.org/files/19794/19794-8.txt' 0
 ```
 
 The #18797 derived text deliberately excludes its wrapper while the exact
@@ -160,7 +182,7 @@ from pathlib import Path
 retrieved_at=sys.argv[1]
 sources={
  "gutenberg-1256": ("rostand-cyrano-de-bergerac","https://www.gutenberg.org/cache/epub/1256/pg1256.txt","source-download.txt","Gutenberg wrapper retained in literary text."),
- "gutenberg-19794": ("goethe-die-leiden-des-jungen-werther","https://www.gutenberg.org/cache/epub/19794/pg19794.txt","source-download.txt","Gutenberg wrapper retained in literary text."),
+ "gutenberg-19794": ("goethe-die-leiden-des-jungen-werther","https://www.gutenberg.org/files/19794/19794-8.txt","source-download.txt","Gutenberg wrapper retained in literary text; source decoded from the archive's ISO-8859-1-compatible plain-text deposit."),
  "gutenberg-18797": ("lafayette-la-princesse-de-cleves","https://www.gutenberg.org/cache/epub/18797/pg18797.txt","source-download.txt","Gutenberg wrapper removed at explicit START/END markers."),
  "runeberg-dukkhjem": ("ibsen-et-dukkehjem","https://runeberg.org/dukkhjem/dukkhjem.html","source-download.html","Python HTMLParser extraction; entities decoded and block boundaries converted to newlines."),
  "runeberg-frkjulie": ("strindberg-froken-julie","https://runeberg.org/frkjulie/frkjulie.html","source-download.html","Python HTMLParser extraction; entities decoded and block boundaries converted to newlines."),
