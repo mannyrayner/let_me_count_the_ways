@@ -104,6 +104,14 @@ version is treated as ground truth and lower E is not automatically preferred.
 
 ## Audit and check in a completed batch
 
+Keep implementation changes and generated research results separate. A prompt,
+schema, validator, or runner pull request must not include dry-run placeholders,
+credential-failure summaries, or regenerated copies of an already authoritative
+batch. Merge the implementation first; then run, audit, and check in only the
+completed new result directory in a dedicated results commit or pull request.
+This prevents generated files on an implementation branch from conflicting with
+authoritative results produced meanwhile on the target branch.
+
 Set the batch directory after a successful or resumed run:
 
 ```bash
