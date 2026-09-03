@@ -26,6 +26,7 @@ history is cleaned up and do not block the current sequence.
 | 10 | [Acquire and dry-run the next texts](10_acquire_and_dry_run_next_texts.md) | Verified *Little Women* and *Madame Bovary* sources and inspected dry runs |
 | 11 | [Annotate the next texts with v0.2](11_annotate_next_texts_v0_2.md) | Complete, audited *Little Women* and *Madame Bovary* v0.2 runs |
 | 12 | [Run manifest-defined annotation batches](12_run_annotation_batches.md) | Reusable, resumable multi-text annotation and version comparison |
+| 13 | [Annotate the multilingual five-text batch](13_annotate_multilingual_five_v0_3_1.md) | Acquired sources, reviewed extraction inventories, and a complete audited v0.3.1 batch |
 
 ## Conventions
 

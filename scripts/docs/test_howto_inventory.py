@@ -19,6 +19,8 @@ CANONICAL = {
     "09_run_single_text_pipeline.md",
     "10_acquire_and_dry_run_next_texts.md",
     "11_annotate_next_texts_v0_2.md",
+    "12_run_annotation_batches.md",
+    "13_annotate_multilingual_five_v0_3_1.md",
 }
 
 
