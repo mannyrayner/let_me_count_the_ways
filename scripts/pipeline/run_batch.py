@@ -89,6 +89,16 @@ def markdown_summary(summary: dict) -> str:
         f"- **Unresolved failed occurrences:** {summary['failures']}",
         f"- **Historical failed/invalid attempts:** {summary['historical_failed_attempts']}",
         f"- **Estimated recorded cost:** USD {summary['estimated_total_cost_usd']:.6f}", "",
+        "## Ontology statistics", "",
+        f"- **P scores:** {summary['ontology_statistics']['score_distributions']['P']}",
+        f"- **T scores:** {summary['ontology_statistics']['score_distributions']['T']}",
+        f"- **E scores:** {summary['ontology_statistics']['score_distributions']['E']}",
+        f"- **O scores:** {summary['ontology_statistics']['score_distributions']['O']}",
+        f"- **Ontology fit:** {summary['ontology_statistics']['ontology_fit']}",
+        f"- **O > 0:** {summary['ontology_statistics']['o_above_zero']}",
+        f"- **E >= 2:** {summary['ontology_statistics']['e_at_least_two']}",
+        f"- **P >= 2:** {summary['ontology_statistics']['p_at_least_two']}",
+        f"- **Two or more of P/T/E >= 2:** {summary['ontology_statistics']['balanced_core']}", "",
         "## Texts", "",
     ]
     for text in summary["texts"]:
@@ -106,6 +116,57 @@ def markdown_summary(summary: dict) -> str:
             lines.append(f"- **Error:** {text['error']}")
         lines.append("")
     return "\n".join(lines)
+
+
+def ontology_records(batch_dir: Path, texts: list[dict]) -> tuple[dict, list[dict]]:
+    """Summarise newest valid outputs and identify high-value review cases."""
+    distributions = {key: {str(score): 0 for score in range(5)} for key in "PTEO"}
+    fit = {key: 0 for key in ("natural", "strained", "inadequate")}
+    review = []
+    for text in texts:
+        annotation_root = batch_dir / "texts" / text["source_id"] / "annotations"
+        for occurrence_root in sorted(annotation_root.glob("*")):
+            valid = []
+            for status_path in occurrence_root.glob("attempt-*/status.json"):
+                if read_json(status_path).get("state") == "valid":
+                    valid.append(status_path.parent)
+            if not valid:
+                continue
+            attempt = sorted(valid)[-1]
+            output = read_json(attempt / "output.json")
+            core = output.get("core_love_content", output.get("core_classification"))
+            support = core["label_support"]
+            scores = {
+                "P": support["performative"], "T": support["truth_conditional"],
+                "E": support["exclamatory_reflexive"], "O": support["other"],
+            }
+            for key, score in scores.items():
+                distributions[key][str(score)] += 1
+            ontology_fit = output["ontology_assessment"]["fit"]
+            confidence = core["confidence"]
+            fit[ontology_fit] = fit.get(ontology_fit, 0) + 1
+            reasons = []
+            if scores["O"] > 0: reasons.append("O > 0")
+            if ontology_fit != "natural": reasons.append(f"ontology_fit = {ontology_fit}")
+            if scores["E"] >= 2: reasons.append("E >= 2")
+            if scores["P"] >= 2: reasons.append("P >= 2")
+            if confidence < 0.75: reasons.append("confidence < 0.75")
+            if sum(scores[k] >= 2 for k in "PTE") >= 2:
+                reasons.append("two or more of P/T/E >= 2")
+            if reasons:
+                review.append({"source_id": text["source_id"],
+                               "occurrence_id": occurrence_root.name, "scores": scores,
+                               "ontology_fit": ontology_fit, "confidence": confidence,
+                               "reasons": reasons,
+                               "result": str((attempt / "output.json").relative_to(batch_dir))})
+    stats = {
+        "score_distributions": distributions, "ontology_fit": fit,
+        "o_above_zero": sum(r["scores"]["O"] > 0 for r in review),
+        "e_at_least_two": sum(r["scores"]["E"] >= 2 for r in review),
+        "p_at_least_two": sum(r["scores"]["P"] >= 2 for r in review),
+        "balanced_core": sum(sum(r["scores"][k] >= 2 for k in "PTE") >= 2 for r in review),
+    }
+    return stats, review
 
 
 def run_batch(*, repo_root: Path, manifest_path: Path, annotation_version: str,
@@ -211,6 +272,10 @@ def run_batch(*, repo_root: Path, manifest_path: Path, annotation_version: str,
                   ("prepared" if dry_run and all(t["status"] == "prepared" for t in texts) else "partial"),
         "batch_result_location": str(batch_dir.relative_to(repo_root)), "texts": texts,
     }
+    summary["ontology_statistics"], review = ontology_records(batch_dir, texts)
+    write_json(batch_dir / "unusual_cases.json", {"criteria": [
+        "O > 0", "ontology_fit != natural", "E >= 2", "P >= 2",
+        "confidence < 0.75", "two or more of P/T/E >= 2"], "cases": review})
     write_json(batch_dir / "summary.json", summary)
     (batch_dir / "report.md").write_text(markdown_summary(summary), encoding="utf-8")
     if compare_with:
