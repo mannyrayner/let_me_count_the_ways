@@ -1,0 +1,66 @@
+{
+  "occurrence_id": "flaubert-madame-bovary-06903c63a2d7",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 4,
+      "other": 0
+    },
+    "confidence": 0.96,
+    "analysis": "The highlighted second « comme je t’aime ! » clearly avows the mother's loving emotional state while also functioning as an intensely emotional exclamation. The repeated exclamatory construction, embrace, and precipitate movement strongly support E alongside T. It does not clearly undertake or renew an obligation or commitment, so P receives no support.",
+    "ambiguity": "The only minor uncertainty is the balance between assertion and emotional exclamation; both forces are strongly present."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "The highlighted occurrence is the second of two directly represented spoken declarations by a mother addressing her child."
+  },
+  "contextual_interpretation": "The mother rushes to embrace the addressee and twice exclaims that she loves her, addressing her tenderly as « ma pauvre enfant ». The physical action, repetition, and exclamation marks frame the utterance as an emotionally triggered maternal avowal. Nothing in the supplied passage indicates irony, deception, or a distinct undertaking force."
+  },
+  "evidence": [
+    {
+      "evidence_id": "E1",
+      "source": "local_text",
+      "quotation_or_description": "« comme je t’aime ! »",
+      "supports": "The highlighted clause explicitly presents the speaker's love as true, strongly supporting truth-conditional avowal.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "E2",
+      "source": "local_text",
+      "quotation_or_description": "« Comme je t’aime, ma pauvre enfant ! comme je t’aime ! »",
+      "supports": "The exclamatory « comme », immediate repetition, direct address, and punctuation strongly support emotionally heightened, exclamatory production.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "E3",
+      "source": "local_text",
+      "quotation_or_description": "« dit sa mère se précipitant pour l’embrasser »",
+      "supports": "The mother is represented as rushing to embrace the child while speaking, supporting a spontaneous maternal expression rather than a formal relational undertaking.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "E4",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is identified as French dialogue in Gustave Flaubert's Madame Bovary, from Project Gutenberg source 14155.",
+      "supports": "This establishes the bibliographic and narrative provenance of the passage without adding any contrary evidence about its core force.",
+      "confidence": 1.0
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "moderate",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "A combination of strong T and strong E naturally captures the utterance as both an avowal of maternal love and an emotionally triggered exclamation. No important residual core force requires O.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": "The classification targets the second, highlighted occurrence; the immediately preceding identical declaration is used as contextual evidence of repetition."
+}

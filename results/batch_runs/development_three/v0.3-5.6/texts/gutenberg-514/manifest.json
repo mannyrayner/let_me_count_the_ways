@@ -1,0 +1,57 @@
+{
+  "run_id": "gutenberg-514",
+  "started_at": "2026-09-02T11:02:49.956744+00:00",
+  "ended_at": "2026-09-02T12:19:38.454079+00:00",
+  "work_id": "alcott-little-women",
+  "source_id": "gutenberg-514",
+  "source_sha256": "677d034b4a3d1cea92d075939878f852a7a3ec757dc9ed05ef0c40cab5c1e6de",
+  "title": "Little Women",
+  "author": "Louisa May Alcott",
+  "language": "en",
+  "search_pattern_version": "0.2",
+  "annotation_version": "0.3",
+  "model_alias": "5.6",
+  "api_model": "gpt-5.6-sol",
+  "prompt_path": "prompts\\annotation\\classify_passage_v0_3.md",
+  "prompt_sha256": "846cd8f5a09a1ce1eb6c0e5c032051f969e80db7f15c735ef9f091712caf3473",
+  "schema_path": "prompts\\annotation\\classification_schema_v0_3.json",
+  "schema_sha256": "af501dbac1e7e1171ba8c3582b75611087f0570744c901b06304dd15dec0b805",
+  "extraction_fingerprint": {
+    "source_sha256": "677d034b4a3d1cea92d075939878f852a7a3ec757dc9ed05ef0c40cab5c1e6de",
+    "patterns_sha256": "71b5d37cba5f20bf471b726970f59e0c64fd150548a7a612d90c03fd2a24633b",
+    "pattern_version": "0.2",
+    "context_characters": 1000,
+    "extractor_sha256": "784a8e5c00c752558c699fc36f70f498765346274d67ff6cd47dd0564189adcb"
+  },
+  "extraction_reused": true,
+  "extracted_occurrences": 4,
+  "attempted_this_invocation": 0,
+  "skipped_valid_this_invocation": 4,
+  "recovered_without_model_call_this_invocation": 0,
+  "valid_occurrences": 4,
+  "invalid_or_failed_attempts": 2,
+  "unresolved_failed_occurrences": 0,
+  "attempt_counts": {
+    "attempts": 6,
+    "valid": 4,
+    "invalid": 0,
+    "api_failure": 0,
+    "parse_failure": 2
+  },
+  "usage_and_cost": {
+    "input_tokens": 18787,
+    "cached_input_tokens": 0,
+    "output_tokens": 7339,
+    "estimated_total_cost_usd": 0.221928
+  },
+  "software": {
+    "git_commit": "edd17be89f71b3414be71665e2b78ea82d7c70f2",
+    "runner_sha256": "7e2f93a098cda117eba20e651673d418705a39fb333b5b0d74aa566f5c78db41",
+    "extractor_sha256": "784a8e5c00c752558c699fc36f70f498765346274d67ff6cd47dd0564189adcb",
+    "validator_sha256": "b3bd3ce2506495c8076d9de08b77c185e352a6cf94bfbefd4698850eafe28b15",
+    "model_catalog_sha256": "9facd8d8e66c9e477bf0f691d87836c112562be088517eed77d2d961c39b1c05"
+  },
+  "dry_run": false,
+  "context_expansion_policy": "record_only_no_automatic_rerun",
+  "status": "complete"
+}

@@ -1,0 +1,73 @@
+{
+  "occurrence_id": "bronte-jane-eyre-b57472f62694",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 1,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.96,
+    "analysis": "Jane directly and deliberately avows that she loves the addressee in a specifically sisterly sense. The qualification \"as a sister\" defines the kind of emotional state presented as true. The utterance has slight relational-positioning force, but it does not substantially undertake a new commitment and is not presented as a reflexive exclamation.",
+    "ambiguity": "Calling her love sisterly also establishes a boundary against romantic or marital interpretation, which gives the utterance limited performative coloration; however, its dominant force remains truth-conditional avowal."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "A direct spoken declaration by Jane to St John Rivers within dialogue, qualified by \"as a sister.\""
+  },
+  "contextual_interpretation": "Jane presents her affection as one reason she would have trusted the addressee enough to venture far with him, while carefully limiting that affection to a sisterly form. The statement occurs within a reasoned refusal to accept that she is obligated to go to India and supports a distinction between affection and the marital or vocational commitment St John seeks. Its syntax and argumentative setting make it controlled rather than exclamatory."
+  },
+  "evidence": [
+    {
+      "evidence_id": "E1",
+      "source": "local_text",
+      "quotation_or_description": "\"because I admire, confide in, and, as a sister, I love you\"",
+      "supports": "The first-person present-tense declaration explicitly avows love, while \"as a sister\" specifies its non-romantic character.",
+      "confidence": 1.0
+    },
+    {
+      "evidence_id": "E2",
+      "source": "local_text",
+      "quotation_or_description": "\"With you I would have ventured much\"",
+      "supports": "Jane connects her avowed admiration, trust, and sisterly love to hypothetical willingness, but does not thereby make a present undertaking.",
+      "confidence": 0.97
+    },
+    {
+      "evidence_id": "E3",
+      "source": "local_text",
+      "quotation_or_description": "\"There is no dishonour, no breach of promise, no desertion in the case. I am not under the slightest obligation to go to India\"",
+      "supports": "The declaration belongs to a deliberate argument denying obligation, strongly disfavoring a reading in which \"I love you\" itself assumes a commitment.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "E4",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is located in Chapter XXXV of Charlotte Brontë's Jane Eyre.",
+      "supports": "The bibliographic and chapter information locates the dialogue in the late St John Rivers episode.",
+      "confidence": 1.0
+    },
+    {
+      "evidence_id": "E5",
+      "source": "background_knowledge",
+      "quotation_or_description": "In Chapter XXXV, St John Rivers presses Jane to accompany him to India as his wife; Jane distinguishes her familial affection for him from the love and marital relation he requests.",
+      "supports": "The wider scene confirms that \"as a sister\" is a consequential boundary on the kind of love avowed, not a spontaneous romantic declaration.",
+      "confidence": 0.96
+    }
+  ],
+  "background_knowledge": {
+    "used": true,
+    "familiarity": "extensive",
+    "confidence": 0.96,
+    "contribution": "It identifies the interlocutor as St John Rivers and clarifies that the sisterly qualification answers pressure toward marriage and missionary partnership in India."
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T/P/E gives a natural account: strong truth-conditional avowal, at most slight performative boundary-setting, and no meaningful exclamatory force. The contextual distinction between sisterly and marital love requires explanation but no additional core-force category.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": "The score for performative support reflects only the weak relational effect of defining the love as sisterly, not an undertaking to marry, travel, or accept an obligation."
+}

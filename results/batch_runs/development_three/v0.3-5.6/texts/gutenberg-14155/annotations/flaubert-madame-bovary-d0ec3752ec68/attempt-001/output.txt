@@ -1,0 +1,59 @@
+{
+  "occurrence_id": "flaubert-madame-bovary-d0ec3752ec68",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 2,
+      "other": 0
+    },
+    "confidence": 0.92,
+    "analysis": "The speaker directly avows love for her interlocutor, giving the utterance strong truth-conditional force. The exclamation mark and simultaneous embrace add substantial emotional and exclamatory force, but the wording does not clearly undertake a commitment or obligation.",
+    "ambiguity": "The narrow excerpt does not establish how spontaneous or sincere the declaration is, so the exact strength of its exclamatory force remains somewhat uncertain."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "A female character's spoken declaration to a male interlocutor is represented as direct dialogue within the narration."
+  },
+  "contextual_interpretation": "The declaration is explicitly presented as a reply and is accompanied by the speaker putting her arms around the addressee's neck. This physical affection reinforces an emotionally emphatic avowal. Nothing in the supplied excerpt establishes a promise, obligation, or other relational undertaking, and the broader sincerity or strategic purpose of the reply cannot safely be determined from this context alone."
+  },
+  "evidence": [
+    {
+      "evidence_id": "E1",
+      "source": "local_text",
+      "quotation_or_description": "“Je t’aime!”",
+      "supports": "The conventional first-person present-tense declaration directly presents the speaker's love as true; the exclamation mark also supports emotional emphasis.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "E2",
+      "source": "local_text",
+      "quotation_or_description": "“répondit-elle en lui passant les bras autour du cou”",
+      "supports": "The narration identifies the declaration as a spoken reply and pairs it with an embrace, strengthening its affective and exclamatory presentation without independently establishing commitment force.",
+      "confidence": 0.97
+    },
+    {
+      "evidence_id": "E3",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is identified as French direct-dialogue text in Gustave Flaubert's Madame Bovary, from Project Gutenberg source 14155.",
+      "supports": "Confirms the linguistic and bibliographic framing of the local utterance; it does not by itself determine sincerity or broader scene dynamics.",
+      "confidence": 0.99
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "moderate",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T and E naturally represent the utterance as an emotionally emphatic avowal. No important component of its core force requires P or O, although unavailable wider context could affect interpretation of sincerity without changing the ontology.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": "The supplied excerpt does not identify the participants by name, so no scene-specific attribution is made."
+}

@@ -1,0 +1,73 @@
+{
+  "occurrence_id": "alcott-little-women-44ca305cf65a",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 2,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.94,
+    "analysis": "Mr. Brooke directly avows that he loves Meg, so the utterance has strong truth-conditional force. In this courtship exchange it also carries moderate undertaking force by presenting his love as the basis for a serious reciprocal relationship, although the words themselves do not explicitly formulate a promise or obligation. Its tender delivery is emotional but not presented as reflexive or exclamatory.",
+    "ambiguity": "The main uncertainty is the degree of performative force: the surrounding courtship gives the declaration relational significance, but the core wording primarily states an emotional condition."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "A directly represented spoken utterance by Mr. Brooke to Meg within the narrated dialogue."
+  },
+  "contextual_interpretation": "Mr. Brooke asks whether Meg cares for him and follows that request with a tender declaration of strong love. The immediate solicitation of reciprocity and the wider courtship scene lend the avowal some commitment-invoking force, but neither tenderness nor emotional intensity makes it chiefly exclamatory. Nothing in the passage suggests irony, quotation, deception, or merely instrumental use."
+  },
+  "evidence": [
+    {
+      "evidence_id": "E1",
+      "source": "local_text",
+      "quotation_or_description": "“I love you so much, dear,”",
+      "supports": "The first-person present-tense declaration explicitly presents Mr. Brooke's loving emotional state as true, strongly supporting T.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "E2",
+      "source": "local_text",
+      "quotation_or_description": "“I only want to know if you care for me a little, Meg.”",
+      "supports": "The declaration occurs while Mr. Brooke seeks an indication of reciprocal feeling, supporting a courtship-related but not fully explicit performative dimension.",
+      "confidence": 0.97
+    },
+    {
+      "evidence_id": "E3",
+      "source": "local_text",
+      "quotation_or_description": "The narrator says the words were “added Mr. Brooke tenderly.”",
+      "supports": "The manner is affectionate and deliberate rather than marked as a sudden reflex or exclamation, supporting low E.",
+      "confidence": 0.96
+    },
+    {
+      "evidence_id": "E4",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is located in Chapter Twenty-Three of Louisa May Alcott's Little Women.",
+      "supports": "This identifies the narrative location used to connect the local exchange cautiously with the novel's broader Brooke–Meg courtship scene.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "E5",
+      "source": "background_knowledge",
+      "quotation_or_description": "Chapter Twenty-Three forms part of the scene in which John Brooke's courtship of Meg becomes an explicit question of their future relationship.",
+      "supports": "The broader scene strengthens the interpretation that the avowal has moderate relational-undertaking force in addition to its primary emotional-state avowal.",
+      "confidence": 0.9
+    }
+  ],
+  "background_knowledge": {
+    "used": true,
+    "familiarity": "moderate",
+    "confidence": 0.9,
+    "contribution": "Knowledge of the Brooke–Meg courtship and the chapter's proposal-related scene supports assigning moderate P rather than treating the line as an isolated statement of affection."
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T captures the dominant avowal of love, while a lower P score captures the declaration's courtship-based relational undertaking. E is unnecessary because tenderness does not amount to reflexive or exclamatory production. No important feature of the core force remains outside T/P/E.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

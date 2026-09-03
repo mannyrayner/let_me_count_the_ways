@@ -1,0 +1,58 @@
+{
+  "occurrence_id": "flaubert-madame-bovary-5396f984c871",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 3,
+      "other": 0
+    },
+    "confidence": 0.91,
+    "analysis": "The speaker directly avows love as the reason for an urgent plea that the addressee remain. The declaration strongly presents a loving state as true and, through its exclamatory placement after “restez!”, also has substantial emotionally triggered force. It does not clearly undertake or renew a commitment.",
+    "ambiguity": "The very short extract does not establish how spontaneous or strategically persuasive the declaration is, but that uncertainty lies between truth-conditional and exclamatory force rather than outside T/P/E."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "A directly spoken love declaration in dialogue, immediately following an urgent request that the addressee stay."
+  },
+  "contextual_interpretation": "“De grâce, restez!” frames “je vous aime!” as an urgent appeal against departure: the speaker invokes an asserted emotional state to persuade the addressee to remain. The exclamation marks and compressed sequence support emotional intensity, while the available passage does not justify a firm conclusion about sincerity, calculation, or the broader relationship.",
+  "evidence": [
+    {
+      "evidence_id": "local-1",
+      "source": "local_text",
+      "quotation_or_description": "“je vous aime!”",
+      "supports": "The conventional declarative wording strongly supports truth-conditional avowal, while the exclamation mark supports heightened exclamatory force.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "local-2",
+      "source": "local_text",
+      "quotation_or_description": "“De grâce, restez! je vous aime!”",
+      "supports": "The declaration functions as an emotionally urgent reason for asking the addressee to stay, without explicitly creating a commitment or obligation.",
+      "confidence": 0.95
+    },
+    {
+      "evidence_id": "metadata-1",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is identified as French dialogue in Gustave Flaubert’s Madame Bovary, matching the pattern fr_je_vous_aime.",
+      "supports": "Confirms that the highlighted event is an embedded direct French equivalent of “I love you” in a literary dialogue context.",
+      "confidence": 0.99
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "moderate",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T and E naturally capture the declaration’s avowal of love and its urgent exclamatory delivery. No important aspect of the core force requires O, and the adjacent plea does not by itself establish performative commitment.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": "Classification is intentionally based on the supplied local text and metadata; no wider-scene identification is assumed."
+}

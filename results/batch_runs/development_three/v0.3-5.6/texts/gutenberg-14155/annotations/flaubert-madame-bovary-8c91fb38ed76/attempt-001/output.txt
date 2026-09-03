@@ -1,0 +1,59 @@
+{
+  "occurrence_id": "flaubert-madame-bovary-8c91fb38ed76",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 4,
+      "other": 0
+    },
+    "confidence": 0.97,
+    "analysis": "The maternal exclamation “Comme je t’aime” directly avows an intense loving state while also functioning as an emotionally triggered outburst. Its exclamatory construction, repetition, and conjunction with a sudden embrace strongly support E. It does not undertake or renew a commitment in the relevant performative sense.",
+    "ambiguity": "T and E are both strongly present: the utterance has clear propositional content but is framed and delivered as an exclamation."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "A mother directly addresses her child with “Comme je t’aime,” immediately repeating the declaration."
+  },
+  "contextual_interpretation": "The speaker rushes to embrace the child and twice exclaims how much she loves her. The physical urgency, repetition, exclamation marks, and affectionate address “ma pauvre enfant” present the declaration as an intense maternal emotional release. Nothing in the supplied passage suggests that the words institute an obligation or relational undertaking."
+  },
+  "evidence": [
+    {
+      "evidence_id": "E1",
+      "source": "local_text",
+      "quotation_or_description": "“Comme je t’aime, ma pauvre enfant! comme je t’aime!”",
+      "supports": "The explicit declaration strongly presents maternal love as true (T), while the exclamatory syntax and immediate repetition strongly support emotionally expressive force (E).",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "E2",
+      "source": "local_text",
+      "quotation_or_description": "“dit sa mère se précipitant pour l’embrasser”",
+      "supports": "Identifies the speaker as the child's mother and portrays the utterance as accompanying an urgent embrace, reinforcing its emotionally triggered and affectionate character.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "E3",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is identified as French text from Gustave Flaubert's Madame Bovary, with the matched wording “je t’aime.”",
+      "supports": "Confirms the work, language, and textual identity of the classified occurrence without adding claims about the wider scene.",
+      "confidence": 1.0
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "moderate",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "A combination of strong T and strong E naturally captures the utterance as both a clear avowal of maternal love and an impassioned exclamation. No important aspect of its core force remains outside T/P/E.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": "The repeated declaration is treated as part of the same immediate expressive event surrounding the highlighted occurrence."
+}

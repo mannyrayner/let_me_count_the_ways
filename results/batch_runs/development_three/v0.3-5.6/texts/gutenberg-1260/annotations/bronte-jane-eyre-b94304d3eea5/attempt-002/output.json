@@ -1,0 +1,72 @@
+{
+  "occurrence_id": "bronte-jane-eyre-b94304d3eea5",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 1,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.96,
+    "analysis": "Jane directly avows that her love for Rochester is now stronger, explicitly comparing her present emotional state with her earlier love. The measured explanation of why she loves him better gives the utterance strong propositional force and no substantial reflexive or exclamatory force. In context it also weakly enacts continued relational devotion and willingness to care for him, but it does not independently formulate a clear promise or obligation.",
+    "ambiguity": "The utterance's reaffirmation of devotion during their reunion gives some support to P, although its grammatical and pragmatic centre remains an avowal of feeling rather than an explicit undertaking."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "Jane speaks the utterance directly to Rochester in represented dialogue; the novel's quotation marks frame direct speech rather than a later quotation or report."
+  },
+  "contextual_interpretation": "Jane answers Rochester's apparent concern about his diminished condition by saying that his losses are no defects to her and that she loves him more now that she can be useful to him. The comparison rejects a merely dependency-based or status-based objection and presents her present love as sincere, reflective, and compatible with a more reciprocal caregiving relationship. In the wider Chapter XXXVII reunion, the statement also reassures Rochester of her freely renewed attachment, but its core force is chiefly an avowal rather than a promise or spontaneous outburst.",
+  "evidence": [
+    {
+      "evidence_id": "local-1",
+      "source": "local_text",
+      "quotation_or_description": "“I love you better now ... than I did in your state of proud independence”",
+      "supports": "The explicit present-tense declaration and comparison with an earlier state strongly support truth-conditional avowal.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "local-2",
+      "source": "local_text",
+      "quotation_or_description": "“when I can really be useful to you”",
+      "supports": "Jane gives a reflective reason tied to caregiving, supporting a considered avowal and weak relational-undertaking force rather than an unmediated exclamation.",
+      "confidence": 0.96
+    },
+    {
+      "evidence_id": "local-3",
+      "source": "local_text",
+      "quotation_or_description": "“Which are none, sir, to me.”",
+      "supports": "The preceding reply rejects the relevance of Rochester's perceived defects and frames the love declaration as deliberate reassurance and acceptance.",
+      "confidence": 0.93
+    },
+    {
+      "evidence_id": "metadata-1",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is located in Chapter XXXVII, at relative position 0.966313 of Charlotte Brontë's Jane Eyre.",
+      "supports": "The supplied location places the utterance near the novel's conclusion and identifies it with the late reunion context.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "background-1",
+      "source": "background_knowledge",
+      "quotation_or_description": "In Chapter XXXVII, Jane has returned to the injured and dependent Rochester and freely renews their relationship; their marriage follows.",
+      "supports": "The wider narrative supports reading the utterance as a sincere reaffirmation with some relational commitment, while the sentence itself remains principally an avowal of love.",
+      "confidence": 0.96
+    }
+  ],
+  "background_knowledge": {
+    "used": true,
+    "familiarity": "extensive",
+    "confidence": 0.96,
+    "contribution": "Knowledge of Jane's return to the injured Rochester, their renewed attachment, and subsequent marriage clarifies the reassurance and limited undertaking force of the declaration."
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T/P/E represents the core force well: T captures the explicit, reflective avowal, while a low P score captures its contextual enactment of renewed devotion. No important core-force feature remains outside the ontology.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

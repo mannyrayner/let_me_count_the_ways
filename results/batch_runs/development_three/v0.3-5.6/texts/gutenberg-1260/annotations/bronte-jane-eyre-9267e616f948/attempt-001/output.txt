@@ -1,0 +1,72 @@
+{
+  "occurrence_id": "bronte-jane-eyre-9267e616f948",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 1,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.96,
+    "analysis": "Jane deliberately avows her love as the reason she welcomes the prospect of living with Rochester. The clause primarily presents her emotional state as true. Its placement within an engagement gives it slight relationally reaffirming force, but it does not itself clearly promise or undertake anything, and its reflective delivery is not exclamatory or reflex-like.",
+    "ambiguity": "The surrounding discussion of a shared future creates weak performative pressure, though that future-oriented context does not turn the core clause into an explicit commitment."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "A direct spoken utterance by Jane to Rochester, syntactically embedded as the causal clause in her statement that she hopes to live with him."
+  },
+  "contextual_interpretation": "Jane is reassuring Rochester that she is happy rather than fearful about their anticipated life together. Her request to be allowed to speak undisturbed and her extended account of the previous day frame the avowal as considered and explanatory, not as an impulsive outburst. Their engagement and impending wedding lend the words some relational reaffirmation, but the immediate force remains a sincere-seeming declaration of emotional state.",
+  "evidence": [
+    {
+      "evidence_id": "E1",
+      "source": "local_text",
+      "quotation_or_description": "“I think it a glorious thing to have the hope of living with you, because I love you.”",
+      "supports": "The causal construction explicitly presents love as Jane's existing reason for welcoming a shared life, strongly supporting truth-conditional avowal.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "E2",
+      "source": "local_text",
+      "quotation_or_description": "“No, sir, don’t caress me now—let me talk undisturbed.”",
+      "supports": "Jane's insistence on speaking without interruption frames the utterance as deliberate discourse rather than an emotionally triggered exclamation.",
+      "confidence": 0.97
+    },
+    {
+      "evidence_id": "E3",
+      "source": "local_text",
+      "quotation_or_description": "Jane discusses “the life that lay before me—your life, sir” and mentions her wedding-dress.",
+      "supports": "The anticipated shared future and wedding context provide limited support for relational reaffirmation while not themselves making the love clause a promise.",
+      "confidence": 0.96
+    },
+    {
+      "evidence_id": "E4",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is located in Chapter XXV of Charlotte Brontë's Jane Eyre.",
+      "supports": "This locates the exchange in the novel's pre-wedding section and corroborates the immediate engagement context.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "E5",
+      "source": "background_knowledge",
+      "quotation_or_description": "In the wider novel, the speakers are Jane Eyre and Edward Rochester, who are engaged and preparing for their planned marriage at this point.",
+      "supports": "Identifies the participants and explains the modest performative pressure supplied by an existing courtship commitment.",
+      "confidence": 0.98
+    }
+  ],
+  "background_knowledge": {
+    "used": true,
+    "familiarity": "extensive",
+    "confidence": 0.98,
+    "contribution": "Used to identify Jane and Rochester as the speakers and to confirm that the exchange occurs during their engagement before the planned wedding; the core-force judgment is also directly supported by the supplied passage."
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T/P/E adequately represents the utterance: it is predominantly a truth-conditional avowal, with only slight commitment-renewing resonance and no substantial exclamatory force. No important aspect of its core force remains outside the ontology.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

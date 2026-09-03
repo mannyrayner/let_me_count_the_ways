@@ -1,0 +1,66 @@
+{
+  "occurrence_id": "alcott-little-women-15ef9596ac4e",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.98,
+    "analysis": "Mrs. March directly avows her love for Jo, specifying Jo's effort to overcome shyness as a reason for that love. The utterance primarily presents an existing emotional state as true. It neither undertakes a relational commitment nor appears as a weakly propositional reflex or exclamation.",
+    "ambiguity": "The utterance also functions conversationally as praise and reassurance, but those effects do not supply undertaking force or substantial exclamatory/reflexive force."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "Mrs. March addresses Jo directly in represented spoken dialogue: “I love you for it.”"
+  },
+  "contextual_interpretation": "Mrs. March warmly praises Jo for trying to fight her shyness and explicitly grounds her avowal in that effort. Her preceding encouragement and Jo's grateful thanks and kiss frame the utterance as sincere maternal affirmation. Its reassuring and approving functions remain contextual effects of a straightforward truth-conditional avowal rather than evidence of a new commitment."
+  },
+  "evidence": [
+    {
+      "evidence_id": "E1",
+      "source": "local_text",
+      "quotation_or_description": "“You do try to fight off your shyness, and I love you for it.”",
+      "supports": "The first-person present-tense declaration explicitly presents the speaker's love for the addressee as an existing emotional state and gives a reason for it.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "E2",
+      "source": "local_text",
+      "quotation_or_description": "“Fighting faults isn’t easy, as I know, and a cheery word kind of gives a lift.”",
+      "supports": "The surrounding reflective explanation makes the utterance deliberate encouragement rather than a predominantly reflex-like exclamation.",
+      "confidence": 0.97
+    },
+    {
+      "evidence_id": "E3",
+      "source": "local_text",
+      "quotation_or_description": "Jo responds, “Thank you, Mother,” and gives Mrs. March's cheek a grateful kiss.",
+      "supports": "This identifies the maternal address and shows that Jo receives the utterance as valued affirmation and encouragement; it supplies no indication of a newly undertaken obligation.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "E4",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is located in Chapter Twelve of Louisa May Alcott's Little Women, in Project Gutenberg source 514.",
+      "supports": "This establishes the bibliographic and narrative location of the classified dialogue without being treated as passage wording.",
+      "confidence": 1.0
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "moderate",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the core force as an explicit avowal of maternal love. The contextual functions of praise, affection, and reassurance do not create significant residual pressure beyond T and do not require P, E, or O.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

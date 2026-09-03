@@ -1,0 +1,72 @@
+{
+  "occurrence_id": "flaubert-madame-bovary-400a3aed5a88",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 3,
+      "other": 0
+    },
+    "confidence": 0.93,
+    "analysis": "The core event is Emma's emphatic avowal, “Oh! c’est que je t’aime!”, immediately repeated and explained as an inability to live without the addressee. It strongly presents her love as true and is simultaneously staged as an emotionally overflowing exclamation. Despite the surrounding language of devotion and relational subordination, the core utterance does not clearly undertake or renew an obligation or commitment.",
+    "ambiguity": "The imperfect reporting frame and highly stylised romantic language suggest a recurrent or rehearsed mode of expression, which slightly complicates how reflex-like the outburst is; nevertheless, its presented exclamatory force is substantial."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "Direct oral speech represented by the narrator, though “reprenait-elle” places it in an iterative or recurrent narrative frame rather than fixing it as a uniquely bounded occasion."
+  },
+  "contextual_interpretation": "Emma intensifies the avowal through repetition, jealousy, longing, idealisation, and declarations of submission: she cannot do without him, imagines rival women, and calls herself his servant and concubine. This makes the utterance an emotionally charged profession of love rather than a distinct promise. In the wider novel, Emma's expression draws on romantic absolutism while her relationship with Rodolphe is markedly asymmetrical; that narrative irony bears on sincerity, self-understanding, and reception, but it does not prevent the utterance itself from combining truth-conditional avowal with exclamatory force.",
+  "evidence": [
+    {
+      "evidence_id": "E1",
+      "source": "local_text",
+      "quotation_or_description": "“Oh! c’est que je t’aime! reprenait-elle, je t’aime à ne pouvoir me passer de toi”",
+      "supports": "The explicit repetition and explanatory continuation strongly support truth-conditional avowal: the speaker presents love and dependence as her actual emotional state.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "E2",
+      "source": "local_text",
+      "quotation_or_description": "The speech begins with “Oh!”, uses exclamation marks, and expands into jealousy, longing, and extravagant praise: “mon roi, mon idole”.",
+      "supports": "The punctuation, interjection, repetition, and escalating language support substantial exclamatory and emotionally overflowing force.",
+      "confidence": 0.97
+    },
+    {
+      "evidence_id": "E3",
+      "source": "local_text",
+      "quotation_or_description": "“Je suis ta servante et ta concubine!”",
+      "supports": "This invokes an existing relationship and dramatizes submission, but it does not clearly make a new commitment; accordingly it provides little support for classifying the core love avowal as performative.",
+      "confidence": 0.9
+    },
+    {
+      "evidence_id": "E4",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The supplied metadata identifies the source as Gustave Flaubert's French novel Madame Bovary and locates the occurrence at approximately 54.3% of the source text.",
+      "supports": "This establishes the bibliographic and narrative provenance used to connect the passage with the wider fictional context without treating metadata as passage wording.",
+      "confidence": 1.0
+    },
+    {
+      "evidence_id": "E5",
+      "source": "background_knowledge",
+      "quotation_or_description": "In the wider episode, Emma is addressing her lover Rodolphe; their affair is asymmetrical, and Flaubert frames Emma's absolutist romantic discourse with narrative irony and Rodolphe's comparatively detached response.",
+      "supports": "This helps explain the stylised, recurrent character of the avowal and the possibility of unequal reception while leaving its core avowing and exclamatory force intact.",
+      "confidence": 0.91
+    }
+  ],
+  "background_knowledge": {
+    "used": true,
+    "familiarity": "extensive",
+    "confidence": 0.91,
+    "contribution": "Background knowledge identifies Emma and Rodolphe and supplies the affair's asymmetrical, ironically framed context. The numerical classification remains primarily grounded in the supplied local text."
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T and E naturally capture the important core forces: an explicit avowal of a loving state delivered as an emotional outburst. The surrounding romantic scripting, jealousy, repetition, and narrative irony affect interpretation but do not reveal a core-force dimension left unrepresented by T/P/E.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

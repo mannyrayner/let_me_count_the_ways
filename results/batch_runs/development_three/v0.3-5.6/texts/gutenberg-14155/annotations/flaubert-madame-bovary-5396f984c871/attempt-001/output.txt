@@ -1,0 +1,66 @@
+{
+  "occurrence_id": "flaubert-madame-bovary-5396f984c871",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 1,
+      "other": 0
+    },
+    "confidence": 0.9,
+    "analysis": "The core utterance is the direct avowal “je vous aime.” It clearly presents the speaker's love as true, irrespective of sincerity. Its urgent placement after “restez!” and its exclamation mark give it some emotional or exclamatory colouring, but it remains primarily propositional. It does not itself undertake a commitment or obligation.",
+    "ambiguity": "The wider scene raises doubt about sincerity and suggests instrumental use, while the punctuation leaves limited uncertainty about how spontaneous the displayed emotion is. Neither issue changes the utterance's strong truth-conditional mode."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "A directly represented spoken declaration of love in dialogue, uttered immediately after the plea “De grâce, restez!”"
+  },
+  "contextual_interpretation": "The declaration functions immediately as a reason for the addressee to remain. In the wider episode, as recalled, the speaker is the notary Guillaumin, who makes an opportunistic advance while Emma is seeking financial help; “je vous aime” can therefore be read as self-serving persuasion rather than reliable emotional disclosure. That manipulation concerns motive and sincerity, not the core semantic mode: the words still avow love. The plea and punctuation add urgency, but courtship or attempted seduction alone does not create performative commitment."
+  },
+  "evidence": [
+    {
+      "evidence_id": "E1",
+      "source": "local_text",
+      "quotation_or_description": "“je vous aime!”",
+      "supports": "The first-person present-tense construction explicitly presents the speaker's loving state as true; the exclamation mark supplies limited exclamatory support.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "E2",
+      "source": "local_text",
+      "quotation_or_description": "“De grâce, restez! je vous aime!”",
+      "supports": "The preceding urgent request shows that the love avowal is being used to persuade the addressee to stay, while supplying no explicit promise or relational undertaking.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "E3",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is identified as late in Flaubert's Madame Bovary, at relative source position 0.849671.",
+      "supports": "This locates the utterance within the novel's late financial-crisis material and helps distinguish the relevant dialogue event.",
+      "confidence": 0.96
+    },
+    {
+      "evidence_id": "E4",
+      "source": "background_knowledge",
+      "quotation_or_description": "In the wider scene, as recalled with high but not absolute confidence, notary Guillaumin declares love while opportunistically pursuing Emma when she seeks financial assistance.",
+      "supports": "This supports interpreting the declaration as persuasive and potentially insincere or exploitative, without treating those contextual features as ontology failure.",
+      "confidence": 0.86
+    }
+  ],
+  "background_knowledge": {
+    "used": true,
+    "familiarity": "moderate",
+    "confidence": 0.86,
+    "contribution": "It identifies the probable speaker and the financially coercive or opportunistic setting, clarifying why sincerity is questionable while leaving the core utterance truth-conditional in mode."
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T/P/E adequately represents the utterance: it is chiefly an avowal, with slight exclamatory urgency and no substantial undertaking force. Its persuasive and potentially exploitative use belongs to contextual interpretation rather than requiring O.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}
