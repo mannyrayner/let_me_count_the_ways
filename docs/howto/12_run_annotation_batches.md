@@ -86,9 +86,62 @@ fingerprint; it does not change corpus membership or trigger re-extraction.
 ## Run the calibrated-E prompt experiment
 
 Prompt v0.3.1 reuses the v0.3 schema but has a distinct prompt hash and result
-directory. Run it against the same extractions and compare it with v0.3:
+directory. The `development_three` manifest is the reproducible definition of
+the three-corpus experiment:
+
+| Corpus | Source ID | Expected passages |
+| --- | --- | ---: |
+| *Jane Eyre* | `gutenberg-1260` | 6 |
+| *Little Women* | `gutenberg-514` | 4 |
+| *Madame Bovary* | `gutenberg-14155` | 12 |
+
+Do not run three ad hoc single-text commands. The one batch command below runs
+all three manifest members, keeps their outputs together, and produces a
+22-passage comparison with v0.3. Before starting, update the checkout, confirm
+that the prompt and baseline exist, and make sure the working tree is clean:
 
 ```bash
+cd "$LMCW"
+git pull --ff-only
+test -f prompts/annotation/classify_passage_v0_3_1.md
+test -f results/batch_runs/development_three/v0.3-5.6/summary.json
+git status --short
+```
+
+The reference must be a complete v0.3 run made with the same model alias. If
+the baseline path above is absent, complete the v0.3 procedure earlier in this
+runbook first. Do not silently compare different model aliases: that would
+confound the prompt change with a model change.
+
+### Prepare and review the 22 calls
+
+First use a dry run with the same comparison arguments as the real run:
+
+```bash
+python scripts/pipeline/run_batch.py \
+  --manifest data/batches/development_three.json \
+  --annotation-version 0.3.1 \
+  --model 5.6 \
+  --dry-run \
+  --compare-with 0.3
+```
+
+Inspect `results/batch_runs/development_three/v0.3.1-5.6/report.md`. It should
+list all three source IDs and 22 calls needed (6 + 4 + 12). A dry run makes no
+API calls, but it does create prepared inputs and summary files. These are
+temporary working artifacts, not research results to commit. Stop if a corpus
+is missing, an extraction cannot be reused, or the counts differ.
+
+### Execute or resume all three corpora
+
+Confirm that the API key is set without printing it, then rerun without
+`--dry-run`:
+
+```bash
+test -n "${OPENAI_API_KEY:-}" || {
+  echo 'OPENAI_API_KEY is not set' >&2
+  exit 1
+}
 python scripts/pipeline/run_batch.py \
   --manifest data/batches/development_three.json \
   --annotation-version 0.3.1 \
@@ -97,10 +150,108 @@ python scripts/pipeline/run_batch.py \
 ```
 
 The result is stored alongside, rather than over, v0.3 at
-`results/batch_runs/development_three/v0.3.1-5.6/`. Its comparison reports every
-E change, marks E changes of magnitude at least two, and also exposes changes in
-O, ontology fit, and confidence. The comparison is diagnostic: neither prompt
-version is treated as ground truth and lower E is not automatically preferred.
+`results/batch_runs/development_three/v0.3.1-5.6/`. The command is resumable:
+rerun the identical command after a failure, without deleting the directory or
+adding `--force`. Valid annotations will be skipped and failed or incomplete
+ones will receive preserved new attempts. Use `--force` only for an explicitly
+approved fresh sample, since it deliberately calls the model again for valid
+passages.
+
+### Verify completeness and the v0.3 comparison
+
+After the run, verify the aggregate, every corpus, and the pairing with v0.3:
+
+```bash
+python - <<'PY'
+import json
+from pathlib import Path
+
+root = Path("results/batch_runs/development_three/v0.3.1-5.6")
+summary = json.loads((root / "summary.json").read_text(encoding="utf-8"))
+comparison = json.loads((root / "comparison.json").read_text(encoding="utf-8"))
+expected = {"gutenberg-1260": 6, "gutenberg-514": 4, "gutenberg-14155": 12}
+
+assert summary["annotation_version"] == "0.3.1", summary
+assert summary["model_alias"] == "5.6", summary
+assert summary["status"] == "complete", summary
+assert summary["texts_completed"] == summary["texts_requested"] == 3, summary
+assert summary["valid_annotations"] == summary["occurrences"] == 22, summary
+assert summary["failures"] == summary["model_calls_needed"] == 0, summary
+actual = {item["source_id"]: item["valid_occurrences"] for item in summary["texts"]}
+assert actual == expected, actual
+
+assert comparison["old_annotation_version"] == "0.3", comparison
+assert comparison["new_annotation_version"] == "0.3.1", comparison
+assert comparison["matched_occurrences"] == 22, comparison
+assert not comparison["unmatched"], comparison["unmatched"]
+compared = {}
+for record in comparison["records"]:
+    compared[record["source_id"]] = compared.get(record["source_id"], 0) + 1
+assert compared == expected, compared
+print("Complete v0.3.1 run: 3 corpora, 22/22 valid and paired with v0.3.")
+PY
+```
+
+Audit each corpus independently so an aggregate total cannot hide a misplaced
+or incomplete text:
+
+```bash
+BATCH_DIR=results/batch_runs/development_three/v0.3.1-5.6
+python scripts/pipeline/audit_pipeline_run.py "$BATCH_DIR/texts/gutenberg-1260" \
+  --expected-occurrences 6
+python scripts/pipeline/audit_pipeline_run.py "$BATCH_DIR/texts/gutenberg-514" \
+  --expected-occurrences 4
+python scripts/pipeline/audit_pipeline_run.py "$BATCH_DIR/texts/gutenberg-14155" \
+  --expected-occurrences 12
+```
+
+Produce a compact per-corpus quantitative view before reading the individual
+cases. This prevents the 12 *Madame Bovary* passages from obscuring behavior in
+the two smaller corpora:
+
+```bash
+python - <<'PY'
+import json
+from collections import defaultdict
+from pathlib import Path
+
+path = Path("results/batch_runs/development_three/v0.3.1-5.6/comparison.json")
+records = json.loads(path.read_text(encoding="utf-8"))["records"]
+by_source = defaultdict(list)
+for record in records:
+    by_source[record["source_id"]].append(record)
+for source_id in ("gutenberg-1260", "gutenberg-514", "gutenberg-14155"):
+    rows = by_source[source_id]
+    exact = sum(row["exact_tpe_agreement"] for row in rows)
+    e_changed = sum(row["e_changed"] for row in rows)
+    large_e = sum(row["conspicuous_e_change"] for row in rows)
+    other = sum(row["other_changed"] for row in rows)
+    fit = sum(row["ontology_fit_changed"] for row in rows)
+    confidence = sum(abs(row["confidence_difference"]) >= 0.2 for row in rows)
+    print(f"{source_id}: n={len(rows)}, exact T/P/E={exact}, "
+          f"E changes={e_changed} (>=2: {large_e}), O changes={other}, "
+          f"fit changes={fit}, confidence changes >=0.20={confidence}")
+PY
+```
+
+Finally read `comparison.md`, not just its headline counts. Review every item
+under **All E changes**, every magnitude-two-or-greater T/P/E change, each O or
+ontology-fit change, confidence changes of at least 0.20, explicit ambiguity,
+and the paired contextual summaries. Break the review down by the three
+`source_id` values as well as considering the aggregate. The empirical question
+is whether v0.3.1 distinguishes reflexive expressive force more consistently
+without losing context or moving errors into T, P, or O; a lower E score is not
+automatically an improvement, and v0.3 is a comparator rather than ground
+truth.
+
+Record qualitative judgments separately from the generated comparison. If a
+pair is missing, do not compare corpus percentages or check in the run; repair
+or resume it until all 22 occurrence IDs are paired. Then follow **Audit and
+check in a completed batch** below. The completeness checks and audits above
+replace that section's v0.3/v0.2-specific versions; continue with its report
+inspection, credential scan, and staging safeguards using the already-set
+`BATCH_DIR`. Commit with an appropriate message such as
+`Record development-three v0.3.1 batch run`.
 
 ## Audit and check in a completed batch
 
