@@ -1,0 +1,58 @@
+{
+  "occurrence_id": "flaubert-madame-bovary-b0502164917d",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.93,
+    "analysis": "The highlighted “je t’aime” is an emphatic avowal of a loving state, reinforced by its repetition and by “mais je t’adore, mon amour.” It contains no substantial relational undertaking. Although the delivery is highly exclamatory, the supplied text gives no independent evidence that the words are a reflex-like affective discharge rather than an intensely expressed assertion.",
+    "ambiguity": "The narrow excerpt does not establish the speaker’s sincerity or immediate conversational motive, but either uncertainty is compatible with a predominantly truth-conditional classification."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "Direct dialogue representing a character’s spoken declaration; the highlighted occurrence is the first “je t’aime” in a repeated, escalating turn."
+  },
+  "contextual_interpretation": "The construction “Si je t’aime!” reads as an emphatic response or confirmation, approximately “Do I love you!/Indeed I love you,” followed by repetition and the stronger “je t’adore.” This supports forceful reassurance or avowal. Repetition, exclamation marks, and the endearment intensify the delivery but do not independently establish expressive/reflexive force or a commitment.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "“Si je t’aime! si je t’aime!”",
+      "supports": "The repeated first-person love predication strongly supports truth-conditional avowal; its punctuation and repetition indicate emphasis but do not by themselves support E.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "“mais je t’adore, mon amour!”",
+      "supports": "The escalation from loving to adoring and the direct endearment reinforce the avowal and intimate reassurance, without specifying an undertaking or obligation.",
+      "confidence": 0.96
+    },
+    {
+      "evidence_id": "e3",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is extracted as French dialogue from Gustave Flaubert’s Madame Bovary.",
+      "supports": "Confirms that the phrase is represented within a literary dialogue context rather than supplied as an isolated grammatical example.",
+      "confidence": 0.99
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "moderate",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the central avowal. The turn’s rhetorical intensity can remain contextual delivery information; there is no residual core force requiring E or O, and no explicit undertaking supporting P.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": "The classification concerns the highlighted first occurrence while treating the immediately repeated declaration and escalation as evidence from the same speech turn."
+}

@@ -1,0 +1,65 @@
+{
+  "occurrence_id": "alcott-little-women-44ca305cf65a",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.95,
+    "analysis": "Mr. Brooke directly avows that he loves Meg. The wording presents his loving state as true and is therefore strongly truth-conditional. Although spoken during courtship and while seeking evidence of reciprocal affection, the core sentence does not itself clearly undertake a commitment. Tenderness and the intensifier “so much” indicate emotional delivery but provide no independent evidence of expressive/reflex-like discharge.",
+    "ambiguity": "The courtship setting gives the avowal relational significance, but that contextual function is insufficient to establish performative undertaking force in the core utterance."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "Mr. Brooke directly addresses Meg and says, “I love you so much, dear.”"
+  },
+  "contextual_interpretation": "The avowal follows Mr. Brooke’s request to know whether Meg cares for him “a little,” so it functions as a sincere-seeming declaration offered while soliciting reciprocal feeling. The narration marks his manner as tender. These features reinforce the emotional avowal but do not independently turn it into either a commitment or a reflexive discharge.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "“I love you so much, dear,”",
+      "supports": "The first-person present-tense declaration explicitly presents Mr. Brooke’s loving emotional state as true, strongly supporting T.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "“I only want to know if you care for me a little, Meg.”",
+      "supports": "The immediately preceding request frames the declaration as courtship and solicitation of reciprocal affection, while supplying no explicit undertaking or promise.",
+      "confidence": 0.97
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "“added Mr. Brooke tenderly”",
+      "supports": "Identifies the speaker and indicates tender delivery; this supports emotional intensity but not, by itself, expressive/reflexive core force.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "e4",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is located in Chapter Twenty-Three of Louisa May Alcott’s Little Women.",
+      "supports": "Confirms the work and location of the direct-dialogue event without adding a distinct core-force category.",
+      "confidence": 0.99
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the utterance as a direct avowal of love. Its tender courtship context can be described separately, with no residual core force requiring E, P, or O.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

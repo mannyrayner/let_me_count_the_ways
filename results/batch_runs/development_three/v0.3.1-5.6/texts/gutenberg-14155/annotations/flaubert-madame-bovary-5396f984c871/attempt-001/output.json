@@ -1,0 +1,58 @@
+{
+  "occurrence_id": "flaubert-madame-bovary-5396f984c871",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 1,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.9,
+    "analysis": "The direct declaration “je vous aime” primarily avows a loving emotional state. Its placement after a plea to remain gives it a weak relational or commitment-invoking force, but it does not itself clearly undertake an obligation. The exclamation and urgency indicate intensity, not independently expressive/reflexive core force.",
+    "ambiguity": "The narrow excerpt does not establish whether the avowal is sincere or strategically intended to prevent departure, but either reading remains principally truth-conditional in mode."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "A character directly addresses another in represented dialogue: “De grâce, restez! je vous aime!”"
+  },
+  "contextual_interpretation": "The love avowal follows and reinforces an urgent request that the addressee stay. It may therefore function persuasively or as reassurance, but the local text does not show a distinct promise, relational undertaking, or reflex-like loss of verbal control. Sincerity and broader motives remain unresolved by the supplied excerpt.",
+  "evidence": [
+    {
+      "evidence_id": "local-1",
+      "source": "local_text",
+      "quotation_or_description": "“je vous aime!”",
+      "supports": "The conventional first-person declaration directly presents the speaker's love as true, strongly supporting T.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "local-2",
+      "source": "local_text",
+      "quotation_or_description": "“De grâce, restez!” immediately precedes the declaration.",
+      "supports": "The avowal is used to support an urgent plea that the addressee remain, giving limited support to relational invocation but not a clear undertaking.",
+      "confidence": 0.94
+    },
+    {
+      "evidence_id": "local-3",
+      "source": "local_text",
+      "quotation_or_description": "The utterance is exclamatory and occurs in an urgent appeal.",
+      "supports": "This establishes emotional intensity and emphatic delivery, but supplies no independent evidence that the words are a reflex-like expressive discharge.",
+      "confidence": 0.92
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T captures the avowal, while a small P score captures its limited use in pressing a relational appeal. Delivery and urgency can be handled contextually without E or O.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": "Classification is intentionally based only on the short supplied passage and metadata, without identifying the speaker or importing wider plot context."
+}

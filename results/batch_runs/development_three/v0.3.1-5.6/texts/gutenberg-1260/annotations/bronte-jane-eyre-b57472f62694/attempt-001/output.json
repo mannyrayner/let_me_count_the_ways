@@ -1,0 +1,72 @@
+{
+  "occurrence_id": "bronte-jane-eyre-b57472f62694",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.98,
+    "analysis": "Jane directly avows that she loves her addressee in a specifically sisterly sense. The phrase presents an emotional and relational attitude as true, while its careful qualification and argumentative placement provide no independent evidence of an undertaking or reflex-like expressive discharge.",
+    "ambiguity": "The love is explicitly familial rather than romantic; this affects its object-level meaning but not its predominantly truth-conditional force."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "Jane speaks the utterance directly to St John Rivers within dialogue, qualifying her love for him as that of a sister."
+  },
+  "contextual_interpretation": "The avowal occurs in Jane's reasoned refusal to accept that she is obliged to go to India. She cites admiration, confidence, and sisterly love to explain how much she might have ventured with St John, while sharply limiting the kind of love she professes. In the wider episode, this qualification distinguishes familial affection from the marital love and commitment implicated by St John's proposal; it therefore supports T strongly without converting the utterance into a commitment-performing P event.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "“I admire, confide in, and, as a sister, I love you”",
+      "supports": "The coordinated mental and emotional predicates, especially the explicit sisterly qualification, present Jane's love as an avowed state and strongly support T.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "“There is no dishonour, no breach of promise, no desertion in the case. I am not under the slightest obligation to go to India”",
+      "supports": "Jane explicitly denies obligation and breach of promise, weighing against interpreting the core love utterance as undertaking or renewing a commitment.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "The utterance appears in a syntactically controlled explanation: “With you I would have ventured much, because…”",
+      "supports": "Its deliberative, explanatory role supports an avowal rather than an expressive or reflex-like discharge.",
+      "confidence": 0.97
+    },
+    {
+      "evidence_id": "e4",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is located in Chapter XXXV of Charlotte Brontë's Jane Eyre.",
+      "supports": "Identifies the episode and licenses alignment with the supplied work context.",
+      "confidence": 1.0
+    },
+    {
+      "evidence_id": "e5",
+      "source": "background_knowledge",
+      "quotation_or_description": "In Chapter XXXV, St John Rivers pressures Jane to accompany him to India as his wife, while Jane distinguishes sisterly affection from the love required for marriage.",
+      "supports": "Clarifies why “as a sister” limits the avowal and why it should not be read as accepting St John's proposed marital undertaking.",
+      "confidence": 0.96
+    }
+  ],
+  "background_knowledge": {
+    "used": true,
+    "familiarity": "extensive",
+    "confidence": 0.96,
+    "contribution": "It identifies the addressee as St John Rivers and situates the statement within Jane's resistance to his proposed loveless missionary marriage, clarifying the force of the sisterly qualification."
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the core avowal. The surrounding dispute concerns obligations and marriage, but the qualified love utterance itself neither performs such an undertaking nor functions as an affect-driven verbal discharge. No residual core force requires O.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

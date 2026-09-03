@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\n  \"annotation_version\": \"0.3.1\",\n  \"occurrence\": {\n    \"occurrence_id\": \"alcott-little-women-f1eab387a74e\",\n    \"work_id\": \"alcott-little-women\",\n    \"source_id\": \"gutenberg-514\",\n    \"language\": \"en\",\n    \"pattern_version\": \"0.2\",\n    \"pattern_id\": \"en_i_optional_emphatic_do_love_you\",\n    \"match\": \"I love you\",\n    \"start\": 939298,\n    \"end\": 939308,\n    \"context_start\": 939106,\n    \"context_end\": 939428,\n    \"context\": \"“Oh, my dearest boy, don’t, don’t say that! I forgot you were rich when\\nI said ‘Yes’. I’d have married you if you hadn’t a penny, and I\\nsometimes wish you were poor that I might show how much I love you.”\\nAnd Amy, who was very dignified in public and very fond in private,\\ngave convincing proofs of the truth of her words.\",\n    \"extracted_at\": \"2026-09-02T04:33:36.644307+00:00\"\n  },\n  \"metadata\": {\n    \"title\": \"Little Women\",\n    \"author\": \"Louisa May Alcott\",\n    \"language\": \"en\",\n    \"work_id\": \"alcott-little-women\",\n    \"source_id\": \"gutenberg-514\",\n    \"edition_source\": {\n      \"repository\": \"Project Gutenberg\",\n      \"repository_ebook_id\": \"514\",\n      \"source_url\": \"https://www.gutenberg.org/cache/epub/514/pg514.txt\",\n      \"retrieved_at\": \"2026-09-01T21:47:23Z\"\n    },\n    \"location\": {\n      \"source_start\": 939298,\n      \"source_end\": 939308,\n      \"source_length_characters\": 1026392,\n      \"relative_position\": 0.915145,\n      \"chapter_or_section\": \"CHAPTER FORTY-FOUR\"\n    },\n    \"supplied_context\": {\n      \"context_start\": 939106,\n      \"context_end\": 939428,\n      \"characters\": 322,\n      \"characters_before_match\": 192,\n      \"characters_after_match\": 120\n    }\n  }\n}\n\n## JSON Schema\n\n{\n  \"$schema\": \"https://json-schema.org/draft/2020-12/schema\",\n  \"title\": \"Compact T/P/E/O I-love-you classification v0.3\",\n  \"type\": \"object\",\n  \"additionalProperties\": false,\n  \"required\": [\n    \"occurrence_id\", \"core_classification\", \"other_diagnosis\",\n    \"utterance_status\", \"contextual_interpretation\", \"evidence\",\n    \"background_knowledge\", \"ontology_assessment\", \"notes\"\n  ],\n  \"properties\": {\n    \"occurrence_id\": {\"$ref\": \"#/$defs/nonEmptyString\"},\n    \"core_classification\": {\"$ref\": \"#/$defs/coreClassification\"},\n    \"other_diagnosis\": {\"$ref\": \"#/$defs/otherDiagnosis\"},\n    \"utterance_status\": {\"$ref\": \"#/$defs/utteranceStatus\"},\n    \"contextual_interpretation\": {\"$ref\": \"#/$defs/nonEmptyString\"},\n    \"evidence\": {\n      \"type\": \"array\", \"minItems\": 1,\n      \"items\": {\"$ref\": \"#/$defs/evidenceItem\"}\n    },\n    \"background_knowledge\": {\"$ref\": \"#/$defs/backgroundKnowledge\"},\n    \"ontology_assessment\": {\"$ref\": \"#/$defs/ontologyAssessment\"},\n    \"notes\": {\"type\": [\"string\", \"null\"]}\n  },\n  \"$defs\": {\n    \"nonEmptyString\": {\"type\": \"string\", \"minLength\": 1},\n    \"confidence\": {\"type\": \"number\", \"minimum\": 0, \"maximum\": 1},\n    \"score\": {\"type\": \"integer\", \"minimum\": 0, \"maximum\": 4},\n    \"coreClassification\": {\n      \"type\": \"object\", \"additionalProperties\": false,\n      \"required\": [\"label_support\", \"confidence\", \"analysis\", \"ambiguity\"],\n      \"properties\": {\n        \"label_support\": {\n          \"type\": \"object\", \"additionalProperties\": false,\n          \"required\": [\"truth_conditional\", \"performative\", \"exclamatory_reflexive\", \"other\"],\n          \"properties\": {\n            \"truth_conditional\": {\"$ref\": \"#/$defs/score\"},\n            \"performative\": {\"$ref\": \"#/$defs/score\"},\n            \"exclamatory_reflexive\": {\"$ref\": \"#/$defs/score\"},\n            \"other\": {\"$ref\": \"#/$defs/score\"}\n          }\n        },\n        \"confidence\": {\"$ref\": \"#/$defs/confidence\"},\n        \"analysis\": {\"$ref\": \"#/$defs/nonEmptyString\"},\n        \"ambiguity\": {\"type\": [\"string\", \"null\"]}\n      }\n    },\n    \"otherDiagnosis\": {\n      \"type\": \"object\", \"additionalProperties\": false,\n      \"required\": [\"tpe_failure\", \"core_not_context\"],\n      \"properties\": {\n        \"tpe_failure\": {\"type\": [\"string\", \"null\"]},\n        \"core_not_context\": {\"type\": [\"string\", \"null\"]}\n      }\n    },\n    \"utteranceStatus\": {\n      \"type\": \"object\", \"additionalProperties\": false,\n      \"required\": [\"status\", \"description\"],\n      \"properties\": {\n        \"status\": {\"enum\": [\n          \"direct\", \"quoted_or_revoiced\", \"reported\", \"imagined\", \"written\",\n          \"nonverbal_verbalised\", \"hypothetical\", \"other\"\n        ]},\n        \"description\": {\"$ref\": \"#/$defs/nonEmptyString\"}\n      }\n    },\n    \"evidenceItem\": {\n      \"type\": \"object\", \"additionalProperties\": false,\n      \"required\": [\"evidence_id\", \"source\", \"quotation_or_description\", \"supports\", \"confidence\"],\n      \"properties\": {\n        \"evidence_id\": {\"$ref\": \"#/$defs/nonEmptyString\"},\n        \"source\": {\"enum\": [\"local_text\", \"supplied_metadata\", \"background_knowledge\"]},\n        \"quotation_or_description\": {\"$ref\": \"#/$defs/nonEmptyString\"},\n        \"supports\": {\"$ref\": \"#/$defs/nonEmptyString\"},\n        \"confidence\": {\"$ref\": \"#/$defs/confidence\"}\n      }\n    },\n    \"backgroundKnowledge\": {\n      \"type\": \"object\", \"additionalProperties\": false,\n      \"required\": [\"used\", \"familiarity\", \"confidence\", \"contribution\"],\n      \"properties\": {\n        \"used\": {\"type\": \"boolean\"},\n        \"familiarity\": {\"enum\": [\"none\", \"limited\", \"moderate\", \"extensive\"]},\n        \"confidence\": {\"anyOf\": [{\"$ref\": \"#/$defs/confidence\"}, {\"type\": \"null\"}]},\n        \"contribution\": {\"type\": [\"string\", \"null\"]}\n      }\n    },\n    \"ontologyAssessment\": {\n      \"type\": \"object\", \"additionalProperties\": false,\n      \"required\": [\"fit\", \"diagnosis\", \"candidate_recurrent_dimension\"],\n      \"properties\": {\n        \"fit\": {\"enum\": [\"natural\", \"strained\", \"inadequate\"]},\n        \"diagnosis\": {\"$ref\": \"#/$defs/nonEmptyString\"},\n        \"candidate_recurrent_dimension\": {\"type\": [\"string\", \"null\"]}\n      }\n    }\n  },\n  \"allOf\": [\n    {\n      \"if\": {\n        \"properties\": {\"core_classification\": {\"properties\": {\"label_support\": {\"properties\": {\"other\": {\"const\": 0}}}}}}\n      },\n      \"then\": {\n        \"properties\": {\"other_diagnosis\": {\"properties\": {\"tpe_failure\": {\"type\": \"null\"}, \"core_not_context\": {\"type\": \"null\"}}}}\n      },\n      \"else\": {\n        \"properties\": {\"other_diagnosis\": {\"properties\": {\"tpe_failure\": {\"$ref\": \"#/$defs/nonEmptyString\"}, \"core_not_context\": {\"$ref\": \"#/$defs/nonEmptyString\"}}}}\n      }\n    }\n  ]\n}\n",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "passage_classification_v0_3_1",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

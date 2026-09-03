@@ -1,0 +1,72 @@
+{
+  "occurrence_id": "flaubert-madame-bovary-1e7d6742e45b",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 2,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.91,
+    "analysis": "“Je t’aime” primarily avows a present loving state. In this apologetic sequence, the adjacent promise of lasting love gives the avowal some commitment-renewing force, though it does not clearly constitute a full relational undertaking. The exclamations and emotional urgency indicate intense delivery but provide no independent evidence that the words are a reflex-like affective discharge.",
+    "ambiguity": "The degree of performative force is uncertain: “je t’aimerai toujours” may be either a pledge of constancy or an emphatic prediction/reassurance about continued feeling."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "A character directly addresses another with “Je t’aime” as part of an apology and attempted reassurance."
+  },
+  "contextual_interpretation": "The speaker seeks forgiveness, admits having been foolish and cruel, asserts the addressee’s uniqueness, avows present love, and promises continued love. This framing makes the utterance both an assertion of feeling and, to a lesser extent, an attempt to repair or reaffirm the relationship. The excerpt alone does not establish whether the avowal is sincere, strategic, or self-deceived, but those possibilities do not alter its presented T/P force.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "“Je t’aime”",
+      "supports": "Directly presents the speaker’s current love as true, strongly supporting truth-conditional force.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "“pardonne-moi! … J’ai été imbécile et méchant!”",
+      "supports": "Frames the avowal as part of an apology and attempted relational repair, lending some support to performative force.",
+      "confidence": 0.94
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "“tu es la seule qui me plaise”",
+      "supports": "Reinforces the avowal by asserting the addressee’s unique emotional importance.",
+      "confidence": 0.96
+    },
+    {
+      "evidence_id": "e4",
+      "source": "local_text",
+      "quotation_or_description": "“je t’aimerai toujours!”",
+      "supports": "Adds an assurance or possible pledge of enduring love, supporting moderate rather than merely present-state force.",
+      "confidence": 0.96
+    },
+    {
+      "evidence_id": "e5",
+      "source": "local_text",
+      "quotation_or_description": "The passage uses repeated exclamation marks and urgent questions, including “Qu’as-tu? dis-le donc!”",
+      "supports": "Shows emotional urgency, but does not independently establish expressive/reflexive core force.",
+      "confidence": 0.93
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the central avowal, while P captures the limited commitment pressure created by the apology and assurance of lasting love. Delivery intensity can remain contextual, so neither E nor O is required.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": "Classification is based on the supplied local excerpt and metadata, without relying on wider plot context."
+}

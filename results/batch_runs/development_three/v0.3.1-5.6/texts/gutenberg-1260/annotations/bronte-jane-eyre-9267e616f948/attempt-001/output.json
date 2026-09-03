@@ -1,0 +1,65 @@
+{
+  "occurrence_id": "bronte-jane-eyre-9267e616f948",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 1,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.96,
+    "analysis": "Jane directly avows love as the reason she welcomes the prospect of living with Rochester. The utterance primarily presents her loving state as true. Its engaged, future-oriented setting gives it slight relational or commitment-invoking force, but the words themselves explain her happiness rather than undertake a distinct obligation. Her controlled insistence on speaking undisturbed provides no evidence that the words are a reflex-like expressive discharge.",
+    "ambiguity": "A weak performative reading is possible because the avowal occurs within an anticipated marriage, but the core clause is principally explanatory and truth-conditional."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "Jane addresses the words directly to Rochester during an extended account of her thoughts and hopes."
+  },
+  "contextual_interpretation": "Jane describes herself as happy and untroubled by the prospect of a new shared life, explicitly grounding that happiness in her love for Rochester. The surrounding reflection on Providence, his journey, their future, and her wedding dress situates the avowal within their engagement. Nevertheless, her request to be allowed to speak undisturbed and the explanatory construction “because I love you” make this a deliberate statement of feeling, not a reflexive outburst or a standalone promise.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "“I think it a glorious thing to have the hope of living with you, because I love you.”",
+      "supports": "The causal construction explicitly presents Jane's love as an existing emotional state that explains her hope, strongly supporting T.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "“No, sir, don’t caress me now—let me talk undisturbed.”",
+      "supports": "Jane frames the avowal as part of sustained, deliberate speech rather than as an involuntary or reflex-like verbal discharge, supporting E=0.",
+      "confidence": 0.95
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "Jane discusses “the life that lay before me—your life, sir” and later mentions her wedding dress.",
+      "supports": "The anticipated marriage supplies limited support for relational or commitment-invoking force, while not making the core clause itself an explicit undertaking.",
+      "confidence": 0.92
+    },
+    {
+      "evidence_id": "e4",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is located in Chapter XXV of Charlotte Brontë's Jane Eyre.",
+      "supports": "Identifies the textual location and confirms that the supplied passage belongs to the novel's pre-marital narrative context.",
+      "confidence": 1.0
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T/P/E adequately represents the core force: a strong avowal of an emotional state with, at most, weak commitment-invoking resonance from the engagement context. No important core function remains outside the ontology.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

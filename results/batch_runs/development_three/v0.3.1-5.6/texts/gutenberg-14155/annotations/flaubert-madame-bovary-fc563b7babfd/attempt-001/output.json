@@ -1,0 +1,58 @@
+{
+  "occurrence_id": "flaubert-madame-bovary-fc563b7babfd",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.95,
+    "analysis": "The embedded clause “je t’aime” is presented as an already established fact that the addressee knows, and it serves as a direct avowal and reassurance. Nothing in the passage makes it an undertaking or promise. Although the speaker is startled and the situation is urgent, the controlled appeal “Tu sais bien que…” gives no independent evidence that the words are an expressive or reflex-like discharge.",
+    "ambiguity": "The utterance may have strategic or soothing interpersonal purposes, but these do not alter its predominantly truth-conditional core force."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "A male speaker directly tells the addressee “Tu sais bien que je t’aime,” with the love proposition embedded under an appeal to her existing knowledge."
+  },
+  "contextual_interpretation": "The speaker is responding to the addressee’s apparent distress or agitation: he repeatedly asks what is wrong, urges her to calm herself, reassures her that she knows he loves her, and then calls her to come. The reassurance is situationally instrumental, but the local text neither establishes deception nor supplies commitment-making or reflexive expressive force.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "“Tu sais bien que je t’aime!”",
+      "supports": "The factive-style appeal to what the addressee already knows strongly supports a truth-conditional avowal of love.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "“Qu’as-tu? qu’as-tu? répétait-il stupéfait. Calme-toi! reprends-toi!”",
+      "supports": "The surrounding speech frames the avowal as reassurance intended to steady a distressed addressee; surprise and urgency concern the situation but do not independently establish expressive/reflexive force.",
+      "confidence": 0.95
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "The separate imperative “viens!” follows the love avowal.",
+      "supports": "The speaker also directs the addressee to act, but this imperative does not turn “je t’aime” itself into a relational undertaking or promise.",
+      "confidence": 0.93
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T/P/E/O represents the core naturally as a strong truth-conditional avowal used for reassurance. Urgent delivery and surrounding directives are adequately treated as context, with no residual core force requiring E or O.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

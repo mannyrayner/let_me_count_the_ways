@@ -1,0 +1,58 @@
+{
+  "occurrence_id": "alcott-little-women-58c41f8731dd",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.98,
+    "analysis": "The speaker directly avows that her love for her mother has not diminished despite her love for John. The core force is truth-conditional reassurance about an enduring emotional state. It does not itself undertake a commitment, and the clinging and tearful delivery do not independently establish expressive/reflexive force.",
+    "ambiguity": "The surrounding promises of continued visits and family closeness have commitment-like force, but that force belongs to adjacent utterances rather than to the classified love clause."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "A direct spoken utterance by the daughter to her mother, grammatically embedded under “Don’t feel ... that” but functioning as an avowal of undiminished love."
+  },
+  "contextual_interpretation": "On her wedding day, the speaker reassures Marmee that loving John and marrying him do not separate her emotionally from her family. The negative-comparative wording—“I love you any the less”—occurs within “Don’t feel ... that” and pragmatically affirms that her love remains undiminished. Her clinging and full eyes indicate emotional intensity, while the following promises concern continued family participation; neither feature changes the core clause from a primarily truth-conditional avowal.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "“Don’t feel that I am separated from you, Marmee dear, or that I love you any the less for loving John so much”",
+      "supports": "The construction explicitly reassures Marmee that the speaker’s love for her remains undiminished, strongly supporting truth-conditional force.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "“she said, clinging to her mother, with full eyes for a moment”",
+      "supports": "This establishes an emotionally intense and affectionate delivery, but supplies no independent evidence that the words are a reflex-like expressive discharge.",
+      "confidence": 0.97
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "“I shall come every day, Father, and expect to keep my old place in all your hearts, though I am married.”",
+      "supports": "The adjacent future-oriented assurance clarifies the wedding-related fear of family separation, while remaining distinct from the core love avowal.",
+      "confidence": 0.97
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "moderate",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the core avowal of an enduring loving state. Emotional delivery and adjacent future assurances are adequately treated as context, leaving no residual pressure for E, P, or O.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

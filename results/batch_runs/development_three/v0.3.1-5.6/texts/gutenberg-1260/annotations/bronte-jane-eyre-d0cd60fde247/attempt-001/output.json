@@ -1,0 +1,65 @@
+{
+  "occurrence_id": "bronte-jane-eyre-d0cd60fde247",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.97,
+    "analysis": "Jane directly avows that she loves Rochester, using the avowal concessively to distinguish sincere love from flattering or idealising him. “Most dearly” strengthens the degree of the presented emotional state but supplies no independent evidence of an undertaking or reflex-like expressive discharge.",
+    "ambiguity": null
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "Jane directly addresses Mr. Rochester and says that she loves him most dearly."
+  },
+  "contextual_interpretation": "The love avowal supports Jane’s insistence on honesty and equality: she can love Rochester deeply while refusing to flatter him or accept his attempt to dress her in an alien, ornamental identity. Its placement after “though” makes it a sincere concession within an argument, not a new promise. The intensification “most dearly” and “far too dearly” indicates emotional strength but does not make the utterance independently expressive/reflexive.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "“though I love you most dearly”",
+      "supports": "The first-person present-tense clause explicitly presents Jane’s loving emotional state as true, strongly supporting T.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "“far too dearly to flatter you. Don’t flatter me.”",
+      "supports": "Jane invokes the depth of her love as a reason for candour and mutual non-flattery; this confirms an avowal serving an argument rather than a commitment-making act or reflexive discharge.",
+      "confidence": 0.97
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "“I don’t call you handsome, sir, though I love you most dearly”",
+      "supports": "The concessive syntax contrasts honest judgment with love, reinforcing that the core utterance reports or avows affection rather than merely producing an emotional exclamation.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "e4",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is located in Chapter XXIV of Charlotte Brontë’s Jane Eyre.",
+      "supports": "Identifies the source and location of the directly addressed utterance without adding claims beyond the supplied passage.",
+      "confidence": 1.0
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the core avowal. Its argumentative use, intensity, and relational implications are adequately represented as context and do not require P, E, or O.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}
