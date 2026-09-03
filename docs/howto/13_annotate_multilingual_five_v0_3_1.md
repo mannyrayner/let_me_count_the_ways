@@ -163,60 +163,104 @@ Open the beginning/end and the join between volumes. Confirm that #2407 is Band
 one complete *Werther*. The source ID changes to `gutenberg-2407-2408`; update
 the batch manifest and provenance filename before extraction as described below.
 
-### Download the two Project Runeberg texts
+### Download and combine the Project Runeberg parts
 
-Runeberg supplies continuous HTML. This block preserves the response exactly,
-then applies the same deterministic standard-library conversion to both works.
-It excludes scripts/styles, decodes entities, and adds block-boundary newlines;
-it does not modernise words.
+Keep each play as one corpus text. Runeberg divides *Et dukkehjem* into three
+act pages and *Fröken Julie* into five pages; those are source parts, not
+separate works. This helper downloads every part atomically, preserves all HTML
+responses, extracts visible text with one standard-library converter, and
+concatenates the parts in supplied order without modernising the wording.
+
+If a failed continuous-page attempt left empty artifacts, remove only those
+confirmed-empty files first:
+
+```bash
+for DIRECTORY in data/raw/ibsen-et-dukkehjem data/raw/strindberg-froken-julie
+do
+  for OLD in "$DIRECTORY/source-download.html" "$DIRECTORY/source-download.html.part"
+  do
+    test ! -e "$OLD" || {
+      test ! -s "$OLD" || { echo "Refusing to remove non-empty $OLD" >&2; exit 1; }
+      rm "$OLD"
+    }
+  done
+done
+```
+
+Download and combine both plays:
 
 ```bash
 cd "$LMCW"
-acquire_runeberg () {
-  SOURCE_ID="$1" WORK_ID="$2" SOURCE_URL="$3"
-  SOURCE_DIR="data/raw/$WORK_ID"
-  DOWNLOAD="$SOURCE_DIR/source-download.html"
-  SOURCE_FILE="$SOURCE_DIR/$SOURCE_ID.txt"
+acquire_runeberg_parts () {
+  SOURCE_ID="$1" WORK_ID="$2"; shift 2
+  SOURCE_DIR="data/raw/$WORK_ID"; SOURCE_FILE="$SOURCE_DIR/$SOURCE_ID.txt"
   mkdir -p "$SOURCE_DIR"
-  test ! -e "$DOWNLOAD" && test ! -e "$SOURCE_FILE" || {
-    echo "Refusing to overwrite $SOURCE_DIR" >&2; return 1;
-  }
-  curl --fail --location --retry 3 --output "$DOWNLOAD" "$SOURCE_URL" || return 1
-  python - "$DOWNLOAD" "$SOURCE_FILE" <<'PY'
+  test ! -e "$SOURCE_FILE" || { echo "Refusing to overwrite $SOURCE_FILE" >&2; return 1; }
+  DOWNLOADS=(); PART_NUMBER=0
+  for SOURCE_URL in "$@"
+  do
+    PART_NUMBER=$((PART_NUMBER + 1))
+    DOWNLOAD="$SOURCE_DIR/source-part-$(printf '%02d' "$PART_NUMBER").html"
+    PARTIAL="$DOWNLOAD.part"
+    test ! -e "$PARTIAL" || {
+      echo "Remove or inspect incomplete $PARTIAL before resuming" >&2; return 1;
+    }
+    if test -e "$DOWNLOAD"; then
+      test -s "$DOWNLOAD" || { echo "Existing $DOWNLOAD is empty" >&2; return 1; }
+      echo "Reusing completed part $DOWNLOAD"
+    else
+      curl --fail --location --retry 3 --output "$PARTIAL" "$SOURCE_URL" || {
+        rm -f "$PARTIAL"; return 1;
+      }
+      mv "$PARTIAL" "$DOWNLOAD"
+    fi
+    DOWNLOADS+=("$DOWNLOAD")
+  done
+  python - "$SOURCE_FILE" "${DOWNLOADS[@]}" <<'PY'
 import re, sys
 from html.parser import HTMLParser
 from pathlib import Path
-class TextExtractor(HTMLParser):
+class VisibleText(HTMLParser):
     blocks={"address","article","blockquote","br","div","h1","h2","h3","h4",
             "h5","h6","hr","li","p","pre","section","table","tr"}
     def __init__(self): super().__init__(convert_charrefs=True); self.parts=[]; self.hidden=0
-    def handle_starttag(self, tag, attrs):
-        if tag in {"script","style"}: self.hidden += 1
+    def handle_starttag(self,tag,attrs):
+        if tag in {"script","style"}: self.hidden+=1
         if tag in self.blocks: self.parts.append("\n")
-    def handle_endtag(self, tag):
+    def handle_endtag(self,tag):
         if tag in {"script","style"}: self.hidden=max(0,self.hidden-1)
         if tag in self.blocks: self.parts.append("\n")
-    def handle_data(self, data):
+    def handle_data(self,data):
         if not self.hidden: self.parts.append(data)
-raw, destination=Path(sys.argv[1]), Path(sys.argv[2]); data=raw.read_bytes()
-match=re.search(br'charset=["\']?([A-Za-z0-9._-]+)', data[:10000], re.I)
-encoding=match.group(1).decode("ascii") if match else "iso-8859-1"
-parser=TextExtractor(); parser.feed(data.decode(encoding))
-text="\n".join(line.strip() for line in "".join(parser.parts).splitlines())
-text=re.sub(r"\n{3,}", "\n\n", text).strip()+"\n"
-destination.write_text(text, encoding="utf-8", newline="")
+def visible_text(path):
+    data=path.read_bytes(); match=re.search(br'charset=["\']?([A-Za-z0-9._-]+)',data[:10000],re.I)
+    encoding=match.group(1).decode("ascii") if match else "iso-8859-1"
+    parser=VisibleText(); parser.feed(data.decode(encoding))
+    text="\n".join(line.strip() for line in "".join(parser.parts).splitlines())
+    return re.sub(r"\n{3,}","\n\n",text).strip()
+destination=Path(sys.argv[1]); parts=[visible_text(Path(name)) for name in sys.argv[2:]]
+destination.write_text("\n\n".join(parts)+"\n",encoding="utf-8",newline="")
 PY
 }
-acquire_runeberg runeberg-dukkhjem ibsen-et-dukkehjem \
-  'https://runeberg.org/dukkhjem/dukkhjem.html'
-acquire_runeberg runeberg-frkjulie strindberg-froken-julie \
-  'https://runeberg.org/frkjulie/frkjulie.html'
-unset -f acquire_runeberg
+acquire_runeberg_parts runeberg-dukkhjem ibsen-et-dukkehjem \
+  'https://runeberg.org/dukkhjem/1.html' \
+  'https://runeberg.org/dukkhjem/2.html' \
+  'https://runeberg.org/dukkhjem/3.html'
+acquire_runeberg_parts runeberg-frkjulie strindberg-froken-julie \
+  'https://runeberg.org/frkjulie/01.html' \
+  'https://runeberg.org/frkjulie/02.html' \
+  'https://runeberg.org/frkjulie/03.html' \
+  'https://runeberg.org/frkjulie/04.html' \
+  'https://runeberg.org/frkjulie/05.html'
+unset -f acquire_runeberg_parts
+sha256sum data/raw/ibsen-et-dukkehjem/* data/raw/strindberg-froken-julie/*
 ```
 
-Open both derived texts and confirm that each is the complete play, not an
-index, error, or navigation-only response. If the reviewed page exposes a
-different continuous-text URL, use it in both the command and provenance.
+Inspect every preserved part and both assembled texts. Confirm the Ibsen pages
+are Acts 1–3 in order, the Strindberg pages are parts 01–05 in order, and neither
+assembled result contains an error page or omits literary content. Navigation
+text may remain documented in the derived source, but it must not interrupt or
+alter target utterances.
 
 ### Create uniform provenance drafts
 
@@ -234,8 +278,6 @@ retrieved_at=sys.argv[1]
 sources={
  "gutenberg-1256": ("rostand-cyrano-de-bergerac","https://www.gutenberg.org/cache/epub/1256/pg1256.txt","source-download.txt","Gutenberg wrapper retained in literary text."),
  "gutenberg-18797": ("lafayette-la-princesse-de-cleves","https://www.gutenberg.org/cache/epub/18797/pg18797.txt","source-download.txt","Gutenberg wrapper removed at explicit START/END markers."),
- "runeberg-dukkhjem": ("ibsen-et-dukkehjem","https://runeberg.org/dukkhjem/dukkhjem.html","source-download.html","Python HTMLParser extraction; entities decoded and block boundaries converted to newlines."),
- "runeberg-frkjulie": ("strindberg-froken-julie","https://runeberg.org/frkjulie/frkjulie.html","source-download.html","Python HTMLParser extraction; entities decoded and block boundaries converted to newlines."),
 }
 sha=lambda path: hashlib.sha256(path.read_bytes()).hexdigest()
 for source_id,(work_id,url,download_name,processing) in sources.items():
@@ -270,6 +312,30 @@ record.update({
 record.pop("acquisition_note",None)
 provenance.write_text(json.dumps(record,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
 print(f"Drafted {provenance}")
+
+# Each Runeberg play is one derived source backed by several preserved pages.
+runeberg_sources={
+ "runeberg-dukkhjem": ("ibsen-et-dukkehjem",
+   ["https://runeberg.org/dukkhjem/1.html","https://runeberg.org/dukkhjem/2.html","https://runeberg.org/dukkhjem/3.html"]),
+ "runeberg-frkjulie": ("strindberg-froken-julie",
+   [f"https://runeberg.org/frkjulie/{part}.html" for part in ("01","02","03","04","05")]),
+}
+for source_id,(work_id,urls) in runeberg_sources.items():
+    directory=Path("data/raw")/work_id; local=directory/f"{source_id}.txt"
+    downloads=sorted(directory.glob("source-part-*.html"))
+    assert len(downloads)==len(urls),(source_id,downloads)
+    provenance=Path("provenance/sources")/f"{source_id}.json"
+    record=json.loads(provenance.read_text(encoding="utf-8"))
+    record.update({"source_urls":urls,"local_path":str(local),"retrieved_at":retrieved_at,
+      "sha256":sha(local),"download_paths":[str(path) for path in downloads],
+      "download_sha256":{path.name:sha(path) for path in downloads},
+      "processing_note":"Visible text extracted from each preserved Runeberg HTML page and concatenated in listed order; entities decoded and block boundaries converted to newlines.",
+      "observed_format":"UTF-8 plain text assembled from preserved HTML pages",
+      "rights_note":"PENDING: record Runeberg source statement and independent Australian review.",
+      "review_status":"draft"})
+    record.pop("acquisition_note",None)
+    provenance.write_text(json.dumps(record,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
+    print(f"Drafted {provenance}")
 PY
 ```
 
