@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate a v0.1 or v0.2 passage-classification JSON result."""
+"""Validate a v0.1, v0.2, or v0.3 passage-classification JSON result."""
 
 from __future__ import annotations
 
@@ -343,14 +343,123 @@ def validate_v0_2(result: dict, expected_occurrence_id: str | None = None) -> No
     require_string(root["notes"], "notes", nullable=True)
 
 
+V0_3_TOP_LEVEL = {
+    "occurrence_id", "core_classification", "other_diagnosis", "utterance_status",
+    "contextual_interpretation", "evidence", "background_knowledge",
+    "ontology_assessment", "notes",
+}
+V0_3_LABELS = {
+    "truth_conditional", "performative", "exclamatory_reflexive", "other",
+}
+UTTERANCE_STATUSES = {
+    "direct", "quoted_or_revoiced", "reported", "imagined", "written",
+    "nonverbal_verbalised", "hypothetical", "other",
+}
+
+
+def validate_v0_3(result: dict, expected_occurrence_id: str | None = None) -> None:
+    """Validate the compact v0.3 T/P/E/O annotation contract."""
+    root = require_exact_keys(result, V0_3_TOP_LEVEL, "result")
+    require_string(root["occurrence_id"], "occurrence_id")
+    if expected_occurrence_id is not None:
+        require(root["occurrence_id"] == expected_occurrence_id,
+                "occurrence_id does not match the requested passage")
+
+    core = require_exact_keys(
+        root["core_classification"],
+        {"label_support", "confidence", "analysis", "ambiguity"},
+        "core_classification",
+    )
+    labels = require_exact_keys(core["label_support"], V0_3_LABELS,
+                                "core_classification.label_support")
+    for label, score in labels.items():
+        require(type(score) is int and 0 <= score <= 4,
+                f"core_classification.label_support.{label} must be an integer from 0 to 4")
+    require_confidence(core["confidence"], "core_classification.confidence")
+    require_string(core["analysis"], "core_classification.analysis")
+    require_string(core["ambiguity"], "core_classification.ambiguity", nullable=True)
+
+    diagnosis = require_exact_keys(
+        root["other_diagnosis"], {"tpe_failure", "core_not_context"}, "other_diagnosis")
+    if labels["other"] > 0:
+        require_string(diagnosis["tpe_failure"], "other_diagnosis.tpe_failure")
+        require_string(diagnosis["core_not_context"], "other_diagnosis.core_not_context")
+    else:
+        require(diagnosis["tpe_failure"] is None and diagnosis["core_not_context"] is None,
+                "other_diagnosis fields must be null when the O score is 0")
+
+    status = require_exact_keys(
+        root["utterance_status"], {"status", "description"}, "utterance_status")
+    require_enum(status["status"], UTTERANCE_STATUSES, "utterance_status.status")
+    require_string(status["description"], "utterance_status.description")
+    require_string(root["contextual_interpretation"], "contextual_interpretation")
+
+    require(isinstance(root["evidence"], list) and bool(root["evidence"]),
+            "evidence must be a non-empty array")
+    evidence_ids = []
+    for index, value in enumerate(root["evidence"]):
+        name = f"evidence[{index}]"
+        item = require_exact_keys(
+            value,
+            {"evidence_id", "source", "quotation_or_description", "supports", "confidence"},
+            name,
+        )
+        require_string(item["evidence_id"], f"{name}.evidence_id")
+        evidence_ids.append(item["evidence_id"])
+        require_enum(item["source"],
+                     {"local_text", "supplied_metadata", "background_knowledge"},
+                     f"{name}.source")
+        require_string(item["quotation_or_description"], f"{name}.quotation_or_description")
+        require_string(item["supports"], f"{name}.supports")
+        require_confidence(item["confidence"], f"{name}.confidence")
+    require(len(evidence_ids) == len(set(evidence_ids)), "evidence IDs must be unique")
+
+    background = require_exact_keys(
+        root["background_knowledge"],
+        {"used", "familiarity", "confidence", "contribution"},
+        "background_knowledge",
+    )
+    require(type(background["used"]) is bool, "background_knowledge.used must be boolean")
+    require_enum(background["familiarity"], {"none", "limited", "moderate", "extensive"},
+                 "background_knowledge.familiarity")
+    background_evidence = any(
+        item["source"] == "background_knowledge" for item in root["evidence"])
+    if background["used"]:
+        require_confidence(background["confidence"], "background_knowledge.confidence")
+        require_string(background["contribution"], "background_knowledge.contribution")
+        require(background_evidence,
+                "used background knowledge requires at least one background_knowledge evidence item")
+    else:
+        require(background["confidence"] is None and background["contribution"] is None,
+                "unused background knowledge must have null confidence and contribution")
+        require(not background_evidence,
+                "background_knowledge evidence requires background_knowledge.used to be true")
+
+    ontology = require_exact_keys(
+        root["ontology_assessment"],
+        {"fit", "diagnosis", "candidate_recurrent_dimension"},
+        "ontology_assessment",
+    )
+    require_enum(ontology["fit"], {"natural", "strained", "inadequate"},
+                 "ontology_assessment.fit")
+    require_string(ontology["diagnosis"], "ontology_assessment.diagnosis")
+    require_string(ontology["candidate_recurrent_dimension"],
+                   "ontology_assessment.candidate_recurrent_dimension", nullable=True)
+    require_string(root["notes"], "notes", nullable=True)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("input", type=Path)
     parser.add_argument("--expected-occurrence-id")
-    parser.add_argument("--schema-version", choices=["0.1", "0.2"], default="0.1")
+    parser.add_argument("--schema-version", choices=["0.1", "0.2", "0.3", "0.3.1"], default="0.1")
     args = parser.parse_args()
     result = json.loads(args.input.read_text(encoding="utf-8"))
-    validator = validate if args.schema_version == "0.1" else validate_v0_2
+    validators = {
+        "0.1": validate, "0.2": validate_v0_2,
+        "0.3": validate_v0_3, "0.3.1": validate_v0_3,
+    }
+    validator = validators[args.schema_version]
     validator(result, args.expected_occurrence_id)
     print(f"Classification v{args.schema_version} validation passed: {result['occurrence_id']}")
 

@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Compact T/P/E/O I-love-you classification v0.3",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "occurrence_id", "core_classification", "other_diagnosis",
+    "utterance_status", "contextual_interpretation", "evidence",
+    "background_knowledge", "ontology_assessment", "notes"
+  ],
+  "properties": {
+    "occurrence_id": {"$ref": "#/$defs/nonEmptyString"},
+    "core_classification": {"$ref": "#/$defs/coreClassification"},
+    "other_diagnosis": {"$ref": "#/$defs/otherDiagnosis"},
+    "utterance_status": {"$ref": "#/$defs/utteranceStatus"},
+    "contextual_interpretation": {"$ref": "#/$defs/nonEmptyString"},
+    "evidence": {
+      "type": "array", "minItems": 1,
+      "items": {"$ref": "#/$defs/evidenceItem"}
+    },
+    "background_knowledge": {"$ref": "#/$defs/backgroundKnowledge"},
+    "ontology_assessment": {"$ref": "#/$defs/ontologyAssessment"},
+    "notes": {"type": ["string", "null"]}
+  },
+  "$defs": {
+    "nonEmptyString": {"type": "string", "minLength": 1},
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+    "score": {"type": "integer", "minimum": 0, "maximum": 4},
+    "coreClassification": {
+      "type": "object", "additionalProperties": false,
+      "required": ["label_support", "confidence", "analysis", "ambiguity"],
+      "properties": {
+        "label_support": {
+          "type": "object", "additionalProperties": false,
+          "required": ["truth_conditional", "performative", "exclamatory_reflexive", "other"],
+          "properties": {
+            "truth_conditional": {"$ref": "#/$defs/score"},
+            "performative": {"$ref": "#/$defs/score"},
+            "exclamatory_reflexive": {"$ref": "#/$defs/score"},
+            "other": {"$ref": "#/$defs/score"}
+          }
+        },
+        "confidence": {"$ref": "#/$defs/confidence"},
+        "analysis": {"$ref": "#/$defs/nonEmptyString"},
+        "ambiguity": {"type": ["string", "null"]}
+      }
+    },
+    "otherDiagnosis": {
+      "type": "object", "additionalProperties": false,
+      "required": ["tpe_failure", "core_not_context"],
+      "properties": {
+        "tpe_failure": {"type": ["string", "null"]},
+        "core_not_context": {"type": ["string", "null"]}
+      }
+    },
+    "utteranceStatus": {
+      "type": "object", "additionalProperties": false,
+      "required": ["status", "description"],
+      "properties": {
+        "status": {"enum": [
+          "direct", "quoted_or_revoiced", "reported", "imagined", "written",
+          "nonverbal_verbalised", "hypothetical", "other"
+        ]},
+        "description": {"$ref": "#/$defs/nonEmptyString"}
+      }
+    },
+    "evidenceItem": {
+      "type": "object", "additionalProperties": false,
+      "required": ["evidence_id", "source", "quotation_or_description", "supports", "confidence"],
+      "properties": {
+        "evidence_id": {"$ref": "#/$defs/nonEmptyString"},
+        "source": {"enum": ["local_text", "supplied_metadata", "background_knowledge"]},
+        "quotation_or_description": {"$ref": "#/$defs/nonEmptyString"},
+        "supports": {"$ref": "#/$defs/nonEmptyString"},
+        "confidence": {"$ref": "#/$defs/confidence"}
+      }
+    },
+    "backgroundKnowledge": {
+      "type": "object", "additionalProperties": false,
+      "required": ["used", "familiarity", "confidence", "contribution"],
+      "properties": {
+        "used": {"type": "boolean"},
+        "familiarity": {"enum": ["none", "limited", "moderate", "extensive"]},
+        "confidence": {"anyOf": [{"$ref": "#/$defs/confidence"}, {"type": "null"}]},
+        "contribution": {"type": ["string", "null"]}
+      }
+    },
+    "ontologyAssessment": {
+      "type": "object", "additionalProperties": false,
+      "required": ["fit", "diagnosis", "candidate_recurrent_dimension"],
+      "properties": {
+        "fit": {"enum": ["natural", "strained", "inadequate"]},
+        "diagnosis": {"$ref": "#/$defs/nonEmptyString"},
+        "candidate_recurrent_dimension": {"type": ["string", "null"]}
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {"core_classification": {"properties": {"label_support": {"properties": {"other": {"const": 0}}}}}}
+      },
+      "then": {
+        "properties": {"other_diagnosis": {"properties": {"tpe_failure": {"type": "null"}, "core_not_context": {"type": "null"}}}}
+      },
+      "else": {
+        "properties": {"other_diagnosis": {"properties": {"tpe_failure": {"$ref": "#/$defs/nonEmptyString"}, "core_not_context": {"$ref": "#/$defs/nonEmptyString"}}}}
+      }
+    }
+  ]
+}

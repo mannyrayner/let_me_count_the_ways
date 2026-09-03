@@ -129,6 +129,38 @@ transmitted, reviewed, and approved by the collaborator. The repository makes
 the exchange persistent and inspectable rather than an invisible model-to-model
 conversation.
 
+## Integrated handoff loop: September 2026 observation
+
+Manny reports that the following specific workflow now appears substantially
+more effective than working with Codex alone or holding separate, unintegrated
+conversations with ChatGPT and Codex:
+
+```text
+Manny + interactive ChatGPT
+        ↓
+conceptual discussion / research design
+        ↓
+explicit handoff document
+        ↓
+Codex implementation / experimentation
+        ↓
+results
+        ↓
+Manny + interactive ChatGPT review
+        ↓
+next handoff
+```
+
+His current subjective estimate is that this integrated loop may accelerate
+development by roughly a factor of two. This is an observation made during the
+project, not controlled evidence or a measured productivity claim. Its apparent
+advantage is that the interactive model supplies a rapid conceptual and
+research-design layer: Codex receives a substantially more specified handoff,
+without requiring Manny to perform all of the technical specification himself.
+The observation should eventually be tested against dated artifacts and, if
+useful, examined more systematically rather than repeated as an established
+result.
+
 ## Increasing AI autonomy and continuing human responsibility
 
 AI collaborators are performing an increasing share of conceptual analysis,
