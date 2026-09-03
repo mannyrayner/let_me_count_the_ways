@@ -4,7 +4,7 @@ import unittest
 from pathlib import Path
 
 from scripts.pipeline.run_batch import (
-    find_reusable_extraction, load_batch_manifest, pattern_for_extraction,
+    find_reusable_extraction, load_batch_manifest, ontology_records, pattern_for_extraction,
 )
 
 
@@ -68,6 +68,24 @@ class BatchRunnerTests(unittest.TestCase):
             "patterns_sha256": hashlib.sha256(b"old").hexdigest(),
         }})
         self.assertEqual(pattern_for_extraction(extraction, [new, old]), old)
+
+    def test_ontology_statistics_and_review_flags(self):
+        attempt = self.root / "texts/source/annotations/occurrence/attempt-001"
+        self.write_json(attempt / "status.json", {"state": "valid"})
+        self.write_json(attempt / "output.json", {
+            "core_classification": {"label_support": {
+                "truth_conditional": 3, "performative": 2,
+                "exclamatory_reflexive": 0, "other": 0,
+            }, "confidence": 0.7},
+            "ontology_assessment": {"fit": "natural"},
+        })
+        stats, review = ontology_records(self.root, [{"source_id": "source"}])
+        self.assertEqual(stats["score_distributions"]["T"]["3"], 1)
+        self.assertEqual(stats["p_at_least_two"], 1)
+        self.assertEqual(stats["balanced_core"], 1)
+        self.assertEqual(review[0]["reasons"], [
+            "P >= 2", "confidence < 0.75", "two or more of P/T/E >= 2",
+        ])
 
 
 if __name__ == "__main__":
