@@ -22,7 +22,7 @@ test -z "$(git status --short)" || {
 }
 python -m pytest -q
 python -m json.tool data/batches/multilingual_five_v1.json
-python -m json.tool data/development/search_patterns_v0_3.json
+python -m json.tool data/development/search_patterns_v0_4.json
 test -f prompts/annotation/classify_passage_v0_3_1.md
 test -f prompts/annotation/classification_schema_v0_3.json
 ```
@@ -431,9 +431,10 @@ committed source/provenance checkpoint.
 
 `rg` is ripgrep, not a command supplied by Bash itself. On Cygwin, either rerun
 the Cygwin installer, select the `ripgrep` package, and keep using `rg`, or use
-the GNU `grep` fallback below. The array gives both programs the same relevant
-options: extended regular expressions, line numbers, case-insensitive matching,
-and two lines of context.
+the GNU `grep` fallback below. The arrays give both programs the same relevant
+options: extended regular expressions, line numbers, and two lines of context.
+`SEARCH_I` is case-insensitive; `SEARCH_CASE` preserves case so that formal
+second-person `Sie` is not conflated with third-person `sie`.
 
 These probes mirror the ordered phrases in the shared pattern file. In a regular
 expression, bare `|` means **or**, so `jeg|elsker|deg|dig` finds any one of those
@@ -446,20 +447,30 @@ Inspect actual bytes, including every eventual zero-hit work:
 
 ```bash
 if command -v rg >/dev/null 2>&1; then
-  SEARCH=(rg -n -i -C 2)
+  SEARCH_I=(rg -n -i -C 2)
+  SEARCH_CASE=(rg -n -C 2)
 else
-  SEARCH=(grep -E -n -i -C 2)
+  SEARCH_I=(grep -E -n -i -C 2)
+  SEARCH_CASE=(grep -E -n -C 2)
 fi
-"${SEARCH[@]}" 'jeg[[:space:]]+elsker[[:space:]]+(deg|dig|dere)' data/raw/ibsen-et-dukkehjem/runeberg-dukkhjem.txt
-"${SEARCH[@]}" "je[[:space:]]+(t[[:space:]]*[’'][[:space:]]*aime|vous[[:space:]]+aime)" data/raw/rostand-cyrano-de-bergerac/gutenberg-1256.txt
-"${SEARCH[@]}" 'jag[[:space:]]+älskar[[:space:]]+(dig|er)' data/raw/strindberg-froken-julie/runeberg-frkjulie.txt
-"${SEARCH[@]}" 'ich[[:space:]]+liebe[[:space:]]+(dich|euch|sie)' data/raw/goethe-die-leiden-des-jungen-werther/gutenberg-2407-2408.txt
-"${SEARCH[@]}" "je[[:space:]]+(t[[:space:]]*[’'][[:space:]]*aime|vous[[:space:]]+aime)" data/raw/lafayette-la-princesse-de-cleves/gutenberg-18797.txt
-unset SEARCH
+"${SEARCH_I[@]}" 'jeg[[:space:]]+elsker[[:space:]]+(deg|dig|dere)' data/raw/ibsen-et-dukkehjem/runeberg-dukkhjem.txt
+"${SEARCH_I[@]}" "je[[:space:]]+(t[[:space:]]*[’'][[:space:]]*aime|vous[[:space:]]+aime)" data/raw/rostand-cyrano-de-bergerac/gutenberg-1256.txt
+"${SEARCH_I[@]}" 'jag[[:space:]]+älskar[[:space:]]+(dig|er)' data/raw/strindberg-froken-julie/runeberg-frkjulie.txt
+
+# German broad probe first: inspect every hit before relying on the production probes.
+WERTHER=data/raw/goethe-die-leiden-des-jungen-werther/gutenberg-2407-2408.txt
+"${SEARCH_I[@]}" '(ich|dich|euch|sie).{0,40}lieb|lieb.{0,40}(ich|dich|euch|sie)' "$WERTHER"
+# Production coverage: main-clause and verb-final order for dich/euch.
+"${SEARCH_I[@]}" 'ich[[:space:]]+(liebe[[:space:]]+(dich|euch)|(dich|euch)[[:space:]]+liebe)' "$WERTHER"
+# Formal second-person Sie is deliberately checked case-sensitively.
+"${SEARCH_CASE[@]}" '(Ich|ich)[[:space:]]+(liebe[[:space:]]+Sie|Sie[[:space:]]+liebe)' "$WERTHER"
+
+"${SEARCH_I[@]}" "je[[:space:]]+(t[[:space:]]*[’'][[:space:]]*aime|vous[[:space:]]+aime)" data/raw/lafayette-la-princesse-de-cleves/gutenberg-18797.txt
+unset SEARCH_I SEARCH_CASE WERTHER
 ```
 
 The probes are a readable, line-oriented check, while extraction uses the
-Python-compatible Unicode expressions in `search_patterns_v0_3.json` against
+Python-compatible Unicode expressions in `search_patterns_v0_4.json` against
 the whole NFC-normalised text. Treat that JSON file, not these shell probes, as
 authoritative if a phrase crosses a line break.
 
@@ -478,7 +489,7 @@ for PROVENANCE in \
   provenance/sources/gutenberg-18797.json
 do
   python scripts/pipeline/run_single_text_pipeline.py "$PROVENANCE" \
-    --patterns data/development/search_patterns_v0_3.json \
+    --patterns data/development/search_patterns_v0_4.json \
     --annotation-version 0.3.1 --model 5.6 --dry-run || exit 1
 done
 ```
@@ -498,7 +509,7 @@ re-extraction. First make a call-free batch dry run:
 ```bash
 python scripts/pipeline/run_batch.py \
   --manifest data/batches/multilingual_five_v1.json \
-  --patterns data/development/search_patterns_v0_3.json \
+  --patterns data/development/search_patterns_v0_4.json \
   --annotation-version 0.3.1 --model 5.6 --dry-run
 BATCH_DIR='results/batch_runs/multilingual_five_v1/v0.3.1-5.6'
 python -m json.tool "$BATCH_DIR/summary.json"
@@ -515,7 +526,7 @@ test -n "${OPENAI_API_KEY:-}" || {
 }
 python scripts/pipeline/run_batch.py \
   --manifest data/batches/multilingual_five_v1.json \
-  --patterns data/development/search_patterns_v0_3.json \
+  --patterns data/development/search_patterns_v0_4.json \
   --annotation-version 0.3.1 --model 5.6
 ```
 

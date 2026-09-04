@@ -1,0 +1,28 @@
+{
+  "schema_version": "0.4",
+  "matching": {
+    "engine": "Python-compatible Unicode regular expressions",
+    "default_flags": ["IGNORECASE"],
+    "normalization": "Search NFC text; preserve the original match and offsets.",
+    "scope": "Direct or embedded first-person-to-second-person love declarations only. Patterns reflect inspected source-edition orthography.",
+    "pattern_options": "A pattern with case_sensitive=true overrides the default IGNORECASE flag."
+  },
+  "languages": {
+    "fr": {"name": "French", "patterns": [
+      {"id": "fr_je_taime_apostrophe_spacing", "regex": "\\bje\\s+t\\s*[’']\\s*aime\\b"},
+      {"id": "fr_je_vous_aime", "regex": "\\bje\\s+vous\\s+aime\\b"}
+    ]},
+    "sv": {"name": "Swedish", "patterns": [
+      {"id": "sv_jag_alskar_dig_er", "regex": "\\bjag\\s+älskar\\s+(?:dig|er)\\b"}
+    ]},
+    "no": {"name": "Norwegian; modernised electronic edition", "patterns": [
+      {"id": "no_jeg_elsker_deg_dig_dere", "regex": "\\bjeg\\s+elsker\\s+(?:deg|dig|dere)\\b"}
+    ]},
+    "de": {"name": "German", "patterns": [
+      {"id": "de_ich_liebe_dich_euch_main", "regex": "\\bich\\s+liebe\\s+(?:dich|euch)\\b"},
+      {"id": "de_ich_dich_euch_liebe_subordinate", "regex": "\\bich\\s+(?:dich|euch)\\s+liebe\\b"},
+      {"id": "de_ich_liebe_sie_formal_main", "regex": "\\b[Ii]ch\\s+liebe\\s+Sie\\b", "case_sensitive": true},
+      {"id": "de_ich_sie_liebe_formal_subordinate", "regex": "\\b[Ii]ch\\s+Sie\\s+liebe\\b", "case_sensitive": true}
+    ]}
+  }
+}
