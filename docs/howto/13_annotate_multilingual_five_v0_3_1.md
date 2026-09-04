@@ -362,9 +362,18 @@ for name in paths:
     path=Path(name); print(hashlib.sha256(path.read_bytes()).hexdigest(),path)
 PY
   SOURCE_FILE="$(python -c 'import json,sys; print(json.load(open(sys.argv[1],encoding="utf-8"))["local_path"])' "provenance/sources/$SOURCE_ID.json")"
+  # Native Windows Python writes CRLF to stdout; Cygwin command substitution
+  # removes the LF but can leave the CR attached to the filename.
+  SOURCE_FILE="${SOURCE_FILE%$'\r'}"
+  test -n "$SOURCE_FILE" || { echo "Empty source path for $SOURCE_ID" >&2; exit 1; }
   sed -n '1,35p' "$SOURCE_FILE"; tail -20 "$SOURCE_FILE"
 done
 ```
+
+The explicit carriage-return removal is necessary when Cygwin invokes a native
+Windows Python. Without it, commands such as `sed` and `tail` receive a filename
+ending in an invisible `\r` and report a misleading “No such file or directory”
+even though the JSON value and the actual file are correct.
 
 Run approval and credential checks before staging:
 
