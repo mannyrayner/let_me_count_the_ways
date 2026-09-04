@@ -1,0 +1,72 @@
+{
+  "occurrence_id": "rostand-cyrano-de-bergerac-c724091d5f24",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 1,
+      "exclamatory_reflexive": 3,
+      "other": 0
+    },
+    "confidence": 0.93,
+    "analysis": "Cyrano’s “je vous aime” is principally a sincere avowal of his loving state. It also has substantial expressive/reflexive force: he describes himself as throwing out whatever words come to him without arranging them, and the declaration immediately spills into “je t’aime,” “j’étouffe,” and “je n’en peux plus.” This provides evidence of affect producing the words, beyond passionate delivery alone. Its role in courtship gives slight performative support, but the utterance does not clearly undertake a commitment or obligation.",
+    "ambiguity": "Because Cyrano speaks in a concealed proxy role, the declaration simultaneously advances Christian’s courtship as Roxane understands it and expresses Cyrano’s own love. This complicates speaker attribution and uptake but does not require O."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "A directly spoken declaration by Cyrano to Roxane, complicated by his concealed role as Christian’s proxy: Roxane receives the voice and words as part of Christian’s courtship, while Cyrano voices his own feelings."
+  },
+  "contextual_interpretation": "The declaration occurs in an escalating, deliberately unpolished outpouring. Cyrano moves from formal “vous” to intimate “tu” and surrounds the avowal with images of choking, madness, trembling, and involuntary resonance. In the wider balcony scene, he is speaking from concealment for Christian; nevertheless, the emotional content is Cyrano’s own sincere love. The proxy deception changes Roxane’s understanding of who avows the love, not the core utterance’s strong T and E forces.",
+  "evidence": [
+    {
+      "evidence_id": "ev1",
+      "source": "local_text",
+      "quotation_or_description": "“je vous aime, j’étouffe, / Je t’aime, je suis fou, je n’en peux plus, c’est trop”",
+      "supports": "Strong T support from the explicit avowal; the rapid repetition, pronoun shift, and presentation of emotional overflow contribute to E when read with the preceding account of words arriving unarranged.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "ev2",
+      "source": "local_text",
+      "quotation_or_description": "“Tous ceux… / Qui me viendront, je vais vous les jeter, en touffe, / Sans les mettre en bouquet”",
+      "supports": "Positive independent evidence for E: Cyrano presents the words as coming to him and being released in an unarranged mass, rather than solely as a composed assertion.",
+      "confidence": 0.94
+    },
+    {
+      "evidence_id": "ev3",
+      "source": "local_text",
+      "quotation_or_description": "“Ton nom est dans mon cœur comme dans un grelot… le grelot s’agite, et le nom sonne !”",
+      "supports": "Portrays Roxane’s name as sounding through an affect-driven, quasi-involuntary response, reinforcing expressive/reflexive force and the sincerity of the avowed state.",
+      "confidence": 0.9
+    },
+    {
+      "evidence_id": "ev4",
+      "source": "background_knowledge",
+      "quotation_or_description": "In the balcony scene, Cyrano speaks from concealment as Christian’s verbal proxy, while the eloquence and love he expresses are his own; Roxane attributes the address to Christian.",
+      "supports": "Explains the direct-but-proxied status, the mismatch in participant understanding, and why the utterance can sincerely avow Cyrano’s state while functioning contextually in Christian’s courtship.",
+      "confidence": 0.95
+    },
+    {
+      "evidence_id": "ev5",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The supplied metadata identifies the work as Edmond Rostand’s French play “Cyrano de Bergerac” and locates the match around relative position 0.522.",
+      "supports": "Supports attribution and general placement of the occurrence; it does not independently determine the core force.",
+      "confidence": 1.0
+    }
+  ],
+  "background_knowledge": {
+    "used": true,
+    "familiarity": "extensive",
+    "confidence": 0.95,
+    "contribution": "Used to identify the balcony-scene proxy arrangement: Cyrano speaks under cover for Christian, Roxane misattributes the declaration, and Cyrano’s words nevertheless express his own love."
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T and E naturally capture the sincere avowal and the explicitly represented affective outpouring. A small P score registers its limited relational enactment within courtship, while the concealed proxy arrangement is adequately handled as context rather than as a missing core-force category.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": "The high E score rests not on exclamation, repetition, or passion alone, but on the passage’s explicit representation of words arriving spontaneously and being released without rhetorical arrangement."
+}

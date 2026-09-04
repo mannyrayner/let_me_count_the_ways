@@ -1,0 +1,58 @@
+{
+  "occurrence_id": "rostand-cyrano-de-bergerac-89c2617e9b1b",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.94,
+    "analysis": "Cyrano's written and murmured “Je vous aime” is principally an avowal presenting his love as true. Its placement in a love letter gives it communicative and courtship significance, but the words themselves do not clearly undertake a commitment or obligation. Writing privately and murmuring intermittently do not establish reflex-like expressive discharge.",
+    "ambiguity": "The event combines writing with audible murmuring, but this affects utterance status more than core force."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "written",
+    "description": "Cyrano is composing the declaration in writing while also murmuring it aloud from time to time; the written declaration is the primary event."
+  },
+  "contextual_interpretation": "Cyrano is privately composing a declaration of love associated with Roxane. His aside and murmured delivery expose to the audience a sincere feeling that he has difficulty communicating openly. The romantic purpose of the letter supplies courtship context, but “Je vous aime” remains chiefly an avowal rather than an explicit relational undertaking or reflexive outburst.",
+  "evidence": [
+    {
+      "evidence_id": "ev-local-1",
+      "source": "local_text",
+      "quotation_or_description": "“CYRANO (écrivant, à part,--on l'entend murmurer de temps en temps): Je vous aime. . .”",
+      "supports": "The stage direction identifies the declaration as being written and intermittently murmured; the wording directly avows love, supporting high T and written status without positive evidence of reflex-like E.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "ev-meta-1",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The supplied metadata identifies the passage as French text from Edmond Rostand's Cyrano de Bergerac.",
+      "supports": "Establishes the work and linguistic context used to interpret “Je vous aime” as the formal/polite equivalent of “I love you.”",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "ev-bg-1",
+      "source": "background_knowledge",
+      "quotation_or_description": "In the wider play, Cyrano loves Roxane and composes declarations that articulate feelings he struggles to express directly under his own name.",
+      "supports": "Supports reading this line as a sincere avowal embedded in concealed or difficult courtship rather than as practice, meaningless recitation, or another O-type use.",
+      "confidence": 0.94
+    }
+  ],
+  "background_knowledge": {
+    "used": true,
+    "familiarity": "extensive",
+    "confidence": 0.94,
+    "contribution": "Identified Roxane as the object of Cyrano's love and situated the writing within his broader pattern of indirectly expressing sincere feelings."
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the declaration's central avowal force. Its written, private, and romantically mediated circumstances can be represented contextually without adding P, E, or O.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

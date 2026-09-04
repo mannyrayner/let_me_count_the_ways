@@ -1,0 +1,72 @@
+{
+  "occurrence_id": "rostand-cyrano-de-bergerac-12e4a608d4b9",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 2,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.91,
+    "analysis": "Roxane directly avows her love as a present emotional truth. The coordinated declaration “et suis tienne” (“and am yours”) gives the avowal some relational-undertaking force, though the highlighted “je t’aime” remains primarily truth-conditional. Trembling, weeping, intoxication imagery, exclamation, and cumulative syntax establish intense delivery but do not independently show that the words function as a reflex-like expressive discharge.",
+    "ambiguity": "Performative support depends on treating the highlighted avowal together with its immediately coordinated continuation, “et suis tienne”; considered in isolation, “je t’aime” would have weaker P support."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "A direct dramatic utterance by Roxane to the man she takes herself to be addressing as Christian, although the balcony scene’s concealed-voice situation creates dramatic irony about whose eloquence has moved her."
+  },
+  "contextual_interpretation": "Roxane presents the love as sincere and overwhelming, coupling it with bodily signs of emotion and the declaration that she is his. In the wider balcony-scene context, she believes she is responding to Christian, while Cyrano has covertly supplied the eloquent language that intoxicates her. This mistaken attribution complicates the intended addressee and the audience’s interpretation, but it does not alter the core avowal into quotation, deception, or an ontological remainder outside T/P/E.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "“ROXANE: Oui, je tremble, et je pleure, et je t'aime”",
+      "supports": "The named speaker directly presents loving the addressee as true; the surrounding first-person affect descriptions establish emotional intensity.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "“et suis tienne !”",
+      "supports": "The immediately coordinated claim “and am yours” adds relational surrender or undertaking force, supporting P alongside the dominant avowal.",
+      "confidence": 0.94
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "“Et tu m'as enivrée !”",
+      "supports": "Roxane portrays herself as emotionally overwhelmed or intoxicated by the addressee, supporting sincerity and intensity but not independently establishing expressive/reflexive core force.",
+      "confidence": 0.96
+    },
+    {
+      "evidence_id": "e4",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The supplied source identifies the passage as French dramatic dialogue from Edmond Rostand’s Cyrano de Bergerac, with the match attributed to ROXANE.",
+      "supports": "Supports reading the line as a character’s direct staged speech rather than narration or reported discourse.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e5",
+      "source": "background_knowledge",
+      "quotation_or_description": "In the balcony scene, Roxane believes she is hearing Christian’s courtship, while Cyrano covertly provides the eloquent speech that moves her.",
+      "supports": "Explains the dramatic irony and mistaken attribution surrounding Roxane’s otherwise sincere direct avowal.",
+      "confidence": 0.95
+    }
+  ],
+  "background_knowledge": {
+    "used": true,
+    "familiarity": "extensive",
+    "confidence": 0.95,
+    "contribution": "Used to identify the balcony scene’s concealed-voice arrangement and explain why Roxane’s sincere avowal has a dramatically complicated intended and overhearing audience."
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the explicit avowal, while P captures the undertaking pressure supplied by “suis tienne.” The surrounding affect can be represented as contextual intensity without assigning E, and no important aspect of the core force requires O.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

@@ -1,0 +1,57 @@
+{
+  "run_id": "gutenberg-18797",
+  "started_at": "2026-09-04T08:11:43.201067+00:00",
+  "ended_at": "2026-09-04T08:18:11.879249+00:00",
+  "work_id": "lafayette-la-princesse-de-cleves",
+  "source_id": "gutenberg-18797",
+  "source_sha256": "884673022e8648ee6323ddd172f5aefa46fede6939756c1cbb52fb8d9d397fb0",
+  "title": "La Princesse de Clèves",
+  "author": "Madame de La Fayette",
+  "language": "fr",
+  "search_pattern_version": "0.4",
+  "annotation_version": "0.3.1",
+  "model_alias": "5.6",
+  "api_model": "gpt-5.6-sol",
+  "prompt_path": "prompts\\annotation\\classify_passage_v0_3_1.md",
+  "prompt_sha256": "d9cbf88bee5f909f3b424259f083eb60be7555ec65f3f54d222d325619139dfc",
+  "schema_path": "prompts\\annotation\\classification_schema_v0_3.json",
+  "schema_sha256": "af501dbac1e7e1171ba8c3582b75611087f0570744c901b06304dd15dec0b805",
+  "extraction_fingerprint": {
+    "source_sha256": "884673022e8648ee6323ddd172f5aefa46fede6939756c1cbb52fb8d9d397fb0",
+    "patterns_sha256": "4992aeff018ef23e2a8a57fb79fc3a2b93b309c21a115a318ab83e06e54f3be1",
+    "pattern_version": "0.4",
+    "context_characters": 1000,
+    "extractor_sha256": "84d3643679dab25e5aa41eeed1cb25336ab43fcd8efa88d97b84e240e906c8fc"
+  },
+  "extraction_reused": true,
+  "extracted_occurrences": 1,
+  "attempted_this_invocation": 1,
+  "skipped_valid_this_invocation": 0,
+  "recovered_without_model_call_this_invocation": 0,
+  "valid_occurrences": 1,
+  "invalid_or_failed_attempts": 0,
+  "unresolved_failed_occurrences": 0,
+  "attempt_counts": {
+    "attempts": 1,
+    "valid": 1,
+    "invalid": 0,
+    "api_failure": 0,
+    "parse_failure": 0
+  },
+  "usage_and_cost": {
+    "input_tokens": 4193,
+    "cached_input_tokens": 0,
+    "output_tokens": 883,
+    "estimated_total_cost_usd": 0.034432
+  },
+  "software": {
+    "git_commit": "3d35928ceb0511dd762d8f9b84d2751bb7735c00",
+    "runner_sha256": "f8999b59780814b386996befd6bb0cbd41adf4295362c1e216ac782359ca5478",
+    "extractor_sha256": "84d3643679dab25e5aa41eeed1cb25336ab43fcd8efa88d97b84e240e906c8fc",
+    "validator_sha256": "f9c8eaa189aa0dd6a6e2d5474036a10a50882898f7afdc3b65194786143e1b03",
+    "model_catalog_sha256": "9facd8d8e66c9e477bf0f691d87836c112562be088517eed77d2d961c39b1c05"
+  },
+  "dry_run": false,
+  "context_expansion_policy": "record_only_no_automatic_rerun",
+  "status": "complete"
+}

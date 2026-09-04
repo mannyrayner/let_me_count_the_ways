@@ -1,0 +1,72 @@
+{
+  "occurrence_id": "rostand-cyrano-de-bergerac-4f3fb98d5ffc",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.9,
+    "analysis": "Roxane directly avows affection for Cyrano. In this scene the phrase primarily presents her loving fondness as true; it does not itself undertake a commitment. The exclamation, repetition, departing gesture, and lively delivery make the avowal emphatic but do not independently establish reflex-like expressive force.",
+    "ambiguity": "The principal ambiguity concerns the kind of love avowed—warm familial or friendly affection and gratitude rather than romantic love—not the utterance's predominantly truth-conditional force."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "Roxane directly says “Oh ! je vous aime !” to Cyrano during their conversation."
+  },
+  "contextual_interpretation": "Roxane is leaving after discussing another man and asking Cyrano to tell him to write to her. Her hand-kiss and repeated affectionate wording frame the line as an effusive expression of fondness and gratitude toward Cyrano, while the wider dramatic situation distinguishes that fondness from her romantic attachment to Christian. These relational circumstances qualify what kind of love she avows but do not alter the core T classification.",
+  "evidence": [
+    {
+      "evidence_id": "local-1",
+      "source": "local_text",
+      "quotation_or_description": "“Oh ! je vous aime !”",
+      "supports": "The unhedged first-person present-tense statement directly presents Roxane's affection as true, strongly supporting T.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "local-2",
+      "source": "local_text",
+      "quotation_or_description": "Roxane first says “je vous aime bien” and shortly afterward repeats “je vous aime” while sending a small kiss with her hand.",
+      "supports": "The repetition and affectionate gesture support a warm, emphatic avowal, but do not by themselves establish independent E force or a relational undertaking.",
+      "confidence": 0.94
+    },
+    {
+      "evidence_id": "local-3",
+      "source": "local_text",
+      "quotation_or_description": "“Dites-lui qu'il m'écrive.”",
+      "supports": "Her request that Cyrano tell another man to write contextualizes the addressed affection as distinct from her romantic interest in that absent man.",
+      "confidence": 0.91
+    },
+    {
+      "evidence_id": "background-1",
+      "source": "background_knowledge",
+      "quotation_or_description": "In the play's central love triangle, Roxane is romantically attracted to Christian and treats Cyrano as a trusted relative and confidant at this stage.",
+      "supports": "Supports interpreting the line to Cyrano as affectionate gratitude or familial/friendly love rather than a romantic commitment.",
+      "confidence": 0.9
+    },
+    {
+      "evidence_id": "metadata-1",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The supplied metadata identifies the work as Edmond Rostand's French play Cyrano de Bergerac.",
+      "supports": "Establishes the dramatic source used to connect the local exchange with the wider character relationships.",
+      "confidence": 0.99
+    }
+  ],
+  "background_knowledge": {
+    "used": true,
+    "familiarity": "extensive",
+    "confidence": 0.9,
+    "contribution": "The wider love triangle clarifies that Roxane's affection for Cyrano here is not equivalent to her romantic attachment to Christian."
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the direct avowal of affection. The scene's effusiveness, gratitude, gesture, and distinction between friendly or familial and romantic love are contextual nuances rather than unrepresented core forces.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": "The semantic range of French “aimer” permits several kinds and degrees of affection; that lexical and relational nuance does not require O."
+}

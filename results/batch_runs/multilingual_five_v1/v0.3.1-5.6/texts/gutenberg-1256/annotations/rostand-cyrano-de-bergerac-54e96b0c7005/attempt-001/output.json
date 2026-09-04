@@ -1,0 +1,58 @@
+{
+  "occurrence_id": "rostand-cyrano-de-bergerac-54e96b0c7005",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 1,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.91,
+    "analysis": "Christian's direct “Je t'aime tant” (“I love you so much”) primarily avows the strength of his loving feelings. Its use in courtship gives it slight relational or undertaking force, but it does not itself articulate a commitment. Neither the wording nor the scene supplies positive evidence that the words are a reflex-like expressive discharge.",
+    "ambiguity": "The courtship setting gives weak support for P, but romantic address and intended emotional effect alone do not establish a substantial undertaking."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "Christian directly addresses Roxane with the spoken declaration “Je t'aime tant.”"
+  },
+  "contextual_interpretation": "In the balcony courtship scene, Christian tries to speak to Roxane without Cyrano's eloquent prompting and falls back on a plain, repeated declaration of love. Roxane finds such formulaic language insufficiently developed. That dramatic inadequacy concerns Christian's eloquence, not the utterance's core semantic force: it remains chiefly a sincere-seeming avowal rather than an expressive reflex or explicit commitment.",
+  "evidence": [
+    {
+      "evidence_id": "e1-local-wording",
+      "source": "local_text",
+      "quotation_or_description": "“CHRISTIAN: Je t'aime tant.”",
+      "supports": "The first-person present-tense declaration, intensified by “tant,” strongly supports truth-conditional avowal of a loving state.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e2-metadata-form",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The supplied excerpt identifies the speaker as CHRISTIAN in Edmond Rostand's French play Cyrano de Bergerac.",
+      "supports": "Supports treating this as a character's direct dramatic utterance rather than narration or reported speech.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e3-wider-scene",
+      "source": "background_knowledge",
+      "quotation_or_description": "In the balcony scene, Christian attempts to woo Roxane in his own words and repeatedly offers simple declarations of love, which she regards as insufficiently eloquent; Cyrano elsewhere supplies the elaborate language.",
+      "supports": "Supports dominant T, weak courtship-related P, and E=0: the line is a deliberate but verbally limited avowal, not presented as an involuntary verbal discharge.",
+      "confidence": 0.92
+    }
+  ],
+  "background_knowledge": {
+    "used": true,
+    "familiarity": "extensive",
+    "confidence": 0.92,
+    "contribution": "The wider balcony scene clarifies that Christian is deliberately attempting an unaided declaration during courtship and that the line's repetition reflects limited eloquence rather than reflex-like production."
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T/P/E adequately represents the core utterance as a strong avowal with minor courtship-related undertaking force and no independently evidenced expressive/reflexive function. The surrounding comic and dramatic irony requires contextual description but creates no residual ontology failure.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

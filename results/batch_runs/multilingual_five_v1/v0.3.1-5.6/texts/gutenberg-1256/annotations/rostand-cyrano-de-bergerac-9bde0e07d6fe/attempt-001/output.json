@@ -1,0 +1,58 @@
+{
+  "occurrence_id": "rostand-cyrano-de-bergerac-9bde0e07d6fe",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.94,
+    "analysis": "Christian directly avows to Roxane that he loves her. The line primarily presents his loving state as true. Although it occurs during courtship, neither the words nor the immediate staging independently enact a commitment or relational undertaking. The preceding silence and simple delivery provide no positive evidence that the words are a reflex-like expressive discharge.",
+    "ambiguity": "The declaration is part of a courtship encounter and therefore has relational consequences, but courtship context alone is insufficient to give it performative force."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "Christian speaks the line directly to Roxane during their face-to-face dramatic interaction."
+  },
+  "contextual_interpretation": "Christian's blunt declaration is a sincere-seeming but rhetorically inadequate avowal during his attempt to court Roxane in his own words. In the wider play, Roxane associates Christian with eloquence substantially supplied by Cyrano; that deception complicates her understanding of the speaker she loves but does not alter this line's core truth-conditional force. Its simplicity, following a silence, contrasts with the elaborate language Roxane expects.",
+  "evidence": [
+    {
+      "evidence_id": "ev-local-1",
+      "source": "local_text",
+      "quotation_or_description": "“CHRISTIAN (s'assied près d'elle, sur le banc. Un silence): Je vous aime.”",
+      "supports": "The explicit first-person declaration directly presents Christian's love for his addressee as true; the stage direction identifies a deliberate face-to-face utterance rather than a report or quotation.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "ev-metadata-1",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The supplied metadata identifies the work as Edmond Rostand's French play Cyrano de Bergerac and locates the line near the middle of the text.",
+      "supports": "Establishes the dramatic source and supports reading the speaker label and stage direction as an enacted direct utterance.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "ev-background-1",
+      "source": "background_knowledge",
+      "quotation_or_description": "In the surrounding episode, Christian attempts to speak to Roxane without relying on Cyrano's eloquence, while Roxane expects the verbal brilliance she attributes to Christian.",
+      "supports": "Explains the line's conspicuous bluntness and the broader deception surrounding the courtship without converting the core avowal into O, P, or E.",
+      "confidence": 0.9
+    }
+  ],
+  "background_knowledge": {
+    "used": true,
+    "familiarity": "extensive",
+    "confidence": 0.9,
+    "contribution": "Used knowledge of Christian, Roxane, and Cyrano's mediated courtship to interpret the declaration as a blunt personal avowal embedded in a larger deception about authorship and eloquence."
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T/P/E/O represents the core utterance naturally as a strong truth-conditional avowal. The dramatic irony and Cyrano's role belong to contextual interpretation rather than revealing any missing dimension of core force.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

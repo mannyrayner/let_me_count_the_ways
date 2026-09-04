@@ -1,0 +1,65 @@
+{
+  "occurrence_id": "strindberg-froken-julie-10aa8aab447d",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.93,
+    "analysis": "The utterance primarily avows a loving emotional state and presents that state as unquestionably true. The immediate appeal asking whether the addressee can doubt it reinforces its truth-conditional force. It contains no clear relational undertaking, and neither its emphatic delivery nor its placement amid hesitation independently establishes expressive/reflexive force.",
+    "ambiguity": "The utterance may also serve a persuasive or reassuring purpose, and its sincerity cannot be determined from the excerpt alone; neither issue changes its dominant truth-conditional mode."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "A character directly addresses another character in represented dramatic dialogue: “Jag älskar er” (“I love you”)."
+  },
+  "contextual_interpretation": "The speaker follows hesitation about acting in the house with an emphatic avowal, “Jag älskar er,” then treats that love as something the addressee should not doubt. This makes the line an insistent assertion or reassurance, potentially serving persuasion in the immediate interaction. The passage does not itself show the words being involuntarily blurted or functioning as an affective discharge, nor does it formulate a promise or commitment.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "“Jag älskar er” (“I love you”).",
+      "supports": "The declarative wording directly presents the speaker's loving state as true, strongly supporting T.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "“utan tvivel - kan ni tveka på det?” (“without doubt—can you doubt it?”).",
+      "supports": "The speaker explicitly frames the love claim in terms of certainty and the addressee's belief, reinforcing truth-conditional avowal rather than expressive discharge.",
+      "confidence": 0.97
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "“Jag vill - men jag törs inte! Inte här i huset mer!” (“I want to—but I dare not! Not here in the house anymore!”).",
+      "supports": "The surrounding hesitation supplies emotional and situational intensity, but it does not state an undertaking and provides no positive evidence that the love words themselves are reflex-like.",
+      "confidence": 0.88
+    },
+    {
+      "evidence_id": "e4",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is from August Strindberg's Swedish play “Fröken Julie.”",
+      "supports": "The dramatic-work metadata supports reading the line as represented direct speech between characters rather than as narration or a merely written love message.",
+      "confidence": 0.96
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the core avowal. Persuasive intent, possible reassurance, sincerity, and dramatic intensity are contextual features and create no residual pressure requiring P, E, or O.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": "The classification relies on the supplied excerpt and metadata only; no wider-plot claims about the speaker's motives or sincerity are assumed."
+}

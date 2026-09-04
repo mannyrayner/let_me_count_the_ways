@@ -1,0 +1,58 @@
+{
+  "occurrence_id": "rostand-cyrano-de-bergerac-d7654d72f26a",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.96,
+    "analysis": "The written “Je t'aime” straightforwardly presents the letter writer's love for Roxane as true. Neither the phrase itself nor its delivery independently enacts a commitment or functions as a reflex-like affective discharge.",
+    "ambiguity": "The sentence is interrupted by “et si...,” so its continuation is initially withheld; this does not materially obscure the avowal force of “Je t'aime.” The writer's sincerity is not established, but sincerity is orthogonal to T."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "written",
+    "description": "A love avowal inscribed in a letter and briefly read aloud by Roxane; her voice revoices the letter writer's utterance."
+  },
+  "contextual_interpretation": "Roxane first reads the letter's private declaration and plans quietly. She then presents the capuchin with a substantially altered version of the letter, falsely attributing instructions to the cardinal. That later manipulation affects the scene's framing but does not change the highlighted written phrase's core force as an avowal of love.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "Roxane unseals the letter and reads: “Je t'aime, et si. . .”",
+      "supports": "The explicit first-person declaration strongly supports truth-conditional avowal and establishes that the core event is written language being revoiced.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "The letter continues with the writer's plans to remain nearby and come to see Roxane, but the highlighted clause itself contains no promise or relational undertaking.",
+      "supports": "The surrounding courtship and intended visit do not independently give the core “Je t'aime” performative force.",
+      "confidence": 0.94
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "Roxane reads the letter quietly (“à voix basse”) and subsequently substitutes a different text when reading aloud to the capuchin.",
+      "supports": "There is no positive evidence that the highlighted words are an expressive or reflex-like discharge; the later deception belongs to context rather than the core force.",
+      "confidence": 0.96
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the phrase as a written avowal. The letter's courtship context, quiet revoicing, and Roxane's subsequent manipulation require no additional core-force category.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

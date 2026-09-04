@@ -1,0 +1,147 @@
+{
+  "batch_id": "multilingual_five_v1",
+  "batch_manifest": "data\\batches\\multilingual_five_v1.json",
+  "annotation_version": "0.3.1",
+  "model_alias": "5.6",
+  "started_at": "2026-09-04T08:12:04.336501+00:00",
+  "ended_at": "2026-09-04T08:18:11.995395+00:00",
+  "dry_run": false,
+  "force": false,
+  "texts_requested": 5,
+  "texts_completed": 5,
+  "texts_partial_or_failed": 0,
+  "texts_resumed_or_skipped": 0,
+  "annotations_recovered_without_model_call": 0,
+  "occurrences": 19,
+  "occurrences_attempted_this_invocation": 19,
+  "valid_annotations": 19,
+  "model_calls_needed": 0,
+  "failures": 0,
+  "historical_failed_attempts": 0,
+  "estimated_total_cost_usd": 0.7750200000000002,
+  "status": "complete",
+  "batch_result_location": "results\\batch_runs\\multilingual_five_v1\\v0.3.1-5.6",
+  "texts": [
+    {
+      "source_id": "runeberg-dukkhjem",
+      "title": "Et dukkehjem",
+      "status": "complete",
+      "extraction_seeded_this_invocation": false,
+      "extracted_occurrences": 1,
+      "attempted_this_invocation": 1,
+      "valid_occurrences": 1,
+      "failures": 0,
+      "historical_failed_attempts": 0,
+      "skipped_valid_this_invocation": 0,
+      "recovered_without_model_call_this_invocation": 0,
+      "estimated_total_cost_usd": 0.037043999999999994,
+      "cost_per_valid_annotation_usd": 0.037043999999999994,
+      "result_location": "results\\batch_runs\\multilingual_five_v1\\v0.3.1-5.6\\texts\\runeberg-dukkhjem"
+    },
+    {
+      "source_id": "gutenberg-1256",
+      "title": "Cyrano de Bergerac",
+      "status": "complete",
+      "extraction_seeded_this_invocation": false,
+      "extracted_occurrences": 14,
+      "attempted_this_invocation": 14,
+      "valid_occurrences": 14,
+      "failures": 0,
+      "historical_failed_attempts": 0,
+      "skipped_valid_this_invocation": 0,
+      "recovered_without_model_call_this_invocation": 0,
+      "estimated_total_cost_usd": 0.5795880000000001,
+      "cost_per_valid_annotation_usd": 0.041399142857142864,
+      "result_location": "results\\batch_runs\\multilingual_five_v1\\v0.3.1-5.6\\texts\\gutenberg-1256"
+    },
+    {
+      "source_id": "runeberg-frkjulie",
+      "title": "Fröken Julie",
+      "status": "complete",
+      "extraction_seeded_this_invocation": false,
+      "extracted_occurrences": 2,
+      "attempted_this_invocation": 2,
+      "valid_occurrences": 2,
+      "failures": 0,
+      "historical_failed_attempts": 0,
+      "skipped_valid_this_invocation": 0,
+      "recovered_without_model_call_this_invocation": 0,
+      "estimated_total_cost_usd": 0.079768,
+      "cost_per_valid_annotation_usd": 0.039884,
+      "result_location": "results\\batch_runs\\multilingual_five_v1\\v0.3.1-5.6\\texts\\runeberg-frkjulie"
+    },
+    {
+      "source_id": "gutenberg-2407-2408",
+      "title": "Die Leiden des jungen Werther",
+      "status": "complete",
+      "extraction_seeded_this_invocation": false,
+      "extracted_occurrences": 1,
+      "attempted_this_invocation": 1,
+      "valid_occurrences": 1,
+      "failures": 0,
+      "historical_failed_attempts": 0,
+      "skipped_valid_this_invocation": 0,
+      "recovered_without_model_call_this_invocation": 0,
+      "estimated_total_cost_usd": 0.044188000000000005,
+      "cost_per_valid_annotation_usd": 0.044188000000000005,
+      "result_location": "results\\batch_runs\\multilingual_five_v1\\v0.3.1-5.6\\texts\\gutenberg-2407-2408"
+    },
+    {
+      "source_id": "gutenberg-18797",
+      "title": "La Princesse de Clèves",
+      "status": "complete",
+      "extraction_seeded_this_invocation": false,
+      "extracted_occurrences": 1,
+      "attempted_this_invocation": 1,
+      "valid_occurrences": 1,
+      "failures": 0,
+      "historical_failed_attempts": 0,
+      "skipped_valid_this_invocation": 0,
+      "recovered_without_model_call_this_invocation": 0,
+      "estimated_total_cost_usd": 0.034432,
+      "cost_per_valid_annotation_usd": 0.034432,
+      "result_location": "results\\batch_runs\\multilingual_five_v1\\v0.3.1-5.6\\texts\\gutenberg-18797"
+    }
+  ],
+  "ontology_statistics": {
+    "score_distributions": {
+      "P": {
+        "0": 14,
+        "1": 4,
+        "2": 1,
+        "3": 0,
+        "4": 0
+      },
+      "T": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 19
+      },
+      "E": {
+        "0": 17,
+        "1": 0,
+        "2": 0,
+        "3": 2,
+        "4": 0
+      },
+      "O": {
+        "0": 19,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0
+      }
+    },
+    "ontology_fit": {
+      "natural": 19,
+      "strained": 0,
+      "inadequate": 0
+    },
+    "o_above_zero": 0,
+    "e_at_least_two": 2,
+    "p_at_least_two": 1,
+    "balanced_core": 3
+  }
+}

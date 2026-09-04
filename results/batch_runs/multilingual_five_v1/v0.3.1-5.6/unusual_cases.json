@@ -1,0 +1,63 @@
+{
+  "criteria": [
+    "O > 0",
+    "ontology_fit != natural",
+    "E >= 2",
+    "P >= 2",
+    "confidence < 0.75",
+    "two or more of P/T/E >= 2"
+  ],
+  "cases": [
+    {
+      "source_id": "gutenberg-1256",
+      "occurrence_id": "rostand-cyrano-de-bergerac-12e4a608d4b9",
+      "scores": {
+        "P": 2,
+        "T": 4,
+        "E": 0,
+        "O": 0
+      },
+      "ontology_fit": "natural",
+      "confidence": 0.91,
+      "reasons": [
+        "P >= 2",
+        "two or more of P/T/E >= 2"
+      ],
+      "result": "texts\\gutenberg-1256\\annotations\\rostand-cyrano-de-bergerac-12e4a608d4b9\\attempt-001\\output.json"
+    },
+    {
+      "source_id": "gutenberg-1256",
+      "occurrence_id": "rostand-cyrano-de-bergerac-1c7571f33a3e",
+      "scores": {
+        "P": 1,
+        "T": 4,
+        "E": 3,
+        "O": 0
+      },
+      "ontology_fit": "natural",
+      "confidence": 0.91,
+      "reasons": [
+        "E >= 2",
+        "two or more of P/T/E >= 2"
+      ],
+      "result": "texts\\gutenberg-1256\\annotations\\rostand-cyrano-de-bergerac-1c7571f33a3e\\attempt-001\\output.json"
+    },
+    {
+      "source_id": "gutenberg-1256",
+      "occurrence_id": "rostand-cyrano-de-bergerac-c724091d5f24",
+      "scores": {
+        "P": 1,
+        "T": 4,
+        "E": 3,
+        "O": 0
+      },
+      "ontology_fit": "natural",
+      "confidence": 0.93,
+      "reasons": [
+        "E >= 2",
+        "two or more of P/T/E >= 2"
+      ],
+      "result": "texts\\gutenberg-1256\\annotations\\rostand-cyrano-de-bergerac-c724091d5f24\\attempt-001\\output.json"
+    }
+  ]
+}
