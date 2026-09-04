@@ -13,12 +13,27 @@
     "Heather McNeill"
   ],
   "editorial_note": "The electronic edition substantially modernises spelling and morphology; it must not be represented as preserving the 1879 orthography.",
-  "review_status": "acquisition_blocked",
-  "acquisition_note": "Approval requires every exact HTML part, per-part checksums, the deterministic assembled-text checksum, retrieval metadata, editorial transformations, and jurisdiction-specific rights review.",
+  "review_status": "draft",
   "source_urls": [
     "https://runeberg.org/dukkhjem/1.html",
     "https://runeberg.org/dukkhjem/2.html",
     "https://runeberg.org/dukkhjem/3.html"
   ],
-  "assembly_note": "The listed Runeberg pages are preserved and concatenated in listed order as one work-level corpus source."
+  "assembly_note": "The listed Runeberg pages are preserved and concatenated in listed order as one work-level corpus source.",
+  "local_path": "data\\raw\\ibsen-et-dukkehjem\\runeberg-dukkhjem.txt",
+  "retrieved_at": "2026-09-04T04:15:37Z",
+  "sha256": "105c113cc6c9e4999fdd2f10488ed4b43e866214789067e35e3014fde680faaa",
+  "download_paths": [
+    "data\\raw\\ibsen-et-dukkehjem\\source-part-01.html",
+    "data\\raw\\ibsen-et-dukkehjem\\source-part-02.html",
+    "data\\raw\\ibsen-et-dukkehjem\\source-part-03.html"
+  ],
+  "download_sha256": {
+    "source-part-01.html": "4e8a95503297392170978a7a8320a368c788955f55385990df96c6ca812cd400",
+    "source-part-02.html": "1631b502383ab903b92968a70d7c012bae53a9901fa03c58709122aff4ce7014",
+    "source-part-03.html": "47778d82d76193d8fbfc8984799f0a6ac9692ec3086ba275be816b8e0935a90d"
+  },
+  "processing_note": "Visible text extracted from each preserved Runeberg HTML page and concatenated in listed order; entities decoded and block boundaries converted to newlines.",
+  "observed_format": "UTF-8 plain text assembled from preserved HTML pages",
+  "rights_note": "PENDING: record Runeberg source statement and independent Australian review."
 }
