@@ -132,7 +132,13 @@ def resolve_annotation_contract(version: str, repo_root: Path) -> AnnotationCont
 def resolve_source(provenance_path: Path, repo_root: Path) -> tuple[dict, Path, bytes]:
     provenance = read_json(provenance_path)
     if provenance.get("review_status") not in APPROVED_STATUSES:
-        raise ValueError(f"source is not approved: {provenance.get('review_status')!r}")
+        status = provenance.get("review_status")
+        expected = ", ".join(sorted(APPROVED_STATUSES))
+        raise ValueError(
+            f"source is not approved: {status!r} in {provenance_path}; "
+            f"complete the source and rights review before changing review_status "
+            f"to {expected!r} (do not approve it merely to bypass this check)"
+        )
     required = {"work_id", "source_id", "author", "title", "language", "sha256", "local_path"}
     missing = required - set(provenance)
     if missing:
