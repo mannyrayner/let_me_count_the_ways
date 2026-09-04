@@ -429,15 +429,39 @@ committed source/provenance checkpoint.
 
 ## 3. Inspect source spelling and patterns
 
+`rg` is ripgrep, not a command supplied by Bash itself. On Cygwin, either rerun
+the Cygwin installer, select the `ripgrep` package, and keep using `rg`, or use
+the GNU `grep` fallback below. The array gives both programs the same relevant
+options: extended regular expressions, line numbers, case-insensitive matching,
+and two lines of context.
+
+These probes mirror the ordered phrases in the shared pattern file. In a regular
+expression, bare `|` means **or**, so `jeg|elsker|deg|dig` finds any one of those
+four words; it does not mean that the words must occur in sequence. Parentheses
+limit an alternative to one position: `(deg|dig|dere)` means that one of those
+forms must follow `jeg` and `elsker`. `[[:space:]]+` means one or more whitespace
+characters (within a line for these line-oriented inspection commands).
+
 Inspect actual bytes, including every eventual zero-hit work:
 
 ```bash
-rg -n -i -C 2 'jeg|elsker|deg|dig' data/raw/ibsen-et-dukkehjem/runeberg-dukkhjem.txt
-rg -n -i -C 2 "je|t[’']|vous|aime" data/raw/rostand-cyrano-de-bergerac/gutenberg-1256.txt
-rg -n -i -C 2 'jag|älskar|dig|er' data/raw/strindberg-froken-julie/runeberg-frkjulie.txt
-rg -n -i -C 2 'ich|liebe|dich|euch|sie' data/raw/goethe-die-leiden-des-jungen-werther/gutenberg-2407-2408.txt
-rg -n -i -C 2 "je|t[’']|vous|aime" data/raw/lafayette-la-princesse-de-cleves/gutenberg-18797.txt
+if command -v rg >/dev/null 2>&1; then
+  SEARCH=(rg -n -i -C 2)
+else
+  SEARCH=(grep -E -n -i -C 2)
+fi
+"${SEARCH[@]}" 'jeg[[:space:]]+elsker[[:space:]]+(deg|dig|dere)' data/raw/ibsen-et-dukkehjem/runeberg-dukkhjem.txt
+"${SEARCH[@]}" "je[[:space:]]+(t[[:space:]]*[’'][[:space:]]*aime|vous[[:space:]]+aime)" data/raw/rostand-cyrano-de-bergerac/gutenberg-1256.txt
+"${SEARCH[@]}" 'jag[[:space:]]+älskar[[:space:]]+(dig|er)' data/raw/strindberg-froken-julie/runeberg-frkjulie.txt
+"${SEARCH[@]}" 'ich[[:space:]]+liebe[[:space:]]+(dich|euch|sie)' data/raw/goethe-die-leiden-des-jungen-werther/gutenberg-2407-2408.txt
+"${SEARCH[@]}" "je[[:space:]]+(t[[:space:]]*[’'][[:space:]]*aime|vous[[:space:]]+aime)" data/raw/lafayette-la-princesse-de-cleves/gutenberg-18797.txt
+unset SEARCH
 ```
+
+The probes are a readable, line-oriented check, while extraction uses the
+Python-compatible Unicode expressions in `search_patterns_v0_3.json` against
+the whole NFC-normalised text. Treat that JSON file, not these shell probes, as
+authoritative if a phrase crosses a line break.
 
 If this demonstrates a missing historical/typographic variant, revise the
 shared versioned pattern file and tests before extraction. Do not broaden it to
