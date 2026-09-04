@@ -7,9 +7,9 @@ larger corpus from this runbook.
 
 The membership manifest contains only provenance paths. Annotation version,
 model, prompt, patterns, and context radius remain run configuration. The five
-current provenance records are deliberately marked `acquisition_blocked`; that
-is a safe checkpoint, not approval. Replace that status only after exact files
-and rights findings have been reviewed.
+provenance records begin as unapproved placeholders and become `draft` after
+acquisition. Both statuses are safe checkpoints, not approval. Replace `draft`
+only after the exact files and rights findings have been reviewed.
 
 ## 1. Preflight
 
@@ -341,6 +341,11 @@ PY
 
 ### Inspect, approve, and check in immediately
 
+This is a **manual approval step**, not just an inspection command. None of the
+commands that create the drafts changes their status to approved. Do not move
+on to section 3 or 4 while any record still says `draft` or contains a
+`PENDING` rights note.
+
 Compare catalogue page, exact download, derived text, and provenance. Confirm
 identity, original language, release/update data, completeness, encoding,
 transformations, and the source rights statement. Replace `PENDING` with that
@@ -513,6 +518,36 @@ checked-in corpus supplies textual evidence for it; grammatical possibility by
 itself is not sufficient.
 
 ## 4. Make and inspect extraction-only dry runs
+
+First run this explicit approval gate. It reports every unapproved member in a
+single pass, rather than letting the five pipeline invocations fail one at a
+time. If it fails, return to **Inspect, approve, and check in immediately** in
+section 2; review and complete the provenance records, commit them, and rerun
+the gate. Do not mechanically change the statuses just to make this check pass.
+
+```bash
+python - <<'PY'
+import json
+from pathlib import Path
+
+manifest = json.loads(Path("data/batches/multilingual_five_v1.json").read_text(encoding="utf-8"))
+unapproved = []
+for member in manifest["sources"]:
+    path = Path(member["provenance"])
+    record = json.loads(path.read_text(encoding="utf-8"))
+    status = record.get("review_status")
+    pending_rights = "PENDING" in record.get("rights_note", "").upper()
+    if status != "approved_for_development_processing" or pending_rights:
+        unapproved.append(f"{path}: review_status={status!r}, pending_rights={pending_rights}")
+if unapproved:
+    raise SystemExit(
+        "Source approval is incomplete; return to section 2:\n  " + "\n  ".join(unapproved)
+    )
+print("Approval gate passed for all five sources.")
+PY
+```
+
+Only after the gate passes, create the dry runs:
 
 ```bash
 for PROVENANCE in \

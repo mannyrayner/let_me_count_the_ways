@@ -10,6 +10,7 @@ from scripts.pipeline.run_single_text_pipeline import (
     chapter_locations,
     enrich_occurrence,
     resolve_annotation_contract,
+    resolve_source,
     run_pipeline,
 )
 from scripts.pipeline.audit_pipeline_run import audit_run
@@ -132,6 +133,18 @@ class SingleTextPipelineTests(unittest.TestCase):
 
     def tearDown(self):
         self.temporary.cleanup()
+
+    def test_resolve_source_explains_how_to_handle_a_draft(self):
+        record = json.loads(self.provenance.read_text(encoding="utf-8"))
+        record["review_status"] = "draft"
+        self.provenance.write_text(json.dumps(record), encoding="utf-8")
+
+        with self.assertRaisesRegex(
+            ValueError,
+            r"source is not approved: 'draft'.*complete the source and rights review.*"
+            r"approved_for_development_processing.*do not approve it merely to bypass",
+        ):
+            resolve_source(self.provenance, self.repo)
 
     def execute_pipeline(self, **overrides):
         arguments = {
