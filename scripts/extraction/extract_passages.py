@@ -43,7 +43,8 @@ def extract(
     text = unicodedata.normalize("NFC", text)
     matches: list[tuple[int, int, str, str]] = []
     for pattern in patterns:
-        for match in re.finditer(pattern["regex"], text, re.IGNORECASE):
+        flags = 0 if pattern.get("case_sensitive", False) else re.IGNORECASE
+        for match in re.finditer(pattern["regex"], text, flags):
             matches.append((match.start(), match.end(), pattern["id"], match.group(0)))
     matches.sort(key=lambda item: (item[0], item[1], item[2]))
 

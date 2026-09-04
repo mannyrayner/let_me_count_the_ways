@@ -7,6 +7,8 @@ from extract_passages import extract, load_patterns
 
 PATTERNS = Path("data/development/search_patterns_v0_1.json")
 PATTERNS_V0_2 = Path("data/development/search_patterns_v0_2.json")
+PATTERNS_V0_3 = Path("data/development/search_patterns_v0_3.json")
+PATTERNS_V0_4 = Path("data/development/search_patterns_v0_4.json")
 
 
 class PatternTests(unittest.TestCase):
@@ -63,6 +65,42 @@ class PatternV02Tests(unittest.TestCase):
     def test_v0_1_remains_unchanged(self):
         self.assertEqual(json.loads(PATTERNS.read_text())["schema_version"], "0.1")
         self.assertEqual(json.loads(PATTERNS_V0_2.read_text())["schema_version"], "0.2")
+
+
+class PatternV04GermanTests(unittest.TestCase):
+    def matches(self, text):
+        version, patterns = load_patterns(PATTERNS_V0_4, "de")
+        return extract(text, "de", "work", "source", version, patterns, 1000)
+
+    def test_matches_main_and_subordinate_word_order(self):
+        records = self.matches("Ich liebe dich. Er weiß, daß ich dich liebe.")
+        self.assertEqual(
+            [(record["pattern_id"], record["match"]) for record in records],
+            [
+                ("de_ich_liebe_dich_euch_main", "Ich liebe dich"),
+                ("de_ich_dich_euch_liebe_subordinate", "ich dich liebe"),
+            ],
+        )
+
+    def test_matches_euch_in_both_word_orders(self):
+        self.assertEqual(len(self.matches("Ich liebe euch; weil ich euch liebe.")), 2)
+
+    def test_formal_sie_is_case_sensitive(self):
+        records = self.matches("Ich liebe Sie. Daß ich Sie liebe. Ich liebe sie.")
+        self.assertEqual([record["match"] for record in records], [
+            "Ich liebe Sie", "ich Sie liebe",
+        ])
+
+    def test_does_not_bridge_intervening_words_or_long_spans(self):
+        text = (
+            "Ich denke oft an dich und spreche nach vielen Tagen von Liebe. "
+            "Ich werde dich immer innig liebe nennen."
+        )
+        self.assertEqual(self.matches(text), [])
+
+    def test_previous_pattern_versions_remain_unchanged(self):
+        self.assertEqual(json.loads(PATTERNS_V0_3.read_text())["schema_version"], "0.3")
+        self.assertEqual(json.loads(PATTERNS_V0_4.read_text())["schema_version"], "0.4")
 
 
 if __name__ == "__main__":
