@@ -83,10 +83,15 @@ class PatternV04GermanTests(unittest.TestCase):
         )
 
     def test_matches_euch_in_both_word_orders(self):
-        self.assertEqual(len(self.matches("Ich liebe euch; weil ich euch liebe.")), 2)
+        records = self.matches("Ich liebe euch; weil ich euch liebe.")
+        self.assertEqual([record["match"] for record in records], [
+            "Ich liebe euch", "ich euch liebe",
+        ])
 
     def test_formal_sie_is_case_sensitive(self):
-        records = self.matches("Ich liebe Sie. Daß ich Sie liebe. Ich liebe sie.")
+        records = self.matches(
+            "Ich liebe Sie. Weil ich Sie liebe. Ich liebe sie. sie liebt mich."
+        )
         self.assertEqual([record["match"] for record in records], [
             "Ich liebe Sie", "ich Sie liebe",
         ])
@@ -97,6 +102,15 @@ class PatternV04GermanTests(unittest.TestCase):
             "Ich werde dich immer innig liebe nennen."
         )
         self.assertEqual(self.matches(text), [])
+
+    def test_checked_in_werther_preserves_known_verb_final_target(self):
+        text = Path(
+            "data/raw/goethe-die-leiden-des-jungen-werther/"
+            "gutenberg-2407-2408.txt"
+        ).read_text(encoding="utf-8")
+        records = self.matches(text)
+        self.assertIn("ich dich liebe", [record["match"] for record in records])
+        self.assertEqual(len(records), 1)
 
     def test_previous_pattern_versions_remain_unchanged(self):
         self.assertEqual(json.loads(PATTERNS_V0_3.read_text())["schema_version"], "0.3")

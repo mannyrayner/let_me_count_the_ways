@@ -457,10 +457,9 @@ fi
 "${SEARCH_I[@]}" "je[[:space:]]+(t[[:space:]]*[’'][[:space:]]*aime|vous[[:space:]]+aime)" data/raw/rostand-cyrano-de-bergerac/gutenberg-1256.txt
 "${SEARCH_I[@]}" 'jag[[:space:]]+älskar[[:space:]]+(dig|er)' data/raw/strindberg-froken-julie/runeberg-frkjulie.txt
 
-# German broad probe first: inspect every hit before relying on the production probes.
 WERTHER=data/raw/goethe-die-leiden-des-jungen-werther/gutenberg-2407-2408.txt
-"${SEARCH_I[@]}" '(ich|dich|euch|sie).{0,40}lieb|lieb.{0,40}(ich|dich|euch|sie)' "$WERTHER"
-# Production coverage: main-clause and verb-final order for dich/euch.
+# German production coverage: main-clause `ich liebe dich` and verb-final
+# `ich dich liebe` order, with euch as the plural alternative.
 "${SEARCH_I[@]}" 'ich[[:space:]]+(liebe[[:space:]]+(dich|euch)|(dich|euch)[[:space:]]+liebe)' "$WERTHER"
 # Formal second-person Sie is deliberately checked case-sensitively.
 "${SEARCH_CASE[@]}" '(Ich|ich)[[:space:]]+(liebe[[:space:]]+Sie|Sie[[:space:]]+liebe)' "$WERTHER"
@@ -477,6 +476,41 @@ authoritative if a phrase crosses a line break.
 If this demonstrates a missing historical/typographic variant, revise the
 shared versioned pattern file and tests before extraction. Do not broaden it to
 general affection, third-person love, or book-specific heuristics.
+
+### Troubleshooting German zero or suspiciously few hits
+
+German needs both production searches because a main clause can contain `ich
+liebe dich`, while a subordinate clause can place the verb last, as in the
+known *Werther* occurrence `daß ich dich liebe`. Keep formal `Sie` in the
+separate case-sensitive search: lowercase `sie` can mean “she” or “they” and is
+not evidence of a second-person declaration.
+
+Only if the production results unexpectedly return zero (or source inspection
+otherwise suggests a miss), use the following diagnostic probe:
+
+```bash
+WERTHER=data/raw/goethe-die-leiden-des-jungen-werther/gutenberg-2407-2408.txt
+if command -v rg >/dev/null 2>&1; then
+  rg -n -i -C 2 '(ich|dich|euch|sie).{0,40}lieb|lieb.{0,40}(ich|dich|euch|sie)' "$WERTHER"
+else
+  grep -E -n -i -C 2 '(ich|dich|euch|sie).{0,40}lieb|lieb.{0,40}(ich|dich|euch|sie)' "$WERTHER"
+fi
+unset WERTHER
+```
+
+This intentionally broad `lieb*` proximity probe answers only whether relevant
+lexical forms and pronouns occur near one another. It overgenerates `lieb`,
+`Liebe`, `lieben`, `lieblich`, `Geliebten`, third-person constructions, and
+unrelated nearby clauses. Its output is **not an extraction candidate set** and
+must not replace the production patterns.
+
+Before expanding a production pattern, perform a bounded token-window check
+and inspect every result. The checked-in *Werther* text was checked with zero to
+three intervening word tokens in both word orders; it yielded only the known
+adjacent `ich dich liebe` target and no formal-`Sie` target. Thus v0.4 retains
+exact adjacency. Add a small, transparent structural pattern only if a future
+checked-in corpus supplies textual evidence for it; grammatical possibility by
+itself is not sufficient.
 
 ## 4. Make and inspect extraction-only dry runs
 
