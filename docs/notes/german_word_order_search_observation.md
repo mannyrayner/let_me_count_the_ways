@@ -15,3 +15,16 @@ This incident is methodological evidence that multilingual literary-corpus
 extraction requires language-specific syntactic awareness. Replacing “I love
 you” with one literal translated string per language is not sufficient, even
 when the translated vocabulary itself is correct.
+
+It also exposed the opposite risk. Compensating for underacceptance with a
+broad character-proximity search over `lieb*` admits inflections, derivatives,
+third-person constructions, and unrelated clauses. A controlled check allowing
+at most three intervening word tokens in the checked-in *Werther* found no
+additional first-person-to-second-person declarations beyond the adjacent `ich
+dich liebe` construction. The broad probe therefore belongs in troubleshooting,
+not routine extraction.
+
+The useful middle ground is **linguistically informed but conservative
+structural matching, validated against the actual corpus**. Production coverage
+should expand in response to observed corpus variation, not hypothetical
+grammatical possibility alone.
