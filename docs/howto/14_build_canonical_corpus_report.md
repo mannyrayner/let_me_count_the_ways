@@ -274,7 +274,7 @@ cd "$LMCW"
 python - "$REPORT_JSON" "$DEV_RUN" "$MULTI_RUN" <<'PY'
 import json, pathlib, sys
 report=json.load(open(sys.argv[1],encoding="utf-8"))["occurrences"]
-reported={(r["batch_run"],r["source_id"],r["occurrence_id"]) for r in report}
+reported={(r["batch_run"].replace("\\","/"),r["source_id"],r["occurrence_id"]) for r in report}
 source=set()
 for run_name in sys.argv[2:]:
     run=pathlib.Path(run_name)

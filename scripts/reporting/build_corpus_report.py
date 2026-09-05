@@ -63,6 +63,11 @@ def portable_path(value: str) -> Path:
     return Path(value.replace("\\", "/"))
 
 
+def relative_report_path(path: Path, repo_root: Path) -> str:
+    """Serialize repository-relative paths with stable JSON/Markdown separators."""
+    return path.relative_to(repo_root).as_posix()
+
+
 def valid_annotation_attempt(occurrence_root: Path) -> Path:
     valid = [status.parent for status in occurrence_root.glob("attempt-*/status.json")
              if read_json(status).get("state") == "valid"]
@@ -166,7 +171,7 @@ def collect_occurrences(batch_runs: list[Path], repo_root: Path) -> tuple[list[d
                     "report_occurrence_key": sha256_bytes("\0".join(identity).encode("utf-8"))[:20],
                     "occurrence_id": occurrence_id,
                     "batch_id": summary["batch_id"],
-                    "batch_run": str(batch_run.relative_to(repo_root)),
+                    "batch_run": relative_report_path(batch_run, repo_root),
                     "batch_index": batch_index,
                     "work_index": work_index,
                     "occurrence_index": occurrence_index,
@@ -181,7 +186,7 @@ def collect_occurrences(batch_runs: list[Path], repo_root: Path) -> tuple[list[d
                     "original_passage": bounded_context(occurrence),
                     "annotation": annotation,
                     "annotation_provenance": {
-                        "path": str((annotation_attempt / "output.json").relative_to(repo_root)),
+                        "path": relative_report_path(annotation_attempt / "output.json", repo_root),
                         "annotation_version": manifest["annotation_version"],
                         "model": manifest["api_model"],
                         "prompt_path": manifest["prompt_path"],
@@ -189,7 +194,7 @@ def collect_occurrences(batch_runs: list[Path], repo_root: Path) -> tuple[list[d
                         "schema_path": manifest["schema_path"],
                         "schema_sha256": manifest["schema_sha256"],
                     },
-                    "source_provenance": str(provenance_path.relative_to(repo_root)),
+                    "source_provenance": relative_report_path(provenance_path, repo_root),
                 }
                 records.append(record)
                 batch_count += 1
@@ -198,7 +203,8 @@ def collect_occurrences(batch_runs: list[Path], repo_root: Path) -> tuple[list[d
                 f"batch occurrence mismatch for {summary['batch_id']}: "
                 f"summary={summary['occurrences']}, collected={batch_count}"
             )
-        batches.append({"batch_id": summary["batch_id"], "path": str(batch_run.relative_to(repo_root)),
+        batches.append({"batch_id": summary["batch_id"],
+                        "path": relative_report_path(batch_run, repo_root),
                         "works": summary["texts_requested"], "occurrences": summary["occurrences"]})
     if len(identities) != len(records):
         raise ValueError("combined report contains duplicate occurrence records")

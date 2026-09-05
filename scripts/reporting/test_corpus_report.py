@@ -4,11 +4,11 @@ import copy
 import json
 import tempfile
 import unittest
-from pathlib import Path
+from pathlib import Path, PureWindowsPath
 
 from scripts.reporting.build_corpus_report import (
     anchors, bounded_context, cache_identity, collect_occurrences, enrich_one, existing_cache,
-    render_markdown, report_document, validate_enrichment,
+    relative_report_path, render_markdown, report_document, validate_enrichment,
 )
 from scripts.reporting.validate_corpus_report import validate_report
 
@@ -44,6 +44,11 @@ def enrichment(language="en"):
 
 
 class CorpusReportTests(unittest.TestCase):
+    def test_repository_paths_always_use_forward_slashes(self):
+        root = PureWindowsPath("C:/project")
+        path = root / "results" / "batch_runs" / "run"
+        self.assertEqual("results/batch_runs/run", relative_report_path(path, root))
+
     def test_translation_language_contract(self):
         self.assertEqual([], validate_enrichment(enrichment("en"), "en"))
         self.assertEqual([], validate_enrichment(enrichment("fr"), "fr"))
