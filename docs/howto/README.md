@@ -27,6 +27,10 @@ history is cleaned up and do not block the current sequence.
 | 11 | [Annotate the next texts with v0.2](11_annotate_next_texts_v0_2.md) | Complete, audited *Little Women* and *Madame Bovary* v0.2 runs |
 | 12 | [Run manifest-defined annotation batches](12_run_annotation_batches.md) | Reusable, resumable multi-text annotation and version comparison |
 | 13 | [Annotate the multilingual five-text batch](13_annotate_multilingual_five_v0_3_1.md) | Acquired sources, reviewed extraction inventories, and a complete audited v0.3.1 batch |
+| 14 | [Build the eight-work corpus report](14_build_canonical_corpus_report.md) | Cached enrichment contract and inspectable Markdown/JSON report for all eight canonical works |
+| 15 | [Ingest the one-work indie-romance pilot](15_ingest_indie_romance_pilot.md) | Preserved *Nikki's Touch* EPUB, reproducible Calibre text, exclusions, and reviewed rights/provenance |
+| 16 | [Extract and annotate the indie-romance pilot](16_annotate_indie_romance_pilot.md) | Reviewed *Nikki's Touch* extraction and complete audited v0.3.1 pilot batch |
+| 17 | [Report and compare the pilot](17_report_and_compare_indie_romance_pilot.md) | One-work pilot inspection report and descriptive canonical-versus-indie comparison |
 
 ## Conventions
 

@@ -21,6 +21,10 @@ CANONICAL = {
     "11_annotate_next_texts_v0_2.md",
     "12_run_annotation_batches.md",
     "13_annotate_multilingual_five_v0_3_1.md",
+    "14_build_canonical_corpus_report.md",
+    "15_ingest_indie_romance_pilot.md",
+    "16_annotate_indie_romance_pilot.md",
+    "17_report_and_compare_indie_romance_pilot.md",
 }
 
 
@@ -28,6 +32,13 @@ class HowtoInventoryTests(unittest.TestCase):
     def test_all_canonical_runbooks_are_present(self):
         actual = {path.name for path in HOWTO.glob("*.md")}
         self.assertTrue(CANONICAL.issubset(actual))
+
+    def test_indie_pilot_preserves_unspecified_cc_by_version(self):
+        step = (HOWTO / "15_ingest_indie_romance_pilot.md").read_text(encoding="utf-8")
+        self.assertIn("Some Rights Reserved - Creative Commons (CC BY)", step)
+        self.assertIn('"license_version": None', step)
+        self.assertIn("Not specified on the Lulu product page", step)
+        self.assertNotIn("creativecommons.org/licenses/by/4.0", step)
 
 
 if __name__ == "__main__":
