@@ -1,0 +1,35 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Corpus-report occurrence enrichment v0.1\n\nYou are preparing explanatory material for a human-readable research report.\nThe supplied P/T/E/O annotation is immutable evidence: do not revise its scores,\nrecalculate confidence, change ontology fit or utterance status, or “correct”\nthe annotation. Return only the three presentational fields in the schema.\n\nFor a non-English passage, translate the complete displayed passage into\nidiomatic English. Preserve negation, embedding, quotation, relationship terms,\nand genuine ambiguity. Mark the English equivalent of the target expression\nwith Markdown bold (`**…**`), without turning a negated or embedded expression\ninto a direct positive declaration. For an English passage, return\n`translation_en: null`.\n\nThe larger-context summary is visibly AI-generated interpretive context, not\nsource text. In a concise paragraph, identify where reliably possible the\nspeaker, addressee, relationship, immediate narrative or dramatic situation,\nrecent relevant events, participant beliefs, stakes, and any wider plot fact\nneeded to interpret the occurrence. You may use reliable background knowledge\nabout the named work. State uncertainty instead of inventing details, and do\nnot merely paraphrase the local passage.\n\nWrite an approximately 80–180 word human-facing interpretive commentary (less\nonly when the case is genuinely trivial). Explain why the existing scores are\nplausible or interesting rather than listing them again. Distinguish intensity\nfrom expressive/reflexive E, relationship consequences from performative P,\nand deception from the core semantic force where relevant. Explain the value of\nnegated, embedded, quoted, or revoiced cases. Avoid repetitive boilerplate.\n\nOutput one JSON object conforming exactly to the supplied schema.\n\n\n## Input\n\n{\n  \"occurrence_id\": \"flaubert-madame-bovary-8fe83e2776a5\",\n  \"title\": \"Madame Bovary\",\n  \"author\": \"Gustave Flaubert\",\n  \"language\": \"fr\",\n  \"source_passage\": \"— Mais oui, je t’aime! répondait-il.\",\n  \"target_span\": {\n    \"text\": \"je t’aime\",\n    \"start\": 381592,\n    \"end\": 381601\n  },\n  \"source_location\": {\n    \"source_start\": 381592,\n    \"source_end\": 381601,\n    \"source_length_characters\": 703078,\n    \"relative_position\": 0.542745,\n    \"chapter_or_section\": null\n  },\n  \"utterance_status\": {\n    \"status\": \"direct\",\n    \"description\": \"A character’s spoken French utterance is presented directly in dialogue and attributed by the narrator with “répondait-il.”\"\n  },\n  \"scores\": {\n    \"P\": 0,\n    \"T\": 4,\n    \"E\": 0,\n    \"O\": 0\n  },\n  \"confidence\": 0.96,\n  \"ontology_fit\": \"natural\",\n  \"annotation_analysis\": \"“Mais oui, je t’aime!” is framed as an answer confirming that the speaker has loving feelings. Nothing in the excerpt independently presents it as undertaking a commitment or as a reflex-like affective discharge; the exclamation mark alone does not support E.\",\n  \"ambiguity_note\": \"The narrow excerpt does not establish whether the avowal is sincere, habitual, impatient, or reassuring, but those possibilities do not alter its strongly truth-conditional mode.\",\n  \"contextual_interpretation\": \"The prefatory “Mais oui” and the reporting clause “répondait-il” frame the utterance as an affirmative response, likely to a question or doubt about love. Its possible interpersonal role as reassurance does not by itself make it performative, and its emphatic punctuation does not establish expressive/reflexive force.\",\n  \"relevant_evidence\": [\n    {\n      \"evidence_id\": \"local-1\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“Mais oui, je t’aime!”\",\n      \"supports\": \"The affirmative “oui” and the proposition “je t’aime” strongly support a truth-conditional avowal of love.\",\n      \"confidence\": 0.99\n    },\n    {\n      \"evidence_id\": \"local-2\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“répondait-il”\",\n      \"supports\": \"The narrator explicitly frames the words as his answer, reinforcing their responsive assertoric force and their status as direct speech.\",\n      \"confidence\": 0.98\n    },\n    {\n      \"evidence_id\": \"local-3\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"The utterance ends with an exclamation mark, but there is no description of blurting, involuntary speech, or affect producing the words.\",\n      \"supports\": \"Intensity is possible, but there is no positive evidence for independent expressive/reflexive force.\",\n      \"confidence\": 0.94\n    }\n  ],\n  \"background_knowledge_metadata\": {\n    \"used\": false,\n    \"familiarity\": \"none\",\n    \"confidence\": null,\n    \"contribution\": null\n  }\n}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "corpus_report_enrichment_v0_1",
+      "strict": true,
+      "schema": {
+        "title": "Corpus report occurrence enrichment v0.1",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "translation_en",
+          "larger_context_summary",
+          "interpretive_commentary"
+        ],
+        "properties": {
+          "translation_en": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "larger_context_summary": {
+            "type": "string"
+          },
+          "interpretive_commentary": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

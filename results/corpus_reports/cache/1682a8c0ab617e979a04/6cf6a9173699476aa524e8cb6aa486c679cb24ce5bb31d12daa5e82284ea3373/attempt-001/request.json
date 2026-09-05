@@ -1,0 +1,35 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Corpus-report occurrence enrichment v0.1\n\nYou are preparing explanatory material for a human-readable research report.\nThe supplied P/T/E/O annotation is immutable evidence: do not revise its scores,\nrecalculate confidence, change ontology fit or utterance status, or “correct”\nthe annotation. Return only the three presentational fields in the schema.\n\nFor a non-English passage, translate the complete displayed passage into\nidiomatic English. Preserve negation, embedding, quotation, relationship terms,\nand genuine ambiguity. Mark the English equivalent of the target expression\nwith Markdown bold (`**…**`), without turning a negated or embedded expression\ninto a direct positive declaration. For an English passage, return\n`translation_en: null`.\n\nThe larger-context summary is visibly AI-generated interpretive context, not\nsource text. In a concise paragraph, identify where reliably possible the\nspeaker, addressee, relationship, immediate narrative or dramatic situation,\nrecent relevant events, participant beliefs, stakes, and any wider plot fact\nneeded to interpret the occurrence. You may use reliable background knowledge\nabout the named work. State uncertainty instead of inventing details, and do\nnot merely paraphrase the local passage.\n\nWrite an approximately 80–180 word human-facing interpretive commentary (less\nonly when the case is genuinely trivial). Explain why the existing scores are\nplausible or interesting rather than listing them again. Distinguish intensity\nfrom expressive/reflexive E, relationship consequences from performative P,\nand deception from the core semantic force where relevant. Explain the value of\nnegated, embedded, quoted, or revoiced cases. Avoid repetitive boilerplate.\n\nOutput one JSON object conforming exactly to the supplied schema.\n\n\n## Input\n\n{\n  \"occurrence_id\": \"flaubert-madame-bovary-47361213aeaa\",\n  \"title\": \"Madame Bovary\",\n  \"author\": \"Gustave Flaubert\",\n  \"language\": \"fr\",\n  \"source_passage\": \"— Non, je vous aime, voilà tout! Vous n’en doutez pas! Dites-le-moi; un\\nmot! un seul mot!\",\n  \"target_span\": {\n    \"text\": \"je vous aime\",\n    \"start\": 313772,\n    \"end\": 313784\n  },\n  \"source_location\": {\n    \"source_start\": 313772,\n    \"source_end\": 313784,\n    \"source_length_characters\": 703078,\n    \"relative_position\": 0.446283,\n    \"chapter_or_section\": null\n  },\n  \"utterance_status\": {\n    \"status\": \"direct\",\n    \"description\": \"A character directly addresses another in dialogue: “Non, je vous aime, voilà tout!”\"\n  },\n  \"scores\": {\n    \"P\": 0,\n    \"T\": 4,\n    \"E\": 0,\n    \"O\": 0\n  },\n  \"confidence\": 0.94,\n  \"ontology_fit\": \"natural\",\n  \"annotation_analysis\": \"“Je vous aime” is presented straightforwardly as an avowal of the speaker’s loving state. “Voilà tout” frames that state as the speaker’s decisive explanation, while the request for confirmation that the addressee believes it reinforces its assertive force. The passage supplies no independent evidence that the words enact a commitment or arise as a reflex-like expressive discharge.\",\n  \"ambiguity_note\": \"The emphatic punctuation and urgent requests convey emotional intensity and interpersonal pressure, but they do not independently establish expressive/reflexive or undertaking force.\",\n  \"contextual_interpretation\": \"The declaration is emphatic and insistent. The speaker not only avows love but presses the addressee to acknowledge believing the avowal: “Vous n’en doutez pas! Dites-le-moi.” This may have persuasive or courtship force in the interaction, but the core love utterance remains adequately represented as truth-conditional rather than as a commitment or reflexive discharge.\",\n  \"relevant_evidence\": [\n    {\n      \"evidence_id\": \"E1\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“je vous aime”\",\n      \"supports\": \"Directly presents the speaker as having love for the addressee, strongly supporting truth-conditional force.\",\n      \"confidence\": 0.99\n    },\n    {\n      \"evidence_id\": \"E2\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“voilà tout!”\",\n      \"supports\": \"Frames the avowed love as the speaker’s complete or decisive explanation, reinforcing assertion rather than undertaking force.\",\n      \"confidence\": 0.94\n    },\n    {\n      \"evidence_id\": \"E3\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“Vous n’en doutez pas! Dites-le-moi; un mot! un seul mot!”\",\n      \"supports\": \"Shows insistence that the addressee confirm belief or acknowledgment; it supplies contextual urgency but no independent evidence of a commitment or reflex-like discharge.\",\n      \"confidence\": 0.93\n    }\n  ],\n  \"background_knowledge_metadata\": {\n    \"used\": false,\n    \"familiarity\": \"none\",\n    \"confidence\": null,\n    \"contribution\": null\n  }\n}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "corpus_report_enrichment_v0_1",
+      "strict": true,
+      "schema": {
+        "title": "Corpus report occurrence enrichment v0.1",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "translation_en",
+          "larger_context_summary",
+          "interpretive_commentary"
+        ],
+        "properties": {
+          "translation_en": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "larger_context_summary": {
+            "type": "string"
+          },
+          "interpretive_commentary": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

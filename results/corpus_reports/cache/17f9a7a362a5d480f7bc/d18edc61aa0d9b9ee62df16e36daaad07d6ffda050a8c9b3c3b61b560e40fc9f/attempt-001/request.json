@@ -1,0 +1,35 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Corpus-report occurrence enrichment v0.1\n\nYou are preparing explanatory material for a human-readable research report.\nThe supplied P/T/E/O annotation is immutable evidence: do not revise its scores,\nrecalculate confidence, change ontology fit or utterance status, or “correct”\nthe annotation. Return only the three presentational fields in the schema.\n\nFor a non-English passage, translate the complete displayed passage into\nidiomatic English. Preserve negation, embedding, quotation, relationship terms,\nand genuine ambiguity. Mark the English equivalent of the target expression\nwith Markdown bold (`**…**`), without turning a negated or embedded expression\ninto a direct positive declaration. For an English passage, return\n`translation_en: null`.\n\nThe larger-context summary is visibly AI-generated interpretive context, not\nsource text. In a concise paragraph, identify where reliably possible the\nspeaker, addressee, relationship, immediate narrative or dramatic situation,\nrecent relevant events, participant beliefs, stakes, and any wider plot fact\nneeded to interpret the occurrence. You may use reliable background knowledge\nabout the named work. State uncertainty instead of inventing details, and do\nnot merely paraphrase the local passage.\n\nWrite an approximately 80–180 word human-facing interpretive commentary (less\nonly when the case is genuinely trivial). Explain why the existing scores are\nplausible or interesting rather than listing them again. Distinguish intensity\nfrom expressive/reflexive E, relationship consequences from performative P,\nand deception from the core semantic force where relevant. Explain the value of\nnegated, embedded, quoted, or revoiced cases. Avoid repetitive boilerplate.\n\nOutput one JSON object conforming exactly to the supplied schema.\n\n\n## Input\n\n{\n  \"occurrence_id\": \"rostand-cyrano-de-bergerac-9299dcd45fdf\",\n  \"title\": \"Cyrano de Bergerac\",\n  \"author\": \"Edmond Rostand\",\n  \"language\": \"fr\",\n  \"source_passage\": \"CHRISTIAN:\\n  Je t'aime !\",\n  \"target_span\": {\n    \"text\": \"Je t'aime\",\n    \"start\": 118591,\n    \"end\": 118600\n  },\n  \"source_location\": {\n    \"source_start\": 118591,\n    \"source_end\": 118600,\n    \"source_length_characters\": 242408,\n    \"relative_position\": 0.489221,\n    \"chapter_or_section\": null\n  },\n  \"utterance_status\": {\n    \"status\": \"direct\",\n    \"description\": \"Christian directly addresses the love declaration to Roxane within the dramatic action.\"\n  },\n  \"scores\": {\n    \"P\": 0,\n    \"T\": 4,\n    \"E\": 0,\n    \"O\": 0\n  },\n  \"confidence\": 0.94,\n  \"ontology_fit\": \"natural\",\n  \"annotation_analysis\": \"Christian's direct “Je t'aime !” primarily avows as true his loving feeling toward Roxane. Although uttered in a courtship scene, it does not independently undertake a commitment or obligation. The exclamation mark and emotional situation do not establish expressive/reflexive force, and nothing important in the core utterance falls outside T/P/E.\",\n  \"ambiguity_note\": \"The declaration pragmatically advances Christian's courtship, but courtship and desired relational effect alone do not supply performative undertaking force.\",\n  \"contextual_interpretation\": \"In the wider balcony-scene context, Christian attempts to woo Roxane in his own words rather than relying on Cyrano's eloquence. His blunt, repetitive declaration is sincere as an avowal but fails to satisfy Roxane's demand for elaborated language. That dramatic inadequacy concerns rhetorical execution, not a core force beyond truth-conditional avowal.\",\n  \"relevant_evidence\": [\n    {\n      \"evidence_id\": \"ev-local-1\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“CHRISTIAN: Je t'aime !”\",\n      \"supports\": \"The explicit first-person declaration, assigned directly to Christian, strongly supports truth-conditional avowal and direct utterance status.\",\n      \"confidence\": 0.99\n    },\n    {\n      \"evidence_id\": \"ev-meta-1\",\n      \"source\": \"supplied_metadata\",\n      \"quotation_or_description\": \"The supplied metadata identifies the source as Edmond Rostand's French play Cyrano de Bergerac.\",\n      \"supports\": \"Confirms that the speaker label and line constitute staged dramatic dialogue rather than narrator report.\",\n      \"confidence\": 0.99\n    },\n    {\n      \"evidence_id\": \"ev-bg-1\",\n      \"source\": \"background_knowledge\",\n      \"quotation_or_description\": \"In the surrounding balcony episode, Christian tries to speak to Roxane without Cyrano's verbal assistance; Roxane finds his bare declarations rhetorically insufficient and asks for greater elaboration.\",\n      \"supports\": \"Reinforces that the line functions as a direct, blunt avowal in courtship rather than as a commitment or reflex-like verbal discharge.\",\n      \"confidence\": 0.93\n    }\n  ],\n  \"background_knowledge_metadata\": {\n    \"used\": true,\n    \"familiarity\": \"extensive\",\n    \"confidence\": 0.93,\n    \"contribution\": \"Identified the line's place in the balcony courtship episode and the contrast between Christian's sincere but ineloquent avowal and Roxane's demand for eloquence.\"\n  }\n}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "corpus_report_enrichment_v0_1",
+      "strict": true,
+      "schema": {
+        "title": "Corpus report occurrence enrichment v0.1",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "translation_en",
+          "larger_context_summary",
+          "interpretive_commentary"
+        ],
+        "properties": {
+          "translation_en": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "larger_context_summary": {
+            "type": "string"
+          },
+          "interpretive_commentary": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Corpus-report occurrence enrichment v0.1\n\nYou are preparing explanatory material for a human-readable research report.\nThe supplied P/T/E/O annotation is immutable evidence: do not revise its scores,\nrecalculate confidence, change ontology fit or utterance status, or “correct”\nthe annotation. Return only the three presentational fields in the schema.\n\nFor a non-English passage, translate the complete displayed passage into\nidiomatic English. Preserve negation, embedding, quotation, relationship terms,\nand genuine ambiguity. Mark the English equivalent of the target expression\nwith Markdown bold (`**…**`), without turning a negated or embedded expression\ninto a direct positive declaration. For an English passage, return\n`translation_en: null`.\n\nThe larger-context summary is visibly AI-generated interpretive context, not\nsource text. In a concise paragraph, identify where reliably possible the\nspeaker, addressee, relationship, immediate narrative or dramatic situation,\nrecent relevant events, participant beliefs, stakes, and any wider plot fact\nneeded to interpret the occurrence. You may use reliable background knowledge\nabout the named work. State uncertainty instead of inventing details, and do\nnot merely paraphrase the local passage.\n\nWrite an approximately 80–180 word human-facing interpretive commentary (less\nonly when the case is genuinely trivial). Explain why the existing scores are\nplausible or interesting rather than listing them again. Distinguish intensity\nfrom expressive/reflexive E, relationship consequences from performative P,\nand deception from the core semantic force where relevant. Explain the value of\nnegated, embedded, quoted, or revoiced cases. Avoid repetitive boilerplate.\n\nOutput one JSON object conforming exactly to the supplied schema.\n\n\n## Input\n\n{\n  \"occurrence_id\": \"bronte-jane-eyre-14913cd0a6a4\",\n  \"title\": \"Jane Eyre\",\n  \"author\": \"Charlotte Brontë\",\n  \"language\": \"en\",\n  \"source_passage\": \"“And these dreams weigh on your spirits now, Jane, when I am close to\\nyou? Little nervous subject! Forget visionary woe, and think only of\\nreal happiness! You say you love me, Janet: yes—I will not forget that;\\nand you cannot deny it. _Those_ words did not die inarticulate on your\\nlips. I heard them clear and soft: a thought too solemn perhaps, but\\nsweet as music—‘I think it is a glorious thing to have the hope of\\nliving with you, Edward, because I love you.’ Do you love me,\\nJane?—repeat it.”\",\n  \"target_span\": {\n    \"text\": \"I love you\",\n    \"start\": 631776,\n    \"end\": 631786\n  },\n  \"source_location\": {\n    \"source_start\": 631776,\n    \"source_end\": 631786,\n    \"source_length_characters\": 1041730,\n    \"relative_position\": 0.606468,\n    \"chapter_or_section\": \"CHAPTER XXV\"\n  },\n  \"utterance_status\": {\n    \"status\": \"quoted_or_revoiced\",\n    \"description\": \"Rochester quotes or closely revoices an earlier direct utterance by Jane, explicitly describing himself as having heard her say it.\"\n  },\n  \"scores\": {\n    \"P\": 0,\n    \"T\": 4,\n    \"E\": 0,\n    \"O\": 0\n  },\n  \"confidence\": 0.97,\n  \"ontology_fit\": \"natural\",\n  \"annotation_analysis\": \"Jane’s embedded “I love you” is presented as an avowal of her loving state and as the reason for her hope of living with Edward. It does not itself undertake a commitment, and its soft, solemn delivery supplies no independent evidence of expressive/reflexive discharge.\",\n  \"ambiguity_note\": \"The surrounding reference to living together gives the statement relational significance, but it does not make the highlighted causal avowal itself a commitment.\",\n  \"contextual_interpretation\": \"Rochester treats Jane’s prior words as a clear and consequential confession, recalls them with pleasure, and presses her to repeat the avowal. His insistence heightens the interpersonal stakes, but Jane’s quoted core utterance remains principally truth-conditional rather than performative or reflex-like.\",\n  \"relevant_evidence\": [\n    {\n      \"evidence_id\": \"ev1\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“because I love you”\",\n      \"supports\": \"The causal clause presents Jane’s love as an emotional state that explains her hope of living with Edward, strongly supporting T.\",\n      \"confidence\": 0.99\n    },\n    {\n      \"evidence_id\": \"ev2\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“I think it is a glorious thing to have the hope of living with you, Edward, because I love you.”\",\n      \"supports\": \"The full sentence frames the love declaration as an avowed reason for anticipated happiness, not as an explicit undertaking or promise.\",\n      \"confidence\": 0.96\n    },\n    {\n      \"evidence_id\": \"ev3\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“Those words did not die inarticulate on your lips. I heard them clear and soft: a thought too solemn perhaps, but sweet as music”\",\n      \"supports\": \"This establishes an earlier spoken event now being quoted and characterizes its deliberate, intelligible delivery; softness and solemnity alone do not support E.\",\n      \"confidence\": 0.98\n    },\n    {\n      \"evidence_id\": \"ev4\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“Do you love me, Jane?—repeat it.”\",\n      \"supports\": \"Rochester interprets the earlier utterance as an answerable avowal and requests its repetition, reinforcing the truth-conditional reading.\",\n      \"confidence\": 0.97\n    },\n    {\n      \"evidence_id\": \"ev5\",\n      \"source\": \"supplied_metadata\",\n      \"quotation_or_description\": \"The occurrence is identified as appearing in Chapter XXV of Charlotte Brontë’s Jane Eyre.\",\n      \"supports\": \"Confirms the bibliographic identity and location of the quoted occurrence without adding substantive force beyond the local text.\",\n      \"confidence\": 0.99\n    }\n  ],\n  \"background_knowledge_metadata\": {\n    \"used\": false,\n    \"familiarity\": \"none\",\n    \"confidence\": null,\n    \"contribution\": null\n  }\n}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "corpus_report_enrichment_v0_1",
+      "strict": true,
+      "schema": {
+        "title": "Corpus report occurrence enrichment v0.1",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "translation_en",
+          "larger_context_summary",
+          "interpretive_commentary"
+        ],
+        "properties": {
+          "translation_en": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "larger_context_summary": {
+            "type": "string"
+          },
+          "interpretive_commentary": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

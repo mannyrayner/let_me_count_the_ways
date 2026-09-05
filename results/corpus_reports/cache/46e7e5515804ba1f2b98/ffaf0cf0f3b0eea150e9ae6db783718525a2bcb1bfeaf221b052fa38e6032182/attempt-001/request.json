@@ -1,0 +1,35 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Corpus-report occurrence enrichment v0.1\n\nYou are preparing explanatory material for a human-readable research report.\nThe supplied P/T/E/O annotation is immutable evidence: do not revise its scores,\nrecalculate confidence, change ontology fit or utterance status, or “correct”\nthe annotation. Return only the three presentational fields in the schema.\n\nFor a non-English passage, translate the complete displayed passage into\nidiomatic English. Preserve negation, embedding, quotation, relationship terms,\nand genuine ambiguity. Mark the English equivalent of the target expression\nwith Markdown bold (`**…**`), without turning a negated or embedded expression\ninto a direct positive declaration. For an English passage, return\n`translation_en: null`.\n\nThe larger-context summary is visibly AI-generated interpretive context, not\nsource text. In a concise paragraph, identify where reliably possible the\nspeaker, addressee, relationship, immediate narrative or dramatic situation,\nrecent relevant events, participant beliefs, stakes, and any wider plot fact\nneeded to interpret the occurrence. You may use reliable background knowledge\nabout the named work. State uncertainty instead of inventing details, and do\nnot merely paraphrase the local passage.\n\nWrite an approximately 80–180 word human-facing interpretive commentary (less\nonly when the case is genuinely trivial). Explain why the existing scores are\nplausible or interesting rather than listing them again. Distinguish intensity\nfrom expressive/reflexive E, relationship consequences from performative P,\nand deception from the core semantic force where relevant. Explain the value of\nnegated, embedded, quoted, or revoiced cases. Avoid repetitive boilerplate.\n\nOutput one JSON object conforming exactly to the supplied schema.\n\n\n## Input\n\n{\n  \"occurrence_id\": \"rostand-cyrano-de-bergerac-fcb8f2f7f81a\",\n  \"title\": \"Cyrano de Bergerac\",\n  \"author\": \"Edmond Rostand\",\n  \"language\": \"fr\",\n  \"source_passage\": \"ROXANE:\\n  Oh ! je vous aime bien. Il faut que je m'en aille.\\n  (Elle remet vivement son masque, une dentelle sur son front, et,\\n  distraitement):\\n  Mais vous ne m'avez pas raconté la bataille\\n  De cette nuit. Vraiment ce dut être inouï !. . .\\n  --Dites-lui qu'il m'écrive.\\n  (Elle lui envoie un petit baiser de la main):\\n  Oh ! je vous aime !\",\n  \"target_span\": {\n    \"text\": \"je vous aime\",\n    \"start\": 77920,\n    \"end\": 77932\n  },\n  \"source_location\": {\n    \"source_start\": 77920,\n    \"source_end\": 77932,\n    \"source_length_characters\": 242408,\n    \"relative_position\": 0.321442,\n    \"chapter_or_section\": null\n  },\n  \"utterance_status\": {\n    \"status\": \"direct\",\n    \"description\": \"The classified event is Roxane’s directly spoken “Oh ! je vous aime bien” addressed to Cyrano, not the later repeated “Oh ! je vous aime !” in the supplied context.\"\n  },\n  \"scores\": {\n    \"P\": 0,\n    \"T\": 4,\n    \"E\": 0,\n    \"O\": 0\n  },\n  \"confidence\": 0.95,\n  \"ontology_fit\": \"natural\",\n  \"annotation_analysis\": \"Roxane directly presents her affection for Cyrano as true. The idiom “je vous aime bien” is most naturally an avowal of fondness rather than a relational undertaking. Neither the initial “Oh !” nor the affectionate staging independently shows that the words function as a reflex-like emotional discharge.\",\n  \"ambiguity_note\": \"French “aimer bien” can range from liking to warm affection and is weaker than an unqualified romantic declaration; this affects the kind or degree of feeling avowed, not its predominantly truth-conditional force.\",\n  \"contextual_interpretation\": \"Roxane expresses warm affection toward Cyrano while preparing to leave and asking him to tell another man to write to her. In the wider dramatic situation, that other man is Christian, the object of her romantic love, so her words to Cyrano convey fondness and gratitude rather than a new romantic commitment. Her haste, “Oh !,” and affectionate gesture make the scene emotionally warm but do not establish independent expressive/reflexive force.\",\n  \"relevant_evidence\": [\n    {\n      \"evidence_id\": \"ev-local-1\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“ROXANE: Oh ! je vous aime bien. Il faut que je m'en aille.”\",\n      \"supports\": \"The declarative construction explicitly avows Roxane’s affection, strongly supporting T; “bien” qualifies it as fondness or liking.\",\n      \"confidence\": 0.99\n    },\n    {\n      \"evidence_id\": \"ev-local-2\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“Dites-lui qu'il m'écrive.”\",\n      \"supports\": \"Roxane’s request concerning an absent male distinguishes her affection for Cyrano from the romantic attachment organizing the immediate conversation; it supplies no undertaking toward Cyrano.\",\n      \"confidence\": 0.94\n    },\n    {\n      \"evidence_id\": \"ev-local-3\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"The passage includes “Oh !,” hurried masking, and later a small kiss sent by hand.\",\n      \"supports\": \"These details indicate warmth and animated delivery, but they do not independently establish reflex-like production of the matched words.\",\n      \"confidence\": 0.93\n    },\n    {\n      \"evidence_id\": \"ev-background-1\",\n      \"source\": \"background_knowledge\",\n      \"quotation_or_description\": \"In the play’s established plot, Roxane is romantically attracted to Christian and uses Cyrano as an intermediary, while Cyrano secretly loves her.\",\n      \"supports\": \"This dramatic configuration supports reading “je vous aime bien” to Cyrano as sincere familial or friendly fondness rather than a romantic pledge.\",\n      \"confidence\": 0.96\n    }\n  ],\n  \"background_knowledge_metadata\": {\n    \"used\": true,\n    \"familiarity\": \"extensive\",\n    \"confidence\": 0.96,\n    \"contribution\": \"The wider plot identifies Christian as the man from whom Roxane wants a letter and clarifies the contrast between her romantic love for Christian and her affectionate regard for Cyrano.\"\n  }\n}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "corpus_report_enrichment_v0_1",
+      "strict": true,
+      "schema": {
+        "title": "Corpus report occurrence enrichment v0.1",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "translation_en",
+          "larger_context_summary",
+          "interpretive_commentary"
+        ],
+        "properties": {
+          "translation_en": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "larger_context_summary": {
+            "type": "string"
+          },
+          "interpretive_commentary": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
