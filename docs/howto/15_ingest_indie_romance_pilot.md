@@ -50,19 +50,21 @@ https://www.lulu.com/shop/ania-cofield/nikkis-touch/ebook/product-q6d8gkz.html
 ```
 
 Record the access date and exactly what the live page displays for title,
-author, EPUB format, publication year, licence name, and licence link. Follow
-the link to the official Creative Commons deed and record its URL/version and
-attribution requirements. The expected metadata from the prior review is Ania
-Cofield, EPUB, 2025, and Creative Commons Attribution (CC BY); these are facts
-to verify, not values to copy mechanically.
+author, EPUB format, publication year, and copyright/licence wording. The
+observed wording is `Some Rights Reserved - Creative Commons (CC BY)`, which
+establishes the Creative Commons Attribution licence family but does not state a
+licence version. Do not normalize it to CC BY 4.0, infer another version, or add
+a version-specific Creative Commons deed URL. Recheck the displayed metadata
+rather than copying it mechanically.
 
 Also inspect the purchased EPUB in Thorium Reader. Record whether anything in
 the book contradicts the storefront licence and whether the named uploader is
 plausibly the author/rightsholder. Do not quote unnecessary copyright text.
 
 If the page is unavailable, no longer says CC BY, does not clearly apply to this
-edition, points to an unclear licence, or authorship/rightsholder authority is
-implausible, stop. Do not copy the file into the public checkout.
+edition, or authorship/rightsholder authority is implausible, stop. An
+unspecified version is not by itself a reason to invent a version or reject the
+clearly labelled licence family. Do not copy the file into the public checkout.
 
 ## 3. Copy the purchased EPUB without overwriting it
 
@@ -235,22 +237,23 @@ proposing any new versioned production pattern.
 
 ## 9. Create the dated rights note
 
-Set the values from the live-page and in-book review, then create the note. Use
-the actual official Creative Commons deed URL followed from Lulu.
+Use the exact live-page wording and explicitly preserve the missing licence
+version. The Lulu product page is the evidence URL; do not substitute a
+version-specific Creative Commons deed.
 
 ```bash
 RIGHTS_DATE="$(date -u +%Y-%m-%d)"
 RIGHTS_NOTE="docs/notes/rights/lulu-cofield-nikkis-touch-$RIGHTS_DATE.md"
-LICENSE_WORDING='REPLACE WITH EXACT LULU WORDING'
-LICENSE_URL='REPLACE WITH OFFICIAL CREATIVE COMMONS DEED URL'
+LULU_URL='https://www.lulu.com/shop/ania-cofield/nikkis-touch/ebook/product-q6d8gkz.html'
+LICENSE_WORDING='Some Rights Reserved - Creative Commons (CC BY)'
+LICENSE_FAMILY='Creative Commons Attribution (CC BY)'
+LICENSE_VERSION_NOTE='Not specified on the Lulu product page'
+IN_BOOK_CHECK='confirmed-no-contradictory-rights-statement'
 
-case "$LICENSE_WORDING" in
-  *REPLACE*) echo 'Set LICENSE_WORDING from the live Lulu page; stop.' >&2; exit 1;;
-esac
-case "$LICENSE_URL" in
-  https://creativecommons.org/*) ;;
-  *) echo 'Set LICENSE_URL to the official Creative Commons URL; stop.' >&2; exit 1;;
-esac
+test "$LICENSE_WORDING" = 'Some Rights Reserved - Creative Commons (CC BY)'
+test "$LICENSE_FAMILY" = 'Creative Commons Attribution (CC BY)'
+test "$LICENSE_VERSION_NOTE" = 'Not specified on the Lulu product page'
+test "$IN_BOOK_CHECK" = 'confirmed-no-contradictory-rights-statement'
 test ! -e "$RIGHTS_NOTE" || {
   echo "$RIGHTS_NOTE already exists; stop before overwriting." >&2
   exit 1
@@ -260,17 +263,18 @@ cat > "$RIGHTS_NOTE" <<EOF_NOTE
 # Rights review: *Nikki's Touch*
 
 - **Reviewed on:** $RIGHTS_DATE
-- **Lulu page:** https://www.lulu.com/shop/ania-cofield/nikkis-touch/ebook/product-q6d8gkz.html
+- **Lulu page:** $LULU_URL
 - **Displayed title:** *Nikki's Touch*
 - **Displayed author:** Ania Cofield
 - **Displayed format:** EPUB
 - **Displayed publication year:** 2025
-- **Displayed licence:** $LICENSE_WORDING
-- **Official licence/deed:** $LICENSE_URL
-- **Attribution:** Ania Cofield, *Nikki's Touch*, Lulu product page and licence URL above.
-- **In-book check:** No statement contradicting the displayed CC BY licence was apparent in the purchased EPUB during review.
-- **Rights basis:** Explicit Lulu-displayed CC BY licence, not public-domain expiry and not purchase alone.
-- **Conclusion:** Approved for development processing and public repository redistribution, subject to the attribution and licence terms recorded above.
+- **Displayed copyright/licence wording:** $LICENSE_WORDING
+- **Licence family:** $LICENSE_FAMILY
+- **Licence version:** $LICENSE_VERSION_NOTE
+- **In-book check:** No copyright or licence statement contradicting the Lulu CC BY designation was found in the purchased EPUB.
+- **Rights basis:** The Lulu product page explicitly designates this edition as CC BY. Purchase alone is not the rights basis.
+- **Caveat:** No version-specific Creative Commons deed is asserted because Lulu does not specify a licence version.
+- **Conclusion:** Approved for development processing. Public redistribution should preserve attribution to Ania Cofield and the Lulu CC BY designation while retaining the documented uncertainty about licence version.
 EOF_NOTE
 sed -n '1,160p' "$RIGHTS_NOTE"
 ```
@@ -278,6 +282,11 @@ sed -n '1,160p' "$RIGHTS_NOTE"
 If the evidence does not justify that conclusion, do not run the `cat` block as
 written. Create a `rights_review_blocked` note instead, keep full text local, and
 stop before provenance or batch membership.
+
+This distinction is permanent provenance information: platform metadata may
+establish a licence family without identifying a version. Preserve that
+uncertainty rather than silently normalizing the designation to the newest or
+most familiar Creative Commons version.
 
 ## 10. Create the source provenance record
 
@@ -295,11 +304,13 @@ test ! -e "$PROVENANCE" || {
 }
 python - "$PROVENANCE" "$ORIGINAL_SHA256" "$DERIVED_SHA256" \
   "$CALIBRE_VERSION" "$PURCHASED_DATE" "$RIGHTS_DATE" \
-  "$LICENSE_WORDING" "$LICENSE_URL" "$RIGHTS_NOTE" <<'PY'
+  "$LICENSE_WORDING" "$LICENSE_FAMILY" "$LICENSE_VERSION_NOTE" \
+  "$LULU_URL" "$RIGHTS_NOTE" <<'PY'
 import json, sys
 from pathlib import Path
 (destination, original_hash, derived_hash, calibre_version, purchased_date,
- reviewed_on, licence_name, licence_url, rights_note) = sys.argv[1:]
+ reviewed_on, licence_wording, licence_name, licence_version_note,
+ licence_evidence_url, rights_note) = sys.argv[1:]
 record = {
     "source_id": "lulu-cofield-nikkis-touch-ebook",
     "work_id": "cofield-nikkis-touch",
@@ -320,16 +331,19 @@ record = {
     "derived_text_sha256": derived_hash,
     "purchased_or_retrieved_date": purchased_date,
     "license_name": licence_name,
-    "license_url": licence_url,
-    "license_evidence": rights_note,
-    "attribution_requirements": "Credit Ania Cofield, identify the work, link the licence, and indicate changes as required by CC BY.",
+    "license_displayed_wording": licence_wording,
+    "license_version": None,
+    "license_version_note": licence_version_note,
+    "license_evidence_url": licence_evidence_url,
+    "license_evidence_note": rights_note,
+    "attribution_requirements": "Credit Ania Cofield and identify the work and Lulu source; retain the CC BY designation. No specific CC BY version is asserted because Lulu does not specify one.",
     "authorship_rightsholder_plausibility_note": "Lulu identifies Ania Cofield as author; reviewed against the purchased EPUB. See rights note.",
     "conversion_tool": "Calibre ebook-convert",
     "conversion_tool_version": calibre_version,
     "conversion_options": ["--txt-output-encoding=utf-8", "--txt-output-formatting=plain", "--max-line-length=0", "--newline=unix"],
     "processing_note": "Calibre EPUB-to-TXT conversion; no punctuation smartening or editorial modernization; deterministic second conversion compared byte-for-byte.",
-    "rights_basis": "Explicit Lulu-displayed CC BY licence, not public-domain expiry or purchase alone.",
-    "rights_note": "Included on the basis of the explicit Lulu-displayed CC BY licence recorded in the dated rights-review note; not public-domain expiry or purchase alone.",
+    "rights_basis": "Explicit Lulu-displayed Creative Commons Attribution (CC BY) designation.",
+    "rights_note": "The Lulu product page establishes the CC BY licence family but does not identify a version. The purchased EPUB contains no contradictory rights statement. No version-specific deed is asserted.",
     "review_status": "approved_for_development_processing",
     "reviewed_on": reviewed_on,
 }
@@ -338,7 +352,8 @@ PY
 python -m json.tool "$PROVENANCE"
 ```
 
-Review every value. The canonical `local_path` and `sha256` fields intentionally
+Review every value, including the JSON `null` licence version and explicit
+version note. The canonical `local_path` and `sha256` fields intentionally
 point to the reviewed derived UTF-8 text consumed by the extraction pipeline;
 the separate original fields preserve the purchased EPUB provenance.
 
@@ -416,7 +431,8 @@ git status --short
 ```
 
 Confirm neither rejected title appears in the staged paths or commit. Preserve
-required attribution and licence links with any later redistributed derivative.
+required attribution, the Lulu source URL, the CC BY designation, and the
+documented version uncertainty with any later redistributed derivative.
 
 ## 14. Stop before extraction and annotation
 
