@@ -1,12 +1,16 @@
 # Step 14: build the eight-work corpus inspection report
 
-This runbook defines the next implementation increment: a human-readable report
-over `development_three` and `multilingual_five_v1`. Complete and review this
-machinery before ingesting the indie-romance sources. The report stage explains
-existing annotations; it must never change P/T/E/O scores or discard negated,
-embedded, reported, quoted, revoiced, hypothetical, or otherwise marked hits.
+This runbook generates one human-readable report from the accepted v0.3.1
+annotations for the development three and multilingual five. The enrichment
+stage adds translations and explanations but cannot alter P/T/E/O, confidence,
+ontology fit, or utterance status. Complete this review and commit checkpoint
+before beginning Step 15.
 
-## 1. Preflight and freeze the inputs
+The report command deliberately exits with status 2 when an offline or failed
+run produces an incomplete report. That status means “prepared but incomplete,”
+not that model calls occurred.
+
+## 1. Preflight
 
 ```bash
 cd "$LMCW"
@@ -15,140 +19,349 @@ test -z "$(git status --short)" || {
   echo 'Working tree is not clean; stop and review it.' >&2
   exit 1
 }
-python -m pytest -q
-python -m json.tool data/batches/development_three.json >/dev/null
-python -m json.tool data/batches/multilingual_five_v1.json >/dev/null
-test -f prompts/annotation/classify_passage_v0_3_1.md
-test -f prompts/annotation/classification_schema_v0_3.json
+test -n "$OPENAI_API_KEY" || {
+  echo 'OPENAI_API_KEY is not set; stop before the eventual online run.' >&2
+  exit 1
+}
+python scripts/reporting/build_corpus_report.py --help
+python scripts/reporting/render_corpus_report.py --help
+python scripts/reporting/validate_corpus_report.py --help
 ```
 
-Record the exact completed v0.3.1 batch-run directories selected for the
-report. Do not silently select “latest” if more than one completed run exists.
-The intended current inputs are the three development works and five
-multilingual works named by those manifests.
+The API key is checked but never printed or placed on the command line.
 
-## 2. Implement a separate, versioned enrichment contract
+## 2. Verify the exact source batch runs and counts
 
-Add a corpus-report enrichment prompt and JSON schema under a distinct prompt
-namespace (for example `prompts/corpus_report/`). The structured response must
-contain only presentational fields:
+Use these paths; do not substitute a glob or a directory selected as “latest.”
 
-- an idiomatic English translation for non-English passages, with the target
-  visibly marked and genuine ambiguity retained;
-- an AI-generated larger-context summary, including uncertainty rather than
-  speculative plot claims;
-- one synthetic interpretive paragraph that explains the scores without merely
-  copying the annotation analysis.
+```bash
+cd "$LMCW"
+DEV_RUN='results/batch_runs/development_three/v0.3.1-5.6'
+MULTI_RUN='results/batch_runs/multilingual_five_v1/v0.3.1-5.6'
+REPORT_NAME='canonical_eight_v0_3_1'
+REPORT_ROOT='results/corpus_reports'
 
-English occurrences should use `null` for translation, not incur a translation
-call. The contract must explicitly prohibit revised scores, labels, confidence,
-ontology fit, and utterance status. Validate the schema and prompt version in
-tests.
+for RUN in "$DEV_RUN" "$MULTI_RUN"
+do
+  test -f "$RUN/summary.json" || {
+    echo "Missing $RUN/summary.json; stop." >&2
+    exit 1
+  }
+  python -m json.tool "$RUN/summary.json" >/dev/null
+done
 
-## 3. Implement deterministic assembly and a persistent cache
+python - "$DEV_RUN/summary.json" "$MULTI_RUN/summary.json" <<'PY'
+import json, sys
+summaries=[json.load(open(path,encoding="utf-8")) for path in sys.argv[1:]]
+for item in summaries:
+    if item["status"] != "complete" or item["dry_run"]:
+        raise SystemExit(f"Not a completed real batch: {item['batch_id']}")
+    if item["valid_annotations"] != item["occurrences"] or item["failures"]:
+        raise SystemExit(f"Incomplete annotations: {item['batch_id']}")
+    print(f"{item['batch_id']}: {item['occurrences']} occurrences")
+print(f"Combined: {sum(item['occurrences'] for item in summaries)} occurrences")
+PY
+```
 
-Create a report command that accepts explicit batch-run paths and a report
-name. It should:
+Expected output is 22 development occurrences, 19 multilingual occurrences,
+and 41 combined. The report command independently validates complete text runs,
+extraction/input/annotation set equality, exactly one valid annotation per hit,
+unique composite occurrence identities, and the same summary totals.
 
-1. read preserved source, extraction, annotation, run, prompt, model, and
-   provenance records;
-2. retain every extracted and annotated occurrence;
-3. reuse annotation fields wherever possible;
-4. cache each enrichment under an identity containing occurrence ID, exact
-   model ID, enrichment prompt version/hash, schema version/hash, and the hashes
-   of the relevant source/annotation inputs;
-5. reuse a valid cached result by default and regenerate only missing, invalid,
-   stale, or explicitly forced entries;
-6. assemble Markdown and JSON without a model call once the cache is complete;
-7. write atomically beneath `results/corpus_reports/`.
-
-Do not key only on occurrence ID: that would incorrectly reuse an enrichment
-after its prompt, model, passage, or annotation changed. Preserve requests,
-responses, usage/cost, validation, and errors consistently with pipeline runs.
-A failed enrichment must remain diagnosable and must not yield a falsely
-complete report.
-
-The JSON is the durable presentation model. Markdown must be rendered from that
-JSON-equivalent structure, so another format can later be generated without
-new AI calls. HTML is optional for this increment.
-
-## 4. Required report contents
-
-The report header must identify its input batches/runs, generation time,
-enrichment version/model, annotation version(s), and completeness counts. Add
-linked indices, without duplicating occurrence bodies, for:
-
-- work and language;
-- P >= 2, E >= 2, and O > 0;
-- ontology fit other than `natural`;
-- negated;
-- embedded/reported;
-- quoted/revoiced;
-- low confidence.
-
-Use stable, collision-resistant anchors derived from occurrence IDs.
-
-Each occurrence must show ID, title, author, language, source ID, approximate
-position, utterance status, a bounded original passage, translation when
-needed, clearly labelled AI-generated context and commentary, P/T/E/O scores,
-confidence, ontology fit, ambiguity note, and compact provenance pointers.
-Escape Markdown metacharacters where source content could break structure.
-
-Status groupings should use preserved structured annotation/extraction fields.
-If a requested distinction is not represented structurally, display it as
-`unknown` and report the data gap; do not infer it with a brittle substring
-test or omit the occurrence.
-
-## 5. Test before spending API credit
-
-Add fixtures covering English/non-English records, every index category,
-duplicate-looking IDs from different runs, Markdown-sensitive text, missing
-optional fields, invalid cache entries, and a failed enrichment. Tests must
-prove that:
-
-- assembly does not mutate annotations;
-- no occurrence disappears;
-- cache hits cause no API call;
-- prompt/model/input changes invalidate the cache;
-- rerendering from saved JSON causes no API call;
-- output ordering and anchors are deterministic.
+## 3. Run all tests immediately before the dry run
 
 ```bash
 cd "$LMCW"
 python -m pytest -q
-python scripts/security/scan_credentials.py
 ```
 
-## 6. Dry-run, estimate, and generate
+The reporting tests cover the English/non-English translation contract, cache
+invalidation by model/prompt/passage/annotation, cache reuse, failed-attempt
+retry, bounded passages, Markdown-sensitive text, deterministic anchors/order,
+duplicate-looking IDs from different run contexts, incomplete/missing records,
+annotation immutability, and deterministic JSON-only rendering.
 
-Expose `--help`, an offline/dry-run mode, and an explicit force-enrichment
-option. Use the implemented command's actual flags rather than copying a
-hypothetical invocation from this design document.
+## 4. Prepare offline and inspect the call estimate
 
-First run offline assembly. It should report the selected runs, occurrence
-count, cache hits/misses, calls required, and incomplete inputs without making
-API calls. Review the complete prompt payload for representative English,
-French, German, Norwegian, and Swedish cases. Confirm the annotation block is
-input-only and absent from the enrichment output schema.
+`--offline` performs all deterministic collection, validation, cache inspection,
+request preparation, and incomplete rendering, but makes no model calls. Status
+2 is required while any enrichment is absent.
 
-After approving the exact model and cost estimate, fill the missing cache and
-generate:
+```bash
+cd "$LMCW"
+set +e
+python scripts/reporting/build_corpus_report.py \
+  --name "$REPORT_NAME" \
+  --batch-run "$DEV_RUN" \
+  --batch-run "$MULTI_RUN" \
+  --enrichment-model 5.6 \
+  --offline \
+  | tee "$REPORT_ROOT/$REPORT_NAME.offline.log"
+OFFLINE_STATUS=${PIPESTATUS[0]}
+set -e
+test "$OFFLINE_STATUS" -eq 0 -o "$OFFLINE_STATUS" -eq 2
+```
+
+On a fresh cache the command reports exactly 8 works, 41 unique occurrences,
+languages `en, fr, no, sv, de`, 0 cache hits, 41 cache misses/calls required,
+0 invalid source records, the output paths, and an output-token-only rough
+maximum cost. On a complete cache it exits 0 and reports 41 hits and 0 calls.
+Review the exact model (`gpt-5.6-sol`), call count, and rough estimate before
+continuing. The estimate is deliberately conservative and excludes input cost;
+the completed summary records actual API usage cost.
+
+## 5. Inspect one prepared request in every language
+
+Offline preparation writes easy-to-find request records here:
 
 ```text
-results/corpus_reports/canonical_eight_v0_3_1.md
-results/corpus_reports/canonical_eight_v0_3_1.json
+results/corpus_reports/canonical_eight_v0_3_1/work/requests/
 ```
 
-Validate the JSON, rerun without force, and confirm zero additional model calls.
+List all requests, then print the first in report order available for each
+language:
 
-## 7. Human review checkpoint
+```bash
+cd "$LMCW"
+REQUEST_DIR="$REPORT_ROOT/$REPORT_NAME/work/requests"
+find "$REQUEST_DIR" -maxdepth 1 -type f -name '*.json' -print | sort
+for LANG in en fr no sv de
+do
+  REQUEST=$(find "$REQUEST_DIR" -maxdepth 1 -type f \
+    -name "$LANG--*.json" -print | sort | head -n 1)
+  test -n "$REQUEST" || { echo "No $LANG request; stop." >&2; exit 1; }
+  echo "===== $LANG: $REQUEST ====="
+  python -m json.tool "$REQUEST"
+done
+```
 
-Read every occurrence in Markdown. Check translations against originals,
-context summaries against the supplied passage and known plot, commentary
-against immutable scores, all links/anchors, all unusual-case indices, and
-provenance pointers. Reconcile the report occurrence total with the two source
-batch runs.
+Confirm each bounded source passage includes its target; metadata, location,
+existing annotation analysis/evidence, and background-knowledge metadata are
+present; English requests require `translation_en: null`; and no output field
+can revise annotation data. Check especially that negation, embedding, and
+quotation are preserved in the requested translation. Requests contain a
+maximum 1,600-character deterministic passage and never clip inside the target.
 
-Stop here and share the Markdown report, JSON report, cache-hit/miss summary,
-cost summary, test output, and any data gaps. Do not begin purchased-source
-ingestion until this checkpoint is accepted.
+## 6. Generate missing enrichments and the complete report
+
+After approving the requests, model, maximum call count, and cost estimate, run:
+
+```bash
+cd "$LMCW"
+python scripts/reporting/build_corpus_report.py \
+  --name "$REPORT_NAME" \
+  --batch-run "$DEV_RUN" \
+  --batch-run "$MULTI_RUN" \
+  --enrichment-model 5.6 \
+  | tee "$REPORT_ROOT/$REPORT_NAME.generation.log"
+```
+
+The command calls only missing/stale cache identities. A cache identity includes
+the composite run occurrence key, occurrence ID, exact API model, prompt
+version/hash, schema version/hash, source-input hash, and immutable annotation
+input hash. Calls preserve numbered attempts with request, raw response, parsed
+output, validation, status, usage/cost, metadata, and any error beneath:
+
+```text
+results/corpus_reports/cache/<report-occurrence-key>/<cache-key>/attempt-NNN/
+```
+
+A failure does not erase other results: it is retained, the report is visibly
+`INCOMPLETE`, and the command exits 2. After inspecting the saved `error.txt`,
+retry with the identical generation command above; only missing records are
+called. Use `--force-enrichment` only after an explicit decision to regenerate
+all valid cached enrichments—it is not needed to rerender a report.
+
+A successful run writes:
+
+```text
+results/corpus_reports/canonical_eight_v0_3_1.json
+results/corpus_reports/canonical_eight_v0_3_1.md
+results/corpus_reports/canonical_eight_v0_3_1.summary.json
+```
+
+## 7. Validate completeness and annotation immutability
+
+```bash
+cd "$LMCW"
+REPORT_JSON="$REPORT_ROOT/$REPORT_NAME.json"
+REPORT_MD="$REPORT_ROOT/$REPORT_NAME.md"
+REPORT_SUMMARY="$REPORT_ROOT/$REPORT_NAME.summary.json"
+
+python -m json.tool "$REPORT_JSON" >/dev/null
+python -m json.tool "$REPORT_SUMMARY" >/dev/null
+test -s "$REPORT_MD"
+python scripts/reporting/validate_corpus_report.py \
+  --report "$REPORT_JSON" \
+  --batch-run "$DEV_RUN" \
+  --batch-run "$MULTI_RUN"
+python - "$REPORT_SUMMARY" <<'PY'
+import json, sys
+value=json.load(open(sys.argv[1],encoding="utf-8"))
+assert value["works"] == 8, value
+assert value["occurrences"] == 41, value
+assert value["failures"] == 0, value
+assert value["completeness_status"] == "complete", value
+print(json.dumps(value,indent=2,ensure_ascii=False))
+PY
+```
+
+The purpose-built validator recollects the explicit batch runs and compares the
+report with the original annotations. It rejects missing/extra occurrences,
+duplicate anchors, unresolved provenance, incorrect language/translation
+pairings, absent context/commentary, any changed P/T/E/O score, confidence,
+ontology fit or utterance status, and an incorrect completeness flag.
+
+## 8. Rerun and prove that no model call occurs
+
+Run the identical ordinary command. Do not use `--offline` or
+`--force-enrichment` for this acceptance test.
+
+```bash
+cd "$LMCW"
+python scripts/reporting/build_corpus_report.py \
+  --name "$REPORT_NAME" \
+  --batch-run "$DEV_RUN" \
+  --batch-run "$MULTI_RUN" \
+  --enrichment-model 5.6 \
+  | tee "$REPORT_ROOT/$REPORT_NAME.rerun.log"
+grep -Fx 'Cache misses: 0' "$REPORT_ROOT/$REPORT_NAME.rerun.log"
+grep -Fx 'Model calls required: 0' "$REPORT_ROOT/$REPORT_NAME.rerun.log"
+grep -Fx 'Enrichments reused: 41; newly generated: 0; failures: 0' \
+  "$REPORT_ROOT/$REPORT_NAME.rerun.log"
+```
+
+If any grep fails, stop: identical reruns are not yet acceptably cached.
+
+## 9. Rerender Markdown using JSON only
+
+This command has no model/API pathway:
+
+```bash
+cd "$LMCW"
+python scripts/reporting/render_corpus_report.py \
+  "$REPORT_JSON" \
+  --markdown "$REPORT_ROOT/$REPORT_NAME.rerendered.md"
+cmp "$REPORT_MD" "$REPORT_ROOT/$REPORT_NAME.rerendered.md"
+rm "$REPORT_ROOT/$REPORT_NAME.rerendered.md"
+```
+
+A nonzero `cmp` means Markdown is not reproducibly derived from the durable
+presentation JSON; stop and diagnose it.
+
+## 10. Human review and occurrence-ID reconciliation
+
+Read the report sequentially and inspect its useful-case index:
+
+```bash
+cd "$LMCW"
+less "$REPORT_MD"
+grep -nE '\*\*[PEO]:\*\* [234]' "$REPORT_MD"
+grep -n '\*\*Ontology fit:\*\*' "$REPORT_MD"
+grep -n '\*\*Utterance status:\*\*' "$REPORT_MD"
+```
+
+The opening indices group all eight works and five languages, then P >= 2,
+E >= 2, O > 0, non-natural fit, low confidence, embedded/reported, and
+quoted/revoiced cases. Negation is printed as
+`unknown / not structurally represented`: the command intentionally does not
+apply unreliable multilingual substring heuristics.
+
+Compare the report's composite occurrence keys and source-run occurrence IDs:
+
+```bash
+cd "$LMCW"
+python - "$REPORT_JSON" "$DEV_RUN" "$MULTI_RUN" <<'PY'
+import json, pathlib, sys
+report=json.load(open(sys.argv[1],encoding="utf-8"))["occurrences"]
+reported={(r["batch_run"],r["source_id"],r["occurrence_id"]) for r in report}
+source=set()
+for run_name in sys.argv[2:]:
+    run=pathlib.Path(run_name)
+    summary=json.load(open(run/"summary.json",encoding="utf-8"))
+    for text in summary["texts"]:
+        passages=run/"texts"/text["source_id"]/"extraction"/"passages.jsonl"
+        for line in passages.read_text(encoding="utf-8").splitlines():
+            if line.strip():
+                source.add((run_name,text["source_id"],json.loads(line)["occurrence_id"]))
+assert reported == source, (len(reported-source),len(source-reported))
+print(f"Matched {len(reported)} report/source occurrence identities")
+for item in report:
+    print(item["anchor"], item["occurrence_id"])
+PY
+```
+
+Review every translation against its original, especially negated/embedded
+cases; verify larger context is useful but visibly AI-generated and uncertain
+where needed; ensure commentary explains rather than restates scores; and check
+all provenance links. Do not accept a report with boilerplate, fabricated plot
+claims, missing cases, or passages that are too large or clipped through a
+target.
+
+## 11. Security scan and staging review
+
+Raw requests/responses are normal audit artifacts in this repository, but they
+must be scanned. Logs and prepared request files are reproducible operational
+artifacts and are not staged below. Cache attempts are staged because they are
+the persistent model-call audit trail; inspect their contents first.
+
+```bash
+cd "$LMCW"
+find scripts/reporting -type d -name __pycache__ -prune -exec rm -rf {} +
+python scripts/security/scan_credentials.py \
+  prompts/corpus_report \
+  scripts/reporting \
+  "$REPORT_ROOT"
+rm -f \
+  "$REPORT_ROOT/$REPORT_NAME.offline.log" \
+  "$REPORT_ROOT/$REPORT_NAME.generation.log" \
+  "$REPORT_ROOT/$REPORT_NAME.rerun.log"
+rm -rf "$REPORT_ROOT/$REPORT_NAME/work"
+git status --short
+```
+
+## 12. Commit and push the accepted report
+
+Stage named implementation, report, summary, and cache artifacts only. Do not
+blindly stage the entire results tree.
+
+```bash
+cd "$LMCW"
+git add \
+  prompts/corpus_report/enrich_occurrence_v0_1.md \
+  prompts/corpus_report/enrichment_schema_v0_1.json \
+  scripts/reporting/__init__.py \
+  scripts/reporting/build_corpus_report.py \
+  scripts/reporting/render_corpus_report.py \
+  scripts/reporting/validate_corpus_report.py \
+  scripts/reporting/test_corpus_report.py \
+  docs/howto/14_build_canonical_corpus_report.md \
+  "$REPORT_JSON" \
+  "$REPORT_MD" \
+  "$REPORT_SUMMARY" \
+  "$REPORT_ROOT/cache"
+git diff --cached --check
+git diff --cached --stat
+python scripts/security/scan_credentials.py \
+  prompts/corpus_report \
+  scripts/reporting \
+  "$REPORT_JSON" \
+  "$REPORT_MD" \
+  "$REPORT_SUMMARY" \
+  "$REPORT_ROOT/cache"
+python -m pytest -q
+git commit -m 'Add canonical eight-work corpus inspection report'
+git push origin HEAD
+git status --short
+```
+
+If a cache directory contains an artifact not suitable for the public
+repository, unstage it, document why, and retain it securely outside Git rather
+than losing the audit record.
+
+## 13. Stop before Step 15
+
+Share the complete Markdown and JSON reports, summary JSON, validation output,
+zero-call rerun evidence, rerender comparison, test output, total recorded cost,
+and any uncertain translations/context. Stop for review. Do not ingest the
+purchased indie-romance files until this report is accepted.
