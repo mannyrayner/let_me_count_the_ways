@@ -1,0 +1,35 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Corpus-report occurrence enrichment v0.1\n\nYou are preparing explanatory material for a human-readable research report.\nThe supplied P/T/E/O annotation is immutable evidence: do not revise its scores,\nrecalculate confidence, change ontology fit or utterance status, or “correct”\nthe annotation. Return only the three presentational fields in the schema.\n\nFor a non-English passage, translate the complete displayed passage into\nidiomatic English. Preserve negation, embedding, quotation, relationship terms,\nand genuine ambiguity. Mark the English equivalent of the target expression\nwith Markdown bold (`**…**`), without turning a negated or embedded expression\ninto a direct positive declaration. For an English passage, return\n`translation_en: null`.\n\nThe larger-context summary is visibly AI-generated interpretive context, not\nsource text. In a concise paragraph, identify where reliably possible the\nspeaker, addressee, relationship, immediate narrative or dramatic situation,\nrecent relevant events, participant beliefs, stakes, and any wider plot fact\nneeded to interpret the occurrence. You may use reliable background knowledge\nabout the named work. State uncertainty instead of inventing details, and do\nnot merely paraphrase the local passage.\n\nWrite an approximately 80–180 word human-facing interpretive commentary (less\nonly when the case is genuinely trivial). Explain why the existing scores are\nplausible or interesting rather than listing them again. Distinguish intensity\nfrom expressive/reflexive E, relationship consequences from performative P,\nand deception from the core semantic force where relevant. Explain the value of\nnegated, embedded, quoted, or revoiced cases. Avoid repetitive boilerplate.\n\nOutput one JSON object conforming exactly to the supplied schema.\n\n\n## Input\n\n{\n  \"occurrence_id\": \"rostand-cyrano-de-bergerac-ec44985258b2\",\n  \"title\": \"Cyrano de Bergerac\",\n  \"author\": \"Edmond Rostand\",\n  \"language\": \"fr\",\n  \"source_passage\": \"CYRANO:\\n  Non ! car c'est dans le conte\\n  Que lorsqu'on dit: Je t'aime ! au prince plein de honte,\\n  Il sent sa laideur fondre à ces mots de soleil. . .\\n  Mais tu t'apercevrais que je reste pareil.\",\n  \"target_span\": {\n    \"text\": \"Je t'aime\",\n    \"start\": 219718,\n    \"end\": 219727\n  },\n  \"source_location\": {\n    \"source_start\": 219718,\n    \"source_end\": 219727,\n    \"source_length_characters\": 242408,\n    \"relative_position\": 0.906397,\n    \"chapter_or_section\": null\n  },\n  \"utterance_status\": {\n    \"status\": \"hypothetical\",\n    \"description\": \"Cyrano cites a generic utterance within a fairy-tale scenario—“lorsqu'on dit: Je t'aime !”—rather than directly saying it to his present interlocutor.\"\n  },\n  \"scores\": {\n    \"P\": 0,\n    \"T\": 4,\n    \"E\": 0,\n    \"O\": 0\n  },\n  \"confidence\": 0.96,\n  \"ontology_fit\": \"natural\",\n  \"annotation_analysis\": \"The represented “Je t'aime !” is a conventional avowal that presents the speaker's love for the prince as true. The passage supplies no undertaking or obligation beyond that avowal, and its exclamation mark and transformative emotional effect do not independently establish expressive/reflexive force.\",\n  \"ambiguity_note\": \"The fairy-tale declaration may carry a weak relational or courtship implication, but nothing in the excerpt establishes commitment-level performative force.\",\n  \"contextual_interpretation\": \"Cyrano invokes the declaration as part of a fairy-tale convention in which words of love make a shame-filled prince's ugliness disappear, then contrasts that magical result with his own unchanged appearance. This framing makes the occurrence hypothetical and metanarrative, but the represented declaration itself remains a truth-conditional avowal of love.\",\n  \"relevant_evidence\": [\n    {\n      \"evidence_id\": \"ev1\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“c'est dans le conte / Que lorsqu'on dit: Je t'aime !”\",\n      \"supports\": \"The conditional-generic construction and explicit reference to a tale establish that the occurrence is a hypothetical, cited declaration.\",\n      \"confidence\": 0.99\n    },\n    {\n      \"evidence_id\": \"ev2\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“au prince plein de honte”\",\n      \"supports\": \"The represented words are addressed to a prince within the tale, supporting interpretation as an interpersonal avowal rather than Cyrano's direct present speech.\",\n      \"confidence\": 0.98\n    },\n    {\n      \"evidence_id\": \"ev3\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“Il sent sa laideur fondre à ces mots de soleil. . . / Mais tu t'apercevrais que je reste pareil.”\",\n      \"supports\": \"Cyrano contrasts the imagined transformative effect of the love words with reality; this supplies narrative framing but no independent evidence for performative or reflexive force in the core utterance.\",\n      \"confidence\": 0.97\n    }\n  ],\n  \"background_knowledge_metadata\": {\n    \"used\": false,\n    \"familiarity\": \"none\",\n    \"confidence\": null,\n    \"contribution\": null\n  }\n}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "corpus_report_enrichment_v0_1",
+      "strict": true,
+      "schema": {
+        "title": "Corpus report occurrence enrichment v0.1",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "translation_en",
+          "larger_context_summary",
+          "interpretive_commentary"
+        ],
+        "properties": {
+          "translation_en": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "larger_context_summary": {
+            "type": "string"
+          },
+          "interpretive_commentary": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
