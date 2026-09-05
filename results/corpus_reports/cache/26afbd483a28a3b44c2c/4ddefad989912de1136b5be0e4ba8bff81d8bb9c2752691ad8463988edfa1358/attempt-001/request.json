@@ -1,0 +1,35 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Corpus-report occurrence enrichment v0.1\n\nYou are preparing explanatory material for a human-readable research report.\nThe supplied P/T/E/O annotation is immutable evidence: do not revise its scores,\nrecalculate confidence, change ontology fit or utterance status, or “correct”\nthe annotation. Return only the three presentational fields in the schema.\n\nFor a non-English passage, translate the complete displayed passage into\nidiomatic English. Preserve negation, embedding, quotation, relationship terms,\nand genuine ambiguity. Mark the English equivalent of the target expression\nwith Markdown bold (`**…**`), without turning a negated or embedded expression\ninto a direct positive declaration. For an English passage, return\n`translation_en: null`.\n\nThe larger-context summary is visibly AI-generated interpretive context, not\nsource text. In a concise paragraph, identify where reliably possible the\nspeaker, addressee, relationship, immediate narrative or dramatic situation,\nrecent relevant events, participant beliefs, stakes, and any wider plot fact\nneeded to interpret the occurrence. You may use reliable background knowledge\nabout the named work. State uncertainty instead of inventing details, and do\nnot merely paraphrase the local passage.\n\nWrite an approximately 80–180 word human-facing interpretive commentary (less\nonly when the case is genuinely trivial). Explain why the existing scores are\nplausible or interesting rather than listing them again. Distinguish intensity\nfrom expressive/reflexive E, relationship consequences from performative P,\nand deception from the core semantic force where relevant. Explain the value of\nnegated, embedded, quoted, or revoiced cases. Avoid repetitive boilerplate.\n\nOutput one JSON object conforming exactly to the supplied schema.\n\n\n## Input\n\n{\n  \"occurrence_id\": \"flaubert-madame-bovary-400a3aed5a88\",\n  \"title\": \"Madame Bovary\",\n  \"author\": \"Gustave Flaubert\",\n  \"language\": \"fr\",\n  \"source_passage\": \"— Oh! c’est que je t’aime! reprenait-elle, je t’aime à ne pouvoir me\\npasser de toi, sais-tu bien? J’ai quelquefois des envies de te revoir\\noù toutes les colères de l’amour me déchirent. Je me demande: «Où\\nest-il? Peut-être il parle à d’autres femmes? Elles lui sourient, il\\ns’approche...» Oh! non, n’est-ce pas, aucune ne te plaît? Il y en a de\\nplus belles; mais, moi, je sais mieux aimer! Je suis ta servante et\\nta concubine! Tu es mon roi, mon idole! tu es bon! tu es beau! tu es\\nintelligent! tu es fort!\",\n  \"target_span\": {\n    \"text\": \"je t’aime\",\n    \"start\": 381853,\n    \"end\": 381862\n  },\n  \"source_location\": {\n    \"source_start\": 381853,\n    \"source_end\": 381862,\n    \"source_length_characters\": 703078,\n    \"relative_position\": 0.543116,\n    \"chapter_or_section\": null\n  },\n  \"utterance_status\": {\n    \"status\": \"direct\",\n    \"description\": \"A directly spoken declaration in narrated dialogue; the highlighted occurrence is the first “je t’aime,” introduced by “Oh! c’est que” and followed by a repeated declaration.\"\n  },\n  \"scores\": {\n    \"P\": 1,\n    \"T\": 4,\n    \"E\": 0,\n    \"O\": 0\n  },\n  \"confidence\": 0.93,\n  \"ontology_fit\": \"natural\",\n  \"annotation_analysis\": \"The highlighted “je t’aime” primarily avows the speaker’s loving state, which she immediately elaborates as dependence, jealousy, and intense admiration. The wider speech weakly suggests relational self-commitment through declarations of service and submission, but the core utterance does not clearly undertake an obligation. Its exclamatory, passionate delivery does not independently establish reflex-like expressive force.\",\n  \"ambiguity_note\": \"The surrounding claims “Je suis ta servante et ta concubine” give limited support to a performative reading, though they more naturally characterize the avowed love than make “je t’aime” itself a commitment.\",\n  \"contextual_interpretation\": \"The declaration belongs to an extended, highly emotional profession of dependence, jealousy, devotion, and idealization. Repetition, exclamations, and hyperbole intensify the avowal, while “reprenait-elle” presents it as continued discourse rather than an involuntary blurt. Whatever the sincerity or durability of these feelings, the utterance presents love as true and is adequately represented mainly by T.\",\n  \"relevant_evidence\": [\n    {\n      \"evidence_id\": \"e1\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“Oh! c’est que je t’aime! reprenait-elle, je t’aime à ne pouvoir me passer de toi”\",\n      \"supports\": \"The speaker directly and repeatedly avows love and describes it as an inability to do without the addressee, strongly supporting T.\",\n      \"confidence\": 0.99\n    },\n    {\n      \"evidence_id\": \"e2\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“J’ai quelquefois des envies de te revoir où toutes les colères de l’amour me déchirent.”\",\n      \"supports\": \"The speaker explicitly attributes longing and emotional torment to love, reinforcing the truth-conditional presentation of an affective state.\",\n      \"confidence\": 0.97\n    },\n    {\n      \"evidence_id\": \"e3\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“Je suis ta servante et ta concubine! Tu es mon roi, mon idole!”\",\n      \"supports\": \"These declarations frame the love as relational devotion and self-subordination, supplying weak support for commitment-like force but not clearly making the highlighted words an undertaking.\",\n      \"confidence\": 0.9\n    },\n    {\n      \"evidence_id\": \"e4\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"The narration uses “reprenait-elle” before a sustained sequence of articulated claims, questions, and comparisons.\",\n      \"supports\": \"The speech is presented as resumed and elaborated discourse; emotional punctuation alone does not provide positive evidence that “je t’aime” is a reflex-like verbal discharge, supporting E=0.\",\n      \"confidence\": 0.89\n    }\n  ],\n  \"background_knowledge_metadata\": {\n    \"used\": false,\n    \"familiarity\": \"none\",\n    \"confidence\": null,\n    \"contribution\": null\n  }\n}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "corpus_report_enrichment_v0_1",
+      "strict": true,
+      "schema": {
+        "title": "Corpus report occurrence enrichment v0.1",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "translation_en",
+          "larger_context_summary",
+          "interpretive_commentary"
+        ],
+        "properties": {
+          "translation_en": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "larger_context_summary": {
+            "type": "string"
+          },
+          "interpretive_commentary": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

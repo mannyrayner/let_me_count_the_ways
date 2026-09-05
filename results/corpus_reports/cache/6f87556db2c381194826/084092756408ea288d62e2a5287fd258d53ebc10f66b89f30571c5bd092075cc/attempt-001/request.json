@@ -1,0 +1,35 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Corpus-report occurrence enrichment v0.1\n\nYou are preparing explanatory material for a human-readable research report.\nThe supplied P/T/E/O annotation is immutable evidence: do not revise its scores,\nrecalculate confidence, change ontology fit or utterance status, or “correct”\nthe annotation. Return only the three presentational fields in the schema.\n\nFor a non-English passage, translate the complete displayed passage into\nidiomatic English. Preserve negation, embedding, quotation, relationship terms,\nand genuine ambiguity. Mark the English equivalent of the target expression\nwith Markdown bold (`**…**`), without turning a negated or embedded expression\ninto a direct positive declaration. For an English passage, return\n`translation_en: null`.\n\nThe larger-context summary is visibly AI-generated interpretive context, not\nsource text. In a concise paragraph, identify where reliably possible the\nspeaker, addressee, relationship, immediate narrative or dramatic situation,\nrecent relevant events, participant beliefs, stakes, and any wider plot fact\nneeded to interpret the occurrence. You may use reliable background knowledge\nabout the named work. State uncertainty instead of inventing details, and do\nnot merely paraphrase the local passage.\n\nWrite an approximately 80–180 word human-facing interpretive commentary (less\nonly when the case is genuinely trivial). Explain why the existing scores are\nplausible or interesting rather than listing them again. Distinguish intensity\nfrom expressive/reflexive E, relationship consequences from performative P,\nand deception from the core semantic force where relevant. Explain the value of\nnegated, embedded, quoted, or revoiced cases. Avoid repetitive boilerplate.\n\nOutput one JSON object conforming exactly to the supplied schema.\n\n\n## Input\n\n{\n  \"occurrence_id\": \"flaubert-madame-bovary-5396f984c871\",\n  \"title\": \"Madame Bovary\",\n  \"author\": \"Gustave Flaubert\",\n  \"language\": \"fr\",\n  \"source_passage\": \"— De grâce, restez! je vous aime!\",\n  \"target_span\": {\n    \"text\": \"je vous aime\",\n    \"start\": 597385,\n    \"end\": 597397\n  },\n  \"source_location\": {\n    \"source_start\": 597385,\n    \"source_end\": 597397,\n    \"source_length_characters\": 703078,\n    \"relative_position\": 0.849671,\n    \"chapter_or_section\": null\n  },\n  \"utterance_status\": {\n    \"status\": \"direct\",\n    \"description\": \"A character directly addresses another in represented dialogue: “De grâce, restez! je vous aime!”\"\n  },\n  \"scores\": {\n    \"P\": 1,\n    \"T\": 4,\n    \"E\": 0,\n    \"O\": 0\n  },\n  \"confidence\": 0.9,\n  \"ontology_fit\": \"natural\",\n  \"annotation_analysis\": \"The direct declaration “je vous aime” primarily avows a loving emotional state. Its placement after a plea to remain gives it a weak relational or commitment-invoking force, but it does not itself clearly undertake an obligation. The exclamation and urgency indicate intensity, not independently expressive/reflexive core force.\",\n  \"ambiguity_note\": \"The narrow excerpt does not establish whether the avowal is sincere or strategically intended to prevent departure, but either reading remains principally truth-conditional in mode.\",\n  \"contextual_interpretation\": \"The love avowal follows and reinforces an urgent request that the addressee stay. It may therefore function persuasively or as reassurance, but the local text does not show a distinct promise, relational undertaking, or reflex-like loss of verbal control. Sincerity and broader motives remain unresolved by the supplied excerpt.\",\n  \"relevant_evidence\": [\n    {\n      \"evidence_id\": \"local-1\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“je vous aime!”\",\n      \"supports\": \"The conventional first-person declaration directly presents the speaker's love as true, strongly supporting T.\",\n      \"confidence\": 0.98\n    },\n    {\n      \"evidence_id\": \"local-2\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“De grâce, restez!” immediately precedes the declaration.\",\n      \"supports\": \"The avowal is used to support an urgent plea that the addressee remain, giving limited support to relational invocation but not a clear undertaking.\",\n      \"confidence\": 0.94\n    },\n    {\n      \"evidence_id\": \"local-3\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"The utterance is exclamatory and occurs in an urgent appeal.\",\n      \"supports\": \"This establishes emotional intensity and emphatic delivery, but supplies no independent evidence that the words are a reflex-like expressive discharge.\",\n      \"confidence\": 0.92\n    }\n  ],\n  \"background_knowledge_metadata\": {\n    \"used\": false,\n    \"familiarity\": \"none\",\n    \"confidence\": null,\n    \"contribution\": null\n  }\n}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "corpus_report_enrichment_v0_1",
+      "strict": true,
+      "schema": {
+        "title": "Corpus report occurrence enrichment v0.1",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "translation_en",
+          "larger_context_summary",
+          "interpretive_commentary"
+        ],
+        "properties": {
+          "translation_en": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "larger_context_summary": {
+            "type": "string"
+          },
+          "interpretive_commentary": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

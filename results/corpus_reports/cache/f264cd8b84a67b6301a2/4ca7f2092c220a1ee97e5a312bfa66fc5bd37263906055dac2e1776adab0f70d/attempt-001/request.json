@@ -1,0 +1,35 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Corpus-report occurrence enrichment v0.1\n\nYou are preparing explanatory material for a human-readable research report.\nThe supplied P/T/E/O annotation is immutable evidence: do not revise its scores,\nrecalculate confidence, change ontology fit or utterance status, or “correct”\nthe annotation. Return only the three presentational fields in the schema.\n\nFor a non-English passage, translate the complete displayed passage into\nidiomatic English. Preserve negation, embedding, quotation, relationship terms,\nand genuine ambiguity. Mark the English equivalent of the target expression\nwith Markdown bold (`**…**`), without turning a negated or embedded expression\ninto a direct positive declaration. For an English passage, return\n`translation_en: null`.\n\nThe larger-context summary is visibly AI-generated interpretive context, not\nsource text. In a concise paragraph, identify where reliably possible the\nspeaker, addressee, relationship, immediate narrative or dramatic situation,\nrecent relevant events, participant beliefs, stakes, and any wider plot fact\nneeded to interpret the occurrence. You may use reliable background knowledge\nabout the named work. State uncertainty instead of inventing details, and do\nnot merely paraphrase the local passage.\n\nWrite an approximately 80–180 word human-facing interpretive commentary (less\nonly when the case is genuinely trivial). Explain why the existing scores are\nplausible or interesting rather than listing them again. Distinguish intensity\nfrom expressive/reflexive E, relationship consequences from performative P,\nand deception from the core semantic force where relevant. Explain the value of\nnegated, embedded, quoted, or revoiced cases. Avoid repetitive boilerplate.\n\nOutput one JSON object conforming exactly to the supplied schema.\n\n\n## Input\n\n{\n  \"occurrence_id\": \"flaubert-madame-bovary-fc563b7babfd\",\n  \"title\": \"Madame Bovary\",\n  \"author\": \"Gustave Flaubert\",\n  \"language\": \"fr\",\n  \"source_passage\": \"— Qu’as-tu? qu’as-tu? répétait-il stupéfait. Calme-toi!\\nreprends-toi!... Tu sais bien que je t’aime! ... viens!\",\n  \"target_span\": {\n    \"text\": \"je t’aime\",\n    \"start\": 373246,\n    \"end\": 373255\n  },\n  \"source_location\": {\n    \"source_start\": 373246,\n    \"source_end\": 373255,\n    \"source_length_characters\": 703078,\n    \"relative_position\": 0.530874,\n    \"chapter_or_section\": null\n  },\n  \"utterance_status\": {\n    \"status\": \"direct\",\n    \"description\": \"A male speaker directly tells the addressee “Tu sais bien que je t’aime,” with the love proposition embedded under an appeal to her existing knowledge.\"\n  },\n  \"scores\": {\n    \"P\": 0,\n    \"T\": 4,\n    \"E\": 0,\n    \"O\": 0\n  },\n  \"confidence\": 0.95,\n  \"ontology_fit\": \"natural\",\n  \"annotation_analysis\": \"The embedded clause “je t’aime” is presented as an already established fact that the addressee knows, and it serves as a direct avowal and reassurance. Nothing in the passage makes it an undertaking or promise. Although the speaker is startled and the situation is urgent, the controlled appeal “Tu sais bien que…” gives no independent evidence that the words are an expressive or reflex-like discharge.\",\n  \"ambiguity_note\": \"The utterance may have strategic or soothing interpersonal purposes, but these do not alter its predominantly truth-conditional core force.\",\n  \"contextual_interpretation\": \"The speaker is responding to the addressee’s apparent distress or agitation: he repeatedly asks what is wrong, urges her to calm herself, reassures her that she knows he loves her, and then calls her to come. The reassurance is situationally instrumental, but the local text neither establishes deception nor supplies commitment-making or reflexive expressive force.\",\n  \"relevant_evidence\": [\n    {\n      \"evidence_id\": \"e1\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“Tu sais bien que je t’aime!”\",\n      \"supports\": \"The factive-style appeal to what the addressee already knows strongly supports a truth-conditional avowal of love.\",\n      \"confidence\": 0.98\n    },\n    {\n      \"evidence_id\": \"e2\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“Qu’as-tu? qu’as-tu? répétait-il stupéfait. Calme-toi! reprends-toi!”\",\n      \"supports\": \"The surrounding speech frames the avowal as reassurance intended to steady a distressed addressee; surprise and urgency concern the situation but do not independently establish expressive/reflexive force.\",\n      \"confidence\": 0.95\n    },\n    {\n      \"evidence_id\": \"e3\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"The separate imperative “viens!” follows the love avowal.\",\n      \"supports\": \"The speaker also directs the addressee to act, but this imperative does not turn “je t’aime” itself into a relational undertaking or promise.\",\n      \"confidence\": 0.93\n    }\n  ],\n  \"background_knowledge_metadata\": {\n    \"used\": false,\n    \"familiarity\": \"none\",\n    \"confidence\": null,\n    \"contribution\": null\n  }\n}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "corpus_report_enrichment_v0_1",
+      "strict": true,
+      "schema": {
+        "title": "Corpus report occurrence enrichment v0.1",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "translation_en",
+          "larger_context_summary",
+          "interpretive_commentary"
+        ],
+        "properties": {
+          "translation_en": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "larger_context_summary": {
+            "type": "string"
+          },
+          "interpretive_commentary": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

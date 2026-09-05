@@ -1,0 +1,35 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Corpus-report occurrence enrichment v0.1\n\nYou are preparing explanatory material for a human-readable research report.\nThe supplied P/T/E/O annotation is immutable evidence: do not revise its scores,\nrecalculate confidence, change ontology fit or utterance status, or “correct”\nthe annotation. Return only the three presentational fields in the schema.\n\nFor a non-English passage, translate the complete displayed passage into\nidiomatic English. Preserve negation, embedding, quotation, relationship terms,\nand genuine ambiguity. Mark the English equivalent of the target expression\nwith Markdown bold (`**…**`), without turning a negated or embedded expression\ninto a direct positive declaration. For an English passage, return\n`translation_en: null`.\n\nThe larger-context summary is visibly AI-generated interpretive context, not\nsource text. In a concise paragraph, identify where reliably possible the\nspeaker, addressee, relationship, immediate narrative or dramatic situation,\nrecent relevant events, participant beliefs, stakes, and any wider plot fact\nneeded to interpret the occurrence. You may use reliable background knowledge\nabout the named work. State uncertainty instead of inventing details, and do\nnot merely paraphrase the local passage.\n\nWrite an approximately 80–180 word human-facing interpretive commentary (less\nonly when the case is genuinely trivial). Explain why the existing scores are\nplausible or interesting rather than listing them again. Distinguish intensity\nfrom expressive/reflexive E, relationship consequences from performative P,\nand deception from the core semantic force where relevant. Explain the value of\nnegated, embedded, quoted, or revoiced cases. Avoid repetitive boilerplate.\n\nOutput one JSON object conforming exactly to the supplied schema.\n\n\n## Input\n\n{\n  \"occurrence_id\": \"alcott-little-women-15ef9596ac4e\",\n  \"title\": \"Little Women\",\n  \"author\": \"Louisa May Alcott\",\n  \"language\": \"en\",\n  \"source_passage\": \"“That’s my good girl. You do try to fight off your shyness, and I love\\nyou for it. Fighting faults isn’t easy, as I know, and a cheery word\\nkind of gives a lift. Thank you, Mother,” And Jo gave the thin cheek a\\ngrateful kiss, more precious to Mrs. March than if it had given back\\nthe rosy roundness of her youth.\",\n  \"target_span\": {\n    \"text\": \"I love\\nyou\",\n    \"start\": 249186,\n    \"end\": 249196\n  },\n  \"source_location\": {\n    \"source_start\": 249186,\n    \"source_end\": 249196,\n    \"source_length_characters\": 1026392,\n    \"relative_position\": 0.242779,\n    \"chapter_or_section\": \"CHAPTER TWELVE\"\n  },\n  \"utterance_status\": {\n    \"status\": \"direct\",\n    \"description\": \"Mrs. March directly tells Jo, “I love you for it,” in a face-to-face mother-daughter exchange.\"\n  },\n  \"scores\": {\n    \"P\": 0,\n    \"T\": 4,\n    \"E\": 0,\n    \"O\": 0\n  },\n  \"confidence\": 0.97,\n  \"ontology_fit\": \"natural\",\n  \"annotation_analysis\": \"Mrs. March’s “I love you for it” directly avows her love for Jo while praising Jo’s effort to overcome shyness. It presents an emotional attitude as true. The utterance neither undertakes a commitment nor functions as a reflex-like affective discharge.\",\n  \"ambiguity_note\": \"The excerpt’s dialogue segmentation is slightly awkward, but the exchange and Jo’s “Thank you, Mother” make the speaker and addressee sufficiently clear.\",\n  \"contextual_interpretation\": \"The avowal is embedded in maternal praise and encouragement: Mrs. March commends Jo for trying to fight her shyness. The qualifying phrase “for it” links the declaration to Jo’s effort, while the surrounding affectionate response—a grateful kiss—supports a sincere reading. Its reassuring interpersonal effect does not itself create performative undertaking force.\",\n  \"relevant_evidence\": [\n    {\n      \"evidence_id\": \"e1\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“You do try to fight off your shyness, and I love you for it.”\",\n      \"supports\": \"The declarative construction explicitly presents the speaker’s love for the addressee as true, strongly supporting T.\",\n      \"confidence\": 0.99\n    },\n    {\n      \"evidence_id\": \"e2\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“That’s my good girl” and the praise of trying to overcome shyness frame the declaration as maternal approval and affection.\",\n      \"supports\": \"Supports an affectionate, reassuring avowal rather than a commitment-forming or reflexive utterance.\",\n      \"confidence\": 0.97\n    },\n    {\n      \"evidence_id\": \"e3\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“Thank you, Mother,” followed by Jo giving Mrs. March a grateful kiss.\",\n      \"supports\": \"Identifies the exchange as between Jo and her mother and shows that the declaration is received as loving encouragement.\",\n      \"confidence\": 0.96\n    }\n  ],\n  \"background_knowledge_metadata\": {\n    \"used\": false,\n    \"familiarity\": \"none\",\n    \"confidence\": null,\n    \"contribution\": null\n  }\n}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "corpus_report_enrichment_v0_1",
+      "strict": true,
+      "schema": {
+        "title": "Corpus report occurrence enrichment v0.1",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "translation_en",
+          "larger_context_summary",
+          "interpretive_commentary"
+        ],
+        "properties": {
+          "translation_en": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "larger_context_summary": {
+            "type": "string"
+          },
+          "interpretive_commentary": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Corpus-report occurrence enrichment v0.1\n\nYou are preparing explanatory material for a human-readable research report.\nThe supplied P/T/E/O annotation is immutable evidence: do not revise its scores,\nrecalculate confidence, change ontology fit or utterance status, or “correct”\nthe annotation. Return only the three presentational fields in the schema.\n\nFor a non-English passage, translate the complete displayed passage into\nidiomatic English. Preserve negation, embedding, quotation, relationship terms,\nand genuine ambiguity. Mark the English equivalent of the target expression\nwith Markdown bold (`**…**`), without turning a negated or embedded expression\ninto a direct positive declaration. For an English passage, return\n`translation_en: null`.\n\nThe larger-context summary is visibly AI-generated interpretive context, not\nsource text. In a concise paragraph, identify where reliably possible the\nspeaker, addressee, relationship, immediate narrative or dramatic situation,\nrecent relevant events, participant beliefs, stakes, and any wider plot fact\nneeded to interpret the occurrence. You may use reliable background knowledge\nabout the named work. State uncertainty instead of inventing details, and do\nnot merely paraphrase the local passage.\n\nWrite an approximately 80–180 word human-facing interpretive commentary (less\nonly when the case is genuinely trivial). Explain why the existing scores are\nplausible or interesting rather than listing them again. Distinguish intensity\nfrom expressive/reflexive E, relationship consequences from performative P,\nand deception from the core semantic force where relevant. Explain the value of\nnegated, embedded, quoted, or revoiced cases. Avoid repetitive boilerplate.\n\nOutput one JSON object conforming exactly to the supplied schema.\n\n\n## Input\n\n{\n  \"occurrence_id\": \"alcott-little-women-58c41f8731dd\",\n  \"title\": \"Little Women\",\n  \"author\": \"Louisa May Alcott\",\n  \"language\": \"en\",\n  \"source_passage\": \"“Don’t feel that I am separated from you, Marmee dear, or that I love\\nyou any the less for loving John so much,” she said, clinging to her\\nmother, with full eyes for a moment. “I shall come every day, Father,\\nand expect to keep my old place in all your hearts, though I am\\nmarried. Beth is going to be with me a great deal, and the other girls\\nwill drop in now and then to laugh at my housekeeping struggles. Thank\\nyou all for my happy wedding day. Good-by, good-by!”\",\n  \"target_span\": {\n    \"text\": \"I love\\nyou\",\n    \"start\": 514237,\n    \"end\": 514247\n  },\n  \"source_location\": {\n    \"source_start\": 514237,\n    \"source_end\": 514247,\n    \"source_length_characters\": 1026392,\n    \"relative_position\": 0.501014,\n    \"chapter_or_section\": \"CHAPTER TWENTY-FIVE\"\n  },\n  \"utterance_status\": {\n    \"status\": \"direct\",\n    \"description\": \"A direct spoken utterance by the daughter to her mother, grammatically embedded under “Don’t feel ... that” but functioning as an avowal of undiminished love.\"\n  },\n  \"scores\": {\n    \"P\": 0,\n    \"T\": 4,\n    \"E\": 0,\n    \"O\": 0\n  },\n  \"confidence\": 0.98,\n  \"ontology_fit\": \"natural\",\n  \"annotation_analysis\": \"The speaker directly avows that her love for her mother has not diminished despite her love for John. The core force is truth-conditional reassurance about an enduring emotional state. It does not itself undertake a commitment, and the clinging and tearful delivery do not independently establish expressive/reflexive force.\",\n  \"ambiguity_note\": \"The surrounding promises of continued visits and family closeness have commitment-like force, but that force belongs to adjacent utterances rather than to the classified love clause.\",\n  \"contextual_interpretation\": \"On her wedding day, the speaker reassures Marmee that loving John and marrying him do not separate her emotionally from her family. The negative-comparative wording—“I love you any the less”—occurs within “Don’t feel ... that” and pragmatically affirms that her love remains undiminished. Her clinging and full eyes indicate emotional intensity, while the following promises concern continued family participation; neither feature changes the core clause from a primarily truth-conditional avowal.\",\n  \"relevant_evidence\": [\n    {\n      \"evidence_id\": \"e1\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“Don’t feel that I am separated from you, Marmee dear, or that I love you any the less for loving John so much”\",\n      \"supports\": \"The construction explicitly reassures Marmee that the speaker’s love for her remains undiminished, strongly supporting truth-conditional force.\",\n      \"confidence\": 0.99\n    },\n    {\n      \"evidence_id\": \"e2\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“she said, clinging to her mother, with full eyes for a moment”\",\n      \"supports\": \"This establishes an emotionally intense and affectionate delivery, but supplies no independent evidence that the words are a reflex-like expressive discharge.\",\n      \"confidence\": 0.97\n    },\n    {\n      \"evidence_id\": \"e3\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“I shall come every day, Father, and expect to keep my old place in all your hearts, though I am married.”\",\n      \"supports\": \"The adjacent future-oriented assurance clarifies the wedding-related fear of family separation, while remaining distinct from the core love avowal.\",\n      \"confidence\": 0.97\n    }\n  ],\n  \"background_knowledge_metadata\": {\n    \"used\": false,\n    \"familiarity\": \"moderate\",\n    \"confidence\": null,\n    \"contribution\": null\n  }\n}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "corpus_report_enrichment_v0_1",
+      "strict": true,
+      "schema": {
+        "title": "Corpus report occurrence enrichment v0.1",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "translation_en",
+          "larger_context_summary",
+          "interpretive_commentary"
+        ],
+        "properties": {
+          "translation_en": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "larger_context_summary": {
+            "type": "string"
+          },
+          "interpretive_commentary": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

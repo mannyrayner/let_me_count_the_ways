@@ -1,0 +1,35 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Corpus-report occurrence enrichment v0.1\n\nYou are preparing explanatory material for a human-readable research report.\nThe supplied P/T/E/O annotation is immutable evidence: do not revise its scores,\nrecalculate confidence, change ontology fit or utterance status, or “correct”\nthe annotation. Return only the three presentational fields in the schema.\n\nFor a non-English passage, translate the complete displayed passage into\nidiomatic English. Preserve negation, embedding, quotation, relationship terms,\nand genuine ambiguity. Mark the English equivalent of the target expression\nwith Markdown bold (`**…**`), without turning a negated or embedded expression\ninto a direct positive declaration. For an English passage, return\n`translation_en: null`.\n\nThe larger-context summary is visibly AI-generated interpretive context, not\nsource text. In a concise paragraph, identify where reliably possible the\nspeaker, addressee, relationship, immediate narrative or dramatic situation,\nrecent relevant events, participant beliefs, stakes, and any wider plot fact\nneeded to interpret the occurrence. You may use reliable background knowledge\nabout the named work. State uncertainty instead of inventing details, and do\nnot merely paraphrase the local passage.\n\nWrite an approximately 80–180 word human-facing interpretive commentary (less\nonly when the case is genuinely trivial). Explain why the existing scores are\nplausible or interesting rather than listing them again. Distinguish intensity\nfrom expressive/reflexive E, relationship consequences from performative P,\nand deception from the core semantic force where relevant. Explain the value of\nnegated, embedded, quoted, or revoiced cases. Avoid repetitive boilerplate.\n\nOutput one JSON object conforming exactly to the supplied schema.\n\n\n## Input\n\n{\n  \"occurrence_id\": \"flaubert-madame-bovary-1e7d6742e45b\",\n  \"title\": \"Madame Bovary\",\n  \"author\": \"Gustave Flaubert\",\n  \"language\": \"fr\",\n  \"source_passage\": \"— Ah! pardonne-moi! tu es la seule qui me plaise. J’ai été imbécile et\\nméchant! Je t’aime, je t’aimerai toujours!... Qu’as-tu? dis-le donc!\",\n  \"target_span\": {\n    \"text\": \"Je t’aime\",\n    \"start\": 610512,\n    \"end\": 610521\n  },\n  \"source_location\": {\n    \"source_start\": 610512,\n    \"source_end\": 610521,\n    \"source_length_characters\": 703078,\n    \"relative_position\": 0.868342,\n    \"chapter_or_section\": null\n  },\n  \"utterance_status\": {\n    \"status\": \"direct\",\n    \"description\": \"A character directly addresses another with “Je t’aime” as part of an apology and attempted reassurance.\"\n  },\n  \"scores\": {\n    \"P\": 2,\n    \"T\": 4,\n    \"E\": 0,\n    \"O\": 0\n  },\n  \"confidence\": 0.91,\n  \"ontology_fit\": \"natural\",\n  \"annotation_analysis\": \"“Je t’aime” primarily avows a present loving state. In this apologetic sequence, the adjacent promise of lasting love gives the avowal some commitment-renewing force, though it does not clearly constitute a full relational undertaking. The exclamations and emotional urgency indicate intense delivery but provide no independent evidence that the words are a reflex-like affective discharge.\",\n  \"ambiguity_note\": \"The degree of performative force is uncertain: “je t’aimerai toujours” may be either a pledge of constancy or an emphatic prediction/reassurance about continued feeling.\",\n  \"contextual_interpretation\": \"The speaker seeks forgiveness, admits having been foolish and cruel, asserts the addressee’s uniqueness, avows present love, and promises continued love. This framing makes the utterance both an assertion of feeling and, to a lesser extent, an attempt to repair or reaffirm the relationship. The excerpt alone does not establish whether the avowal is sincere, strategic, or self-deceived, but those possibilities do not alter its presented T/P force.\",\n  \"relevant_evidence\": [\n    {\n      \"evidence_id\": \"e1\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“Je t’aime”\",\n      \"supports\": \"Directly presents the speaker’s current love as true, strongly supporting truth-conditional force.\",\n      \"confidence\": 0.99\n    },\n    {\n      \"evidence_id\": \"e2\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“pardonne-moi! … J’ai été imbécile et méchant!”\",\n      \"supports\": \"Frames the avowal as part of an apology and attempted relational repair, lending some support to performative force.\",\n      \"confidence\": 0.94\n    },\n    {\n      \"evidence_id\": \"e3\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“tu es la seule qui me plaise”\",\n      \"supports\": \"Reinforces the avowal by asserting the addressee’s unique emotional importance.\",\n      \"confidence\": 0.96\n    },\n    {\n      \"evidence_id\": \"e4\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“je t’aimerai toujours!”\",\n      \"supports\": \"Adds an assurance or possible pledge of enduring love, supporting moderate rather than merely present-state force.\",\n      \"confidence\": 0.96\n    },\n    {\n      \"evidence_id\": \"e5\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"The passage uses repeated exclamation marks and urgent questions, including “Qu’as-tu? dis-le donc!”\",\n      \"supports\": \"Shows emotional urgency, but does not independently establish expressive/reflexive core force.\",\n      \"confidence\": 0.93\n    }\n  ],\n  \"background_knowledge_metadata\": {\n    \"used\": false,\n    \"familiarity\": \"none\",\n    \"confidence\": null,\n    \"contribution\": null\n  }\n}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "corpus_report_enrichment_v0_1",
+      "strict": true,
+      "schema": {
+        "title": "Corpus report occurrence enrichment v0.1",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "translation_en",
+          "larger_context_summary",
+          "interpretive_commentary"
+        ],
+        "properties": {
+          "translation_en": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "larger_context_summary": {
+            "type": "string"
+          },
+          "interpretive_commentary": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Corpus-report occurrence enrichment v0.1\n\nYou are preparing explanatory material for a human-readable research report.\nThe supplied P/T/E/O annotation is immutable evidence: do not revise its scores,\nrecalculate confidence, change ontology fit or utterance status, or “correct”\nthe annotation. Return only the three presentational fields in the schema.\n\nFor a non-English passage, translate the complete displayed passage into\nidiomatic English. Preserve negation, embedding, quotation, relationship terms,\nand genuine ambiguity. Mark the English equivalent of the target expression\nwith Markdown bold (`**…**`), without turning a negated or embedded expression\ninto a direct positive declaration. For an English passage, return\n`translation_en: null`.\n\nThe larger-context summary is visibly AI-generated interpretive context, not\nsource text. In a concise paragraph, identify where reliably possible the\nspeaker, addressee, relationship, immediate narrative or dramatic situation,\nrecent relevant events, participant beliefs, stakes, and any wider plot fact\nneeded to interpret the occurrence. You may use reliable background knowledge\nabout the named work. State uncertainty instead of inventing details, and do\nnot merely paraphrase the local passage.\n\nWrite an approximately 80–180 word human-facing interpretive commentary (less\nonly when the case is genuinely trivial). Explain why the existing scores are\nplausible or interesting rather than listing them again. Distinguish intensity\nfrom expressive/reflexive E, relationship consequences from performative P,\nand deception from the core semantic force where relevant. Explain the value of\nnegated, embedded, quoted, or revoiced cases. Avoid repetitive boilerplate.\n\nOutput one JSON object conforming exactly to the supplied schema.\n\n\n## Input\n\n{\n  \"occurrence_id\": \"alcott-little-women-f1eab387a74e\",\n  \"title\": \"Little Women\",\n  \"author\": \"Louisa May Alcott\",\n  \"language\": \"en\",\n  \"source_passage\": \"“Oh, my dearest boy, don’t, don’t say that! I forgot you were rich when\\nI said ‘Yes’. I’d have married you if you hadn’t a penny, and I\\nsometimes wish you were poor that I might show how much I love you.”\\nAnd Amy, who was very dignified in public and very fond in private,\\ngave convincing proofs of the truth of her words.\",\n  \"target_span\": {\n    \"text\": \"I love you\",\n    \"start\": 939298,\n    \"end\": 939308\n  },\n  \"source_location\": {\n    \"source_start\": 939298,\n    \"source_end\": 939308,\n    \"source_length_characters\": 1026392,\n    \"relative_position\": 0.915145,\n    \"chapter_or_section\": \"CHAPTER FORTY-FOUR\"\n  },\n  \"utterance_status\": {\n    \"status\": \"direct\",\n    \"description\": \"Amy directly addresses the beloved, with “I love you” grammatically embedded in “show how much I love you” within her spoken reply.\"\n  },\n  \"scores\": {\n    \"P\": 1,\n    \"T\": 4,\n    \"E\": 0,\n    \"O\": 0\n  },\n  \"confidence\": 0.96,\n  \"ontology_fit\": \"natural\",\n  \"annotation_analysis\": \"Amy’s embedded declaration presents the strength and sincerity of her loving emotional state as true. Its placement within her claim that she would marry the addressee without money gives it weak secondary commitment-related force, but the core clause primarily avows love rather than independently undertaking an obligation. The emotional delivery does not supply evidence of reflex-like expressive discharge.\",\n  \"ambiguity_note\": \"There is slight T/P overlap because the avowal supports Amy’s affirmation of marriage irrespective of wealth, but the commitment force principally belongs to the surrounding statement rather than to “I love you” itself.\",\n  \"contextual_interpretation\": \"Amy reassures the addressee that accepting his proposal was not motivated by wealth: she says she forgot he was rich when she said yes and would have married him penniless. The love avowal therefore functions chiefly as a sincere assertion offered to rebut suspicion about her motives. The narrator’s statement that she gave “convincing proofs of the truth of her words” explicitly validates the avowal, while her affectionate response remains contextual confirmation rather than evidence of independent expressive/reflexive force.\",\n  \"relevant_evidence\": [\n    {\n      \"evidence_id\": \"local-1\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“I sometimes wish you were poor that I might show how much I love you.”\",\n      \"supports\": \"The highlighted clause directly presents Amy’s love, especially its magnitude, as an existing emotional state, strongly supporting T.\",\n      \"confidence\": 0.99\n    },\n    {\n      \"evidence_id\": \"local-2\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“I’d have married you if you hadn’t a penny”\",\n      \"supports\": \"The surrounding counterfactual marriage claim gives weak secondary support to relational commitment while showing that reassurance about motives is the immediate purpose.\",\n      \"confidence\": 0.95\n    },\n    {\n      \"evidence_id\": \"local-3\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“Amy ... gave convincing proofs of the truth of her words.”\",\n      \"supports\": \"The narrator frames Amy’s preceding words as truth-bearing and sincere, reinforcing the truth-conditional interpretation rather than a reflex-like discharge.\",\n      \"confidence\": 0.98\n    },\n    {\n      \"evidence_id\": \"metadata-1\",\n      \"source\": \"supplied_metadata\",\n      \"quotation_or_description\": \"The occurrence is located in Chapter Forty-Four of Louisa May Alcott’s Little Women and is presented in quoted dialogue.\",\n      \"supports\": \"Confirms that the classified event is a character’s direct spoken utterance in the novel rather than narration or writing.\",\n      \"confidence\": 0.99\n    }\n  ],\n  \"background_knowledge_metadata\": {\n    \"used\": false,\n    \"familiarity\": \"moderate\",\n    \"confidence\": null,\n    \"contribution\": null\n  }\n}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "corpus_report_enrichment_v0_1",
+      "strict": true,
+      "schema": {
+        "title": "Corpus report occurrence enrichment v0.1",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "translation_en",
+          "larger_context_summary",
+          "interpretive_commentary"
+        ],
+        "properties": {
+          "translation_en": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "larger_context_summary": {
+            "type": "string"
+          },
+          "interpretive_commentary": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

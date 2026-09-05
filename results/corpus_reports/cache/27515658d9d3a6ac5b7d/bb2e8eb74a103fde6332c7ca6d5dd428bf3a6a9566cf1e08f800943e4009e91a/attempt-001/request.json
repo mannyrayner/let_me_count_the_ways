@@ -1,0 +1,35 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Corpus-report occurrence enrichment v0.1\n\nYou are preparing explanatory material for a human-readable research report.\nThe supplied P/T/E/O annotation is immutable evidence: do not revise its scores,\nrecalculate confidence, change ontology fit or utterance status, or “correct”\nthe annotation. Return only the three presentational fields in the schema.\n\nFor a non-English passage, translate the complete displayed passage into\nidiomatic English. Preserve negation, embedding, quotation, relationship terms,\nand genuine ambiguity. Mark the English equivalent of the target expression\nwith Markdown bold (`**…**`), without turning a negated or embedded expression\ninto a direct positive declaration. For an English passage, return\n`translation_en: null`.\n\nThe larger-context summary is visibly AI-generated interpretive context, not\nsource text. In a concise paragraph, identify where reliably possible the\nspeaker, addressee, relationship, immediate narrative or dramatic situation,\nrecent relevant events, participant beliefs, stakes, and any wider plot fact\nneeded to interpret the occurrence. You may use reliable background knowledge\nabout the named work. State uncertainty instead of inventing details, and do\nnot merely paraphrase the local passage.\n\nWrite an approximately 80–180 word human-facing interpretive commentary (less\nonly when the case is genuinely trivial). Explain why the existing scores are\nplausible or interesting rather than listing them again. Distinguish intensity\nfrom expressive/reflexive E, relationship consequences from performative P,\nand deception from the core semantic force where relevant. Explain the value of\nnegated, embedded, quoted, or revoiced cases. Avoid repetitive boilerplate.\n\nOutput one JSON object conforming exactly to the supplied schema.\n\n\n## Input\n\n{\n  \"occurrence_id\": \"rostand-cyrano-de-bergerac-54e96b0c7005\",\n  \"title\": \"Cyrano de Bergerac\",\n  \"author\": \"Edmond Rostand\",\n  \"language\": \"fr\",\n  \"source_passage\": \"CHRISTIAN:\\n  Je t'aime tant.\",\n  \"target_span\": {\n    \"text\": \"Je t'aime\",\n    \"start\": 118079,\n    \"end\": 118088\n  },\n  \"source_location\": {\n    \"source_start\": 118079,\n    \"source_end\": 118088,\n    \"source_length_characters\": 242408,\n    \"relative_position\": 0.487109,\n    \"chapter_or_section\": null\n  },\n  \"utterance_status\": {\n    \"status\": \"direct\",\n    \"description\": \"Christian directly addresses Roxane with the spoken declaration “Je t'aime tant.”\"\n  },\n  \"scores\": {\n    \"P\": 1,\n    \"T\": 4,\n    \"E\": 0,\n    \"O\": 0\n  },\n  \"confidence\": 0.91,\n  \"ontology_fit\": \"natural\",\n  \"annotation_analysis\": \"Christian's direct “Je t'aime tant” (“I love you so much”) primarily avows the strength of his loving feelings. Its use in courtship gives it slight relational or undertaking force, but it does not itself articulate a commitment. Neither the wording nor the scene supplies positive evidence that the words are a reflex-like expressive discharge.\",\n  \"ambiguity_note\": \"The courtship setting gives weak support for P, but romantic address and intended emotional effect alone do not establish a substantial undertaking.\",\n  \"contextual_interpretation\": \"In the balcony courtship scene, Christian tries to speak to Roxane without Cyrano's eloquent prompting and falls back on a plain, repeated declaration of love. Roxane finds such formulaic language insufficiently developed. That dramatic inadequacy concerns Christian's eloquence, not the utterance's core semantic force: it remains chiefly a sincere-seeming avowal rather than an expressive reflex or explicit commitment.\",\n  \"relevant_evidence\": [\n    {\n      \"evidence_id\": \"e1-local-wording\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“CHRISTIAN: Je t'aime tant.”\",\n      \"supports\": \"The first-person present-tense declaration, intensified by “tant,” strongly supports truth-conditional avowal of a loving state.\",\n      \"confidence\": 0.99\n    },\n    {\n      \"evidence_id\": \"e2-metadata-form\",\n      \"source\": \"supplied_metadata\",\n      \"quotation_or_description\": \"The supplied excerpt identifies the speaker as CHRISTIAN in Edmond Rostand's French play Cyrano de Bergerac.\",\n      \"supports\": \"Supports treating this as a character's direct dramatic utterance rather than narration or reported speech.\",\n      \"confidence\": 0.99\n    },\n    {\n      \"evidence_id\": \"e3-wider-scene\",\n      \"source\": \"background_knowledge\",\n      \"quotation_or_description\": \"In the balcony scene, Christian attempts to woo Roxane in his own words and repeatedly offers simple declarations of love, which she regards as insufficiently eloquent; Cyrano elsewhere supplies the elaborate language.\",\n      \"supports\": \"Supports dominant T, weak courtship-related P, and E=0: the line is a deliberate but verbally limited avowal, not presented as an involuntary verbal discharge.\",\n      \"confidence\": 0.92\n    }\n  ],\n  \"background_knowledge_metadata\": {\n    \"used\": true,\n    \"familiarity\": \"extensive\",\n    \"confidence\": 0.92,\n    \"contribution\": \"The wider balcony scene clarifies that Christian is deliberately attempting an unaided declaration during courtship and that the line's repetition reflects limited eloquence rather than reflex-like production.\"\n  }\n}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "corpus_report_enrichment_v0_1",
+      "strict": true,
+      "schema": {
+        "title": "Corpus report occurrence enrichment v0.1",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "translation_en",
+          "larger_context_summary",
+          "interpretive_commentary"
+        ],
+        "properties": {
+          "translation_en": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "larger_context_summary": {
+            "type": "string"
+          },
+          "interpretive_commentary": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

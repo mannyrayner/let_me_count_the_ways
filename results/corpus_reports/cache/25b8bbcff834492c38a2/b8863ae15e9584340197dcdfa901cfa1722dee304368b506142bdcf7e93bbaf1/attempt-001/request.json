@@ -1,0 +1,35 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Corpus-report occurrence enrichment v0.1\n\nYou are preparing explanatory material for a human-readable research report.\nThe supplied P/T/E/O annotation is immutable evidence: do not revise its scores,\nrecalculate confidence, change ontology fit or utterance status, or “correct”\nthe annotation. Return only the three presentational fields in the schema.\n\nFor a non-English passage, translate the complete displayed passage into\nidiomatic English. Preserve negation, embedding, quotation, relationship terms,\nand genuine ambiguity. Mark the English equivalent of the target expression\nwith Markdown bold (`**…**`), without turning a negated or embedded expression\ninto a direct positive declaration. For an English passage, return\n`translation_en: null`.\n\nThe larger-context summary is visibly AI-generated interpretive context, not\nsource text. In a concise paragraph, identify where reliably possible the\nspeaker, addressee, relationship, immediate narrative or dramatic situation,\nrecent relevant events, participant beliefs, stakes, and any wider plot fact\nneeded to interpret the occurrence. You may use reliable background knowledge\nabout the named work. State uncertainty instead of inventing details, and do\nnot merely paraphrase the local passage.\n\nWrite an approximately 80–180 word human-facing interpretive commentary (less\nonly when the case is genuinely trivial). Explain why the existing scores are\nplausible or interesting rather than listing them again. Distinguish intensity\nfrom expressive/reflexive E, relationship consequences from performative P,\nand deception from the core semantic force where relevant. Explain the value of\nnegated, embedded, quoted, or revoiced cases. Avoid repetitive boilerplate.\n\nOutput one JSON object conforming exactly to the supplied schema.\n\n\n## Input\n\n{\n  \"occurrence_id\": \"rostand-cyrano-de-bergerac-e261412cd46c\",\n  \"title\": \"Cyrano de Bergerac\",\n  \"author\": \"Edmond Rostand\",\n  \"language\": \"fr\",\n  \"source_passage\": \"ROXANE:\\n  Eh bien ! toi-même enfin l'emporte sur toi-même,\\n  Et ce n'est plus que pour ton âme que je t'aime !\",\n  \"target_span\": {\n    \"text\": \"je t'aime\",\n    \"start\": 185292,\n    \"end\": 185301\n  },\n  \"source_location\": {\n    \"source_start\": 185292,\n    \"source_end\": 185301,\n    \"source_length_characters\": 242408,\n    \"relative_position\": 0.764381,\n    \"chapter_or_section\": null\n  },\n  \"utterance_status\": {\n    \"status\": \"direct\",\n    \"description\": \"Roxane directly addresses her interlocutor in dramatic dialogue and says that she loves him for his soul alone.\"\n  },\n  \"scores\": {\n    \"P\": 0,\n    \"T\": 4,\n    \"E\": 0,\n    \"O\": 0\n  },\n  \"confidence\": 0.96,\n  \"ontology_fit\": \"natural\",\n  \"annotation_analysis\": \"Roxane directly avows as true that she now loves the addressee solely for his soul. The utterance defines the object and basis of her love rather than undertaking a commitment. Its exclamatory delivery does not independently indicate reflex-like expressive discharge.\",\n  \"ambiguity_note\": \"The declaration has relational consequences and may reassure the addressee, but the text supplies no distinct commitment or undertaking sufficient for P.\",\n  \"contextual_interpretation\": \"The contrast between “toi-même” and “ton âme” presents Roxane's love as having shifted from physical attraction to devotion to the addressee's inner self. In the wider play, this is dramatically ironic: Roxane addresses Christian while the soul and eloquence she has come to love are substantially manifested through Cyrano's words, which she still attributes to Christian. That mistaken attribution affects the declaration's object and dramatic meaning but not its predominantly truth-conditional force as a sincere avowal of her understood emotional state.\",\n  \"relevant_evidence\": [\n    {\n      \"evidence_id\": \"ev1\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“Et ce n'est plus que pour ton âme que je t'aime !”\",\n      \"supports\": \"The explicit first-person present-tense declaration strongly supports T: Roxane avows love and specifies that its basis is the addressee's soul.\",\n      \"confidence\": 0.99\n    },\n    {\n      \"evidence_id\": \"ev2\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“toi-même enfin l'emporte sur toi-même”\",\n      \"supports\": \"The preceding contrast frames the declaration as a considered claim about the addressee's inner self prevailing over outward appearance, not as an unmediated verbal reflex.\",\n      \"confidence\": 0.94\n    },\n    {\n      \"evidence_id\": \"ev3\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"The line ends with an exclamation mark and follows “Eh bien !”\",\n      \"supports\": \"These features establish emphatic delivery but, without evidence of involuntary blurting or affective discharge, do not independently support E.\",\n      \"confidence\": 0.96\n    },\n    {\n      \"evidence_id\": \"ev4\",\n      \"source\": \"background_knowledge\",\n      \"quotation_or_description\": \"In the wider plot, Roxane believes she is responding to Christian's soul and eloquence, although Cyrano has supplied much of the language through which that apparent soul was revealed.\",\n      \"supports\": \"This supplies the declaration's dramatic irony and explains why its sincere avowal can rest on a mistaken attribution without ceasing to be T.\",\n      \"confidence\": 0.94\n    }\n  ],\n  \"background_knowledge_metadata\": {\n    \"used\": true,\n    \"familiarity\": \"extensive\",\n    \"confidence\": 0.94,\n    \"contribution\": \"Knowledge of Cyrano's authorship of Christian's love language clarifies the declaration's dramatic irony and mistaken attribution while leaving its core force as Roxane's sincere avowal intact.\"\n  }\n}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "corpus_report_enrichment_v0_1",
+      "strict": true,
+      "schema": {
+        "title": "Corpus report occurrence enrichment v0.1",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "translation_en",
+          "larger_context_summary",
+          "interpretive_commentary"
+        ],
+        "properties": {
+          "translation_en": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "larger_context_summary": {
+            "type": "string"
+          },
+          "interpretive_commentary": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "id": "resp_0eef3643d8b9f8f2006a9bdab4dfcc87d0b7bafba6fe7af7fc",
+  "object": "response",
+  "created_at": 1788598964,
+  "status": "completed",
+  "background": false,
+  "billing": {
+    "payer": "openai"
+  },
+  "completed_at": 1788598972,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "model": "gpt-5.6-sol",
+  "moderation": null,
+  "output": [
+    {
+      "id": "msg_0eef3643d8b9f8f2006a9bdab5c1fc87d0b719caecf9f4085a",
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "annotations": [],
+          "logprobs": [],
+          "text": "{\"translation_en\":null,\"larger_context_summary\":\"Jane addresses St John Rivers, her cousin and spiritual-intellectual companion, after he has urged her to marry him and accompany him to India as a missionary’s wife. She is resisting his claim that duty binds her to the plan. Although she respects and trusts him and believes she might have risked much at his side, she insists that her affection is sisterly, not the marital love his proposal would require; she also fears the Indian climate would kill her. The exchange has high stakes because St John frames compliance as religious duty, while Jane sees the proposed marriage as emotionally destructive and refuses to treat affection or kinship as a promise.\",\"interpretive_commentary\":\"The phrase is a direct and carefully delimited avowal of Jane’s emotional state, making its strong truth-presenting force especially clear. Its coordination with “admire” and “confide in” places love among attitudes she offers as reasons for what she might have been willing to risk. Yet “as a sister” prevents the declaration from functioning as romantic acceptance. Indeed, the surrounding denials of obligation, broken promise, and desertion make the utterance consequential without making it performative: Jane’s words define the relationship and reject St John’s marital expectations, but they do not undertake a future course of action. Nor is this a reflexive emotional outburst. Its controlled syntax and argumentative role show deliberation rather than spontaneous expressive discharge. The case is therefore valuable because an intense relationship term appears in a restrained, explanatory form whose qualification actively blocks the commitment that an unqualified “I love you” might conventionally suggest.\"}"
+        }
+      ],
+      "phase": "final_answer",
+      "role": "assistant"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "all_turns",
+    "effort": "medium",
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": true,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "description": null,
+      "name": "corpus_report_enrichment_v0_1",
+      "schema": {
+        "title": "Corpus report occurrence enrichment v0.1",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "translation_en",
+          "larger_context_summary",
+          "interpretive_commentary"
+        ],
+        "properties": {
+          "translation_en": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "larger_context_summary": {
+            "type": "string"
+          },
+          "interpretive_commentary": {
+            "type": "string"
+          }
+        }
+      },
+      "strict": true
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  },
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 1486,
+    "input_tokens_details": {
+      "cache_write_tokens": 1483,
+      "cached_tokens": 0
+    },
+    "output_tokens": 346,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 1832
+  },
+  "user": null,
+  "metadata": {}
+}
