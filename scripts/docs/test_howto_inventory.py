@@ -22,9 +22,9 @@ CANONICAL = {
     "12_run_annotation_batches.md",
     "13_annotate_multilingual_five_v0_3_1.md",
     "14_build_canonical_corpus_report.md",
-    "15_ingest_indie_romance_three.md",
-    "16_annotate_indie_romance_three.md",
-    "17_report_and_compare_indie_romance.md",
+    "15_ingest_indie_romance_pilot.md",
+    "16_annotate_indie_romance_pilot.md",
+    "17_report_and_compare_indie_romance_pilot.md",
 }
 
 
