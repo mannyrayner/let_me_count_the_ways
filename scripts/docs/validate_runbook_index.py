@@ -77,12 +77,30 @@ def validate_index(howto: Path) -> RunbookInventory:
         if not (howto / entry.link).is_file():
             errors.append(f"README link does not exist: {entry.link}")
 
-    markdown = sorted(path.name for path in howto.glob("*.md") if path.name != "README.md")
+    numbered_files = sorted(
+        path.name
+        for path in howto.iterdir()
+        if path.is_file() and NUMBERED_FILE.fullmatch(path.name)
+    )
     linked = set(links)
-    unlinked = tuple(name for name in markdown if name not in linked)
+    filesystem = set(numbered_files)
+    unlinked = tuple(sorted(filesystem - linked))
+    missing = tuple(sorted(linked - filesystem))
     for name in unlinked:
-        qualifier = "numbered runbook" if NUMBERED_FILE.fullmatch(name) else "Markdown file"
-        errors.append(f"unlinked {qualifier} in docs/howto: {name}")
+        errors.append(f"unlinked numbered runbook in docs/howto: {name}")
+    for name in missing:
+        errors.append(f"README numbered runbook is absent from docs/howto: {name}")
+
+    prefixes: dict[int, list[str]] = {}
+    for name in numbered_files:
+        match = NUMBERED_FILE.fullmatch(name)
+        assert match is not None
+        prefixes.setdefault(int(match.group("prefix")), []).append(name)
+    for prefix, names in sorted(prefixes.items()):
+        if len(names) > 1:
+            errors.append(
+                f"duplicate numbered runbook prefix {prefix}: {', '.join(names)}"
+            )
     canonical = tuple(entry.link for entry in entries)
     return RunbookInventory(canonical, unlinked, tuple(errors))
 

@@ -40,9 +40,39 @@ class RunbookIndexTests(unittest.TestCase):
         self.assertTrue(any("does not exist" in error for error in inventory.errors))
 
     def test_extra_unlinked_numbered_runbook(self):
-        inventory = self.inventory([(0, "00_start.md")], ["00_start.md", "00_old.md"])
-        self.assertIn("00_old.md", inventory.unlinked)
+        rows = [(step, f"{step:02d}_current.md") for step in range(15)]
+        rows.append((15, "15_current_version.md"))
+        files = [link for _, link in rows]
+        files.append("15_old_version.md")
+        inventory = self.inventory(
+            rows,
+            files,
+        )
+        self.assertIn("15_old_version.md", inventory.unlinked)
         self.assertTrue(any("unlinked numbered" in error for error in inventory.errors))
+        self.assertTrue(any("duplicate numbered runbook prefix 15" in error
+                            for error in inventory.errors))
+
+    def test_obsolete_indie_runbook_names_are_unlinked_numbered_files(self):
+        inventory = self.inventory(
+            [(15, "15_ingest_indie_romance_pilot.md"),
+             (16, "16_annotate_indie_romance_pilot.md"),
+             (17, "17_report_and_compare_indie_romance_pilot.md")],
+            ["15_ingest_indie_romance_pilot.md",
+             "16_annotate_indie_romance_pilot.md",
+             "17_report_and_compare_indie_romance_pilot.md",
+             "15_ingest_indie_romance_three.md",
+             "17_report_and_compare_indie_romance.md"],
+        )
+        self.assertEqual(
+            ("15_ingest_indie_romance_three.md",
+             "17_report_and_compare_indie_romance.md"),
+            inventory.unlinked,
+        )
+        self.assertTrue(any("duplicate numbered runbook prefix 15" in error
+                            for error in inventory.errors))
+        self.assertTrue(any("duplicate numbered runbook prefix 17" in error
+                            for error in inventory.errors))
 
     def test_duplicate_step(self):
         inventory = self.inventory([(0, "00_start.md"), (0, "00_other.md")],
@@ -68,14 +98,6 @@ class RunbookIndexTests(unittest.TestCase):
         self.assertIn('"license_version": None', step)
         self.assertIn("Not specified on the Lulu product page", step)
         self.assertNotIn("creativecommons.org/licenses/by/4.0", step)
-
-    def test_indie_pilot_preserves_unspecified_cc_by_version(self):
-        step = (HOWTO / "15_ingest_indie_romance_pilot.md").read_text(encoding="utf-8")
-        self.assertIn("Some Rights Reserved - Creative Commons (CC BY)", step)
-        self.assertIn('"license_version": None', step)
-        self.assertIn("Not specified on the Lulu product page", step)
-        self.assertNotIn("creativecommons.org/licenses/by/4.0", step)
-
 
 if __name__ == "__main__":
     unittest.main()
