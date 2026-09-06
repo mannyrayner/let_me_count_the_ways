@@ -9,6 +9,7 @@ PATTERNS = Path("data/development/search_patterns_v0_1.json")
 PATTERNS_V0_2 = Path("data/development/search_patterns_v0_2.json")
 PATTERNS_V0_3 = Path("data/development/search_patterns_v0_3.json")
 PATTERNS_V0_4 = Path("data/development/search_patterns_v0_4.json")
+PATTERNS_V0_5 = Path("data/development/search_patterns_v0_5.json")
 
 
 class PatternTests(unittest.TestCase):
@@ -115,6 +116,53 @@ class PatternV04GermanTests(unittest.TestCase):
     def test_previous_pattern_versions_remain_unchanged(self):
         self.assertEqual(json.loads(PATTERNS_V0_3.read_text())["schema_version"], "0.3")
         self.assertEqual(json.loads(PATTERNS_V0_4.read_text())["schema_version"], "0.4")
+
+
+class PatternV05GeneralPurposeTests(unittest.TestCase):
+    def matches(self, language, text):
+        version, patterns = load_patterns(PATTERNS_V0_5, language)
+        return extract(text, language, "work", "source", version, patterns, 1000)
+
+    def test_english_matches_established_family(self):
+        records = self.matches("en", "I love you. I do love you.")
+        self.assertEqual([record["match"] for record in records], [
+            "I love you", "I do love you",
+        ])
+
+    def test_english_rejects_unrelated_uses(self):
+        text = "I love your work. They love you. I think love is important."
+        self.assertEqual(self.matches("en", text), [])
+
+    def test_multilingual_families_continue_to_match(self):
+        examples = {
+            "fr": "Je t’aime. Je vous aime.",
+            "sv": "Jag älskar dig. Jag älskar er.",
+            "no": "Jeg elsker deg. Jeg elsker dig. Jeg elsker dere.",
+        }
+        for language, text in examples.items():
+            with self.subTest(language=language):
+                self.assertGreaterEqual(len(self.matches(language, text)), 1)
+
+    def test_german_preserves_v0_4_word_order_and_formal_case(self):
+        text = (
+            "Ich liebe dich. Weil ich dich liebe. Ich liebe Sie. "
+            "Weil ich Sie liebe. Ich liebe sie. Weil ich sie liebe."
+        )
+        records = self.matches("de", text)
+        self.assertEqual([record["match"] for record in records], [
+            "Ich liebe dich", "ich dich liebe", "Ich liebe Sie", "ich Sie liebe",
+        ])
+
+    def test_active_batch_languages_are_present(self):
+        batch = json.loads(Path(
+            "data/batches/indie_romance_pilot_v1.json"
+        ).read_text(encoding="utf-8"))
+        for source in batch["sources"]:
+            provenance = json.loads(Path(source["provenance"]).read_text(encoding="utf-8"))
+            with self.subTest(language=provenance["language"]):
+                version, patterns = load_patterns(PATTERNS_V0_5, provenance["language"])
+                self.assertEqual(version, "0.5")
+                self.assertTrue(patterns)
 
 
 if __name__ == "__main__":

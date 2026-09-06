@@ -29,19 +29,27 @@ matches, and its rights note remains accepted. Select and record the exact model
 alias/pricing snapshot. Annotation version is exactly `0.3.1`; do not
 recalibrate it for genre, emotional intensity, sexual content, or expectations.
 
-## 2. Review a conservative English search family
+## 2. Review the general-purpose conservative search families
 
 Reuse the established English first-person-to-second-person family. Before the
 production dry run, inspect its exact regular expression and compare it with the
 exploratory Step 15 results:
 
 ```bash
-python -m json.tool data/development/search_patterns_v0_3.json
+PATTERNS='data/development/search_patterns_v0_5.json'
+python -m json.tool "$PATTERNS"
 ```
 
+Version 0.5 is the current general-purpose manifest. Earlier v0.3/v0.4 pattern
+manifests were created for the multilingual-five batch and therefore did not
+contain English. Version 0.5 restores the established English family while
+preserving the later multilingual refinements, including the v0.4 German word
+orders and formal-`Sie` case handling. Keep v0.3 and v0.4 unchanged as
+historical, source-specific configurations.
+
 If the inspected source supplies real intervening-adverb or auxiliary examples
-that v0.3 does not cover, add a new versioned, tested English pattern manifest;
-do not edit v0.3 in place. Permit only attested conservative structures such as
+that v0.5 does not cover, add a new versioned, tested English pattern manifest;
+do not edit v0.5 in place. Permit only attested conservative structures such as
 “I do/really/still love you” and retain negated forms where the first-person
 subject, love predicate, and second-person object are structurally present. Do
 not expand to every occurrence of `love`.
@@ -52,12 +60,12 @@ and explicit-context matches. Preserve exact offsets and source text.
 
 ## 3. Make and inspect the extraction-only run
 
-Use the reviewed patterns path below. Replace it only if section 2 produced an
-approved newer version:
+Use the reviewed general-purpose patterns path set in section 2. Replace it only
+if that review produced an approved newer version:
 
 ```bash
 cd "$LMCW"
-PATTERNS='data/development/search_patterns_v0_3.json'
+PATTERNS='data/development/search_patterns_v0_5.json'
 python scripts/pipeline/run_single_text_pipeline.py "$PILOT_SOURCE" \
   --patterns "$PATTERNS" \
   --annotation-version 0.3.1 \
