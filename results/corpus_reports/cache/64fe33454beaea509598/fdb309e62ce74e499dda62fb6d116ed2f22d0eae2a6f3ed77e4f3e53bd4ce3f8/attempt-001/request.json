@@ -1,0 +1,35 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Corpus-report occurrence enrichment v0.1\n\nYou are preparing explanatory material for a human-readable research report.\nThe supplied P/T/E/O annotation is immutable evidence: do not revise its scores,\nrecalculate confidence, change ontology fit or utterance status, or “correct”\nthe annotation. Return only the three presentational fields in the schema.\n\nFor a non-English passage, translate the complete displayed passage into\nidiomatic English. Preserve negation, embedding, quotation, relationship terms,\nand genuine ambiguity. Mark the English equivalent of the target expression\nwith Markdown bold (`**…**`), without turning a negated or embedded expression\ninto a direct positive declaration. For an English passage, return\n`translation_en: null`.\n\nThe larger-context summary is visibly AI-generated interpretive context, not\nsource text. In a concise paragraph, identify where reliably possible the\nspeaker, addressee, relationship, immediate narrative or dramatic situation,\nrecent relevant events, participant beliefs, stakes, and any wider plot fact\nneeded to interpret the occurrence. You may use reliable background knowledge\nabout the named work. State uncertainty instead of inventing details, and do\nnot merely paraphrase the local passage.\n\nWrite an approximately 80–180 word human-facing interpretive commentary (less\nonly when the case is genuinely trivial). Explain why the existing scores are\nplausible or interesting rather than listing them again. Distinguish intensity\nfrom expressive/reflexive E, relationship consequences from performative P,\nand deception from the core semantic force where relevant. Explain the value of\nnegated, embedded, quoted, or revoiced cases. Avoid repetitive boilerplate.\n\nOutput one JSON object conforming exactly to the supplied schema.\n\n\n## Input\n\n{\n  \"occurrence_id\": \"strindberg-froken-julie-10aa8aab447d\",\n  \"title\": \"Fröken Julie\",\n  \"author\": \"August Strindberg\",\n  \"language\": \"sv\",\n  \"source_passage\": \"Jag vill - men jag törs inte! Inte här i huset mer! Jag älskar er\\n- utan tvivel - kan ni tveka på det?\",\n  \"target_span\": {\n    \"text\": \"Jag älskar er\",\n    \"start\": 28428,\n    \"end\": 28441\n  },\n  \"source_location\": {\n    \"source_start\": 28428,\n    \"source_end\": 28441,\n    \"source_length_characters\": 68061,\n    \"relative_position\": 0.417684,\n    \"chapter_or_section\": null\n  },\n  \"utterance_status\": {\n    \"status\": \"direct\",\n    \"description\": \"A character directly addresses another character in represented dramatic dialogue: “Jag älskar er” (“I love you”).\"\n  },\n  \"scores\": {\n    \"P\": 0,\n    \"T\": 4,\n    \"E\": 0,\n    \"O\": 0\n  },\n  \"confidence\": 0.93,\n  \"ontology_fit\": \"natural\",\n  \"annotation_analysis\": \"The utterance primarily avows a loving emotional state and presents that state as unquestionably true. The immediate appeal asking whether the addressee can doubt it reinforces its truth-conditional force. It contains no clear relational undertaking, and neither its emphatic delivery nor its placement amid hesitation independently establishes expressive/reflexive force.\",\n  \"ambiguity_note\": \"The utterance may also serve a persuasive or reassuring purpose, and its sincerity cannot be determined from the excerpt alone; neither issue changes its dominant truth-conditional mode.\",\n  \"contextual_interpretation\": \"The speaker follows hesitation about acting in the house with an emphatic avowal, “Jag älskar er,” then treats that love as something the addressee should not doubt. This makes the line an insistent assertion or reassurance, potentially serving persuasion in the immediate interaction. The passage does not itself show the words being involuntarily blurted or functioning as an affective discharge, nor does it formulate a promise or commitment.\",\n  \"relevant_evidence\": [\n    {\n      \"evidence_id\": \"e1\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“Jag älskar er” (“I love you”).\",\n      \"supports\": \"The declarative wording directly presents the speaker's loving state as true, strongly supporting T.\",\n      \"confidence\": 0.99\n    },\n    {\n      \"evidence_id\": \"e2\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“utan tvivel - kan ni tveka på det?” (“without doubt—can you doubt it?”).\",\n      \"supports\": \"The speaker explicitly frames the love claim in terms of certainty and the addressee's belief, reinforcing truth-conditional avowal rather than expressive discharge.\",\n      \"confidence\": 0.97\n    },\n    {\n      \"evidence_id\": \"e3\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“Jag vill - men jag törs inte! Inte här i huset mer!” (“I want to—but I dare not! Not here in the house anymore!”).\",\n      \"supports\": \"The surrounding hesitation supplies emotional and situational intensity, but it does not state an undertaking and provides no positive evidence that the love words themselves are reflex-like.\",\n      \"confidence\": 0.88\n    },\n    {\n      \"evidence_id\": \"e4\",\n      \"source\": \"supplied_metadata\",\n      \"quotation_or_description\": \"The occurrence is from August Strindberg's Swedish play “Fröken Julie.”\",\n      \"supports\": \"The dramatic-work metadata supports reading the line as represented direct speech between characters rather than as narration or a merely written love message.\",\n      \"confidence\": 0.96\n    }\n  ],\n  \"background_knowledge_metadata\": {\n    \"used\": false,\n    \"familiarity\": \"none\",\n    \"confidence\": null,\n    \"contribution\": null\n  }\n}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "corpus_report_enrichment_v0_1",
+      "strict": true,
+      "schema": {
+        "title": "Corpus report occurrence enrichment v0.1",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "translation_en",
+          "larger_context_summary",
+          "interpretive_commentary"
+        ],
+        "properties": {
+          "translation_en": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "larger_context_summary": {
+            "type": "string"
+          },
+          "interpretive_commentary": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

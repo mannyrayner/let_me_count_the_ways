@@ -1,0 +1,121 @@
+{
+  "id": "resp_0c6210a729133e9d006a9bdc4709ac87d0a5892b2043eb7597",
+  "object": "response",
+  "created_at": 1788599367,
+  "status": "completed",
+  "background": false,
+  "billing": {
+    "payer": "openai"
+  },
+  "completed_at": 1788599373,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "model": "gpt-5.6-sol",
+  "moderation": null,
+  "output": [
+    {
+      "id": "msg_0c6210a729133e9d006a9bdc47dff487d0895a1a08e7787caa",
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "annotations": [],
+          "logprobs": [],
+          "text": "{\"translation_en\":\"CHRISTIAN:\\n  **I love you!**\",\"larger_context_summary\":\"In the balcony episode, Christian addresses Roxane, whom he is courting and who believes him to be the eloquent author of the letters actually composed by Cyrano. Christian initially tries to woo her without Cyrano’s verbal assistance, but his repeated, blunt declarations disappoint her because she expects the verbal brilliance of the correspondence. The immediate stakes are both romantic and deceptive: Christian wants to secure Roxane’s love, while Cyrano’s hidden authorship—and his own unconfessed love for her—underlies the exchange.\",\"interpretive_commentary\":\"The line is a paradigmatic truth-oriented avowal: Christian presents his love for Roxane as a fact about his own emotional state. Its exclamation mark and the charged courtship setting make it intense, but intensity alone does not give it expressive/reflexive force; the words remain a deliberate assertion rather than an involuntary cry or a comment on the act of speaking. Nor does saying “I love you” by itself undertake a promise, obligation, or formally altered relationship, even though Christian hopes it will advance the courtship. The surrounding deception is dramatically crucial—Roxane associates Christian with Cyrano’s eloquence—but it does not change the core semantic force of this particular sentence. Indeed, the scene’s humor and pathos depend on the contrast between the declaration’s sincere, straightforward content and its rhetorical inadequacy for Roxane.\"}"
+        }
+      ],
+      "phase": "final_answer",
+      "role": "assistant"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "all_turns",
+    "effort": "medium",
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": true,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "description": null,
+      "name": "corpus_report_enrichment_v0_1",
+      "schema": {
+        "title": "Corpus report occurrence enrichment v0.1",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "translation_en",
+          "larger_context_summary",
+          "interpretive_commentary"
+        ],
+        "properties": {
+          "translation_en": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "larger_context_summary": {
+            "type": "string"
+          },
+          "interpretive_commentary": {
+            "type": "string"
+          }
+        }
+      },
+      "strict": true
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  },
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 1220,
+    "input_tokens_details": {
+      "cache_write_tokens": 1217,
+      "cached_tokens": 0
+    },
+    "output_tokens": 317,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 1537
+  },
+  "user": null,
+  "metadata": {}
+}

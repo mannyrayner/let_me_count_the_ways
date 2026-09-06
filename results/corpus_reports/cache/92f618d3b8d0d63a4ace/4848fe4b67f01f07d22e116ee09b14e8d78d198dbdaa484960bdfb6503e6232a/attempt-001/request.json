@@ -1,0 +1,35 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Corpus-report occurrence enrichment v0.1\n\nYou are preparing explanatory material for a human-readable research report.\nThe supplied P/T/E/O annotation is immutable evidence: do not revise its scores,\nrecalculate confidence, change ontology fit or utterance status, or “correct”\nthe annotation. Return only the three presentational fields in the schema.\n\nFor a non-English passage, translate the complete displayed passage into\nidiomatic English. Preserve negation, embedding, quotation, relationship terms,\nand genuine ambiguity. Mark the English equivalent of the target expression\nwith Markdown bold (`**…**`), without turning a negated or embedded expression\ninto a direct positive declaration. For an English passage, return\n`translation_en: null`.\n\nThe larger-context summary is visibly AI-generated interpretive context, not\nsource text. In a concise paragraph, identify where reliably possible the\nspeaker, addressee, relationship, immediate narrative or dramatic situation,\nrecent relevant events, participant beliefs, stakes, and any wider plot fact\nneeded to interpret the occurrence. You may use reliable background knowledge\nabout the named work. State uncertainty instead of inventing details, and do\nnot merely paraphrase the local passage.\n\nWrite an approximately 80–180 word human-facing interpretive commentary (less\nonly when the case is genuinely trivial). Explain why the existing scores are\nplausible or interesting rather than listing them again. Distinguish intensity\nfrom expressive/reflexive E, relationship consequences from performative P,\nand deception from the core semantic force where relevant. Explain the value of\nnegated, embedded, quoted, or revoiced cases. Avoid repetitive boilerplate.\n\nOutput one JSON object conforming exactly to the supplied schema.\n\n\n## Input\n\n{\n  \"occurrence_id\": \"bronte-jane-eyre-f221719b1af4\",\n  \"title\": \"Jane Eyre\",\n  \"author\": \"Charlotte Brontë\",\n  \"language\": \"en\",\n  \"source_passage\": \"Of course, she knew her power: indeed, he did not, because he could\\nnot, conceal it from her. In spite of his Christian stoicism, when she\\nwent up and addressed him, and smiled gaily, encouragingly, even fondly\\nin his face, his hand would tremble and his eye burn. He seemed to say,\\nwith his sad and resolute look, if he did not say it with his lips, “I\\nlove you, and I know you prefer me. It is not despair of success that\\nkeeps me dumb. If I offered my heart, I believe you would accept it.\\nBut that heart is already laid on a sacred altar: the fire is arranged\\nround it. It will soon be no more than a sacrifice consumed.”\",\n  \"target_span\": {\n    \"text\": \"I\\nlove you\",\n    \"start\": 830232,\n    \"end\": 830242\n  },\n  \"source_location\": {\n    \"source_start\": 830232,\n    \"source_end\": 830242,\n    \"source_length_characters\": 1041730,\n    \"relative_position\": 0.796974,\n    \"chapter_or_section\": \"CHAPTER XXXII\"\n  },\n  \"utterance_status\": {\n    \"status\": \"nonverbal_verbalised\",\n    \"description\": \"The narrator renders the man's sad, resolute look as an unspoken first-person declaration: he “seemed to say” it even though he did not say it with his lips.\"\n  },\n  \"scores\": {\n    \"P\": 0,\n    \"T\": 4,\n    \"E\": 0,\n    \"O\": 0\n  },\n  \"confidence\": 0.97,\n  \"ontology_fit\": \"natural\",\n  \"annotation_analysis\": \"The narrator verbalises the man's look as saying “I love you.” Its core force is a strong avowal or presentation of his loving state. It does not undertake a relationship; the continuation instead explains why he remains silent and will not offer his heart. His visible emotion supports the avowal's intensity but does not make the words an expressive/reflex-like discharge.\",\n  \"ambiguity_note\": \"The words are a narrator-supplied interpretation of nonverbal behaviour rather than an actually spoken sentence, but this affects utterance status rather than the T/P/E classification.\",\n  \"contextual_interpretation\": \"The passage presents affection that is visible despite attempted restraint: his trembling hand and burning eye disclose what he keeps verbally unexpressed. The imagined continuation distinguishes love from commitment. He believes the woman would accept him, but regards his heart as already consecrated elsewhere, so the declaration reports suppressed love while withholding any relational offer.\",\n  \"relevant_evidence\": [\n    {\n      \"evidence_id\": \"e1\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“He seemed to say, with his sad and resolute look, if he did not say it with his lips, ‘I love you’”\",\n      \"supports\": \"Establishes that the declaration is a narrator-verbalised interpretation of nonverbal conduct and presents a loving state as true.\",\n      \"confidence\": 0.99\n    },\n    {\n      \"evidence_id\": \"e2\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“his hand would tremble and his eye burn” when she addressed and smiled at him\",\n      \"supports\": \"Supports the interpretation that his concealed affection is emotionally intense, without independently establishing expressive/reflexive force.\",\n      \"confidence\": 0.96\n    },\n    {\n      \"evidence_id\": \"e3\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“It is not despair of success that keeps me dumb. If I offered my heart, I believe you would accept it. But that heart is already laid on a sacred altar”\",\n      \"supports\": \"Shows that an offer or relational undertaking is explicitly counterfactual and withheld, supporting P=0 despite the avowed love.\",\n      \"confidence\": 0.98\n    }\n  ],\n  \"background_knowledge_metadata\": {\n    \"used\": false,\n    \"familiarity\": \"none\",\n    \"confidence\": null,\n    \"contribution\": null\n  }\n}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "corpus_report_enrichment_v0_1",
+      "strict": true,
+      "schema": {
+        "title": "Corpus report occurrence enrichment v0.1",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "translation_en",
+          "larger_context_summary",
+          "interpretive_commentary"
+        ],
+        "properties": {
+          "translation_en": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "larger_context_summary": {
+            "type": "string"
+          },
+          "interpretive_commentary": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Corpus-report occurrence enrichment v0.1\n\nYou are preparing explanatory material for a human-readable research report.\nThe supplied P/T/E/O annotation is immutable evidence: do not revise its scores,\nrecalculate confidence, change ontology fit or utterance status, or “correct”\nthe annotation. Return only the three presentational fields in the schema.\n\nFor a non-English passage, translate the complete displayed passage into\nidiomatic English. Preserve negation, embedding, quotation, relationship terms,\nand genuine ambiguity. Mark the English equivalent of the target expression\nwith Markdown bold (`**…**`), without turning a negated or embedded expression\ninto a direct positive declaration. For an English passage, return\n`translation_en: null`.\n\nThe larger-context summary is visibly AI-generated interpretive context, not\nsource text. In a concise paragraph, identify where reliably possible the\nspeaker, addressee, relationship, immediate narrative or dramatic situation,\nrecent relevant events, participant beliefs, stakes, and any wider plot fact\nneeded to interpret the occurrence. You may use reliable background knowledge\nabout the named work. State uncertainty instead of inventing details, and do\nnot merely paraphrase the local passage.\n\nWrite an approximately 80–180 word human-facing interpretive commentary (less\nonly when the case is genuinely trivial). Explain why the existing scores are\nplausible or interesting rather than listing them again. Distinguish intensity\nfrom expressive/reflexive E, relationship consequences from performative P,\nand deception from the core semantic force where relevant. Explain the value of\nnegated, embedded, quoted, or revoiced cases. Avoid repetitive boilerplate.\n\nOutput one JSON object conforming exactly to the supplied schema.\n\n\n## Input\n\n{\n  \"occurrence_id\": \"rostand-cyrano-de-bergerac-d7654d72f26a\",\n  \"title\": \"Cyrano de Bergerac\",\n  \"author\": \"Edmond Rostand\",\n  \"language\": \"fr\",\n  \"source_passage\": \"ROXANE:\\n  Oh ! mais il ne va pas m'importuner toujours !\\n  (Décachetant la lettre):\\n  Je t'aime, et si. . .\\n  (A la lueur de la lanterne de Ragueneau, elle lit, à l'écart, à voix basse):\\n  Mademoiselle,\\n  Les tambours\\n  Battent; mon régiment boucle sa soubreveste;\\n  Il part; moi, l'on me croit déjà parti: je reste.\\n  Je vous désobéis. Je suis dans ce couvent.\\n  Je vais venir, et vous le mande auparavant\\n  Par un religieux simple comme une chèvre\\n  Qui ne peut rien comprendre à ceci. Votre lèvre\\n  M'a trop souri tantôt: j'ai voulu la revoir.\\n  Éloignez un chacun, et daignez recevoir\\n  L'audacieux déjà pardonné, je l'espère,\\n  Qui signe votre très. . .et caetera. . .\\n  (Au capucin):\\n  Mon Père,\\n  Voici ce que me dit cette lettre. Écoutez:\\n  (Tous se rapprochent, elle lit à haute voix):\\n  Mademoiselle,\\n  Il faut souscrire aux volontés\\n  Du cardinal, si dur que cela vous puisse être.\\n  C'est la raison pourquoi j'ai fait choix, pour remettre\\n  Ces lignes en vos mains charmantes, d'un très saint,\\n  D'un très intelligent et discret capucin;\\n  Nous voulons qu'il vous donne, et dans votr\",\n  \"target_span\": {\n    \"text\": \"Je t'aime\",\n    \"start\": 134381,\n    \"end\": 134390\n  },\n  \"source_location\": {\n    \"source_start\": 134381,\n    \"source_end\": 134390,\n    \"source_length_characters\": 242408,\n    \"relative_position\": 0.554359,\n    \"chapter_or_section\": null\n  },\n  \"utterance_status\": {\n    \"status\": \"written\",\n    \"description\": \"A love avowal inscribed in a letter and briefly read aloud by Roxane; her voice revoices the letter writer's utterance.\"\n  },\n  \"scores\": {\n    \"P\": 0,\n    \"T\": 4,\n    \"E\": 0,\n    \"O\": 0\n  },\n  \"confidence\": 0.96,\n  \"ontology_fit\": \"natural\",\n  \"annotation_analysis\": \"The written “Je t'aime” straightforwardly presents the letter writer's love for Roxane as true. Neither the phrase itself nor its delivery independently enacts a commitment or functions as a reflex-like affective discharge.\",\n  \"ambiguity_note\": \"The sentence is interrupted by “et si...,” so its continuation is initially withheld; this does not materially obscure the avowal force of “Je t'aime.” The writer's sincerity is not established, but sincerity is orthogonal to T.\",\n  \"contextual_interpretation\": \"Roxane first reads the letter's private declaration and plans quietly. She then presents the capuchin with a substantially altered version of the letter, falsely attributing instructions to the cardinal. That later manipulation affects the scene's framing but does not change the highlighted written phrase's core force as an avowal of love.\",\n  \"relevant_evidence\": [\n    {\n      \"evidence_id\": \"e1\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"Roxane unseals the letter and reads: “Je t'aime, et si. . .”\",\n      \"supports\": \"The explicit first-person declaration strongly supports truth-conditional avowal and establishes that the core event is written language being revoiced.\",\n      \"confidence\": 0.99\n    },\n    {\n      \"evidence_id\": \"e2\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"The letter continues with the writer's plans to remain nearby and come to see Roxane, but the highlighted clause itself contains no promise or relational undertaking.\",\n      \"supports\": \"The surrounding courtship and intended visit do not independently give the core “Je t'aime” performative force.\",\n      \"confidence\": 0.94\n    },\n    {\n      \"evidence_id\": \"e3\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"Roxane reads the letter quietly (“à voix basse”) and subsequently substitutes a different text when reading aloud to the capuchin.\",\n      \"supports\": \"There is no positive evidence that the highlighted words are an expressive or reflex-like discharge; the later deception belongs to context rather than the core force.\",\n      \"confidence\": 0.96\n    }\n  ],\n  \"background_knowledge_metadata\": {\n    \"used\": false,\n    \"familiarity\": \"none\",\n    \"confidence\": null,\n    \"contribution\": null\n  }\n}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "corpus_report_enrichment_v0_1",
+      "strict": true,
+      "schema": {
+        "title": "Corpus report occurrence enrichment v0.1",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "translation_en",
+          "larger_context_summary",
+          "interpretive_commentary"
+        ],
+        "properties": {
+          "translation_en": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "larger_context_summary": {
+            "type": "string"
+          },
+          "interpretive_commentary": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

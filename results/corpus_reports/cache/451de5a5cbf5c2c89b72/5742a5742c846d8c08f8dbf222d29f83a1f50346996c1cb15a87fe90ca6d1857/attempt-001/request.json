@@ -1,0 +1,35 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Corpus-report occurrence enrichment v0.1\n\nYou are preparing explanatory material for a human-readable research report.\nThe supplied P/T/E/O annotation is immutable evidence: do not revise its scores,\nrecalculate confidence, change ontology fit or utterance status, or “correct”\nthe annotation. Return only the three presentational fields in the schema.\n\nFor a non-English passage, translate the complete displayed passage into\nidiomatic English. Preserve negation, embedding, quotation, relationship terms,\nand genuine ambiguity. Mark the English equivalent of the target expression\nwith Markdown bold (`**…**`), without turning a negated or embedded expression\ninto a direct positive declaration. For an English passage, return\n`translation_en: null`.\n\nThe larger-context summary is visibly AI-generated interpretive context, not\nsource text. In a concise paragraph, identify where reliably possible the\nspeaker, addressee, relationship, immediate narrative or dramatic situation,\nrecent relevant events, participant beliefs, stakes, and any wider plot fact\nneeded to interpret the occurrence. You may use reliable background knowledge\nabout the named work. State uncertainty instead of inventing details, and do\nnot merely paraphrase the local passage.\n\nWrite an approximately 80–180 word human-facing interpretive commentary (less\nonly when the case is genuinely trivial). Explain why the existing scores are\nplausible or interesting rather than listing them again. Distinguish intensity\nfrom expressive/reflexive E, relationship consequences from performative P,\nand deception from the core semantic force where relevant. Explain the value of\nnegated, embedded, quoted, or revoiced cases. Avoid repetitive boilerplate.\n\nOutput one JSON object conforming exactly to the supplied schema.\n\n\n## Input\n\n{\n  \"occurrence_id\": \"flaubert-madame-bovary-97b0baa4e5cf\",\n  \"title\": \"Madame Bovary\",\n  \"author\": \"Gustave Flaubert\",\n  \"language\": \"fr\",\n  \"source_passage\": \"— Si je t’aime! si je t’aime! mais je t’adore, mon amour!\",\n  \"target_span\": {\n    \"text\": \"je t’aime\",\n    \"start\": 396464,\n    \"end\": 396473\n  },\n  \"source_location\": {\n    \"source_start\": 396464,\n    \"source_end\": 396473,\n    \"source_length_characters\": 703078,\n    \"relative_position\": 0.563898,\n    \"chapter_or_section\": null\n  },\n  \"utterance_status\": {\n    \"status\": \"direct\",\n    \"description\": \"A directly represented spoken declaration, specifically the first occurrence of “je t’aime” in the repeated exclamative sequence.\"\n  },\n  \"scores\": {\n    \"P\": 0,\n    \"T\": 4,\n    \"E\": 0,\n    \"O\": 0\n  },\n  \"confidence\": 0.96,\n  \"ontology_fit\": \"natural\",\n  \"annotation_analysis\": \"The highlighted “je t’aime” is an emphatic avowal presenting the speaker’s love as true. The exclamative “Si je t’aime!”, repetition, and escalation to “je t’adore” intensify that avowal but do not independently show a commitment-making force or a reflex-like expressive discharge.\",\n  \"ambiguity_note\": \"The fragment does not identify the speaker or broader conversational motive, but that uncertainty does not materially affect the dominant truth-conditional force.\",\n  \"contextual_interpretation\": \"The French exclamative construction “Si je t’aime!” strongly affirms love, and its immediate repetition followed by “mais je t’adore, mon amour” heightens and amplifies the declaration. Nothing in the supplied fragment establishes that the words undertake a relational commitment, and intensity alone does not warrant expressive/reflexive classification.\",\n  \"relevant_evidence\": [\n    {\n      \"evidence_id\": \"e1\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“Si je t’aime! si je t’aime!”\",\n      \"supports\": \"The repeated exclamative construction supports a forceful truth-conditional avowal of love; repetition and punctuation indicate emphasis but do not independently establish E.\",\n      \"confidence\": 0.98\n    },\n    {\n      \"evidence_id\": \"e2\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“mais je t’adore, mon amour!”\",\n      \"supports\": \"The immediate escalation from loving to adoring reinforces the interpretation of the highlighted words as an intensified declaration of an emotional state.\",\n      \"confidence\": 0.97\n    },\n    {\n      \"evidence_id\": \"e3\",\n      \"source\": \"supplied_metadata\",\n      \"quotation_or_description\": \"The occurrence is a French-language match for “je t’aime” in Gustave Flaubert’s Madame Bovary.\",\n      \"supports\": \"Confirms the linguistic and literary identification of the highlighted core utterance.\",\n      \"confidence\": 1.0\n    }\n  ],\n  \"background_knowledge_metadata\": {\n    \"used\": false,\n    \"familiarity\": \"moderate\",\n    \"confidence\": null,\n    \"contribution\": null\n  }\n}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "corpus_report_enrichment_v0_1",
+      "strict": true,
+      "schema": {
+        "title": "Corpus report occurrence enrichment v0.1",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "translation_en",
+          "larger_context_summary",
+          "interpretive_commentary"
+        ],
+        "properties": {
+          "translation_en": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "larger_context_summary": {
+            "type": "string"
+          },
+          "interpretive_commentary": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

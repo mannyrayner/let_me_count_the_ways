@@ -69,6 +69,13 @@ class RunbookIndexTests(unittest.TestCase):
         self.assertIn("Not specified on the Lulu product page", step)
         self.assertNotIn("creativecommons.org/licenses/by/4.0", step)
 
+    def test_indie_pilot_preserves_unspecified_cc_by_version(self):
+        step = (HOWTO / "15_ingest_indie_romance_pilot.md").read_text(encoding="utf-8")
+        self.assertIn("Some Rights Reserved - Creative Commons (CC BY)", step)
+        self.assertIn('"license_version": None', step)
+        self.assertIn("Not specified on the Lulu product page", step)
+        self.assertNotIn("creativecommons.org/licenses/by/4.0", step)
+
 
 if __name__ == "__main__":
     unittest.main()

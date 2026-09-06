@@ -1,0 +1,35 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Corpus-report occurrence enrichment v0.1\n\nYou are preparing explanatory material for a human-readable research report.\nThe supplied P/T/E/O annotation is immutable evidence: do not revise its scores,\nrecalculate confidence, change ontology fit or utterance status, or “correct”\nthe annotation. Return only the three presentational fields in the schema.\n\nFor a non-English passage, translate the complete displayed passage into\nidiomatic English. Preserve negation, embedding, quotation, relationship terms,\nand genuine ambiguity. Mark the English equivalent of the target expression\nwith Markdown bold (`**…**`), without turning a negated or embedded expression\ninto a direct positive declaration. For an English passage, return\n`translation_en: null`.\n\nThe larger-context summary is visibly AI-generated interpretive context, not\nsource text. In a concise paragraph, identify where reliably possible the\nspeaker, addressee, relationship, immediate narrative or dramatic situation,\nrecent relevant events, participant beliefs, stakes, and any wider plot fact\nneeded to interpret the occurrence. You may use reliable background knowledge\nabout the named work. State uncertainty instead of inventing details, and do\nnot merely paraphrase the local passage.\n\nWrite an approximately 80–180 word human-facing interpretive commentary (less\nonly when the case is genuinely trivial). Explain why the existing scores are\nplausible or interesting rather than listing them again. Distinguish intensity\nfrom expressive/reflexive E, relationship consequences from performative P,\nand deception from the core semantic force where relevant. Explain the value of\nnegated, embedded, quoted, or revoiced cases. Avoid repetitive boilerplate.\n\nOutput one JSON object conforming exactly to the supplied schema.\n\n\n## Input\n\n{\n  \"occurrence_id\": \"flaubert-madame-bovary-06903c63a2d7\",\n  \"title\": \"Madame Bovary\",\n  \"author\": \"Gustave Flaubert\",\n  \"language\": \"fr\",\n  \"source_passage\": \"— Amenez-la-moi! dit sa mère se précipitant pour l’embrasser. Comme je\\nt’aime, ma pauvre enfant! comme je t’aime!\",\n  \"target_span\": {\n    \"text\": \"je t’aime\",\n    \"start\": 346815,\n    \"end\": 346824\n  },\n  \"source_location\": {\n    \"source_start\": 346815,\n    \"source_end\": 346824,\n    \"source_length_characters\": 703078,\n    \"relative_position\": 0.493281,\n    \"chapter_or_section\": null\n  },\n  \"utterance_status\": {\n    \"status\": \"direct\",\n    \"description\": \"The highlighted second “comme je t’aime!” is spoken directly by the mother to her child, immediately repeating the same declaration.\"\n  },\n  \"scores\": {\n    \"P\": 0,\n    \"T\": 4,\n    \"E\": 2,\n    \"O\": 0\n  },\n  \"confidence\": 0.9,\n  \"ontology_fit\": \"natural\",\n  \"annotation_analysis\": \"The mother directly avows intense maternal love. The exclamative construction “Comme je t’aime!” and its immediate repetition provide some independent expressive force: the words appear partly to discharge overflowing affection, while still centrally presenting her love as true. Nothing indicates a relational undertaking or commitment.\",\n  \"ambiguity_note\": \"The exclamative syntax, repetition, and impetuous embrace support E, but they could also be interpreted simply as the intense delivery of a T-dominant avowal; hence E is moderate rather than maximal.\",\n  \"contextual_interpretation\": \"The mother calls for her child, rushes to embrace her, addresses her compassionately as “ma pauvre enfant,” and twice exclaims how much she loves her. This frames the utterance as an affectionate, consoling maternal avowal with a partially expressive outpouring, not as a promise or undertaking.\",\n  \"relevant_evidence\": [\n    {\n      \"evidence_id\": \"local-1\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“dit sa mère se précipitant pour l’embrasser”\",\n      \"supports\": \"The maternal attribution and rush to embrace support a direct, affectively charged avowal of love.\",\n      \"confidence\": 0.98\n    },\n    {\n      \"evidence_id\": \"local-2\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“Comme je t’aime, ma pauvre enfant! comme je t’aime!”\",\n      \"supports\": \"The explicit love predication strongly supports T; the degree-exclamative form and immediate repetition provide moderate evidence that saying it also functions as expressive discharge.\",\n      \"confidence\": 0.97\n    }\n  ],\n  \"background_knowledge_metadata\": {\n    \"used\": false,\n    \"familiarity\": \"none\",\n    \"confidence\": null,\n    \"contribution\": null\n  }\n}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "corpus_report_enrichment_v0_1",
+      "strict": true,
+      "schema": {
+        "title": "Corpus report occurrence enrichment v0.1",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "translation_en",
+          "larger_context_summary",
+          "interpretive_commentary"
+        ],
+        "properties": {
+          "translation_en": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "larger_context_summary": {
+            "type": "string"
+          },
+          "interpretive_commentary": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

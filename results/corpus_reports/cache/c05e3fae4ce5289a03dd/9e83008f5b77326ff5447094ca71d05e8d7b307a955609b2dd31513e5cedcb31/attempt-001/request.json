@@ -1,0 +1,35 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Corpus-report occurrence enrichment v0.1\n\nYou are preparing explanatory material for a human-readable research report.\nThe supplied P/T/E/O annotation is immutable evidence: do not revise its scores,\nrecalculate confidence, change ontology fit or utterance status, or “correct”\nthe annotation. Return only the three presentational fields in the schema.\n\nFor a non-English passage, translate the complete displayed passage into\nidiomatic English. Preserve negation, embedding, quotation, relationship terms,\nand genuine ambiguity. Mark the English equivalent of the target expression\nwith Markdown bold (`**…**`), without turning a negated or embedded expression\ninto a direct positive declaration. For an English passage, return\n`translation_en: null`.\n\nThe larger-context summary is visibly AI-generated interpretive context, not\nsource text. In a concise paragraph, identify where reliably possible the\nspeaker, addressee, relationship, immediate narrative or dramatic situation,\nrecent relevant events, participant beliefs, stakes, and any wider plot fact\nneeded to interpret the occurrence. You may use reliable background knowledge\nabout the named work. State uncertainty instead of inventing details, and do\nnot merely paraphrase the local passage.\n\nWrite an approximately 80–180 word human-facing interpretive commentary (less\nonly when the case is genuinely trivial). Explain why the existing scores are\nplausible or interesting rather than listing them again. Distinguish intensity\nfrom expressive/reflexive E, relationship consequences from performative P,\nand deception from the core semantic force where relevant. Explain the value of\nnegated, embedded, quoted, or revoiced cases. Avoid repetitive boilerplate.\n\nOutput one JSON object conforming exactly to the supplied schema.\n\n\n## Input\n\n{\n  \"occurrence_id\": \"rostand-cyrano-de-bergerac-89c2617e9b1b\",\n  \"title\": \"Cyrano de Bergerac\",\n  \"author\": \"Edmond Rostand\",\n  \"language\": \"fr\",\n  \"source_passage\": \"CYRANO (écrivant, à part,--on l'entend murmurer de temps en temps):\\n  Je vous aime. . .\",\n  \"target_span\": {\n    \"text\": \"Je vous aime\",\n    \"start\": 66674,\n    \"end\": 66686\n  },\n  \"source_location\": {\n    \"source_start\": 66674,\n    \"source_end\": 66686,\n    \"source_length_characters\": 242408,\n    \"relative_position\": 0.275049,\n    \"chapter_or_section\": null\n  },\n  \"utterance_status\": {\n    \"status\": \"written\",\n    \"description\": \"Cyrano is composing the declaration in writing while also murmuring it aloud from time to time; the written declaration is the primary event.\"\n  },\n  \"scores\": {\n    \"P\": 0,\n    \"T\": 4,\n    \"E\": 0,\n    \"O\": 0\n  },\n  \"confidence\": 0.94,\n  \"ontology_fit\": \"natural\",\n  \"annotation_analysis\": \"Cyrano's written and murmured “Je vous aime” is principally an avowal presenting his love as true. Its placement in a love letter gives it communicative and courtship significance, but the words themselves do not clearly undertake a commitment or obligation. Writing privately and murmuring intermittently do not establish reflex-like expressive discharge.\",\n  \"ambiguity_note\": \"The event combines writing with audible murmuring, but this affects utterance status more than core force.\",\n  \"contextual_interpretation\": \"Cyrano is privately composing a declaration of love associated with Roxane. His aside and murmured delivery expose to the audience a sincere feeling that he has difficulty communicating openly. The romantic purpose of the letter supplies courtship context, but “Je vous aime” remains chiefly an avowal rather than an explicit relational undertaking or reflexive outburst.\",\n  \"relevant_evidence\": [\n    {\n      \"evidence_id\": \"ev-local-1\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“CYRANO (écrivant, à part,--on l'entend murmurer de temps en temps): Je vous aime. . .”\",\n      \"supports\": \"The stage direction identifies the declaration as being written and intermittently murmured; the wording directly avows love, supporting high T and written status without positive evidence of reflex-like E.\",\n      \"confidence\": 0.99\n    },\n    {\n      \"evidence_id\": \"ev-meta-1\",\n      \"source\": \"supplied_metadata\",\n      \"quotation_or_description\": \"The supplied metadata identifies the passage as French text from Edmond Rostand's Cyrano de Bergerac.\",\n      \"supports\": \"Establishes the work and linguistic context used to interpret “Je vous aime” as the formal/polite equivalent of “I love you.”\",\n      \"confidence\": 0.99\n    },\n    {\n      \"evidence_id\": \"ev-bg-1\",\n      \"source\": \"background_knowledge\",\n      \"quotation_or_description\": \"In the wider play, Cyrano loves Roxane and composes declarations that articulate feelings he struggles to express directly under his own name.\",\n      \"supports\": \"Supports reading this line as a sincere avowal embedded in concealed or difficult courtship rather than as practice, meaningless recitation, or another O-type use.\",\n      \"confidence\": 0.94\n    }\n  ],\n  \"background_knowledge_metadata\": {\n    \"used\": true,\n    \"familiarity\": \"extensive\",\n    \"confidence\": 0.94,\n    \"contribution\": \"Identified Roxane as the object of Cyrano's love and situated the writing within his broader pattern of indirectly expressing sincere feelings.\"\n  }\n}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "corpus_report_enrichment_v0_1",
+      "strict": true,
+      "schema": {
+        "title": "Corpus report occurrence enrichment v0.1",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "translation_en",
+          "larger_context_summary",
+          "interpretive_commentary"
+        ],
+        "properties": {
+          "translation_en": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "larger_context_summary": {
+            "type": "string"
+          },
+          "interpretive_commentary": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

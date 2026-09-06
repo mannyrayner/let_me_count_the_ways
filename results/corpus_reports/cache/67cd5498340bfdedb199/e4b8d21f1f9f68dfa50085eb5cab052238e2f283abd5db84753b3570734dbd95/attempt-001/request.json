@@ -1,0 +1,35 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Corpus-report occurrence enrichment v0.1\n\nYou are preparing explanatory material for a human-readable research report.\nThe supplied P/T/E/O annotation is immutable evidence: do not revise its scores,\nrecalculate confidence, change ontology fit or utterance status, or “correct”\nthe annotation. Return only the three presentational fields in the schema.\n\nFor a non-English passage, translate the complete displayed passage into\nidiomatic English. Preserve negation, embedding, quotation, relationship terms,\nand genuine ambiguity. Mark the English equivalent of the target expression\nwith Markdown bold (`**…**`), without turning a negated or embedded expression\ninto a direct positive declaration. For an English passage, return\n`translation_en: null`.\n\nThe larger-context summary is visibly AI-generated interpretive context, not\nsource text. In a concise paragraph, identify where reliably possible the\nspeaker, addressee, relationship, immediate narrative or dramatic situation,\nrecent relevant events, participant beliefs, stakes, and any wider plot fact\nneeded to interpret the occurrence. You may use reliable background knowledge\nabout the named work. State uncertainty instead of inventing details, and do\nnot merely paraphrase the local passage.\n\nWrite an approximately 80–180 word human-facing interpretive commentary (less\nonly when the case is genuinely trivial). Explain why the existing scores are\nplausible or interesting rather than listing them again. Distinguish intensity\nfrom expressive/reflexive E, relationship consequences from performative P,\nand deception from the core semantic force where relevant. Explain the value of\nnegated, embedded, quoted, or revoiced cases. Avoid repetitive boilerplate.\n\nOutput one JSON object conforming exactly to the supplied schema.\n\n\n## Input\n\n{\n  \"occurrence_id\": \"rostand-cyrano-de-bergerac-9bde0e07d6fe\",\n  \"title\": \"Cyrano de Bergerac\",\n  \"author\": \"Edmond Rostand\",\n  \"language\": \"fr\",\n  \"source_passage\": \"CHRISTIAN (s'assied près d'elle, sur le banc. Un silence):\\n  Je vous aime.\",\n  \"target_span\": {\n    \"text\": \"Je vous aime\",\n    \"start\": 117879,\n    \"end\": 117891\n  },\n  \"source_location\": {\n    \"source_start\": 117879,\n    \"source_end\": 117891,\n    \"source_length_characters\": 242408,\n    \"relative_position\": 0.486283,\n    \"chapter_or_section\": null\n  },\n  \"utterance_status\": {\n    \"status\": \"direct\",\n    \"description\": \"Christian speaks the line directly to Roxane during their face-to-face dramatic interaction.\"\n  },\n  \"scores\": {\n    \"P\": 0,\n    \"T\": 4,\n    \"E\": 0,\n    \"O\": 0\n  },\n  \"confidence\": 0.94,\n  \"ontology_fit\": \"natural\",\n  \"annotation_analysis\": \"Christian directly avows to Roxane that he loves her. The line primarily presents his loving state as true. Although it occurs during courtship, neither the words nor the immediate staging independently enact a commitment or relational undertaking. The preceding silence and simple delivery provide no positive evidence that the words are a reflex-like expressive discharge.\",\n  \"ambiguity_note\": \"The declaration is part of a courtship encounter and therefore has relational consequences, but courtship context alone is insufficient to give it performative force.\",\n  \"contextual_interpretation\": \"Christian's blunt declaration is a sincere-seeming but rhetorically inadequate avowal during his attempt to court Roxane in his own words. In the wider play, Roxane associates Christian with eloquence substantially supplied by Cyrano; that deception complicates her understanding of the speaker she loves but does not alter this line's core truth-conditional force. Its simplicity, following a silence, contrasts with the elaborate language Roxane expects.\",\n  \"relevant_evidence\": [\n    {\n      \"evidence_id\": \"ev-local-1\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“CHRISTIAN (s'assied près d'elle, sur le banc. Un silence): Je vous aime.”\",\n      \"supports\": \"The explicit first-person declaration directly presents Christian's love for his addressee as true; the stage direction identifies a deliberate face-to-face utterance rather than a report or quotation.\",\n      \"confidence\": 0.99\n    },\n    {\n      \"evidence_id\": \"ev-metadata-1\",\n      \"source\": \"supplied_metadata\",\n      \"quotation_or_description\": \"The supplied metadata identifies the work as Edmond Rostand's French play Cyrano de Bergerac and locates the line near the middle of the text.\",\n      \"supports\": \"Establishes the dramatic source and supports reading the speaker label and stage direction as an enacted direct utterance.\",\n      \"confidence\": 0.99\n    },\n    {\n      \"evidence_id\": \"ev-background-1\",\n      \"source\": \"background_knowledge\",\n      \"quotation_or_description\": \"In the surrounding episode, Christian attempts to speak to Roxane without relying on Cyrano's eloquence, while Roxane expects the verbal brilliance she attributes to Christian.\",\n      \"supports\": \"Explains the line's conspicuous bluntness and the broader deception surrounding the courtship without converting the core avowal into O, P, or E.\",\n      \"confidence\": 0.9\n    }\n  ],\n  \"background_knowledge_metadata\": {\n    \"used\": true,\n    \"familiarity\": \"extensive\",\n    \"confidence\": 0.9,\n    \"contribution\": \"Used knowledge of Christian, Roxane, and Cyrano's mediated courtship to interpret the declaration as a blunt personal avowal embedded in a larger deception about authorship and eloquence.\"\n  }\n}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "corpus_report_enrichment_v0_1",
+      "strict": true,
+      "schema": {
+        "title": "Corpus report occurrence enrichment v0.1",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "translation_en",
+          "larger_context_summary",
+          "interpretive_commentary"
+        ],
+        "properties": {
+          "translation_en": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "larger_context_summary": {
+            "type": "string"
+          },
+          "interpretive_commentary": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

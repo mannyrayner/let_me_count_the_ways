@@ -1,0 +1,35 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Corpus-report occurrence enrichment v0.1\n\nYou are preparing explanatory material for a human-readable research report.\nThe supplied P/T/E/O annotation is immutable evidence: do not revise its scores,\nrecalculate confidence, change ontology fit or utterance status, or “correct”\nthe annotation. Return only the three presentational fields in the schema.\n\nFor a non-English passage, translate the complete displayed passage into\nidiomatic English. Preserve negation, embedding, quotation, relationship terms,\nand genuine ambiguity. Mark the English equivalent of the target expression\nwith Markdown bold (`**…**`), without turning a negated or embedded expression\ninto a direct positive declaration. For an English passage, return\n`translation_en: null`.\n\nThe larger-context summary is visibly AI-generated interpretive context, not\nsource text. In a concise paragraph, identify where reliably possible the\nspeaker, addressee, relationship, immediate narrative or dramatic situation,\nrecent relevant events, participant beliefs, stakes, and any wider plot fact\nneeded to interpret the occurrence. You may use reliable background knowledge\nabout the named work. State uncertainty instead of inventing details, and do\nnot merely paraphrase the local passage.\n\nWrite an approximately 80–180 word human-facing interpretive commentary (less\nonly when the case is genuinely trivial). Explain why the existing scores are\nplausible or interesting rather than listing them again. Distinguish intensity\nfrom expressive/reflexive E, relationship consequences from performative P,\nand deception from the core semantic force where relevant. Explain the value of\nnegated, embedded, quoted, or revoiced cases. Avoid repetitive boilerplate.\n\nOutput one JSON object conforming exactly to the supplied schema.\n\n\n## Input\n\n{\n  \"occurrence_id\": \"rostand-cyrano-de-bergerac-c2ee2ff59ecc\",\n  \"title\": \"Cyrano de Bergerac\",\n  \"author\": \"Edmond Rostand\",\n  \"language\": \"fr\",\n  \"source_passage\": \"ROXANE:\\n  Je vous aime, vivez !\",\n  \"target_span\": {\n    \"text\": \"Je vous aime\",\n    \"start\": 219634,\n    \"end\": 219646\n  },\n  \"source_location\": {\n    \"source_start\": 219634,\n    \"source_end\": 219646,\n    \"source_length_characters\": 242408,\n    \"relative_position\": 0.906051,\n    \"chapter_or_section\": null\n  },\n  \"utterance_status\": {\n    \"status\": \"direct\",\n    \"description\": \"Roxane directly addresses Cyrano in dramatic dialogue: “Je vous aime, vivez !”\"\n  },\n  \"scores\": {\n    \"P\": 1,\n    \"T\": 4,\n    \"E\": 0,\n    \"O\": 0\n  },\n  \"confidence\": 0.93,\n  \"ontology_fit\": \"natural\",\n  \"annotation_analysis\": \"Roxane directly avows that she loves Cyrano. The adjoining imperative “vivez” makes the avowal an urgent reason for him to live, but it does not turn the highlighted words into a substantial commitment or undertaking. Their urgency and emotional intensity do not independently establish expressive/reflexive force.\",\n  \"ambiguity_note\": \"The declaration may weakly enact belated relational recognition, supporting P=1, but the scene offers little prospect of a future undertaking and T remains clearly dominant.\",\n  \"contextual_interpretation\": \"In the play’s final recognition scene, Roxane understands that Cyrano was the true source of the loving language she had associated with Christian. Her declaration is therefore a sincere, belated avowal directed to Cyrano and an urgent appeal that he remain alive. The tragic timing intensifies its force without making it reflex-like or creating a substantial future commitment.\",\n  \"relevant_evidence\": [\n    {\n      \"evidence_id\": \"e1-local-avowal\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“ROXANE: Je vous aime, vivez !”\",\n      \"supports\": \"The first-person present-tense declaration directly presents Roxane’s love as true, strongly supporting T.\",\n      \"confidence\": 0.99\n    },\n    {\n      \"evidence_id\": \"e2-local-appeal\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"The love declaration is immediately followed by the imperative “vivez” (“live”).\",\n      \"supports\": \"The declaration functions as a reason within an urgent appeal, but the imperative supplies urgency rather than independent evidence of expressive/reflexive discharge or a relational undertaking.\",\n      \"confidence\": 0.97\n    },\n    {\n      \"evidence_id\": \"e3-metadata-position\",\n      \"source\": \"supplied_metadata\",\n      \"quotation_or_description\": \"The occurrence is at relative position 0.906051 in Edmond Rostand’s Cyrano de Bergerac.\",\n      \"supports\": \"Its late position is consistent with the climactic final-scene context, though position alone does not determine core force.\",\n      \"confidence\": 0.9\n    },\n    {\n      \"evidence_id\": \"e4-background-recognition\",\n      \"source\": \"background_knowledge\",\n      \"quotation_or_description\": \"In the final scene, Roxane recognizes Cyrano’s authorship or animating voice behind the letters and words through which she had loved Christian, while Cyrano is mortally wounded.\",\n      \"supports\": \"This explains the declaration as a belated sincere avowal and life-saving plea, with only weak performative pressure and no need for O.\",\n      \"confidence\": 0.94\n    }\n  ],\n  \"background_knowledge_metadata\": {\n    \"used\": true,\n    \"familiarity\": \"extensive\",\n    \"confidence\": 0.94,\n    \"contribution\": \"Knowledge of the final recognition and Cyrano’s mortal condition clarifies the addressee, sincerity, belated recognition, and the purpose of “vivez.”\"\n  }\n}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "corpus_report_enrichment_v0_1",
+      "strict": true,
+      "schema": {
+        "title": "Corpus report occurrence enrichment v0.1",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "translation_en",
+          "larger_context_summary",
+          "interpretive_commentary"
+        ],
+        "properties": {
+          "translation_en": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "larger_context_summary": {
+            "type": "string"
+          },
+          "interpretive_commentary": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
