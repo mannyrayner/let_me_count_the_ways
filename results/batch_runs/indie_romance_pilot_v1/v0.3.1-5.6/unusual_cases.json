@@ -1,0 +1,63 @@
+{
+  "criteria": [
+    "O > 0",
+    "ontology_fit != natural",
+    "E >= 2",
+    "P >= 2",
+    "confidence < 0.75",
+    "two or more of P/T/E >= 2"
+  ],
+  "cases": [
+    {
+      "source_id": "lulu-cofield-nikkis-touch-ebook",
+      "occurrence_id": "cofield-nikkis-touch-271daac625fd",
+      "scores": {
+        "P": 3,
+        "T": 4,
+        "E": 0,
+        "O": 0
+      },
+      "ontology_fit": "natural",
+      "confidence": 0.93,
+      "reasons": [
+        "P >= 2",
+        "two or more of P/T/E >= 2"
+      ],
+      "result": "texts\\lulu-cofield-nikkis-touch-ebook\\annotations\\cofield-nikkis-touch-271daac625fd\\attempt-001\\output.json"
+    },
+    {
+      "source_id": "lulu-cofield-nikkis-touch-ebook",
+      "occurrence_id": "cofield-nikkis-touch-d95397b735d0",
+      "scores": {
+        "P": 0,
+        "T": 4,
+        "E": 4,
+        "O": 0
+      },
+      "ontology_fit": "natural",
+      "confidence": 0.98,
+      "reasons": [
+        "E >= 2",
+        "two or more of P/T/E >= 2"
+      ],
+      "result": "texts\\lulu-cofield-nikkis-touch-ebook\\annotations\\cofield-nikkis-touch-d95397b735d0\\attempt-001\\output.json"
+    },
+    {
+      "source_id": "lulu-cofield-nikkis-touch-ebook",
+      "occurrence_id": "cofield-nikkis-touch-fe6c3e255563",
+      "scores": {
+        "P": 3,
+        "T": 4,
+        "E": 0,
+        "O": 0
+      },
+      "ontology_fit": "natural",
+      "confidence": 0.92,
+      "reasons": [
+        "P >= 2",
+        "two or more of P/T/E >= 2"
+      ],
+      "result": "texts\\lulu-cofield-nikkis-touch-ebook\\annotations\\cofield-nikkis-touch-fe6c3e255563\\attempt-001\\output.json"
+    }
+  ]
+}

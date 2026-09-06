@@ -1,0 +1,353 @@
+{
+  "id": "resp_0e899727512a526a006a9d684d4a1087d089810d1644015d03",
+  "object": "response",
+  "created_at": 1788700749,
+  "status": "completed",
+  "background": false,
+  "billing": {
+    "payer": "openai"
+  },
+  "completed_at": 1788700759,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "model": "gpt-5.6-sol",
+  "moderation": null,
+  "output": [
+    {
+      "id": "msg_0e899727512a526a006a9d684e82e087d085e9dd062816da52",
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "annotations": [],
+          "logprobs": [],
+          "text": "{\"occurrence_id\":\"cofield-nikkis-touch-e622228c1fdb\",\"core_classification\":{\"label_support\":{\"truth_conditional\":4,\"performative\":1,\"exclamatory_reflexive\":0,\"other\":0},\"confidence\":0.94,\"analysis\":\"Keith's direct reply primarily avows as true that he reciprocates the addressee's love. “Too” makes the utterance responsive and reciprocal, while the steady, sincere delivery strongly favors a considered assertion over reflex-like expressive discharge. The exchange has minor relational-confirming force, but the excerpt does not establish a substantial commitment or undertaking.\",\"ambiguity\":\"The immediately preceding declaration is omitted, so the precise relationship and stakes are unavailable; this limits confidence about performative force.\"},\"other_diagnosis\":{\"tpe_failure\":null,\"core_not_context\":null},\"utterance_status\":{\"status\":\"direct\",\"description\":\"Keith directly says “I love you too” to an interlocutor in narrated dialogue.\"},\"contextual_interpretation\":\"Keith first stills and then smiles before answering. His reciprocating “too,” together with the narrator's explicit characterization of his voice as steady and sincere, presents the reply as a genuine, controlled avowal rather than an impulsive verbal discharge. It may reassure the interlocutor and affirm their relationship, but those effects do not by themselves make it a strong performative undertaking.\",\"evidence\":[{\"evidence_id\":\"ev1\",\"source\":\"local_text\",\"quotation_or_description\":\"“I love you too,”\",\"supports\":\"The canonical love declaration strongly supports truth-conditional avowal; “too” marks reciprocal response to another declaration.\",\"confidence\":0.99},{\"evidence_id\":\"ev2\",\"source\":\"local_text\",\"quotation_or_description\":\"“his voice steady and sincere”\",\"supports\":\"The narration explicitly presents the avowal as genuine and controlled, supporting T and weighing against an expressive/reflex-like E reading.\",\"confidence\":0.97},{\"evidence_id\":\"ev3\",\"source\":\"local_text\",\"quotation_or_description\":\"“Keith stilled, then smiled.”\",\"supports\":\"The pause-like bodily response and subsequent smile frame the declaration as affectively meaningful, but do not independently establish E or a substantial undertaking.\",\"confidence\":0.86},{\"evidence_id\":\"ev4\",\"source\":\"supplied_metadata\",\"quotation_or_description\":\"The occurrence is located at relative position 0.618718 in Ania Cofield's Nikki's Touch; only an 85-character context window is supplied.\",\"supports\":\"The limited extraction explains why broader relational stakes and any stronger performative implications cannot be established from the supplied material.\",\"confidence\":0.99}],\"background_knowledge\":{\"used\":false,\"familiarity\":\"none\",\"confidence\":null,\"contribution\":null},\"ontology_assessment\":{\"fit\":\"natural\",\"diagnosis\":\"T naturally captures the reciprocal avowal, with slight P support for relational affirmation. Delivery and sincerity are adequately represented as context, and no independent E or residual O dimension is needed.\",\"candidate_recurrent_dimension\":null},\"notes\":null}"
+        }
+      ],
+      "phase": "final_answer",
+      "role": "assistant"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "all_turns",
+    "effort": "medium",
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": true,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "description": null,
+      "name": "passage_classification_v0_3_1",
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "strict": true
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  },
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 3957,
+    "input_tokens_details": {
+      "cache_write_tokens": 3954,
+      "cached_tokens": 0
+    },
+    "output_tokens": 636,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 4593
+  },
+  "user": null,
+  "metadata": {}
+}

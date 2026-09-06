@@ -1,0 +1,57 @@
+{
+  "run_id": "lulu-cofield-nikkis-touch-ebook",
+  "started_at": "2026-09-06T13:18:16.736822+00:00",
+  "ended_at": "2026-09-06T13:21:16.431638+00:00",
+  "work_id": "cofield-nikkis-touch",
+  "source_id": "lulu-cofield-nikkis-touch-ebook",
+  "source_sha256": "047f6bf0f7d18253453e4bb6092701adc2818e6e52c5ce9c5fddc7101dcca69c",
+  "title": "Nikki's Touch",
+  "author": "Ania Cofield",
+  "language": "en",
+  "search_pattern_version": "0.5",
+  "annotation_version": "0.3.1",
+  "model_alias": "5.6",
+  "api_model": "gpt-5.6-sol",
+  "prompt_path": "prompts\\annotation\\classify_passage_v0_3_1.md",
+  "prompt_sha256": "d9cbf88bee5f909f3b424259f083eb60be7555ec65f3f54d222d325619139dfc",
+  "schema_path": "prompts\\annotation\\classification_schema_v0_3.json",
+  "schema_sha256": "af501dbac1e7e1171ba8c3582b75611087f0570744c901b06304dd15dec0b805",
+  "extraction_fingerprint": {
+    "source_sha256": "047f6bf0f7d18253453e4bb6092701adc2818e6e52c5ce9c5fddc7101dcca69c",
+    "patterns_sha256": "4c1cf16cbc3516b5186c5151f916653e098926b12385cd6fa583553bb530b6eb",
+    "pattern_version": "0.5",
+    "context_characters": 1000,
+    "extractor_sha256": "84d3643679dab25e5aa41eeed1cb25336ab43fcd8efa88d97b84e240e906c8fc"
+  },
+  "extraction_reused": true,
+  "extracted_occurrences": 10,
+  "attempted_this_invocation": 10,
+  "skipped_valid_this_invocation": 0,
+  "recovered_without_model_call_this_invocation": 0,
+  "valid_occurrences": 10,
+  "invalid_or_failed_attempts": 0,
+  "unresolved_failed_occurrences": 0,
+  "attempt_counts": {
+    "attempts": 10,
+    "valid": 10,
+    "invalid": 0,
+    "api_failure": 0,
+    "parse_failure": 0
+  },
+  "usage_and_cost": {
+    "input_tokens": 39788,
+    "cached_input_tokens": 0,
+    "output_tokens": 7807,
+    "estimated_total_cost_usd": 0.315292
+  },
+  "software": {
+    "git_commit": "02263758b3d273a8d996133be8ae89ce5dbf0af3",
+    "runner_sha256": "f8999b59780814b386996befd6bb0cbd41adf4295362c1e216ac782359ca5478",
+    "extractor_sha256": "84d3643679dab25e5aa41eeed1cb25336ab43fcd8efa88d97b84e240e906c8fc",
+    "validator_sha256": "f9c8eaa189aa0dd6a6e2d5474036a10a50882898f7afdc3b65194786143e1b03",
+    "model_catalog_sha256": "9facd8d8e66c9e477bf0f691d87836c112562be088517eed77d2d961c39b1c05"
+  },
+  "dry_run": false,
+  "context_expansion_policy": "record_only_no_automatic_rerun",
+  "status": "complete"
+}

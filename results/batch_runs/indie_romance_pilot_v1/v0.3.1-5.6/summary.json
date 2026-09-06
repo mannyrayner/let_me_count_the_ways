@@ -1,0 +1,83 @@
+{
+  "batch_id": "indie_romance_pilot_v1",
+  "batch_manifest": "data\\batches\\indie_romance_pilot_v1.json",
+  "annotation_version": "0.3.1",
+  "model_alias": "5.6",
+  "started_at": "2026-09-06T13:18:56.931216+00:00",
+  "ended_at": "2026-09-06T13:21:16.569734+00:00",
+  "dry_run": false,
+  "force": false,
+  "texts_requested": 1,
+  "texts_completed": 1,
+  "texts_partial_or_failed": 0,
+  "texts_resumed_or_skipped": 0,
+  "annotations_recovered_without_model_call": 0,
+  "occurrences": 10,
+  "occurrences_attempted_this_invocation": 10,
+  "valid_annotations": 10,
+  "model_calls_needed": 0,
+  "failures": 0,
+  "historical_failed_attempts": 0,
+  "estimated_total_cost_usd": 0.315292,
+  "status": "complete",
+  "batch_result_location": "results\\batch_runs\\indie_romance_pilot_v1\\v0.3.1-5.6",
+  "texts": [
+    {
+      "source_id": "lulu-cofield-nikkis-touch-ebook",
+      "title": "Nikki's Touch",
+      "status": "complete",
+      "extraction_seeded_this_invocation": false,
+      "extracted_occurrences": 10,
+      "attempted_this_invocation": 10,
+      "valid_occurrences": 10,
+      "failures": 0,
+      "historical_failed_attempts": 0,
+      "skipped_valid_this_invocation": 0,
+      "recovered_without_model_call_this_invocation": 0,
+      "estimated_total_cost_usd": 0.315292,
+      "cost_per_valid_annotation_usd": 0.0315292,
+      "result_location": "results\\batch_runs\\indie_romance_pilot_v1\\v0.3.1-5.6\\texts\\lulu-cofield-nikkis-touch-ebook"
+    }
+  ],
+  "ontology_statistics": {
+    "score_distributions": {
+      "P": {
+        "0": 3,
+        "1": 5,
+        "2": 0,
+        "3": 2,
+        "4": 0
+      },
+      "T": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 10
+      },
+      "E": {
+        "0": 9,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 1
+      },
+      "O": {
+        "0": 10,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0
+      }
+    },
+    "ontology_fit": {
+      "natural": 10,
+      "strained": 0,
+      "inadequate": 0
+    },
+    "o_above_zero": 0,
+    "e_at_least_two": 1,
+    "p_at_least_two": 2,
+    "balanced_core": 3
+  }
+}
