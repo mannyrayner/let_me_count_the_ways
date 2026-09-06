@@ -7,9 +7,20 @@ top-level commands, and stop for review after each step.
 Run one document at a time. Each runbook ends at a review checkpoint; share the
 named outputs and agree changes before proceeding.
 
-The table below is authoritative. Some checkouts may temporarily retain older,
-unlinked runbooks from the first draft; they can be ignored while repository
-history is cleaned up and do not block the current sequence.
+**This table is the authoritative runbook sequence. Every numbered Markdown
+file directly under `docs/howto/` must appear exactly once in this table.
+Unlinked numbered runbooks are not permitted, and repository validation enforces
+this invariant.**
+
+When adding a runbook, choose the next step number, add the file, and update the
+table in the same commit. Run the mechanical inventory from the repository root:
+
+```bash
+python scripts/docs/validate_runbook_index.py
+```
+
+Obsolete runbooks are removed from the current tree rather than archived
+in-place because Git history already preserves them.
 
 | Step | Runbook | Result to review |
 | --- | --- | --- |

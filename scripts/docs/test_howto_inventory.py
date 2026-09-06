@@ -1,37 +1,73 @@
-"""Verify that every canonical how-to runbook is available."""
+"""Test the mechanically authoritative runbook index."""
 
+import tempfile
 import unittest
 from pathlib import Path
 
-
-HOWTO = Path("docs/howto")
-CANONICAL = {
-    "README.md",
-    "00_configure_cygwin.md",
-    "01_checkout_and_verify.md",
-    "02_configure_model_and_generate_targets.md",
-    "03_review_targets.md",
-    "04_acquire_one_text.md",
-    "05_extract_passages.md",
-    "06_classify_one_passage.md",
-    "07_classify_diagnostic_passages.md",
-    "08_complete_jane_eyre_v0_1.md",
-    "09_run_single_text_pipeline.md",
-    "10_acquire_and_dry_run_next_texts.md",
-    "11_annotate_next_texts_v0_2.md",
-    "12_run_annotation_batches.md",
-    "13_annotate_multilingual_five_v0_3_1.md",
-    "14_build_canonical_corpus_report.md",
-    "15_ingest_indie_romance_pilot.md",
-    "16_annotate_indie_romance_pilot.md",
-    "17_report_and_compare_indie_romance_pilot.md",
-}
+from scripts.docs.validate_runbook_index import parse_entries, validate_index
 
 
-class HowtoInventoryTests(unittest.TestCase):
-    def test_all_canonical_runbooks_are_present(self):
-        actual = {path.name for path in HOWTO.glob("*.md")}
-        self.assertTrue(CANONICAL.issubset(actual))
+def write_fixture(root: Path, rows: list[tuple[int, str]], files: list[str]) -> Path:
+    howto = root / "howto"
+    howto.mkdir()
+    table = ["# Runbooks", "", "| Step | Runbook | Result |", "| --- | --- | --- |"]
+    table.extend(f"| {step} | [Runbook]({link}) | Result |" for step, link in rows)
+    (howto / "README.md").write_text("\n".join(table) + "\n", encoding="utf-8")
+    for name in files:
+        (howto / name).write_text(f"# {name}\n", encoding="utf-8")
+    return howto
+
+
+class RunbookIndexTests(unittest.TestCase):
+    def inventory(self, rows, files):
+        temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(temporary.cleanup)
+        return validate_index(write_fixture(Path(temporary.name), rows, files))
+
+    def test_repository_index_is_valid(self):
+        inventory = validate_index(Path("docs/howto"))
+        self.assertEqual((), inventory.errors)
+        self.assertEqual(18, len(inventory.canonical))
+        self.assertEqual((), inventory.unlinked)
+
+    def test_valid_canonical_directory(self):
+        inventory = self.inventory([(0, "00_start.md"), (1, "01_next.md")],
+                                   ["00_start.md", "01_next.md"])
+        self.assertEqual((), inventory.errors)
+
+    def test_missing_linked_file(self):
+        inventory = self.inventory([(0, "00_start.md")], [])
+        self.assertTrue(any("does not exist" in error for error in inventory.errors))
+
+    def test_extra_unlinked_numbered_runbook(self):
+        inventory = self.inventory([(0, "00_start.md")], ["00_start.md", "00_old.md"])
+        self.assertIn("00_old.md", inventory.unlinked)
+        self.assertTrue(any("unlinked numbered" in error for error in inventory.errors))
+
+    def test_duplicate_step(self):
+        inventory = self.inventory([(0, "00_start.md"), (0, "00_other.md")],
+                                   ["00_start.md", "00_other.md"])
+        self.assertTrue(any("claims step 0" in error for error in inventory.errors))
+
+    def test_wrong_numeric_prefix(self):
+        inventory = self.inventory([(0, "01_start.md")], ["01_start.md"])
+        self.assertTrue(any("numeric prefix" in error for error in inventory.errors))
+
+    def test_duplicate_readme_link(self):
+        inventory = self.inventory([(0, "00_start.md"), (1, "00_start.md")], ["00_start.md"])
+        self.assertTrue(any("links to '00_start.md' 2 times" in error for error in inventory.errors))
+
+    def test_parser_reads_actual_table_links(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            howto = write_fixture(Path(temporary), [(0, "00_start.md")], ["00_start.md"])
+            self.assertEqual("00_start.md", parse_entries(howto / "README.md")[0].link)
+
+    def test_indie_pilot_preserves_unspecified_cc_by_version(self):
+        step = Path("docs/howto/15_ingest_indie_romance_pilot.md").read_text(encoding="utf-8")
+        self.assertIn("Some Rights Reserved - Creative Commons (CC BY)", step)
+        self.assertIn('"license_version": None', step)
+        self.assertIn("Not specified on the Lulu product page", step)
+        self.assertNotIn("creativecommons.org/licenses/by/4.0", step)
 
     def test_indie_pilot_preserves_unspecified_cc_by_version(self):
         step = (HOWTO / "15_ingest_indie_romance_pilot.md").read_text(encoding="utf-8")
