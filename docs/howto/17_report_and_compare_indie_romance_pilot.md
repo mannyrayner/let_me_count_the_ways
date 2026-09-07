@@ -54,6 +54,11 @@ Validate and review:
 ```bash
 PILOT_REPORT='results/corpus_reports/indie_romance_pilot_v1_v0_3_1.json'
 PILOT_MARKDOWN='results/corpus_reports/indie_romance_pilot_v1_v0_3_1.md'
+PILOT_RUN='results/batch_runs/indie_romance_pilot_v1/v0.3.1-5.6'
+test -f "$PILOT_RUN/summary.json" || {
+  echo "Missing pilot batch summary: $PILOT_RUN/summary.json" >&2
+  exit 1
+}
 python -m json.tool "$PILOT_REPORT" >/dev/null
 test -s "$PILOT_MARKDOWN"
 python scripts/reporting/validate_corpus_report.py \
@@ -115,5 +120,6 @@ git status --short
 
 Stop and share both pilot report files, both comparison files, tests, cache/cost
 summary, missing-data inventory, and unexpected P, E, O, mixed, non-natural-fit,
-and low-confidence cases. The next decision is whether this one-work signal
-justifies seeking further clearly licensed examples; do not acquire them here.
+and low-confidence cases. The next stage is to extend the indie-romance corpus
+with locally triaged works whose public excerpts are supported by explicit
+author permission or separately reviewed fair-dealing grounds.
