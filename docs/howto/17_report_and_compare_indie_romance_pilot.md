@@ -54,6 +54,11 @@ Validate and review:
 ```bash
 PILOT_REPORT='results/corpus_reports/indie_romance_pilot_v1_v0_3_1.json'
 PILOT_MARKDOWN='results/corpus_reports/indie_romance_pilot_v1_v0_3_1.md'
+PILOT_RUN='results/batch_runs/indie_romance_pilot_v1/v0.3.1-5.6'
+test -f "$PILOT_RUN/summary.json" || {
+  echo "Missing pilot batch summary: $PILOT_RUN/summary.json" >&2
+  exit 1
+}
 python -m json.tool "$PILOT_REPORT" >/dev/null
 test -s "$PILOT_MARKDOWN"
 python scripts/reporting/validate_corpus_report.py \
@@ -66,7 +71,7 @@ Rerun without force and require zero cache misses/model calls. Read every
 occurrence and verify source passage, context, immutable scores, confidence,
 commentary, utterance status, explicit/sexual-context retention, and provenance.
 
-## 3. Implement and run the deterministic descriptive comparison
+## 3. Run the deterministic descriptive comparison
 
 The comparison command must consume saved structured report/run data and make
 no model calls. Define the groups explicitly:
@@ -90,12 +95,49 @@ results/corpus_reports/canonical_vs_indie_romance_pilot_v1.md
 results/corpus_reports/canonical_vs_indie_romance_pilot_v1.json
 ```
 
+The command is local and deterministic: it reads the two completed JSON
+reports, makes no model calls, and refuses inputs other than the canonical eight
+and the one-work *Nikki's Touch* pilot. This block is self-contained and can be
+pasted into a fresh Cygwin shell. `test -f` is a silent file predicate: no output
+means success, while `echo $?` immediately afterward would print `0`. The loop
+uses it to produce a clearer missing-input error before running Python, and now
+prints an explicit confirmation for each successful check:
+
+```bash
+CANONICAL_REPORT='results/corpus_reports/canonical_eight_v0_3_1.json'
+PILOT_REPORT='results/corpus_reports/indie_romance_pilot_v1_v0_3_1.json'
+COMPARISON_JSON='results/corpus_reports/canonical_vs_indie_romance_pilot_v1.json'
+COMPARISON_MARKDOWN='results/corpus_reports/canonical_vs_indie_romance_pilot_v1.md'
+
+for REPORT in "$CANONICAL_REPORT" "$PILOT_REPORT"; do
+  if ! test -f "$REPORT"; then
+    echo "Missing report: $REPORT" >&2
+    exit 1
+  fi
+  if ! python -m json.tool "$REPORT" >/dev/null; then
+    echo "Report is not valid JSON: $REPORT" >&2
+    exit 1
+  fi
+  printf 'Found and validated report: %s\n' "$REPORT"
+done
+
+python scripts/reporting/compare_corpus_reports.py \
+  --canonical-report "$CANONICAL_REPORT" \
+  --pilot-report "$PILOT_REPORT" \
+  --output-json "$COMPARISON_JSON" \
+  --output-markdown "$COMPARISON_MARKDOWN"
+
+python -m json.tool "$COMPARISON_JSON" >/dev/null
+test -s "$COMPARISON_MARKDOWN"
+less "$COMPARISON_MARKDOWN"
+```
+
 Do not run significance tests. One work cannot support broad genre inference;
 describe this as an exploratory contrast using raw counts and proportions.
 
 ## 4. Test and review symmetrically
 
-Add fixture tests for zero denominators, unknown/overlapping statuses, score
+The comparison tests cover zero denominators, unknown statuses, score
 boundaries, mixed-case definition, deterministic ordering, and total
 reconciliation. Interpret all live outcomes without preference: more P, more E,
 continuing T dominance, more mixed cases, or credible O cases. Reinspect
@@ -115,5 +157,6 @@ git status --short
 
 Stop and share both pilot report files, both comparison files, tests, cache/cost
 summary, missing-data inventory, and unexpected P, E, O, mixed, non-natural-fit,
-and low-confidence cases. The next decision is whether this one-work signal
-justifies seeking further clearly licensed examples; do not acquire them here.
+and low-confidence cases. The next stage is to extend the indie-romance corpus
+with locally triaged works whose public excerpts are supported by explicit
+author permission or separately reviewed fair-dealing grounds.
