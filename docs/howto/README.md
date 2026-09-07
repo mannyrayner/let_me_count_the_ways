@@ -42,6 +42,7 @@ in-place because Git history already preserves them.
 | 15 | [Ingest the one-work indie-romance pilot](15_ingest_indie_romance_pilot.md) | Preserved *Nikki's Touch* EPUB, reproducible Calibre text, exclusions, and reviewed rights/provenance |
 | 16 | [Extract and annotate the indie-romance pilot](16_annotate_indie_romance_pilot.md) | Reviewed *Nikki's Touch* extraction and complete audited v0.3.1 pilot batch |
 | 17 | [Report and compare the pilot](17_report_and_compare_indie_romance_pilot.md) | One-work pilot inspection report and descriptive canonical-versus-indie comparison |
+| 18 | [Triage three local romance candidates](18_triage_local_romance_candidates.md) | Local-only, reproducible conversion, extraction inventory, and retain/drop recommendations |
 
 ## Conventions
 

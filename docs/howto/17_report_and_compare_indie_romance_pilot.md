@@ -115,5 +115,6 @@ git status --short
 
 Stop and share both pilot report files, both comparison files, tests, cache/cost
 summary, missing-data inventory, and unexpected P, E, O, mixed, non-natural-fit,
-and low-confidence cases. The next decision is whether this one-work signal
-justifies seeking further clearly licensed examples; do not acquire them here.
+and low-confidence cases. The next stage is to extend the indie-romance corpus
+with locally triaged works whose public excerpts are supported by explicit
+author permission or separately reviewed fair-dealing grounds.

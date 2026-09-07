@@ -209,6 +209,12 @@ tempCodeRunnerFile.py
 # PyPI configuration file
 .pypirc
 
+# Copyrighted candidate ebooks, conversions, and passage-level triage outputs.
+# These directories are deliberately local-only; do not negate these rules.
+/data/local_candidate_sources/
+/data/local_candidate_derived/
+/results/local_candidate_triage/
+
 # Marimo
 marimo/_static/
 marimo/_lsp/
