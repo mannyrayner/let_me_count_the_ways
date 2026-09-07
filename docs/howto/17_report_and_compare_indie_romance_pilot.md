@@ -54,6 +54,11 @@ Validate and review:
 ```bash
 PILOT_REPORT='results/corpus_reports/indie_romance_pilot_v1_v0_3_1.json'
 PILOT_MARKDOWN='results/corpus_reports/indie_romance_pilot_v1_v0_3_1.md'
+PILOT_RUN='results/batch_runs/indie_romance_pilot_v1/v0.3.1-5.6'
+test -f "$PILOT_RUN/summary.json" || {
+  echo "Missing pilot batch summary: $PILOT_RUN/summary.json" >&2
+  exit 1
+}
 python -m json.tool "$PILOT_REPORT" >/dev/null
 test -s "$PILOT_MARKDOWN"
 python scripts/reporting/validate_corpus_report.py \
@@ -66,7 +71,7 @@ Rerun without force and require zero cache misses/model calls. Read every
 occurrence and verify source passage, context, immutable scores, confidence,
 commentary, utterance status, explicit/sexual-context retention, and provenance.
 
-## 3. Implement and run the deterministic descriptive comparison
+## 3. Run the deterministic descriptive comparison
 
 The comparison command must consume saved structured report/run data and make
 no model calls. Define the groups explicitly:
@@ -90,30 +95,164 @@ results/corpus_reports/canonical_vs_indie_romance_pilot_v1.md
 results/corpus_reports/canonical_vs_indie_romance_pilot_v1.json
 ```
 
+The command is local and deterministic: it reads the two completed JSON
+reports, makes no model calls, and refuses inputs other than the canonical eight
+and the one-work *Nikki's Touch* pilot. This block is self-contained and can be
+pasted into a fresh Cygwin shell. `test -f` is a silent file predicate: no output
+means success, while `echo $?` immediately afterward would print `0`. The loop
+uses it to produce a clearer missing-input error before running Python, and now
+prints an explicit confirmation for each successful check:
+
+```bash
+CANONICAL_REPORT='results/corpus_reports/canonical_eight_v0_3_1.json'
+PILOT_REPORT='results/corpus_reports/indie_romance_pilot_v1_v0_3_1.json'
+COMPARISON_JSON='results/corpus_reports/canonical_vs_indie_romance_pilot_v1.json'
+COMPARISON_MARKDOWN='results/corpus_reports/canonical_vs_indie_romance_pilot_v1.md'
+
+for REPORT in "$CANONICAL_REPORT" "$PILOT_REPORT"; do
+  if ! test -f "$REPORT"; then
+    echo "Missing report: $REPORT" >&2
+    exit 1
+  fi
+  if ! python -m json.tool "$REPORT" >/dev/null; then
+    echo "Report is not valid JSON: $REPORT" >&2
+    exit 1
+  fi
+  printf 'Found and validated report: %s\n' "$REPORT"
+done
+
+python scripts/reporting/compare_corpus_reports.py \
+  --canonical-report "$CANONICAL_REPORT" \
+  --pilot-report "$PILOT_REPORT" \
+  --output-json "$COMPARISON_JSON" \
+  --output-markdown "$COMPARISON_MARKDOWN"
+
+python -m json.tool "$COMPARISON_JSON" >/dev/null
+test -s "$COMPARISON_MARKDOWN"
+less "$COMPARISON_MARKDOWN"
+```
+
 Do not run significance tests. One work cannot support broad genre inference;
 describe this as an exploratory contrast using raw counts and proportions.
 
 ## 4. Test and review symmetrically
 
-Add fixture tests for zero denominators, unknown/overlapping statuses, score
+The comparison tests cover zero denominators, unknown statuses, score
 boundaries, mixed-case definition, deterministic ordering, and total
 reconciliation. Interpret all live outcomes without preference: more P, more E,
 continuing T dominance, more mixed cases, or credible O cases. Reinspect
 surprising cases before ontology changes and avoid taste-coded comparisons.
 
+Run this self-contained audit block. The audit reconciles every distribution,
+threshold denominator, group total, and per-work total; verifies the input
+hashes and fixed 8/41-versus-1/10 scope; and prints the cache/cost summary,
+missing-data inventory, cautions, and every pilot P, E, O, mixed,
+non-natural-fit, or low-confidence case that needs human review:
+
 ```bash
-python -m json.tool \
-  results/corpus_reports/canonical_vs_indie_romance_pilot_v1.json >/dev/null
+CANONICAL_REPORT='results/corpus_reports/canonical_eight_v0_3_1.json'
+PILOT_REPORT='results/corpus_reports/indie_romance_pilot_v1_v0_3_1.json'
+PILOT_MARKDOWN='results/corpus_reports/indie_romance_pilot_v1_v0_3_1.md'
+PILOT_RUN='results/batch_runs/indie_romance_pilot_v1/v0.3.1-5.6'
+COMPARISON_JSON='results/corpus_reports/canonical_vs_indie_romance_pilot_v1.json'
+COMPARISON_MARKDOWN='results/corpus_reports/canonical_vs_indie_romance_pilot_v1.md'
+
+python scripts/reporting/build_corpus_report.py \
+  --name indie_romance_pilot_v1_v0_3_1 \
+  --batch-run "$PILOT_RUN" \
+  --enrichment-model 5.6 | tee /tmp/step17-cache-check.txt
+grep -Fx 'Cache hits: 10' /tmp/step17-cache-check.txt
+grep -Fx 'Cache misses: 0' /tmp/step17-cache-check.txt
+grep -Fx 'Model calls required: 0' /tmp/step17-cache-check.txt
+
+python scripts/reporting/validate_corpus_report.py \
+  --report "$PILOT_REPORT" \
+  --batch-run "$PILOT_RUN"
+python scripts/reporting/audit_indie_comparison.py \
+  --canonical-report "$CANONICAL_REPORT" \
+  --pilot-report "$PILOT_REPORT" \
+  --comparison "$COMPARISON_JSON" | tee /tmp/step17-audit.txt
 python -m pytest -q
 python scripts/security/scan_credentials.py \
-  results/corpus_reports/indie_romance_pilot_v1_v0_3_1.json \
-  results/corpus_reports/indie_romance_pilot_v1_v0_3_1.md \
-  results/corpus_reports/canonical_vs_indie_romance_pilot_v1.json \
-  results/corpus_reports/canonical_vs_indie_romance_pilot_v1.md
+  "$PILOT_REPORT" "$PILOT_MARKDOWN" \
+  "$COMPARISON_JSON" "$COMPARISON_MARKDOWN"
+wc -l -w -c "$PILOT_REPORT" "$PILOT_MARKDOWN" \
+  "$COMPARISON_JSON" "$COMPARISON_MARKDOWN"
 git status --short
 ```
 
+Open both Markdown files and inspect every case listed under
+`pilot_cases_requiring_review` in `/tmp/step17-audit.txt`. In particular, treat
+the two P=3 occurrences in the short final exchange as two corpus occurrences
+but one scene-level signal. The untracked cache directories are expected from
+the ten pilot enrichments; the second no-force report build must report ten
+cache hits, zero cache misses, and zero model calls before they are retained.
+Do not stage or commit until this human review is complete.
+
+## 5. Commit and push the accepted report
+
+After the audit and human review pass, remove only the reproducible prepared
+request workspace. Retain the ten new cache entries: they are the persistent
+enrichment audit trail, like the canonical-report cache from Step 14. Stage the
+four human-readable/structured report files, the summary, and the cache by their
+named paths; do not stage the whole `results` tree.
+
+```bash
+cd "$LMCW"
+PILOT_REPORT='results/corpus_reports/indie_romance_pilot_v1_v0_3_1.json'
+PILOT_MARKDOWN='results/corpus_reports/indie_romance_pilot_v1_v0_3_1.md'
+PILOT_SUMMARY='results/corpus_reports/indie_romance_pilot_v1_v0_3_1.summary.json'
+PILOT_WORK_ROOT='results/corpus_reports/indie_romance_pilot_v1_v0_3_1'
+COMPARISON_JSON='results/corpus_reports/canonical_vs_indie_romance_pilot_v1.json'
+COMPARISON_MARKDOWN='results/corpus_reports/canonical_vs_indie_romance_pilot_v1.md'
+REPORT_CACHE='results/corpus_reports/cache'
+
+test -z "$(git diff --cached --name-only)" || {
+  echo 'The index already contains files; stop and review it.' >&2
+  exit 1
+}
+rm -rf "$PILOT_WORK_ROOT/work"
+
+python scripts/security/scan_credentials.py \
+  "$PILOT_REPORT" "$PILOT_MARKDOWN" "$PILOT_SUMMARY" \
+  "$COMPARISON_JSON" "$COMPARISON_MARKDOWN" "$REPORT_CACHE"
+sha256sum \
+  "$PILOT_REPORT" "$PILOT_MARKDOWN" "$PILOT_SUMMARY" \
+  "$COMPARISON_JSON" "$COMPARISON_MARKDOWN"
+
+git add \
+  "$PILOT_REPORT" \
+  "$PILOT_MARKDOWN" \
+  "$PILOT_SUMMARY" \
+  "$COMPARISON_JSON" \
+  "$COMPARISON_MARKDOWN" \
+  "$REPORT_CACHE"
+
+if git diff --cached --name-only | grep -E \
+  '(^|/)(local_candidate_sources|local_candidate_derived|local_candidate_triage)(/|$)'
+then
+  echo 'Local-only candidate material is staged; unstage it and stop.' >&2
+  exit 1
+fi
+git diff --cached --check
+git diff --cached --stat
+git diff --cached --name-only
+python scripts/security/scan_credentials.py \
+  "$PILOT_REPORT" "$PILOT_MARKDOWN" "$PILOT_SUMMARY" \
+  "$COMPARISON_JSON" "$COMPARISON_MARKDOWN" "$REPORT_CACHE"
+python -m pytest -q
+
+git commit -m 'Add Nikki’s Touch corpus report and canonical comparison'
+git push origin HEAD
+git status --short
+```
+
+The final status must contain neither the report workspace nor untracked cache
+entries. Do not add the ignored Step 18 ebooks, converted texts, local
+provenance, or candidate passages to this commit.
+
 Stop and share both pilot report files, both comparison files, tests, cache/cost
 summary, missing-data inventory, and unexpected P, E, O, mixed, non-natural-fit,
-and low-confidence cases. The next decision is whether this one-work signal
-justifies seeking further clearly licensed examples; do not acquire them here.
+and low-confidence cases. The next stage is to extend the indie-romance corpus
+with locally triaged works whose public excerpts are supported by explicit
+author permission or separately reviewed fair-dealing grounds.
