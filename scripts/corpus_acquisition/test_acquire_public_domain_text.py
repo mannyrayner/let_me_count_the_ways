@@ -28,8 +28,8 @@ class AcquisitionTests(unittest.TestCase):
         result = acquire_gutenberg(
             url, raw, output, self.downloader({url: "front\n*** START OF THE PROJECT GUTENBERG EBOOK X ***\nBody é.\n*** END OF THE PROJECT GUTENBERG EBOOK X ***\nback"}),
         )
-        self.assertEqual(output.read_text(), "Body é.\n")
-        self.assertIn("front", raw.read_text())
+        self.assertEqual(output.read_text(encoding="utf-8"), "Body é.\n")
+        self.assertIn("front", raw.read_text(encoding="utf-8"))
         self.assertEqual(len(result["sha256"]), 64)
 
     def test_gutenberg_rejects_missing_markers(self):
@@ -43,14 +43,17 @@ class AcquisitionTests(unittest.TestCase):
             base, 401, 402, 331, 332, self.root / "pages", self.root / "pan.txt",
             self.downloader({urls[0]: "<p>First</p>", urls[1]: "<p>Second</p>"}),
         )
-        self.assertEqual((self.root / "pan.txt").read_text(), "First\n\nSecond\n")
+        self.assertEqual(
+            (self.root / "pan.txt").read_text(encoding="utf-8"),
+            "First\n\nSecond\n",
+        )
         self.assertEqual(result["printed_page_range"], [331, 332])
         self.assertEqual(result["url_index_range"], [401, 402])
         self.assertEqual(len(result["download_sha256"]), 2)
 
     def test_runeberg_refuses_overwrite(self):
         output = self.root / "existing.txt"
-        output.write_text("keep")
+        output.write_text("keep", encoding="utf-8")
         with self.assertRaises(FileExistsError):
             acquire_runeberg("https://example.test/v", 1, 1, 1, 1,
                               self.root / "pages", output, self.downloader({}))
