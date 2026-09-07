@@ -6,6 +6,7 @@ from pathlib import Path
 from scripts.reporting.compare_corpus_reports import (
     build_comparison, render_markdown, summarize, work_summaries,
 )
+from scripts.reporting.audit_indie_comparison import audit, review_inventory
 
 
 def occurrence(work_id="work", title="Work", scores=None, status="direct",
@@ -70,6 +71,29 @@ class ComparisonTests(unittest.TestCase):
             first = render_markdown(comparison)
             self.assertEqual(first, render_markdown(copy.deepcopy(comparison)))
             self.assertIn("not two scene-level confirmations", first)
+            errors = audit(pilot, comparison, canonical_path, pilot_path)
+            self.assertIn("pilot report must be complete with 10 occurrences", errors)
+
+    def test_audit_reconciles_expected_live_shape_and_lists_interesting_cases(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary); canonical_path = root / "canonical.json"; pilot_path = root / "pilot.json"
+            canonical_records = [occurrence(str(i % 8), f"Work {i % 8}") for i in range(41)]
+            pilot_records = [occurrence("nikki", "Nikki's Touch") for _ in range(10)]
+            pilot_records[0]["annotation"]["scores"] = {"P": 3, "T": 4, "E": 0, "O": 0}
+            for index, record in enumerate(canonical_records + pilot_records):
+                record["occurrence_id"] = f"occurrence-{index}"
+                record["annotation_provenance"] = {"annotation_version": "0.3.1"}
+            canonical = {"complete": True, "summary": {"occurrences": 41},
+                         "occurrences": canonical_records}
+            pilot = {"complete": True, "summary": {"occurrences": 10},
+                     "occurrences": pilot_records}
+            canonical_path.write_text("canonical", encoding="utf-8")
+            pilot_path.write_text("pilot", encoding="utf-8")
+            comparison = build_comparison(canonical, pilot, canonical_path, pilot_path)
+            self.assertEqual([], audit(pilot, comparison, canonical_path, pilot_path))
+            inventory = review_inventory(pilot, comparison)
+            self.assertEqual("occurrence-41",
+                             inventory["pilot_cases_requiring_review"][0]["occurrence_id"])
 
 
 if __name__ == "__main__":

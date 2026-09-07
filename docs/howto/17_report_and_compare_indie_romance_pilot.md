@@ -143,17 +143,51 @@ reconciliation. Interpret all live outcomes without preference: more P, more E,
 continuing T dominance, more mixed cases, or credible O cases. Reinspect
 surprising cases before ontology changes and avoid taste-coded comparisons.
 
+Run this self-contained audit block. The audit reconciles every distribution,
+threshold denominator, group total, and per-work total; verifies the input
+hashes and fixed 8/41-versus-1/10 scope; and prints the cache/cost summary,
+missing-data inventory, cautions, and every pilot P, E, O, mixed,
+non-natural-fit, or low-confidence case that needs human review:
+
 ```bash
-python -m json.tool \
-  results/corpus_reports/canonical_vs_indie_romance_pilot_v1.json >/dev/null
+CANONICAL_REPORT='results/corpus_reports/canonical_eight_v0_3_1.json'
+PILOT_REPORT='results/corpus_reports/indie_romance_pilot_v1_v0_3_1.json'
+PILOT_MARKDOWN='results/corpus_reports/indie_romance_pilot_v1_v0_3_1.md'
+PILOT_RUN='results/batch_runs/indie_romance_pilot_v1/v0.3.1-5.6'
+COMPARISON_JSON='results/corpus_reports/canonical_vs_indie_romance_pilot_v1.json'
+COMPARISON_MARKDOWN='results/corpus_reports/canonical_vs_indie_romance_pilot_v1.md'
+
+python scripts/reporting/build_corpus_report.py \
+  --name indie_romance_pilot_v1_v0_3_1 \
+  --batch-run "$PILOT_RUN" \
+  --enrichment-model 5.6 | tee /tmp/step17-cache-check.txt
+grep -Fx 'Cache hits: 10' /tmp/step17-cache-check.txt
+grep -Fx 'Cache misses: 0' /tmp/step17-cache-check.txt
+grep -Fx 'Model calls required: 0' /tmp/step17-cache-check.txt
+
+python scripts/reporting/validate_corpus_report.py \
+  --report "$PILOT_REPORT" \
+  --batch-run "$PILOT_RUN"
+python scripts/reporting/audit_indie_comparison.py \
+  --canonical-report "$CANONICAL_REPORT" \
+  --pilot-report "$PILOT_REPORT" \
+  --comparison "$COMPARISON_JSON" | tee /tmp/step17-audit.txt
 python -m pytest -q
 python scripts/security/scan_credentials.py \
-  results/corpus_reports/indie_romance_pilot_v1_v0_3_1.json \
-  results/corpus_reports/indie_romance_pilot_v1_v0_3_1.md \
-  results/corpus_reports/canonical_vs_indie_romance_pilot_v1.json \
-  results/corpus_reports/canonical_vs_indie_romance_pilot_v1.md
+  "$PILOT_REPORT" "$PILOT_MARKDOWN" \
+  "$COMPARISON_JSON" "$COMPARISON_MARKDOWN"
+wc -l -w -c "$PILOT_REPORT" "$PILOT_MARKDOWN" \
+  "$COMPARISON_JSON" "$COMPARISON_MARKDOWN"
 git status --short
 ```
+
+Open both Markdown files and inspect every case listed under
+`pilot_cases_requiring_review` in `/tmp/step17-audit.txt`. In particular, treat
+the two P=3 occurrences in the short final exchange as two corpus occurrences
+but one scene-level signal. The untracked cache directories are expected from
+the ten pilot enrichments; the second no-force report build must report ten
+cache hits, zero cache misses, and zero model calls before they are retained.
+Do not stage or commit until this human review is complete.
 
 Stop and share both pilot report files, both comparison files, tests, cache/cost
 summary, missing-data inventory, and unexpected P, E, O, mixed, non-natural-fit,
