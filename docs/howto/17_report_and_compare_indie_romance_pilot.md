@@ -54,6 +54,11 @@ Validate and review:
 ```bash
 PILOT_REPORT='results/corpus_reports/indie_romance_pilot_v1_v0_3_1.json'
 PILOT_MARKDOWN='results/corpus_reports/indie_romance_pilot_v1_v0_3_1.md'
+PILOT_RUN='results/batch_runs/indie_romance_pilot_v1/v0.3.1-5.6'
+test -f "$PILOT_RUN/summary.json" || {
+  echo "Missing pilot batch summary: $PILOT_RUN/summary.json" >&2
+  exit 1
+}
 python -m json.tool "$PILOT_REPORT" >/dev/null
 test -s "$PILOT_MARKDOWN"
 python scripts/reporting/validate_corpus_report.py \
