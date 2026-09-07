@@ -1,0 +1,35 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Corpus-report occurrence enrichment v0.1\n\nYou are preparing explanatory material for a human-readable research report.\nThe supplied P/T/E/O annotation is immutable evidence: do not revise its scores,\nrecalculate confidence, change ontology fit or utterance status, or “correct”\nthe annotation. Return only the three presentational fields in the schema.\n\nFor a non-English passage, translate the complete displayed passage into\nidiomatic English. Preserve negation, embedding, quotation, relationship terms,\nand genuine ambiguity. Mark the English equivalent of the target expression\nwith Markdown bold (`**…**`), without turning a negated or embedded expression\ninto a direct positive declaration. For an English passage, return\n`translation_en: null`.\n\nThe larger-context summary is visibly AI-generated interpretive context, not\nsource text. In a concise paragraph, identify where reliably possible the\nspeaker, addressee, relationship, immediate narrative or dramatic situation,\nrecent relevant events, participant beliefs, stakes, and any wider plot fact\nneeded to interpret the occurrence. You may use reliable background knowledge\nabout the named work. State uncertainty instead of inventing details, and do\nnot merely paraphrase the local passage.\n\nWrite an approximately 80–180 word human-facing interpretive commentary (less\nonly when the case is genuinely trivial). Explain why the existing scores are\nplausible or interesting rather than listing them again. Distinguish intensity\nfrom expressive/reflexive E, relationship consequences from performative P,\nand deception from the core semantic force where relevant. Explain the value of\nnegated, embedded, quoted, or revoiced cases. Avoid repetitive boilerplate.\n\nOutput one JSON object conforming exactly to the supplied schema.\n\n\n## Input\n\n{\n  \"occurrence_id\": \"cofield-nikkis-touch-271daac625fd\",\n  \"title\": \"Nikki's Touch\",\n  \"author\": \"Ania Cofield\",\n  \"language\": \"en\",\n  \"source_passage\": \"\\t“I love you,” he murmured against her lips, his voice full of promise. “I love you so much, Nikki.”\",\n  \"target_span\": {\n    \"text\": \"I love you\",\n    \"start\": 365815,\n    \"end\": 365825\n  },\n  \"source_location\": {\n    \"source_start\": 365815,\n    \"source_end\": 365825,\n    \"source_length_characters\": 367442,\n    \"relative_position\": 0.995572,\n    \"chapter_or_section\": null\n  },\n  \"utterance_status\": {\n    \"status\": \"direct\",\n    \"description\": \"A male character directly says “I love you” to Nikki while kissing her; he then repeats and intensifies the declaration.\"\n  },\n  \"scores\": {\n    \"P\": 3,\n    \"T\": 4,\n    \"E\": 0,\n    \"O\": 0\n  },\n  \"confidence\": 0.93,\n  \"ontology_fit\": \"natural\",\n  \"annotation_analysis\": \"The first “I love you” directly avows the speaker’s loving state, strongly supporting T. The narration that his voice is “full of promise” gives the avowal substantial relational-undertaking force and therefore supports P, although no explicit commitment is articulated. Murmuring during a kiss and immediately repeating the declaration indicate intimacy and intensity but do not independently establish expressive/reflexive discharge, so E is unsupported.\",\n  \"ambiguity_note\": \"The degree of P is somewhat uncertain because “full of promise” may describe romantic tone and future potential rather than a definite undertaking.\",\n  \"contextual_interpretation\": \"The utterance is framed as an intimate, sincere-seeming avowal delivered against Nikki’s lips and reinforced by “I love you so much, Nikki.” The narrator’s description of his voice as “full of promise” presents it not only as a statement of feeling but also as carrying prospective relational commitment. Nothing in the supplied passage indicates irony, deception, coercion, or reflex-like loss of verbal control.\",\n  \"relevant_evidence\": [\n    {\n      \"evidence_id\": \"e1\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“I love you,” he murmured against her lips\",\n      \"supports\": \"The direct first-person declaration strongly supports T; the intimate delivery supplies context but does not by itself support E.\",\n      \"confidence\": 0.98\n    },\n    {\n      \"evidence_id\": \"e2\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“his voice full of promise”\",\n      \"supports\": \"The explicit narratorial framing supplies substantial evidence that the declaration invokes a relational or future-oriented undertaking, supporting P.\",\n      \"confidence\": 0.88\n    },\n    {\n      \"evidence_id\": \"e3\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“I love you so much, Nikki.”\",\n      \"supports\": \"The immediate personalized repetition reinforces the interpretation of the highlighted utterance as a strong avowal of loving feeling rather than a semantically empty token.\",\n      \"confidence\": 0.96\n    }\n  ],\n  \"background_knowledge_metadata\": {\n    \"used\": false,\n    \"familiarity\": \"none\",\n    \"confidence\": null,\n    \"contribution\": null\n  }\n}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "corpus_report_enrichment_v0_1",
+      "strict": true,
+      "schema": {
+        "title": "Corpus report occurrence enrichment v0.1",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "translation_en",
+          "larger_context_summary",
+          "interpretive_commentary"
+        ],
+        "properties": {
+          "translation_en": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "larger_context_summary": {
+            "type": "string"
+          },
+          "interpretive_commentary": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

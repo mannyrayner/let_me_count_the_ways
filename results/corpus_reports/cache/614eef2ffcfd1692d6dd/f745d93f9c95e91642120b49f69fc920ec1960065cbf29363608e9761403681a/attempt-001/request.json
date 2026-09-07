@@ -1,0 +1,35 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Corpus-report occurrence enrichment v0.1\n\nYou are preparing explanatory material for a human-readable research report.\nThe supplied P/T/E/O annotation is immutable evidence: do not revise its scores,\nrecalculate confidence, change ontology fit or utterance status, or “correct”\nthe annotation. Return only the three presentational fields in the schema.\n\nFor a non-English passage, translate the complete displayed passage into\nidiomatic English. Preserve negation, embedding, quotation, relationship terms,\nand genuine ambiguity. Mark the English equivalent of the target expression\nwith Markdown bold (`**…**`), without turning a negated or embedded expression\ninto a direct positive declaration. For an English passage, return\n`translation_en: null`.\n\nThe larger-context summary is visibly AI-generated interpretive context, not\nsource text. In a concise paragraph, identify where reliably possible the\nspeaker, addressee, relationship, immediate narrative or dramatic situation,\nrecent relevant events, participant beliefs, stakes, and any wider plot fact\nneeded to interpret the occurrence. You may use reliable background knowledge\nabout the named work. State uncertainty instead of inventing details, and do\nnot merely paraphrase the local passage.\n\nWrite an approximately 80–180 word human-facing interpretive commentary (less\nonly when the case is genuinely trivial). Explain why the existing scores are\nplausible or interesting rather than listing them again. Distinguish intensity\nfrom expressive/reflexive E, relationship consequences from performative P,\nand deception from the core semantic force where relevant. Explain the value of\nnegated, embedded, quoted, or revoiced cases. Avoid repetitive boilerplate.\n\nOutput one JSON object conforming exactly to the supplied schema.\n\n\n## Input\n\n{\n  \"occurrence_id\": \"cofield-nikkis-touch-80d5409e184d\",\n  \"title\": \"Nikki's Touch\",\n  \"author\": \"Ania Cofield\",\n  \"language\": \"en\",\n  \"source_passage\": \"\\t“I can’t stop thinking about you, Nikki. I love you. I know it’s complicated, but I want to be with you. I’m not asking you to make a decision now, but please, just… call me back.”\",\n  \"target_span\": {\n    \"text\": \"I love you\",\n    \"start\": 309700,\n    \"end\": 309710\n  },\n  \"source_location\": {\n    \"source_start\": 309700,\n    \"source_end\": 309710,\n    \"source_length_characters\": 367442,\n    \"relative_position\": 0.842854,\n    \"chapter_or_section\": null\n  },\n  \"utterance_status\": {\n    \"status\": \"direct\",\n    \"description\": \"A directly represented spoken declaration, apparently part of a message to Nikki, as suggested by the request that she call the speaker back.\"\n  },\n  \"scores\": {\n    \"P\": 1,\n    \"T\": 4,\n    \"E\": 0,\n    \"O\": 0\n  },\n  \"confidence\": 0.9,\n  \"ontology_fit\": \"natural\",\n  \"annotation_analysis\": \"“I love you” primarily avows the speaker’s loving emotional state. In context it also contributes to a relational appeal, giving weak performative support, but it does not clearly undertake a commitment. Nothing indicates that the words are a reflex-like expressive discharge rather than an emotionally significant avowal.\",\n  \"ambiguity_note\": \"The surrounding wish to be together gives the declaration some courtship or commitment-invoking force, but the speaker explicitly avoids demanding an immediate decision, so substantial P force is uncertain.\",\n  \"contextual_interpretation\": \"The declaration occurs between admissions of persistent thought and a stated desire to be with Nikki. The speaker acknowledges complications, postpones any demand for a decision, and asks for a return call. This frames “I love you” chiefly as an avowal intended to disclose feelings and support a cautious relational appeal, not as a reflexive outburst or definite undertaking.\",\n  \"relevant_evidence\": [\n    {\n      \"evidence_id\": \"e1\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“I can’t stop thinking about you, Nikki. I love you.”\",\n      \"supports\": \"The declaration is presented as an avowal of an ongoing emotional state, strongly supporting T.\",\n      \"confidence\": 0.98\n    },\n    {\n      \"evidence_id\": \"e2\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“I know it’s complicated, but I want to be with you.”\",\n      \"supports\": \"The avowal is embedded in a relational appeal, supplying limited support for P while not itself stating a firm commitment.\",\n      \"confidence\": 0.93\n    },\n    {\n      \"evidence_id\": \"e3\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“I’m not asking you to make a decision now, but please, just… call me back.”\",\n      \"supports\": \"The speaker seeks renewed contact while withholding an immediate relational demand; this limits P and suggests a recorded or otherwise unanswered message.\",\n      \"confidence\": 0.9\n    },\n    {\n      \"evidence_id\": \"e4\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"The passage provides no description of blurting, involuntary speech, or words functioning as affective discharge.\",\n      \"supports\": \"Supports E=0: emotional significance and the ellipsis elsewhere do not independently establish expressive/reflexive core force.\",\n      \"confidence\": 0.9\n    }\n  ],\n  \"background_knowledge_metadata\": {\n    \"used\": false,\n    \"familiarity\": \"none\",\n    \"confidence\": null,\n    \"contribution\": null\n  }\n}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "corpus_report_enrichment_v0_1",
+      "strict": true,
+      "schema": {
+        "title": "Corpus report occurrence enrichment v0.1",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "translation_en",
+          "larger_context_summary",
+          "interpretive_commentary"
+        ],
+        "properties": {
+          "translation_en": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "larger_context_summary": {
+            "type": "string"
+          },
+          "interpretive_commentary": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Corpus-report occurrence enrichment v0.1\n\nYou are preparing explanatory material for a human-readable research report.\nThe supplied P/T/E/O annotation is immutable evidence: do not revise its scores,\nrecalculate confidence, change ontology fit or utterance status, or “correct”\nthe annotation. Return only the three presentational fields in the schema.\n\nFor a non-English passage, translate the complete displayed passage into\nidiomatic English. Preserve negation, embedding, quotation, relationship terms,\nand genuine ambiguity. Mark the English equivalent of the target expression\nwith Markdown bold (`**…**`), without turning a negated or embedded expression\ninto a direct positive declaration. For an English passage, return\n`translation_en: null`.\n\nThe larger-context summary is visibly AI-generated interpretive context, not\nsource text. In a concise paragraph, identify where reliably possible the\nspeaker, addressee, relationship, immediate narrative or dramatic situation,\nrecent relevant events, participant beliefs, stakes, and any wider plot fact\nneeded to interpret the occurrence. You may use reliable background knowledge\nabout the named work. State uncertainty instead of inventing details, and do\nnot merely paraphrase the local passage.\n\nWrite an approximately 80–180 word human-facing interpretive commentary (less\nonly when the case is genuinely trivial). Explain why the existing scores are\nplausible or interesting rather than listing them again. Distinguish intensity\nfrom expressive/reflexive E, relationship consequences from performative P,\nand deception from the core semantic force where relevant. Explain the value of\nnegated, embedded, quoted, or revoiced cases. Avoid repetitive boilerplate.\n\nOutput one JSON object conforming exactly to the supplied schema.\n\n\n## Input\n\n{\n  \"occurrence_id\": \"cofield-nikkis-touch-e622228c1fdb\",\n  \"title\": \"Nikki's Touch\",\n  \"author\": \"Ania Cofield\",\n  \"language\": \"en\",\n  \"source_passage\": \"\\tKeith stilled, then smiled. “I love you too,” he said, his voice steady and sincere.\",\n  \"target_span\": {\n    \"text\": \"I love you\",\n    \"start\": 227343,\n    \"end\": 227353\n  },\n  \"source_location\": {\n    \"source_start\": 227343,\n    \"source_end\": 227353,\n    \"source_length_characters\": 367442,\n    \"relative_position\": 0.618718,\n    \"chapter_or_section\": null\n  },\n  \"utterance_status\": {\n    \"status\": \"direct\",\n    \"description\": \"Keith directly says “I love you too” to an interlocutor in narrated dialogue.\"\n  },\n  \"scores\": {\n    \"P\": 1,\n    \"T\": 4,\n    \"E\": 0,\n    \"O\": 0\n  },\n  \"confidence\": 0.94,\n  \"ontology_fit\": \"natural\",\n  \"annotation_analysis\": \"Keith's direct reply primarily avows as true that he reciprocates the addressee's love. “Too” makes the utterance responsive and reciprocal, while the steady, sincere delivery strongly favors a considered assertion over reflex-like expressive discharge. The exchange has minor relational-confirming force, but the excerpt does not establish a substantial commitment or undertaking.\",\n  \"ambiguity_note\": \"The immediately preceding declaration is omitted, so the precise relationship and stakes are unavailable; this limits confidence about performative force.\",\n  \"contextual_interpretation\": \"Keith first stills and then smiles before answering. His reciprocating “too,” together with the narrator's explicit characterization of his voice as steady and sincere, presents the reply as a genuine, controlled avowal rather than an impulsive verbal discharge. It may reassure the interlocutor and affirm their relationship, but those effects do not by themselves make it a strong performative undertaking.\",\n  \"relevant_evidence\": [\n    {\n      \"evidence_id\": \"ev1\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“I love you too,”\",\n      \"supports\": \"The canonical love declaration strongly supports truth-conditional avowal; “too” marks reciprocal response to another declaration.\",\n      \"confidence\": 0.99\n    },\n    {\n      \"evidence_id\": \"ev2\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“his voice steady and sincere”\",\n      \"supports\": \"The narration explicitly presents the avowal as genuine and controlled, supporting T and weighing against an expressive/reflex-like E reading.\",\n      \"confidence\": 0.97\n    },\n    {\n      \"evidence_id\": \"ev3\",\n      \"source\": \"local_text\",\n      \"quotation_or_description\": \"“Keith stilled, then smiled.”\",\n      \"supports\": \"The pause-like bodily response and subsequent smile frame the declaration as affectively meaningful, but do not independently establish E or a substantial undertaking.\",\n      \"confidence\": 0.86\n    },\n    {\n      \"evidence_id\": \"ev4\",\n      \"source\": \"supplied_metadata\",\n      \"quotation_or_description\": \"The occurrence is located at relative position 0.618718 in Ania Cofield's Nikki's Touch; only an 85-character context window is supplied.\",\n      \"supports\": \"The limited extraction explains why broader relational stakes and any stronger performative implications cannot be established from the supplied material.\",\n      \"confidence\": 0.99\n    }\n  ],\n  \"background_knowledge_metadata\": {\n    \"used\": false,\n    \"familiarity\": \"none\",\n    \"confidence\": null,\n    \"contribution\": null\n  }\n}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "corpus_report_enrichment_v0_1",
+      "strict": true,
+      "schema": {
+        "title": "Corpus report occurrence enrichment v0.1",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "translation_en",
+          "larger_context_summary",
+          "interpretive_commentary"
+        ],
+        "properties": {
+          "translation_en": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "larger_context_summary": {
+            "type": "string"
+          },
+          "interpretive_commentary": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

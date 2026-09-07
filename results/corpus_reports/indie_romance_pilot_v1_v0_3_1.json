@@ -1,0 +1,1021 @@
+{
+  "report_schema_version": "0.1",
+  "report_name": "indie_romance_pilot_v1_v0_3_1",
+  "complete": true,
+  "batches": [
+    {
+      "batch_id": "indie_romance_pilot_v1",
+      "path": "results/batch_runs/indie_romance_pilot_v1/v0.3.1-5.6",
+      "works": 1,
+      "occurrences": 10
+    }
+  ],
+  "summary": {
+    "works": 1,
+    "occurrences": 10,
+    "enrichments_reused": 10,
+    "enrichments_generated": 0,
+    "failures": 0,
+    "invocation_model_cost_usd": 0.0,
+    "total_recorded_model_cost_usd": 1.051804,
+    "enrichment_model": "gpt-5.6-sol",
+    "prompt_version": "0.1",
+    "prompt_sha256": "67f08eab123bfd59403ca135cdb7358e2b6f321e3e504fbf704657bfaacab16a",
+    "schema_version": "0.1",
+    "schema_sha256": "4a5cdb48e3b77474adc3f319265e32993d3a3314f09b476aaf370ab685c5739f"
+  },
+  "indices": {
+    "by_work": [
+      {
+        "work_id": "cofield-nikkis-touch",
+        "title": "Nikki's Touch",
+        "count": 10,
+        "anchors": [
+          "occ-cofield-nikkis-touch-d95397b735d0-9104b4f9",
+          "occ-cofield-nikkis-touch-e622228c1fdb-716a5260",
+          "occ-cofield-nikkis-touch-09370a771321-85bcc5de",
+          "occ-cofield-nikkis-touch-80d5409e184d-614eef2f",
+          "occ-cofield-nikkis-touch-a498e457b1ec-8aee71da",
+          "occ-cofield-nikkis-touch-62a21616b980-6fc7bb9d",
+          "occ-cofield-nikkis-touch-fe0a036beb97-a52bbbba",
+          "occ-cofield-nikkis-touch-8ba019011267-6fb688c4",
+          "occ-cofield-nikkis-touch-fe6c3e255563-5e0c8b16",
+          "occ-cofield-nikkis-touch-271daac625fd-274f6898"
+        ]
+      }
+    ],
+    "by_language": [
+      {
+        "language": "en",
+        "count": 10,
+        "anchors": [
+          "occ-cofield-nikkis-touch-d95397b735d0-9104b4f9",
+          "occ-cofield-nikkis-touch-e622228c1fdb-716a5260",
+          "occ-cofield-nikkis-touch-09370a771321-85bcc5de",
+          "occ-cofield-nikkis-touch-80d5409e184d-614eef2f",
+          "occ-cofield-nikkis-touch-a498e457b1ec-8aee71da",
+          "occ-cofield-nikkis-touch-62a21616b980-6fc7bb9d",
+          "occ-cofield-nikkis-touch-fe0a036beb97-a52bbbba",
+          "occ-cofield-nikkis-touch-8ba019011267-6fb688c4",
+          "occ-cofield-nikkis-touch-fe6c3e255563-5e0c8b16",
+          "occ-cofield-nikkis-touch-271daac625fd-274f6898"
+        ]
+      }
+    ],
+    "interesting": {
+      "P >= 2": [
+        "occ-cofield-nikkis-touch-fe6c3e255563-5e0c8b16",
+        "occ-cofield-nikkis-touch-271daac625fd-274f6898"
+      ],
+      "E >= 2": [
+        "occ-cofield-nikkis-touch-d95397b735d0-9104b4f9"
+      ],
+      "O > 0": [],
+      "ontology fit != natural": [],
+      "low confidence (< 0.75)": [],
+      "embedded/reported": [],
+      "quoted/revoiced": [
+        "occ-cofield-nikkis-touch-09370a771321-85bcc5de"
+      ],
+      "negated": null
+    },
+    "interesting_notes": {
+      "negated": "unknown / not structurally represented",
+      "status_policy": "Status indices use only structured utterance_status values; categories may be incomplete."
+    }
+  },
+  "occurrences": [
+    {
+      "report_occurrence_key": "9104b4f9411aa25a25c6",
+      "occurrence_id": "cofield-nikkis-touch-d95397b735d0",
+      "batch_id": "indie_romance_pilot_v1",
+      "batch_run": "results/batch_runs/indie_romance_pilot_v1/v0.3.1-5.6",
+      "batch_index": 0,
+      "work_index": 0,
+      "occurrence_index": 1,
+      "work_id": "cofield-nikkis-touch",
+      "source_id": "lulu-cofield-nikkis-touch-ebook",
+      "title": "Nikki's Touch",
+      "author": "Ania Cofield",
+      "language": "en",
+      "source_location": {
+        "source_start": 227229,
+        "source_end": 227239,
+        "source_length_characters": 367442,
+        "relative_position": 0.618408,
+        "chapter_or_section": null
+      },
+      "target": {
+        "text": "I love you",
+        "start": 227229,
+        "end": 227239
+      },
+      "original_passage": "\tAs they lay in bed afterward, Keith traced lazy circles on Nikki’s arm. She turned to him, her heart full. “I love you,” she said suddenly, the words spilling out before she could stop them.",
+      "annotation": {
+        "scores": {
+          "P": 0,
+          "T": 4,
+          "E": 4,
+          "O": 0
+        },
+        "confidence": 0.98,
+        "ontology_fit": "natural",
+        "utterance_status": {
+          "status": "direct",
+          "description": "Nikki directly says “I love you” to Keith while they are lying together in bed."
+        },
+        "analysis": "Nikki directly avows a loving emotional state, strongly supporting T. The narration also explicitly presents the words as an involuntary affective discharge—said suddenly and “spilling out before she could stop them”—which independently gives strong support to E. Nothing in the excerpt indicates that the utterance undertakes or renews a commitment, so P is unsupported.",
+        "ambiguity_note": "The intimate setting may give the avowal relational significance, but it does not independently establish performative commitment.",
+        "contextual_interpretation": "The post-intimacy setting and Nikki’s “heart full” frame the utterance as a sincere-seeming avowal. More decisively for E, the narration depicts its production as sudden and difficult to inhibit: the words emerge before she can stop them. This is positive evidence of reflex-like expressive force rather than mere passionate delivery. No promise, obligation, or relational undertaking is stated or invoked.",
+        "evidence": [
+          {
+            "evidence_id": "e1",
+            "source": "local_text",
+            "quotation_or_description": "“She turned to him, her heart full. ‘I love you,’”",
+            "supports": "The description of Nikki’s affective state and her direct address strongly support a truth-conditional avowal of love.",
+            "confidence": 0.98
+          },
+          {
+            "evidence_id": "e2",
+            "source": "local_text",
+            "quotation_or_description": "“she said suddenly, the words spilling out before she could stop them”",
+            "supports": "This explicitly characterizes the utterance as an unplanned, difficult-to-inhibit expressive discharge, independently supporting E.",
+            "confidence": 0.99
+          },
+          {
+            "evidence_id": "e3",
+            "source": "local_text",
+            "quotation_or_description": "“As they lay in bed afterward, Keith traced lazy circles on Nikki’s arm.”",
+            "supports": "The intimate interpersonal setting supports an affectionate reading, while supplying no clear evidence of a commitment or undertaking.",
+            "confidence": 0.93
+          }
+        ],
+        "background_knowledge": {
+          "used": false,
+          "familiarity": "none",
+          "confidence": null,
+          "contribution": null
+        }
+      },
+      "annotation_provenance": {
+        "path": "results/batch_runs/indie_romance_pilot_v1/v0.3.1-5.6/texts/lulu-cofield-nikkis-touch-ebook/annotations/cofield-nikkis-touch-d95397b735d0/attempt-001/output.json",
+        "annotation_version": "0.3.1",
+        "model": "gpt-5.6-sol",
+        "prompt_path": "prompts\\annotation\\classify_passage_v0_3_1.md",
+        "prompt_sha256": "d9cbf88bee5f909f3b424259f083eb60be7555ec65f3f54d222d325619139dfc",
+        "schema_path": "prompts\\annotation\\classification_schema_v0_3.json",
+        "schema_sha256": "af501dbac1e7e1171ba8c3582b75611087f0570744c901b06304dd15dec0b805"
+      },
+      "source_provenance": "provenance/sources/lulu-cofield-nikkis-touch-ebook.json",
+      "enrichment": {
+        "translation_en": null,
+        "larger_context_summary": "Nikki addresses Keith during a quiet, intimate moment as they lie in bed together afterward, with Keith tracing circles on her arm. The passage does not specify the preceding event or the couple’s formal relationship status, though the setting suggests physical and emotional closeness. Nikki feels emotionally full and speaks before consciously restraining herself, making the disclosure potentially consequential for how each understands their relationship. Keith’s beliefs and response are not shown, so it remains uncertain whether the declaration is mutual, expected, or a new development between them.",
+        "interpretive_commentary": "The declaration straightforwardly presents Nikki as loving Keith, while the narration strongly frames it as sincere by giving access to her full heart and spontaneous delivery. Its especially notable feature is not simply emotional intensity: the words “spill out” before she can stop them, portraying the speech as an involuntary or weakly controlled expression of feeling. That supports expressive/reflexive force independently of how passionate the scene may be. At the same time, an intimate declaration can alter expectations or deepen a relationship without itself performing a promise, defining the relationship, or undertaking a future obligation. The setting therefore supplies possible relational consequences but no clear performative act. Nothing suggests quotation, role-play, irony, or deception; the direct address and internal narration instead align the utterance’s semantic avowal with Nikki’s depicted emotional state."
+      },
+      "anchor": "occ-cofield-nikkis-touch-d95397b735d0-9104b4f9"
+    },
+    {
+      "report_occurrence_key": "716a526002a238f79792",
+      "occurrence_id": "cofield-nikkis-touch-e622228c1fdb",
+      "batch_id": "indie_romance_pilot_v1",
+      "batch_run": "results/batch_runs/indie_romance_pilot_v1/v0.3.1-5.6",
+      "batch_index": 0,
+      "work_index": 0,
+      "occurrence_index": 2,
+      "work_id": "cofield-nikkis-touch",
+      "source_id": "lulu-cofield-nikkis-touch-ebook",
+      "title": "Nikki's Touch",
+      "author": "Ania Cofield",
+      "language": "en",
+      "source_location": {
+        "source_start": 227343,
+        "source_end": 227353,
+        "source_length_characters": 367442,
+        "relative_position": 0.618718,
+        "chapter_or_section": null
+      },
+      "target": {
+        "text": "I love you",
+        "start": 227343,
+        "end": 227353
+      },
+      "original_passage": "\tKeith stilled, then smiled. “I love you too,” he said, his voice steady and sincere.",
+      "annotation": {
+        "scores": {
+          "P": 1,
+          "T": 4,
+          "E": 0,
+          "O": 0
+        },
+        "confidence": 0.94,
+        "ontology_fit": "natural",
+        "utterance_status": {
+          "status": "direct",
+          "description": "Keith directly says “I love you too” to an interlocutor in narrated dialogue."
+        },
+        "analysis": "Keith's direct reply primarily avows as true that he reciprocates the addressee's love. “Too” makes the utterance responsive and reciprocal, while the steady, sincere delivery strongly favors a considered assertion over reflex-like expressive discharge. The exchange has minor relational-confirming force, but the excerpt does not establish a substantial commitment or undertaking.",
+        "ambiguity_note": "The immediately preceding declaration is omitted, so the precise relationship and stakes are unavailable; this limits confidence about performative force.",
+        "contextual_interpretation": "Keith first stills and then smiles before answering. His reciprocating “too,” together with the narrator's explicit characterization of his voice as steady and sincere, presents the reply as a genuine, controlled avowal rather than an impulsive verbal discharge. It may reassure the interlocutor and affirm their relationship, but those effects do not by themselves make it a strong performative undertaking.",
+        "evidence": [
+          {
+            "evidence_id": "ev1",
+            "source": "local_text",
+            "quotation_or_description": "“I love you too,”",
+            "supports": "The canonical love declaration strongly supports truth-conditional avowal; “too” marks reciprocal response to another declaration.",
+            "confidence": 0.99
+          },
+          {
+            "evidence_id": "ev2",
+            "source": "local_text",
+            "quotation_or_description": "“his voice steady and sincere”",
+            "supports": "The narration explicitly presents the avowal as genuine and controlled, supporting T and weighing against an expressive/reflex-like E reading.",
+            "confidence": 0.97
+          },
+          {
+            "evidence_id": "ev3",
+            "source": "local_text",
+            "quotation_or_description": "“Keith stilled, then smiled.”",
+            "supports": "The pause-like bodily response and subsequent smile frame the declaration as affectively meaningful, but do not independently establish E or a substantial undertaking.",
+            "confidence": 0.86
+          },
+          {
+            "evidence_id": "ev4",
+            "source": "supplied_metadata",
+            "quotation_or_description": "The occurrence is located at relative position 0.618718 in Ania Cofield's Nikki's Touch; only an 85-character context window is supplied.",
+            "supports": "The limited extraction explains why broader relational stakes and any stronger performative implications cannot be established from the supplied material.",
+            "confidence": 0.99
+          }
+        ],
+        "background_knowledge": {
+          "used": false,
+          "familiarity": "none",
+          "confidence": null,
+          "contribution": null
+        }
+      },
+      "annotation_provenance": {
+        "path": "results/batch_runs/indie_romance_pilot_v1/v0.3.1-5.6/texts/lulu-cofield-nikkis-touch-ebook/annotations/cofield-nikkis-touch-e622228c1fdb/attempt-001/output.json",
+        "annotation_version": "0.3.1",
+        "model": "gpt-5.6-sol",
+        "prompt_path": "prompts\\annotation\\classify_passage_v0_3_1.md",
+        "prompt_sha256": "d9cbf88bee5f909f3b424259f083eb60be7555ec65f3f54d222d325619139dfc",
+        "schema_path": "prompts\\annotation\\classification_schema_v0_3.json",
+        "schema_sha256": "af501dbac1e7e1171ba8c3582b75611087f0570744c901b06304dd15dec0b805"
+      },
+      "source_provenance": "provenance/sources/lulu-cofield-nikkis-touch-ebook.json",
+      "enrichment": {
+        "translation_en": null,
+        "larger_context_summary": "Keith is responding to an interlocutor who has apparently just declared love for him, as indicated by “too.” The excerpt does not identify the addressee or establish their precise relationship, recent history, or broader stakes. His momentary stillness suggests that the preceding declaration affects him, while his smile and the narrator’s description of his delivery present his response as reassuring and genuine. No wider plot circumstances can be reliably inferred from the supplied context.",
+        "interpretive_commentary": "The wording functions chiefly as a sincere claim about Keith’s feelings: “too” explicitly makes his love reciprocal rather than introducing an unrelated declaration. The narration reinforces this truth-oriented reading by describing his voice as steady and sincere, which discourages interpretations based on deception, evasion, or merely conventional reassurance. Although the moment is emotionally significant, intensity should not be confused with expressive or reflexive force. Keith pauses, smiles, and answers in a controlled manner; he does not simply blurt out an affective reaction. The reply may confirm or deepen the relationship and reassure the addressee, giving it some interpersonal consequence, but the excerpt contains no promise, undertaking, or clearly relationship-creating act that would support strong performative force. Its responsive form is especially informative because it situates the avowal within an exchange of apparently mutual feeling."
+      },
+      "anchor": "occ-cofield-nikkis-touch-e622228c1fdb-716a5260"
+    },
+    {
+      "report_occurrence_key": "85bcc5deac99abf2bd96",
+      "occurrence_id": "cofield-nikkis-touch-09370a771321",
+      "batch_id": "indie_romance_pilot_v1",
+      "batch_run": "results/batch_runs/indie_romance_pilot_v1/v0.3.1-5.6",
+      "batch_index": 0,
+      "work_index": 0,
+      "occurrence_index": 3,
+      "work_id": "cofield-nikkis-touch",
+      "source_id": "lulu-cofield-nikkis-touch-ebook",
+      "title": "Nikki's Touch",
+      "author": "Ania Cofield",
+      "language": "en",
+      "source_location": {
+        "source_start": 254738,
+        "source_end": 254748,
+        "source_length_characters": 367442,
+        "relative_position": 0.693274,
+        "chapter_or_section": null
+      },
+      "target": {
+        "text": "I love you",
+        "start": 254738,
+        "end": 254748
+      },
+      "original_passage": "\t“Nikki, it’s me,” Keith’s voice came through, heavy with concern. “I woke up, and you were gone. Please, just...call me. I need to know you’re okay. If I did something to upset you, I’m sorry. I love you, Nikki. Don’t shut me out.”",
+      "annotation": {
+        "scores": {
+          "P": 0,
+          "T": 4,
+          "E": 0,
+          "O": 0
+        },
+        "confidence": 0.94,
+        "ontology_fit": "natural",
+        "utterance_status": {
+          "status": "quoted_or_revoiced",
+          "description": "Keith's utterance is represented as direct quoted speech, apparently heard through a phone or recorded message; “Please, just...call me” suggests that Nikki is not participating in a live exchange."
+        },
+        "analysis": "Keith's “I love you, Nikki” is principally an avowal of his loving emotional state. It also reassures Nikki and supports his appeal for renewed contact, but neither reassurance nor the appeal establishes an independent commitment or relational undertaking. His concern and urgency describe the delivery and context, not expressive/reflexive core force.",
+        "ambiguity_note": "The excerpt strongly suggests a voicemail or recorded phone message, though the precise medium is not explicitly named.",
+        "contextual_interpretation": "Keith is distressed by Nikki's unexplained absence and uses the avowal amid concern, apology, and pleas for contact. The declaration functions as sincere-seeming reassurance and as emotional support for “Don't shut me out,” but the passage provides no positive evidence that it itself performs a commitment or erupts as a reflex-like discharge.",
+        "evidence": [
+          {
+            "evidence_id": "e1",
+            "source": "local_text",
+            "quotation_or_description": "“I love you, Nikki.”",
+            "supports": "The explicit first-person declaration strongly supports truth-conditional avowal directed specifically to Nikki.",
+            "confidence": 0.99
+          },
+          {
+            "evidence_id": "e2",
+            "source": "local_text",
+            "quotation_or_description": "“I woke up, and you were gone. Please, just...call me. I need to know you're okay.”",
+            "supports": "Keith's concern and request for contact explain the declaration's reassuring and persuasive context without independently establishing performative commitment.",
+            "confidence": 0.96
+          },
+          {
+            "evidence_id": "e3",
+            "source": "local_text",
+            "quotation_or_description": "“If I did something to upset you, I'm sorry. I love you, Nikki. Don't shut me out.”",
+            "supports": "The apology and plea frame the avowal as an attempt to preserve communication and closeness; they do not supply evidence of reflex-like verbal discharge.",
+            "confidence": 0.96
+          },
+          {
+            "evidence_id": "e4",
+            "source": "local_text",
+            "quotation_or_description": "“Keith's voice came through” together with “call me”",
+            "supports": "This supports classifying the represented event as quoted or revoiced speech, probably a phone message rather than a live exchange.",
+            "confidence": 0.88
+          }
+        ],
+        "background_knowledge": {
+          "used": false,
+          "familiarity": "none",
+          "confidence": null,
+          "contribution": null
+        }
+      },
+      "annotation_provenance": {
+        "path": "results/batch_runs/indie_romance_pilot_v1/v0.3.1-5.6/texts/lulu-cofield-nikkis-touch-ebook/annotations/cofield-nikkis-touch-09370a771321/attempt-001/output.json",
+        "annotation_version": "0.3.1",
+        "model": "gpt-5.6-sol",
+        "prompt_path": "prompts\\annotation\\classify_passage_v0_3_1.md",
+        "prompt_sha256": "d9cbf88bee5f909f3b424259f083eb60be7555ec65f3f54d222d325619139dfc",
+        "schema_path": "prompts\\annotation\\classification_schema_v0_3.json",
+        "schema_sha256": "af501dbac1e7e1171ba8c3582b75611087f0570744c901b06304dd15dec0b805"
+      },
+      "source_provenance": "provenance/sources/lulu-cofield-nikkis-touch-ebook.json",
+      "enrichment": {
+        "translation_en": null,
+        "larger_context_summary": "Keith is addressing Nikki through what appears to be a voicemail or other recorded phone message, although the exact medium is not specified. He has awakened to find her gone and does not know whether she is safe or whether something he did caused her departure. Worried that she is withdrawing from him, he apologizes conditionally, asks her to call, and appeals to their emotional bond. The immediate stakes are Nikki’s safety and the possible rupture of their close relationship; the supplied passage does not establish why she left or what she currently believes.",
+        "interpretive_commentary": "The declaration functions most clearly as an avowal: Keith presents his love for Nikki as true while trying to reassure her and reopen communication. Its placement between a conditional apology and “Don’t shut me out” gives it relational weight, but possible consequences for their relationship do not make the words themselves a promise, commitment, or other performative act. Likewise, the concern audible in his voice and the urgency of his plea may be intense without making the target expression an expressive or reflexive outburst; it remains a composed, intelligible statement serving a persuasive purpose. The quoted-or-revoiced status is interpretively useful because Nikki apparently is not participating in a live exchange. Keith’s declaration is therefore represented as something she can hear later, underlining his uncertainty and lack of immediate control over her response."
+      },
+      "anchor": "occ-cofield-nikkis-touch-09370a771321-85bcc5de"
+    },
+    {
+      "report_occurrence_key": "614eef2ffcfd1692d6dd",
+      "occurrence_id": "cofield-nikkis-touch-80d5409e184d",
+      "batch_id": "indie_romance_pilot_v1",
+      "batch_run": "results/batch_runs/indie_romance_pilot_v1/v0.3.1-5.6",
+      "batch_index": 0,
+      "work_index": 0,
+      "occurrence_index": 4,
+      "work_id": "cofield-nikkis-touch",
+      "source_id": "lulu-cofield-nikkis-touch-ebook",
+      "title": "Nikki's Touch",
+      "author": "Ania Cofield",
+      "language": "en",
+      "source_location": {
+        "source_start": 309700,
+        "source_end": 309710,
+        "source_length_characters": 367442,
+        "relative_position": 0.842854,
+        "chapter_or_section": null
+      },
+      "target": {
+        "text": "I love you",
+        "start": 309700,
+        "end": 309710
+      },
+      "original_passage": "\t“I can’t stop thinking about you, Nikki. I love you. I know it’s complicated, but I want to be with you. I’m not asking you to make a decision now, but please, just… call me back.”",
+      "annotation": {
+        "scores": {
+          "P": 1,
+          "T": 4,
+          "E": 0,
+          "O": 0
+        },
+        "confidence": 0.9,
+        "ontology_fit": "natural",
+        "utterance_status": {
+          "status": "direct",
+          "description": "A directly represented spoken declaration, apparently part of a message to Nikki, as suggested by the request that she call the speaker back."
+        },
+        "analysis": "“I love you” primarily avows the speaker’s loving emotional state. In context it also contributes to a relational appeal, giving weak performative support, but it does not clearly undertake a commitment. Nothing indicates that the words are a reflex-like expressive discharge rather than an emotionally significant avowal.",
+        "ambiguity_note": "The surrounding wish to be together gives the declaration some courtship or commitment-invoking force, but the speaker explicitly avoids demanding an immediate decision, so substantial P force is uncertain.",
+        "contextual_interpretation": "The declaration occurs between admissions of persistent thought and a stated desire to be with Nikki. The speaker acknowledges complications, postpones any demand for a decision, and asks for a return call. This frames “I love you” chiefly as an avowal intended to disclose feelings and support a cautious relational appeal, not as a reflexive outburst or definite undertaking.",
+        "evidence": [
+          {
+            "evidence_id": "e1",
+            "source": "local_text",
+            "quotation_or_description": "“I can’t stop thinking about you, Nikki. I love you.”",
+            "supports": "The declaration is presented as an avowal of an ongoing emotional state, strongly supporting T.",
+            "confidence": 0.98
+          },
+          {
+            "evidence_id": "e2",
+            "source": "local_text",
+            "quotation_or_description": "“I know it’s complicated, but I want to be with you.”",
+            "supports": "The avowal is embedded in a relational appeal, supplying limited support for P while not itself stating a firm commitment.",
+            "confidence": 0.93
+          },
+          {
+            "evidence_id": "e3",
+            "source": "local_text",
+            "quotation_or_description": "“I’m not asking you to make a decision now, but please, just… call me back.”",
+            "supports": "The speaker seeks renewed contact while withholding an immediate relational demand; this limits P and suggests a recorded or otherwise unanswered message.",
+            "confidence": 0.9
+          },
+          {
+            "evidence_id": "e4",
+            "source": "local_text",
+            "quotation_or_description": "The passage provides no description of blurting, involuntary speech, or words functioning as affective discharge.",
+            "supports": "Supports E=0: emotional significance and the ellipsis elsewhere do not independently establish expressive/reflexive core force.",
+            "confidence": 0.9
+          }
+        ],
+        "background_knowledge": {
+          "used": false,
+          "familiarity": "none",
+          "confidence": null,
+          "contribution": null
+        }
+      },
+      "annotation_provenance": {
+        "path": "results/batch_runs/indie_romance_pilot_v1/v0.3.1-5.6/texts/lulu-cofield-nikkis-touch-ebook/annotations/cofield-nikkis-touch-80d5409e184d/attempt-001/output.json",
+        "annotation_version": "0.3.1",
+        "model": "gpt-5.6-sol",
+        "prompt_path": "prompts\\annotation\\classify_passage_v0_3_1.md",
+        "prompt_sha256": "d9cbf88bee5f909f3b424259f083eb60be7555ec65f3f54d222d325619139dfc",
+        "schema_path": "prompts\\annotation\\classification_schema_v0_3.json",
+        "schema_sha256": "af501dbac1e7e1171ba8c3582b75611087f0570744c901b06304dd15dec0b805"
+      },
+      "source_provenance": "provenance/sources/lulu-cofield-nikkis-touch-ebook.json",
+      "enrichment": {
+        "translation_en": null,
+        "larger_context_summary": "An unnamed speaker addresses Nikki, apparently in a voicemail or another unanswered recorded message, since the speaker asks her to call back. Their precise relationship and the source of the acknowledged complications cannot be established from the supplied passage. The speaker discloses persistent thoughts and a desire for a romantic relationship while deliberately relieving Nikki of pressure to decide immediately. The immediate stake is whether she will renew contact and potentially consider being with the speaker; her current feelings and reasons for not responding remain unknown.",
+        "interpretive_commentary": "The declaration functions most clearly as a considered avowal of an enduring emotional state: it is supported by the speaker’s inability to stop thinking about Nikki and by the wish to be with her. It also contributes modestly to a relational bid, since saying it may alter Nikki’s understanding of the relationship and encourage a response. Yet the speaker explicitly postpones any demand for a decision, so the words do not amount to a firm promise, proposal, or undertaking. Their emotional intensity should not be confused with reflexive expressive force: nothing suggests an involuntary cry or affective discharge. The careful acknowledgment that matters are “complicated,” followed by a restrained request for a callback, instead makes the declaration sound deliberate and strategically placed without undermining its core force as a statement of love."
+      },
+      "anchor": "occ-cofield-nikkis-touch-80d5409e184d-614eef2f"
+    },
+    {
+      "report_occurrence_key": "8aee71da53a84c61e754",
+      "occurrence_id": "cofield-nikkis-touch-a498e457b1ec",
+      "batch_id": "indie_romance_pilot_v1",
+      "batch_run": "results/batch_runs/indie_romance_pilot_v1/v0.3.1-5.6",
+      "batch_index": 0,
+      "work_index": 0,
+      "occurrence_index": 5,
+      "work_id": "cofield-nikkis-touch",
+      "source_id": "lulu-cofield-nikkis-touch-ebook",
+      "title": "Nikki's Touch",
+      "author": "Ania Cofield",
+      "language": "en",
+      "source_location": {
+        "source_start": 310583,
+        "source_end": 310593,
+        "source_length_characters": 367442,
+        "relative_position": 0.845257,
+        "chapter_or_section": null
+      },
+      "target": {
+        "text": "I love you",
+        "start": 310583,
+        "end": 310593
+      },
+      "original_passage": "\t“You don’t know how much I need you, Nikki. I’ve been a fool. But please don’t shut me out. I love you. I need you. Just give me a chance.”",
+      "annotation": {
+        "scores": {
+          "P": 1,
+          "T": 4,
+          "E": 0,
+          "O": 0
+        },
+        "confidence": 0.93,
+        "ontology_fit": "natural",
+        "utterance_status": {
+          "status": "direct",
+          "description": "A speaker directly tells Nikki, “I love you,” during an appeal not to be shut out and to be given another chance."
+        },
+        "analysis": "The speaker directly avows love as part of a plea for Nikki not to end or exclude them from the relationship. The utterance strongly presents a loving state as true. Its placement within a request for another chance gives it weak commitment-invoking force, but it does not itself clearly promise or undertake anything. Nothing indicates that the words are a reflex-like expressive discharge rather than an emotionally charged avowal.",
+        "ambiguity_note": "The reconciliation plea creates limited uncertainty about performative force: the declaration may help renew the relationship, but the explicit undertaking remains weak.",
+        "contextual_interpretation": "The declaration is embedded in a remorseful, persuasive appeal: the speaker acknowledges having been foolish, emphasizes need, asks Nikki not to shut them out, and requests another chance. This supports reading the words principally as an avowal offered to justify reconciliation. The passage does not establish whether the avowal is sincere, manipulative, or successful, and those contextual possibilities do not alter its dominant truth-conditional mode.",
+        "evidence": [
+          {
+            "evidence_id": "ev1",
+            "source": "local_text",
+            "quotation_or_description": "“I love you.”",
+            "supports": "The unhedged first-person declaration strongly supports truth-conditional avowal of a loving emotional state.",
+            "confidence": 0.99
+          },
+          {
+            "evidence_id": "ev2",
+            "source": "local_text",
+            "quotation_or_description": "“I’ve been a fool. But please don’t shut me out. I love you. I need you. Just give me a chance.”",
+            "supports": "The surrounding remorse and requests frame the declaration as part of a reconciliation plea, supplying weak performative or relationship-renewing pressure but no explicit commitment.",
+            "confidence": 0.95
+          },
+          {
+            "evidence_id": "ev3",
+            "source": "local_text",
+            "quotation_or_description": "The narration supplies no description such as blurting, speaking involuntarily, or hearing oneself say the words.",
+            "supports": "There is no positive evidence for independent expressive/reflexive force; emotional urgency alone does not support E.",
+            "confidence": 0.92
+          }
+        ],
+        "background_knowledge": {
+          "used": false,
+          "familiarity": "none",
+          "confidence": null,
+          "contribution": null
+        }
+      },
+      "annotation_provenance": {
+        "path": "results/batch_runs/indie_romance_pilot_v1/v0.3.1-5.6/texts/lulu-cofield-nikkis-touch-ebook/annotations/cofield-nikkis-touch-a498e457b1ec/attempt-001/output.json",
+        "annotation_version": "0.3.1",
+        "model": "gpt-5.6-sol",
+        "prompt_path": "prompts\\annotation\\classify_passage_v0_3_1.md",
+        "prompt_sha256": "d9cbf88bee5f909f3b424259f083eb60be7555ec65f3f54d222d325619139dfc",
+        "schema_path": "prompts\\annotation\\classification_schema_v0_3.json",
+        "schema_sha256": "af501dbac1e7e1171ba8c3582b75611087f0570744c901b06304dd15dec0b805"
+      },
+      "source_provenance": "provenance/sources/lulu-cofield-nikkis-touch-ebook.json",
+      "enrichment": {
+        "translation_en": null,
+        "larger_context_summary": "An unnamed speaker addresses Nikki in an emotionally urgent attempt at reconciliation. The speaker admits having behaved foolishly, fears being excluded from Nikki’s life, and asks for another chance while emphasizing both love and need. The immediate stakes are whether Nikki will end or reopen their relationship. The displayed passage does not establish the precise relationship, what prompted the rupture, whether the declaration is sincere, or how Nikki responds.",
+        "interpretive_commentary": "The declaration principally presents the speaker’s love as a fact that Nikki is being asked to believe, making its truth-asserting force especially strong. Its position inside a remorseful plea also gives it some interpersonal leverage: the words are intended to support the request not to be shut out and may help reopen the relationship. That consequence, however, is not the same as performing a clear commitment; the speaker does not explicitly promise changed conduct or define a new relationship. The emotional intensity of “I need you” and “Just give me a chance” likewise does not by itself make the target expression reflexive or involuntary. Nothing indicates that it is blurted out or functions chiefly as an emotional discharge. Whether the avowal is sincere, strategic, or manipulative remains unresolved, but possible deception would concern its truthfulness rather than change its basic semantic force."
+      },
+      "anchor": "occ-cofield-nikkis-touch-a498e457b1ec-8aee71da"
+    },
+    {
+      "report_occurrence_key": "6fc7bb9dab536f4d00cc",
+      "occurrence_id": "cofield-nikkis-touch-62a21616b980",
+      "batch_id": "indie_romance_pilot_v1",
+      "batch_run": "results/batch_runs/indie_romance_pilot_v1/v0.3.1-5.6",
+      "batch_index": 0,
+      "work_index": 0,
+      "occurrence_index": 6,
+      "work_id": "cofield-nikkis-touch",
+      "source_id": "lulu-cofield-nikkis-touch-ebook",
+      "title": "Nikki's Touch",
+      "author": "Ania Cofield",
+      "language": "en",
+      "source_location": {
+        "source_start": 343811,
+        "source_end": 343821,
+        "source_length_characters": 367442,
+        "relative_position": 0.935688,
+        "chapter_or_section": null
+      },
+      "target": {
+        "text": "I love you",
+        "start": 343811,
+        "end": 343821
+      },
+      "original_passage": "\tFranco squeezed her hand, and she turned to look at him. His expression was soft, yet full of emotion. “I love you, Nikki,” he whispered, his voice steady and sincere. “I’ve loved you for a while now. I just— I needed to make sure I didn’t rush this. But now... I know. I know it’s real.”",
+      "annotation": {
+        "scores": {
+          "P": 1,
+          "T": 4,
+          "E": 0,
+          "O": 0
+        },
+        "confidence": 0.96,
+        "ontology_fit": "natural",
+        "utterance_status": {
+          "status": "direct",
+          "description": "Franco directly addresses Nikki and says, “I love you, Nikki,” in the narrated scene."
+        },
+        "analysis": "Franco directly and deliberately avows that he loves Nikki, then explicitly presents the feeling as longstanding and now verified as real. The declaration may carry a weak relational or courtship implication, but it does not clearly undertake a specific commitment. Its measured, reflective presentation provides no independent evidence of expressive/reflex-like discharge.",
+        "ambiguity_note": "The declaration may help establish or advance their relationship, giving weak support to P, but the passage primarily frames it as a considered avowal of an emotional state.",
+        "contextual_interpretation": "The hand squeeze, soft emotional expression, whisper, and stated sincerity frame the declaration as intimate and earnest. More decisively, Franco says he has loved Nikki “for a while,” delayed speaking to avoid rushing, and now knows the feeling is real. This makes the utterance a reflective disclosure rather than a reflexive outburst; emotional delivery alone does not establish E.",
+        "evidence": [
+          {
+            "evidence_id": "e1",
+            "source": "local_text",
+            "quotation_or_description": "“I love you, Nikki,” followed by “I’ve loved you for a while now.”",
+            "supports": "Strong T: Franco explicitly avows a present and continuing loving state.",
+            "confidence": 0.99
+          },
+          {
+            "evidence_id": "e2",
+            "source": "local_text",
+            "quotation_or_description": "“I needed to make sure I didn’t rush this. But now... I know. I know it’s real.”",
+            "supports": "The utterance is presented as a considered conclusion after deliberation, supporting T and weighing against expressive/reflexive E.",
+            "confidence": 0.98
+          },
+          {
+            "evidence_id": "e3",
+            "source": "local_text",
+            "quotation_or_description": "He whispers with a voice described as “steady and sincere,” despite being visibly emotional.",
+            "supports": "Supports earnest, controlled delivery; the emotional intensity does not independently indicate reflex-like verbal discharge.",
+            "confidence": 0.95
+          },
+          {
+            "evidence_id": "e4",
+            "source": "local_text",
+            "quotation_or_description": "Franco squeezes Nikki’s hand and addresses her by name during the declaration.",
+            "supports": "Supports direct interpersonal and courtship significance, with only weak evidence of an enacted relational undertaking.",
+            "confidence": 0.85
+          }
+        ],
+        "background_knowledge": {
+          "used": false,
+          "familiarity": "none",
+          "confidence": null,
+          "contribution": null
+        }
+      },
+      "annotation_provenance": {
+        "path": "results/batch_runs/indie_romance_pilot_v1/v0.3.1-5.6/texts/lulu-cofield-nikkis-touch-ebook/annotations/cofield-nikkis-touch-62a21616b980/attempt-001/output.json",
+        "annotation_version": "0.3.1",
+        "model": "gpt-5.6-sol",
+        "prompt_path": "prompts\\annotation\\classify_passage_v0_3_1.md",
+        "prompt_sha256": "d9cbf88bee5f909f3b424259f083eb60be7555ec65f3f54d222d325619139dfc",
+        "schema_path": "prompts\\annotation\\classification_schema_v0_3.json",
+        "schema_sha256": "af501dbac1e7e1171ba8c3582b75611087f0570744c901b06304dd15dec0b805"
+      },
+      "source_provenance": "provenance/sources/lulu-cofield-nikkis-touch-ebook.json",
+      "enrichment": {
+        "translation_en": null,
+        "larger_context_summary": "Near the end of the work, Franco speaks directly to Nikki during an intimate, emotionally significant exchange. He squeezes her hand and deliberately reveals that he has loved her for some time, explaining that he withheld the declaration because he did not want to rush their relationship or mistake his feelings. Nikki’s response and the broader circumstances of their courtship are not shown here, so the declaration’s immediate consequences remain uncertain. For Franco, the central stake is making a previously private conviction explicit and potentially advancing or redefining their relationship.",
+        "interpretive_commentary": "The occurrence is primarily a strong avowal of an enduring emotional state. Franco does not merely utter the phrase in a heightened moment: he supplies a history of the feeling and describes a process of waiting, testing, and finally recognizing it as real. That reflective framing makes the truth-claiming force especially prominent. The hand squeeze, whisper, and visible emotion increase the scene’s intensity, but intensity alone is not expressive or reflexive E; his steady delivery and prior deliberation instead suggest controlled disclosure. Saying this may alter the couple’s relationship, so a weak performative dimension is plausible, yet Franco makes no explicit promise, proposal, or commitment that the words themselves enact. Nothing in the passage indicates irony, manipulation, quotation, or deception: the narration explicitly presents his voice as sincere, aligning the interpersonal presentation with the declaration’s core semantic force."
+      },
+      "anchor": "occ-cofield-nikkis-touch-62a21616b980-6fc7bb9d"
+    },
+    {
+      "report_occurrence_key": "a52bbbba40e3a68653ee",
+      "occurrence_id": "cofield-nikkis-touch-fe0a036beb97",
+      "batch_id": "indie_romance_pilot_v1",
+      "batch_run": "results/batch_runs/indie_romance_pilot_v1/v0.3.1-5.6",
+      "batch_index": 0,
+      "work_index": 0,
+      "occurrence_index": 7,
+      "work_id": "cofield-nikkis-touch",
+      "source_id": "lulu-cofield-nikkis-touch-ebook",
+      "title": "Nikki's Touch",
+      "author": "Ania Cofield",
+      "language": "en",
+      "source_location": {
+        "source_start": 344385,
+        "source_end": 344395,
+        "source_length_characters": 367442,
+        "relative_position": 0.93725,
+        "chapter_or_section": null
+      },
+      "target": {
+        "text": "I love you",
+        "start": 344385,
+        "end": 344395
+      },
+      "original_passage": "\t“I love you too, Franco,” she said, her voice thick with emotion. “I’m so glad I found you.”",
+      "annotation": {
+        "scores": {
+          "P": 0,
+          "T": 4,
+          "E": 0,
+          "O": 0
+        },
+        "confidence": 0.94,
+        "ontology_fit": "natural",
+        "utterance_status": {
+          "status": "direct",
+          "description": "A character directly addresses Franco with the spoken utterance “I love you too, Franco.”"
+        },
+        "analysis": "The speaker directly and reciprocally avows love for Franco. The emotional delivery reinforces the sincerity and intensity of the avowal but does not independently establish either a relational undertaking or reflex-like expressive force.",
+        "ambiguity_note": "The narrow excerpt cannot establish sincerity with certainty, but sincerity is not required for the strongly truth-conditional force.",
+        "contextual_interpretation": "“Too” presents the declaration as a reciprocal response to an earlier or understood expression of love. Her emotion-thickened voice and gladness at having found Franco frame it as an affectively intense avowal. Those delivery cues do not by themselves make the words an expressive/reflexive discharge, and the excerpt contains no explicit commitment or undertaking.",
+        "evidence": [
+          {
+            "evidence_id": "e1",
+            "source": "local_text",
+            "quotation_or_description": "“I love you too, Franco,”",
+            "supports": "The literal first-person declaration, direct address, and reciprocal “too” strongly support truth-conditional avowal.",
+            "confidence": 0.99
+          },
+          {
+            "evidence_id": "e2",
+            "source": "local_text",
+            "quotation_or_description": "“she said, her voice thick with emotion”",
+            "supports": "This establishes emotionally intense delivery, but supplies no independent evidence that the words are a reflex-like discharge rather than an emotional avowal.",
+            "confidence": 0.96
+          },
+          {
+            "evidence_id": "e3",
+            "source": "local_text",
+            "quotation_or_description": "“I’m so glad I found you.”",
+            "supports": "The follow-up conveys positive relational valuation and supports the affectionate context, without explicitly undertaking an obligation or commitment.",
+            "confidence": 0.93
+          }
+        ],
+        "background_knowledge": {
+          "used": false,
+          "familiarity": "none",
+          "confidence": null,
+          "contribution": null
+        }
+      },
+      "annotation_provenance": {
+        "path": "results/batch_runs/indie_romance_pilot_v1/v0.3.1-5.6/texts/lulu-cofield-nikkis-touch-ebook/annotations/cofield-nikkis-touch-fe0a036beb97/attempt-001/output.json",
+        "annotation_version": "0.3.1",
+        "model": "gpt-5.6-sol",
+        "prompt_path": "prompts\\annotation\\classify_passage_v0_3_1.md",
+        "prompt_sha256": "d9cbf88bee5f909f3b424259f083eb60be7555ec65f3f54d222d325619139dfc",
+        "schema_path": "prompts\\annotation\\classification_schema_v0_3.json",
+        "schema_sha256": "af501dbac1e7e1171ba8c3582b75611087f0570744c901b06304dd15dec0b805"
+      },
+      "source_provenance": "provenance/sources/lulu-cofield-nikkis-touch-ebook.json",
+      "enrichment": {
+        "translation_en": null,
+        "larger_context_summary": "Near the end of the work, an unnamed female speaker addresses Franco in an emotionally charged encounter. The word “too” indicates that she is reciprocating an earlier or understood declaration of love, while her relief or happiness at having found him suggests a reunion, search, or recognition has just reached a favorable resolution. The excerpt does not reliably establish their precise relationship, what separated them, or whether any larger danger has passed.",
+        "interpretive_commentary": "The occurrence is a particularly clear truth-conditional avowal: the speaker directly tells Franco that she loves him, and “too” frames her statement as reciprocal rather than initiating. Her emotion-thickened voice and gladness make the moment intense, but intensity is not the same as reflexive or primarily expressive force; the sentence still presents love as something she affirms about herself. Likewise, the declaration may deepen or confirm their relationship without itself promising future conduct, imposing an obligation, or formally changing their status, so there is no distinct performative undertaking in the quoted words. Although a broader plot could complicate her sincerity, nothing locally signals irony or deception—and even insincerity would not erase the utterance’s semantic form as a claim of love."
+      },
+      "anchor": "occ-cofield-nikkis-touch-fe0a036beb97-a52bbbba"
+    },
+    {
+      "report_occurrence_key": "6fb688c44484f82ac0e3",
+      "occurrence_id": "cofield-nikkis-touch-8ba019011267",
+      "batch_id": "indie_romance_pilot_v1",
+      "batch_run": "results/batch_runs/indie_romance_pilot_v1/v0.3.1-5.6",
+      "batch_index": 0,
+      "work_index": 0,
+      "occurrence_index": 8,
+      "work_id": "cofield-nikkis-touch",
+      "source_id": "lulu-cofield-nikkis-touch-ebook",
+      "title": "Nikki's Touch",
+      "author": "Ania Cofield",
+      "language": "en",
+      "source_location": {
+        "source_start": 364567,
+        "source_end": 364577,
+        "source_length_characters": 367442,
+        "relative_position": 0.992176,
+        "chapter_or_section": null
+      },
+      "target": {
+        "text": "I love you",
+        "start": 364567,
+        "end": 364577
+      },
+      "original_passage": "\t“Nikki D,” Franco continued, his voice full of emotion, “I love you more than words could ever express. You’ve changed my life in ways I never thought possible. You make me a better man, and I can’t imagine my future without you in it. Will you marry me?”",
+      "annotation": {
+        "scores": {
+          "P": 1,
+          "T": 4,
+          "E": 0,
+          "O": 0
+        },
+        "confidence": 0.95,
+        "ontology_fit": "natural",
+        "utterance_status": {
+          "status": "direct",
+          "description": "Franco directly addresses Nikki in dialogue and says, “I love you more than words could ever express.”"
+        },
+        "analysis": "Franco directly avows that he loves Nikki, elaborating on the depth and transformative significance of that state. The surrounding marriage proposal gives the avowal a modest commitment-related role, but the love clause itself primarily presents his feelings as true. Emotional delivery does not independently establish expressive/reflexive force.",
+        "ambiguity_note": "The proposal context creates limited uncertainty about P: the declaration helps frame a relational undertaking, although the explicit commitment-invoking work is principally done by “Will you marry me?” rather than by “I love you.”",
+        "contextual_interpretation": "The declaration is presented as a sincere-seeming avowal within an emotionally charged marriage proposal. Franco supports it with claims that Nikki changed his life, makes him better, and is indispensable to his imagined future. His voice being “full of emotion” indicates affective intensity, but there is no evidence that the words are a reflex-like discharge rather than an intentional avowal leading into the proposal.",
+        "evidence": [
+          {
+            "evidence_id": "e1",
+            "source": "local_text",
+            "quotation_or_description": "“I love you more than words could ever express.”",
+            "supports": "Strong truth-conditional force: Franco explicitly avows an exceptionally deep loving state.",
+            "confidence": 0.99
+          },
+          {
+            "evidence_id": "e2",
+            "source": "local_text",
+            "quotation_or_description": "“You’ve changed my life in ways I never thought possible. You make me a better man, and I can’t imagine my future without you in it.”",
+            "supports": "Elaborates the asserted significance of his love and situates the avowal within a future-oriented relationship.",
+            "confidence": 0.97
+          },
+          {
+            "evidence_id": "e3",
+            "source": "local_text",
+            "quotation_or_description": "“Will you marry me?”",
+            "supports": "The adjacent proposal supplies modest performative support by making the love avowal part of a commitment-invoking conversational turn.",
+            "confidence": 0.95
+          },
+          {
+            "evidence_id": "e4",
+            "source": "local_text",
+            "quotation_or_description": "The narration describes Franco’s voice as “full of emotion.”",
+            "supports": "Establishes emotional delivery but, without evidence of involuntary or discharge-like production, does not independently support E.",
+            "confidence": 0.98
+          }
+        ],
+        "background_knowledge": {
+          "used": false,
+          "familiarity": "none",
+          "confidence": null,
+          "contribution": null
+        }
+      },
+      "annotation_provenance": {
+        "path": "results/batch_runs/indie_romance_pilot_v1/v0.3.1-5.6/texts/lulu-cofield-nikkis-touch-ebook/annotations/cofield-nikkis-touch-8ba019011267/attempt-001/output.json",
+        "annotation_version": "0.3.1",
+        "model": "gpt-5.6-sol",
+        "prompt_path": "prompts\\annotation\\classify_passage_v0_3_1.md",
+        "prompt_sha256": "d9cbf88bee5f909f3b424259f083eb60be7555ec65f3f54d222d325619139dfc",
+        "schema_path": "prompts\\annotation\\classification_schema_v0_3.json",
+        "schema_sha256": "af501dbac1e7e1171ba8c3582b75611087f0570744c901b06304dd15dec0b805"
+      },
+      "source_provenance": "provenance/sources/lulu-cofield-nikkis-touch-ebook.json",
+      "enrichment": {
+        "translation_en": null,
+        "larger_context_summary": "Near the end of the work, Franco addresses Nikki directly in an emotionally charged marriage proposal. He describes her as transformative—someone who has changed his life, makes him a better man, and has become essential to the future he imagines—before asking her to marry him. The passage clearly presents them as romantic partners, although the supplied context does not establish the proposal’s outcome or the specific events that led to this moment. The immediate stakes are both emotional and relational: Franco is disclosing the depth of his attachment while asking Nikki to make a lasting commitment.",
+        "interpretive_commentary": "The target expression functions primarily as a sincere-seeming claim about Franco’s enduring emotional state. Its truth-presenting force is strengthened by the elaboration that follows: Nikki has transformed his life, improved him, and become inseparable from his imagined future. The superlative phrasing—“more than words could ever express”—and the description of his emotional voice increase the declaration’s intensity, but intensity alone does not make it an expressive or reflexive outburst. Franco’s speech is organized, purposeful, and directed toward a consequential question. The marriage proposal gives the avowal some relationship-shaping significance, since it helps justify and frame the requested commitment. Even so, the words of love do not themselves create that commitment; the explicit proposal performs the principal interpersonal action. This makes the occurrence a useful example of a strong avowal embedded in a partly performative conversational turn."
+      },
+      "anchor": "occ-cofield-nikkis-touch-8ba019011267-6fb688c4"
+    },
+    {
+      "report_occurrence_key": "5e0c8b164b71dbf9cc4b",
+      "occurrence_id": "cofield-nikkis-touch-fe6c3e255563",
+      "batch_id": "indie_romance_pilot_v1",
+      "batch_run": "results/batch_runs/indie_romance_pilot_v1/v0.3.1-5.6",
+      "batch_index": 0,
+      "work_index": 0,
+      "occurrence_index": 9,
+      "work_id": "cofield-nikkis-touch",
+      "source_id": "lulu-cofield-nikkis-touch-ebook",
+      "title": "Nikki's Touch",
+      "author": "Ania Cofield",
+      "language": "en",
+      "source_location": {
+        "source_start": 365744,
+        "source_end": 365754,
+        "source_length_characters": 367442,
+        "relative_position": 0.995379,
+        "chapter_or_section": null
+      },
+      "target": {
+        "text": "I love you",
+        "start": 365744,
+        "end": 365754
+      },
+      "original_passage": "\t“I love you,” he murmured against her lips, his voice full of promise. “I love you so much, Nikki.”",
+      "annotation": {
+        "scores": {
+          "P": 3,
+          "T": 4,
+          "E": 0,
+          "O": 0
+        },
+        "confidence": 0.92,
+        "ontology_fit": "natural",
+        "utterance_status": {
+          "status": "direct",
+          "description": "A male speaker directly tells Nikki “I love you” during an intimate exchange; the highlighted utterance is followed by a repeated and intensified declaration."
+        },
+        "analysis": "The direct declaration strongly avows the speaker's love. The narration that his voice is “full of promise” gives substantial independent support to a relational undertaking as well as an assertion of feeling. Murmuring against Nikki's lips and immediately repeating the declaration convey intimacy and intensity, but do not show that the words function as a reflex-like expressive discharge.",
+        "ambiguity_note": "The exact content and strength of the implied promise are unspecified, so performative force is substantial but less certain than truth-conditional force.",
+        "contextual_interpretation": "The utterance is framed as an intimate avowal delivered against Nikki's lips. Its repetition (“I love you so much, Nikki”) reinforces the declaration and personal reassurance, while “his voice full of promise” presents it as carrying commitment-like relational force. Nothing in the supplied passage indicates deception, irony, quotation, or involuntary blurting.",
+        "evidence": [
+          {
+            "evidence_id": "e1",
+            "source": "local_text",
+            "quotation_or_description": "“I love you,” he murmured against her lips",
+            "supports": "Direct address and the ordinary declarative form strongly support a truth-conditional avowal in an intimate setting.",
+            "confidence": 0.98
+          },
+          {
+            "evidence_id": "e2",
+            "source": "local_text",
+            "quotation_or_description": "“his voice full of promise”",
+            "supports": "The narrator explicitly frames the delivery as promise-bearing, supporting performative or undertaking force beyond affection alone.",
+            "confidence": 0.9
+          },
+          {
+            "evidence_id": "e3",
+            "source": "local_text",
+            "quotation_or_description": "“I love you so much, Nikki.”",
+            "supports": "The immediate repetition and naming of the addressee reinforce the avowal and reassurance; absent reflex-like framing, they do not independently support E.",
+            "confidence": 0.95
+          },
+          {
+            "evidence_id": "e4",
+            "source": "supplied_metadata",
+            "quotation_or_description": "The occurrence is at relative position 0.995379 in Ania Cofield's Nikki's Touch.",
+            "supports": "The declaration occurs very near the end of the work, but without wider textual knowledge this supplies only weak contextual support for a culminating relational affirmation.",
+            "confidence": 0.72
+          }
+        ],
+        "background_knowledge": {
+          "used": false,
+          "familiarity": "none",
+          "confidence": null,
+          "contribution": null
+        }
+      },
+      "annotation_provenance": {
+        "path": "results/batch_runs/indie_romance_pilot_v1/v0.3.1-5.6/texts/lulu-cofield-nikkis-touch-ebook/annotations/cofield-nikkis-touch-fe6c3e255563/attempt-001/output.json",
+        "annotation_version": "0.3.1",
+        "model": "gpt-5.6-sol",
+        "prompt_path": "prompts\\annotation\\classify_passage_v0_3_1.md",
+        "prompt_sha256": "d9cbf88bee5f909f3b424259f083eb60be7555ec65f3f54d222d325619139dfc",
+        "schema_path": "prompts\\annotation\\classification_schema_v0_3.json",
+        "schema_sha256": "af501dbac1e7e1171ba8c3582b75611087f0570744c901b06304dd15dec0b805"
+      },
+      "source_provenance": "provenance/sources/lulu-cofield-nikkis-touch-ebook.json",
+      "enrichment": {
+        "translation_en": null,
+        "larger_context_summary": "An unnamed male speaker addresses Nikki during an intimate kiss or embrace, murmuring the declaration against her lips and immediately repeating it with added emphasis. Their precise relationship and the events leading to this moment are not recoverable from the supplied passage, though the physical closeness and personalized reassurance indicate a romantic bond. Because the exchange occurs very near the end of the work, it may serve as a culminating affirmation, but that wider narrative function remains uncertain. The narrator presents his words as sincere and forward-looking by describing his voice as “full of promise.”",
+        "interpretive_commentary": "The occurrence is foremost a direct avowal whose truth-conditional content is unusually clear: he explicitly states his love, addresses Nikki personally, and reinforces the claim by repeating it as “I love you so much.” The physical intimacy and repetition heighten emotional intensity, but intensity alone does not make the utterance reflexive or involuntary; “murmured” suggests controlled, purposeful speech rather than a spontaneous outburst, making the absence of expressive E plausible. Its performative dimension is substantial because “full of promise” frames the declaration as carrying relational assurance and possible future commitment. Even so, no specific undertaking is articulated, so this force remains less determinate than the assertion of feeling. Nothing in the narration signals irony, concealment, role-playing, or deceptive intent, which supports the absence of an oblique dimension."
+      },
+      "anchor": "occ-cofield-nikkis-touch-fe6c3e255563-5e0c8b16"
+    },
+    {
+      "report_occurrence_key": "274f6898d92b21bcd1d9",
+      "occurrence_id": "cofield-nikkis-touch-271daac625fd",
+      "batch_id": "indie_romance_pilot_v1",
+      "batch_run": "results/batch_runs/indie_romance_pilot_v1/v0.3.1-5.6",
+      "batch_index": 0,
+      "work_index": 0,
+      "occurrence_index": 10,
+      "work_id": "cofield-nikkis-touch",
+      "source_id": "lulu-cofield-nikkis-touch-ebook",
+      "title": "Nikki's Touch",
+      "author": "Ania Cofield",
+      "language": "en",
+      "source_location": {
+        "source_start": 365815,
+        "source_end": 365825,
+        "source_length_characters": 367442,
+        "relative_position": 0.995572,
+        "chapter_or_section": null
+      },
+      "target": {
+        "text": "I love you",
+        "start": 365815,
+        "end": 365825
+      },
+      "original_passage": "\t“I love you,” he murmured against her lips, his voice full of promise. “I love you so much, Nikki.”",
+      "annotation": {
+        "scores": {
+          "P": 3,
+          "T": 4,
+          "E": 0,
+          "O": 0
+        },
+        "confidence": 0.93,
+        "ontology_fit": "natural",
+        "utterance_status": {
+          "status": "direct",
+          "description": "A male character directly says “I love you” to Nikki while kissing her; he then repeats and intensifies the declaration."
+        },
+        "analysis": "The first “I love you” directly avows the speaker’s loving state, strongly supporting T. The narration that his voice is “full of promise” gives the avowal substantial relational-undertaking force and therefore supports P, although no explicit commitment is articulated. Murmuring during a kiss and immediately repeating the declaration indicate intimacy and intensity but do not independently establish expressive/reflexive discharge, so E is unsupported.",
+        "ambiguity_note": "The degree of P is somewhat uncertain because “full of promise” may describe romantic tone and future potential rather than a definite undertaking.",
+        "contextual_interpretation": "The utterance is framed as an intimate, sincere-seeming avowal delivered against Nikki’s lips and reinforced by “I love you so much, Nikki.” The narrator’s description of his voice as “full of promise” presents it not only as a statement of feeling but also as carrying prospective relational commitment. Nothing in the supplied passage indicates irony, deception, coercion, or reflex-like loss of verbal control.",
+        "evidence": [
+          {
+            "evidence_id": "e1",
+            "source": "local_text",
+            "quotation_or_description": "“I love you,” he murmured against her lips",
+            "supports": "The direct first-person declaration strongly supports T; the intimate delivery supplies context but does not by itself support E.",
+            "confidence": 0.98
+          },
+          {
+            "evidence_id": "e2",
+            "source": "local_text",
+            "quotation_or_description": "“his voice full of promise”",
+            "supports": "The explicit narratorial framing supplies substantial evidence that the declaration invokes a relational or future-oriented undertaking, supporting P.",
+            "confidence": 0.88
+          },
+          {
+            "evidence_id": "e3",
+            "source": "local_text",
+            "quotation_or_description": "“I love you so much, Nikki.”",
+            "supports": "The immediate personalized repetition reinforces the interpretation of the highlighted utterance as a strong avowal of loving feeling rather than a semantically empty token.",
+            "confidence": 0.96
+          }
+        ],
+        "background_knowledge": {
+          "used": false,
+          "familiarity": "none",
+          "confidence": null,
+          "contribution": null
+        }
+      },
+      "annotation_provenance": {
+        "path": "results/batch_runs/indie_romance_pilot_v1/v0.3.1-5.6/texts/lulu-cofield-nikkis-touch-ebook/annotations/cofield-nikkis-touch-271daac625fd/attempt-001/output.json",
+        "annotation_version": "0.3.1",
+        "model": "gpt-5.6-sol",
+        "prompt_path": "prompts\\annotation\\classify_passage_v0_3_1.md",
+        "prompt_sha256": "d9cbf88bee5f909f3b424259f083eb60be7555ec65f3f54d222d325619139dfc",
+        "schema_path": "prompts\\annotation\\classification_schema_v0_3.json",
+        "schema_sha256": "af501dbac1e7e1171ba8c3582b75611087f0570744c901b06304dd15dec0b805"
+      },
+      "source_provenance": "provenance/sources/lulu-cofield-nikkis-touch-ebook.json",
+      "enrichment": {
+        "translation_en": null,
+        "larger_context_summary": "Near the very end of the work, an unnamed male character addresses Nikki during an intimate kiss, evidently within a romantic relationship or romantic culmination. He murmurs the declaration against her lips and immediately repeats it with Nikki’s name and the intensifier “so much.” The narration characterizes his voice as “full of promise,” suggesting that Nikki is being offered not only reassurance about his present feelings but also hope for their shared future. The supplied evidence does not establish the preceding events, Nikki’s response, or whether any specific commitment has already been discussed, so the precise relational stakes remain uncertain.",
+        "interpretive_commentary": "The highlighted sentence is an especially clear avowal because the speaker directly names his own loving state to its object, Nikki. Its immediate repetition—“I love you so much, Nikki”—supports a strong, sincere-seeming truth claim rather than a casual formula. The description “full of promise” also gives the words prospective relational weight: although he does not explicitly vow a particular action, the declaration can reasonably be heard as implying continued devotion or a future together. That consequence is what makes the performative dimension substantial, though less decisive than the avowal itself. By contrast, the kiss, murmured delivery, and “so much” increase romantic intensity without making the speech an uncontrolled emotional outburst; hence they do not independently support expressive/reflexive force. Nothing locally suggests irony, coercion, quotation, or deception, so the ordinary love-avowal reading remains intact."
+      },
+      "anchor": "occ-cofield-nikkis-touch-271daac625fd-274f6898"
+    }
+  ]
+}

@@ -1,0 +1,1285 @@
+{
+  "comparison_schema_version": "1.0",
+  "comparison_name": "canonical_vs_indie_romance_pilot_v1",
+  "method": {
+    "design": "descriptive exploratory contrast; no significance testing",
+    "mixed_PTE_definition": "at least two of P, T, and E have scores >= 2",
+    "category_overlap": "structural categories may overlap",
+    "negation_policy": "unknown: negation is not structurally represented in v0.3.1",
+    "independence_caution": "Occurrences are corpus units, not independent scenes; the two P=3 pilot occurrences in the short final exchange are not two scene-level confirmations.",
+    "genre_inference_caution": "The indie-romance group contains one work and cannot support broad genre inference."
+  },
+  "inputs": {
+    "canonical_report": "results/corpus_reports/canonical_eight_v0_3_1.json",
+    "canonical_sha256": "1c66d236b3b367bf7320c8ea175c92ec8dbda2c92244a26b4a93fcb2b2449c42",
+    "pilot_report": "results/corpus_reports/indie_romance_pilot_v1_v0_3_1.json",
+    "pilot_sha256": "b9238e88c42e39cf97a4f538a78b5e5c32722f090fe7c0b3b48a995cd98d4f78"
+  },
+  "groups": [
+    {
+      "group_id": "canonical_eight",
+      "label": "Canonical literary fiction/drama",
+      "works": 8,
+      "occurrences": 41,
+      "score_distributions": {
+        "P": {
+          "0": 29,
+          "1": 10,
+          "2": 2,
+          "3": 0,
+          "4": 0
+        },
+        "T": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 41
+        },
+        "E": {
+          "0": 37,
+          "1": 0,
+          "2": 2,
+          "3": 2,
+          "4": 0
+        },
+        "O": {
+          "0": 41,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0
+        }
+      },
+      "P_at_least_2": {
+        "count": 2,
+        "denominator": 41,
+        "proportion": 0.04878
+      },
+      "E_at_least_2": {
+        "count": 4,
+        "denominator": 41,
+        "proportion": 0.097561
+      },
+      "mixed_PTE": {
+        "count": 6,
+        "denominator": 41,
+        "proportion": 0.146341
+      },
+      "ontology_fit": {
+        "distribution": {
+          "natural": 41
+        },
+        "denominator": 41
+      },
+      "utterance_status": {
+        "distribution": {
+          "direct": 34,
+          "hypothetical": 1,
+          "nonverbal_verbalised": 1,
+          "quoted_or_revoiced": 1,
+          "reported": 1,
+          "written": 3
+        },
+        "denominator": 41,
+        "categories": {
+          "embedded_or_reported": {
+            "count": 1,
+            "denominator": 41,
+            "proportion": 0.02439
+          },
+          "quoted_or_revoiced": {
+            "count": 1,
+            "denominator": 41,
+            "proportion": 0.02439
+          },
+          "hypothetical_or_other_marked": {
+            "count": 5,
+            "denominator": 41,
+            "proportion": 0.121951
+          },
+          "direct_status": {
+            "count": 34,
+            "denominator": 41,
+            "proportion": 0.829268
+          },
+          "direct_affirmative": {
+            "count": null,
+            "denominator": null,
+            "proportion": null,
+            "reason": "affirmation/negation is not structurally represented in v0.3.1 annotations"
+          },
+          "negated": {
+            "count": null,
+            "denominator": null,
+            "proportion": null,
+            "reason": "affirmation/negation is not structurally represented in v0.3.1 annotations"
+          }
+        }
+      },
+      "missing_data": {
+        "scores": 0,
+        "ontology_fit": 0,
+        "utterance_status": 0,
+        "negation": 41,
+        "direct_affirmative": 41
+      },
+      "interesting_occurrence_ids": {
+        "P >= 2": [
+          "flaubert-madame-bovary-1e7d6742e45b",
+          "rostand-cyrano-de-bergerac-12e4a608d4b9"
+        ],
+        "E >= 2": [
+          "flaubert-madame-bovary-8c91fb38ed76",
+          "flaubert-madame-bovary-06903c63a2d7",
+          "rostand-cyrano-de-bergerac-c724091d5f24",
+          "rostand-cyrano-de-bergerac-1c7571f33a3e"
+        ],
+        "O > 0": [],
+        "ontology fit != natural": [],
+        "low confidence (< 0.75)": []
+      },
+      "by_work": [
+        {
+          "work_id": "rostand-cyrano-de-bergerac",
+          "title": "Cyrano de Bergerac",
+          "works": 1,
+          "occurrences": 14,
+          "score_distributions": {
+            "P": {
+              "0": 9,
+              "1": 4,
+              "2": 1,
+              "3": 0,
+              "4": 0
+            },
+            "T": {
+              "0": 0,
+              "1": 0,
+              "2": 0,
+              "3": 0,
+              "4": 14
+            },
+            "E": {
+              "0": 12,
+              "1": 0,
+              "2": 0,
+              "3": 2,
+              "4": 0
+            },
+            "O": {
+              "0": 14,
+              "1": 0,
+              "2": 0,
+              "3": 0,
+              "4": 0
+            }
+          },
+          "P_at_least_2": {
+            "count": 1,
+            "denominator": 14,
+            "proportion": 0.071429
+          },
+          "E_at_least_2": {
+            "count": 2,
+            "denominator": 14,
+            "proportion": 0.142857
+          },
+          "mixed_PTE": {
+            "count": 3,
+            "denominator": 14,
+            "proportion": 0.214286
+          },
+          "ontology_fit": {
+            "distribution": {
+              "natural": 14
+            },
+            "denominator": 14
+          },
+          "utterance_status": {
+            "distribution": {
+              "direct": 11,
+              "hypothetical": 1,
+              "written": 2
+            },
+            "denominator": 14,
+            "categories": {
+              "embedded_or_reported": {
+                "count": 0,
+                "denominator": 14,
+                "proportion": 0.0
+              },
+              "quoted_or_revoiced": {
+                "count": 0,
+                "denominator": 14,
+                "proportion": 0.0
+              },
+              "hypothetical_or_other_marked": {
+                "count": 3,
+                "denominator": 14,
+                "proportion": 0.214286
+              },
+              "direct_status": {
+                "count": 11,
+                "denominator": 14,
+                "proportion": 0.785714
+              },
+              "direct_affirmative": {
+                "count": null,
+                "denominator": null,
+                "proportion": null,
+                "reason": "affirmation/negation is not structurally represented in v0.3.1 annotations"
+              },
+              "negated": {
+                "count": null,
+                "denominator": null,
+                "proportion": null,
+                "reason": "affirmation/negation is not structurally represented in v0.3.1 annotations"
+              }
+            }
+          },
+          "missing_data": {
+            "scores": 0,
+            "ontology_fit": 0,
+            "utterance_status": 0,
+            "negation": 14,
+            "direct_affirmative": 14
+          },
+          "interesting_occurrence_ids": {
+            "P >= 2": [
+              "rostand-cyrano-de-bergerac-12e4a608d4b9"
+            ],
+            "E >= 2": [
+              "rostand-cyrano-de-bergerac-c724091d5f24",
+              "rostand-cyrano-de-bergerac-1c7571f33a3e"
+            ],
+            "O > 0": [],
+            "ontology fit != natural": [],
+            "low confidence (< 0.75)": []
+          }
+        },
+        {
+          "work_id": "goethe-die-leiden-des-jungen-werther",
+          "title": "Die Leiden des jungen Werther",
+          "works": 1,
+          "occurrences": 1,
+          "score_distributions": {
+            "P": {
+              "0": 1,
+              "1": 0,
+              "2": 0,
+              "3": 0,
+              "4": 0
+            },
+            "T": {
+              "0": 0,
+              "1": 0,
+              "2": 0,
+              "3": 0,
+              "4": 1
+            },
+            "E": {
+              "0": 1,
+              "1": 0,
+              "2": 0,
+              "3": 0,
+              "4": 0
+            },
+            "O": {
+              "0": 1,
+              "1": 0,
+              "2": 0,
+              "3": 0,
+              "4": 0
+            }
+          },
+          "P_at_least_2": {
+            "count": 0,
+            "denominator": 1,
+            "proportion": 0.0
+          },
+          "E_at_least_2": {
+            "count": 0,
+            "denominator": 1,
+            "proportion": 0.0
+          },
+          "mixed_PTE": {
+            "count": 0,
+            "denominator": 1,
+            "proportion": 0.0
+          },
+          "ontology_fit": {
+            "distribution": {
+              "natural": 1
+            },
+            "denominator": 1
+          },
+          "utterance_status": {
+            "distribution": {
+              "written": 1
+            },
+            "denominator": 1,
+            "categories": {
+              "embedded_or_reported": {
+                "count": 0,
+                "denominator": 1,
+                "proportion": 0.0
+              },
+              "quoted_or_revoiced": {
+                "count": 0,
+                "denominator": 1,
+                "proportion": 0.0
+              },
+              "hypothetical_or_other_marked": {
+                "count": 1,
+                "denominator": 1,
+                "proportion": 1.0
+              },
+              "direct_status": {
+                "count": 0,
+                "denominator": 1,
+                "proportion": 0.0
+              },
+              "direct_affirmative": {
+                "count": null,
+                "denominator": null,
+                "proportion": null,
+                "reason": "affirmation/negation is not structurally represented in v0.3.1 annotations"
+              },
+              "negated": {
+                "count": null,
+                "denominator": null,
+                "proportion": null,
+                "reason": "affirmation/negation is not structurally represented in v0.3.1 annotations"
+              }
+            }
+          },
+          "missing_data": {
+            "scores": 0,
+            "ontology_fit": 0,
+            "utterance_status": 0,
+            "negation": 1,
+            "direct_affirmative": 1
+          },
+          "interesting_occurrence_ids": {
+            "P >= 2": [],
+            "E >= 2": [],
+            "O > 0": [],
+            "ontology fit != natural": [],
+            "low confidence (< 0.75)": []
+          }
+        },
+        {
+          "work_id": "ibsen-et-dukkehjem",
+          "title": "Et dukkehjem",
+          "works": 1,
+          "occurrences": 1,
+          "score_distributions": {
+            "P": {
+              "0": 1,
+              "1": 0,
+              "2": 0,
+              "3": 0,
+              "4": 0
+            },
+            "T": {
+              "0": 0,
+              "1": 0,
+              "2": 0,
+              "3": 0,
+              "4": 1
+            },
+            "E": {
+              "0": 1,
+              "1": 0,
+              "2": 0,
+              "3": 0,
+              "4": 0
+            },
+            "O": {
+              "0": 1,
+              "1": 0,
+              "2": 0,
+              "3": 0,
+              "4": 0
+            }
+          },
+          "P_at_least_2": {
+            "count": 0,
+            "denominator": 1,
+            "proportion": 0.0
+          },
+          "E_at_least_2": {
+            "count": 0,
+            "denominator": 1,
+            "proportion": 0.0
+          },
+          "mixed_PTE": {
+            "count": 0,
+            "denominator": 1,
+            "proportion": 0.0
+          },
+          "ontology_fit": {
+            "distribution": {
+              "natural": 1
+            },
+            "denominator": 1
+          },
+          "utterance_status": {
+            "distribution": {
+              "direct": 1
+            },
+            "denominator": 1,
+            "categories": {
+              "embedded_or_reported": {
+                "count": 0,
+                "denominator": 1,
+                "proportion": 0.0
+              },
+              "quoted_or_revoiced": {
+                "count": 0,
+                "denominator": 1,
+                "proportion": 0.0
+              },
+              "hypothetical_or_other_marked": {
+                "count": 0,
+                "denominator": 1,
+                "proportion": 0.0
+              },
+              "direct_status": {
+                "count": 1,
+                "denominator": 1,
+                "proportion": 1.0
+              },
+              "direct_affirmative": {
+                "count": null,
+                "denominator": null,
+                "proportion": null,
+                "reason": "affirmation/negation is not structurally represented in v0.3.1 annotations"
+              },
+              "negated": {
+                "count": null,
+                "denominator": null,
+                "proportion": null,
+                "reason": "affirmation/negation is not structurally represented in v0.3.1 annotations"
+              }
+            }
+          },
+          "missing_data": {
+            "scores": 0,
+            "ontology_fit": 0,
+            "utterance_status": 0,
+            "negation": 1,
+            "direct_affirmative": 1
+          },
+          "interesting_occurrence_ids": {
+            "P >= 2": [],
+            "E >= 2": [],
+            "O > 0": [],
+            "ontology fit != natural": [],
+            "low confidence (< 0.75)": []
+          }
+        },
+        {
+          "work_id": "strindberg-froken-julie",
+          "title": "Fröken Julie",
+          "works": 1,
+          "occurrences": 2,
+          "score_distributions": {
+            "P": {
+              "0": 2,
+              "1": 0,
+              "2": 0,
+              "3": 0,
+              "4": 0
+            },
+            "T": {
+              "0": 0,
+              "1": 0,
+              "2": 0,
+              "3": 0,
+              "4": 2
+            },
+            "E": {
+              "0": 2,
+              "1": 0,
+              "2": 0,
+              "3": 0,
+              "4": 0
+            },
+            "O": {
+              "0": 2,
+              "1": 0,
+              "2": 0,
+              "3": 0,
+              "4": 0
+            }
+          },
+          "P_at_least_2": {
+            "count": 0,
+            "denominator": 2,
+            "proportion": 0.0
+          },
+          "E_at_least_2": {
+            "count": 0,
+            "denominator": 2,
+            "proportion": 0.0
+          },
+          "mixed_PTE": {
+            "count": 0,
+            "denominator": 2,
+            "proportion": 0.0
+          },
+          "ontology_fit": {
+            "distribution": {
+              "natural": 2
+            },
+            "denominator": 2
+          },
+          "utterance_status": {
+            "distribution": {
+              "direct": 1,
+              "reported": 1
+            },
+            "denominator": 2,
+            "categories": {
+              "embedded_or_reported": {
+                "count": 1,
+                "denominator": 2,
+                "proportion": 0.5
+              },
+              "quoted_or_revoiced": {
+                "count": 0,
+                "denominator": 2,
+                "proportion": 0.0
+              },
+              "hypothetical_or_other_marked": {
+                "count": 0,
+                "denominator": 2,
+                "proportion": 0.0
+              },
+              "direct_status": {
+                "count": 1,
+                "denominator": 2,
+                "proportion": 0.5
+              },
+              "direct_affirmative": {
+                "count": null,
+                "denominator": null,
+                "proportion": null,
+                "reason": "affirmation/negation is not structurally represented in v0.3.1 annotations"
+              },
+              "negated": {
+                "count": null,
+                "denominator": null,
+                "proportion": null,
+                "reason": "affirmation/negation is not structurally represented in v0.3.1 annotations"
+              }
+            }
+          },
+          "missing_data": {
+            "scores": 0,
+            "ontology_fit": 0,
+            "utterance_status": 0,
+            "negation": 2,
+            "direct_affirmative": 2
+          },
+          "interesting_occurrence_ids": {
+            "P >= 2": [],
+            "E >= 2": [],
+            "O > 0": [],
+            "ontology fit != natural": [],
+            "low confidence (< 0.75)": []
+          }
+        },
+        {
+          "work_id": "bronte-jane-eyre",
+          "title": "Jane Eyre",
+          "works": 1,
+          "occurrences": 6,
+          "score_distributions": {
+            "P": {
+              "0": 4,
+              "1": 2,
+              "2": 0,
+              "3": 0,
+              "4": 0
+            },
+            "T": {
+              "0": 0,
+              "1": 0,
+              "2": 0,
+              "3": 0,
+              "4": 6
+            },
+            "E": {
+              "0": 6,
+              "1": 0,
+              "2": 0,
+              "3": 0,
+              "4": 0
+            },
+            "O": {
+              "0": 6,
+              "1": 0,
+              "2": 0,
+              "3": 0,
+              "4": 0
+            }
+          },
+          "P_at_least_2": {
+            "count": 0,
+            "denominator": 6,
+            "proportion": 0.0
+          },
+          "E_at_least_2": {
+            "count": 0,
+            "denominator": 6,
+            "proportion": 0.0
+          },
+          "mixed_PTE": {
+            "count": 0,
+            "denominator": 6,
+            "proportion": 0.0
+          },
+          "ontology_fit": {
+            "distribution": {
+              "natural": 6
+            },
+            "denominator": 6
+          },
+          "utterance_status": {
+            "distribution": {
+              "direct": 4,
+              "nonverbal_verbalised": 1,
+              "quoted_or_revoiced": 1
+            },
+            "denominator": 6,
+            "categories": {
+              "embedded_or_reported": {
+                "count": 0,
+                "denominator": 6,
+                "proportion": 0.0
+              },
+              "quoted_or_revoiced": {
+                "count": 1,
+                "denominator": 6,
+                "proportion": 0.166667
+              },
+              "hypothetical_or_other_marked": {
+                "count": 1,
+                "denominator": 6,
+                "proportion": 0.166667
+              },
+              "direct_status": {
+                "count": 4,
+                "denominator": 6,
+                "proportion": 0.666667
+              },
+              "direct_affirmative": {
+                "count": null,
+                "denominator": null,
+                "proportion": null,
+                "reason": "affirmation/negation is not structurally represented in v0.3.1 annotations"
+              },
+              "negated": {
+                "count": null,
+                "denominator": null,
+                "proportion": null,
+                "reason": "affirmation/negation is not structurally represented in v0.3.1 annotations"
+              }
+            }
+          },
+          "missing_data": {
+            "scores": 0,
+            "ontology_fit": 0,
+            "utterance_status": 0,
+            "negation": 6,
+            "direct_affirmative": 6
+          },
+          "interesting_occurrence_ids": {
+            "P >= 2": [],
+            "E >= 2": [],
+            "O > 0": [],
+            "ontology fit != natural": [],
+            "low confidence (< 0.75)": []
+          }
+        },
+        {
+          "work_id": "lafayette-la-princesse-de-cleves",
+          "title": "La Princesse de Clèves",
+          "works": 1,
+          "occurrences": 1,
+          "score_distributions": {
+            "P": {
+              "0": 1,
+              "1": 0,
+              "2": 0,
+              "3": 0,
+              "4": 0
+            },
+            "T": {
+              "0": 0,
+              "1": 0,
+              "2": 0,
+              "3": 0,
+              "4": 1
+            },
+            "E": {
+              "0": 1,
+              "1": 0,
+              "2": 0,
+              "3": 0,
+              "4": 0
+            },
+            "O": {
+              "0": 1,
+              "1": 0,
+              "2": 0,
+              "3": 0,
+              "4": 0
+            }
+          },
+          "P_at_least_2": {
+            "count": 0,
+            "denominator": 1,
+            "proportion": 0.0
+          },
+          "E_at_least_2": {
+            "count": 0,
+            "denominator": 1,
+            "proportion": 0.0
+          },
+          "mixed_PTE": {
+            "count": 0,
+            "denominator": 1,
+            "proportion": 0.0
+          },
+          "ontology_fit": {
+            "distribution": {
+              "natural": 1
+            },
+            "denominator": 1
+          },
+          "utterance_status": {
+            "distribution": {
+              "direct": 1
+            },
+            "denominator": 1,
+            "categories": {
+              "embedded_or_reported": {
+                "count": 0,
+                "denominator": 1,
+                "proportion": 0.0
+              },
+              "quoted_or_revoiced": {
+                "count": 0,
+                "denominator": 1,
+                "proportion": 0.0
+              },
+              "hypothetical_or_other_marked": {
+                "count": 0,
+                "denominator": 1,
+                "proportion": 0.0
+              },
+              "direct_status": {
+                "count": 1,
+                "denominator": 1,
+                "proportion": 1.0
+              },
+              "direct_affirmative": {
+                "count": null,
+                "denominator": null,
+                "proportion": null,
+                "reason": "affirmation/negation is not structurally represented in v0.3.1 annotations"
+              },
+              "negated": {
+                "count": null,
+                "denominator": null,
+                "proportion": null,
+                "reason": "affirmation/negation is not structurally represented in v0.3.1 annotations"
+              }
+            }
+          },
+          "missing_data": {
+            "scores": 0,
+            "ontology_fit": 0,
+            "utterance_status": 0,
+            "negation": 1,
+            "direct_affirmative": 1
+          },
+          "interesting_occurrence_ids": {
+            "P >= 2": [],
+            "E >= 2": [],
+            "O > 0": [],
+            "ontology fit != natural": [],
+            "low confidence (< 0.75)": []
+          }
+        },
+        {
+          "work_id": "alcott-little-women",
+          "title": "Little Women",
+          "works": 1,
+          "occurrences": 4,
+          "score_distributions": {
+            "P": {
+              "0": 3,
+              "1": 1,
+              "2": 0,
+              "3": 0,
+              "4": 0
+            },
+            "T": {
+              "0": 0,
+              "1": 0,
+              "2": 0,
+              "3": 0,
+              "4": 4
+            },
+            "E": {
+              "0": 4,
+              "1": 0,
+              "2": 0,
+              "3": 0,
+              "4": 0
+            },
+            "O": {
+              "0": 4,
+              "1": 0,
+              "2": 0,
+              "3": 0,
+              "4": 0
+            }
+          },
+          "P_at_least_2": {
+            "count": 0,
+            "denominator": 4,
+            "proportion": 0.0
+          },
+          "E_at_least_2": {
+            "count": 0,
+            "denominator": 4,
+            "proportion": 0.0
+          },
+          "mixed_PTE": {
+            "count": 0,
+            "denominator": 4,
+            "proportion": 0.0
+          },
+          "ontology_fit": {
+            "distribution": {
+              "natural": 4
+            },
+            "denominator": 4
+          },
+          "utterance_status": {
+            "distribution": {
+              "direct": 4
+            },
+            "denominator": 4,
+            "categories": {
+              "embedded_or_reported": {
+                "count": 0,
+                "denominator": 4,
+                "proportion": 0.0
+              },
+              "quoted_or_revoiced": {
+                "count": 0,
+                "denominator": 4,
+                "proportion": 0.0
+              },
+              "hypothetical_or_other_marked": {
+                "count": 0,
+                "denominator": 4,
+                "proportion": 0.0
+              },
+              "direct_status": {
+                "count": 4,
+                "denominator": 4,
+                "proportion": 1.0
+              },
+              "direct_affirmative": {
+                "count": null,
+                "denominator": null,
+                "proportion": null,
+                "reason": "affirmation/negation is not structurally represented in v0.3.1 annotations"
+              },
+              "negated": {
+                "count": null,
+                "denominator": null,
+                "proportion": null,
+                "reason": "affirmation/negation is not structurally represented in v0.3.1 annotations"
+              }
+            }
+          },
+          "missing_data": {
+            "scores": 0,
+            "ontology_fit": 0,
+            "utterance_status": 0,
+            "negation": 4,
+            "direct_affirmative": 4
+          },
+          "interesting_occurrence_ids": {
+            "P >= 2": [],
+            "E >= 2": [],
+            "O > 0": [],
+            "ontology fit != natural": [],
+            "low confidence (< 0.75)": []
+          }
+        },
+        {
+          "work_id": "flaubert-madame-bovary",
+          "title": "Madame Bovary",
+          "works": 1,
+          "occurrences": 12,
+          "score_distributions": {
+            "P": {
+              "0": 8,
+              "1": 3,
+              "2": 1,
+              "3": 0,
+              "4": 0
+            },
+            "T": {
+              "0": 0,
+              "1": 0,
+              "2": 0,
+              "3": 0,
+              "4": 12
+            },
+            "E": {
+              "0": 10,
+              "1": 0,
+              "2": 2,
+              "3": 0,
+              "4": 0
+            },
+            "O": {
+              "0": 12,
+              "1": 0,
+              "2": 0,
+              "3": 0,
+              "4": 0
+            }
+          },
+          "P_at_least_2": {
+            "count": 1,
+            "denominator": 12,
+            "proportion": 0.083333
+          },
+          "E_at_least_2": {
+            "count": 2,
+            "denominator": 12,
+            "proportion": 0.166667
+          },
+          "mixed_PTE": {
+            "count": 3,
+            "denominator": 12,
+            "proportion": 0.25
+          },
+          "ontology_fit": {
+            "distribution": {
+              "natural": 12
+            },
+            "denominator": 12
+          },
+          "utterance_status": {
+            "distribution": {
+              "direct": 12
+            },
+            "denominator": 12,
+            "categories": {
+              "embedded_or_reported": {
+                "count": 0,
+                "denominator": 12,
+                "proportion": 0.0
+              },
+              "quoted_or_revoiced": {
+                "count": 0,
+                "denominator": 12,
+                "proportion": 0.0
+              },
+              "hypothetical_or_other_marked": {
+                "count": 0,
+                "denominator": 12,
+                "proportion": 0.0
+              },
+              "direct_status": {
+                "count": 12,
+                "denominator": 12,
+                "proportion": 1.0
+              },
+              "direct_affirmative": {
+                "count": null,
+                "denominator": null,
+                "proportion": null,
+                "reason": "affirmation/negation is not structurally represented in v0.3.1 annotations"
+              },
+              "negated": {
+                "count": null,
+                "denominator": null,
+                "proportion": null,
+                "reason": "affirmation/negation is not structurally represented in v0.3.1 annotations"
+              }
+            }
+          },
+          "missing_data": {
+            "scores": 0,
+            "ontology_fit": 0,
+            "utterance_status": 0,
+            "negation": 12,
+            "direct_affirmative": 12
+          },
+          "interesting_occurrence_ids": {
+            "P >= 2": [
+              "flaubert-madame-bovary-1e7d6742e45b"
+            ],
+            "E >= 2": [
+              "flaubert-madame-bovary-8c91fb38ed76",
+              "flaubert-madame-bovary-06903c63a2d7"
+            ],
+            "O > 0": [],
+            "ontology fit != natural": [],
+            "low confidence (< 0.75)": []
+          }
+        }
+      ]
+    },
+    {
+      "group_id": "indie_romance_pilot",
+      "label": "Contemporary indie romance pilot",
+      "works": 1,
+      "occurrences": 10,
+      "score_distributions": {
+        "P": {
+          "0": 3,
+          "1": 5,
+          "2": 0,
+          "3": 2,
+          "4": 0
+        },
+        "T": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 10
+        },
+        "E": {
+          "0": 9,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 1
+        },
+        "O": {
+          "0": 10,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0
+        }
+      },
+      "P_at_least_2": {
+        "count": 2,
+        "denominator": 10,
+        "proportion": 0.2
+      },
+      "E_at_least_2": {
+        "count": 1,
+        "denominator": 10,
+        "proportion": 0.1
+      },
+      "mixed_PTE": {
+        "count": 3,
+        "denominator": 10,
+        "proportion": 0.3
+      },
+      "ontology_fit": {
+        "distribution": {
+          "natural": 10
+        },
+        "denominator": 10
+      },
+      "utterance_status": {
+        "distribution": {
+          "direct": 9,
+          "quoted_or_revoiced": 1
+        },
+        "denominator": 10,
+        "categories": {
+          "embedded_or_reported": {
+            "count": 0,
+            "denominator": 10,
+            "proportion": 0.0
+          },
+          "quoted_or_revoiced": {
+            "count": 1,
+            "denominator": 10,
+            "proportion": 0.1
+          },
+          "hypothetical_or_other_marked": {
+            "count": 0,
+            "denominator": 10,
+            "proportion": 0.0
+          },
+          "direct_status": {
+            "count": 9,
+            "denominator": 10,
+            "proportion": 0.9
+          },
+          "direct_affirmative": {
+            "count": null,
+            "denominator": null,
+            "proportion": null,
+            "reason": "affirmation/negation is not structurally represented in v0.3.1 annotations"
+          },
+          "negated": {
+            "count": null,
+            "denominator": null,
+            "proportion": null,
+            "reason": "affirmation/negation is not structurally represented in v0.3.1 annotations"
+          }
+        }
+      },
+      "missing_data": {
+        "scores": 0,
+        "ontology_fit": 0,
+        "utterance_status": 0,
+        "negation": 10,
+        "direct_affirmative": 10
+      },
+      "interesting_occurrence_ids": {
+        "P >= 2": [
+          "cofield-nikkis-touch-fe6c3e255563",
+          "cofield-nikkis-touch-271daac625fd"
+        ],
+        "E >= 2": [
+          "cofield-nikkis-touch-d95397b735d0"
+        ],
+        "O > 0": [],
+        "ontology fit != natural": [],
+        "low confidence (< 0.75)": []
+      },
+      "by_work": [
+        {
+          "work_id": "cofield-nikkis-touch",
+          "title": "Nikki's Touch",
+          "works": 1,
+          "occurrences": 10,
+          "score_distributions": {
+            "P": {
+              "0": 3,
+              "1": 5,
+              "2": 0,
+              "3": 2,
+              "4": 0
+            },
+            "T": {
+              "0": 0,
+              "1": 0,
+              "2": 0,
+              "3": 0,
+              "4": 10
+            },
+            "E": {
+              "0": 9,
+              "1": 0,
+              "2": 0,
+              "3": 0,
+              "4": 1
+            },
+            "O": {
+              "0": 10,
+              "1": 0,
+              "2": 0,
+              "3": 0,
+              "4": 0
+            }
+          },
+          "P_at_least_2": {
+            "count": 2,
+            "denominator": 10,
+            "proportion": 0.2
+          },
+          "E_at_least_2": {
+            "count": 1,
+            "denominator": 10,
+            "proportion": 0.1
+          },
+          "mixed_PTE": {
+            "count": 3,
+            "denominator": 10,
+            "proportion": 0.3
+          },
+          "ontology_fit": {
+            "distribution": {
+              "natural": 10
+            },
+            "denominator": 10
+          },
+          "utterance_status": {
+            "distribution": {
+              "direct": 9,
+              "quoted_or_revoiced": 1
+            },
+            "denominator": 10,
+            "categories": {
+              "embedded_or_reported": {
+                "count": 0,
+                "denominator": 10,
+                "proportion": 0.0
+              },
+              "quoted_or_revoiced": {
+                "count": 1,
+                "denominator": 10,
+                "proportion": 0.1
+              },
+              "hypothetical_or_other_marked": {
+                "count": 0,
+                "denominator": 10,
+                "proportion": 0.0
+              },
+              "direct_status": {
+                "count": 9,
+                "denominator": 10,
+                "proportion": 0.9
+              },
+              "direct_affirmative": {
+                "count": null,
+                "denominator": null,
+                "proportion": null,
+                "reason": "affirmation/negation is not structurally represented in v0.3.1 annotations"
+              },
+              "negated": {
+                "count": null,
+                "denominator": null,
+                "proportion": null,
+                "reason": "affirmation/negation is not structurally represented in v0.3.1 annotations"
+              }
+            }
+          },
+          "missing_data": {
+            "scores": 0,
+            "ontology_fit": 0,
+            "utterance_status": 0,
+            "negation": 10,
+            "direct_affirmative": 10
+          },
+          "interesting_occurrence_ids": {
+            "P >= 2": [
+              "cofield-nikkis-touch-fe6c3e255563",
+              "cofield-nikkis-touch-271daac625fd"
+            ],
+            "E >= 2": [
+              "cofield-nikkis-touch-d95397b735d0"
+            ],
+            "O > 0": [],
+            "ontology fit != natural": [],
+            "low confidence (< 0.75)": []
+          }
+        }
+      ]
+    }
+  ]
+}
