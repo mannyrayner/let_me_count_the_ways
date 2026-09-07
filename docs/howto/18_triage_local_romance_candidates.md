@@ -1,9 +1,12 @@
 # Step 18: triage three local romance candidates
 
-This procedure supersedes step 15's instruction to exclude these works **only
-for private empirical triage**. It does not approve rights, redistribution,
-public excerpts, or annotation. Never stage the ebooks, converted texts, local
-provenance, occurrence JSONL, review sheets, or passages produced here.
+This procedure supersedes step 15's instruction to exclude these works for
+private empirical triage. *Error of Understanding* additionally received
+explicit author permission on 2026-09-07 for the required academic-research
+text; the other two works are not rights-approved. Never stage any ebook, full
+converted text, local provenance, occurrence inventory, or review sheet.
+Required *Error of Understanding* research excerpts may be promoted separately
+only under the policy at the end of this runbook.
 
 The candidates are Khulasande Dumisa's *The Corners of My Heart*, Stella
 McMillan's *Error of Understanding*, and Marie Cardno's *How to Get a
@@ -232,7 +235,11 @@ cat > "$ERROR_PROVENANCE" <<EOF
   "sha256": "$ERROR_TEXT_SHA256",
   "original_source_path": "$ERROR_COPY",
   "original_source_sha256": "$ERROR_SOURCE_SHA256",
-  "acquisition_note": "Purchased from Lulu; local triage only."
+  "acquisition_note": "Purchased from Lulu; full ebook and converted text remain local-only.",
+  "public_excerpt_basis": "explicit author permission",
+  "permission_source": "docs/notes/rights/mcmillan-error-of-understanding-author-permission-2026-09-07.md",
+  "permission_scope": "required text from Error of Understanding for academic research",
+  "rights_status": "approved for local annotation and public use of required research excerpts under explicit author permission"
 }
 EOF
 
@@ -316,5 +323,16 @@ occurrences`, `Distinct scene clusters`, `Potentially interesting`, and
 
 Base it on useful data rather than literary quality. Finally run `git status
 --short` and `git check-ignore -v` on every source, text, provenance, occurrence,
-review, and summary path. Stop before fair-dealing analysis, permission contact,
-public excerpt decisions, or annotation.
+review, and summary path.
+
+For *Error of Understanding*, record the recommendation/status as `approved for
+local annotation and public use of required research excerpts under explicit
+author permission`. Its permission record is
+`docs/notes/rights/mcmillan-error-of-understanding-author-permission-2026-09-07.md`.
+The required extracted passages, reasonably necessary context, annotations,
+commentary, and aggregate statistics may enter the public research repository
+with attribution to Stella McMillan and *Error of Understanding*. Continue to
+minimize excerpts, and keep the full ebook and full converted text local-only.
+
+For the other candidates, stop before fair-dealing analysis, permission
+contact, public excerpt decisions, or annotation.
