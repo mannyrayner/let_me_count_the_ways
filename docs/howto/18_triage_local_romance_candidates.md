@@ -169,11 +169,42 @@ for TEXT in "$CORNERS_TEXT" "$ERROR_TEXT" "$CARDNO_TEXT"; do
 done
 ```
 
-Create one ignored JSON file beneath each derived work directory. Use the
-embedded metadata if it differs, absolute or repository-relative local paths,
-and the hashes already measured:
+The block below calculates the six hashes and writes all three ignored records.
+It refuses to overwrite an existing record. The title and author values reflect
+the expected metadata; if the metadata you inspected in section 5 differs, edit
+those literal values in this block before running it.
 
-```json
+```bash
+CORNERS_PROVENANCE='data/local_candidate_derived/dumisa-corners-of-my-heart/provenance.json'
+ERROR_PROVENANCE='data/local_candidate_derived/mcmillan-error-of-understanding/provenance.json'
+CARDNO_PROVENANCE='data/local_candidate_derived/cardno-how-to-get-a-girlfriend/provenance.json'
+
+for REQUIRED_FILE in \
+  "$CORNERS_COPY" "$ERROR_COPY" "$CARDNO_COPY" \
+  "$CORNERS_TEXT" "$ERROR_TEXT" "$CARDNO_TEXT"
+do
+  test -f "$REQUIRED_FILE" || {
+    echo "Missing input: $REQUIRED_FILE" >&2
+    exit 1
+  }
+done
+for PROVENANCE in \
+  "$CORNERS_PROVENANCE" "$ERROR_PROVENANCE" "$CARDNO_PROVENANCE"
+do
+  test ! -e "$PROVENANCE" || {
+    echo "Refusing overwrite: $PROVENANCE" >&2
+    exit 1
+  }
+done
+
+CORNERS_SOURCE_SHA256="$(sha256sum "$CORNERS_COPY" | cut -d ' ' -f 1)"
+ERROR_SOURCE_SHA256="$(sha256sum "$ERROR_COPY" | cut -d ' ' -f 1)"
+CARDNO_SOURCE_SHA256="$(sha256sum "$CARDNO_COPY" | cut -d ' ' -f 1)"
+CORNERS_TEXT_SHA256="$(sha256sum "$CORNERS_TEXT" | cut -d ' ' -f 1)"
+ERROR_TEXT_SHA256="$(sha256sum "$ERROR_TEXT" | cut -d ' ' -f 1)"
+CARDNO_TEXT_SHA256="$(sha256sum "$CARDNO_TEXT" | cut -d ' ' -f 1)"
+
+cat > "$CORNERS_PROVENANCE" <<EOF
 {
   "review_status": "local_triage_only",
   "source_id": "local-dumisa-corners-of-my-heart-text",
@@ -181,16 +212,64 @@ and the hashes already measured:
   "title": "The Corners of My Heart",
   "author": "Khulasande Dumisa",
   "language": "en",
-  "local_path": "data/local_candidate_derived/dumisa-corners-of-my-heart/text.txt",
-  "sha256": "REPLACE_WITH_DERIVED_SHA256",
-  "original_source_path": "data/local_candidate_sources/dumisa-corners-of-my-heart/CornersOfMyHeart.pdf",
-  "original_source_sha256": "REPLACE_WITH_SOURCE_SHA256",
-  "acquisition_note": "REPLACE_WITH_KNOWN_FACTS_OR_UNKNOWN"
+  "local_path": "$CORNERS_TEXT",
+  "sha256": "$CORNERS_TEXT_SHA256",
+  "original_source_path": "$CORNERS_COPY",
+  "original_source_sha256": "$CORNERS_SOURCE_SHA256",
+  "acquisition_note": "Purchased from Lulu; local triage only."
 }
+EOF
+
+cat > "$ERROR_PROVENANCE" <<EOF
+{
+  "review_status": "local_triage_only",
+  "source_id": "local-mcmillan-error-of-understanding-text",
+  "work_id": "mcmillan-error-of-understanding",
+  "title": "Error of Understanding",
+  "author": "Stella McMillan",
+  "language": "en",
+  "local_path": "$ERROR_TEXT",
+  "sha256": "$ERROR_TEXT_SHA256",
+  "original_source_path": "$ERROR_COPY",
+  "original_source_sha256": "$ERROR_SOURCE_SHA256",
+  "acquisition_note": "Purchased from Lulu; local triage only."
+}
+EOF
+
+cat > "$CARDNO_PROVENANCE" <<EOF
+{
+  "review_status": "local_triage_only",
+  "source_id": "local-cardno-how-to-get-a-girlfriend-text",
+  "work_id": "cardno-how-to-get-a-girlfriend",
+  "title": "How to Get a Girlfriend (When You're a Terrifying Monster)",
+  "author": "Marie Cardno",
+  "language": "en",
+  "local_path": "$CARDNO_TEXT",
+  "sha256": "$CARDNO_TEXT_SHA256",
+  "original_source_path": "$CARDNO_COPY",
+  "original_source_sha256": "$CARDNO_SOURCE_SHA256",
+  "acquisition_note": "Purchased from Kobo as Monster Girlfriend; local triage only."
+}
+EOF
+
+for PROVENANCE in \
+  "$CORNERS_PROVENANCE" "$ERROR_PROVENANCE" "$CARDNO_PROVENANCE"
+do
+  python -m json.tool "$PROVENANCE" >/dev/null || exit 1
+  git check-ignore -v "$PROVENANCE" || {
+    echo "Provenance is not ignored: $PROVENANCE" >&2
+    exit 1
+  }
+done
+sha256sum "$CORNERS_COPY" "$CORNERS_TEXT"
+sha256sum "$ERROR_COPY" "$ERROR_TEXT"
+sha256sum "$CARDNO_COPY" "$CARDNO_TEXT"
+git status --short
 ```
 
-Make analogous records for the McMillan and Cardno IDs from section 2. These
-are temporary triage records, not permanent rights provenance.
+The printed pairs let you compare the source and derived hashes with those
+recorded earlier. These are temporary triage records, not permanent rights
+provenance.
 
 ## 7. Extract locally without model calls
 
