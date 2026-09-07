@@ -43,6 +43,7 @@ in-place because Git history already preserves them.
 | 16 | [Extract and annotate the indie-romance pilot](16_annotate_indie_romance_pilot.md) | Reviewed *Nikki's Touch* extraction and complete audited v0.3.1 pilot batch |
 | 17 | [Report and compare the pilot](17_report_and_compare_indie_romance_pilot.md) | One-work pilot inspection report and descriptive canonical-versus-indie comparison |
 | 18 | [Triage three local romance candidates](18_triage_local_romance_candidates.md) | Local-only, reproducible conversion, extraction inventory, and retain/drop recommendations |
+| 19 | [Acquire and reconnoitre the classical six](19_acquire_and_reconnoitre_classical_six.md) | Six verified original-language sources and reviewed extraction-only occurrence inventories |
 
 ## Conventions
 
