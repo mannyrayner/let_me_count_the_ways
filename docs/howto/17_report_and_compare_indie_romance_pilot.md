@@ -98,7 +98,10 @@ results/corpus_reports/canonical_vs_indie_romance_pilot_v1.json
 The command is local and deterministic: it reads the two completed JSON
 reports, makes no model calls, and refuses inputs other than the canonical eight
 and the one-work *Nikki's Touch* pilot. This block is self-contained and can be
-pasted into a fresh Cygwin shell:
+pasted into a fresh Cygwin shell. `test -f` is a silent file predicate: no output
+means success, while `echo $?` immediately afterward would print `0`. The loop
+uses it to produce a clearer missing-input error before running Python, and now
+prints an explicit confirmation for each successful check:
 
 ```bash
 CANONICAL_REPORT='results/corpus_reports/canonical_eight_v0_3_1.json'
@@ -107,11 +110,15 @@ COMPARISON_JSON='results/corpus_reports/canonical_vs_indie_romance_pilot_v1.json
 COMPARISON_MARKDOWN='results/corpus_reports/canonical_vs_indie_romance_pilot_v1.md'
 
 for REPORT in "$CANONICAL_REPORT" "$PILOT_REPORT"; do
-  test -f "$REPORT" || {
+  if ! test -f "$REPORT"; then
     echo "Missing report: $REPORT" >&2
     exit 1
-  }
-  python -m json.tool "$REPORT" >/dev/null || exit 1
+  fi
+  if ! python -m json.tool "$REPORT" >/dev/null; then
+    echo "Report is not valid JSON: $REPORT" >&2
+    exit 1
+  fi
+  printf 'Found and validated report: %s\n' "$REPORT"
 done
 
 python scripts/reporting/compare_corpus_reports.py \
