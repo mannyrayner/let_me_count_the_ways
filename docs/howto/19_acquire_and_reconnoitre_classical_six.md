@@ -318,6 +318,8 @@ current literary and raw hashes directly:
 python - "$BATCH" <<'PY'
 import hashlib,json,sys
 from pathlib import Path
+errors=[]
+def problem(path, message): errors.append(f'{path}: {message}')
 for member in json.load(open(sys.argv[1],encoding='utf-8'))['sources']:
     provenance=Path(member['provenance'])
     record=json.loads(provenance.read_text(encoding='utf-8'))
@@ -522,19 +524,74 @@ multilingual-five corpus. New source texts, Runeberg OCR acquisition, and a
 possible formal-pronoun pattern are the only differences; there is no parallel
 manual extraction workflow. The selected `PATTERNS` manifest applies to all six
 works. These commands prepare extraction and classification inputs but make no
-annotation API calls:
+annotation API calls. `--dry-run` performs extraction and prepares annotation
+inputs but stops before any annotation-model call. The block restates every
+important path so that it can run in a fresh shell independently of earlier
+steps:
 
 ```bash
+set -e
+BATCH=data/batches/classical_six_v1.json
+PATTERNS=data/development/search_patterns_v0_6.json
 RECON=results/reconnaissance/classical_six_v1
-test "$PATTERNS" = data/development/search_patterns_v0_5.json -o \
-     "$PATTERNS" = data/development/search_patterns_v0_6.json
+
+test -f "$BATCH" || {
+  echo "Missing batch manifest: $BATCH" >&2
+  exit 1
+}
+test -f "$PATTERNS" || {
+  echo "Missing search-pattern manifest: $PATTERNS" >&2
+  exit 1
+}
+python -m json.tool "$BATCH" >/dev/null
+python -m json.tool "$PATTERNS" >/dev/null
+
+python - "$BATCH" <<'PY'
+import json
+import sys
+from pathlib import Path
+
+with open(sys.argv[1], encoding='utf-8') as stream:
+    batch=json.load(stream)
+
+sources=batch['sources']
+if len(sources) != 6:
+    raise SystemExit(f'Expected 6 sources, found {len(sources)}')
+for source in sources:
+    provenance=source.get('provenance')
+    if not provenance:
+        raise SystemExit(f'Missing provenance path in batch member: {source}')
+    path=Path(provenance)
+    if not path.is_file():
+        raise SystemExit(f'Missing provenance file: {path}')
+print('Batch contains 6 provenance records.')
+PY
+
+mkdir -p "$RECON/pipeline_runs"
 while read -r PROVENANCE; do
+  test -n "$PROVENANCE" || continue
+  echo "Running extraction dry-run for: $PROVENANCE"
   python scripts/pipeline/run_single_text_pipeline.py \
     --provenance "$PROVENANCE" --patterns "$PATTERNS" \
     --annotation-version 0.3.1 --model 5.6 --context-chars 1000 --dry-run \
     --output-root "$RECON/pipeline_runs"
-done < <(python -c "import json; print(*[x['provenance'] for x in json.load(open('$BATCH'))['sources']],sep='\n')")
-find "$RECON/pipeline_runs" -name manifest.json -print -exec python -m json.tool {} \;
+done < <(
+  python - "$BATCH" <<'PY'
+import json
+import sys
+
+with open(sys.argv[1], encoding='utf-8') as stream:
+    batch=json.load(stream)
+
+for source in batch['sources']:
+    print(source['provenance'])
+PY
+)
+
+find "$RECON/pipeline_runs" \
+  -name manifest.json \
+  -print \
+  -exec python -m json.tool {} \;
 ```
 
 Do not remove zero-hit works and do not run the batch without `--dry-run`.
