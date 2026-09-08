@@ -12,6 +12,18 @@ inputs. Annotation v0.3.1 remains frozen and is not called by this procedure.
 
 ## 1. Preflight and immutable membership
 
+This runbook deliberately uses the standard Cygwin `grep` utility rather than
+requiring an additional search binary. Verify that the Cygwin `grep` package is
+available before continuing:
+
+```bash
+command -v grep >/dev/null || {
+  echo 'grep is required; install the Cygwin grep package first.' >&2
+  exit 1
+}
+grep --version | head -n 1
+```
+
 ```bash
 cd "$LMCW"
 git pull --ff-only
@@ -51,42 +63,47 @@ for ID in 541 4240 2419 13861; do
 done
 ```
 
-Record each exact link in the matching provenance `source_url`; do not infer a
-URL without checking the catalogue. Record the catalogue metadata and update
-dates before downloading. Use the Australian Copyright Agency duration guidance
+Record the catalogue page in `catalogue_url` and the exact plain-text link in
+`download_url`; these are separate provenance fields and neither replaces the
+other. Record the catalogue metadata and update dates before downloading. Use
+the Australian Copyright Agency duration guidance
 in addition to Gutenberg's US statement. The relevant author death years are
 Wharton 1937, Lawrence 1930, Dumas fils 1895, and Constant 1830.
 
-Open the Runeberg collection and copyright pages. From the live contents of
-*Samlede verker*, sixth edition (1963–1964), obtain the volume URL and actual URL
-indices linked for printed pages 89–162 in volume 3 (*Victoria*) and 331–423 in
-volume 2 (*Pan*). Record both printed and URL-index ranges in provenance.
+Open the Runeberg collection and copyright pages. Manny's manual review verified
+the authoritative processed ranges as URL indices `0093`–`0166` in volume 3
+(*Victoria*) and `0335`–`0414` in volume 2 (*Pan*). The catalogue's printed-page
+metadata (89–162 and 331–423 respectively) is distinct and does not map one to
+one to those HTML names at the boundaries. Preserve both fields and record the
+discrepancy; acquisition is defined by the verified inclusive HTML URL range.
 
 ```bash
 cygstart 'https://runeberg.org/'
 cygstart 'https://runeberg.org/admin/copyright.html'
 ```
 
-Do not assume printed page 89 means `0089.html`. In a browser verify the linked
-first and last pages and both adjacent pages: each first page begins the named
-work, each last page ends it, and its neighbours belong to other material. The
+Do not assume printed page 89 means `0089.html`. In a browser inspect `0093.html`,
+`0166.html`, `0335.html`, and `0414.html`, plus several internal and adjacent
+pages: each first page begins the named work, each last page ends it, and its
+neighbours belong to other material. The
 literary files must exclude *Siesta*, *I æventyrland*, *Redaktør Lynge*, and *Ny
 jord*. Record the National Library scan/Runeberg OCR basis, possible modernized
-spelling, possibly unproofread OCR, and Hamsun's 1952 death year. Do not claim
-first-edition orthography.
+spelling, explicitly unproofread/uncorrected OCR, facsimile availability, and
+Hamsun's 1952 death year. Do not claim first-edition orthography.
 
 ## 3. Acquire the four Gutenberg texts atomically
 
-Set the four verified catalogue download URLs (examples must not replace live
-verification), then use the shared helper. It refuses overwrites, downloads via
+Use the four manually verified direct UTF-8 URLs, then use the shared helper. It
+refuses overwrites, downloads via
 `.part`, preserves the raw response, requires explicit Gutenberg START/END
 markers, and prints hashes for the provenance records.
 
 ```bash
-URL_541='PASTE_VERIFIED_UTF8_URL'
-URL_4240='PASTE_VERIFIED_UTF8_URL'
-URL_2419='PASTE_VERIFIED_UTF8_URL'
-URL_13861='PASTE_VERIFIED_UTF8_URL'
+URL_541='https://www.gutenberg.org/ebooks/541.txt.utf-8'
+URL_4240='https://www.gutenberg.org/ebooks/4240.txt.utf-8'
+URL_2419='https://www.gutenberg.org/ebooks/2419.txt.utf-8'
+URL_13861='https://www.gutenberg.org/ebooks/13861.txt.utf-8'
+mkdir -p data/raw/{wharton-age-of-innocence,lawrence-women-in-love,dumas-fils-la-dame-aux-camelias,constant-adolphe}
 for SPEC in \
   "541 wharton-age-of-innocence $URL_541" \
   "4240 lawrence-women-in-love $URL_4240" \
@@ -94,7 +111,6 @@ for SPEC in \
   "13861 constant-adolphe $URL_13861"
 do
   set -- $SPEC; ID=$1; WORK=$2; URL=$3
-  test "$URL" != PASTE_VERIFIED_UTF8_URL || { echo "Set URL_$ID" >&2; exit 1; }
   python scripts/corpus_acquisition/acquire_public_domain_text.py gutenberg \
     --url "$URL" --raw "data/raw/$WORK/source-download.txt" \
     --output "data/raw/$WORK/gutenberg-$ID.txt" \
@@ -107,36 +123,104 @@ raw downloads and derived texts. Never trim by approximate line counts.
 
 ## 4. Acquire the two verified Runeberg ranges
 
-Only after the boundary review, set the exact volume bases and URL indices. The
-helper constructs zero-padded URLs deterministically, preserves every HTML page,
-rejects failed/empty responses, extracts visible OCR text without correcting it,
-concatenates in numeric order, and emits page lists and hashes.
+Only after the reusable helper and its offline tests pass, use the exact verified
+volume bases and URL indices below. The helper constructs four-digit URLs
+deterministically (never by following next links), downloads with `curl --fail
+--location --retry 3` via `.part`, reuses valid nonempty pages, preserves every
+exact HTML response, rejects gaps/extras/empty pages, isolates OCR between the
+Runeberg navigation form and generated footer, and concatenates without OCR
+correction. `--force` explicitly redownloads pages; it is intentionally absent
+here. Do not proceed from a partial range.
 
 ```bash
-VICTORIA_VOLUME='PASTE_VERIFIED_VOLUME_URL'
-VICTORIA_FIRST_URL_INDEX='PASTE_INTEGER'; VICTORIA_LAST_URL_INDEX='PASTE_INTEGER'
-PAN_VOLUME='PASTE_VERIFIED_VOLUME_URL'
-PAN_FIRST_URL_INDEX='PASTE_INTEGER'; PAN_LAST_URL_INDEX='PASTE_INTEGER'
-case "$VICTORIA_FIRST_URL_INDEX$VICTORIA_LAST_URL_INDEX$PAN_FIRST_URL_INDEX$PAN_LAST_URL_INDEX" in
-  *[!0-9]*) echo 'Replace all Runeberg URL-index placeholders.' >&2; exit 1;;
-esac
+VICTORIA_VOLUME='https://runeberg.org/hamsun/6-3/'
+VICTORIA_FIRST_URL_INDEX=93; VICTORIA_LAST_URL_INDEX=166
+PAN_VOLUME='https://runeberg.org/hamsun/6-2/'
+PAN_FIRST_URL_INDEX=335; PAN_LAST_URL_INDEX=414
+mkdir -p data/raw/{hamsun-victoria,hamsun-pan}
 python scripts/corpus_acquisition/acquire_public_domain_text.py runeberg-range \
   --volume-url "$VICTORIA_VOLUME" --first-url-index "$VICTORIA_FIRST_URL_INDEX" \
   --last-url-index "$VICTORIA_LAST_URL_INDEX" --printed-first 89 --printed-last 162 \
   --raw-dir data/raw/hamsun-victoria/source-pages \
   --output data/raw/hamsun-victoria/runeberg-hamsun-victoria.txt \
+  --page-map data/raw/hamsun-victoria/page-map.json \
   > data/raw/hamsun-victoria/acquisition-metadata.json
 python scripts/corpus_acquisition/acquire_public_domain_text.py runeberg-range \
   --volume-url "$PAN_VOLUME" --first-url-index "$PAN_FIRST_URL_INDEX" \
   --last-url-index "$PAN_LAST_URL_INDEX" --printed-first 331 --printed-last 423 \
   --raw-dir data/raw/hamsun-pan/source-pages \
   --output data/raw/hamsun-pan/runeberg-hamsun-pan.txt \
+  --page-map data/raw/hamsun-pan/page-map.json \
   > data/raw/hamsun-pan/acquisition-metadata.json
+test "$(find data/raw/hamsun-victoria/source-pages -name '*.html' | wc -l)" -eq 74
+test "$(find data/raw/hamsun-pan/source-pages -name '*.html' | wc -l)" -eq 80
+python - <<'PY'
+import json
+for path, first, last in (
+    ('data/raw/hamsun-victoria/acquisition-metadata.json', 93, 166),
+    ('data/raw/hamsun-pan/acquisition-metadata.json', 335, 414),
+):
+    metadata=json.load(open(path, encoding='utf-8'))
+    expected=list(range(first,last+1))
+    assert metadata['ordered_url_indices'] == expected
+    assert metadata['pages_requested'] == metadata['pages_nonempty'] == len(expected)
+    print(path, {key: metadata[key] for key in ('pages_requested','pages_downloaded',
+          'pages_nonempty','assembled_character_count','assembled_word_count','sha256')})
+PY
 ```
 
-Copy all emitted page URLs, paths, ranges, raw hashes, and assembled hash into
-provenance. Leave spelling, punctuation, pronouns, dialogue, and OCR untouched.
-Document suspected OCR in the review notes and compare it with the linked scan.
+The two dictionaries printed by that check are summaries, not the only copy of
+the acquisition record. The complete machine-readable records have already been
+saved by the `>` redirections as each work's `acquisition-metadata.json`; the
+per-page hashes and offsets are in `page-map.json`, and the untouched responses
+remain in `source-pages/`. Do not rerun or move them merely to preserve the
+terminal output. Before continuing, confirm that the assembled hashes agree with
+the corresponding `sha256` and `acquisition_summary.sha256` values in
+`provenance/sources/runeberg-hamsun-{victoria,pan}.json`:
+
+```bash
+python - <<'PY'
+import json
+from pathlib import Path
+for work in ('victoria','pan'):
+    metadata=json.loads(Path(f'data/raw/hamsun-{work}/acquisition-metadata.json').read_text())
+    provenance=json.loads(Path(f'provenance/sources/runeberg-hamsun-{work}.json').read_text())
+    assert metadata['sha256'] == provenance['sha256']
+    assert metadata['sha256'] == provenance['acquisition_summary']['sha256']
+    print(work, metadata['sha256'])
+PY
+```
+
+The page map records each ordered URL index, exact OCR URL, output offsets, raw
+path/hash, and facsimile availability. The reported acquisition summaries and
+assembled hashes are recorded in provenance; retain the complete generated
+metadata locally for the later approval checkpoint. State that this is Project
+Runeberg OCR of Knut Hamsun, *Samlede
+verker*, 6th ed.; it is marked not proofread, while page facsimiles are available
+for checking suspicious readings. Leave spelling, punctuation, `De`/`Dem`, names,
+broken words, dialogue, and OCR untouched. Record both OCR and scan readings if a
+target-relevant error is found; use a versioned correction layer rather than
+casually hand-editing this source.
+
+Inspect boundary and internal page extracts through their page-map offsets:
+
+```bash
+python - <<'PY'
+import json
+from pathlib import Path
+for root, wanted in (('hamsun-victoria',(93,100,166)),
+                     ('hamsun-pan',(335,375,414))):
+    base=Path('data/raw')/root
+    text=next(base.glob('runeberg-*.txt')).read_text(encoding='utf-8')
+    pages={p['url_index']:p for p in json.loads((base/'page-map.json').read_text())}
+    for index in wanted:
+        p=pages[index]
+        print(f"===== {p['url']} =====\n{text[p['output_start']:p['output_end']]}"[:2500])
+PY
+```
+
+Confirm the first/last pages belong to the intended work, no neighbouring work
+is included, internal pages are literary OCR, and assembled order is correct.
 
 ## 5. Inspect sources and approve provenance
 
@@ -188,20 +272,22 @@ Start with v0.5 and write all diagnostic output to a review directory:
 
 ```bash
 mkdir -p results/reconnaissance/classical_six_v1/diagnostics
-rg -n -i -C 3 "I (really |still |truly )?love you|I love you still|I (don.?t|never) love[d]? you" \
+grep -Eni -C 3 "I (really |still |truly )?love you|I love you still|I (don.?t|never) love[d]? you" \
  data/raw/{wharton-age-of-innocence,lawrence-women-in-love}/*.txt \
  > results/reconnaissance/classical_six_v1/diagnostics/english.txt || test $? -eq 1
-rg -n -i -C 3 "aime|t[’']?aime|vous aime" \
+grep -Eni -C 3 "aime|t[’']?aime|vous aime" \
  data/raw/{dumas-fils-la-dame-aux-camelias,constant-adolphe}/*.txt \
  > results/reconnaissance/classical_six_v1/diagnostics/french.txt || test $? -eq 1
-rg -n -i -C 3 "elsker|jeg.{0,60}elsker|elsker (Dem|dig|deg)" \
+grep -En -C 3 "elsker|Jeg elsker|jeg elsker|elsker Dem|elsker dig|elsker deg|De|Dem" \
  data/raw/{hamsun-victoria,hamsun-pan}/*.txt \
  > results/reconnaissance/classical_six_v1/diagnostics/norwegian.txt || test $? -eq 1
 ```
 
 Inspect every plausible direct first-person-to-second-person declaration. Do not
 broaden for lexical density, use `I .* love .* you`, or force a nonzero result.
-If and only if attested evidence requires a general refinement, copy v0.5 to
+Because this OCR is unproofread, check suspicious target-like matches against
+the corresponding page facsimile. If and only if attested evidence requires a
+general refinement, copy v0.5 to
 `search_patterns_v0_6.json`, change its schema version, and add the minimal
 pattern. For formal Norwegian `Dem`, keep the ordinary pattern and add exactly a
 case-sensitive `\\b[Jj]eg\\s+elsker\\s+Dem\\b` family; test that `Jeg elsker
@@ -271,7 +357,7 @@ missed. Record zero if none was missed.
 
 ```bash
 ! find "$RECON" -path '*/annotations/*' -type f -print -quit | grep -q .
-! rg -n 'review: PENDING' "$RECON/human_review.md"
+! grep -n 'review: PENDING' "$RECON/human_review.md"
 python scripts/docs/validate_runbook_index.py
 python -m pytest -q
 python scripts/security/scan_credentials.py \
