@@ -293,21 +293,80 @@ Complete every provenance field, including retrieval time, exact edition facts,
 transformations, raw and literary hashes, independent Australian reasoning, and
 review date. Only after genuine human source and rights review change each
 `review_status` from `acquisition_pending` to
-`approved_for_development_processing`. Validate paths and hashes:
+`approved_for_development_processing`. Changing `review_status` alone is not
+enough: `sha256`, the raw download hash(es), `retrieved_at`, and `reviewed_on`
+must not still be `null` or empty. The acquisition metadata contains the hashes
+to copy; alternatively, print the current literary and raw hashes directly:
 
 ```bash
 python - "$BATCH" <<'PY'
 import hashlib,json,sys
 from pathlib import Path
 for member in json.load(open(sys.argv[1],encoding='utf-8'))['sources']:
+    provenance=Path(member['provenance'])
+    record=json.loads(provenance.read_text(encoding='utf-8'))
+    source=Path(record['local_path'])
+    print(f"\n{provenance}\n  sha256: {hashlib.sha256(source.read_bytes()).hexdigest()}")
+    raw_paths=([record['download_path']] if record.get('download_path')
+               else [entry['raw_path'] for entry in json.loads(
+                   Path(record['page_map_path']).read_text(encoding='utf-8'))])
+    for raw in map(Path,raw_paths):
+        print(f"  raw {raw.name}: {hashlib.sha256(raw.read_bytes()).hexdigest()}")
+PY
+```
+
+Copy, do not retype, those values into the matching fields. Use explicit ISO
+8601 timestamps for `retrieved_at` and `reviewed_on`. Then validate paths,
+completion, and hashes. This validator reports the field and expected/actual
+values instead of stopping at an unlabelled assertion:
+
+```bash
+python - "$BATCH" <<'PY'
+import hashlib,json,sys
+from pathlib import Path
+errors=[]
+def problem(path, message): errors.append(f'{path}: {message}')
+for member in json.load(open(sys.argv[1],encoding='utf-8'))['sources']:
  p=Path(member['provenance']); r=json.loads(p.read_text(encoding='utf-8'))
- assert r['review_status']=='approved_for_development_processing', p
- assert r.get('rights_note') and 'PENDING' not in r['rights_note'].upper(), p
- source=Path(r['local_path']); assert source.is_file() and source.stat().st_size, source
- assert hashlib.sha256(source.read_bytes()).hexdigest()==r['sha256'], p
- for raw in ([r['download_path']] if r.get('download_path') else r['download_paths']):
-  assert Path(raw).is_file() and Path(raw).stat().st_size, raw
- print(f"approved {r['source_id']}: {r['sha256']}")
+ if r.get('review_status') != 'approved_for_development_processing':
+  problem(p, f"review_status is {r.get('review_status')!r}")
+ if not r.get('rights_note') or 'PENDING' in r['rights_note'].upper():
+  problem(p, 'rights_note is missing or still pending')
+ for field in ('retrieved_at','reviewed_on'):
+  if not r.get(field): problem(p, f'{field} is null or empty')
+ source=Path(r['local_path'])
+ if not source.is_file() or not source.stat().st_size:
+  problem(p, f'literary source is missing or empty: {source}')
+ else:
+  actual=hashlib.sha256(source.read_bytes()).hexdigest()
+  if not r.get('sha256'):
+   problem(p, f'sha256 is null or empty; actual is {actual}')
+  elif actual != r['sha256']:
+   problem(p, f"sha256 mismatch: recorded {r['sha256']}, actual {actual}")
+ raw_paths=([r['download_path']] if r.get('download_path') else r.get('download_paths',[]))
+ if not raw_paths: problem(p, 'no raw download path(s) recorded')
+ raw_hashes=r.get('download_sha256')
+ for raw_name in raw_paths:
+  raw=Path(raw_name)
+  if not raw.is_file() or not raw.stat().st_size:
+   problem(p, f'raw download is missing or empty: {raw}')
+   continue
+  actual=hashlib.sha256(raw.read_bytes()).hexdigest()
+  recorded=(raw_hashes if isinstance(raw_hashes,str) else
+            raw_hashes.get(raw.name,raw_hashes.get(str(raw))) if isinstance(raw_hashes,dict)
+            else None)
+  if not recorded:
+   problem(p, f'raw hash is not recorded for {raw}; actual is {actual}')
+  elif recorded != actual:
+   problem(p, f'raw hash mismatch for {raw}: recorded {recorded}, actual {actual}')
+ if not raw_hashes:
+  problem(p, 'download_sha256 is null or empty')
+ if not any(message.startswith(f'{p}:') for message in errors):
+  print(f"approved {r['source_id']}: {r['sha256']}")
+if errors:
+ print('\nProvenance validation failed:',file=sys.stderr)
+ print('\n'.join(f'- {message}' for message in errors),file=sys.stderr)
+ raise SystemExit(1)
 PY
 ```
 
