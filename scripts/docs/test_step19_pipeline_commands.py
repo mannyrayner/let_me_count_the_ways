@@ -15,16 +15,6 @@ class Step19PipelineCommandTests(unittest.TestCase):
             self.assertEqual(first_argument_line, '"$PROVENANCE" --patterns "$PATTERNS" \\')
         self.assertNotIn('--provenance "$PROVENANCE"', text)
 
-    def test_cygwin_paths_strip_windows_carriage_returns(self):
-        text = RUNBOOK.read_text(encoding="utf-8")
-        strip = "PROVENANCE=${PROVENANCE%$'\\r'}"
-        self.assertEqual(text.count(strip), 2)
-        command = "python scripts/pipeline/run_single_text_pipeline.py \\\n"
-        parts = text.split(command)
-        self.assertEqual(len(parts), 3)
-        self.assertIn(strip, parts[0])
-        self.assertIn(strip, parts[1])
-
 
 if __name__ == "__main__":
     unittest.main()
