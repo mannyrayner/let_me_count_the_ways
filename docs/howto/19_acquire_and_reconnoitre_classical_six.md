@@ -347,6 +347,30 @@ from pathlib import Path
 errors=[]
 def problem(path, message): errors.append(f'{path}: {message}')
 for member in json.load(open(sys.argv[1],encoding='utf-8'))['sources']:
+    provenance=Path(member['provenance'])
+    record=json.loads(provenance.read_text(encoding='utf-8'))
+    source=Path(record['local_path'])
+    print(f"\n{provenance}\n  sha256: {hashlib.sha256(source.read_bytes()).hexdigest()}")
+    raw_paths=([record['download_path']] if record.get('download_path')
+               else [entry['raw_path'] for entry in json.loads(
+                   Path(record['page_map_path']).read_text(encoding='utf-8'))])
+    for raw in map(Path,raw_paths):
+        print(f"  raw {raw.name}: {hashlib.sha256(raw.read_bytes()).hexdigest()}")
+PY
+```
+
+If filling a record manually, copy rather than retype those values and use
+explicit ISO 8601 timestamps. Then validate paths, completion, and hashes. This
+validator reports the field and expected/actual values instead of stopping at an
+unlabelled assertion:
+
+```bash
+python - "$BATCH" <<'PY'
+import hashlib,json,sys
+from pathlib import Path
+errors=[]
+def problem(path, message): errors.append(f'{path}: {message}')
+for member in json.load(open(sys.argv[1],encoding='utf-8'))['sources']:
  p=Path(member['provenance']); r=json.loads(p.read_text(encoding='utf-8'))
  if r.get('review_status') != 'approved_for_development_processing':
   problem(p, f"review_status is {r.get('review_status')!r}")
@@ -551,6 +575,9 @@ PY
   echo 'Could not read the first provenance path.' >&2
   exit 1
 fi
+# Native Windows Python writes CRLF to stdout; command substitution removes the
+# LF but can leave CR in a Cygwin path.
+PROVENANCE=${PROVENANCE%$'\r'}
 echo "PROVENANCE=$PROVENANCE"
 if python scripts/pipeline/run_single_text_pipeline.py \
     "$PROVENANCE" --patterns "$PATTERNS" \
@@ -617,6 +644,8 @@ fi
 mkdir -p "$RECON/pipeline_runs" || exit 1
 FAILURES=0
 while read -r PROVENANCE; do
+  # Strip CR left by native Windows Python's CRLF stdout under Cygwin.
+  PROVENANCE=${PROVENANCE%$'\r'}
   test -n "$PROVENANCE" || continue
   echo
   echo '============================================================'
