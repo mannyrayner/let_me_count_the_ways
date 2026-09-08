@@ -295,8 +295,24 @@ review date. Only after genuine human source and rights review change each
 `review_status` from `acquisition_pending` to
 `approved_for_development_processing`. Changing `review_status` alone is not
 enough: `sha256`, the raw download hash(es), `retrieved_at`, and `reviewed_on`
-must not still be `null` or empty. The acquisition metadata contains the hashes
-to copy; alternatively, print the current literary and raw hashes directly:
+must not still be `null` or empty.
+
+All six works in this acquisition were reviewed on 8 September 2026. Populate
+their machine-derived fields from the files themselves, use the latest raw-file
+modification time as the UTC completion time for each download, and mark the
+already-reviewed records approved. The helper validates every member before it
+writes any record, refuses pending rights notes, hashes the literary and raw
+files, obtains Runeberg raw paths from the page maps, and reconciles each
+available acquisition-metadata hash:
+
+```bash
+python scripts/corpus_acquisition/finalize_acquisition_provenance.py \
+  --batch "$BATCH" --reviewed-on 2026-09-08 --approve
+git diff -- provenance/sources
+```
+
+Review that diff before continuing. If manual diagnosis is needed, print the
+current literary and raw hashes directly:
 
 ```bash
 python - "$BATCH" <<'PY'
@@ -315,10 +331,10 @@ for member in json.load(open(sys.argv[1],encoding='utf-8'))['sources']:
 PY
 ```
 
-Copy, do not retype, those values into the matching fields. Use explicit ISO
-8601 timestamps for `retrieved_at` and `reviewed_on`. Then validate paths,
-completion, and hashes. This validator reports the field and expected/actual
-values instead of stopping at an unlabelled assertion:
+If filling a record manually, copy rather than retype those values and use
+explicit ISO 8601 timestamps. Then validate paths, completion, and hashes. This
+validator reports the field and expected/actual values instead of stopping at an
+unlabelled assertion:
 
 ```bash
 python - "$BATCH" <<'PY'
