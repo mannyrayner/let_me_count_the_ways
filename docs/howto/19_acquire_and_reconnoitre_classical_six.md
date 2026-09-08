@@ -127,8 +127,9 @@ Only after the reusable helper and its offline tests pass, use the exact verifie
 volume bases and URL indices below. The helper constructs four-digit URLs
 deterministically (never by following next links), downloads with `curl --fail
 --location --retry 3` via `.part`, reuses valid nonempty pages, preserves every
-exact HTML response, rejects gaps/extras/empty pages, isolates OCR between the
-Runeberg navigation form and generated footer, and concatenates without OCR
+exact HTML response, rejects gaps/extras/empty pages, and extracts non-linked OCR
+from the page body while excluding forms, headers, footers, navigation elements,
+facsimile links, and Runeberg's generated footer. It concatenates without OCR
 correction. `--force` explicitly redownloads pages; it is intentionally absent
 here. Do not proceed from a partial range.
 
@@ -169,31 +170,30 @@ for path, first, last in (
 PY
 ```
 
-The two dictionaries printed by that check are summaries, not the only copy of
-the acquisition record. The complete machine-readable records have already been
-saved by the `>` redirections as each work's `acquisition-metadata.json`; the
-per-page hashes and offsets are in `page-map.json`, and the untouched responses
-remain in `source-pages/`. Do not rerun or move them merely to preserve the
-terminal output. Before continuing, confirm that the assembled hashes agree with
-the corresponding `sha256` and `acquisition_summary.sha256` values in
-`provenance/sources/runeberg-hamsun-{victoria,pan}.json`:
+If an assembled file was produced by the earlier extractor and begins with repeated
+`Full resolution (JPEG)` / page-navigation blocks, **stop**: that output and its
+map/metadata are invalid. The rejected hashes are retained in provenance only as
+an audit record and must not be approved as corpus hashes. Preserve the downloaded
+HTML, remove only the derived artifacts, and rerun the two acquisition commands;
+the valid nonempty source pages will be reused rather than downloaded again:
 
 ```bash
-python - <<'PY'
-import json
-from pathlib import Path
-for work in ('victoria','pan'):
-    metadata=json.loads(Path(f'data/raw/hamsun-{work}/acquisition-metadata.json').read_text())
-    provenance=json.loads(Path(f'provenance/sources/runeberg-hamsun-{work}.json').read_text())
-    assert metadata['sha256'] == provenance['sha256']
-    assert metadata['sha256'] == provenance['acquisition_summary']['sha256']
-    print(work, metadata['sha256'])
-PY
+rm data/raw/hamsun-victoria/{runeberg-hamsun-victoria.txt,page-map.json,acquisition-metadata.json}
+rm data/raw/hamsun-pan/{runeberg-hamsun-pan.txt,page-map.json,acquisition-metadata.json}
+# Rerun the two runeberg-range commands and the mechanical checks above.
 ```
 
+The dictionaries printed by the checks are summaries. The complete records are
+already saved by the `>` redirections as `acquisition-metadata.json`; per-page
+hashes and offsets are in `page-map.json`, and exact responses remain in
+`source-pages/`. Do not move those files merely to preserve terminal output.
+Only after the boundary/content inspection below succeeds should the new
+assembled hashes be copied to the provenance `sha256` fields.
+
 The page map records each ordered URL index, exact OCR URL, output offsets, raw
-path/hash, and facsimile availability. The reported acquisition summaries and
-assembled hashes are recorded in provenance; retain the complete generated
+path/hash, and facsimile availability. The earlier bad summaries are marked as
+rejected audit records in provenance; replace neither `sha256` field until the
+corrected extraction passes inspection. Retain the complete newly generated
 metadata locally for the later approval checkpoint. State that this is Project
 Runeberg OCR of Knut Hamsun, *Samlede
 verker*, 6th ed.; it is marked not proofread, while page facsimiles are available

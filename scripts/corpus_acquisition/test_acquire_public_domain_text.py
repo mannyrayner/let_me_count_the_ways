@@ -54,6 +54,26 @@ class AcquisitionTests(unittest.TestCase):
         self.assertNotIn("Previous", extracted)
         self.assertNotIn("Runeberg", extracted)
 
+    def test_runeberg_parser_excludes_scanned_page_link_chrome(self):
+        source = """<html><body>
+<div><a href="0093.jpg">Full resolution (JPEG)</a></div>
+<ul><li><a href="#page">On this page / på denna sida</a></li>
+<li><a href="#victoria">Victoria (1898)</a></li><li><a href="#one">I</a></li></ul>
+<p>Der var en Gang en Møllersøn som hed Johannes.</p>
+<div><a href="0092.html">&lt;&lt; prev. page &lt;&lt;</a>
+<a href="0094.html">&gt;&gt; next page &gt;&gt;</a></div>
+<hr noshade><tt>Project Runeberg footer</tt></body></html>"""
+        self.assertEqual(
+            runeberg_html_to_text(source),
+            "Der var en Gang en Møllersøn som hed Johannes.\n",
+        )
+
+    def test_runeberg_parser_rejects_navigation_only_page(self):
+        source = """<html><body><a href="page.jpg">Full resolution (JPEG)</a>
+<a href="next.html">next page</a><hr noshade></body></html>"""
+        with self.assertRaisesRegex(ValueError, "empty|too little"):
+            runeberg_html_to_text(source)
+
     def test_runeberg_parser_rejects_empty_or_malformed_pages(self):
         with self.assertRaisesRegex(ValueError, "empty"):
             runeberg_html_to_text(runeberg_page(""))

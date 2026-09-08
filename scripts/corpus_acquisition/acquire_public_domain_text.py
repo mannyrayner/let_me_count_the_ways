@@ -86,52 +86,54 @@ class VisibleText(HTMLParser):
 
 
 class RunebergOCRParser(VisibleText):
-    """Extract content between Runeberg's navigation form and footer rule."""
+    """Extract OCR while excluding Runeberg's linked page/navigation chrome."""
 
     def __init__(self) -> None:
         super().__init__()
         self.in_body = False
-        self.form_depth = 0
-        self.saw_navigation = False
-        self.in_content = False
-        self.saw_footer = False
+        self.saw_body = False
+        self.hidden_elements: list[str] = []
+        self.saw_page_structure = False
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         attributes = dict(attrs)
         if tag == "body":
             self.in_body = True
+            self.saw_body = True
             return
-        if self.in_body and not self.in_content:
-            if tag == "form":
-                self.form_depth += 1
-                self.saw_navigation = True
+        if not self.in_body:
             return
-        if self.in_content and tag == "hr" and "noshade" in attributes:
-            # Runeberg separates OCR from its generated revision/navigation footer
-            # with an HR (normally ``<hr noshade>``).
-            self.in_content = False
-            self.saw_footer = True
+        if tag == "hr" and "noshade" in attributes:
+            self.in_body = False
+            self.saw_page_structure = True
             return
-        if self.in_content:
+        if tag in {"form", "nav", "header", "footer", "a", "script", "style"}:
+            self.hidden_elements.append(tag)
+            self.saw_page_structure = True
+            return
+        if not self.hidden_elements:
             super().handle_starttag(tag, attrs)
 
     def handle_endtag(self, tag: str) -> None:
-        if tag == "form" and self.form_depth:
-            self.form_depth -= 1
-            if not self.form_depth:
-                self.in_content = True
+        if self.hidden_elements:
+            if tag == self.hidden_elements[-1]:
+                self.hidden_elements.pop()
             return
-        if self.in_content:
+        if self.in_body:
             super().handle_endtag(tag)
 
     def handle_data(self, data: str) -> None:
-        if self.in_content:
+        if self.in_body and not self.hidden_elements:
             super().handle_data(data)
 
     def text(self) -> str:
-        if not self.in_body or not self.saw_navigation or not self.saw_footer:
-            raise ValueError("HTML lacks expected Runeberg body/navigation/footer structure")
-        return super().text()
+        if not self.saw_body or not self.saw_page_structure:
+            raise ValueError("HTML lacks expected Runeberg body/page structure")
+        value = super().text()
+        words = re.findall(r"[^\W\d_]+", value, flags=re.UNICODE)
+        if len(words) < 2:
+            raise ValueError("Runeberg page has too little non-navigation OCR text")
+        return value
 
 
 def html_to_text(value: str) -> str:

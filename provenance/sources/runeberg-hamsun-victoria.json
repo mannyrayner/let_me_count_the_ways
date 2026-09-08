@@ -110,13 +110,14 @@
   "page_map_path": "data/raw/hamsun-victoria/page-map.json",
   "ocr_status": "not proofread / uncorrected OCR",
   "facsimile_available": true,
-  "acquisition_summary": {
+  "rejected_acquisition": {
     "pages_requested": 74,
     "pages_downloaded": 74,
     "pages_nonempty": 74,
     "assembled_character_count": 10823,
     "assembled_word_count": 2244,
     "sha256": "681d9c7d87848fb88db6b6c36cf15f7d309938c75a00c988352603cdd92af897",
-    "recording_note": "Recorded from the completed Step 19 acquisition diagnostics reported by the operator; reconcile with acquisition-metadata.json before provenance approval."
+    "recording_note": "Rejected after inspection showed that the assembled file contained Runeberg navigation/facsimile chrome rather than literary OCR. This hash must not be used as the corpus-source hash.",
+    "status": "rejected_navigation_chrome_extraction"
   }
 }

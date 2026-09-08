@@ -116,13 +116,14 @@
   "page_map_path": "data/raw/hamsun-pan/page-map.json",
   "ocr_status": "not proofread / uncorrected OCR",
   "facsimile_available": true,
-  "acquisition_summary": {
+  "rejected_acquisition": {
     "pages_requested": 80,
     "pages_downloaded": 80,
     "pages_nonempty": 80,
     "assembled_character_count": 11527,
     "assembled_word_count": 2464,
     "sha256": "4e84a9611471dffb98704f3d064765d642deb7f2646fdcd2d48adcecb928167f",
-    "recording_note": "Recorded from the completed Step 19 acquisition diagnostics reported by the operator; reconcile with acquisition-metadata.json before provenance approval."
+    "recording_note": "Rejected after inspection showed that the assembled file contained Runeberg navigation/facsimile chrome rather than literary OCR. This hash must not be used as the corpus-source hash.",
+    "status": "rejected_navigation_chrome_extraction"
   }
 }
