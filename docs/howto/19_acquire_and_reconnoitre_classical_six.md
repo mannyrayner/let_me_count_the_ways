@@ -12,24 +12,16 @@ inputs. Annotation v0.3.1 remains frozen and is not called by this procedure.
 
 ## 1. Preflight and immutable membership
 
-This runbook uses `rg` (ripgrep) for its reconnaissance and final gates. If it
-is not already installed, close any running Cygwin programs and rerun the Cygwin
-`setup-x86_64.exe` installer. In the package-selection screen, search for
-`ripgrep` and select its current version. Alternatively, install it unattended
-from a Windows Command Prompt, replacing the installer path as appropriate:
-
-```text
-C:\path\to\setup-x86_64.exe -q -P ripgrep
-```
-
-Open a fresh Cygwin terminal afterward and verify the command before continuing:
+This runbook deliberately uses the standard Cygwin `grep` utility rather than
+requiring an additional search binary. Verify that the Cygwin `grep` package is
+available before continuing:
 
 ```bash
-command -v rg >/dev/null || {
-  echo 'rg is required; install the Cygwin ripgrep package first.' >&2
+command -v grep >/dev/null || {
+  echo 'grep is required; install the Cygwin grep package first.' >&2
   exit 1
 }
-rg --version
+grep --version | head -n 1
 ```
 
 ```bash
@@ -256,13 +248,13 @@ Start with v0.5 and write all diagnostic output to a review directory:
 
 ```bash
 mkdir -p results/reconnaissance/classical_six_v1/diagnostics
-rg -n -i -C 3 "I (really |still |truly )?love you|I love you still|I (don.?t|never) love[d]? you" \
+grep -Eni -C 3 "I (really |still |truly )?love you|I love you still|I (don.?t|never) love[d]? you" \
  data/raw/{wharton-age-of-innocence,lawrence-women-in-love}/*.txt \
  > results/reconnaissance/classical_six_v1/diagnostics/english.txt || test $? -eq 1
-rg -n -i -C 3 "aime|t[’']?aime|vous aime" \
+grep -Eni -C 3 "aime|t[’']?aime|vous aime" \
  data/raw/{dumas-fils-la-dame-aux-camelias,constant-adolphe}/*.txt \
  > results/reconnaissance/classical_six_v1/diagnostics/french.txt || test $? -eq 1
-rg -n -C 3 "elsker|Jeg elsker|jeg elsker|elsker Dem|elsker dig|elsker deg|De|Dem" \
+grep -En -C 3 "elsker|Jeg elsker|jeg elsker|elsker Dem|elsker dig|elsker deg|De|Dem" \
  data/raw/{hamsun-victoria,hamsun-pan}/*.txt \
  > results/reconnaissance/classical_six_v1/diagnostics/norwegian.txt || test $? -eq 1
 ```
@@ -341,7 +333,7 @@ missed. Record zero if none was missed.
 
 ```bash
 ! find "$RECON" -path '*/annotations/*' -type f -print -quit | grep -q .
-! rg -n 'review: PENDING' "$RECON/human_review.md"
+! grep -n 'review: PENDING' "$RECON/human_review.md"
 python scripts/docs/validate_runbook_index.py
 python -m pytest -q
 python scripts/security/scan_credentials.py \
