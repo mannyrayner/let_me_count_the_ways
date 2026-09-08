@@ -12,6 +12,26 @@ inputs. Annotation v0.3.1 remains frozen and is not called by this procedure.
 
 ## 1. Preflight and immutable membership
 
+This runbook uses `rg` (ripgrep) for its reconnaissance and final gates. If it
+is not already installed, close any running Cygwin programs and rerun the Cygwin
+`setup-x86_64.exe` installer. In the package-selection screen, search for
+`ripgrep` and select its current version. Alternatively, install it unattended
+from a Windows Command Prompt, replacing the installer path as appropriate:
+
+```text
+C:\path\to\setup-x86_64.exe -q -P ripgrep
+```
+
+Open a fresh Cygwin terminal afterward and verify the command before continuing:
+
+```bash
+command -v rg >/dev/null || {
+  echo 'rg is required; install the Cygwin ripgrep package first.' >&2
+  exit 1
+}
+rg --version
+```
+
 ```bash
 cd "$LMCW"
 git pull --ff-only
