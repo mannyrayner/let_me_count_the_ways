@@ -98,7 +98,7 @@
   "download_sha256": {},
   "source_basis": "Norwegian National Library scans, OCRed by Project Runeberg.",
   "editorial_note": "The selected Project Runeberg OCR pages are marked as not proofread. Page facsimiles are available to check target-relevant or suspicious OCR. The corpus preserves the OCR as supplied and does not silently reconstruct first-edition spelling or correct OCR.",
-  "processing_note": "PENDING: extract only literary OCR from the exact inclusive HTML URL-index range, preserve every raw page, and concatenate in URL order without editorial correction. Printed-page metadata and URL indices are distinct and may not map one-to-one at the range boundaries.",
+  "processing_note": "PENDING: derive literary text only from each preserved Runeberg raw-OCR region bounded by <!-- mode=normal --> and the subsequent <!-- NEWIMAGE2 --> marker (recording <!-- #### --> when used as fallback), then concatenate in URL order without editorial correction. OCR errors remain unchanged. Printed-page metadata and URL indices are distinct and may not map one-to-one at the range boundaries.",
   "rights_note": "PENDING REVIEW: record Project Runeberg status and independently apply Australian duration guidance; Knut Hamsun died in 1952.",
   "rights_guidance_url": "https://www.copyright.com.au/about-copyright/duration/",
   "runeberg_copyright_url": "https://runeberg.org/admin/copyright.html",

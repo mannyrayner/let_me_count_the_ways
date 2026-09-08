@@ -127,11 +127,13 @@ Only after the reusable helper and its offline tests pass, use the exact verifie
 volume bases and URL indices below. The helper constructs four-digit URLs
 deterministically (never by following next links), downloads with `curl --fail
 --location --retry 3` via `.part`, reuses valid nonempty pages, preserves every
-exact HTML response, rejects gaps/extras/empty pages, and extracts non-linked OCR
-from the page body while excluding forms, headers, footers, navigation elements,
-facsimile links, and Runeberg's generated footer. It concatenates without OCR
-correction. `--force` explicitly redownloads pages; it is intentionally absent
-here. Do not proceed from a partial range.
+exact HTML response, and rejects gaps/extras/empty pages. Derivation extracts
+only the raw-OCR HTML fragment after `<!-- mode=normal -->` and before the first
+subsequent `<!-- NEWIMAGE2 -->` (with `<!-- #### -->` as a recorded fallback).
+It does not use `<hr>` as a boundary and does not correct OCR. `--force`
+explicitly redownloads pages; it is intentionally absent here. Use
+`--allow-short-url-index N` only after manually reviewing a genuinely short OCR
+page. Do not proceed from a partial range.
 
 ```bash
 VICTORIA_VOLUME='https://runeberg.org/hamsun/6-3/'
@@ -167,6 +169,36 @@ for path, first, last in (
     assert metadata['pages_requested'] == metadata['pages_nonempty'] == len(expected)
     print(path, {key: metadata[key] for key in ('pages_requested','pages_downloaded',
           'pages_nonempty','assembled_character_count','assembled_word_count','sha256')})
+PY
+```
+
+Reject catastrophic chrome extraction, require plausible literary size, and
+reconcile every page-map slice before inspecting individual pages:
+
+```bash
+for FILE in \
+ data/raw/hamsun-victoria/runeberg-hamsun-victoria.txt \
+ data/raw/hamsun-pan/runeberg-hamsun-pan.txt
+do
+  ! grep -En 'Project Runeberg|On this page / på denna sida|Proofread the page now|Korrekturläs sidan nu|Table of Contents / Innehåll|Full resolution \(JPEG\)' "$FILE"
+  test "$(wc -c < "$FILE")" -gt 50000
+  test "$(wc -w < "$FILE")" -gt 8000
+done
+python - <<'PY'
+import json
+from pathlib import Path
+from scripts.corpus_acquisition.acquire_public_domain_text import runeberg_html_to_text
+for work in ('victoria','pan'):
+    root=Path(f'data/raw/hamsun-{work}')
+    assembled=(root/f'runeberg-hamsun-{work}.txt').read_text(encoding='utf-8')
+    records=json.loads((root/'page-map.json').read_text(encoding='utf-8'))
+    for record in records:
+        start,end=record['output_start'],record['output_end']
+        assert start < end
+        expected=runeberg_html_to_text(
+            Path(record['raw_path']).read_text(encoding='utf-8-sig'),
+            allow_short=record['short_page_override']).rstrip()
+        assert assembled[start:end] == expected, record['url_index']
 PY
 ```
 
@@ -208,8 +240,8 @@ Inspect boundary and internal page extracts through their page-map offsets:
 python - <<'PY'
 import json
 from pathlib import Path
-for root, wanted in (('hamsun-victoria',(93,100,166)),
-                     ('hamsun-pan',(335,375,414))):
+for root, wanted in (('hamsun-victoria',(93,101,129,166)),
+                     ('hamsun-pan',(335,350,375,414))):
     base=Path('data/raw')/root
     text=next(base.glob('runeberg-*.txt')).read_text(encoding='utf-8')
     pages={p['url_index']:p for p in json.loads((base/'page-map.json').read_text())}
@@ -221,6 +253,16 @@ PY
 
 Confirm the first/last pages belong to the intended work, no neighbouring work
 is included, internal pages are literary OCR, and assembled order is correct.
+Compare each excerpt with the raw OCR fragment in its HTML. Preserve OCR errors,
+including `Gi` where the facsimile reads `97`; the facsimile is verification, not
+the extraction source.
+
+Finally, make a lexical plausibility check before resuming reconnaissance:
+
+```bash
+grep -En 'Victoria|Johannes|elsker|Dem' data/raw/hamsun-victoria/runeberg-hamsun-victoria.txt || test $? -eq 1
+grep -En 'Pan|Glahn|Edvarda|elsker|Dem' data/raw/hamsun-pan/runeberg-hamsun-pan.txt || test $? -eq 1
+```
 
 ## 5. Inspect sources and approve provenance
 

@@ -3,7 +3,7 @@ import unittest
 from pathlib import Path
 
 from scripts.corpus_acquisition.acquire_public_domain_text import (
-    acquire_gutenberg, acquire_runeberg, page_urls, runeberg_html_to_text,
+    acquire_gutenberg, acquire_runeberg, extract_runeberg_ocr, page_urls, runeberg_html_to_text,
     sha256, trim_gutenberg,
 )
 
@@ -11,8 +11,13 @@ from scripts.corpus_acquisition.acquire_public_domain_text import (
 def runeberg_page(content):
     return f"""<!doctype html><html><body>
 <form><table><tr><td>Project Runeberg</td><td>Previous Next Facsimile</td></tr></table></form>
+<div>Full resolution (JPEG) — On this page / på denna sida — Victoria</div>
+<hr noshade>
+<p>Below is the raw OCR text. This page has never been proofread.</p>
+<!-- mode=normal -->
 {content}
-<hr noshade><tt>Project Runeberg Previous Next footer</tt>
+<!-- NEWIMAGE2 --><!-- #### -->
+<tt>Project Runeberg Previous Next footer</tt>
 </body></html>"""
 
 
@@ -48,54 +53,104 @@ class AcquisitionTests(unittest.TestCase):
 
     def test_runeberg_parser_retains_ocr_unicode_and_excludes_chrome(self):
         extracted = runeberg_html_to_text(
-            runeberg_page("<h2>Victoria</h2><p>Jeg elsker Dem — blå øyne.</p>")
+            runeberg_page("<h2>Victoria</h2><p>Jeg elsker Dem — blå øyne, og ordene "
+                          "blir stående urørt i den elektroniske kilden.</p>")
         )
-        self.assertEqual(extracted, "Victoria\n\nJeg elsker Dem — blå øyne.\n")
+        self.assertIn("Jeg elsker Dem — blå øyne", extracted)
         self.assertNotIn("Previous", extracted)
         self.assertNotIn("Runeberg", extracted)
 
     def test_runeberg_parser_excludes_scanned_page_link_chrome(self):
-        source = """<html><body>
-<div><a href="0093.jpg">Full resolution (JPEG)</a></div>
-<ul><li><a href="#page">On this page / på denna sida</a></li>
-<li><a href="#victoria">Victoria (1898)</a></li><li><a href="#one">I</a></li></ul>
-<p>Der var en Gang en Møllersøn som hed Johannes.</p>
-<div><a href="0092.html">&lt;&lt; prev. page &lt;&lt;</a>
-<a href="0094.html">&gt;&gt; next page &gt;&gt;</a></div>
-<hr noshade><tt>Project Runeberg footer</tt></body></html>"""
+        source = """<html><body><div>Project Runeberg</div>
+<div>Full resolution (JPEG); On this page / på denna sida; Victoria (1898)</div>
+<hr noshade><p>Below is the raw OCR text.</p>
+<p>This page has never been proofread. Proofread the page now!</p>
+<!-- mode=normal -->
+Gi<br><br>Pause. Victoria ytrer hen for sig:<br><br>Hvordan ser hun ut mon?<br>
+<br>Å Gud bevare dig, hun er vakrere end noget menneske på jorden.<br>
+<!-- NEWIMAGE2 --><!-- #### --><div>next page; Project Runeberg</div></body></html>"""
         self.assertEqual(
             runeberg_html_to_text(source),
-            "Der var en Gang en Møllersøn som hed Johannes.\n",
+            "Gi\n\nPause. Victoria ytrer hen for sig:\n\nHvordan ser hun ut mon?\n\n"
+            "Å Gud bevare dig, hun er vakrere end noget menneske på jorden.\n",
         )
+        extracted = runeberg_html_to_text(source)
+        self.assertIn("Pause. Victoria ytrer hen for sig:", extracted)
+        self.assertNotIn("On this page / på denna sida", extracted)
+        self.assertNotIn("Project Runeberg", extracted)
 
     def test_runeberg_parser_rejects_navigation_only_page(self):
-        source = """<html><body><a href="page.jpg">Full resolution (JPEG)</a>
-<a href="next.html">next page</a><hr noshade></body></html>"""
-        with self.assertRaisesRegex(ValueError, "empty|too little"):
+        source = """<html><body><!-- mode=normal -->
+<!-- NEWIMAGE2 --></body></html>"""
+        with self.assertRaisesRegex(ValueError, "empty"):
             runeberg_html_to_text(source)
 
     def test_runeberg_parser_rejects_empty_or_malformed_pages(self):
         with self.assertRaisesRegex(ValueError, "empty"):
             runeberg_html_to_text(runeberg_page(""))
-        with self.assertRaisesRegex(ValueError, "structure"):
+        with self.assertRaisesRegex(ValueError, "start marker"):
             runeberg_html_to_text("<html><body><p>orphan text</p></body></html>")
+
+    def test_runeberg_parser_rejects_missing_reversed_and_ambiguous_markers(self):
+        with self.assertRaisesRegex(ValueError, "end marker not found"):
+            runeberg_html_to_text("<!-- mode=normal --><p>Literary OCR remains here.</p>")
+        with self.assertRaisesRegex(ValueError, "before start"):
+            runeberg_html_to_text("<!-- NEWIMAGE2 --><!-- mode=normal --><p>OCR</p>")
+        with self.assertRaisesRegex(ValueError, "ambiguous.*start"):
+            runeberg_html_to_text(
+                "<!-- mode=normal --><p>OCR</p><!-- mode=normal --><!-- NEWIMAGE2 -->"
+            )
+        with self.assertRaisesRegex(ValueError, "ambiguous.*end"):
+            runeberg_html_to_text(
+                "<!-- mode=normal --><p>OCR text is deliberately long enough to pass "
+                "the normal sanity validation here.</p><!-- NEWIMAGE2 --><!-- NEWIMAGE2 -->"
+            )
+
+    def test_runeberg_parser_supports_and_reports_fallback_marker(self):
+        source = ("<!-- mode=normal --><p>This sufficiently substantial literary OCR "
+                  "fragment remains exactly present for deterministic fallback testing.</p>"
+                  "<!-- #### -->")
+        text, marker = extract_runeberg_ocr(source)
+        self.assertIn("substantial literary OCR", text)
+        self.assertEqual(marker, "####")
+
+    def test_runeberg_parser_rejects_short_and_forbidden_content(self):
+        with self.assertRaisesRegex(ValueError, "too short"):
+            runeberg_html_to_text("<!-- mode=normal -->Victoria I<!-- NEWIMAGE2 -->")
+        with self.assertRaisesRegex(ValueError, "forbidden navigation"):
+            runeberg_html_to_text(
+                "<!-- mode=normal --><p>Project Runeberg navigation accidentally "
+                "entered this otherwise sufficiently long OCR fragment.</p><!-- NEWIMAGE2 -->"
+            )
 
     def test_runeberg_range_is_ordered_mapped_and_reproducible(self):
         base = "https://runeberg.test/ham/2"
         urls = page_urls(base, 401, 402)
-        contents = {urls[0]: runeberg_page("<p>Første blå</p>"),
-                    urls[1]: runeberg_page("<p>Andre øyeblikk</p>")}
+        contents = {
+            urls[0]: runeberg_page("<p>Første blå side inneholder nok litterære ord til "
+                                    "å passere den konservative kvalitetskontrollen.</p>"),
+            urls[1]: runeberg_page("<p>Andre øyeblikk følger i riktig orden og beholder "
+                                    "hele den urettede norske OCR-teksten.</p>"),
+        }
         raw = self.root / "pages"
         first_output, first_map = self.root / "pan.txt", self.root / "map.json"
         result = acquire_runeberg(base, 401, 402, raw, first_output, first_map,
                                   331, 332, downloader=self.downloader(contents))
         self.assertEqual(first_output.read_text(encoding="utf-8"),
-                         "Første blå\n\nAndre øyeblikk\n")
+                         "Første blå side inneholder nok litterære ord til å passere den "
+                         "konservative kvalitetskontrollen.\n\nAndre øyeblikk følger i "
+                         "riktig orden og beholder hele den urettede norske OCR-teksten.\n")
         records = __import__("json").loads(first_map.read_text(encoding="utf-8"))
         assembled = first_output.read_text(encoding="utf-8")
         self.assertEqual([r["url_index"] for r in records], [401, 402])
+        self.assertEqual([r["ocr_end_marker"] for r in records], ["NEWIMAGE2", "NEWIMAGE2"])
+        self.assertEqual(result["fallback_end_marker_url_indices"], [])
+        self.assertEqual(result["allowed_short_url_indices"], [])
         self.assertEqual([assembled[r["output_start"]:r["output_end"]] for r in records],
-                         ["Første blå", "Andre øyeblikk"])
+                         ["Første blå side inneholder nok litterære ord til å passere den "
+                          "konservative kvalitetskontrollen.",
+                          "Andre øyeblikk følger i riktig orden og beholder hele den "
+                          "urettede norske OCR-teksten."])
         self.assertEqual(result["printed_page_range"], [331, 332])
         self.assertEqual(result["runeberg_url_index_range"], [401, 402])
 
