@@ -347,30 +347,6 @@ from pathlib import Path
 errors=[]
 def problem(path, message): errors.append(f'{path}: {message}')
 for member in json.load(open(sys.argv[1],encoding='utf-8'))['sources']:
-    provenance=Path(member['provenance'])
-    record=json.loads(provenance.read_text(encoding='utf-8'))
-    source=Path(record['local_path'])
-    print(f"\n{provenance}\n  sha256: {hashlib.sha256(source.read_bytes()).hexdigest()}")
-    raw_paths=([record['download_path']] if record.get('download_path')
-               else [entry['raw_path'] for entry in json.loads(
-                   Path(record['page_map_path']).read_text(encoding='utf-8'))])
-    for raw in map(Path,raw_paths):
-        print(f"  raw {raw.name}: {hashlib.sha256(raw.read_bytes()).hexdigest()}")
-PY
-```
-
-If filling a record manually, copy rather than retype those values and use
-explicit ISO 8601 timestamps. Then validate paths, completion, and hashes. This
-validator reports the field and expected/actual values instead of stopping at an
-unlabelled assertion:
-
-```bash
-python - "$BATCH" <<'PY'
-import hashlib,json,sys
-from pathlib import Path
-errors=[]
-def problem(path, message): errors.append(f'{path}: {message}')
-for member in json.load(open(sys.argv[1],encoding='utf-8'))['sources']:
  p=Path(member['provenance']); r=json.loads(p.read_text(encoding='utf-8'))
  if r.get('review_status') != 'approved_for_development_processing':
   problem(p, f"review_status is {r.get('review_status')!r}")
@@ -438,6 +414,7 @@ git add \
   scripts/corpus_acquisition/finalize_acquisition_provenance.py \
   scripts/corpus_acquisition/test_acquire_public_domain_text.py \
   scripts/corpus_acquisition/test_finalize_acquisition_provenance.py \
+  scripts/docs/test_step19_pipeline_commands.py \
   scripts/extraction/test_search_patterns_v0_6.py
 git diff --cached --check
 git status --short
@@ -576,7 +553,7 @@ PY
 fi
 echo "PROVENANCE=$PROVENANCE"
 if python scripts/pipeline/run_single_text_pipeline.py \
-    --provenance "$PROVENANCE" --patterns "$PATTERNS" \
+    "$PROVENANCE" --patterns "$PATTERNS" \
     --annotation-version 0.3.1 --model 5.6 --context-chars 1000 --dry-run \
     --output-root "$RECON/pipeline_runs"
 then
@@ -646,7 +623,7 @@ while read -r PROVENANCE; do
   echo "Running extraction dry-run for: $PROVENANCE"
   echo '============================================================'
   if python scripts/pipeline/run_single_text_pipeline.py \
-      --provenance "$PROVENANCE" --patterns "$PATTERNS" \
+      "$PROVENANCE" --patterns "$PATTERNS" \
       --annotation-version 0.3.1 --model 5.6 --context-chars 1000 --dry-run \
       --output-root "$RECON/pipeline_runs"
   then
