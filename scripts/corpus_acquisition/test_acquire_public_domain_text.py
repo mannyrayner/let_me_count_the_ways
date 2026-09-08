@@ -3,8 +3,17 @@ import unittest
 from pathlib import Path
 
 from scripts.corpus_acquisition.acquire_public_domain_text import (
-    acquire_gutenberg, acquire_runeberg, page_urls, trim_gutenberg,
+    acquire_gutenberg, acquire_runeberg, page_urls, runeberg_html_to_text,
+    sha256, trim_gutenberg,
 )
+
+
+def runeberg_page(content):
+    return f"""<!doctype html><html><body>
+<form><table><tr><td>Project Runeberg</td><td>Previous Next Facsimile</td></tr></table></form>
+{content}
+<hr noshade><tt>Project Runeberg Previous Next footer</tt>
+</body></html>"""
 
 
 class AcquisitionTests(unittest.TestCase):
@@ -16,10 +25,11 @@ class AcquisitionTests(unittest.TestCase):
         self.temporary.cleanup()
 
     @staticmethod
-    def downloader(contents):
+    def downloader(contents, reused=False):
         def download(url, destination):
             destination.parent.mkdir(parents=True, exist_ok=True)
             destination.write_text(contents[url], encoding="utf-8")
+            return not reused
         return download
 
     def test_gutenberg_preserves_download_and_trims_only_explicit_markers(self):
@@ -30,33 +40,90 @@ class AcquisitionTests(unittest.TestCase):
         )
         self.assertEqual(output.read_text(encoding="utf-8"), "Body é.\n")
         self.assertIn("front", raw.read_text(encoding="utf-8"))
-        self.assertEqual(len(result["sha256"]), 64)
+        self.assertEqual(result["download_url"], url)
 
     def test_gutenberg_rejects_missing_markers(self):
         with self.assertRaises(ValueError):
             trim_gutenberg("only literary-looking text")
 
-    def test_runeberg_range_is_ordered_preserved_and_hashed(self):
+    def test_runeberg_parser_retains_ocr_unicode_and_excludes_chrome(self):
+        extracted = runeberg_html_to_text(
+            runeberg_page("<h2>Victoria</h2><p>Jeg elsker Dem — blå øyne.</p>")
+        )
+        self.assertEqual(extracted, "Victoria\n\nJeg elsker Dem — blå øyne.\n")
+        self.assertNotIn("Previous", extracted)
+        self.assertNotIn("Runeberg", extracted)
+
+    def test_runeberg_parser_excludes_scanned_page_link_chrome(self):
+        source = """<html><body>
+<div><a href="0093.jpg">Full resolution (JPEG)</a></div>
+<ul><li><a href="#page">On this page / på denna sida</a></li>
+<li><a href="#victoria">Victoria (1898)</a></li><li><a href="#one">I</a></li></ul>
+<p>Der var en Gang en Møllersøn som hed Johannes.</p>
+<div><a href="0092.html">&lt;&lt; prev. page &lt;&lt;</a>
+<a href="0094.html">&gt;&gt; next page &gt;&gt;</a></div>
+<hr noshade><tt>Project Runeberg footer</tt></body></html>"""
+        self.assertEqual(
+            runeberg_html_to_text(source),
+            "Der var en Gang en Møllersøn som hed Johannes.\n",
+        )
+
+    def test_runeberg_parser_rejects_navigation_only_page(self):
+        source = """<html><body><a href="page.jpg">Full resolution (JPEG)</a>
+<a href="next.html">next page</a><hr noshade></body></html>"""
+        with self.assertRaisesRegex(ValueError, "empty|too little"):
+            runeberg_html_to_text(source)
+
+    def test_runeberg_parser_rejects_empty_or_malformed_pages(self):
+        with self.assertRaisesRegex(ValueError, "empty"):
+            runeberg_html_to_text(runeberg_page(""))
+        with self.assertRaisesRegex(ValueError, "structure"):
+            runeberg_html_to_text("<html><body><p>orphan text</p></body></html>")
+
+    def test_runeberg_range_is_ordered_mapped_and_reproducible(self):
         base = "https://runeberg.test/ham/2"
         urls = page_urls(base, 401, 402)
-        result = acquire_runeberg(
-            base, 401, 402, 331, 332, self.root / "pages", self.root / "pan.txt",
-            self.downloader({urls[0]: "<p>First</p>", urls[1]: "<p>Second</p>"}),
-        )
-        self.assertEqual(
-            (self.root / "pan.txt").read_text(encoding="utf-8"),
-            "First\n\nSecond\n",
-        )
+        contents = {urls[0]: runeberg_page("<p>Første blå</p>"),
+                    urls[1]: runeberg_page("<p>Andre øyeblikk</p>")}
+        raw = self.root / "pages"
+        first_output, first_map = self.root / "pan.txt", self.root / "map.json"
+        result = acquire_runeberg(base, 401, 402, raw, first_output, first_map,
+                                  331, 332, downloader=self.downloader(contents))
+        self.assertEqual(first_output.read_text(encoding="utf-8"),
+                         "Første blå\n\nAndre øyeblikk\n")
+        records = __import__("json").loads(first_map.read_text(encoding="utf-8"))
+        assembled = first_output.read_text(encoding="utf-8")
+        self.assertEqual([r["url_index"] for r in records], [401, 402])
+        self.assertEqual([assembled[r["output_start"]:r["output_end"]] for r in records],
+                         ["Første blå", "Andre øyeblikk"])
         self.assertEqual(result["printed_page_range"], [331, 332])
-        self.assertEqual(result["url_index_range"], [401, 402])
-        self.assertEqual(len(result["download_sha256"]), 2)
+        self.assertEqual(result["runeberg_url_index_range"], [401, 402])
 
-    def test_runeberg_refuses_overwrite(self):
+        second_output, second_map = self.root / "pan-2.txt", self.root / "map-2.json"
+        rerun = acquire_runeberg(base, 401, 402, raw, second_output, second_map,
+                                 331, 332, downloader=self.downloader(contents, reused=True))
+        self.assertEqual(rerun["pages_downloaded"], 0)
+        self.assertEqual(sha256(first_output), sha256(second_output))
+        self.assertEqual(first_map.read_text(encoding="utf-8"),
+                         second_map.read_text(encoding="utf-8"))
+
+    def test_runeberg_rejects_unexpected_or_missing_page(self):
+        base = "https://runeberg.test/work/"
+        urls = page_urls(base, 1, 2)
+        raw = self.root / "pages"
+        raw.mkdir()
+        (raw / "0003.html").write_text("unexpected", encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, "unexpected"):
+            acquire_runeberg(base, 1, 2, raw, self.root / "out.txt",
+                             self.root / "map.json",
+                             downloader=self.downloader({u: runeberg_page(f"<p>{u}</p>") for u in urls}))
+
+    def test_runeberg_refuses_output_overwrite(self):
         output = self.root / "existing.txt"
         output.write_text("keep", encoding="utf-8")
         with self.assertRaises(FileExistsError):
-            acquire_runeberg("https://example.test/v", 1, 1, 1, 1,
-                              self.root / "pages", output, self.downloader({}))
+            acquire_runeberg("https://example.test/v", 1, 1, self.root / "pages",
+                             output, self.root / "map.json", downloader=self.downloader({}))
 
 
 if __name__ == "__main__":
