@@ -137,6 +137,7 @@ validation applies to the assembled work rather than each page. Do not proceed
 from a partial range.
 
 ```bash
+(
 set -e
 VICTORIA_VOLUME='https://runeberg.org/hamsun/6-3/'
 VICTORIA_FIRST_URL_INDEX=93; VICTORIA_LAST_URL_INDEX=166
@@ -176,6 +177,7 @@ for path, first, last in (
     print(path, {key: metadata[key] for key in ('pages_requested','pages_downloaded',
           'pages_nonempty','assembled_character_count','assembled_word_count','sha256')})
 PY
+)
 ```
 
 Reject catastrophic chrome extraction, require plausible literary size, and
@@ -313,6 +315,30 @@ git diff -- provenance/sources
 
 Review that diff before continuing. If manual diagnosis is needed, print the
 current literary and raw hashes directly:
+
+```bash
+python - "$BATCH" <<'PY'
+import hashlib,json,sys
+from pathlib import Path
+errors=[]
+def problem(path, message): errors.append(f'{path}: {message}')
+for member in json.load(open(sys.argv[1],encoding='utf-8'))['sources']:
+    provenance=Path(member['provenance'])
+    record=json.loads(provenance.read_text(encoding='utf-8'))
+    source=Path(record['local_path'])
+    print(f"\n{provenance}\n  sha256: {hashlib.sha256(source.read_bytes()).hexdigest()}")
+    raw_paths=([record['download_path']] if record.get('download_path')
+               else [entry['raw_path'] for entry in json.loads(
+                   Path(record['page_map_path']).read_text(encoding='utf-8'))])
+    for raw in map(Path,raw_paths):
+        print(f"  raw {raw.name}: {hashlib.sha256(raw.read_bytes()).hexdigest()}")
+PY
+```
+
+If filling a record manually, copy rather than retype those values and use
+explicit ISO 8601 timestamps. Then validate paths, completion, and hashes. This
+validator reports the field and expected/actual values instead of stopping at an
+unlabelled assertion:
 
 ```bash
 python - "$BATCH" <<'PY'
@@ -525,12 +551,53 @@ possible formal-pronoun pattern are the only differences; there is no parallel
 manual extraction workflow. The selected `PATTERNS` manifest applies to all six
 works. These commands prepare extraction and classification inputs but make no
 annotation API calls. `--dry-run` performs extraction and prepares annotation
-inputs but stops before any annotation-model call. The block restates every
-important path so that it can run in a fresh shell independently of earlier
-steps:
+inputs but stops before any annotation-model call.
+
+If the first source needs isolated debugging, this optional block preserves the
+pipeline's stdout and stderr and reports failure without closing the interactive
+shell:
 
 ```bash
-set -e
+if (
+BATCH=data/batches/classical_six_v1.json
+PATTERNS=data/development/search_patterns_v0_6.json
+RECON=results/reconnaissance/classical_six_v1
+mkdir -p "$RECON/pipeline_runs" || exit 1
+if ! PROVENANCE=$(
+  python - "$BATCH" <<'PY'
+import json
+import sys
+with open(sys.argv[1], encoding='utf-8') as stream:
+    print(json.load(stream)['sources'][0]['provenance'])
+PY
+); then
+  echo 'Could not read the first provenance path.' >&2
+  exit 1
+fi
+echo "PROVENANCE=$PROVENANCE"
+if python scripts/pipeline/run_single_text_pipeline.py \
+    --provenance "$PROVENANCE" --patterns "$PATTERNS" \
+    --annotation-version 0.3.1 --model 5.6 --context-chars 1000 --dry-run \
+    --output-root "$RECON/pipeline_runs"
+then
+  echo 'SUCCESS'
+else
+  STATUS=$?
+  echo "FAILED with exit status $STATUS" >&2
+fi
+); then
+  :
+else
+  STATUS=$?
+  echo "Single-source debug setup failed with exit status $STATUS" >&2
+fi
+```
+
+The normal six-source block restates every important path so that it can run in
+a fresh shell independently of earlier steps:
+
+```bash
+if (
 BATCH=data/batches/classical_six_v1.json
 PATTERNS=data/development/search_patterns_v0_6.json
 RECON=results/reconnaissance/classical_six_v1
@@ -543,10 +610,10 @@ test -f "$PATTERNS" || {
   echo "Missing search-pattern manifest: $PATTERNS" >&2
   exit 1
 }
-python -m json.tool "$BATCH" >/dev/null
-python -m json.tool "$PATTERNS" >/dev/null
+if ! python -m json.tool "$BATCH" >/dev/null; then exit 1; fi
+if ! python -m json.tool "$PATTERNS" >/dev/null; then exit 1; fi
 
-python - "$BATCH" <<'PY'
+if ! python - "$BATCH" <<'PY'
 import json
 import sys
 from pathlib import Path
@@ -566,15 +633,31 @@ for source in sources:
         raise SystemExit(f'Missing provenance file: {path}')
 print('Batch contains 6 provenance records.')
 PY
+then
+  exit 1
+fi
 
-mkdir -p "$RECON/pipeline_runs"
+mkdir -p "$RECON/pipeline_runs" || exit 1
+FAILURES=0
 while read -r PROVENANCE; do
   test -n "$PROVENANCE" || continue
+  echo
+  echo '============================================================'
   echo "Running extraction dry-run for: $PROVENANCE"
-  python scripts/pipeline/run_single_text_pipeline.py \
-    --provenance "$PROVENANCE" --patterns "$PATTERNS" \
-    --annotation-version 0.3.1 --model 5.6 --context-chars 1000 --dry-run \
-    --output-root "$RECON/pipeline_runs"
+  echo '============================================================'
+  if python scripts/pipeline/run_single_text_pipeline.py \
+      --provenance "$PROVENANCE" --patterns "$PATTERNS" \
+      --annotation-version 0.3.1 --model 5.6 --context-chars 1000 --dry-run \
+      --output-root "$RECON/pipeline_runs"
+  then
+    echo "SUCCESS: $PROVENANCE"
+  else
+    STATUS=$?
+    echo "FAILED: $PROVENANCE" >&2
+    echo "Exit status: $STATUS" >&2
+    FAILURES=$((FAILURES + 1))
+    break
+  fi
 done < <(
   python - "$BATCH" <<'PY'
 import json
@@ -588,13 +671,28 @@ for source in batch['sources']:
 PY
 )
 
-find "$RECON/pipeline_runs" \
-  -name manifest.json \
-  -print \
-  -exec python -m json.tool {} \;
+if test "$FAILURES" -ne 0; then
+  echo 'Step 7 stopped after a pipeline failure. Review the traceback above.' >&2
+else
+  echo 'All extraction dry-runs completed successfully.'
+  find "$RECON/pipeline_runs" \
+    -name manifest.json \
+    -print \
+    -exec python -m json.tool {} \;
+fi
+); then
+  :
+else
+  STATUS=$?
+  echo "Step 7 setup failed with exit status $STATUS; review the error above." >&2
+fi
 ```
 
-Do not remove zero-hit works and do not run the batch without `--dry-run`.
+Earlier steps use strict mode only inside subshells. Step 7 also runs in a
+subshell and guards every pipeline invocation explicitly, so a failed dry run
+prints its traceback, source, and status without terminating the interactive
+shell—even if that shell already has `set -e`. Do not remove zero-hit works and
+do not run the batch without `--dry-run`.
 
 ## 8. Inspect every occurrence and record scene clusters
 
