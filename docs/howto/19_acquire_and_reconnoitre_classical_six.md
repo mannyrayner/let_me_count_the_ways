@@ -320,32 +320,6 @@ current literary and raw hashes directly:
 python - "$BATCH" <<'PY'
 import hashlib,json,sys
 from pathlib import Path
-errors=[]
-def problem(path, message): errors.append(f'{path}: {message}')
-for member in json.load(open(sys.argv[1],encoding='utf-8'))['sources']:
-    provenance=Path(member['provenance'])
-    record=json.loads(provenance.read_text(encoding='utf-8'))
-    source=Path(record['local_path'])
-    print(f"\n{provenance}\n  sha256: {hashlib.sha256(source.read_bytes()).hexdigest()}")
-    raw_paths=([record['download_path']] if record.get('download_path')
-               else [entry['raw_path'] for entry in json.loads(
-                   Path(record['page_map_path']).read_text(encoding='utf-8'))])
-    for raw in map(Path,raw_paths):
-        print(f"  raw {raw.name}: {hashlib.sha256(raw.read_bytes()).hexdigest()}")
-PY
-```
-
-If filling a record manually, copy rather than retype those values and use
-explicit ISO 8601 timestamps. Then validate paths, completion, and hashes. This
-validator reports the field and expected/actual values instead of stopping at an
-unlabelled assertion:
-
-```bash
-python - "$BATCH" <<'PY'
-import hashlib,json,sys
-from pathlib import Path
-errors=[]
-def problem(path, message): errors.append(f'{path}: {message}')
 for member in json.load(open(sys.argv[1],encoding='utf-8'))['sources']:
     provenance=Path(member['provenance'])
     record=json.loads(provenance.read_text(encoding='utf-8'))
@@ -642,6 +616,9 @@ then
 fi
 
 mkdir -p "$RECON/pipeline_runs" || exit 1
+RUN_LIST="$RECON/selected-run-directories.txt"
+RUN_LIST_PART="$RUN_LIST.part"
+: > "$RUN_LIST_PART" || exit 1
 FAILURES=0
 while read -r PROVENANCE; do
   # Strip CR left by native Windows Python's CRLF stdout under Cygwin.
@@ -651,12 +628,15 @@ while read -r PROVENANCE; do
   echo '============================================================'
   echo "Running extraction dry-run for: $PROVENANCE"
   echo '============================================================'
-  if python scripts/pipeline/run_single_text_pipeline.py \
+  if RUN_DIR=$(python scripts/pipeline/run_single_text_pipeline.py \
       "$PROVENANCE" --patterns "$PATTERNS" \
       --annotation-version 0.3.1 --model 5.6 --context-chars 1000 --dry-run \
-      --output-root "$RECON/pipeline_runs"
+      --output-root "$RECON/pipeline_runs")
   then
+    RUN_DIR=${RUN_DIR%$'\r'}
+    printf '%s\n' "$RUN_DIR" >> "$RUN_LIST_PART" || exit 1
     echo "SUCCESS: $PROVENANCE"
+    echo "Run directory: $RUN_DIR"
   else
     STATUS=$?
     echo "FAILED: $PROVENANCE" >&2
@@ -678,9 +658,12 @@ PY
 )
 
 if test "$FAILURES" -ne 0; then
+  rm -f "$RUN_LIST_PART"
   echo 'Step 7 stopped after a pipeline failure. Review the traceback above.' >&2
 else
+  mv "$RUN_LIST_PART" "$RUN_LIST" || exit 1
   echo 'All extraction dry-runs completed successfully.'
+  echo "Exact run selection saved to: $RUN_LIST"
   find "$RECON/pipeline_runs" \
     -name manifest.json \
     -print \
@@ -702,34 +685,150 @@ do not run the batch without `--dry-run`.
 
 ## 8. Inspect every occurrence and record scene clusters
 
-Generate a passage-free index plus readable inspection file from the exact run
-selected for each source. Replace each `RUN_DIR` with the printed dry-run path;
-do not use a newest-directory glob when recording final evidence.
+Step 7 records the six exact successful run directories, so this step does not
+use placeholders or select a directory by recency. If Step 7 predates that run
+list, rerun its normal six-source block; dry-run extraction makes no model calls.
+The following block is self-contained, validates the complete run selection, and
+atomically creates the occurrence index, review document, selection record, and
+summary template. It refuses to overwrite prior review work:
 
 ```bash
-: > "$RECON/occurrence_inventory.tsv"
-: > "$RECON/human_review.md"
-for RUN_DIR in PASTE_SIX_EXACT_RUN_DIRECTORIES
-do
-  test -f "$RUN_DIR/extraction/passages.jsonl" || { echo "Bad run: $RUN_DIR" >&2; exit 1; }
-  python - "$RUN_DIR" "$RECON" <<'PY'
-import json,sys
+if (
+BATCH=data/batches/classical_six_v1.json
+PATTERNS=data/development/search_patterns_v0_6.json
+RECON=results/reconnaissance/classical_six_v1
+RUN_LIST="$RECON/selected-run-directories.txt"
+
+test -f "$BATCH" || { echo "Missing batch manifest: $BATCH" >&2; exit 1; }
+test -f "$PATTERNS" || { echo "Missing pattern manifest: $PATTERNS" >&2; exit 1; }
+test -f "$RUN_LIST" || {
+  echo "Missing exact run selection: $RUN_LIST; rerun the normal Step 7 block." >&2
+  exit 1
+}
+mkdir -p "$RECON" || exit 1
+
+python - "$BATCH" "$RUN_LIST" "$RECON" <<'PY'
+import json
+import sys
 from pathlib import Path
-run=Path(sys.argv[1]); out=Path(sys.argv[2])
-rows=[json.loads(x) for x in (run/'extraction/passages.jsonl').read_text(encoding='utf-8').splitlines() if x]
-with (out/'occurrence_inventory.tsv').open('a',encoding='utf-8') as f:
- for r in rows: f.write(f"{r['source_id']}\t{r['occurrence_id']}\t{r['pattern_id']}\t{r['start']}\t{r['end']}\t{r['match']}\n")
-with (out/'human_review.md').open('a',encoding='utf-8') as f:
- for r in rows:
-  f.write(f"\n## {r['occurrence_id']}\n\n- source: `{r['source_id']}`\n- pattern: `{r['pattern_id']}`\n- offsets: {r['start']}–{r['end']}\n- review: PENDING\n\n```text\n{r['context']}\n```\n")
+
+batch_path,run_list_path,out=map(Path,sys.argv[1:])
+batch=json.loads(batch_path.read_text(encoding='utf-8'))
+runs=[Path(line.rstrip('\r')) for line in
+      run_list_path.read_text(encoding='utf-8').splitlines() if line.rstrip('\r')]
+if len(runs) != 6:
+    raise SystemExit(f'Expected 6 selected run directories, found {len(runs)}')
+
+expected=[]
+for member in batch['sources']:
+    provenance=Path(member['provenance'])
+    record=json.loads(provenance.read_text(encoding='utf-8'))
+    expected.append(record['source_id'])
+if len(expected) != 6 or len(set(expected)) != 6:
+    raise SystemExit(f'Batch does not contain 6 unique source IDs: {expected}')
+
+selections=[]
+all_rows=[]
+seen_occurrences=set()
+for run in runs:
+    manifest_path=run/'manifest.json'
+    passages_path=run/'extraction'/'passages.jsonl'
+    if not manifest_path.is_file() or not passages_path.is_file():
+        raise SystemExit(f'Missing manifest or passages in selected run: {run}')
+    manifest=json.loads(manifest_path.read_text(encoding='utf-8'))
+    if not manifest.get('dry_run') or manifest.get('status') != 'prepared':
+        raise SystemExit(f'Selected run is not a prepared dry run: {run}')
+    if manifest.get('search_pattern_version') != '0.6':
+        raise SystemExit(f'Selected run does not use patterns v0.6: {run}')
+    if manifest.get('annotation_version') != '0.3.1':
+        raise SystemExit(f'Selected run does not use annotation 0.3.1: {run}')
+    rows=[json.loads(line) for line in passages_path.read_text(encoding='utf-8').splitlines()
+          if line]
+    if len(rows) != manifest.get('extracted_occurrences'):
+        raise SystemExit(f'Occurrence count disagrees with manifest: {run}')
+    for row in rows:
+        if row['source_id'] != manifest['source_id']:
+            raise SystemExit(f'Occurrence/source mismatch in {run}: {row["occurrence_id"]}')
+        if row['occurrence_id'] in seen_occurrences:
+            raise SystemExit(f'Duplicate occurrence ID: {row["occurrence_id"]}')
+        seen_occurrences.add(row['occurrence_id'])
+    all_rows.extend(rows)
+    selections.append({
+        'source_id':manifest['source_id'],
+        'language':manifest['language'],
+        'run_directory':str(run),
+        'manifest':str(manifest_path),
+        'passages':str(passages_path),
+        'extracted_occurrences':len(rows),
+    })
+
+actual=[item['source_id'] for item in selections]
+if actual != expected:
+    raise SystemExit(f'Run selection order/source mismatch: expected {expected}, found {actual}')
+
+outputs={
+    'inventory':out/'occurrence_inventory.tsv',
+    'review':out/'human_review.md',
+    'selection':out/'selected-runs.json',
+    'summary':out/'summary.md',
+}
+existing=[str(path) for path in outputs.values() if path.exists()]
+if existing:
+    raise SystemExit(f'Refusing to overwrite existing Step 8 output(s): {existing}')
+
+def publish(path,text):
+    partial=path.with_suffix(path.suffix+'.part')
+    partial.write_text(text,encoding='utf-8',newline='\n')
+    partial.replace(path)
+
+inventory=['source_id\toccurrence_id\tpattern_id\tstart\tend\tmatch_json']
+for row in all_rows:
+    match=json.dumps(row['match'],ensure_ascii=False)
+    inventory.append(f"{row['source_id']}\t{row['occurrence_id']}\t{row['pattern_id']}\t"
+                     f"{row['start']}\t{row['end']}\t{match}")
+publish(outputs['inventory'],'\n'.join(inventory)+'\n')
+
+review=['# Classical six occurrence review','']
+for row in all_rows:
+    review.extend([
+        f"## {row['occurrence_id']}",'',f"- source: `{row['source_id']}`",
+        f"- pattern: `{row['pattern_id']}`",f"- offsets: {row['start']}–{row['end']}",
+        '- review: PENDING','', '```text',row['context'],'```','',
+    ])
+publish(outputs['review'],'\n'.join(review))
+publish(outputs['selection'],json.dumps(selections,indent=2,ensure_ascii=False)+'\n')
+
+summary=[
+    '# Classical six reconnaissance summary','',
+    '| Source | Language | Occurrences | Approx. scene clusters | Extraction issues | Recommendation |',
+    '| --- | --- | ---: | ---: | --- | --- |',
+]
+by_source={item['source_id']:item['extracted_occurrences'] for item in selections}
+for item in selections:
+    source_id=item['source_id']
+    summary.append(f"| {source_id} | {item['language']} | "
+                   f"{by_source[source_id]} | PENDING | PENDING | PENDING |")
+publish(outputs['summary'],'\n'.join(summary)+'\n')
+
+print(f'Validated 6 exact dry runs and {len(all_rows)} unique occurrence(s).')
+for item in selections:
+    print(f"{item['source_id']}: {item['run_directory']} "
+          f"({item['extracted_occurrences']} occurrence(s))")
+print(f"Review file: {outputs['review']}")
 PY
-done
+); then
+  :
+else
+  STATUS=$?
+  echo "Step 8 setup failed with exit status $STATUS; review the error above." >&2
+fi
 ```
 
 For every hit verify direction, polarity, embedding/report/quotation/hypothesis,
 context size, overlaps, OCR, and adjacent declarations. Check suspicious Hamsun
 OCR against scan images. Retain structurally marked cases. Replace every
-`review: PENDING` with a concise decision. Create `$RECON/summary.md` containing:
+`review: PENDING` with a concise decision. Complete the generated
+`$RECON/summary.md` table:
 
 ```text
 | Work | Language | Occurrences | Approx. scene clusters | Extraction issues | Recommendation |
