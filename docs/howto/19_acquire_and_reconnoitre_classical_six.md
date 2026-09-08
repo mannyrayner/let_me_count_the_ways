@@ -386,44 +386,148 @@ if errors:
 PY
 ```
 
-Commit this acquisition/rights checkpoint before extraction.
+Commit this acquisition/rights checkpoint before extraction with an explicit,
+auditable path list. Do not use `git add .`:
 
-## 6. Diagnostic reconnaissance and the common pattern decision
+```bash
+git status --short
+git add \
+  data/batches/classical_six_v1.json \
+  data/raw/wharton-age-of-innocence \
+  data/raw/lawrence-women-in-love \
+  data/raw/hamsun-victoria \
+  data/raw/hamsun-pan \
+  data/raw/dumas-fils-la-dame-aux-camelias \
+  data/raw/constant-adolphe \
+  provenance/sources/gutenberg-541.json \
+  provenance/sources/gutenberg-4240.json \
+  provenance/sources/runeberg-hamsun-victoria.json \
+  provenance/sources/runeberg-hamsun-pan.json \
+  provenance/sources/gutenberg-2419.json \
+  provenance/sources/gutenberg-13861.json \
+  docs/howto/19_acquire_and_reconnoitre_classical_six.md \
+  scripts/corpus_acquisition/acquire_public_domain_text.py \
+  scripts/corpus_acquisition/finalize_acquisition_provenance.py \
+  scripts/corpus_acquisition/test_acquire_public_domain_text.py \
+  scripts/corpus_acquisition/test_finalize_acquisition_provenance.py \
+  scripts/extraction/test_search_patterns_v0_6.py
+git diff --cached --check
+git status --short
+git commit -m "Acquire classical six corpus sources"
+git status --short
+test -z "$(git status --short)" || {
+  echo 'Working tree is not clean after the acquisition checkpoint.' >&2
+  exit 1
+}
+```
 
-Start with v0.5 and write all diagnostic output to a review directory:
+## 6. Narrow diagnostics and the common pattern decision
+
+Extraction for French and Norwegian reuses the validated multilingual pattern
+framework from the earlier corpus. This is not a new manual extraction method.
+Reconnaissance is limited to detecting source-edition variants not covered by
+v0.5; for Hamsun, particular attention goes to formal `De/Dem` in older
+Riksmål. Do not review every occurrence of `aime` or `elsker`.
+
+The v0.5 production patterns remain the baseline:
+
+```text
+French:    \bje\s+t\s*[’']\s*aime\b
+           \bje\s+vous\s+aime\b
+Norwegian: \bjeg\s+elsker\s+(?:deg|dig|dere)\b
+```
+
+Run only bounded safety checks for plausible missed structural variants. These
+files are diagnostic evidence, not occurrence inventories:
 
 ```bash
 mkdir -p results/reconnaissance/classical_six_v1/diagnostics
-grep -Eni -C 3 "I (really |still |truly )?love you|I love you still|I (don.?t|never) love[d]? you" \
- data/raw/{wharton-age-of-innocence,lawrence-women-in-love}/*.txt \
- > results/reconnaissance/classical_six_v1/diagnostics/english.txt || test $? -eq 1
-grep -Eni -C 3 "aime|t[’']?aime|vous aime" \
- data/raw/{dumas-fils-la-dame-aux-camelias,constant-adolphe}/*.txt \
- > results/reconnaissance/classical_six_v1/diagnostics/french.txt || test $? -eq 1
-grep -En -C 3 "elsker|Jeg elsker|jeg elsker|elsker Dem|elsker dig|elsker deg|De|Dem" \
- data/raw/{hamsun-victoria,hamsun-pan}/*.txt \
- > results/reconnaissance/classical_six_v1/diagnostics/norwegian.txt || test $? -eq 1
+python - <<'PY' > results/reconnaissance/classical_six_v1/diagnostics/french-bounded.txt
+import re
+from pathlib import Path
+for path in (Path('data/raw/dumas-fils-la-dame-aux-camelias/gutenberg-2419.txt'),
+             Path('data/raw/constant-adolphe/gutenberg-13861.txt')):
+    for number,line in enumerate(path.read_text(encoding='utf-8').splitlines(),1):
+        if re.search(r'\bje\b.{0,20}\baime\b',line,re.IGNORECASE):
+            print(f'{path}:{number}:{line}')
+PY
+python - <<'PY' > results/reconnaissance/classical_six_v1/diagnostics/norwegian-formal.txt
+import re
+from pathlib import Path
+exact=re.compile(r'\b[Jj]eg\s+elsker\s+Dem\b')
+bounded=re.compile(r'\b[Jj]eg\b.{0,40}\belsk(?:er|et)\b.{0,40}\bDem\b')
+for path in (Path('data/raw/hamsun-victoria/runeberg-hamsun-victoria.txt'),
+             Path('data/raw/hamsun-pan/runeberg-hamsun-pan.txt')):
+    for number,line in enumerate(path.read_text(encoding='utf-8').splitlines(),1):
+        if exact.search(line) or bounded.search(line):
+            print(f'{path}:{number}:{line}')
+PY
 ```
 
-Inspect every plausible direct first-person-to-second-person declaration. Do not
-broaden for lexical density, use `I .* love .* you`, or force a nonzero result.
-Because this OCR is unproofread, check suspicious target-like matches against
-the corresponding page facsimile. If and only if attested evidence requires a
-general refinement, copy v0.5 to
-`search_patterns_v0_6.json`, change its schema version, and add the minimal
-pattern. For formal Norwegian `Dem`, keep the ordinary pattern and add exactly a
-case-sensitive `\\b[Jj]eg\\s+elsker\\s+Dem\\b` family; test that `Jeg elsker
-Dem` and `jeg elsker Dem` match while lowercase `jeg elsker dem` does not. Keep
-all six works on one selected pattern file and preserve v0.5 unchanged.
+Inspect these short reports only to answer whether a concrete source-edition
+variant escapes v0.5. The French production extraction continues to use the two
+established patterns unless this bounded evidence shows a missed direct
+first-person-to-second-person construction. Other uses of *aimer* do not justify
+a pattern change. Likewise, the ordinary Norwegian pattern remains unchanged.
+Check target-relevant or suspicious Hamsun OCR against the page facsimile.
 
-## 7. Make extraction-only single-text dry runs
+If and only if the inspected Hamsun evidence attests formal second-person `Dem`,
+create v0.6 as a minimal successor; never modify v0.5:
 
-Set `PATTERNS` to v0.6 only when the reviewed diagnostics justify it. These
-commands pass `--dry-run`; they prepare extraction and classification inputs but
-make no annotation API calls.
+```bash
+cp data/development/search_patterns_v0_5.json \
+   data/development/search_patterns_v0_6.json
+python - <<'PY'
+import json
+from pathlib import Path
+path=Path('data/development/search_patterns_v0_6.json')
+config=json.loads(path.read_text(encoding='utf-8'))
+assert config['schema_version']=='0.5'
+config['schema_version']='0.6'
+patterns=config['languages']['no']['patterns']
+assert [p['id'] for p in patterns]==['no_jeg_elsker_deg_dig_dere']
+patterns.append({
+    'id':'no_jeg_elsker_dem_formal',
+    'regex':r'\b[Jj]eg\s+elsker\s+Dem\b',
+    'case_sensitive':True,
+})
+path.write_text(json.dumps(config,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
+PY
+PATTERNS=data/development/search_patterns_v0_6.json
+```
+
+If no relevant formal construction or other missed variant is attested, do not
+create v0.6 and retain:
+
+```bash
+PATTERNS=data/development/search_patterns_v0_5.json
+```
+
+Use exactly one selected manifest for all six works. Run the complete regression
+suite after the decision; the conditional v0.6 tests activate automatically when
+the file exists and check formal-case behavior, ordinary Norwegian forms, and
+that English, French, Swedish, and German remain identical to v0.5:
+
+```bash
+python -m json.tool "$PATTERNS" >/dev/null
+python -m pytest -q scripts/extraction/test_extract_passages.py \
+  scripts/extraction/test_search_patterns_v0_6.py
+python -m pytest -q
+```
+
+## 7. Standard extraction-only single-text dry runs
+
+Use the same `run_single_text_pipeline.py --dry-run` machinery validated for the
+multilingual-five corpus. New source texts, Runeberg OCR acquisition, and a
+possible formal-pronoun pattern are the only differences; there is no parallel
+manual extraction workflow. The selected `PATTERNS` manifest applies to all six
+works. These commands prepare extraction and classification inputs but make no
+annotation API calls:
 
 ```bash
 RECON=results/reconnaissance/classical_six_v1
+test "$PATTERNS" = data/development/search_patterns_v0_5.json -o \
+     "$PATTERNS" = data/development/search_patterns_v0_6.json
 while read -r PROVENANCE; do
   python scripts/pipeline/run_single_text_pipeline.py \
     --provenance "$PROVENANCE" --patterns "$PATTERNS" \
@@ -472,8 +576,9 @@ OCR against scan images. Retain structurally marked cases. Replace every
 ```
 
 Scene clusters are descriptive and never change occurrence identities. For each
-zero, document a broad lexical review and whether a conventional equivalent was
-missed. Record zero if none was missed.
+zero, document the bounded structural safety check and whether a conventional
+equivalent was missed. Broaden only when the text supplies concrete evidence of
+an uncovered variant; record zero if none was missed.
 
 ## 9. Final no-model gate, checks, and checkpoint
 
