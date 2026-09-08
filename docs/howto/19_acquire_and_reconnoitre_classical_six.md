@@ -169,9 +169,33 @@ for path, first, last in (
 PY
 ```
 
+The two dictionaries printed by that check are summaries, not the only copy of
+the acquisition record. The complete machine-readable records have already been
+saved by the `>` redirections as each work's `acquisition-metadata.json`; the
+per-page hashes and offsets are in `page-map.json`, and the untouched responses
+remain in `source-pages/`. Do not rerun or move them merely to preserve the
+terminal output. Before continuing, confirm that the assembled hashes agree with
+the corresponding `sha256` and `acquisition_summary.sha256` values in
+`provenance/sources/runeberg-hamsun-{victoria,pan}.json`:
+
+```bash
+python - <<'PY'
+import json
+from pathlib import Path
+for work in ('victoria','pan'):
+    metadata=json.loads(Path(f'data/raw/hamsun-{work}/acquisition-metadata.json').read_text())
+    provenance=json.loads(Path(f'provenance/sources/runeberg-hamsun-{work}.json').read_text())
+    assert metadata['sha256'] == provenance['sha256']
+    assert metadata['sha256'] == provenance['acquisition_summary']['sha256']
+    print(work, metadata['sha256'])
+PY
+```
+
 The page map records each ordered URL index, exact OCR URL, output offsets, raw
-path/hash, and facsimile availability. Copy emitted ranges and hashes into
-provenance. State that this is Project Runeberg OCR of Knut Hamsun, *Samlede
+path/hash, and facsimile availability. The reported acquisition summaries and
+assembled hashes are recorded in provenance; retain the complete generated
+metadata locally for the later approval checkpoint. State that this is Project
+Runeberg OCR of Knut Hamsun, *Samlede
 verker*, 6th ed.; it is marked not proofread, while page facsimiles are available
 for checking suspicious readings. Leave spelling, punctuation, `De`/`Dem`, names,
 broken words, dialogue, and OCR untouched. Record both OCR and scan readings if a
