@@ -131,30 +131,36 @@ exact HTML response, and rejects gaps/extras/empty pages. Derivation extracts
 only the raw-OCR HTML fragment after `<!-- mode=normal -->` and before the first
 subsequent `<!-- NEWIMAGE2 -->` (with `<!-- #### -->` as a recorded fallback).
 It does not use `<hr>` as a boundary and does not correct OCR. `--force`
-explicitly redownloads pages; it is intentionally absent here. Use
-`--allow-short-url-index N` only after manually reviewing a genuinely short OCR
-page. Do not proceed from a partial range.
+explicitly redownloads pages; it is intentionally absent here. A marker-bounded
+page may legitimately contain only a title such as `Victoria`, so minimum-size
+validation applies to the assembled work rather than each page. Do not proceed
+from a partial range.
 
 ```bash
+set -e
 VICTORIA_VOLUME='https://runeberg.org/hamsun/6-3/'
 VICTORIA_FIRST_URL_INDEX=93; VICTORIA_LAST_URL_INDEX=166
 PAN_VOLUME='https://runeberg.org/hamsun/6-2/'
 PAN_FIRST_URL_INDEX=335; PAN_LAST_URL_INDEX=414
 mkdir -p data/raw/{hamsun-victoria,hamsun-pan}
+rm -f data/raw/hamsun-victoria/acquisition-metadata.json.part
 python scripts/corpus_acquisition/acquire_public_domain_text.py runeberg-range \
   --volume-url "$VICTORIA_VOLUME" --first-url-index "$VICTORIA_FIRST_URL_INDEX" \
   --last-url-index "$VICTORIA_LAST_URL_INDEX" --printed-first 89 --printed-last 162 \
   --raw-dir data/raw/hamsun-victoria/source-pages \
   --output data/raw/hamsun-victoria/runeberg-hamsun-victoria.txt \
   --page-map data/raw/hamsun-victoria/page-map.json \
-  > data/raw/hamsun-victoria/acquisition-metadata.json
+  > data/raw/hamsun-victoria/acquisition-metadata.json.part && \
+mv data/raw/hamsun-victoria/acquisition-metadata.json{.part,}
+rm -f data/raw/hamsun-pan/acquisition-metadata.json.part
 python scripts/corpus_acquisition/acquire_public_domain_text.py runeberg-range \
   --volume-url "$PAN_VOLUME" --first-url-index "$PAN_FIRST_URL_INDEX" \
   --last-url-index "$PAN_LAST_URL_INDEX" --printed-first 331 --printed-last 423 \
   --raw-dir data/raw/hamsun-pan/source-pages \
   --output data/raw/hamsun-pan/runeberg-hamsun-pan.txt \
   --page-map data/raw/hamsun-pan/page-map.json \
-  > data/raw/hamsun-pan/acquisition-metadata.json
+  > data/raw/hamsun-pan/acquisition-metadata.json.part && \
+mv data/raw/hamsun-pan/acquisition-metadata.json{.part,}
 test "$(find data/raw/hamsun-victoria/source-pages -name '*.html' | wc -l)" -eq 74
 test "$(find data/raw/hamsun-pan/source-pages -name '*.html' | wc -l)" -eq 80
 python - <<'PY'
@@ -196,8 +202,7 @@ for work in ('victoria','pan'):
         start,end=record['output_start'],record['output_end']
         assert start < end
         expected=runeberg_html_to_text(
-            Path(record['raw_path']).read_text(encoding='utf-8-sig'),
-            allow_short=record['short_page_override']).rstrip()
+            Path(record['raw_path']).read_text(encoding='utf-8-sig')).rstrip()
         assert assembled[start:end] == expected, record['url_index']
 PY
 ```
@@ -210,8 +215,8 @@ HTML, remove only the derived artifacts, and rerun the two acquisition commands;
 the valid nonempty source pages will be reused rather than downloaded again:
 
 ```bash
-rm data/raw/hamsun-victoria/{runeberg-hamsun-victoria.txt,page-map.json,acquisition-metadata.json}
-rm data/raw/hamsun-pan/{runeberg-hamsun-pan.txt,page-map.json,acquisition-metadata.json}
+rm -f data/raw/hamsun-victoria/{runeberg-hamsun-victoria.txt,page-map.json,acquisition-metadata.json,acquisition-metadata.json.part}
+rm -f data/raw/hamsun-pan/{runeberg-hamsun-pan.txt,page-map.json,acquisition-metadata.json,acquisition-metadata.json.part}
 # Rerun the two runeberg-range commands and the mechanical checks above.
 ```
 

@@ -114,9 +114,11 @@ Gi<br><br>Pause. Victoria ytrer hen for sig:<br><br>Hvordan ser hun ut mon?<br>
         self.assertIn("substantial literary OCR", text)
         self.assertEqual(marker, "####")
 
-    def test_runeberg_parser_rejects_short_and_forbidden_content(self):
-        with self.assertRaisesRegex(ValueError, "too short"):
-            runeberg_html_to_text("<!-- mode=normal -->Victoria I<!-- NEWIMAGE2 -->")
+    def test_runeberg_parser_accepts_short_title_page_and_rejects_forbidden_content(self):
+        self.assertEqual(
+            runeberg_html_to_text("<!-- mode=normal -->Victoria<!-- NEWIMAGE2 -->"),
+            "Victoria\n",
+        )
         with self.assertRaisesRegex(ValueError, "forbidden navigation"):
             runeberg_html_to_text(
                 "<!-- mode=normal --><p>Project Runeberg navigation accidentally "
@@ -145,7 +147,6 @@ Gi<br><br>Pause. Victoria ytrer hen for sig:<br><br>Hvordan ser hun ut mon?<br>
         self.assertEqual([r["url_index"] for r in records], [401, 402])
         self.assertEqual([r["ocr_end_marker"] for r in records], ["NEWIMAGE2", "NEWIMAGE2"])
         self.assertEqual(result["fallback_end_marker_url_indices"], [])
-        self.assertEqual(result["allowed_short_url_indices"], [])
         self.assertEqual([assembled[r["output_start"]:r["output_end"]] for r in records],
                          ["Første blå side inneholder nok litterære ord til å passere den "
                           "konservative kvalitetskontrollen.",

@@ -103,20 +103,15 @@ def html_to_text(value: str) -> str:
     return parser.text()
 
 
-def validate_runeberg_ocr_text(value: str, allow_short: bool = False) -> None:
-    """Reject structural chrome and implausibly small OCR fragments."""
+def validate_runeberg_ocr_text(value: str) -> None:
+    """Reject structural chrome; marker-bounded OCR may legitimately be short."""
     lowered = value.casefold()
     found = [phrase for phrase in RUNEBERG_FORBIDDEN_TEXT if phrase in lowered]
     if found:
         raise ValueError(f"Runeberg OCR contains forbidden navigation text: {found[0]}")
-    words = re.findall(r"[^\W\d_]+", value, flags=re.UNICODE)
-    if not allow_short and len(words) < 10 and len(value.strip()) < 80:
-        raise ValueError(
-            "Runeberg OCR is too short; inspect it and explicitly allow this URL index"
-        )
 
 
-def extract_runeberg_ocr(value: str, allow_short: bool = False) -> tuple[str, str]:
+def extract_runeberg_ocr(value: str) -> tuple[str, str]:
     """Return raw OCR text and the deterministic end marker used."""
     starts = [match.start() for match in re.finditer(re.escape(RUNEBERG_OCR_START), value)]
     if not starts:
@@ -150,12 +145,12 @@ def extract_runeberg_ocr(value: str, allow_short: bool = False) -> tuple[str, st
         raise ValueError("Runeberg OCR markers are empty or out of order")
 
     text = html_to_text(value[content_start:content_end])
-    validate_runeberg_ocr_text(text, allow_short=allow_short)
+    validate_runeberg_ocr_text(text)
     return text, end_marker
 
 
-def runeberg_html_to_text(value: str, allow_short: bool = False) -> str:
-    return extract_runeberg_ocr(value, allow_short=allow_short)[0]
+def runeberg_html_to_text(value: str) -> str:
+    return extract_runeberg_ocr(value)[0]
 
 
 def trim_gutenberg(value: str) -> str:
@@ -190,7 +185,6 @@ def acquire_runeberg(volume_url: str, first_url_index: int, last_url_index: int,
                       raw_dir: Path, output: Path, page_map: Path,
                       printed_first: int | None = None, printed_last: int | None = None,
                       force: bool = False,
-                      allow_short_url_indices: set[int] | None = None,
                       downloader: Callable[[str, Path], object] = atomic_download) -> dict:
     """Acquire and deterministically assemble a verified contiguous Runeberg range."""
     if output.exists() or page_map.exists():
@@ -200,10 +194,6 @@ def acquire_runeberg(volume_url: str, first_url_index: int, last_url_index: int,
     if printed_first is not None and printed_last < printed_first:
         raise ValueError("invalid printed-page range")
     urls = page_urls(volume_url, first_url_index, last_url_index)
-    allowed_short = allow_short_url_indices or set()
-    outside_range = allowed_short.difference(range(first_url_index, last_url_index + 1))
-    if outside_range:
-        raise ValueError(f"allowed short URL indices outside requested range: {sorted(outside_range)}")
     paths = [raw_dir / f"{index:04d}.html"
              for index in range(first_url_index, last_url_index + 1)]
     downloaded = 0
@@ -225,9 +215,7 @@ def acquire_runeberg(volume_url: str, first_url_index: int, last_url_index: int,
     fallback_end_marker_pages: list[int] = []
     offset = 0
     for index, url, path in zip(range(first_url_index, last_url_index + 1), urls, paths):
-        text, end_marker = extract_runeberg_ocr(
-            path.read_text(encoding="utf-8-sig"), allow_short=index in allowed_short
-        )
+        text, end_marker = extract_runeberg_ocr(path.read_text(encoding="utf-8-sig"))
         text = text.rstrip()
         if end_marker == "####":
             fallback_end_marker_pages.append(index)
@@ -238,8 +226,7 @@ def acquire_runeberg(volume_url: str, first_url_index: int, last_url_index: int,
         records.append({"url_index": index, "url": url, "output_start": start,
                         "output_end": offset, "raw_path": str(path),
                         "raw_sha256": sha256(path), "facsimile_available": True,
-                        "ocr_end_marker": end_marker,
-                        "short_page_override": index in allowed_short})
+                        "ocr_end_marker": end_marker})
     assembled = "".join(chunks) + "\n"
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(assembled, encoding="utf-8", newline="\n")
@@ -257,7 +244,6 @@ def acquire_runeberg(volume_url: str, first_url_index: int, last_url_index: int,
         "assembled_character_count": len(assembled),
         "assembled_word_count": len(assembled.split()), "sha256": sha256(output),
         "fallback_end_marker_url_indices": fallback_end_marker_pages,
-        "allowed_short_url_indices": sorted(allowed_short),
         "ocr_status": "not proofread / uncorrected OCR", "facsimile_available": True,
     }
     if printed_first is not None:
@@ -282,7 +268,6 @@ def main() -> None:
     runeberg.add_argument("--output", type=Path, required=True)
     runeberg.add_argument("--page-map", type=Path, required=True)
     runeberg.add_argument("--force", action="store_true")
-    runeberg.add_argument("--allow-short-url-index", type=int, action="append", default=[])
     args = parser.parse_args()
     if args.command == "gutenberg":
         metadata = acquire_gutenberg(args.url, args.raw, args.output)
@@ -290,8 +275,7 @@ def main() -> None:
         metadata = acquire_runeberg(args.volume_url, args.first_url_index,
                                     args.last_url_index, args.raw_dir, args.output,
                                     args.page_map, args.printed_first,
-                                    args.printed_last, args.force,
-                                    set(args.allow_short_url_index))
+                                    args.printed_last, args.force)
     print(json.dumps(metadata, indent=2, ensure_ascii=False))
 
 
