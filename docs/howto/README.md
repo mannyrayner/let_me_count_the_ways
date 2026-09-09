@@ -44,6 +44,7 @@ in-place because Git history already preserves them.
 | 17 | [Report and compare the pilot](17_report_and_compare_indie_romance_pilot.md) | One-work pilot inspection report and descriptive canonical-versus-indie comparison |
 | 18 | [Triage three local romance candidates](18_triage_local_romance_candidates.md) | Local-only, reproducible conversion, extraction inventory, and retain/drop recommendations |
 | 19 | [Acquire and reconnoitre the classical six](19_acquire_and_reconnoitre_classical_six.md) | Six verified original-language sources and reviewed extraction-only occurrence inventories |
+| 20 | [Annotate the classical six](20_annotate_classical_six.md) | KEEP-only, resumable v0.3.1 annotations joined to adjudication provenance |
 
 ## Conventions
 
