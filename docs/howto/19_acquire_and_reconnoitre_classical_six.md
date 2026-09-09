@@ -29,7 +29,7 @@ cd "$LMCW"
 git pull --ff-only
 test -z "$(git status --short)" || { echo 'Working tree is not clean.' >&2; exit 1; }
 BATCH=data/batches/classical_six_v1.json
-PATTERNS=data/development/search_patterns_v0_5.json
+PATTERNS=data/development/search_patterns_v0_6.json
 python -m json.tool "$BATCH" >/dev/null
 python -m json.tool "$PATTERNS" >/dev/null
 python scripts/docs/validate_runbook_index.py
@@ -127,14 +127,41 @@ Only after the reusable helper and its offline tests pass, use the exact verifie
 volume bases and URL indices below. The helper constructs four-digit URLs
 deterministically (never by following next links), downloads with `curl --fail
 --location --retry 3` via `.part`, reuses valid nonempty pages, preserves every
-exact HTML response, and rejects gaps/extras/empty pages. Derivation extracts
+exact HTML response, and rejects gaps/extras/empty raw files. Derivation extracts
 only the raw-OCR HTML fragment after `<!-- mode=normal -->` and before the first
 subsequent `<!-- NEWIMAGE2 -->` (with `<!-- #### -->` as a recorded fallback).
-It does not use `<hr>` as a boundary and does not correct OCR. `--force`
+It discards the structural printed-page field before the first `<br>` even when
+OCR-corrupted, then maps each remaining `<br>` to exactly one physical newline.
+Empty OCR lines remain blank lines, line-final hyphens remain untouched, and
+physical lines are never flattened into paragraphs. A page boundary adds only
+the newline needed to prevent line merging; it is not a paragraph boundary. It
+does not use `<hr>` as a boundary, dehyphenate, or correct OCR. `--force`
 explicitly redownloads pages; it is intentionally absent here. A marker-bounded
-page may legitimately contain only a title such as `Victoria`, so minimum-size
-validation applies to the assembled work rather than each page. Do not proceed
+range boundary may contain only a structural title field such as `Victoria` and
+therefore yield an empty literary slice, so minimum-size validation applies to
+the assembled work rather than each page. Do not proceed
 from a partial range.
+
+When repairing an existing checkout, first prove the offline parser and snapshot
+the raw-page hashes, then delete **only** stale derivations. Do not remove
+`source-pages` and do not use `--force`:
+
+```bash
+python -m pytest -q scripts/corpus_acquisition/test_acquire_public_domain_text.py
+sha256sum data/raw/hamsun-victoria/source-pages/*.html \
+  data/raw/hamsun-pan/source-pages/*.html > /tmp/hamsun-raw-pages-before.sha256
+rm -f \
+  data/raw/hamsun-victoria/runeberg-hamsun-victoria.txt \
+  data/raw/hamsun-victoria/page-map.json \
+  data/raw/hamsun-victoria/acquisition-metadata.json \
+  data/raw/hamsun-pan/runeberg-hamsun-pan.txt \
+  data/raw/hamsun-pan/page-map.json \
+  data/raw/hamsun-pan/acquisition-metadata.json
+```
+
+The normal commands below now rederive exclusively from the existing nonempty
+HTML. Afterwards, `pages_downloaded` must be zero and the raw snapshot must still
+match:
 
 ```bash
 (
@@ -177,6 +204,15 @@ for path, first, last in (
     print(path, {key: metadata[key] for key in ('pages_requested','pages_downloaded',
           'pages_nonempty','assembled_character_count','assembled_word_count','sha256')})
 PY
+sha256sum -c /tmp/hamsun-raw-pages-before.sha256
+python - <<'PY'
+import json
+from pathlib import Path
+for work in ('victoria','pan'):
+    path=Path(f'data/raw/hamsun-{work}/acquisition-metadata.json')
+    metadata=json.loads(path.read_text(encoding='utf-8'))
+    assert metadata['pages_downloaded'] == 0, f'{path}: source pages were reacquired'
+PY
 )
 ```
 
@@ -202,9 +238,9 @@ for work in ('victoria','pan'):
     records=json.loads((root/'page-map.json').read_text(encoding='utf-8'))
     for record in records:
         start,end=record['output_start'],record['output_end']
-        assert start < end
+        assert start <= end  # a furniture-only title boundary may be an empty slice
         expected=runeberg_html_to_text(
-            Path(record['raw_path']).read_text(encoding='utf-8-sig')).rstrip()
+            Path(record['raw_path']).read_text(encoding='utf-8-sig')).rstrip('\n')
         assert assembled[start:end] == expected, record['url_index']
 PY
 ```
@@ -260,9 +296,10 @@ PY
 
 Confirm the first/last pages belong to the intended work, no neighbouring work
 is included, internal pages are literary OCR, and assembled order is correct.
-Compare each excerpt with the raw OCR fragment in its HTML. Preserve OCR errors,
-including `Gi` where the facsimile reads `97`; the facsimile is verification, not
-the extraction source.
+Compare each excerpt with the raw OCR fragment in its HTML. The field immediately
+after `mode=normal` is page furniture and must be absent even when it contains
+corrupted text such as `Gi`; this is structural removal, not a global numeric-line
+heuristic. The facsimile is verification, not the extraction source.
 
 Finally, make a lexical plausibility check before resuming reconnaissance:
 
@@ -528,6 +565,53 @@ works. These commands prepare extraction and classification inputs but make no
 annotation API calls. `--dry-run` performs extraction and prepares annotation
 inputs but stops before any annotation-model call.
 
+After this repair, archive the defective-context review evidence and remove only
+stale generated indexes. Never overwrite AI v1, and do not reuse old Hamsun
+offsets or occurrence IDs:
+
+```bash
+RECON=results/reconnaissance/classical_six_v1
+if test -f "$RECON/occurrence_review_ai_v1.md"; then
+  mv "$RECON/occurrence_review_ai_v1.md" \
+    "$RECON/occurrence_review_ai_v1_pre_runeberg_linebreak_fix.md"
+fi
+if test -f "$RECON/summary_ai_v1.md"; then
+  mv "$RECON/summary_ai_v1.md" \
+    "$RECON/summary_ai_v1_pre_runeberg_linebreak_fix.md"
+fi
+cat > "$RECON/README_pre_runeberg_linebreak_fix.md" <<'EOF'
+# Superseded review evidence
+
+AI review v1 and its summary are preserved but superseded because Runeberg OCR
+line-break handling introduced artificial paragraph boundaries and truncated
+Hamsun review contexts. They must not seed Hamsun judgments in AI review v2.
+EOF
+rm -f \
+  "$RECON/selected-run-directories.txt" \
+  "$RECON/selected-run-directories.txt.part" \
+  "$RECON/occurrence_inventory.tsv" \
+  "$RECON/selected-runs.json" \
+  "$RECON/occurrence_review_unreviewed.md" \
+  "$RECON/human_review.md" \
+  "$RECON/occurrence_review_human_audit.md" \
+  "$RECON/review_adjudicated.json" \
+  "$RECON/occurrence_review_adjudicated.md" \
+  "$RECON/review_agreement.md" \
+  "$RECON/summary.md"
+```
+
+Rerun the Step 6 diagnostics immediately before all six fresh runs. Inspect the
+results and reconfirm `Jeg elsker Dem` and any `Jeg elsker dig` evidence; retain
+v0.6 unless corrected-text evidence actually requires a new version:
+
+```bash
+python -m pytest -q scripts/extraction/test_search_patterns_v0_6.py
+grep -En 'Jeg elsker (Dem|dig)' \
+  data/raw/hamsun-victoria/runeberg-hamsun-victoria.txt \
+  data/raw/hamsun-pan/runeberg-hamsun-pan.txt || test $? -eq 1
+# Rerun the two bounded diagnostic-generation commands in Step 6 and inspect them.
+```
+
 If the first source needs isolated debugging, this optional block preserves the
 pipeline's stdout and stderr and reports failure without closing the interactive
 shell:
@@ -768,7 +852,7 @@ if actual != expected:
 
 outputs={
     'inventory':out/'occurrence_inventory.tsv',
-    'review':out/'human_review.md',
+    'review':out/'occurrence_review_unreviewed.md',
     'selection':out/'selected-runs.json',
     'summary':out/'summary.md',
 }
@@ -800,14 +884,14 @@ publish(outputs['selection'],json.dumps(selections,indent=2,ensure_ascii=False)+
 
 summary=[
     '# Classical six reconnaissance summary','',
-    '| Source | Language | Occurrences | Approx. scene clusters | Extraction issues | Recommendation |',
-    '| --- | --- | ---: | ---: | --- | --- |',
+    '| Source | Language | Extracted occurrences | Valid targets | Excluded | Approx. valid scene clusters | Extraction/review issues | Recommendation |',
+    '| --- | --- | ---: | ---: | ---: | ---: | --- | --- |',
 ]
 by_source={item['source_id']:item['extracted_occurrences'] for item in selections}
 for item in selections:
     source_id=item['source_id']
     summary.append(f"| {source_id} | {item['language']} | "
-                   f"{by_source[source_id]} | PENDING | PENDING | PENDING |")
+                   f"{by_source[source_id]} | PENDING | PENDING | PENDING | PENDING | PENDING |")
 publish(outputs['summary'],'\n'.join(summary)+'\n')
 
 print(f'Validated 6 exact dry runs and {len(all_rows)} unique occurrence(s).')
@@ -825,37 +909,188 @@ fi
 ```
 
 For every hit verify direction, polarity, embedding/report/quotation/hypothesis,
-context size, overlaps, OCR, and adjacent declarations. Check suspicious Hamsun
-OCR against scan images. Retain structurally marked cases. Replace every
-`review: PENDING` with a concise decision. Complete the generated
-`$RECON/summary.md` table:
+context, overlap, OCR, and adjacent declarations. Structurally unusual valid
+cases remain KEEP cases. `occurrence_review_unreviewed.md` is immutable evidence;
+never edit it into a reviewed document. For an older run, use `cp -n
+human_review.md occurrence_review_unreviewed.md`, verify the copy, and preserve
+both.
+
+The research method is deliberately staged:
 
 ```text
-| Work | Language | Occurrences | Approx. scene clusters | Extraction issues | Recommendation |
-| --- | --- | ---: | ---: | --- | --- |
+automatic extraction
+→ fresh post-repair AI scholarly review (v2)
+→ human audit
+→ adjudication
+→ frozen validated occurrence set
+→ annotation
 ```
 
-Scene clusters are descriptive and never change occurrence identities. For each
-zero, document the bounded structural safety check and whether a conventional
-equivalent was missed. Broaden only when the text supplies concrete evidence of
-an uncovered variant; record zero if none was missed.
+Never collapse stages. Do not silently alter Runeberg OCR: record the OCR source,
+facsimile reading, and effect (`none`, `affects interpretation`, or `requires
+re-extraction`) in the audit. If re-extraction is required, stop and create a
+versioned correction layer.
 
-## 9. Final no-model gate, checks, and checkpoint
+### 8a. Stop, share corrected evidence, then import and freeze AI v2
+
+After regeneration, stop and provide `occurrence_review_unreviewed.md` to
+ChatGPT for a genuinely fresh review. Do not mechanically copy v1 Hamsun
+judgments. No annotation-model call belongs here; the scholarly review is a
+separate, explicit activity. Once that external review exists, copy it into
+place (replace only the source path), add the header if absent, and commit it
+once. It is thereafter frozen.
 
 ```bash
+AI_REVIEW=/path/to/completed-ai-second-pass.md
+cp -n "$AI_REVIEW" "$RECON/occurrence_review_ai_v2.md"
+python - "$RECON/occurrence_review_ai_v2.md" <<'PY'
+import sys
+from pathlib import Path
+p=Path(sys.argv[1]); text=p.read_text(encoding='utf-8')
+header='# AI second-pass scholarly occurrence review\n\nIndependent fresh review by GPT-5.6 Sol after the Runeberg line-break repair.\nHuman audit/adjudication not yet applied.\n\n'
+if not text.startswith('# AI second-pass scholarly occurrence review'):
+    p.write_text(header+text,encoding='utf-8')
+PY
+# Create summary_ai_v2.md from the fresh review's actual counts; do not carry
+# forward or hard-code the superseded v1 result.
+cat > "$RECON/occurrence_review_human_audit.md" <<'EOF_AUDIT'
+# Human audit of AI second-pass review
+
+- AI review artifact: `occurrence_review_ai_v2.md`
+- Auditor: Manny Rayner
+- Audit date: YYYY-MM-DD
+
+Absence of an occurrence entry below means the human audit accepts the AI
+judgment. Counts cover all cases, including accepted cases.
+
+## Overall result
+- cases reviewed: PENDING
+- substantive agreements: PENDING
+- substantive disagreements: PENDING
+- source/OCR corrections: PENDING
+- scene-cluster corrections: PENDING
+- editorial wording corrections: PENDING
+- unresolved cases: PENDING
+
+## Corrections/disagreements
+<!-- For each exception: occurrence-ID heading; AI judgment; human judgment;
+reason; type (substantive | source/OCR | scene-cluster | editorial wording).
+For OCR also record OCR source, facsimile reading, and effect. -->
+EOF_AUDIT
+```
+
+The pre-fix v1 counts and judgments are superseded evidence, not results to copy
+into v2 or pipeline constants. OCR/source, scene-cluster, and wording corrections
+are not substantive disagreements.
+
+### 8b. Create, validate, and render adjudication
+
+Create `$RECON/review_adjudicated.json`, schema version `1.0`, with an
+`occurrences` array. Every object has `occurrence_id`, `source_id`, `pattern_id`,
+integer `start`/`end`, `decision` (`KEEP` or `EXCLUDE`), nonempty
+`structural_status`, `scene_cluster` (or `NA`), and `adjudication` (`AI v2
+accepted by human audit` or `human correction to AI v2`). Optional `reason` and
+OCR evidence fields preserve detail. Fields are explicit, never inferred from
+prose.
+
+```bash
+python scripts/review/classical_six_review.py validate \
+  --inventory "$RECON/occurrence_inventory.tsv" \
+  --review "$RECON/review_adjudicated.json"
+python scripts/review/classical_six_review.py render \
+  --inventory "$RECON/occurrence_inventory.tsv" \
+  --review "$RECON/review_adjudicated.json" \
+  --output "$RECON/occurrence_review_adjudicated.md"
+```
+
+The validator requires every extracted ID exactly once, rejects unknown IDs,
+checks source/pattern/offset identity, requires KEEP/EXCLUDE and a scene cluster
+or `NA`, rejects PENDING, and proves KEEP + EXCLUDE equals extraction count.
+
+Complete `summary.md`'s final table. Retain zero-hit works and record `0
+extracted`, `0 valid`, `bounded diagnostic completed`, and `no missed
+conventional equivalent found`. Count clusters only among KEEP cases.
+Occurrences are annotation units; scene clusters are descriptive dependence
+units and are never merged.
+
+Create `$RECON/review_agreement.md` with literal integer fields for AI-reviewed
+and human-audited occurrences, substantive agreements/disagreements, OCR/source
+corrections, scene-cluster corrections, wording corrections, and unresolved
+cases. If all substantive judgments are accepted, say so. Never count OCR/source
+corrections as substantive disagreements.
+
+## 9. Final no-model gate and reconnaissance checkpoint
+
+```bash
+RECON=results/reconnaissance/classical_six_v1
 ! find "$RECON" -path '*/annotations/*' -type f -print -quit | grep -q .
-! grep -n 'review: PENDING' "$RECON/human_review.md"
+python scripts/review/classical_six_review.py validate \
+  --inventory "$RECON/occurrence_inventory.tsv" \
+  --review "$RECON/review_adjudicated.json"
+! grep -En 'PENDING|unresolved cases: [1-9][0-9]*' \
+  "$RECON/occurrence_review_human_audit.md" "$RECON/review_agreement.md" \
+  "$RECON/occurrence_review_adjudicated.md" "$RECON/summary.md"
 python scripts/docs/validate_runbook_index.py
 python -m pytest -q
 python scripts/security/scan_credentials.py \
- data/batches/classical_six_v1.json provenance/sources \
- scripts/corpus_acquisition "$RECON"
+  data/batches/classical_six_v1.json provenance/sources \
+  scripts/corpus_acquisition scripts/review "$RECON"
 git diff --check
 git status --short
 ```
 
-Commit only after the six sources and exact editions are verified, all rights
-records are approved, one common pattern version is chosen, occurrence and scene
-counts are recorded, every hit is reviewed, and extraction problems/zeros are
-listed. Stop and share the inventory. Do **not** annotate until Manny and ChatGPT
-review whether all six works should proceed.
+Commit explicitly; never use `git add .`:
+
+```bash
+git add \
+  results/reconnaissance/classical_six_v1/occurrence_inventory.tsv \
+  results/reconnaissance/classical_six_v1/selected-run-directories.txt \
+  results/reconnaissance/classical_six_v1/selected-runs.json \
+  results/reconnaissance/classical_six_v1/occurrence_review_unreviewed.md \
+  results/reconnaissance/classical_six_v1/occurrence_review_ai_v1_pre_runeberg_linebreak_fix.md \
+  results/reconnaissance/classical_six_v1/occurrence_review_ai_v2.md \
+  results/reconnaissance/classical_six_v1/occurrence_review_human_audit.md \
+  results/reconnaissance/classical_six_v1/review_adjudicated.json \
+  results/reconnaissance/classical_six_v1/occurrence_review_adjudicated.md \
+  results/reconnaissance/classical_six_v1/summary_ai_v1_pre_runeberg_linebreak_fix.md \
+  results/reconnaissance/classical_six_v1/summary_ai_v2.md \
+  results/reconnaissance/classical_six_v1/summary.md \
+  results/reconnaissance/classical_six_v1/review_agreement.md \
+  results/reconnaissance/classical_six_v1/diagnostics \
+  data/development/search_patterns_v0_6.json \
+  docs/howto/19_acquire_and_reconnoitre_classical_six.md \
+  docs/howto/20_annotate_classical_six.md docs/howto/README.md \
+  scripts/review/classical_six_review.py \
+  scripts/review/test_classical_six_review.py
+git diff --cached --check
+git status --short
+git commit -m "Complete classical six reconnaissance review"
+git status --short
+```
+
+Step 19 stops here. It is complete only when all six provenance records are
+approved; v0.6 and six exact runs are fixed; the regenerated occurrence count and untouched
+pre-review artifact exist; superseded AI v1 is preserved and AI v2 is frozen; audit and categorized agreement
+counts are recorded; every ID has an adjudicated decision and valid scene
+cluster; the final summary (including zeros) is complete; no PENDING/unresolved
+case or model call remains; and this checkpoint is committed. Then proceed to
+Step 20.
+
+For the present repair, stop earlier—immediately after the corrected derivations,
+updated provenance, rerun diagnostics, six fresh dry runs, and regenerated Step
+8 artifact are complete—and share `occurrence_review_unreviewed.md` for AI v2.
+Do not proceed to annotation. Confirm this repair checklist explicitly:
+
+```text
+[ ] raw Runeberg HTML hashes unchanged and pages_downloaded = 0
+[ ] marker-bounded OCR extraction still passes
+[ ] structural numeric and OCR-corrupted page fields discarded
+[ ] each br is one newline; empty OCR lines remain blank
+[ ] physical lineation and line-final hyphenation preserved; no dehyphenation
+[ ] page boundaries introduce no paragraph
+[ ] both literary texts, page maps, metadata, hashes, and provenance regenerated
+[ ] v0.6 diagnostics revalidated
+[ ] all six fresh dry runs and Step 8 artifacts regenerated
+[ ] AI v1 preserved and labelled superseded
+[ ] no annotation-model calls made
+```

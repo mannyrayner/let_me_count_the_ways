@@ -53,8 +53,8 @@ class AcquisitionTests(unittest.TestCase):
 
     def test_runeberg_parser_retains_ocr_unicode_and_excludes_chrome(self):
         extracted = runeberg_html_to_text(
-            runeberg_page("<h2>Victoria</h2><p>Jeg elsker Dem — blå øyne, og ordene "
-                          "blir stående urørt i den elektroniske kilden.</p>")
+            runeberg_page("92<br><br><h2>Victoria</h2><br>Jeg elsker Dem — blå øyne, og ordene "
+                          "blir stående urørt i den elektroniske kilden.")
         )
         self.assertIn("Jeg elsker Dem — blå øyne", extracted)
         self.assertNotIn("Previous", extracted)
@@ -71,13 +71,46 @@ Gi<br><br>Pause. Victoria ytrer hen for sig:<br><br>Hvordan ser hun ut mon?<br>
 <!-- NEWIMAGE2 --><!-- #### --><div>next page; Project Runeberg</div></body></html>"""
         self.assertEqual(
             runeberg_html_to_text(source),
-            "Gi\n\nPause. Victoria ytrer hen for sig:\n\nHvordan ser hun ut mon?\n\n"
+            "Pause. Victoria ytrer hen for sig:\n\nHvordan ser hun ut mon?\n\n"
             "Å Gud bevare dig, hun er vakrere end noget menneske på jorden.\n",
         )
         extracted = runeberg_html_to_text(source)
+        self.assertNotIn("Gi", extracted)
         self.assertIn("Pause. Victoria ytrer hen for sig:", extracted)
         self.assertNotIn("On this page / på denna sida", extracted)
         self.assertNotIn("Project Runeberg", extracted)
+
+    def test_runeberg_structurally_removes_page_number_and_preserves_lines(self):
+        source = """<!-- mode=normal -->92
+<br>
+<br>Han gik hastig avsted.
+<br>En ny og stor nåde var vederfaret
+<br>møllerens søn.
+<!-- NEWIMAGE2 -->"""
+        self.assertEqual(
+            runeberg_html_to_text(source),
+            "Han gik hastig avsted.\nEn ny og stor nåde var vederfaret\nmøllerens søn.\n",
+        )
+        self.assertNotIn("92", runeberg_html_to_text(source))
+
+    def test_runeberg_removes_corrupt_page_number(self):
+        source = "<!-- mode=normal -->Gi<br><br>Pause. Victoria ytrer hen for sig:<!-- NEWIMAGE2 -->"
+        self.assertEqual(runeberg_html_to_text(source), "Pause. Victoria ytrer hen for sig:\n")
+
+    def test_runeberg_preserves_single_and_blank_physical_lines(self):
+        source = ("<!-- mode=normal -->92<br><br>Hvordan ser hun ut mon?<br><br>"
+                  "Å Gud bevare dig, hun er vakrere end noget menneske på<br>"
+                  "jorden. Og det vet vi jo før også.<!-- NEWIMAGE2 -->")
+        self.assertEqual(
+            runeberg_html_to_text(source),
+            "Hvordan ser hun ut mon?\n\nÅ Gud bevare dig, hun er vakrere end noget "
+            "menneske på\njorden. Og det vet vi jo før også.\n",
+        )
+
+    def test_runeberg_preserves_line_final_hyphenation(self):
+        source = ("<!-- mode=normal -->92<br><br>han vilde gjærne ha fulgt med de andre "
+                  "og båten kunde de kort-<br>sagt ha trukket på land.<!-- NEWIMAGE2 -->")
+        self.assertIn("kort-\nsagt", runeberg_html_to_text(source))
 
     def test_runeberg_parser_rejects_navigation_only_page(self):
         source = """<html><body><!-- mode=normal -->
@@ -108,7 +141,8 @@ Gi<br><br>Pause. Victoria ytrer hen for sig:<br><br>Hvordan ser hun ut mon?<br>
 
     def test_runeberg_parser_supports_and_reports_fallback_marker(self):
         source = ("<!-- mode=normal --><p>This sufficiently substantial literary OCR "
-                  "fragment remains exactly present for deterministic fallback testing.</p>"
+                  "page<br><br>This sufficiently substantial literary OCR "
+                  "fragment remains exactly present for deterministic fallback testing."
                   "<!-- #### -->")
         text, marker = extract_runeberg_ocr(source)
         self.assertIn("substantial literary OCR", text)
@@ -116,23 +150,23 @@ Gi<br><br>Pause. Victoria ytrer hen for sig:<br><br>Hvordan ser hun ut mon?<br>
 
     def test_runeberg_parser_accepts_short_title_page_and_rejects_forbidden_content(self):
         self.assertEqual(
-            runeberg_html_to_text("<!-- mode=normal -->Victoria<!-- NEWIMAGE2 -->"),
+            runeberg_html_to_text("<!-- mode=normal -->title<br><br>Victoria<!-- NEWIMAGE2 -->"),
             "Victoria\n",
         )
         with self.assertRaisesRegex(ValueError, "forbidden navigation"):
             runeberg_html_to_text(
-                "<!-- mode=normal --><p>Project Runeberg navigation accidentally "
-                "entered this otherwise sufficiently long OCR fragment.</p><!-- NEWIMAGE2 -->"
+                "<!-- mode=normal -->1<br><br>Project Runeberg navigation accidentally "
+                "entered this otherwise sufficiently long OCR fragment.<!-- NEWIMAGE2 -->"
             )
 
     def test_runeberg_range_is_ordered_mapped_and_reproducible(self):
         base = "https://runeberg.test/ham/2"
         urls = page_urls(base, 401, 402)
         contents = {
-            urls[0]: runeberg_page("<p>Første blå side inneholder nok litterære ord til "
-                                    "å passere den konservative kvalitetskontrollen.</p>"),
-            urls[1]: runeberg_page("<p>Andre øyeblikk følger i riktig orden og beholder "
-                                    "hele den urettede norske OCR-teksten.</p>"),
+            urls[0]: runeberg_page("331<br><br>Første blå side inneholder nok litterære ord til "
+                                    "å passere den konservative kvalitetskontrollen."),
+            urls[1]: runeberg_page("332<br><br>Andre øyeblikk følger i riktig orden og beholder "
+                                    "hele den urettede norske OCR-teksten."),
         }
         raw = self.root / "pages"
         first_output, first_map = self.root / "pan.txt", self.root / "map.json"
@@ -140,7 +174,7 @@ Gi<br><br>Pause. Victoria ytrer hen for sig:<br><br>Hvordan ser hun ut mon?<br>
                                   331, 332, downloader=self.downloader(contents))
         self.assertEqual(first_output.read_text(encoding="utf-8"),
                          "Første blå side inneholder nok litterære ord til å passere den "
-                         "konservative kvalitetskontrollen.\n\nAndre øyeblikk følger i "
+                         "konservative kvalitetskontrollen.\nAndre øyeblikk følger i "
                          "riktig orden og beholder hele den urettede norske OCR-teksten.\n")
         records = __import__("json").loads(first_map.read_text(encoding="utf-8"))
         assembled = first_output.read_text(encoding="utf-8")
