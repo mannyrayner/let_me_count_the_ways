@@ -27,7 +27,7 @@ class RunbookIndexTests(unittest.TestCase):
     def test_repository_index_is_valid(self):
         inventory = validate_index(Path("docs/howto"))
         self.assertEqual((), inventory.errors)
-        self.assertEqual(20, len(inventory.canonical))
+        self.assertEqual(21, len(inventory.canonical))
         self.assertEqual((), inventory.unlinked)
 
     def test_valid_canonical_directory(self):
