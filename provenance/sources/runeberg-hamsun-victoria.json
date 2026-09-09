@@ -93,7 +93,7 @@
   ],
   "local_path": "data/raw/hamsun-victoria/runeberg-hamsun-victoria.txt",
   "retrieved_at": "2026-09-08T02:07:19Z",
-  "sha256": "44bb3b52a48a482cf87ef31f4d726b69882cdc974835b1e1ab394d8f33356538",
+  "sha256": "a2f0da6034220220fa53ac4a59dea4cee5b3625201850e08236635a3ca8c9fd5",
   "download_paths": [
     "data\\raw\\hamsun-victoria\\source-pages\\0093.html",
     "data\\raw\\hamsun-victoria\\source-pages\\0094.html",
@@ -248,7 +248,7 @@
   },
   "source_basis": "Norwegian National Library scans, OCRed by Project Runeberg.",
   "editorial_note": "The selected Project Runeberg OCR pages are marked as not proofread. Page facsimiles are available to check target-relevant or suspicious OCR. The corpus preserves the OCR as supplied and does not silently reconstruct first-edition spelling or correct OCR.",
-  "processing_note": "PLiterary text derived from each preserved Runeberg raw-OCR region bounded by <!-- mode=normal --> and the subsequent <!-- NEWIMAGE2 --> marker (recording <!-- #### --> when used as fallback), then concatenate in URL order without editorial correction. OCR errors remain unchanged. Printed-page metadata and URL indices are distinct and may not map one-to-one at the range boundaries.",
+  "processing_note": "Runeberg raw OCR was extracted from the marker-bounded OCR region. The structural printed page-number field following <!-- mode=normal --> was removed. <br> elements were preserved as physical OCR line breaks, including blank OCR lines. Page boundaries were separated by only the newline needed to avoid merging physical lines. No dehyphenation or OCR correction was applied. Printed-page metadata and URL indices are distinct and may not map one-to-one at the range boundaries.",
   "rights_note": "Project Runeberg states that it normally publishes Nordic literary works after copyright has expired under a life-plus-70 rule, and that copyright-protected Runeberg editions display an explicit warning; no such warning appears on this Victoria edition. Knut Hamsun died in 1952. Independently, Australian Copyright Agency guidance states that published text is out of copyright in Australia when it was published before 1955 and the creator died before 1955. Pan was published in 1898 and Hamsun died in 1952, so the underlying literary work is out of copyright in Australia.",
   "rights_guidance_url": "https://www.copyright.com.au/about-copyright/duration/",
   "runeberg_copyright_url": "https://runeberg.org/admin/copyright.html",
@@ -274,8 +274,8 @@
     "pages_requested": 74,
     "pages_downloaded": 0,
     "pages_nonempty": 74,
-    "assembled_character_count": 160164,
-    "assembled_word_count": 30197,
-    "sha256": "44bb3b52a48a482cf87ef31f4d726b69882cdc974835b1e1ab394d8f33356538"
+    "assembled_character_count": 157698,
+    "assembled_word_count": 30121,
+    "sha256": "a2f0da6034220220fa53ac4a59dea4cee5b3625201850e08236635a3ca8c9fd5"
   }
 }

@@ -3,7 +3,7 @@
 This consumes Step 19's frozen occurrence set and annotates only explicit KEEP
 occurrences. EXCLUDE is never sent to the model. Structurally unusual KEEP cases
 (negative/interrogative, hypothetical, written, embedded, or deceptive) remain.
-Stable IDs join annotations to AI v1, human audit, and adjudication.
+Stable IDs join annotations to corrected-context AI v2, human audit, and adjudication. Step 20 remains blocked until those Step 19 artifacts have no unresolved cases.
 
 ## 1. Materialize the KEEP-only extraction
 

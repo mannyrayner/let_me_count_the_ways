@@ -103,6 +103,48 @@ def html_to_text(value: str) -> str:
     return parser.text()
 
 
+class RunebergOCRLines(HTMLParser):
+    """Decode OCR markup while treating only ``br`` as physical lineation."""
+
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.parts: list[str] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        if tag.casefold() == "br":
+            self.parts.append("\n")
+
+    def handle_startendtag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        self.handle_starttag(tag, attrs)
+
+    def handle_data(self, data: str) -> None:
+        # Newlines in the HTML serialization merely follow <br> tags. Runeberg's
+        # physical OCR lines are represented structurally by those tags.
+        self.parts.append(data.replace("\r", "").replace("\n", ""))
+
+    def text(self) -> str:
+        return html.unescape("".join(self.parts))
+
+
+def runeberg_ocr_lines(fragment: str) -> str:
+    """Discard structural page furniture, then preserve each OCR ``br`` exactly."""
+    first_break = re.search(r"(?is)<br\s*/?\s*>", fragment)
+    if first_break is None:
+        raise ValueError("Runeberg OCR is empty or its page-number field is not followed by <br>")
+    # Everything before this first break is the structurally located printed-page
+    # field, whether its OCR happens to be numeric, corrupt (for example Gi), or a
+    # title-page label. It is not literary OCR.
+    literary_fragment = fragment[first_break.end():]
+    parser = RunebergOCRLines()
+    parser.feed(literary_fragment)
+    parser.close()
+    value = parser.text().lstrip("\n").rstrip("\n")
+    # A title-only range boundary can consist entirely of the structural field.
+    # Preserve that page in the map as an empty slice rather than retaining its
+    # furniture or inventing literary content.
+    return value + "\n" if value else ""
+
+
 def validate_runeberg_ocr_text(value: str) -> None:
     """Reject structural chrome; marker-bounded OCR may legitimately be short."""
     lowered = value.casefold()
@@ -144,7 +186,7 @@ def extract_runeberg_ocr(value: str) -> tuple[str, str]:
     if content_end <= content_start:
         raise ValueError("Runeberg OCR markers are empty or out of order")
 
-    text = html_to_text(value[content_start:content_end])
+    text = runeberg_ocr_lines(value[content_start:content_end])
     validate_runeberg_ocr_text(text)
     return text, end_marker
 
@@ -216,10 +258,11 @@ def acquire_runeberg(volume_url: str, first_url_index: int, last_url_index: int,
     offset = 0
     for index, url, path in zip(range(first_url_index, last_url_index + 1), urls, paths):
         text, end_marker = extract_runeberg_ocr(path.read_text(encoding="utf-8-sig"))
-        text = text.rstrip()
+        text = text.rstrip("\n")
         if end_marker == "####":
             fallback_end_marker_pages.append(index)
-        separator = "" if not chunks else "\n\n"
+        # A physical page transition prevents line merging but is not a paragraph.
+        separator = "" if not text or offset == 0 else "\n"
         start = offset + len(separator)
         chunks.append(separator + text)
         offset += len(separator) + len(text)
