@@ -1,0 +1,163 @@
+{
+  "batch_id": "classical_six_v1",
+  "batch_manifest": "data\\batches\\classical_six_v1.json",
+  "annotation_version": "0.3.1",
+  "model_alias": "5.6",
+  "started_at": "2026-09-10T11:11:53.295939+00:00",
+  "ended_at": "2026-09-10T11:24:52.866962+00:00",
+  "dry_run": false,
+  "force": false,
+  "texts_requested": 6,
+  "texts_completed": 6,
+  "texts_partial_or_failed": 0,
+  "texts_resumed_or_skipped": 0,
+  "annotations_recovered_without_model_call": 0,
+  "occurrences": 37,
+  "occurrences_attempted_this_invocation": 37,
+  "valid_annotations": 37,
+  "model_calls_needed": 0,
+  "failures": 0,
+  "historical_failed_attempts": 0,
+  "estimated_total_cost_usd": 1.4321,
+  "status": "complete",
+  "batch_result_location": "results\\batch_runs\\classical_six_v1\\v0.3.1-5.6",
+  "texts": [
+    {
+      "source_id": "gutenberg-541",
+      "title": "The Age of Innocence",
+      "status": "complete",
+      "extraction_seeded_this_invocation": false,
+      "extracted_occurrences": 1,
+      "attempted_this_invocation": 1,
+      "valid_occurrences": 1,
+      "failures": 0,
+      "historical_failed_attempts": 0,
+      "skipped_valid_this_invocation": 0,
+      "recovered_without_model_call_this_invocation": 0,
+      "estimated_total_cost_usd": 0.036000000000000004,
+      "cost_per_valid_annotation_usd": 0.036000000000000004,
+      "result_location": "results\\batch_runs\\classical_six_v1\\v0.3.1-5.6\\texts\\gutenberg-541"
+    },
+    {
+      "source_id": "gutenberg-4240",
+      "title": "Women in Love",
+      "status": "complete",
+      "extraction_seeded_this_invocation": false,
+      "extracted_occurrences": 9,
+      "attempted_this_invocation": 9,
+      "valid_occurrences": 9,
+      "failures": 0,
+      "historical_failed_attempts": 0,
+      "skipped_valid_this_invocation": 0,
+      "recovered_without_model_call_this_invocation": 0,
+      "estimated_total_cost_usd": 0.328256,
+      "cost_per_valid_annotation_usd": 0.03647288888888889,
+      "result_location": "results\\batch_runs\\classical_six_v1\\v0.3.1-5.6\\texts\\gutenberg-4240"
+    },
+    {
+      "source_id": "runeberg-hamsun-victoria",
+      "title": "Victoria",
+      "status": "complete",
+      "extraction_seeded_this_invocation": false,
+      "extracted_occurrences": 8,
+      "attempted_this_invocation": 8,
+      "valid_occurrences": 8,
+      "failures": 0,
+      "historical_failed_attempts": 0,
+      "skipped_valid_this_invocation": 0,
+      "recovered_without_model_call_this_invocation": 0,
+      "estimated_total_cost_usd": 0.37828400000000006,
+      "cost_per_valid_annotation_usd": 0.04728550000000001,
+      "result_location": "results\\batch_runs\\classical_six_v1\\v0.3.1-5.6\\texts\\runeberg-hamsun-victoria"
+    },
+    {
+      "source_id": "runeberg-hamsun-pan",
+      "title": "Pan",
+      "status": "complete",
+      "extraction_seeded_this_invocation": false,
+      "extracted_occurrences": 4,
+      "attempted_this_invocation": 4,
+      "valid_occurrences": 4,
+      "failures": 0,
+      "historical_failed_attempts": 0,
+      "skipped_valid_this_invocation": 0,
+      "recovered_without_model_call_this_invocation": 0,
+      "estimated_total_cost_usd": 0.16626,
+      "cost_per_valid_annotation_usd": 0.041565,
+      "result_location": "results\\batch_runs\\classical_six_v1\\v0.3.1-5.6\\texts\\runeberg-hamsun-pan"
+    },
+    {
+      "source_id": "gutenberg-2419",
+      "title": "La Dame aux camélias",
+      "status": "complete",
+      "extraction_seeded_this_invocation": false,
+      "extracted_occurrences": 14,
+      "attempted_this_invocation": 14,
+      "valid_occurrences": 14,
+      "failures": 0,
+      "historical_failed_attempts": 0,
+      "skipped_valid_this_invocation": 0,
+      "recovered_without_model_call_this_invocation": 0,
+      "estimated_total_cost_usd": 0.4762,
+      "cost_per_valid_annotation_usd": 0.03401428571428571,
+      "result_location": "results\\batch_runs\\classical_six_v1\\v0.3.1-5.6\\texts\\gutenberg-2419"
+    },
+    {
+      "source_id": "gutenberg-13861",
+      "title": "Adolphe",
+      "status": "complete",
+      "extraction_seeded_this_invocation": false,
+      "extracted_occurrences": 1,
+      "attempted_this_invocation": 1,
+      "valid_occurrences": 1,
+      "failures": 0,
+      "historical_failed_attempts": 0,
+      "skipped_valid_this_invocation": 0,
+      "recovered_without_model_call_this_invocation": 0,
+      "estimated_total_cost_usd": 0.0471,
+      "cost_per_valid_annotation_usd": 0.0471,
+      "result_location": "results\\batch_runs\\classical_six_v1\\v0.3.1-5.6\\texts\\gutenberg-13861"
+    }
+  ],
+  "ontology_statistics": {
+    "score_distributions": {
+      "P": {
+        "0": 27,
+        "1": 5,
+        "2": 5,
+        "3": 0,
+        "4": 0
+      },
+      "T": {
+        "0": 1,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 36
+      },
+      "E": {
+        "0": 36,
+        "1": 0,
+        "2": 0,
+        "3": 1,
+        "4": 0
+      },
+      "O": {
+        "0": 36,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 1
+      }
+    },
+    "ontology_fit": {
+      "natural": 37,
+      "strained": 0,
+      "inadequate": 0
+    },
+    "o_above_zero": 1,
+    "e_at_least_two": 1,
+    "p_at_least_two": 5,
+    "balanced_core": 6
+  }
+}

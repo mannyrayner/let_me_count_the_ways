@@ -1,0 +1,79 @@
+{
+  "occurrence_id": "hamsun-victoria-728a88f42cf3",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 1,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.82,
+    "analysis": "The utterance strongly presents the speaker's enduring and increasing love as true, elaborating it through comparison with life itself, first love, and continued devotion. The imagined shared lifetime gives weak support to relational reaffirmation, but the words do not clearly undertake a new commitment. Repetition and emotional intensity do not independently establish expressive/reflexive force.",
+    "ambiguity": "The supplied excerpt omits the framing immediately before the speech. Wider-work context indicates that it is embedded in Victoria's letter and voices an imagined declaration within an unrealized shared future, but the exact nesting and imagined speaker are not visible locally."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "imagined",
+    "description": "An imagined direct declaration, apparently scripted within Victoria's written farewell letter; it therefore combines imagined speech with written and revoiced framing."
+  },
+  "contextual_interpretation": "The declaration envisions love persisting into old age and retrospectively blesses every day of a shared life. Against the novel's unrealized relationship, this is a counterfactual image of lifelong union rather than evidence that such a union actually occurred. Its repetitions and luxuriant recollection convey high emotional intensity, but T plus contextual delivery adequately captures the core force without assigning E.",
+  "evidence": [
+    {
+      "evidence_id": "ev1",
+      "source": "local_text",
+      "quotation_or_description": "“jeg elsker dig mere, mere end mit liv” (“I love you more, more than my life”).",
+      "supports": "Strong truth-conditional avowal of an exceptionally intense loving state.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "ev2",
+      "source": "local_text",
+      "quotation_or_description": "“Men endnu mere elsker jeg dig nu” (“But I love you still more now”).",
+      "supports": "Presents the love as enduring and increasing over time, reinforcing T.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "ev3",
+      "source": "local_text",
+      "quotation_or_description": "“mit hjærte takker og velsigner dig for hver dag du har været min” (“my heart thanks and blesses you for every day you have been mine”).",
+      "supports": "Invokes an established lifelong bond, giving slight support to relational reaffirmation, though not a clear new undertaking.",
+      "confidence": 0.92
+    },
+    {
+      "evidence_id": "ev4",
+      "source": "local_text",
+      "quotation_or_description": "The broken repetitions “Jeg, jeg” and “mere, mere” accompany an extended, coherent account of why and how long the speaker has loved the addressee.",
+      "supports": "Shows emotionally heightened delivery but supplies no independent evidence that the words are a reflex-like discharge rather than an intense avowal.",
+      "confidence": 0.9
+    },
+    {
+      "evidence_id": "ev5",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is at relative position 0.900829 in Hamsun's Victoria.",
+      "supports": "Places the passage near the end of the work, consistent with the late farewell-letter context, though position alone does not determine utterance status.",
+      "confidence": 0.88
+    },
+    {
+      "evidence_id": "ev6",
+      "source": "background_knowledge",
+      "quotation_or_description": "The closing portion of Victoria includes Victoria's farewell letter and counterfactual imaginings of the life she and Johannes did not share; this passage appears within that layered written imagining.",
+      "supports": "Supports classifying the event primarily as imagined, with written and revoiced complications, and explains the poignant counterfactual shared-life language.",
+      "confidence": 0.78
+    }
+  ],
+  "background_knowledge": {
+    "used": true,
+    "familiarity": "moderate",
+    "confidence": 0.78,
+    "contribution": "Used to identify the likely farewell-letter and counterfactual-future framing that is absent from the narrowly supplied excerpt."
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the sustained avowal, while a low P score registers limited relational-reaffirmation pressure. Emotional intensity and imagined written framing are contextual features rather than missing core-force categories; E and O are unnecessary.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": "The imagined speaker's precise identity is not asserted because the excerpt omits the preceding framing."
+}

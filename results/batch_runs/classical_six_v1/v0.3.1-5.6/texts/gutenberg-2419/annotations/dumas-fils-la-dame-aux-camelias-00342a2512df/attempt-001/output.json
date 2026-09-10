@@ -1,0 +1,51 @@
+{
+  "occurrence_id": "dumas-fils-la-dame-aux-camelias-00342a2512df",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.93,
+    "analysis": "The speaker directly avows an existing state of love and presents it as something the addressee already knows. Nothing in the supplied text indicates that the words institute a commitment or function as a reflex-like expressive discharge.",
+    "ambiguity": "The very short extract leaves the wider conversational purpose—such as reassurance, persuasion, or self-defence—undetermined, but this does not materially alter the dominant truth-conditional force."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "A directly spoken line of dialogue addressed to the beloved: «Tu sais bien que je t'aime.»"
+  },
+  "contextual_interpretation": "The framing «Tu sais bien que» (“You know very well that”) treats the speaker's love as an established fact shared with the addressee. It may pragmatically reassure or answer a doubt, but the excerpt supplies no independent evidence of an undertaking or expressive/reflexive discharge.",
+  "evidence": [
+    {
+      "evidence_id": "local-1",
+      "source": "local_text",
+      "quotation_or_description": "«Tu sais bien que je t'aime.»",
+      "supports": "The complement «je t'aime» is presented as true, while «Tu sais bien que» frames that love as already known to the addressee; this strongly supports T.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "metadata-1",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is located in direct dialogue in Chapter XXI of Alexandre Dumas fils's La Dame aux camélias.",
+      "supports": "Supports identifying the event as a direct fictional utterance rather than a report, imagined statement, or written message.",
+      "confidence": 0.96
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the avowal of an existing loving state. Any reassuring or persuasive conversational role is contextual and does not require P, E, or O.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": "Classification is intentionally based only on the supplied sentence and metadata; no identification of the speaker or addressee is inferred."
+}

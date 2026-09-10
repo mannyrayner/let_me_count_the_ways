@@ -1,0 +1,65 @@
+{
+  "occurrence_id": "dumas-fils-la-dame-aux-camelias-d8ce633d2a17",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.97,
+    "analysis": "The causal clause « puisque je t'aime » presents the speaker's love as an established emotional state explaining why the father should accept their relationship. It is primarily a truth-conditional avowal. The surrounding discussion of sacrifice and their future does not turn these particular words into an undertaking, and there is no positive evidence that they are a reflex-like expressive discharge.",
+    "ambiguity": "The utterance offers relational reassurance in context, but reassurance alone does not establish performative commitment."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "The speaker directly tells her interlocutor « je t'aime » within a longer spoken explanation, embedding the avowal in a causal clause introduced by « puisque »."
+  },
+  "contextual_interpretation": "The speaker responds anxiously to the arrival of her lover's father, blames herself for the conflict, and even suggests that her lover might leave her rather than quarrel with him. She then defends their quiet relationship and cites her love, together with her limited ambitions, as reasons the father should approve. Thus the avowal also reassures her lover and supports an argument, but its core force remains the presentation of her love as true rather than a new promise or affective reflex.",
+  "evidence": [
+    {
+      "evidence_id": "local-1",
+      "source": "local_text",
+      "quotation_or_description": "« puisque je t'aime et n'ambitionne pas plus que ta position ne le permet »",
+      "supports": "The causal construction presents love as an existing fact that helps justify the speaker's claim, strongly supporting T.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "local-2",
+      "source": "local_text",
+      "quotation_or_description": "« Tu ferais peut-être mieux de me quitter que de te brouiller avec ton père. »",
+      "supports": "The surrounding concern is conflict with the lover's father and possible separation; this makes the avowal reassuring but does not supply an undertaking in the core words.",
+      "confidence": 0.96
+    },
+    {
+      "evidence_id": "local-3",
+      "source": "local_text",
+      "quotation_or_description": "« Lui as-tu dit comment nous avons arrangé l'avenir? »",
+      "supports": "A shared future has been arranged, but it is discussed separately from « je t'aime »; this weighs against treating the core utterance itself as performative.",
+      "confidence": 0.94
+    },
+    {
+      "evidence_id": "metadata-1",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is in Chapter XXI of Alexandre Dumas fils's La Dame aux camélias and is identified as a French « je t'aime » match.",
+      "supports": "Confirms the textual location and that the classified expression is the supplied direct love utterance.",
+      "confidence": 1.0
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the core avowal, while the argumentative, reassuring, and relationship-specific nuances can remain contextual. No important core force requires E, P, or O.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

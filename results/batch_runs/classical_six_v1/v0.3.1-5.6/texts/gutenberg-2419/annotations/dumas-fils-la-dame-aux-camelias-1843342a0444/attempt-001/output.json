@@ -1,0 +1,58 @@
+{
+  "occurrence_id": "dumas-fils-la-dame-aux-camelias-1843342a0444",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.96,
+    "analysis": "The speaker directly avows a present loving state and claims that its degree or manner exceeds anyone else's love for the addressee. The utterance may reassure or persuade, but it does not itself undertake a commitment, and nothing marks the words as a reflex-like affective discharge.",
+    "ambiguity": "The comparative claim may carry persuasive or courtship force in context, but that pragmatic purpose does not independently establish performative undertaking force."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "A direct spoken declaration within dialogue: « personne ne vous a jamais aimée comme je vous aime »."
+  },
+  "contextual_interpretation": "The speaker contrasts their own love with all prior love received by the addressee, presenting it as uniquely strong or distinctive. This intensifies the avowal and may function as reassurance or persuasion, but the supplied excerpt provides no evidence of a promise, relational undertaking, or reflexive verbal discharge.",
+  "evidence": [
+    {
+      "evidence_id": "E1",
+      "source": "local_text",
+      "quotation_or_description": "« C'est que personne ne vous a jamais aimée comme je vous aime. »",
+      "supports": "The present-tense « je vous aime » explicitly presents the speaker's love as true, strongly supporting T.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "E2",
+      "source": "local_text",
+      "quotation_or_description": "The comparative construction « personne ne vous a jamais aimée comme » frames the speaker's love as unmatched.",
+      "supports": "This supports an emphatic and potentially persuasive avowal, but supplies no independent commitment or reflexive-discharge force.",
+      "confidence": 0.96
+    },
+    {
+      "evidence_id": "E3",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is located in Chapter X of Alexandre Dumas fils's La Dame aux camélias and is formatted as dialogue.",
+      "supports": "Confirms that the classified event is represented as a direct character utterance rather than narration or reported speech.",
+      "confidence": 0.98
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the core force as an avowal of love. The comparative and persuasive coloring can be handled contextually without adding P, E, or O.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": "The highlighted phrase literally means “I love you”; the full sentence is approximately “It is because no one has ever loved you as I love you.”"
+}

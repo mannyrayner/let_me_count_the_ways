@@ -1,0 +1,58 @@
+{
+  "occurrence_id": "hamsun-pan-4dbcad04ce15",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.78,
+    "analysis": "The clause “Fordi jeg elsker dig” (“Because I love you”) presents the speaker’s love as a true emotional state and as the reason for something established outside the extract. Nothing in the supplied fragment independently indicates a relational undertaking or an expressive/reflex-like discharge.",
+    "ambiguity": "The very short context omits the preceding question or claim and any speech attribution, so the precise interaction and speaker are uncertain; this does not materially weaken the dominant truth-conditional reading."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "A directly formulated first-person love avowal presented as the causal answer or explanation “Because I love you”; the truncated extract provides no explicit speech attribution."
+  },
+  "contextual_interpretation": "The initial “Fordi” (“Because”) makes the avowal explanatory: the speaker invokes love as a reason for an action, attitude, or answer found beyond the supplied context. This framing supports assertion of an emotional state but does not itself create a promise or commitment. There is no positive evidence of reflexive blurting or expressive discharge.",
+  "evidence": [
+    {
+      "evidence_id": "ev-local-1",
+      "source": "local_text",
+      "quotation_or_description": "“Fordi jeg elsker dig.” (“Because I love you.”)",
+      "supports": "The first-person present-tense love predicate directly presents a loving emotional state, strongly supporting T.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "ev-local-2",
+      "source": "local_text",
+      "quotation_or_description": "The sentence begins with the causal conjunction “Fordi” (“Because”).",
+      "supports": "The love avowal functions as an explanation or reason; no commitment language or evidence of expressive/reflexive production appears in the fragment.",
+      "confidence": 0.92
+    },
+    {
+      "evidence_id": "ev-metadata-1",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is identified as Norwegian text from Knut Hamsun’s Pan, at relative position approximately 0.745 in the supplied source.",
+      "supports": "Establishes the work, language, and textual location, but does not resolve the omitted conversational setting.",
+      "confidence": 0.99
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the core explanatory avowal. The fragment supplies no independent pressure for P, E, or O.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": "Classification is intentionally limited to the 21-character supplied context; speaker identity and the antecedent of “Because” are unavailable."
+}

@@ -1,0 +1,72 @@
+{
+  "occurrence_id": "dumas-fils-la-dame-aux-camelias-d74dd7d57c75",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 2,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.94,
+    "analysis": "Marguerite directly and emphatically avows that she loves Armand. The repetition and comparison with what she had thought possible strongly present her love as a true emotional state. The surrounding promises to pursue a shared life and renounce her former way of living give the avowal some commitment-enacting force, though the words “je t’aime” remain primarily truth-conditional. The murmur, embrace, exclamation, and repetition indicate emotional intensity but do not independently establish reflex-like expressive force.",
+    "ambiguity": "The principal uncertainty is how much of the explicit future-oriented commitment in the immediately following sentences should be attributed to the core love utterance itself; this supports moderate rather than dominant P."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "The matched first “je t’aime” is represented as Marguerite’s direct spoken reply to Armand within narrated dialogue; it is followed shortly by a repetition of the same avowal."
+  },
+  "contextual_interpretation": "Marguerite answers affirmatively, names Armand, embraces him, and repeats that she loves him beyond what she had believed herself capable of feeling. She then projects their happiness and quiet life together, promises to leave behind a life of which she is now ashamed, and seeks reassurance that Armand will not reproach her past. This frames the avowal as sincere-seeming emotional disclosure joined to a prospective relational undertaking. Nothing in the supplied passage establishes expressive/reflexive production rather than an emotionally intense avowal.",
+  "evidence": [
+    {
+      "evidence_id": "local-1",
+      "source": "local_text",
+      "quotation_or_description": "“Oh! oui, je t’aime, mon Armand!”",
+      "supports": "The affirmative response and direct address strongly support a truth-conditional avowal of love.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "local-2",
+      "source": "local_text",
+      "quotation_or_description": "“je t’aime comme je n’aurais pas cru pouvoir aimer”",
+      "supports": "The repetition and explicit comparison present the depth of her loving state as true, reinforcing T.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "local-3",
+      "source": "local_text",
+      "quotation_or_description": "“Nous serons heureux, nous vivrons tranquilles, et je dirai un éternel adieu à cette vie”",
+      "supports": "The projected shared future and promise to abandon her former life provide independent contextual support for commitment or relational-undertaking force, hence moderate P.",
+      "confidence": 0.95
+    },
+    {
+      "evidence_id": "local-4",
+      "source": "local_text",
+      "quotation_or_description": "She murmurs the words while putting both arms around Armand’s neck.",
+      "supports": "This establishes intimate and affectively intense delivery, but supplies no clear evidence that the words are a reflex-like expressive discharge; it therefore does not warrant E above zero.",
+      "confidence": 0.96
+    },
+    {
+      "evidence_id": "metadata-1",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is located in Chapter XVII of Alexandre Dumas fils’s La Dame aux camélias, in the supplied Project Gutenberg source.",
+      "supports": "Identifies the represented dialogue event and its bibliographic location without adding substantive force beyond the local passage.",
+      "confidence": 1.0
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the avowal, while P captures the commitment pressure supplied by the tightly connected promises. Delivery and intensity can remain contextual because there is no positive evidence for reflexive E, and no important aspect of core force falls outside T/P/E.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": "The classification targets the first matched “je t’aime”; the immediate repetition is used as local evidence for its force."
+}
