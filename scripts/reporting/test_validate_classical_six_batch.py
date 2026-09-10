@@ -25,16 +25,23 @@ def fixture(tmp_path):
     for source_id, count in EXPECTED_TEXT_COUNTS.items():
         source_ids.extend([source_id] * count)
     reviewed = []
+    filtered_by_source = {source_id: [] for source_id in EXPECTED_TEXT_COUNTS}
     with (recon / "occurrence_inventory.tsv").open("w", encoding="utf-8", newline="") as stream:
         writer = csv.writer(stream, delimiter="\t")
         writer.writerow(["source_id", "occurrence_id", "pattern_id", "start", "end"])
         for number, (oid, source_id) in enumerate(zip(ids, source_ids)):
             writer.writerow([source_id, oid, "pattern", number, number + 1])
             reviewed.append({"occurrence_id": oid, "source_id": source_id, "decision": "KEEP"})
+            filtered_by_source[source_id].append({"occurrence_id": oid, "source_id": source_id})
         writer.writerow(["gutenberg-2419", EXCLUDED_ID, "pattern", 100, 101])
     reviewed.append({"occurrence_id": EXCLUDED_ID, "source_id": "gutenberg-2419",
                      "decision": "EXCLUDE"})
     write_json(recon / "reviewed_occurrences.json", {"occurrences": reviewed})
+    for source_id, records in filtered_by_source.items():
+        passages = recon / "reviewed_extractions" / source_id / "reviewed/extraction/passages.jsonl"
+        passages.parent.mkdir(parents=True, exist_ok=True)
+        passages.write_text("".join(json.dumps(record) + "\n" for record in records),
+                            encoding="utf-8")
 
     unusual_cases = []
     for index, (oid, source_id) in enumerate(zip(ids, source_ids)):
@@ -108,3 +115,14 @@ def test_unusual_case_must_match_valid_output(tmp_path):
     unusual["cases"][0]["scores"]["O"] = 3
     write_json(batch / "unusual_cases.json", unusual)
     assert any(".scores" in error for error in validate(batch, recon))
+
+
+def test_reviewed_extractions_must_equal_keep_outputs(tmp_path):
+    batch, recon = fixture(tmp_path)
+    passages = next((recon / "reviewed_extractions").glob("*/reviewed/extraction/passages.jsonl"))
+    records = [json.loads(line) for line in passages.read_text().splitlines()]
+    records[0]["occurrence_id"] = EXCLUDED_ID
+    passages.write_text("".join(json.dumps(record) + "\n" for record in records))
+    errors = validate(batch, recon)
+    assert any("reviewed extraction IDs versus KEEP set" in error for error in errors)
+    assert any("excluded occurrence present in reviewed extractions" in error for error in errors)

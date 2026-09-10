@@ -118,6 +118,9 @@ of the following together:
 - the 38-item raw inventory, 37 reviewed KEEP decisions, sole Dumas EXCLUDE,
   and absence of an annotation directory or output for
   `dumas-fils-la-dame-aux-camelias-dec42bc1687b`;
+- exactly 37 unique records in `reviewed_extractions/`, equality of those IDs
+  with both the reviewed KEEP set and final annotation outputs, and absence of
+  the excluded Dumas ID from both downstream sets;
 - complete per-text counts of 1, 9, 8, 4, 14, and 1 in manifest order;
 - all 37 unique valid `output.json` files and their `status.json` files;
 - the exact P/T/E/O and ontology-fit distributions and derived unusual-case
@@ -169,13 +172,23 @@ git diff --check
 git status --short
 ```
 
-Classify every changed or untracked path printed by `git status --short`.
-Exclude unrelated work. For this checkpoint, the intended paths are the full
-auditable result tree, this runbook, its validator, and its tests. Stage exactly
-those paths; never use `git add .`:
+At this checkpoint it is normal for `git status --short` to show the newly
+created annotation result tree and `reviewed_extractions/` as untracked. Both
+are intentional Step 20 artifacts and must be staged below. Any additional
+changed or untracked path must be classified separately before continuing.
+
+The filtered extraction set is preserved because it records the exact reviewed
+input boundary sent to the annotation model; this allows the 38 raw extraction
+hits, 37 scholarly-review KEEP decisions, and 37 annotation outputs to be
+reconciled directly. Both
+`results/reconnaissance/classical_six_v1/reviewed_extractions/` and
+`results/batch_runs/classical_six_v1/v0.3.1-5.6/` belong to this reproducible,
+auditable checkpoint, along with this runbook, its validator, and its tests.
+Exclude unrelated work. Stage exactly these paths; never use `git add .`:
 
 ```bash
 git add \
+  results/reconnaissance/classical_six_v1/reviewed_extractions \
   results/batch_runs/classical_six_v1/v0.3.1-5.6 \
   docs/howto/20_annotate_classical_six.md \
   scripts/reporting/validate_classical_six_batch.py \
@@ -184,12 +197,26 @@ git add \
 git diff --cached --stat
 git diff --cached --check
 git status --short
+git diff --cached --name-only | \
+  grep -q '^results/reconnaissance/classical_six_v1/reviewed_extractions/'
+git diff --cached --name-only | \
+  grep -q '^results/batch_runs/classical_six_v1/v0.3.1-5.6/'
+test -z "$(git diff --name-only)" || {
+  echo 'Unstaged modifications remain; classify them before committing.' >&2
+  exit 1
+}
+test -z "$(git ls-files --others --exclude-standard)" || {
+  echo 'Untracked paths remain; classify them before committing.' >&2
+  exit 1
+}
 ```
 
-The staged tree must contain `summary.json`, `report.md`,
-`unusual_cases.json`, all six text result directories, and all 37 valid
-annotation outputs with their complete attempt provenance. It must contain no
-credential, unrelated file, or annotation directory for the excluded Dumas ID.
+The staged tree must contain `reviewed_extractions/`, `summary.json`,
+`report.md`, `unusual_cases.json`, all six text result directories, and all 37
+valid annotation outputs with their complete attempt provenance. Neither
+intentional tree should still appear as `??`; any remaining untracked or
+unstaged path must be investigated. The staged tree must contain no credential,
+unrelated file, or annotation directory for the excluded Dumas ID.
 Rerun the read-only validator after staging to machine-count the current 37
 unique outputs once more:
 
@@ -211,6 +238,9 @@ test -z "$(git status --short)" || {
 git log -1 --oneline
 git show --stat --oneline HEAD
 ```
+
+The commit stat must visibly include both `reviewed_extractions/` and the batch
+annotation result tree, together with the Step 20 runbook/validator changes.
 
 Observed completed run (not generic constants for future batches):
 

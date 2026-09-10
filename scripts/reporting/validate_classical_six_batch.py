@@ -150,6 +150,34 @@ def validate(batch_root: Path, reconnaissance_root: Path) -> list[str]:
     check("reviewed IDs versus raw inventory", keep_ids | excluded_ids, set(inventory_ids))
     reviewed_sources = {item["occurrence_id"]: item["source_id"] for item in reviewed}
 
+    filtered_root = reconnaissance_root / "reviewed_extractions"
+    filtered_records = []
+    filtered_paths = sorted(filtered_root.glob("*/reviewed/extraction/passages.jsonl"))
+    if not filtered_paths:
+        errors.append(f"reviewed extraction passages missing under: {filtered_root}")
+    for passages_path in filtered_paths:
+        for line_number, line in enumerate(
+                passages_path.read_text(encoding="utf-8").splitlines(), 1):
+            if not line:
+                continue
+            try:
+                filtered_records.append(json.loads(line))
+            except json.JSONDecodeError as exc:
+                errors.append(f"invalid JSONL {passages_path}:{line_number}: {exc}")
+    filtered_ids = [item.get("occurrence_id") for item in filtered_records]
+    check("reviewed extraction occurrence count", len(filtered_ids), 37)
+    check("unique reviewed extraction ID count", len(set(filtered_ids)), 37)
+    check("reviewed extraction IDs versus KEEP set", set(filtered_ids), keep_ids)
+    if EXCLUDED_ID in filtered_ids:
+        errors.append(f"excluded occurrence present in reviewed extractions: {EXCLUDED_ID}")
+    for item in filtered_records:
+        oid = item.get("occurrence_id")
+        if reviewed_sources.get(oid) != item.get("source_id"):
+            errors.append(
+                f"{oid}: filtered source {item.get('source_id')!r}, reviewed under "
+                f"{reviewed_sources.get(oid)!r}"
+            )
+
     outputs: dict[str, tuple[dict[str, int], str, float]] = {}
     valid_status_ids: set[str] = set()
     output_paths = sorted((batch_root / "texts").glob("*/annotations/*/attempt-*/output.json"))
@@ -189,6 +217,7 @@ def validate(batch_root: Path, reconnaissance_root: Path) -> list[str]:
             errors.append(f"invalid output {output_path}: {exc}")
     check("final valid output count", len(outputs), 37)
     check("unique annotated IDs versus reviewed KEEP set", set(outputs), keep_ids)
+    check("annotated IDs versus reviewed extraction IDs", set(outputs), set(filtered_ids))
     excluded_dirs = list((batch_root / "texts").glob(f"*/annotations/{EXCLUDED_ID}"))
     if EXCLUDED_ID in valid_status_ids or excluded_dirs:
         errors.append(f"excluded occurrence has annotation artifacts: {EXCLUDED_ID}")
