@@ -767,330 +767,173 @@ prints its traceback, source, and status without terminating the interactive
 shell—even if that shell already has `set -e`. Do not remove zero-hit works and
 do not run the batch without `--dry-run`.
 
-## 8. Inspect every occurrence and record scene clusters
+## 8. Freeze the definitive scholarly occurrence review
 
-Step 7 records the six exact successful run directories, so this step does not
-use placeholders or select a directory by recency. If Step 7 predates that run
-list, rerun its normal six-source block; dry-run extraction makes no model calls.
-The following block is self-contained, validates the complete run selection, and
-atomically creates the occurrence index, review document, selection record, and
-summary template. It refuses to overwrite prior review work:
+Preserve automatic extraction before any judgment in
+`occurrence_review_unreviewed.md`. Never edit or overwrite that file with review
+judgments. Extracted occurrences receive scholarly review by the interactive AI
+collaborator. This review determines corpus inclusion unless an explicit human
+override is recorded. Human checking remains available for doubtful,
+source-sensitive, or theoretically consequential cases, but it is not a
+mandatory duplicate review of every occurrence.
 
-```bash
-if (
-BATCH=data/batches/classical_six_v1.json
-PATTERNS=data/development/search_patterns_v0_6.json
-RECON=results/reconnaissance/classical_six_v1
-RUN_LIST="$RECON/selected-run-directories.txt"
-
-test -f "$BATCH" || { echo "Missing batch manifest: $BATCH" >&2; exit 1; }
-test -f "$PATTERNS" || { echo "Missing pattern manifest: $PATTERNS" >&2; exit 1; }
-test -f "$RUN_LIST" || {
-  echo "Missing exact run selection: $RUN_LIST; rerun the normal Step 7 block." >&2
-  exit 1
-}
-mkdir -p "$RECON" || exit 1
-
-python - "$BATCH" "$RUN_LIST" "$RECON" <<'PY'
-import json
-import sys
-from pathlib import Path
-
-batch_path,run_list_path,out=map(Path,sys.argv[1:])
-batch=json.loads(batch_path.read_text(encoding='utf-8'))
-runs=[Path(line.rstrip('\r')) for line in
-      run_list_path.read_text(encoding='utf-8').splitlines() if line.rstrip('\r')]
-if len(runs) != 6:
-    raise SystemExit(f'Expected 6 selected run directories, found {len(runs)}')
-
-expected=[]
-for member in batch['sources']:
-    provenance=Path(member['provenance'])
-    record=json.loads(provenance.read_text(encoding='utf-8'))
-    expected.append(record['source_id'])
-if len(expected) != 6 or len(set(expected)) != 6:
-    raise SystemExit(f'Batch does not contain 6 unique source IDs: {expected}')
-
-selections=[]
-all_rows=[]
-seen_occurrences=set()
-for run in runs:
-    manifest_path=run/'manifest.json'
-    passages_path=run/'extraction'/'passages.jsonl'
-    if not manifest_path.is_file() or not passages_path.is_file():
-        raise SystemExit(f'Missing manifest or passages in selected run: {run}')
-    manifest=json.loads(manifest_path.read_text(encoding='utf-8'))
-    if not manifest.get('dry_run') or manifest.get('status') != 'prepared':
-        raise SystemExit(f'Selected run is not a prepared dry run: {run}')
-    if manifest.get('search_pattern_version') != '0.6':
-        raise SystemExit(f'Selected run does not use patterns v0.6: {run}')
-    if manifest.get('annotation_version') != '0.3.1':
-        raise SystemExit(f'Selected run does not use annotation 0.3.1: {run}')
-    rows=[json.loads(line) for line in passages_path.read_text(encoding='utf-8').splitlines()
-          if line]
-    if len(rows) != manifest.get('extracted_occurrences'):
-        raise SystemExit(f'Occurrence count disagrees with manifest: {run}')
-    for row in rows:
-        if row['source_id'] != manifest['source_id']:
-            raise SystemExit(f'Occurrence/source mismatch in {run}: {row["occurrence_id"]}')
-        if row['occurrence_id'] in seen_occurrences:
-            raise SystemExit(f'Duplicate occurrence ID: {row["occurrence_id"]}')
-        seen_occurrences.add(row['occurrence_id'])
-    all_rows.extend(rows)
-    selections.append({
-        'source_id':manifest['source_id'],
-        'language':manifest['language'],
-        'run_directory':str(run),
-        'manifest':str(manifest_path),
-        'passages':str(passages_path),
-        'extracted_occurrences':len(rows),
-    })
-
-actual=[item['source_id'] for item in selections]
-if actual != expected:
-    raise SystemExit(f'Run selection order/source mismatch: expected {expected}, found {actual}')
-
-outputs={
-    'inventory':out/'occurrence_inventory.tsv',
-    'review':out/'occurrence_review_unreviewed.md',
-    'selection':out/'selected-runs.json',
-    'summary':out/'summary.md',
-}
-existing=[str(path) for path in outputs.values() if path.exists()]
-if existing:
-    raise SystemExit(f'Refusing to overwrite existing Step 8 output(s): {existing}')
-
-def publish(path,text):
-    partial=path.with_suffix(path.suffix+'.part')
-    partial.write_text(text,encoding='utf-8',newline='\n')
-    partial.replace(path)
-
-inventory=['source_id\toccurrence_id\tpattern_id\tstart\tend\tmatch_json']
-for row in all_rows:
-    match=json.dumps(row['match'],ensure_ascii=False)
-    inventory.append(f"{row['source_id']}\t{row['occurrence_id']}\t{row['pattern_id']}\t"
-                     f"{row['start']}\t{row['end']}\t{match}")
-publish(outputs['inventory'],'\n'.join(inventory)+'\n')
-
-review=['# Classical six occurrence review','']
-for row in all_rows:
-    review.extend([
-        f"## {row['occurrence_id']}",'',f"- source: `{row['source_id']}`",
-        f"- pattern: `{row['pattern_id']}`",f"- offsets: {row['start']}–{row['end']}",
-        '- review: PENDING','', '```text',row['context'],'```','',
-    ])
-publish(outputs['review'],'\n'.join(review))
-publish(outputs['selection'],json.dumps(selections,indent=2,ensure_ascii=False)+'\n')
-
-summary=[
-    '# Classical six reconnaissance summary','',
-    '| Source | Language | Extracted occurrences | Valid targets | Excluded | Approx. valid scene clusters | Extraction/review issues | Recommendation |',
-    '| --- | --- | ---: | ---: | ---: | ---: | --- | --- |',
-]
-by_source={item['source_id']:item['extracted_occurrences'] for item in selections}
-for item in selections:
-    source_id=item['source_id']
-    summary.append(f"| {source_id} | {item['language']} | "
-                   f"{by_source[source_id]} | PENDING | PENDING | PENDING | PENDING | PENDING |")
-publish(outputs['summary'],'\n'.join(summary)+'\n')
-
-print(f'Validated 6 exact dry runs and {len(all_rows)} unique occurrence(s).')
-for item in selections:
-    print(f"{item['source_id']}: {item['run_directory']} "
-          f"({item['extracted_occurrences']} occurrence(s))")
-print(f"Review file: {outputs['review']}")
-PY
-); then
-  :
-else
-  STATUS=$?
-  echo "Step 8 setup failed with exit status $STATUS; review the error above." >&2
-fi
-```
-
-For every hit verify direction, polarity, embedding/report/quotation/hypothesis,
-context, overlap, OCR, and adjacent declarations. Structurally unusual valid
-cases remain KEEP cases. `occurrence_review_unreviewed.md` is immutable evidence;
-never edit it into a reviewed document. For an older run, use `cp -n
-human_review.md occurrence_review_unreviewed.md`, verify the copy, and preserve
-both.
-
-The research method is deliberately staged:
+The current canonical workflow is:
 
 ```text
 automatic extraction
-→ fresh post-repair AI scholarly review (v2)
-→ human audit
-→ adjudication
-→ frozen validated occurrence set
+→ AI scholarly occurrence review
+→ optional human occurrence-validity override
+→ frozen reviewed occurrence set
 → annotation
 ```
 
-Never collapse stages. Do not silently alter Runeberg OCR: record the OCR source,
-facsimile reading, and effect (`none`, `affects interpretation`, or `requires
-re-extraction`) in the audit. If re-extraction is required, stop and create a
-versioned correction layer.
+Earlier versions of this runbook envisaged full human review of every extracted
+occurrence. During the classical-six pilot, independent AI review proved both
+substantially faster and, on human inspection, at least as reliable for this
+specific occurrence-validity task. The project therefore made AI scholarly
+review definitive by default while retaining explicit human overrides for
+exceptional cases. This is an empirical project workflow decision, not a general
+claim about every annotation or review task.
 
-### 8a. Stop, share corrected evidence, then import and freeze AI v2
+Store the corrected-context review as `occurrence_review_ai_v2.md`, with
+reviewer, role, status, source, model/review version, stable IDs, decisions,
+structural notes, and scene clusters. Its source must be the regenerated Step 8
+contexts after the Runeberg line-break repair. Store the same decisions in
+`reviewed_occurrences.json`; downstream code reads this JSON rather than parsing
+Markdown prose. Do not create or require a `human_review.md` stage.
 
-After regeneration, stop and provide `occurrence_review_unreviewed.md` to
-ChatGPT for a genuinely fresh review. Do not mechanically copy v1 Hamsun
-judgments. No annotation-model call belongs here; the scholarly review is a
-separate, explicit activity. Once that external review exists, copy it into
-place (replace only the source path), add the header if absent, and commit it
-once. It is thereafter frozen.
+If the defective-context first review exists, retain it only as
+`occurrence_review_ai_v1_pre_runeberg_linebreak_fix.md` and label it superseded.
+Never use v1 downstream. The versions made the same 37 KEEP / 1 EXCLUDE validity
+decisions, but v2 more precisely characterizes structure after context repair.
+Do not fabricate v1 if the external artifact was not retained.
 
-```bash
-AI_REVIEW=/path/to/completed-ai-second-pass.md
-cp -n "$AI_REVIEW" "$RECON/occurrence_review_ai_v2.md"
-python - "$RECON/occurrence_review_ai_v2.md" <<'PY'
-import sys
-from pathlib import Path
-p=Path(sys.argv[1]); text=p.read_text(encoding='utf-8')
-header='# AI second-pass scholarly occurrence review\n\nIndependent fresh review by GPT-5.6 Sol after the Runeberg line-break repair.\nHuman audit/adjudication not yet applied.\n\n'
-if not text.startswith('# AI second-pass scholarly occurrence review'):
-    p.write_text(header+text,encoding='utf-8')
-PY
-# Create summary_ai_v2.md from the fresh review's actual counts; do not carry
-# forward or hard-code the superseded v1 result.
-cat > "$RECON/occurrence_review_human_audit.md" <<'EOF_AUDIT'
-# Human audit of AI second-pass review
+The four structurally unusual cases below remain KEEP:
 
-- AI review artifact: `occurrence_review_ai_v2.md`
-- Auditor: Manny Rayner
-- Audit date: YYYY-MM-DD
+- `lawrence-women-in-love-5ab672887915`: metalinguistic/hypothetical;
+- `lawrence-women-in-love-9452b40305b4`: negative/interrogative;
+- `hamsun-victoria-be00bbdbf853`: whispered to oneself after the addressee left;
+- `hamsun-victoria-ac5e0080c204`: remembered/reported past speech.
 
-Absence of an occurrence entry below means the human audit accepts the AI
-judgment. Counts cover all cases, including accepted cases.
+`dumas-fils-la-dame-aux-camelias-dec42bc1687b` remains in the high-recall
+extraction inventory but is EXCLUDE: *aimer mieux X que Y* means “prefer X to
+Y,” not “I love you.” Do not retrospectively narrow the French regex to remove
+it.
 
-## Overall result
-- cases reviewed: PENDING
-- substantive agreements: PENDING
-- substantive disagreements: PENDING
-- source/OCR corrections: PENDING
-- scene-cluster corrections: PENDING
-- editorial wording corrections: PENDING
-- unresolved cases: PENDING
+### 8a. Validate decisions and optional overrides
 
-## Corrections/disagreements
-<!-- For each exception: occurrence-ID heading; AI judgment; human judgment;
-reason; type (substantive | source/OCR | scene-cluster | editorial wording).
-For OCR also record OCR source, facsimile reading, and effect. -->
-EOF_AUDIT
-```
-
-The pre-fix v1 counts and judgments are superseded evidence, not results to copy
-into v2 or pipeline constants. OCR/source, scene-cluster, and wording corrections
-are not substantive disagreements.
-
-### 8b. Create, validate, and render adjudication
-
-Create `$RECON/review_adjudicated.json`, schema version `1.0`, with an
-`occurrences` array. Every object has `occurrence_id`, `source_id`, `pattern_id`,
-integer `start`/`end`, `decision` (`KEEP` or `EXCLUDE`), nonempty
-`structural_status`, `scene_cluster` (or `NA`), and `adjudication` (`AI v2
-accepted by human audit` or `human correction to AI v2`). Optional `reason` and
-OCR evidence fields preserve detail. Fields are explicit, never inferred from
-prose.
-
-```bash
-python scripts/review/classical_six_review.py validate \
-  --inventory "$RECON/occurrence_inventory.tsv" \
-  --review "$RECON/review_adjudicated.json"
-python scripts/review/classical_six_review.py render \
-  --inventory "$RECON/occurrence_inventory.tsv" \
-  --review "$RECON/review_adjudicated.json" \
-  --output "$RECON/occurrence_review_adjudicated.md"
-```
-
-The validator requires every extracted ID exactly once, rejects unknown IDs,
-checks source/pattern/offset identity, requires KEEP/EXCLUDE and a scene cluster
-or `NA`, rejects PENDING, and proves KEEP + EXCLUDE equals extraction count.
-
-Complete `summary.md`'s final table. Retain zero-hit works and record `0
-extracted`, `0 valid`, `bounded diagnostic completed`, and `no missed
-conventional equivalent found`. Count clusters only among KEEP cases.
-Occurrences are annotation units; scene clusters are descriptive dependence
-units and are never merged.
-
-Create `$RECON/review_agreement.md` with literal integer fields for AI-reviewed
-and human-audited occurrences, substantive agreements/disagreements, OCR/source
-corrections, scene-cluster corrections, wording corrections, and unresolved
-cases. If all substantive judgments are accepted, say so. Never count OCR/source
-corrections as substantive disagreements.
-
-## 9. Final no-model gate and reconnaissance checkpoint
+The reusable validator proves that every extracted ID occurs exactly once, no
+unknown or duplicate ID exists, offsets/source/pattern match the inventory,
+every decision is KEEP or EXCLUDE, no PENDING value remains, and every KEEP has
+a scene-cluster string or explicit JSON `null`. Counts are reported from the
+data, not hard-coded in generic machinery:
 
 ```bash
 RECON=results/reconnaissance/classical_six_v1
-! find "$RECON" -path '*/annotations/*' -type f -print -quit | grep -q .
 python scripts/review/classical_six_review.py validate \
   --inventory "$RECON/occurrence_inventory.tsv" \
-  --review "$RECON/review_adjudicated.json"
-! grep -En 'PENDING|unresolved cases: [1-9][0-9]*' \
-  "$RECON/occurrence_review_human_audit.md" "$RECON/review_agreement.md" \
-  "$RECON/occurrence_review_adjudicated.md" "$RECON/summary.md"
-python scripts/docs/validate_runbook_index.py
-python -m pytest -q
-python scripts/security/scan_credentials.py \
-  data/batches/classical_six_v1.json provenance/sources \
-  scripts/corpus_acquisition scripts/review "$RECON"
-git diff --check
-git status --short
+  --review "$RECON/reviewed_occurrences.json"
+# Expected for this frozen batch: 38 occurrences; KEEP=37; EXCLUDE=1.
 ```
 
-Commit explicitly; never use `git add .`:
+A human correction is optional. When one exists, create
+`$RECON/review_overrides.json` with this shape:
+
+```json
+{
+  "schema_version": "1.0",
+  "overrides": [{
+    "occurrence_id": "stable-id",
+    "ai_decision": "KEEP",
+    "override_decision": "EXCLUDE",
+    "reason": "specific occurrence-validity reason",
+    "reviewer": "reviewer name",
+    "date": "YYYY-MM-DD"
+  }]
+}
+```
+
+Then add `--overrides "$RECON/review_overrides.json"` to validation and Step 20
+filtering. The final decision is the human override when present and otherwise
+the AI decision. The override must actually change KEEP to EXCLUDE or vice
+versa; absence of disagreements requires no file.
+
+Keep occurrence-validity overrides separate from structural-note corrections,
+source/OCR corrections, and scene-cluster corrections. Only the first category
+changes target validity. Preserving unreviewed contexts, stable IDs, AI
+judgments, reviewer, and review version also permits later independent human
+sampling and formal agreement studies without blocking corpus expansion.
+
+## 9. Final Step 19 validation and checkpoint
+
+The completed `summary.md` reports extracted, valid, excluded, and approximate
+scene-cluster counts by source. Clusters describe dependence and are not
+inferentially independent samples or annotation units.
+
+Run these cut-and-paste checks. The annotation-artifact check deliberately
+ignores extraction-only `classification_inputs` prepared by dry runs and rejects
+actual annotation attempts under the reconnaissance root.
 
 ```bash
-git add \
-  results/reconnaissance/classical_six_v1/occurrence_inventory.tsv \
-  results/reconnaissance/classical_six_v1/selected-run-directories.txt \
-  results/reconnaissance/classical_six_v1/selected-runs.json \
-  results/reconnaissance/classical_six_v1/occurrence_review_unreviewed.md \
-  results/reconnaissance/classical_six_v1/occurrence_review_ai_v1_pre_runeberg_linebreak_fix.md \
-  results/reconnaissance/classical_six_v1/occurrence_review_ai_v2.md \
-  results/reconnaissance/classical_six_v1/occurrence_review_human_audit.md \
-  results/reconnaissance/classical_six_v1/review_adjudicated.json \
-  results/reconnaissance/classical_six_v1/occurrence_review_adjudicated.md \
-  results/reconnaissance/classical_six_v1/summary_ai_v1_pre_runeberg_linebreak_fix.md \
-  results/reconnaissance/classical_six_v1/summary_ai_v2.md \
-  results/reconnaissance/classical_six_v1/summary.md \
-  results/reconnaissance/classical_six_v1/review_agreement.md \
-  results/reconnaissance/classical_six_v1/diagnostics \
+cd "$LMCW"
+RECON=results/reconnaissance/classical_six_v1
+
+test -f "$RECON/occurrence_review_unreviewed.md"
+test -f "$RECON/occurrence_review_ai_v2.md"
+test -f "$RECON/reviewed_occurrences.json"
+test -f "$RECON/summary.md"
+python scripts/review/classical_six_review.py validate \
+  --inventory "$RECON/occurrence_inventory.tsv" \
+  --review "$RECON/reviewed_occurrences.json"
+python - "$RECON/reviewed_occurrences.json" <<'PY_CHECK'
+import json, sys
+items=json.load(open(sys.argv[1], encoding='utf-8'))['occurrences']
+assert len(items)==38
+assert sum(x['decision']=='KEEP' for x in items)==37
+assert sum(x['decision']=='EXCLUDE' for x in items)==1
+assert all(x['decision'] in {'KEEP','EXCLUDE'} for x in items)
+assert 'PENDING' not in json.dumps(items).upper()
+print('verified current batch totals: 37 KEEP / 1 EXCLUDE')
+PY_CHECK
+! find "$RECON" -path '*/annotations/attempt-*' -type f -print -quit | grep -q .
+python -m pytest -q
+python scripts/docs/validate_runbook_index.py
+python scripts/security/scan_credentials.py \
   data/development/search_patterns_v0_6.json \
   docs/howto/19_acquire_and_reconnoitre_classical_six.md \
-  docs/howto/20_annotate_classical_six.md docs/howto/README.md \
+  docs/howto/20_annotate_classical_six.md \
+  scripts/review results/reconnaissance/classical_six_v1
+```
+
+Commit only after every check succeeds; do not use `git add .`:
+
+```bash
+git status --short
+git add \
+  data/development/search_patterns_v0_6.json \
+  docs/howto/19_acquire_and_reconnoitre_classical_six.md \
+  docs/howto/20_annotate_classical_six.md \
+  docs/howto/README.md \
   scripts/review/classical_six_review.py \
-  scripts/review/test_classical_six_review.py
+  scripts/review/test_classical_six_review.py \
+  results/reconnaissance/classical_six_v1/occurrence_inventory.tsv \
+  results/reconnaissance/classical_six_v1/occurrence_review_unreviewed.md \
+  results/reconnaissance/classical_six_v1/occurrence_review_ai_v2.md \
+  results/reconnaissance/classical_six_v1/reviewed_occurrences.json \
+  results/reconnaissance/classical_six_v1/selected-run-directories.txt \
+  results/reconnaissance/classical_six_v1/selected-runs.json \
+  results/reconnaissance/classical_six_v1/summary.md \
+  results/reconnaissance/classical_six_v1/pipeline_runs
 git diff --cached --check
 git status --short
-git commit -m "Complete classical six reconnaissance review"
+git commit -m "Finalize classical six occurrence review"
 git status --short
 ```
 
-Step 19 stops here. It is complete only when all six provenance records are
-approved; v0.6 and six exact runs are fixed; the regenerated occurrence count and untouched
-pre-review artifact exist; superseded AI v1 is preserved and AI v2 is frozen; audit and categorized agreement
-counts are recorded; every ID has an adjudicated decision and valid scene
-cluster; the final summary (including zeros) is complete; no PENDING/unresolved
-case or model call remains; and this checkpoint is committed. Then proceed to
-Step 20.
-
-For the present repair, stop earlier—immediately after the corrected derivations,
-updated provenance, rerun diagnostics, six fresh dry runs, and regenerated Step
-8 artifact are complete—and share `occurrence_review_unreviewed.md` for AI v2.
-Do not proceed to annotation. Confirm this repair checklist explicitly:
-
-```text
-[ ] raw Runeberg HTML hashes unchanged and pages_downloaded = 0
-[ ] marker-bounded OCR extraction still passes
-[ ] structural numeric and OCR-corrupted page fields discarded
-[ ] each br is one newline; empty OCR lines remain blank
-[ ] physical lineation and line-final hyphenation preserved; no dehyphenation
-[ ] page boundaries introduce no paragraph
-[ ] both literary texts, page maps, metadata, hashes, and provenance regenerated
-[ ] v0.6 diagnostics revalidated
-[ ] all six fresh dry runs and Step 8 artifacts regenerated
-[ ] AI v1 preserved and labelled superseded
-[ ] no annotation-model calls made
-```
+Step 19 closes when all six approved provenance records and corrected v0.6 dry
+runs exist; 38 extracted occurrences are inventoried; immutable unreviewed
+contexts and definitive AI v2 are stored; 37 KEEP / 1 EXCLUDE is represented
+machine-readably; the optional override mechanism is available; the summary is
+complete; no PENDING decisions remain; and no annotation-model calls have been
+made. There is no separate mandatory human-audit gate. Proceed to Step 20 only
+after this checkpoint.
