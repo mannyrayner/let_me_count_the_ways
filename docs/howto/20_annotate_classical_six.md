@@ -1,35 +1,46 @@
-# Step 20: annotate the adjudicated classical six
+# Step 20: annotate the reviewed classical six
 
-This consumes Step 19's frozen occurrence set and annotates only explicit KEEP
-occurrences. EXCLUDE is never sent to the model. Structurally unusual KEEP cases
-(negative/interrogative, hypothetical, written, embedded, or deceptive) remain.
-Stable IDs join annotations to corrected-context AI v2, human audit, and adjudication. Step 20 remains blocked until those Step 19 artifacts have no unresolved cases.
+This runbook consumes the frozen `classical_six_v1` extraction made with
+patterns v0.6 and the definitive reviewed occurrence decisions from Step 19. It
+annotates only the 37 effective KEEP occurrences. The Dumas lexical false
+positive remains in the raw 38-hit inventory and is visibly filtered before any
+model call; occurrence IDs never change.
 
-## 1. Materialize the KEEP-only extraction
+Reuse the established annotation machinery used for `development_three`,
+`multilingual_five_v1`, and `indie_romance_pilot_v1`: annotation v0.3.1, model
+alias `5.6` (GPT-5.6 Sol), and the existing prompt and schema unchanged. Context
+comes from the validated 1000-character Step 19 dry runs.
 
-Use annotation v0.3.1, model alias `5.6` (GPT-5.6 Sol), patterns v0.6, and the
-validated 1000-character context radius. Do not change the frozen ontology,
-prompt, or schema used by the canonical and indie batches.
+## 1. Materialize and inspect the reviewed KEEP set
+
+The review helper acts as a reusable allowlist boundary. It rejects missing,
+unknown, and duplicate review IDs; checks source, pattern, and offsets against
+the extraction inventory; applies a valid optional human occurrence-validity
+override; and explicitly reports every filtered EXCLUDE. It does not alter the
+raw inventory.
 
 ```bash
 cd "$LMCW"
-test -z "$(git status --short)" || { echo 'Working tree is not clean.' >&2; exit 1; }
 RECON=results/reconnaissance/classical_six_v1
-KEEP_ROOT="$RECON/adjudicated_extractions"
+KEEP_ROOT="$RECON/reviewed_extractions"
+
 python scripts/review/classical_six_review.py validate \
   --inventory "$RECON/occurrence_inventory.tsv" \
-  --review "$RECON/review_adjudicated.json"
+  --review "$RECON/reviewed_occurrences.json"
 python scripts/review/classical_six_review.py filter \
   --inventory "$RECON/occurrence_inventory.tsv" \
-  --review "$RECON/review_adjudicated.json" \
-  --selected-runs "$RECON/selected-runs.json" --output "$KEEP_ROOT"
+  --review "$RECON/reviewed_occurrences.json" \
+  --selected-runs "$RECON/selected-runs.json" \
+  --output "$KEEP_ROOT"
 ```
 
-The helper preserves IDs, filters only by decision (never structural status),
-records review provenance/counts, and updates the inventory hash. Inspect every
-prepared JSONL before an API call.
+If `review_overrides.json` exists, add
+`--overrides "$RECON/review_overrides.json"` to both commands. Expected current
+output is 37 prepared KEEP occurrences and one visibly filtered ID,
+`dumas-fils-la-dame-aux-camelias-dec42bc1687b`. Inspect every prepared JSONL and
+confirm the four structurally marked KEEP cases documented in Step 19 remain.
 
-## 2. Dry run, then resume the existing batch machinery
+## 2. Dry run and then annotate resumably
 
 ```bash
 python scripts/pipeline/run_batch.py \
@@ -38,7 +49,8 @@ python scripts/pipeline/run_batch.py \
   --patterns data/development/search_patterns_v0_6.json \
   --context-chars 1000 --extraction-root "$KEEP_ROOT" \
   --output-root results/batch_runs --dry-run
-# Inspect inputs and prove every ID is an adjudicated KEEP.
+
+# Inspect all 37 inputs and the dry-run summary before authorizing model calls.
 python scripts/pipeline/run_batch.py \
   --manifest data/batches/classical_six_v1.json \
   --annotation-version 0.3.1 --model 5.6 \
@@ -47,23 +59,38 @@ python scripts/pipeline/run_batch.py \
   --output-root results/batch_runs
 ```
 
-Rerun the second command unchanged to resume; do not use `--force` just to
-resume. Existing machinery skips valid outputs and records model/pricing,
-prompt/schema/extraction hashes, per-occurrence validity/failure, and cost.
+Rerun the second command unchanged to resume. A valid existing annotation is
+skipped; a missing or failed occurrence is retried; a completed occurrence is
+never silently overwritten. Do not use `--force` merely to resume. Existing
+per-attempt infrastructure records model, annotation version, prompt hash,
+schema hash, source/extraction hash, occurrence ID, usage/cost, and status.
 
-## 3. Audit descriptive results
+## 3. Aggregate and audit descriptive results
 
-Inspect `summary.json`, `report.md`, `unusual_cases.json`, statuses, and preserved
-requests/responses. Report P/T/E/O and ontology-fit distributions, P >= 2, E >=
-2, mixed dimensions (two or more P/T/E >= 2), retained occurrence count, and
-approximate distinct non-NA scene clusters. Occurrences are annotation units;
-clusters are descriptive dependence units. Do not merge them or perform
-significance testing. Confirm unchanged IDs join every output to all three Step
-19 review stages.
+Inspect
+`results/batch_runs/classical_six_v1/v0.3.1-5.6/{summary.json,report.md,unusual_cases.json}`
+and retained request/response/status files. Report the classical-six batch
+separately with:
+
+- P, T, E, and O score distributions and ontology-fit distribution;
+- counts for P >= 2, E >= 2, and two or more of P/T/E >= 2;
+- 37 reviewed target occurrences and approximately 24 scene clusters.
+
+Occurrences, not scenes, are annotation units. Scene clusters are descriptive
+dependence information and are not independent sample counts. A descriptive
+comparison with the previous canonical eight may be prepared if existing report
+tooling makes it straightforward, but do not perform significance testing.
 
 ```bash
 python -m pytest -q
 python scripts/docs/validate_runbook_index.py
+python scripts/security/scan_credentials.py results/batch_runs/classical_six_v1
+python -m json.tool results/batch_runs/classical_six_v1/v0.3.1-5.6/summary.json >/dev/null
 git diff --check
 git status --short
 ```
+
+Stop after annotation and descriptive reporting. Do not acquire more works.
+Manny and ChatGPT will next inspect corpus size, language/genre/period balance,
+P/T/E distributions, scene dependence, and rare high-P/high-E cases before
+making another corpus-design decision.
