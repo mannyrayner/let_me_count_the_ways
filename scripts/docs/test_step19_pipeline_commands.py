@@ -25,14 +25,15 @@ class Step19PipelineCommandTests(unittest.TestCase):
         self.assertIn(strip, parts[0])
         self.assertIn(strip, parts[1])
 
-    def test_step7_records_and_step8_consumes_exact_runs(self):
+    def test_step7_records_exact_runs_for_review_filtering(self):
         text = RUNBOOK.read_text(encoding="utf-8")
         self.assertIn('RUN_LIST="$RECON/selected-run-directories.txt"', text)
         self.assertIn('printf \'%s\\n\' "$RUN_DIR" >> "$RUN_LIST_PART"', text)
         self.assertIn('mv "$RUN_LIST_PART" "$RUN_LIST"', text)
         self.assertNotIn("PASTE_SIX_EXACT_RUN_DIRECTORIES", text)
-        self.assertIn("Expected 6 selected run directories", text)
-        self.assertIn("Run selection order/source mismatch", text)
+        review_helper = Path("scripts/review/classical_six_review.py").read_text(encoding="utf-8")
+        self.assertIn("selected runs do not match inventory", review_helper)
+        self.assertIn("duplicate selected occurrence ID", review_helper)
 
 
 if __name__ == "__main__":
