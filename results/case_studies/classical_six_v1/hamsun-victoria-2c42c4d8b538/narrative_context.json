@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "component": "narrative_context",
+  "status": "complete",
+  "model": "gpt-5.6-sol (Codex interactive session)",
+  "model_alias": "interactive-5.6-sol",
+  "generated_at": "2026-09-10T13:27:00.792688+00:00",
+  "prompt_path": "prompts/case_studies/narrative_context_v1.md",
+  "prompt_version": "v1",
+  "prompt_sha256": "06d3dd4a93d8af6e9ff52e2c0d3be69bb7641415d48e23fa90cc256cbe743f3d",
+  "source_context_sha256": "441f4ac97655833075ccf2429bfe1d03a21430f29af3885a3dacf7eeefd39e61",
+  "input_fingerprint": "065122ed28201f39a3fdcc964978dbb6c1d18ee3a9d1d2a561d07aa687dcfa0d",
+  "input_evidence": {
+    "occurrence_id": "hamsun-victoria-2c42c4d8b538",
+    "source_range": [
+      35307,
+      46880
+    ]
+  },
+  "output": {
+    "status": "complete",
+    "immediate_situation": "Johannes speaks directly to Victoria in an agitated reunion, asking her to say she cares for him and describing nightly thoughts of her and ambitions he would pursue for her. As passers-by approach, he asks for an answer and explicitly says “Jeg elsker Dem.”",
+    "broader_context": "Johannes and Victoria love across a class divide and a history of separation. Her question about Camilla tests whether he is promised elsewhere. She then leads him into the entrance of her family home, declares that he is the one she loves, embraces and kisses him, and escapes when the door opens.",
+    "why_here": "Johannes’s declaration is not merely a report of feeling: he places his future conduct, return, work, and ambitions under Victoria’s answer, saying she has complete power over him. Her immediate reciprocal declarations confirm the exchange’s relational stakes.",
+    "ambiguities": "The prepared range establishes the immediate relationship and exchange. Claims about the larger class conflict are consistent with the scene but are interpretive framing rather than a complete plot synopsis."
+  },
+  "usage": {
+    "status": "not_available_for_interactive_session"
+  },
+  "cost": {
+    "currency": "USD",
+    "estimated_total_cost": 0.0,
+    "status": "not_separately_metered"
+  },
+  "attempt_history": [
+    {
+      "generated_at": "2026-09-10T13:27:00.792688+00:00",
+      "status": "complete"
+    }
+  ],
+  "context_basis": "WIDER_SOURCE_READ",
+  "source_ranges": [
+    {
+      "source_file": "data/raw/hamsun-victoria/runeberg-hamsun-victoria.txt",
+      "start": 35307,
+      "end": 46880
+    }
+  ],
+  "escalation_steps": [
+    {
+      "stage": 1,
+      "basis": "WIDER_SOURCE_READ",
+      "status": "sufficient"
+    }
+  ],
+  "background_knowledge": "not used; claims grounded in supplied primary-text range"
+}

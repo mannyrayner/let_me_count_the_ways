@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "component": "narrative_context",
+  "status": "complete",
+  "model": "gpt-5.6-sol (Codex interactive session)",
+  "model_alias": "interactive-5.6-sol",
+  "generated_at": "2026-09-10T13:27:00.792688+00:00",
+  "prompt_path": "prompts/case_studies/narrative_context_v1.md",
+  "prompt_version": "v1",
+  "prompt_sha256": "06d3dd4a93d8af6e9ff52e2c0d3be69bb7641415d48e23fa90cc256cbe743f3d",
+  "source_context_sha256": "aeefba8903fed2739d07bc05674d069fdcbe4eeb1015593cf967e2cd77b7ba8f",
+  "input_fingerprint": "0f71264456fb15d39a915fd46ff39628b6a1ef84820a1ca8118fcac78920460f",
+  "input_evidence": {
+    "occurrence_id": "dumas-fils-la-dame-aux-camelias-a7a1b4e98b66",
+    "source_range": [
+      227862,
+      238337
+    ]
+  },
+  "output": {
+    "status": "complete",
+    "immediate_situation": "Armand secretly listens while Prudence reports the duke’s ultimatum to Marguerite. Marguerite refuses to abandon Armand or conceal their life together; Armand then bursts in, and Marguerite addresses him directly while embracing him.",
+    "broader_context": "Marguerite’s wealthy protector offers continued material support only if she leaves Armand. Her refusal therefore makes their relationship materially consequential, and the narration immediately describes her break with former friends, habits, and expenditure.",
+    "why_here": "Her first “je t’aime” answers Armand’s offer of his life and support, then expands into a shared future and a farewell to her former life. The declaration occurs at the point where affection is joined to an announced choice and course of life.",
+    "ambiguities": "The retrospective narrator idealizes this interval; the passage supports the immediate commitments more securely than every claim it makes about Marguerite’s transformation."
+  },
+  "usage": {
+    "status": "not_available_for_interactive_session"
+  },
+  "cost": {
+    "currency": "USD",
+    "estimated_total_cost": 0.0,
+    "status": "not_separately_metered"
+  },
+  "attempt_history": [
+    {
+      "generated_at": "2026-09-10T13:27:00.792688+00:00",
+      "status": "complete"
+    }
+  ],
+  "context_basis": "WIDER_SOURCE_READ",
+  "source_ranges": [
+    {
+      "source_file": "data/raw/dumas-fils-la-dame-aux-camelias/gutenberg-2419.txt",
+      "start": 227862,
+      "end": 238337
+    }
+  ],
+  "escalation_steps": [
+    {
+      "stage": 1,
+      "basis": "WIDER_SOURCE_READ",
+      "status": "sufficient"
+    }
+  ],
+  "background_knowledge": "not used; claims grounded in supplied primary-text range"
+}

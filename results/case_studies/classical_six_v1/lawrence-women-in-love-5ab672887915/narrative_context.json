@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "component": "narrative_context",
+  "status": "complete",
+  "model": "gpt-5.6-sol (Codex interactive session)",
+  "model_alias": "interactive-5.6-sol",
+  "generated_at": "2026-09-10T13:27:00.792688+00:00",
+  "prompt_path": "prompts/case_studies/narrative_context_v1.md",
+  "prompt_version": "v1",
+  "prompt_sha256": "06d3dd4a93d8af6e9ff52e2c0d3be69bb7641415d48e23fa90cc256cbe743f3d",
+  "source_context_sha256": "33e929c627be658321e71eae59fc7594132e42acb1db42b30830702be3949c8c",
+  "input_fingerprint": "41ae966f55a33149bde95d8f41c8f146522a632e56964e34b3cca4070ee8fcff",
+  "input_evidence": {
+    "occurrence_id": "lawrence-women-in-love-5ab672887915",
+    "source_range": [
+      775097,
+      785141
+    ]
+  },
+  "output": {
+    "status": "complete",
+    "immediate_situation": "The passage is narrated through Birkin’s reflections immediately after his marriage to Ursula. He has whispered “I love you” while kissing her, but then considers why even truthful repetitions fail to name what the union means to him.",
+    "broader_context": "Birkin imagines marriage as resurrection from a nearly dead former self. Ursula wants statement and proof, whereas he conceptualizes their union as a “new oneness” beyond the separate “I” and “you.” The following paragraph says they were legally married the next day and remained together.",
+    "why_here": "“Nor can I say ‘I love you’” belongs to Birkin’s philosophical argument about language: if both separate selves have ceased, speech between them becomes conceptually impossible. The formula is mentioned under negation, not performed there as a declaration to Ursula.",
+    "ambiguities": "The metaphysical vocabulary is Birkin’s/narratorial conceptualization, not an objective fact about the marriage; the immediate grammatical and discursive function is nevertheless clear."
+  },
+  "usage": {
+    "status": "not_available_for_interactive_session"
+  },
+  "cost": {
+    "currency": "USD",
+    "estimated_total_cost": 0.0,
+    "status": "not_separately_metered"
+  },
+  "attempt_history": [
+    {
+      "generated_at": "2026-09-10T13:27:00.792688+00:00",
+      "status": "complete"
+    }
+  ],
+  "context_basis": "WIDER_SOURCE_READ",
+  "source_ranges": [
+    {
+      "source_file": "data/raw/lawrence-women-in-love/gutenberg-4240.txt",
+      "start": 775097,
+      "end": 785141
+    }
+  ],
+  "escalation_steps": [
+    {
+      "stage": 1,
+      "basis": "WIDER_SOURCE_READ",
+      "status": "sufficient"
+    }
+  ],
+  "background_knowledge": "not used; claims grounded in supplied primary-text range"
+}

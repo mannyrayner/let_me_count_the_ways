@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "component": "narrative_context",
+  "status": "complete",
+  "model": "gpt-5.6-sol (Codex interactive session)",
+  "model_alias": "interactive-5.6-sol",
+  "generated_at": "2026-09-10T13:27:00.792688+00:00",
+  "prompt_path": "prompts/case_studies/narrative_context_v1.md",
+  "prompt_version": "v1",
+  "prompt_sha256": "06d3dd4a93d8af6e9ff52e2c0d3be69bb7641415d48e23fa90cc256cbe743f3d",
+  "source_context_sha256": "8f39210ea0f76c54a78139c02762530157df7818d9b91a42648dc58afd599a03",
+  "input_fingerprint": "fd4679e94f2e1cc9c5ecb2e819dc98781ded82466e3d4eb190bc8cd4391bbffd",
+  "input_evidence": {
+    "occurrence_id": "lawrence-women-in-love-34699c42511c",
+    "source_range": [
+      305761,
+      316104
+    ]
+  },
+  "output": {
+    "status": "complete",
+    "immediate_situation": "Ursula and Birkin are alone after she has narrated painful parts of her history. Ursula asks him repeatedly to call her “my love” and say that he loves her. Birkin first answers grimly and argues that their bond should be “something else,” then embraces her and yields to the formula.",
+    "broader_context": "The exchange dramatizes a disagreement within their courtship: Ursula seeks explicit, recognizable assurance, while Birkin distrusts making conventional love sufficient and wants a different form of pledge. His thoughts explicitly ask whether she can pledge herself.",
+    "why_here": "This second closely adjacent “I love you” forms part of Birkin’s yielding response—“Let love be enough then”—and is accompanied by embrace and repeated terms of address. Its relational force depends on the whole exchange and is not independent of the companion selected occurrence in scene L1.",
+    "ambiguities": "Birkin’s irony and “I’m bored by the rest” complicate, but do not simply cancel, the submitted assurance. The tone remains deliberately mixed."
+  },
+  "usage": {
+    "status": "not_available_for_interactive_session"
+  },
+  "cost": {
+    "currency": "USD",
+    "estimated_total_cost": 0.0,
+    "status": "not_separately_metered"
+  },
+  "attempt_history": [
+    {
+      "generated_at": "2026-09-10T13:27:00.792688+00:00",
+      "status": "complete"
+    }
+  ],
+  "context_basis": "WIDER_SOURCE_READ",
+  "source_ranges": [
+    {
+      "source_file": "data/raw/lawrence-women-in-love/gutenberg-4240.txt",
+      "start": 305761,
+      "end": 316104
+    }
+  ],
+  "escalation_steps": [
+    {
+      "stage": 1,
+      "basis": "WIDER_SOURCE_READ",
+      "status": "sufficient"
+    }
+  ],
+  "background_knowledge": "not used; claims grounded in supplied primary-text range"
+}
