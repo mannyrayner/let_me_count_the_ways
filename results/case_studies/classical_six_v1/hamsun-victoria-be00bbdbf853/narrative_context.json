@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "component": "narrative_context",
+  "status": "complete",
+  "model": "gpt-5.6-sol (Codex interactive session)",
+  "model_alias": "interactive-5.6-sol",
+  "generated_at": "2026-09-10T13:27:00.792688+00:00",
+  "prompt_path": "prompts/case_studies/narrative_context_v1.md",
+  "prompt_version": "v1",
+  "prompt_sha256": "06d3dd4a93d8af6e9ff52e2c0d3be69bb7641415d48e23fa90cc256cbe743f3d",
+  "source_context_sha256": "9ec11ba145c568c3678a3d9f740199546d4c72d1d20c0ea7c54ced5f95c6e8b3",
+  "input_fingerprint": "ef13ea03dd9501e7e87e9b706523c45f07c624d0983fbec9ee12a893fb4aa85c",
+  "input_evidence": {
+    "occurrence_id": "hamsun-victoria-be00bbdbf853",
+    "source_range": [
+      74999,
+      85396
+    ]
+  },
+  "output": {
+    "status": "complete",
+    "immediate_situation": "Johannes and Victoria have met in the quarry. After a guarded conversation about whether she once wronged him, pride turns their exchange cold. They say goodbye and walk in opposite directions. Only after she has gone does Johannes stop, stretch out his hands, and whisper to himself that he still loves her; he then calls her name, but she keeps walking.",
+    "broader_context": "Their dialogue shows unresolved injury and mutual defensiveness. Johannes suspects that her visit and interest in his books may be merely consolation; Victoria reacts sharply when he says he bears no grudge. His later sleepless agitation and excitement at her invitation show that the meeting has not left him indifferent.",
+    "why_here": "The love words occur after direct address has ended. They discharge feeling to the absent Victoria and to Johannes himself, rather than asking her for an answer or undertaking a shared future. The staging—separation, whisper, self-directed tender words—is therefore essential.",
+    "ambiguities": "The source contains visible OCR intrusions (“+++” and a vertical stroke); the summary does not silently repair them. Victoria hears the later call of her name, but the text does not say she hears the whispered love words."
+  },
+  "usage": {
+    "status": "not_available_for_interactive_session"
+  },
+  "cost": {
+    "currency": "USD",
+    "estimated_total_cost": 0.0,
+    "status": "not_separately_metered"
+  },
+  "attempt_history": [
+    {
+      "generated_at": "2026-09-10T13:27:00.792688+00:00",
+      "status": "complete"
+    }
+  ],
+  "context_basis": "WIDER_SOURCE_READ",
+  "source_ranges": [
+    {
+      "source_file": "data/raw/hamsun-victoria/runeberg-hamsun-victoria.txt",
+      "start": 74999,
+      "end": 85396
+    }
+  ],
+  "escalation_steps": [
+    {
+      "stage": 1,
+      "basis": "WIDER_SOURCE_READ",
+      "status": "sufficient"
+    }
+  ],
+  "background_knowledge": "not used; claims grounded in supplied primary-text range"
+}
