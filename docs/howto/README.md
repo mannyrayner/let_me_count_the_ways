@@ -52,6 +52,7 @@ in-place because Git history already preserves them.
 | 25 | [Migrate the remaining multilingual-five works](25_migrate_remaining_multilingual_five_to_canonical_corpus.md) | Eleven validated canonical works, completing the historical multilingual-five batch |
 | 26 | [Migrate Pan and Women in Love](26_migrate_pan_and_women_in_love_to_canonical_corpus.md) | Thirteen validated canonical works, including the next two classical-six works |
 | 27 | [Complete the existing canonical corpus](27_complete_existing_canonical_corpus.md) | Sixteen validated research works, including one hash-verified local/private canonical source and its rights-review reminder |
+| 28 | [Extract the broadened canonical corpus](28_extract_broadened_canonical_corpus.md) | Public-safe multilingual candidate inventories and counts for human inspection |
 
 ## Conventions
 
