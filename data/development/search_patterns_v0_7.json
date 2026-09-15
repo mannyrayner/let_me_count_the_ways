@@ -1,0 +1,53 @@
+{
+  "schema_version": "0.7",
+  "matching": {
+    "engine": "Python Unicode regular expressions",
+    "default_flags": ["IGNORECASE"],
+    "normalization": "None. Match canonical Unicode text exactly as decoded; offsets are Python character offsets into that unmodified text.",
+    "scope": "High-recall explicit lexical LOVE(first-person singular, second-person target) candidates; no pragmatic adjudication.",
+    "controlled_fields": {
+      "polarity": ["affirmative", "negative"],
+      "tense_aspect": ["present", "past", "perfect", "future", "modal"],
+      "syntactic_family": ["main_or_embedded", "interrogative", "subordinate"]
+    }
+  },
+  "languages": {
+    "en": {"name": "English", "patterns": [
+      {"id":"en_negative_perfect","regex":"\\bI\\s+(?:have\\s+never|haven[’']t)\\s+loved\\s+you\\b","case_sensitive":false,"form_family":"negative_perfect","polarity":"negative","tense_aspect":"perfect","syntactic_family":"main_or_embedded"},
+      {"id":"en_perfect","regex":"\\bI(?:\\s+have|[’']ve)\\s+(?:(?:always|still|really|truly)\\s+){0,2}loved\\s+you\\b","case_sensitive":false,"form_family":"perfect","polarity":"affirmative","tense_aspect":"perfect","syntactic_family":"main_or_embedded"},
+      {"id":"en_cessative","regex":"\\bI\\s+(?:no\\s+longer\\s+love\\s+you|(?:do\\s+not|don[’']t)\\s+love\\s+you\\s+(?:any\\s+more|anymore))\\b","case_sensitive":false,"form_family":"cessative","polarity":"negative","tense_aspect":"present","temporal_modifier":"no_longer","syntactic_family":"main_or_embedded"},
+      {"id":"en_negative_present","regex":"\\bI\\s+(?:(?:really|truly)\\s+)?(?:do\\s+not|don[’']t|never)\\s+love\\s+you\\b|\\bI\\s+love\\s+you\\s+not\\b","case_sensitive":false,"form_family":"negative_present","polarity":"negative","tense_aspect":"present","syntactic_family":"main_or_embedded"},
+      {"id":"en_negative_past","regex":"\\bI\\s+(?:did\\s+not|didn[’']t|never)\\s+love(?:d)?\\s+you\\b|\\bI\\s+loved\\s+you\\s+not\\b","case_sensitive":false,"form_family":"negative_past","polarity":"negative","tense_aspect":"past","syntactic_family":"main_or_embedded"},
+      {"id":"en_emphatic_present","regex":"\\bI\\s+do\\s+(?:(?:really|truly|still)\\s+){0,2}love\\s+you\\b","case_sensitive":false,"form_family":"emphatic_present","polarity":"affirmative","tense_aspect":"present","syntactic_family":"main_or_embedded"},
+      {"id":"en_past","regex":"\\bI\\s+(?:did\\s+love|(?:(?:really|truly|once)\\s+){0,2}loved)\\s+you(?:\\s+once)?\\b","case_sensitive":false,"form_family":"past","polarity":"affirmative","tense_aspect":"past","temporal_modifier":"optional_once","syntactic_family":"main_or_embedded"},
+      {"id":"en_future","regex":"\\bI(?:\\s+will|[’']ll)\\s+(?:(?:always|still|really|truly)\\s+){0,2}love\\s+you\\b","case_sensitive":false,"form_family":"future","polarity":"affirmative","tense_aspect":"future","syntactic_family":"main_or_embedded"},
+      {"id":"en_modal","regex":"\\bI(?:\\s+(?:would|could|can)|[’']d)\\s+(?:(?:always|still|really|truly)\\s+){0,2}love\\s+you\\b","case_sensitive":false,"form_family":"modal","polarity":"affirmative","tense_aspect":"modal","modality":"explicit","syntactic_family":"main_or_embedded"},
+      {"id":"en_present","regex":"\\bI\\s+(?:(?:still|really|truly|always)\\s+){0,2}love\\s+you\\b","case_sensitive":false,"form_family":"present","polarity":"affirmative","tense_aspect":"present","temporal_modifier":"optional","syntactic_family":"main_or_embedded"},
+      {"id":"en_interrogative","regex":"\\b(?:why\\s+)?(?:do|don[’']t|did|didn[’']t|can|could|would|will)\\s+I\\s+(?:(?:not|still|really)\\s+)?love\\s+you\\b","case_sensitive":false,"form_family":"interrogative","polarity":"negative_or_unspecified","tense_aspect":"present","syntactic_family":"interrogative"}
+    ]},
+    "fr": {"name":"French","patterns":[
+      {"id":"fr_negative_perfect","regex":"\\bje\\s+n(?:e|[’']|')\\s*(?:t\\s*[’']\\s*|te\\s+|vous\\s+)(?:ai\\s+jamais|ai\\s+pas)\\s+aim[ée]\\b","case_sensitive":false,"form_family":"negative_perfect","polarity":"negative","tense_aspect":"perfect","syntactic_family":"main_or_embedded"},
+      {"id":"fr_perfect","regex":"\\bje\\s+(?:t\\s*[’']\\s*|te\\s+|vous\\s+)ai\\s+(?:(?:toujours|jamais|encore|vraiment)\\s+)?aim[ée]\\b","case_sensitive":false,"form_family":"perfect","polarity":"affirmative","tense_aspect":"perfect","syntactic_family":"main_or_embedded"},
+      {"id":"fr_negative","regex":"\\bje\\s+n(?:e|[’']|')\\s*(?:t\\s*[’']\\s*|te\\s+|vous\\s+)aim(?:e|ais)\\s+(?:pas|jamais)\\b","case_sensitive":false,"form_family":"negative_present","polarity":"negative","tense_aspect":"present","syntactic_family":"main_or_embedded"},
+      {"id":"fr_cessative","regex":"\\bje\\s+n(?:e|[’']|')\\s*(?:t\\s*[’']\\s*|te\\s+|vous\\s+)aim(?:e|ais)\\s+plus\\b","case_sensitive":false,"form_family":"cessative","polarity":"negative","tense_aspect":"present","temporal_modifier":"no_longer","syntactic_family":"main_or_embedded"},
+      {"id":"fr_present_past","regex":"\\bje\\s+(?:t\\s*[’']\\s*|te\\s+|vous\\s+)aim(?:e|ais)(?:\\s+(?:encore|toujours|vraiment))?\\b","case_sensitive":false,"form_family":"present_or_imperfect","polarity":"affirmative","tense_aspect":"present","temporal_modifier":"optional","syntactic_family":"main_or_embedded"}
+    ]},
+    "de": {"name":"German","patterns":[
+      {"id":"de_negative_perfect","regex":"\\bich\\s+habe\\s+(?:dich|Sie)\\s+(?:nie\\s+)?geliebt\\b","case_sensitive":false,"form_family":"negative_perfect","polarity":"negative_or_unspecified","tense_aspect":"perfect","syntactic_family":"main_or_embedded"},
+      {"id":"de_perfect","regex":"\\bich\\s+habe\\s+(?:(?:dich|Sie)\\s+(?:noch|immer|wirklich)\\s+|(?:noch|immer|wirklich)\\s+(?:dich|Sie)\\s+)?geliebt\\b","case_sensitive":false,"form_family":"perfect","polarity":"affirmative","tense_aspect":"perfect","syntactic_family":"main_or_embedded"},
+      {"id":"de_main","regex":"\\bich\\s+(?:(?:noch|immer|wirklich)\\s+)?lieb(?:e|te)\\s+(?:dich|Sie)(?:\\s+nicht)?\\b","case_sensitive":false,"form_family":"present_or_past","polarity":"surface_optional_negative","tense_aspect":"present","syntactic_family":"main_or_embedded"},
+      {"id":"de_subordinate","regex":"\\bich\\s+(?:dich|Sie)\\s+(?:(?:noch|immer|wirklich)\\s+)?lieb(?:e|te)\\b","case_sensitive":false,"form_family":"embedded","polarity":"affirmative","tense_aspect":"present","syntactic_family":"subordinate"}
+    ]},
+    "no": {"name":"Norwegian (source-edition forms)","patterns":[
+      {"id":"no_negative_perfect","regex":"\\bjeg\\s+har\\s+aldri\\s+elsket\\s+(?:deg|dig|dere|Dem)\\b","case_sensitive":false,"form_family":"negative_perfect","polarity":"negative","tense_aspect":"perfect","syntactic_family":"main_or_embedded"},
+      {"id":"no_perfect","regex":"\\bjeg\\s+har\\s+elsket\\s+(?:deg|dig|dere|Dem)(?:\\s+(?:alltid|ennu|virkelig|fullt\\s+så\\s+inderlig))?\\b","case_sensitive":false,"form_family":"perfect","polarity":"affirmative","tense_aspect":"perfect","syntactic_family":"main_or_embedded"},
+      {"id":"no_cessative","regex":"\\bjeg\\s+elsker\\s+(?:deg|dig|dere|Dem)\\s+ikke\\s+mer\\b","case_sensitive":false,"form_family":"cessative","polarity":"negative","tense_aspect":"present","temporal_modifier":"no_longer","syntactic_family":"main_or_embedded"},
+      {"id":"no_main","regex":"\\bjeg\\s+(?:(?:alltid|ennu|virkelig)\\s+)?elsk(?:er|et)\\s+(?:deg|dig|dere|Dem)(?:\\s+ikke)?\\b","case_sensitive":false,"form_family":"present_or_past","polarity":"surface_optional_negative","tense_aspect":"present","syntactic_family":"main_or_embedded"}
+    ]},
+    "sv": {"name":"Swedish (source-edition forms)","patterns":[
+      {"id":"sv_negative_perfect","regex":"\\bjag\\s+har\\s+aldrig\\s+älskat\\s+(?:dig|dej|er|eder)\\b","case_sensitive":false,"form_family":"negative_perfect","polarity":"negative","tense_aspect":"perfect","syntactic_family":"main_or_embedded"},
+      {"id":"sv_perfect","regex":"\\bjag\\s+har\\s+älskat\\s+(?:dig|dej|er|eder)\\b","case_sensitive":false,"form_family":"perfect","polarity":"affirmative","tense_aspect":"perfect","syntactic_family":"main_or_embedded"},
+      {"id":"sv_main","regex":"\\bjag\\s+(?:(?:alltid|ännu|verkligen)\\s+)?älsk(?:ar|ade)\\s+(?:dig|dej|er|eder)(?:\\s+inte)?\\b","case_sensitive":false,"form_family":"present_or_past","polarity":"surface_optional_negative","tense_aspect":"present","syntactic_family":"main_or_embedded"}
+    ]}
+  }
+}
