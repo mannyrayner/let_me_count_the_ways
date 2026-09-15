@@ -49,6 +49,7 @@ in-place because Git history already preserves them.
 | 22 | [Create the canonical corpus pilot](22_create_canonical_corpus_pilot.md) | Three validated canonical works and the generated corpus index |
 | 23 | [Migrate the original development three](23_migrate_development_three_to_canonical_corpus.md) | Six validated canonical works, including the three original development works |
 | 24 | [Migrate three multilingual works](24_migrate_multilingual_three_to_canonical_corpus.md) | Nine validated canonical works, including Ibsen, Rostand, and Strindberg |
+| 25 | [Migrate the remaining multilingual-five works](25_migrate_remaining_multilingual_five_to_canonical_corpus.md) | Eleven validated canonical works, completing the historical multilingual-five batch |
 
 ## Conventions
 
