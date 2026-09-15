@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://let-me-count-the-ways.example/schemas/canonical-work-1.0.json",
+  "title": "Canonical work manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "work_id", "title", "author", "language",
+    "source_type", "canonical_text", "canonical_sha256",
+    "source_references", "rights", "notes"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "work_id": {"type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+    "title": {"type": "string", "minLength": 1},
+    "author": {"type": "string", "minLength": 1},
+    "language": {"type": "string", "minLength": 1},
+    "source_type": {
+      "enum": ["gutenberg_single", "gutenberg_multi", "runeberg", "local_permissioned"]
+    },
+    "canonical_text": {"const": "canonical.txt"},
+    "canonical_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "source_references": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "rights": {
+      "type": "object", "additionalProperties": false,
+      "required": ["analysis_allowed", "public_render_policy"],
+      "properties": {
+        "analysis_allowed": {"type": "boolean"},
+        "public_render_policy": {"type": "string", "minLength": 1}
+      }
+    },
+    "notes": {"type": "string"}
+  }
+}
