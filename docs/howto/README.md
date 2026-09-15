@@ -50,6 +50,7 @@ in-place because Git history already preserves them.
 | 23 | [Migrate the original development three](23_migrate_development_three_to_canonical_corpus.md) | Six validated canonical works, including the three original development works |
 | 24 | [Migrate three multilingual works](24_migrate_multilingual_three_to_canonical_corpus.md) | Nine validated canonical works, including Ibsen, Rostand, and Strindberg |
 | 25 | [Migrate the remaining multilingual-five works](25_migrate_remaining_multilingual_five_to_canonical_corpus.md) | Eleven validated canonical works, completing the historical multilingual-five batch |
+| 26 | [Migrate Pan and Women in Love](26_migrate_pan_and_women_in_love_to_canonical_corpus.md) | Thirteen validated canonical works, including the next two classical-six works |
 
 ## Conventions
 
