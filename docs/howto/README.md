@@ -53,6 +53,7 @@ in-place because Git history already preserves them.
 | 26 | [Migrate Pan and Women in Love](26_migrate_pan_and_women_in_love_to_canonical_corpus.md) | Thirteen validated canonical works, including the next two classical-six works |
 | 27 | [Complete the existing canonical corpus](27_complete_existing_canonical_corpus.md) | Sixteen validated research works, including one hash-verified local/private canonical source and its rights-review reminder |
 | 28 | [Extract the broadened canonical corpus](28_extract_broadened_canonical_corpus.md) | Public-safe multilingual candidate inventories and counts for human inspection |
+| 29 | [Extract the private McMillan text locally](29_extract_private_mcmillan_text.md) | Private context-bearing candidates and a public-safe non-quoting count summary |
 
 ## Conventions
 
