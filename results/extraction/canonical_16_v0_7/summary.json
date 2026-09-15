@@ -6,9 +6,9 @@
   "occurrence_identity": "SHA-256 prefix of NUL-joined work_id, canonical_sha256, start, end, matched surface, pattern version",
   "works_discovered": 16,
   "works_attempted": 16,
-  "works_extracted": 15,
-  "works_unavailable": 1,
-  "total_candidates": 118,
+  "works_extracted": 16,
+  "works_unavailable": 0,
+  "total_candidates": 125,
   "known_case_assertions": {
     "nora_negative_cessation": true,
     "rank_perfect_formal": true,
@@ -274,10 +274,19 @@
       "public_render_policy": "LIMITED_QUOTATION_ONLY",
       "analysis_allowed": true,
       "canonical_storage": "local_private",
-      "status": "unavailable",
-      "candidate_count": null,
-      "candidate_artifact": "unavailable",
-      "private_output_available": false
+      "status": "extracted",
+      "candidate_count": 7,
+      "candidate_artifact": "private_local",
+      "private_output_available": true,
+      "counts_by_pattern": {
+        "en_negative_present": 1,
+        "en_present": 6
+      },
+      "counts_by_form_family": {
+        "negative_present": 1,
+        "present": 6
+      },
+      "historical_candidate_count": null
     },
     {
       "work_id": "rostand-cyrano-de-bergerac",

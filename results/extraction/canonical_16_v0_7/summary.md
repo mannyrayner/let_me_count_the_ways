@@ -1,6 +1,6 @@
 # Canonical corpus extraction v0.7
 
-Total candidates: **118**
+Total candidates: **125**
 
 | Work | Lang | Candidates | Artifact | Historical max | Form-family counts |
 | --- | --- | ---: | --- | ---: | --- |
@@ -16,7 +16,7 @@ Total candidates: **118**
 | ibsen-et-dukkehjem | no | 3 | public | 1 | cessative: 1, perfect: 2 |
 | lafayette-la-princesse-de-cleves | fr | 8 | public | 1 | cessative: 2, present_or_imperfect: 6 |
 | lawrence-women-in-love | en | 11 | public | 9 | future: 1, interrogative: 1, perfect: 1, present: 8 |
-| mcmillan-error-of-understanding | en | unavailable | unavailable | — | — |
+| mcmillan-error-of-understanding | en | 7 | private_local | — | negative_present: 1, present: 6 |
 | rostand-cyrano-de-bergerac | fr | 19 | public | 14 | negative_present: 3, present_or_imperfect: 16 |
 | strindberg-froken-julie | sv | 2 | public | 2 | present_or_past: 2 |
 | wharton-age-of-innocence | en | 2 | public | 1 | emphatic_present: 1, past: 1 |
