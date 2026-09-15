@@ -45,6 +45,8 @@ in-place because Git history already preserves them.
 | 18 | [Triage three local romance candidates](18_triage_local_romance_candidates.md) | Local-only, reproducible conversion, extraction inventory, and retain/drop recommendations |
 | 19 | [Acquire and reconnoitre the classical six](19_acquire_and_reconnoitre_classical_six.md) | Six verified original-language sources and reviewed extraction-only occurrence inventories |
 | 20 | [Annotate the classical six](20_annotate_classical_six.md) | KEEP-only, resumable v0.3.1 annotations joined to definitive AI-review provenance |
+| 21 | [Build enriched case studies](21_build_enriched_case_studies.md) | Validated narrative, ontology, translation, and reader-facing case-study artifacts |
+| 22 | [Create the canonical corpus pilot](22_create_canonical_corpus_pilot.md) | Three validated canonical works and the generated corpus index |
 
 ## Conventions
 
