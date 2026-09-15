@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["decision", "reason_code", "confidence", "review_note"],
+  "properties": {
+    "decision": {"enum": ["KEEP", "EXCLUDE", "UNCERTAIN"]},
+    "reason_code": {
+      "enum": [
+        "VALID_EXPLICIT_LOVE_I_YOU",
+        "EXCLUDE_NOT_LOVE_SENSE",
+        "EXCLUDE_SECOND_PERSON_NOT_TARGET",
+        "EXCLUDE_FIRST_PERSON_NOT_EXPERIENCER",
+        "EXCLUDE_SYNTACTIC_FALSE_POSITIVE",
+        "EXCLUDE_TEXT_CORRUPTION",
+        "EXCLUDE_OTHER",
+        "UNCERTAIN_NEEDS_WIDER_CONTEXT",
+        "UNCERTAIN_OTHER"
+      ]
+    },
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+    "review_note": {"type": "string", "minLength": 1}
+  }
+}
