@@ -18,7 +18,9 @@
     "source_type": {
       "enum": ["gutenberg_single", "gutenberg_multi", "runeberg", "local_permissioned"]
     },
-    "canonical_text": {"const": "canonical.txt"},
+    "canonical_storage": {"enum": ["repository", "local_private"]},
+    "canonical_text": {"type": ["string", "null"], "enum": ["canonical.txt", null]},
+    "canonical_local_path": {"type": ["string", "null"], "minLength": 1},
     "canonical_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
     "source_references": {
       "type": "array", "minItems": 1, "uniqueItems": true,
@@ -29,7 +31,16 @@
       "required": ["analysis_allowed", "public_render_policy"],
       "properties": {
         "analysis_allowed": {"type": "boolean"},
-        "public_render_policy": {"type": "string", "minLength": 1}
+        "public_render_policy": {"type": "string", "minLength": 1},
+        "rights_review": {
+          "type": "object", "additionalProperties": false,
+          "required": ["status", "issue", "note"],
+          "properties": {
+            "status": {"enum": ["CLEAR", "REVIEW_REQUIRED", "BLOCKED"]},
+            "issue": {"type": "string", "minLength": 1},
+            "note": {"type": "string", "minLength": 1}
+          }
+        }
       }
     },
     "notes": {"type": "string"}
