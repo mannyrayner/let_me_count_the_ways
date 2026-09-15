@@ -9,4 +9,7 @@ Generated from the canonical work manifests. Do not edit this table by hand.
 | `cofield-nikkis-touch` | Nikki's Touch | Ania Cofield | en | `local_permissioned` | available | `PERMISSIONED_CONTEXT_OK` |
 | `flaubert-madame-bovary` | Madame Bovary | Gustave Flaubert | fr | `gutenberg_single` | available | `PUBLIC_DOMAIN_FULL_CONTEXT_OK` |
 | `hamsun-victoria` | Victoria | Knut Hamsun | no | `runeberg` | available | `PUBLIC_DOMAIN_FULL_CONTEXT_OK` |
+| `ibsen-et-dukkehjem` | Et dukkehjem | Henrik Ibsen | no | `runeberg` | available | `PUBLIC_DOMAIN_FULL_CONTEXT_OK` |
+| `rostand-cyrano-de-bergerac` | Cyrano de Bergerac | Edmond Rostand | fr | `gutenberg_single` | available | `PUBLIC_DOMAIN_FULL_CONTEXT_OK` |
+| `strindberg-froken-julie` | Fröken Julie | August Strindberg | sv | `runeberg` | available | `PUBLIC_DOMAIN_FULL_CONTEXT_OK` |
 | `wharton-age-of-innocence` | The Age of Innocence | Edith Wharton | en | `gutenberg_single` | available | `PUBLIC_DOMAIN_FULL_CONTEXT_OK` |
