@@ -24,19 +24,19 @@ Understanding* for the academic research project.
 
 ## Interpretation for this project
 
-This permission is sufficient for the project to reproduce the short extracted
-passages from *Error of Understanding* that are required for the research
-analysis, with normal scholarly attribution to Stella McMillan and the work.
+This permission is sufficient for full-text computational processing required
+by the academic research. It is not treated as approval to publish any
+particular passage.
 
 The permission is not treated as permission to redistribute the complete ebook
 or complete converted text, or as permission for commercial reuse, general
 sublicensing, or uses beyond the stated academic research purpose. Full source
 files remain local-only unless separately authorized.
 
-Public research artifacts may contain the extracted passages and surrounding
-context reasonably required for analysis, annotations, derived commentary, and
-aggregate statistics. Excerpts should remain limited to what the research
-actually needs.
+Before publishing the paper, the project lead must send the author the specific
+passages proposed for quotation and obtain explicit approval for those selected
+excerpts. This outstanding step is recorded in the canonical manifest as
+`AUTHOR_APPROVAL_FOR_PUBLICATION_EXCERPTS`.
 
 ## Follow-up obligation
 

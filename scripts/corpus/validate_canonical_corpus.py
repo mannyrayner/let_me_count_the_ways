@@ -15,6 +15,8 @@ RIGHTS_POLICIES = {
     "PUBLIC_DOMAIN_FULL_CONTEXT_OK", "PERMISSIONED_CONTEXT_OK",
     "LIMITED_QUOTATION_ONLY", "NO_PUBLIC_RENDER",
 }
+STORAGE_MODES = {"repository", "local_private"}
+RIGHTS_REVIEW_STATUSES = {"CLEAR", "REVIEW_REQUIRED", "BLOCKED"}
 WORK_ID = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 SHA256 = re.compile(r"^[0-9a-f]{64}$")
 REQUIRED = {
@@ -23,7 +25,7 @@ REQUIRED = {
 }
 
 
-def validate_work(work_dir: Path, repo_root: Path) -> tuple[list[str], dict | None]:
+def validate_work(work_dir: Path, repo_root: Path, warnings: list[str] | None = None) -> tuple[list[str], dict | None]:
     errors: list[str] = []
     manifest_path = work_dir / "work.json"
     if not manifest_path.is_file():
@@ -38,7 +40,8 @@ def validate_work(work_dir: Path, repo_root: Path) -> tuple[list[str], dict | No
     missing = sorted(REQUIRED - manifest.keys())
     if missing:
         errors.append(f"{manifest_path}: missing fields: {', '.join(missing)}")
-    unexpected = sorted(manifest.keys() - REQUIRED)
+    optional = {"canonical_storage", "canonical_local_path"}
+    unexpected = sorted(manifest.keys() - REQUIRED - optional)
     if unexpected:
         errors.append(f"{manifest_path}: unexpected fields: {', '.join(unexpected)}")
     if manifest.get("schema_version") != SCHEMA_VERSION:
@@ -54,13 +57,30 @@ def validate_work(work_dir: Path, repo_root: Path) -> tuple[list[str], dict | No
     if manifest.get("source_type") not in SOURCE_TYPES:
         errors.append(f"{manifest_path}: unsupported source_type {manifest.get('source_type')!r}")
 
+    storage = manifest.get("canonical_storage", "repository")
+    if storage not in STORAGE_MODES:
+        errors.append(f"{manifest_path}: invalid canonical_storage {storage!r}")
     canonical_name = manifest.get("canonical_text")
-    canonical = work_dir / canonical_name if canonical_name == "canonical.txt" else None
-    if canonical is None:
-        errors.append(f"{manifest_path}: canonical_text must be 'canonical.txt'")
-    elif not canonical.is_file():
-        errors.append(f"{work_dir}: missing canonical.txt")
+    local_path = manifest.get("canonical_local_path")
+    if storage == "repository":
+        canonical = work_dir / canonical_name if canonical_name == "canonical.txt" else None
+        if canonical is None:
+            errors.append(f"{manifest_path}: repository canonical_text must be 'canonical.txt'")
+        if local_path is not None:
+            errors.append(f"{manifest_path}: repository canonical_local_path must be null or absent")
     else:
+        canonical = repo_root / local_path if isinstance(local_path, str) and local_path else None
+        if canonical_name is not None:
+            errors.append(f"{manifest_path}: local_private canonical_text must be null")
+        if canonical is None:
+            errors.append(f"{manifest_path}: local_private canonical_local_path must be a nonempty string")
+    if canonical is not None and not canonical.is_file():
+        if storage == "local_private":
+            if warnings is not None:
+                warnings.append(f"{manifest['work_id']}: private canonical source unavailable locally: {local_path}")
+        else:
+            errors.append(f"{work_dir}: missing canonical.txt")
+    elif canonical is not None:
         content = canonical.read_bytes()
         try:
             content.decode("utf-8")
@@ -88,18 +108,26 @@ def validate_work(work_dir: Path, repo_root: Path) -> tuple[list[str], dict | No
         rights.get("public_render_policy") in RIGHTS_POLICIES
     ):
         errors.append(f"{manifest_path}: invalid rights metadata")
+    elif "rights_review" in rights:
+        review = rights["rights_review"]
+        if not isinstance(review, dict) or set(review) != {"status", "issue", "note"} or not (
+            review.get("status") in RIGHTS_REVIEW_STATUSES
+            and isinstance(review.get("issue"), str) and review["issue"]
+            and isinstance(review.get("note"), str) and review["note"]
+        ):
+            errors.append(f"{manifest_path}: invalid rights_review metadata")
     if not isinstance(manifest.get("notes"), str):
         errors.append(f"{manifest_path}: notes must be a string")
     return errors, manifest
 
 
-def validate_corpus(works_root: Path, repo_root: Path) -> tuple[list[str], list[dict]]:
+def validate_corpus(works_root: Path, repo_root: Path, warnings: list[str] | None = None) -> tuple[list[str], list[dict]]:
     errors: list[str] = []
     manifests: list[dict] = []
     if not works_root.is_dir():
         return [f"{works_root}: works root does not exist"], manifests
     for work_dir in sorted(path for path in works_root.iterdir() if path.is_dir()):
-        work_errors, manifest = validate_work(work_dir, repo_root)
+        work_errors, manifest = validate_work(work_dir, repo_root, warnings)
         errors.extend(work_errors)
         if manifest is not None:
             manifests.append(manifest)
@@ -118,11 +146,21 @@ def render_index(manifests: list[dict]) -> str:
     for item in sorted(manifests, key=lambda value: value["work_id"]):
         values = [
             f"`{item['work_id']}`", item["title"], item["author"], item["language"],
-            f"`{item['source_type']}`", "available",
+            f"`{item['source_type']}`", "local/private" if item.get("canonical_storage", "repository") == "local_private" else "available",
             f"`{item['rights']['public_render_policy']}`",
         ]
         lines.append("| " + " | ".join(value.replace("|", "\\|") for value in values) + " |")
     return "\n".join(lines) + "\n"
+
+
+def rights_review_lines(manifests: list[dict]) -> list[str]:
+    """Return stable, tab-separated records for unresolved rights reviews."""
+    lines = []
+    for manifest in sorted(manifests, key=lambda item: item["work_id"]):
+        review = manifest["rights"].get("rights_review")
+        if review and review["status"] != "CLEAR":
+            lines.append(f"{review['status']}\t{manifest['work_id']}\t{review['issue']}")
+    return lines
 
 
 def main() -> int:
@@ -130,13 +168,20 @@ def main() -> int:
     parser.add_argument("works_root", nargs="?", type=Path, default=Path("corpus/works"))
     parser.add_argument("--repo-root", type=Path, default=Path.cwd())
     parser.add_argument("--write-index", type=Path)
+    parser.add_argument("--report-rights-review", action="store_true")
     args = parser.parse_args()
-    errors, manifests = validate_corpus(args.works_root, args.repo_root)
+    warnings: list[str] = []
+    errors, manifests = validate_corpus(args.works_root, args.repo_root, warnings)
     if errors:
         for error in errors:
             print(f"ERROR: {error}")
         print(f"Canonical corpus validation failed with {len(errors)} error(s).")
         return 1
+    for warning in warnings:
+        print(f"WARNING: {warning}")
+    if args.report_rights_review:
+        for line in rights_review_lines(manifests):
+            print(line)
     if args.write_index:
         args.write_index.write_text(render_index(manifests), encoding="utf-8")
         print(f"Wrote {args.write_index}")
