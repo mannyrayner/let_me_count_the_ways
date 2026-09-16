@@ -4,7 +4,8 @@ from pathlib import Path
 
 from scripts.corpus_acquisition.acquire_public_domain_text import (
     acquire_gutenberg, acquire_runeberg, acquire_runeberg_pages, extract_runeberg_ocr,
-    named_page_urls, page_urls, runeberg_html_to_text, sha256, trim_gutenberg,
+    extract_runeberg_page, extract_runeberg_proofread, named_page_urls, page_urls,
+    runeberg_html_to_text, sha256, trim_gutenberg,
 )
 
 
@@ -19,6 +20,13 @@ def runeberg_page(content):
 <!-- NEWIMAGE2 --><!-- #### -->
 <tt>Project Runeberg Previous Next footer</tt>
 </body></html>"""
+
+
+def runeberg_proofread_page(content):
+    return f"""<!doctype html><html><head><title>I. Prästen (Gösta Berlings saga)</title>
+</head><body><table><tr><td>Project Runeberg</td><td>Previous Next</td></tr></table>
+<hr><h1>I. Prästen</h1>{content}<hr>
+<footer>Project Runeberg navigation and source notes</footer></body></html>"""
 
 
 class AcquisitionTests(unittest.TestCase):
@@ -148,6 +156,45 @@ Gi<br><br>Pause. Victoria ytrer hen for sig:<br><br>Hvordan ser hun ut mon?<br>
         self.assertIn("substantial literary OCR", text)
         self.assertEqual(marker, "####")
 
+    def test_runeberg_proofread_parser_uses_structural_rules_and_excludes_chrome(self):
+        source = runeberg_proofread_page(
+            "<p>Äntligen stod prästen i predikstolen.</p>"
+            "<p>Församlingens blickar följde honom genom den långa predikan, "
+            "medan den korrekturlästa berättelsen fortsatte oförändrad.</p>"
+        )
+        extracted = extract_runeberg_proofread(source)
+        self.assertIn("Äntligen stod prästen i predikstolen.", extracted)
+        self.assertNotIn("Project Runeberg", extracted)
+        text, method = extract_runeberg_page(source)
+        self.assertEqual(text, extracted)
+        self.assertEqual(method, "proofread_html:first_to_last_hr")
+
+    def test_runeberg_proofread_parser_rejects_unbounded_markerless_html(self):
+        with self.assertRaisesRegex(ValueError, "fewer than two structural rules"):
+            extract_runeberg_proofread(
+                "<html><body>Project Runeberg<p>Literary-looking text</p></body></html>"
+            )
+
+    def test_runeberg_proofread_acquisition_records_derivation_status(self):
+        base = "https://runeberg.test/berling"
+        url = named_page_urls(base, ["i01"])[0]
+        result = acquire_runeberg_pages(
+            base, ["i01"], self.root / "proofread-pages",
+            self.root / "proofread.txt", self.root / "proofread-map.json",
+            downloader=self.downloader({
+                url: runeberg_proofread_page(
+                    "<p>Äntligen stod prästen i predikstolen och berättelsens "
+                    "korrekturlästa litterära text fortsatte genom hela sidan utan "
+                    "att navigationsfält eller källnotiser följde med.</p>"
+                )
+            }),
+        )
+        self.assertEqual(
+            result["page_derivation_methods"], ["proofread_html:first_to_last_hr"]
+        )
+        self.assertEqual(result["text_status"], "proofread electronic text")
+        self.assertNotIn("ocr_status", result)
+
     def test_runeberg_parser_accepts_short_title_page_and_rejects_forbidden_content(self):
         self.assertEqual(
             runeberg_html_to_text("<!-- mode=normal -->title<br><br>Victoria<!-- NEWIMAGE2 -->"),
@@ -180,6 +227,8 @@ Gi<br><br>Pause. Victoria ytrer hen for sig:<br><br>Hvordan ser hun ut mon?<br>
         assembled = first_output.read_text(encoding="utf-8")
         self.assertEqual([r["url_index"] for r in records], [401, 402])
         self.assertEqual([r["ocr_end_marker"] for r in records], ["NEWIMAGE2", "NEWIMAGE2"])
+        self.assertEqual([r["derivation_method"] for r in records],
+                         ["raw_ocr:NEWIMAGE2", "raw_ocr:NEWIMAGE2"])
         self.assertEqual(result["fallback_end_marker_url_indices"], [])
         self.assertEqual([assembled[r["output_start"]:r["output_end"]] for r in records],
                          ["Første blå side inneholder nok litterære ord til å passere den "
@@ -238,7 +287,9 @@ Gi<br><br>Pause. Victoria ytrer hen for sig:<br><br>Hvordan ser hun ut mon?<br>
         ):
             acquire_runeberg_pages(
                 base, ["i01"], raw, self.root / "out.txt", self.root / "map.json",
-                downloader=self.downloader({url: "<html><body>proofread text</body></html>"}),
+                downloader=self.downloader({
+                    url: "<html><body>Project Runeberg proofread text</body></html>"
+                }),
             )
         self.assertTrue((raw / "i01.html").is_file())
         self.assertFalse((self.root / "out.txt").exists())

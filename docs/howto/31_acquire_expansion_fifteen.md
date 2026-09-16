@@ -85,6 +85,15 @@ imagination's giant bees and reality's hive. These nonnumeric Runeberg names
 are why the command uses the reviewed named-page form of `runeberg-range`.
 Never use `/gberlingen/`, which is an English translation.
 
+Unlike the Norwegian facsimile OCR pages, this older, proofread electronic
+edition has no `mode=normal`, `NEWIMAGE2`, or `####` comments. Its navigation
+header and source footer are separated from the proofread literary HTML by the
+first and last `<hr>` elements. The shared acquisition command recognizes that
+structure, converts only the bounded literary region to text, rejects Runeberg
+navigation chrome, and records `proofread_html:first_to_last_hr` in every page
+map entry. It does not treat the embedded editorial HTML comments as text or
+apply OCR correction.
+
 ```bash
 (
 set -euo pipefail
@@ -104,7 +113,7 @@ mv data/raw/lagerlof-gosta-berlings-saga/acquisition-metadata.json{.part,}
 )
 ```
 
-If parsing stops, the exception now names the exact page, source URL, local raw
+If parsing still stops, the exception names the exact page, source URL, local raw
 path, byte size, and counts of all supported OCR boundary markers. The download
 phase completes before derivation, so keep the preserved raw pages: they will be
 reused without `--force`. Capture a compact diagnostic for the named page in the
@@ -119,7 +128,7 @@ import re, sys
 from pathlib import Path
 p=Path(sys.argv[1]); s=p.read_text(encoding='utf-8-sig')
 print('path:', p, 'characters:', len(s))
-for marker in ('<!-- mode=normal -->', '<!-- NEWIMAGE2 -->', '<!-- #### -->'):
+for marker in ('<!-- mode=normal -->', '<!-- NEWIMAGE2 -->', '<!-- #### -->', '<hr'):
     print(repr(marker), s.count(marker))
 print('comments:', re.findall(r'<!--.*?-->', s, flags=re.S)[:20])
 print('title:', re.findall(r'<title[^>]*>(.*?)</title>', s, flags=re.I|re.S)[:1])

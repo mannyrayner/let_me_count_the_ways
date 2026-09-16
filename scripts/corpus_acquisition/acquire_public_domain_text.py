@@ -195,6 +195,36 @@ def runeberg_html_to_text(value: str) -> str:
     return extract_runeberg_ocr(value)[0]
 
 
+def extract_runeberg_proofread(value: str) -> str:
+    """Extract an older Runeberg proofread page bounded by its header/footer rules."""
+    if RUNEBERG_OCR_START in value:
+        raise ValueError("proofread-page extractor received raw OCR markup")
+    if "project runeberg" not in value.casefold():
+        raise ValueError("markerless page does not identify Project Runeberg")
+    body = re.search(r"(?is)<body\b[^>]*>(.*)</body\s*>", value)
+    if body is None:
+        raise ValueError("Runeberg proofread page has no complete body element")
+    rules = list(re.finditer(r"(?is)<hr\b[^>]*>", body.group(1)))
+    if len(rules) < 2:
+        raise ValueError("Runeberg proofread page has fewer than two structural rules")
+    # Runeberg's older proofread pages put navigation before the first rule and
+    # source/footer chrome after the last. Internal rules, if any, are literary.
+    fragment = body.group(1)[rules[0].end():rules[-1].start()]
+    text = html_to_text(fragment)
+    validate_runeberg_ocr_text(text)
+    if len(text.strip()) < 100:
+        raise ValueError("Runeberg proofread literary region is implausibly short")
+    return text
+
+
+def extract_runeberg_page(value: str) -> tuple[str, str]:
+    """Extract a raw-OCR or structurally bounded proofread Runeberg page."""
+    if RUNEBERG_OCR_START in value:
+        text, end_marker = extract_runeberg_ocr(value)
+        return text, f"raw_ocr:{end_marker}"
+    return extract_runeberg_proofread(value), "proofread_html:first_to_last_hr"
+
+
 def trim_gutenberg(value: str) -> str:
     start = GUTENBERG_START.search(value)
     end = GUTENBERG_END.search(value, start.end() if start else 0)
@@ -292,7 +322,7 @@ def acquire_runeberg_pages(volume_url: str, page_names: list[str], raw_dir: Path
     for page_name, url, path in zip(page_names, urls, paths):
         source_html = path.read_text(encoding="utf-8-sig")
         try:
-            text, end_marker = extract_runeberg_ocr(source_html)
+            text, derivation_method = extract_runeberg_page(source_html)
         except ValueError as error:
             marker_counts = {
                 "mode=normal": source_html.count(RUNEBERG_OCR_START),
@@ -306,7 +336,7 @@ def acquire_runeberg_pages(volume_url: str, page_names: list[str], raw_dir: Path
                 "inspect this page before changing source boundaries or parser rules"
             ) from error
         text = text.rstrip("\n")
-        if end_marker == "####":
+        if derivation_method == "raw_ocr:####":
             fallback_end_marker_pages.append(page_name)
         # A physical page transition prevents line merging but is not a paragraph.
         separator = "" if not text or offset == 0 else "\n"
@@ -316,7 +346,9 @@ def acquire_runeberg_pages(volume_url: str, page_names: list[str], raw_dir: Path
         record = {"url": url, "output_start": start,
                         "output_end": offset, "raw_path": str(path),
                         "raw_sha256": sha256(path), "facsimile_available": True,
-                        "ocr_end_marker": end_marker}
+                        "derivation_method": derivation_method}
+        if derivation_method.startswith("raw_ocr:"):
+            record["ocr_end_marker"] = derivation_method.removeprefix("raw_ocr:")
         if page_name.isdigit():
             record["url_index"] = int(page_name)
         else:
@@ -328,6 +360,7 @@ def acquire_runeberg_pages(volume_url: str, page_names: list[str], raw_dir: Path
     page_map.parent.mkdir(parents=True, exist_ok=True)
     page_map.write_text(json.dumps(records, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
+    derivation_methods = sorted({record["derivation_method"] for record in records})
     metadata = {
         "volume_url": volume_url.rstrip("/") + "/",
         "pages_requested": len(urls), "pages_downloaded": downloaded,
@@ -338,8 +371,15 @@ def acquire_runeberg_pages(volume_url: str, page_names: list[str], raw_dir: Path
         "assembled_character_count": len(assembled),
         "assembled_word_count": len(assembled.split()), "sha256": sha256(output),
         "fallback_end_marker_page_names": fallback_end_marker_pages,
-        "ocr_status": "not proofread / uncorrected OCR", "facsimile_available": True,
+        "page_derivation_methods": derivation_methods,
+        "facsimile_available": True,
     }
+    if all(method.startswith("raw_ocr:") for method in derivation_methods):
+        metadata["ocr_status"] = "not proofread / uncorrected OCR"
+    elif derivation_methods == ["proofread_html:first_to_last_hr"]:
+        metadata["text_status"] = "proofread electronic text"
+    else:
+        metadata["text_status"] = "mixed Runeberg page derivations"
     if printed_first is not None:
         metadata["printed_page_range"] = [printed_first, printed_last]
     return metadata
