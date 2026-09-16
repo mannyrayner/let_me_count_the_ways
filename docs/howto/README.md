@@ -57,6 +57,7 @@ in-place because Git history already preserves them.
 | 30 | [Run the provisional AI scholarly review](30_ai_scholarly_review_canonical_candidates.md) | Resumable public/private AI membership decisions pending human review |
 | 31 | [Acquire the fifteen-work corpus expansion](31_acquire_expansion_fifteen.md) | Fifteen verified source acquisitions, or an exact blocked inventory |
 | 32 | [Repair and audit Runeberg acquisition](32_repair_audit_runeberg_acquisition.md) | Repaired Undset derivations, repository-wide prefix audit, and resolved provenance warnings |
+| 33 | [Canonicalize the expansion fifteen locally](33_canonicalize_expansion_fifteen_locally.md) | Fifteen locally generated canonical works, deterministic special derivations, and a 31-work validated corpus |
 
 ## Conventions
 
