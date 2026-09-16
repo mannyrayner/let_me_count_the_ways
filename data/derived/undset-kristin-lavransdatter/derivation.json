@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "work_id": "undset-kristin-lavransdatter",
+  "inputs": [
+    {
+      "title": "Kransen",
+      "path": "data/raw/undset-kristin-lavransdatter/kransen/runeberg-kristin-kransen.txt",
+      "sha256": "59692c5a9652e0b79b64b4c4a55794a219bbb29494eb05f1c3128509a14ea87d",
+      "order": 1,
+      "character_count": 535355
+    },
+    {
+      "title": "Husfrue",
+      "path": "data/raw/undset-kristin-lavransdatter/husfrue/runeberg-kristin-husfrue.txt",
+      "sha256": "e10fe7240cfeb34713e597603dc3be0b6ef24cc1d920ab573de73c9aa6892e37",
+      "order": 2,
+      "character_count": 779391
+    },
+    {
+      "title": "Korset",
+      "path": "data/raw/undset-kristin-lavransdatter/korset/runeberg-kristin-korset.txt",
+      "sha256": "3d218a9dd661a83cda3766a89634841702e49c29f494da8257355841c50d7d62",
+      "order": 3,
+      "character_count": 820536
+    }
+  ],
+  "separator_rule": "Remove only terminal CR/LF bytes from each volume, join volumes with exactly one blank line, and end the trilogy with one LF; insert no editorial prose.",
+  "output_path": "data/derived/undset-kristin-lavransdatter/canonical-source.txt",
+  "output_sha256": "6400013e56dd14a00ebad42e137d7b7cc42cd7092299112be07f1a361ac8b0b8",
+  "character_count": 2135284
+}
