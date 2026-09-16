@@ -8,6 +8,7 @@ from scripts.extraction.extract_canonical_corpus import ROOT, extract_candidates
 
 PATTERNS = ROOT / "data/development/search_patterns_v0_7.json"
 PATTERNS_V08 = ROOT / "data/development/search_patterns_v0_8.json"
+PATTERNS_V09 = ROOT / "data/development/search_patterns_v0_9.json"
 EXPANSION_MANIFEST = ROOT / "data/canonicalization/expansion_15_v1/manifest.json"
 
 
@@ -137,6 +138,39 @@ class Version08PatternTests(unittest.TestCase):
     def test_italian_cessative_wins_overlap(self):
         records = self.matches("it", "Non ti amo più.")
         self.assertEqual(["it_cessative"], [record["pattern_id"] for record in records])
+
+
+class Version09ExclusiveTargetTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.config = json.loads(PATTERNS_V09.read_text(encoding="utf-8"))
+
+    def matches(self, language, text):
+        manifest = {"work_id": "fixture", "language": language, "canonical_sha256": "0" * 64}
+        return extract_candidates(text, manifest, "0.9",
+                                  self.config["languages"][language]["patterns"], 100)
+
+    def test_evidence_backed_english_positives(self):
+        examples = ["I have loved none but you.", "I love only you.",
+                    "I loved no one but you.", "I have loved nobody but you."]
+        for example in examples:
+            with self.subTest(example=example):
+                records = self.matches("en", example)
+                self.assertEqual(1, len(records))
+                self.assertEqual("exclusive_target", records[0]["form_family"])
+                self.assertEqual("affirmative", records[0]["polarity"])
+
+    def test_english_misleading_material_is_not_matched(self):
+        for text in ["I have loved none of you.", "I loved nobody, but you knew that.",
+                     "I loved him, but you did not.",
+                     "I have loved none better than this book."]:
+            with self.subTest(text=text):
+                self.assertEqual([], self.matches("en", text))
+
+    def test_languages_without_corpus_evidence_remain_unchanged(self):
+        old = json.loads(PATTERNS_V08.read_text(encoding="utf-8"))
+        for language in ("fr", "de", "no", "sv", "da", "it"):
+            self.assertEqual(old["languages"][language], self.config["languages"][language])
 
 
 if __name__ == "__main__":
