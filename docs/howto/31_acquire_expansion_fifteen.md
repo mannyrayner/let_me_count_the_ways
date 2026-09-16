@@ -214,6 +214,10 @@ PY
 python scripts/corpus_acquisition/finalize_acquisition_provenance.py \
   --batch "$BATCH" \
   --reviewed-on "$(date +%F)" --approve
+python scripts/corpus_acquisition/build_expansion_15_inventory.py \
+  --batch "$BATCH" \
+  --manifest data/acquisition/expansion_15_v1/manifest.json \
+  --summary data/acquisition/expansion_15_v1/README.md
 python -m pytest -q scripts/corpus_acquisition
 python scripts/docs/validate_runbook_index.py
 python -m json.tool data/acquisition/expansion_15_v1/manifest.json >/dev/null
@@ -222,6 +226,8 @@ import json
 from pathlib import Path
 m=json.loads(Path('data/acquisition/expansion_15_v1/manifest.json').read_text(encoding='utf-8'))
 assert len(m['works']) == 15
+assert m['status'] == 'acquired'
+assert m['successful_work_count'] == m['target_work_count'] == 15
 assert sum(w['language']=='fr' for w in m['works']) == 5
 assert sum(w['language']=='de' for w in m['works']) == 1
 assert sum(w['language']=='it' for w in m['works']) == 2
@@ -230,27 +236,32 @@ assert sum(w['language']=='en' for w in m['works']) == 3
 assert sum(w['language']=='sv' for w in m['works']) == 1
 assert sum(w['language']=='no' for w in m['works']) == 1
 for w in m['works']:
-    if w['acquisition_status'] == 'acquired':
+    assert w['acquisition_status'] == 'acquired'
+    if w['work_id'] == 'undset-kristin-lavransdatter':
+        assert len(w['constituent_parts']) == 3
+        for part in w['constituent_parts']:
+            p=Path(part['derived_text_path']); assert p.is_file() and p.stat().st_size
+            assert part['derived_sha256']
+            p.read_text(encoding='utf-8')
+    else:
         p=Path(w['derived_text_path']); assert p.is_file() and p.stat().st_size
+        assert w['derived_sha256']
         p.read_text(encoding='utf-8')
 PY
 git diff --check
 )
 ```
 
-Update the acquisition inventory and summary from finalized provenance only.
-It is not complete unless it truthfully says `15/15 acquired`, includes all
-three Undset parts, and every acquired entry has a resolving path and hash.
+The inventory builder updates the acquisition inventory and summary from
+finalized provenance only. It stops unless all 17 records are approved and all
+derived paths and hashes resolve.
 
 ## 6. Explicit staging and commit
 
 ```bash
-PROVENANCE_PATHS=$(python - <<'PY'
-import json
-print(' '.join(x['provenance'] for x in json.load(
-    open('data/batches/expansion_15_acquisition_v1.json', encoding='utf-8'))['sources']))
-PY
-)
+(
+set -euo pipefail
+BATCH=data/batches/expansion_15_acquisition_v1.json
 git add data/raw/stendhal-le-rouge-et-le-noir \
  data/raw/balzac-illusions-perdues data/raw/colette-le-ble-en-herbe \
  data/raw/sand-la-mare-au-diable data/raw/stael-corinne \
@@ -260,9 +271,19 @@ git add data/raw/stendhal-le-rouge-et-le-noir \
  data/raw/austen-persuasion data/raw/eliot-middlemarch \
  data/raw/lagerlof-gosta-berlings-saga \
  data/raw/undset-kristin-lavransdatter \
- $PROVENANCE_PATHS data/batches/expansion_15_acquisition_v1.json \
+ "$BATCH" \
  data/acquisition/expansion_15_v1 docs/howto/31_acquire_expansion_fifteen.md \
  docs/howto/README.md
+# Emit NUL-delimited bytes rather than capturing native-Windows Python's CRLF
+# stdout in a shell scalar. A trailing carriage return would corrupt the final
+# provenance path (for example, runeberg-kristin-korset.json\r).
+python - "$BATCH" <<'PY' | xargs -0 git add --
+import json, os, sys
+from pathlib import Path
+b=json.loads(Path(sys.argv[1]).read_text(encoding='utf-8'))
+paths=[os.fsencode(x['provenance']) for x in b['sources']]
+sys.stdout.buffer.write(b'\0'.join(paths) + b'\0')
+PY
 git status --short
 git diff --cached --name-only
 git diff --cached --check
@@ -270,6 +291,7 @@ git commit -m "Acquire fifteen corpus expansion works"
 git status --short
 git log -1 --oneline
 git show --stat --oneline HEAD
+)
 ```
 
 Stop for review. Do not begin canonicalization or extraction.
