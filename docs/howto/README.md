@@ -59,6 +59,7 @@ in-place because Git history already preserves them.
 | 32 | [Repair and audit Runeberg acquisition](32_repair_audit_runeberg_acquisition.md) | Repaired Undset derivations, repository-wide prefix audit, and resolved provenance warnings |
 | 33 | [Canonicalize the expansion fifteen locally](33_canonicalize_expansion_fifteen_locally.md) | Fifteen locally generated canonical works, deterministic special derivations, and a 31-work validated corpus |
 | 34 | [Complete special canonical provenance](34_complete_special_canonical_provenance.md) | Complete source and transformation provenance links for the two specially derived canonical works |
+| 35 | [Extract the fifteen-work expansion](35_extract_expansion_fifteen.md) | Deterministic Danish/Italian-aware candidate inventories and diagnostics for fifteen works |
 
 ## Conventions
 

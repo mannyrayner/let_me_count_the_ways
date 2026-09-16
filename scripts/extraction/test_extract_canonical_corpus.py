@@ -7,6 +7,8 @@ from scripts.extraction.extract_canonical_corpus import ROOT, extract_candidates
 
 
 PATTERNS = ROOT / "data/development/search_patterns_v0_7.json"
+PATTERNS_V08 = ROOT / "data/development/search_patterns_v0_8.json"
+EXPANSION_MANIFEST = ROOT / "data/canonicalization/expansion_15_v1/manifest.json"
 
 
 class BroadenedPatternTests(unittest.TestCase):
@@ -65,14 +67,76 @@ class BroadenedPatternTests(unittest.TestCase):
     def test_corpus_run_attempts_every_manifest_and_keeps_private_output_separate(self):
         with tempfile.TemporaryDirectory() as directory:
             base = Path(directory)
-            result = run(PATTERNS, base / "public", base / "private", 100)
-            manifest_count = len(list((ROOT / "corpus/works").glob("*/work.json")))
-            self.assertEqual(manifest_count, result["works_attempted"])
+            expansion_ids = {work["work_id"] for work in
+                             json.loads(EXPANSION_MANIFEST.read_text())["works"]}
+            original_ids = sorted(path.parent.name for path in
+                                  (ROOT / "corpus/works").glob("*/work.json")
+                                  if path.parent.name not in expansion_ids)
+            original_manifest = base / "original.json"
+            original_manifest.write_text(json.dumps({"works": original_ids}))
+            result = run(PATTERNS, base / "public", base / "private", 100, original_manifest)
             self.assertEqual(16, result["works_attempted"])
             private = next(w for w in result["works"] if w["work_id"] == "mcmillan-error-of-understanding")
             self.assertNotEqual("public", private["candidate_artifact"])
             self.assertFalse((base / "public/works/mcmillan-error-of-understanding/candidates.jsonl").exists())
             self.assertTrue(all(result["known_case_assertions"].values()))
+
+    def test_filtered_run_uses_manifest_and_skips_irrelevant_known_cases(self):
+        with tempfile.TemporaryDirectory() as directory:
+            base = Path(directory)
+            result = run(PATTERNS_V08, base / "public", base / "private", 100,
+                         EXPANSION_MANIFEST)
+            self.assertEqual(15, result["works_requested"])
+            self.assertEqual(15, result["works_attempted"])
+            self.assertEqual(15, result["works_extracted"])
+            self.assertEqual({"not_applicable"}, set(result["known_case_assertions"].values()))
+
+
+class Version08PatternTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.old = json.loads(PATTERNS.read_text(encoding="utf-8"))
+        cls.config = json.loads(PATTERNS_V08.read_text(encoding="utf-8"))
+
+    def matches(self, language, text):
+        manifest = {"work_id": "fixture", "language": language, "canonical_sha256": "0" * 64}
+        return extract_candidates(text, manifest, "0.8",
+                                  self.config["languages"][language]["patterns"], 100)
+
+    def test_inherited_language_definitions_are_exactly_equal(self):
+        for language in ("en", "fr", "de", "no", "sv"):
+            self.assertEqual(self.old["languages"][language], self.config["languages"][language])
+
+    def test_danish_positive_and_negative_fixtures(self):
+        positives = ["Jeg elsker dig.", "Jeg elskede Dem.", "Jeg har altid elsket dig.",
+                     "Jeg har aldrig elsket dig.", "Jeg elsker dig ikke mere.",
+                     "Elsker jeg dig?"]
+        negatives = ["Du elsker mig.", "Jeg holder af dig.", "Han elsker dig."]
+        for text in positives:
+            with self.subTest(text=text):
+                self.assertTrue(self.matches("da", text))
+        for text in negatives:
+            with self.subTest(text=text):
+                self.assertEqual([], self.matches("da", text))
+
+    def test_italian_positive_and_negative_fixtures(self):
+        positives = ["Ti amo.", "Io ti amo.", "T'amo.", "T’amo.", "Vi amo.",
+                     "Ti amavo.", "Ti amai.", "Ti ho amato.", "Ti ho amata.",
+                     "Ti ho sempre amata.", "Non ti amo.", "Non t'amo più.",
+                     "Ti amerò.", "Ti amerei.", "Voglio amarti.", "Vorrei amarvi."]
+        negatives = ["Mi ami.", "Mi ama.", "Amami.", "Lei ama lui.", "Lui ti ama.",
+                     "Amarti è impossibile.", "Vorrei che lui ti amasse.",
+                     "Ti voglio bene.", "Sono innamorato di te."]
+        for text in positives:
+            with self.subTest(text=text):
+                self.assertTrue(self.matches("it", text))
+        for text in negatives:
+            with self.subTest(text=text):
+                self.assertEqual([], self.matches("it", text))
+
+    def test_italian_cessative_wins_overlap(self):
+        records = self.matches("it", "Non ti amo più.")
+        self.assertEqual(["it_cessative"], [record["pattern_id"] for record in records])
 
 
 if __name__ == "__main__":
