@@ -13,10 +13,10 @@
   "page_map_path": "data/raw/undset-kristin-lavransdatter/kransen/page-map.json",
   "source_basis": "Project Runeberg electronic edition and preserved source HTML pages.",
   "editorial_note": "Uncorrected Norwegian OCR, URL indices 0005 through 0370; constituent part 1 of 3.",
-  "processing_note": "Literary text was deterministically extracted by the shared Runeberg acquisition helper; page order, raw paths, raw hashes, output offsets, and derivation method are recorded in the page map. No OCR correction, dehyphenation, translation, or orthographic modernization was applied.",
+  "processing_note": "Raw Runeberg HTML retained unchanged; derived text rebuilt with runeberg-prefix-v1, preserving nonnumeric pre-first-<br> text and stripping digits-only pagination.",
   "rights_note": "Project Runeberg presents this Nordic literary source without an unexpected copyright warning. The underlying work is treated as a public-domain research source under the project policy; Sigrid Undset died in 1949.",
   "runeberg_copyright_url": "https://runeberg.org/admin/copyright.html",
-  "sha256": "2b4d0587be9b503521233806645fc5de3eadc43b895a96175274f2f4b59cecf4",
+  "sha256": "59692c5a9652e0b79b64b4c4a55794a219bbb29494eb05f1c3128509a14ea87d",
   "retrieved_at": "2026-09-16T08:16:43Z",
   "reviewed_on": "2026-09-16",
   "download_paths": [
@@ -759,8 +759,15 @@
     "pages_requested": 366,
     "pages_downloaded": 0,
     "pages_nonempty": 366,
-    "assembled_character_count": 523445,
-    "assembled_word_count": 99325,
-    "sha256": "2b4d0587be9b503521233806645fc5de3eadc43b895a96175274f2f4b59cecf4"
+    "assembled_character_count": 535355,
+    "assembled_word_count": 101617,
+    "sha256": "59692c5a9652e0b79b64b4c4a55794a219bbb29494eb05f1c3128509a14ea87d"
+  },
+  "derivation_repair": {
+    "version": "runeberg-prefix-v1",
+    "reason": "Preserve nonnumeric text before the first OCR <br>; strip digits-only pagination.",
+    "raw_source_pages_unchanged": true,
+    "old_derived_sha256": "2b4d0587be9b503521233806645fc5de3eadc43b895a96175274f2f4b59cecf4",
+    "new_derived_sha256": "59692c5a9652e0b79b64b4c4a55794a219bbb29494eb05f1c3128509a14ea87d"
   }
 }

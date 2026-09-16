@@ -1051,9 +1051,9 @@
   ],
   "page_map": "data\\raw\\undset-kristin-lavransdatter\\korset\\page-map.json",
   "local_path": "data\\raw\\undset-kristin-lavransdatter\\korset\\runeberg-kristin-korset.txt",
-  "assembled_character_count": 819907,
-  "assembled_word_count": 155786,
-  "sha256": "dac3235def76913c9a90fe40487ed0b0a66a39cf648fe1a55e43436041fbd867",
+  "assembled_character_count": 820536,
+  "assembled_word_count": 155909,
+  "sha256": "3d218a9dd661a83cda3766a89634841702e49c29f494da8257355841c50d7d62",
   "page_derivation_methods": [
     "raw_ocr:NEWIMAGE2"
   ],
@@ -1586,5 +1586,12 @@
     526,
     527
   ],
-  "fallback_end_marker_url_indices": []
+  "fallback_end_marker_url_indices": [],
+  "derivation_repair": {
+    "version": "runeberg-prefix-v1",
+    "reason": "Preserve nonnumeric text before the first OCR <br>; strip digits-only pagination.",
+    "raw_source_pages_unchanged": true,
+    "old_derived_sha256": "dac3235def76913c9a90fe40487ed0b0a66a39cf648fe1a55e43436041fbd867",
+    "new_derived_sha256": "3d218a9dd661a83cda3766a89634841702e49c29f494da8257355841c50d7d62"
+  }
 }

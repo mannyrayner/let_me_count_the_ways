@@ -1,0 +1,184 @@
+{
+  "schema_version": "1.0",
+  "rule": "EMPTY is discarded; ^[0-9]+$ is NUMERIC_PAGE_FIELD; all other prefixes are preserved.",
+  "historical_canonical_action": "No canonical text was changed. PRESERVED_TEXT pages in existing Hamsun acquisitions are reported for human review rather than silently replacing frozen texts.",
+  "works": {
+    "hamsun-pan": {
+      "raw_pages_available": true,
+      "parts": {
+        "hamsun-pan": {
+          "pages_examined": 80,
+          "classifications": {
+            "NUMERIC_PAGE_FIELD": 74,
+            "EMPTY": 0,
+            "PRESERVED_TEXT": 6,
+            "AMBIGUOUS": 0,
+            "NOT_RAW_OCR": 0
+          },
+          "potentially_affected_pages_under_old_parser": 6,
+          "potentially_affected_page_names_sample": [
+            "0335",
+            "0336",
+            "0337",
+            "0347",
+            "0375",
+            "0381"
+          ]
+        }
+      }
+    },
+    "hamsun-victoria": {
+      "raw_pages_available": true,
+      "parts": {
+        "hamsun-victoria": {
+          "pages_examined": 74,
+          "classifications": {
+            "NUMERIC_PAGE_FIELD": 68,
+            "EMPTY": 0,
+            "PRESERVED_TEXT": 6,
+            "AMBIGUOUS": 0,
+            "NOT_RAW_OCR": 0
+          },
+          "potentially_affected_pages_under_old_parser": 6,
+          "potentially_affected_page_names_sample": [
+            "0093",
+            "0094",
+            "0095",
+            "0101",
+            "0115",
+            "0128"
+          ]
+        }
+      }
+    },
+    "lagerlof-gosta-berlings-saga": {
+      "raw_pages_available": true,
+      "parts": {
+        "lagerlof-gosta-berlings-saga": {
+          "pages_examined": 37,
+          "classifications": {
+            "NUMERIC_PAGE_FIELD": 0,
+            "EMPTY": 0,
+            "PRESERVED_TEXT": 0,
+            "AMBIGUOUS": 0,
+            "NOT_RAW_OCR": 37
+          },
+          "potentially_affected_pages_under_old_parser": 0,
+          "potentially_affected_page_names_sample": []
+        }
+      }
+    },
+    "undset-kristin-lavransdatter": {
+      "raw_pages_available": true,
+      "parts": {
+        "husfrue": {
+          "pages_examined": 497,
+          "classifications": {
+            "NUMERIC_PAGE_FIELD": 468,
+            "EMPTY": 3,
+            "PRESERVED_TEXT": 26,
+            "AMBIGUOUS": 0,
+            "NOT_RAW_OCR": 0
+          },
+          "potentially_affected_pages_under_old_parser": 26,
+          "potentially_affected_page_names_sample": [
+            "0009",
+            "0011",
+            "0043",
+            "0045",
+            "0046",
+            "0047",
+            "0049",
+            "0072",
+            "0074",
+            "0078",
+            "0080",
+            "0081",
+            "0082",
+            "0083",
+            "0084",
+            "0086",
+            "0098",
+            "0099",
+            "0151",
+            "0153"
+          ]
+        },
+        "korset": {
+          "pages_examined": 521,
+          "classifications": {
+            "NUMERIC_PAGE_FIELD": 494,
+            "EMPTY": 5,
+            "PRESERVED_TEXT": 22,
+            "AMBIGUOUS": 0,
+            "NOT_RAW_OCR": 0
+          },
+          "potentially_affected_pages_under_old_parser": 22,
+          "potentially_affected_page_names_sample": [
+            "0007",
+            "0009",
+            "0025",
+            "0029",
+            "0153",
+            "0155",
+            "0200",
+            "0355",
+            "0478",
+            "0479",
+            "0480",
+            "0481",
+            "0482",
+            "0483",
+            "0484",
+            "0485",
+            "0486",
+            "0487",
+            "0488",
+            "0520"
+          ]
+        },
+        "kransen": {
+          "pages_examined": 366,
+          "classifications": {
+            "NUMERIC_PAGE_FIELD": 124,
+            "EMPTY": 7,
+            "PRESERVED_TEXT": 235,
+            "AMBIGUOUS": 0,
+            "NOT_RAW_OCR": 0
+          },
+          "potentially_affected_pages_under_old_parser": 235,
+          "potentially_affected_page_names_sample": [
+            "0005",
+            "0007",
+            "0008",
+            "0011",
+            "0012",
+            "0013",
+            "0014",
+            "0015",
+            "0016",
+            "0017",
+            "0018",
+            "0019",
+            "0020",
+            "0021",
+            "0022",
+            "0023",
+            "0024",
+            "0025",
+            "0026",
+            "0027"
+          ]
+        }
+      }
+    },
+    "ibsen-et-dukkehjem": {
+      "raw_pages_available": false,
+      "applicability": "No stored source-pages directory; acquisition predates this auditable path."
+    },
+    "strindberg-froken-julie": {
+      "raw_pages_available": false,
+      "applicability": "No stored source-pages directory; acquisition predates this auditable path."
+    }
+  }
+}

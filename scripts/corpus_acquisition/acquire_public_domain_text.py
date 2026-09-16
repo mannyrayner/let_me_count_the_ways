@@ -127,7 +127,7 @@ class RunebergOCRLines(HTMLParser):
 
 
 def runeberg_ocr_lines(fragment: str) -> str:
-    """Discard structural page furniture, then preserve each OCR ``br`` exactly."""
+    """Strip an Arabic page number, but preserve a literary pre-``br`` line."""
     first_break = re.search(r"(?is)<br\s*/?\s*>", fragment)
     if first_break is None:
         parser = RunebergOCRLines()
@@ -139,14 +139,24 @@ def runeberg_ocr_lines(fragment: str) -> str:
         if len(structural_field) <= 100:
             return ""
         raise ValueError("Runeberg OCR has substantial text but no structural <br>")
-    # Everything before this first break is the structurally located printed-page
-    # field, whether its OCR happens to be numeric, corrupt (for example Gi), or a
-    # title-page label. It is not literary OCR.
+    prefix_parser = RunebergOCRLines()
+    prefix_parser.feed(fragment[:first_break.start()])
+    prefix_parser.close()
+    prefix = prefix_parser.text().strip()
+    # Runeberg templates do not consistently reserve this position for page
+    # furniture.  Use the deliberately narrow, evidenced pagination rule only.
+    # In particular, Roman numerals may be chapter headings and are retained.
     literary_fragment = fragment[first_break.end():]
     parser = RunebergOCRLines()
     parser.feed(literary_fragment)
     parser.close()
-    value = parser.text().lstrip("\n").rstrip("\n")
+    remainder = parser.text()
+    if prefix and not re.fullmatch(r"[0-9]+", prefix):
+        # The consumed first <br> separates the prefix from the next line. Any
+        # additional leading <br> remains meaningful (usually a blank line).
+        value = (prefix + "\n" + remainder).rstrip("\n")
+    else:
+        value = remainder.lstrip("\n").rstrip("\n")
     # A title-only range boundary can consist entirely of the structural field.
     # Preserve that page in the map as an empty slice rather than retaining its
     # furniture or inventing literary content.

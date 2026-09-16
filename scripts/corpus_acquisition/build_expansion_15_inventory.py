@@ -77,7 +77,7 @@ def summary_markdown(manifest: dict) -> str:
         if work["work_id"] == "balzac-illusions-perdues":
             warning = "Acquired as the reviewed containing volume"
         elif work["work_id"] == "undset-kristin-lavransdatter":
-            warning = "Three separately preserved parts; uncorrected OCR"
+            warning = "Three parts; source OCR retained; page-prefix extraction repaired"
         lines.append(
             f"| {work['title']} | {source} | {work['language']} | acquired | "
             f"{characters} | {warning} |"
