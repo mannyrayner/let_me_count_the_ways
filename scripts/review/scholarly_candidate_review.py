@@ -32,6 +32,10 @@ REASONS = {
 REASON_PREFIX = {"KEEP": "VALID_", "EXCLUDE": "EXCLUDE_", "UNCERTAIN": "UNCERTAIN_"}
 PROMPT_VERSION = "scholarly_candidate_review_v1"
 SCHEMA_VERSION = "1.0"
+GENERATION_SETTINGS = {
+    "temperature": None,
+    "temperature_parameter": "omitted because gpt-5.6-sol does not support it",
+}
 
 
 def read_json(path: Path) -> dict:
@@ -123,7 +127,7 @@ def validate(candidate_roots: list[Path], review_roots: list[Path], expected_tot
 
 def call_model(*, prompt: str, schema: dict, payload_input: dict, model: str, endpoint: str, api_key: str) -> tuple[dict, dict]:
     body = {
-        "model": model, "temperature": 0,
+        "model": model,
         "input": prompt + "\n\n## Candidate\n\n" + json.dumps(payload_input, ensure_ascii=False),
         "text": structured_output_format(schema, "scholarly_candidate_review"),
     }
@@ -172,13 +176,14 @@ def run(candidate_root: Path, output_root: Path, prompt_path: Path, schema_path:
               for key in ("input_tokens", "cached_input_tokens", "output_tokens")}
     totals["estimated_total_cost_usd"] = sum(row.get("estimated_cost_usd", 0) for row in complete)
     write_json(output_root / "usage.json", {"model": api_model, "model_alias": model_alias,
-        "prompt_version": PROMPT_VERSION, "temperature": 0, "candidates_reviewed": len(complete), **totals})
+        "prompt_version": PROMPT_VERSION, "generation_settings": GENERATION_SETTINGS,
+        "candidates_reviewed": len(complete), **totals})
     write_json(output_root / "manifest.json", {
         "schema_version": SCHEMA_VERSION,
         "status": "provisional_ai_review_pending_human_review",
         "candidate_input": str(candidate_root), "candidate_count": len(candidates(candidate_root)),
         "review_count": len(complete), "model": api_model, "model_alias": model_alias,
-        "prompt_version": PROMPT_VERSION, "temperature": 0,
+        "prompt_version": PROMPT_VERSION, "generation_settings": GENERATION_SETTINGS,
         "resumption_key": ["occurrence_id", "model", "prompt_version"],
     })
 

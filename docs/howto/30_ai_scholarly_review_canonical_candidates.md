@@ -34,7 +34,9 @@ python scripts/review/scholarly_candidate_review.py run \
 Run the identical command to resume after interruption. A record keyed by
 occurrence ID, exact model, and prompt version is skipped; an incompatible
 existing record causes a stop rather than a silent overwrite. Temperature is
-zero. Per-run usage and estimated cost use `config/api_models.json`.
+not sent because `gpt-5.6-sol` does not support the `temperature` request
+parameter; the manifest and usage report record that omission explicitly.
+Per-run usage and estimated cost use `config/api_models.json`.
 
 ## 3. Private McMillan review (and resumption)
 
@@ -95,7 +97,8 @@ cat "$PRIVATE_REVIEW/usage.json"
 
 Combine the two usage files when recording the public manifest totals: public
 and private candidate counts, total candidates, input/output tokens, total
-estimated USD cost, model, prompt version, and temperature. The public
+estimated USD cost, model, prompt version, and relevant generation settings.
+The public
 McMillan entry may contain counts and provenance only—not match, context, note,
 request, response, or other quotation-bearing data.
 

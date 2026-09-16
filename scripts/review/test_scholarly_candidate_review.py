@@ -3,7 +3,7 @@ from pathlib import Path
 
 import pytest
 
-from scripts.review.scholarly_candidate_review import PROMPT_VERSION, render, validate
+from scripts.review.scholarly_candidate_review import PROMPT_VERSION, call_model, render, validate
 
 
 def write_jsonl(path: Path, rows: list[dict]) -> None:
@@ -62,3 +62,34 @@ def test_render_omits_private_text_and_orders_attention_cases(tmp_path):
     assert summary["candidate_count"] == 3
     assert "SECRET QUOTATION" not in sheet and "private" not in sheet
     assert sheet.index("exclude") < sheet.index("keep")
+
+
+def test_call_model_omits_unsupported_temperature(monkeypatch):
+    captured = {}
+
+    class Response:
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *_args):
+            return None
+
+        def read(self):
+            output = {"decision": "KEEP", "reason_code": "VALID_EXPLICIT_LOVE_I_YOU",
+                      "confidence": 0.9, "review_note": "Explicit target construction."}
+            response = {"output": [{"content": [{"type": "output_text", "text": json.dumps(output)}]}],
+                        "usage": {"input_tokens": 10, "output_tokens": 5}}
+            return json.dumps(response).encode()
+
+    def fake_urlopen(request, timeout):
+        captured.update(json.loads(request.data))
+        assert timeout == 300
+        return Response()
+
+    monkeypatch.setattr("urllib.request.urlopen", fake_urlopen)
+    answer, usage = call_model(prompt="prompt", schema={"type": "object"},
+                               payload_input={"occurrence_id": "one"}, model="gpt-5.6-sol",
+                               endpoint="https://example.invalid", api_key="secret")
+    assert "temperature" not in captured
+    assert answer["decision"] == "KEEP"
+    assert usage == {"input_tokens": 10, "output_tokens": 5}
