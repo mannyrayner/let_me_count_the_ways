@@ -186,15 +186,33 @@ done
 
 ## 5. Provenance, inventory, and validation
 
-Create one reviewed provenance record per Gutenberg work, one for Gösta
-Berlings saga, and one per Undset constituent part, following the existing
-records in `provenance/sources/`. Create a batch whose `sources` entries point
-to those records, then let the finalizer compute hashes; never type hashes by
-hand.
+The repository supplies 17 provenance drafts: 13 Gutenberg records, one for
+*Gösta Berlings saga*, and one for each of the three Undset constituent parts.
+The checked-in batch lists those exact records. The finalizer computes raw and
+derived hashes from the acquired files; never type hashes by hand. Run the
+whole block in a fail-fast subshell so no later validation can disguise a
+failed finalization.
 
 ```bash
+(
+set -euo pipefail
+BATCH=data/batches/expansion_15_acquisition_v1.json
+test -s "$BATCH"
+python - "$BATCH" <<'PY'
+import json, sys
+from pathlib import Path
+b=json.loads(Path(sys.argv[1]).read_text(encoding='utf-8'))
+assert b['batch_id'] == 'expansion_15_acquisition_v1'
+assert len(b['sources']) == 17
+paths=[Path(x['provenance']) for x in b['sources']]
+assert len(paths) == len(set(paths)) == 17
+assert all(p.is_file() for p in paths)
+records=[json.loads(p.read_text(encoding='utf-8')) for p in paths]
+assert len({r['work_id'] for r in records}) == 15
+print('provenance drafts:', len(records), 'works:', len({r['work_id'] for r in records}))
+PY
 python scripts/corpus_acquisition/finalize_acquisition_provenance.py \
-  --batch data/batches/expansion_15_acquisition_v1.json \
+  --batch "$BATCH" \
   --reviewed-on "$(date +%F)" --approve
 python -m pytest -q scripts/corpus_acquisition
 python scripts/docs/validate_runbook_index.py
@@ -217,6 +235,7 @@ for w in m['works']:
         p.read_text(encoding='utf-8')
 PY
 git diff --check
+)
 ```
 
 Update the acquisition inventory and summary from finalized provenance only.
@@ -226,6 +245,12 @@ three Undset parts, and every acquired entry has a resolving path and hash.
 ## 6. Explicit staging and commit
 
 ```bash
+PROVENANCE_PATHS=$(python - <<'PY'
+import json
+print(' '.join(x['provenance'] for x in json.load(
+    open('data/batches/expansion_15_acquisition_v1.json', encoding='utf-8'))['sources']))
+PY
+)
 git add data/raw/stendhal-le-rouge-et-le-noir \
  data/raw/balzac-illusions-perdues data/raw/colette-le-ble-en-herbe \
  data/raw/sand-la-mare-au-diable data/raw/stael-corinne \
@@ -235,7 +260,7 @@ git add data/raw/stendhal-le-rouge-et-le-noir \
  data/raw/austen-persuasion data/raw/eliot-middlemarch \
  data/raw/lagerlof-gosta-berlings-saga \
  data/raw/undset-kristin-lavransdatter \
- provenance/sources data/batches/expansion_15_acquisition_v1.json \
+ $PROVENANCE_PATHS data/batches/expansion_15_acquisition_v1.json \
  data/acquisition/expansion_15_v1 docs/howto/31_acquire_expansion_fifteen.md \
  docs/howto/README.md
 git status --short
