@@ -123,17 +123,24 @@ Gi<br><br>Pause. Victoria ytrer hen for sig:<br><br>Hvordan ser hun ut mon?<br>
                   "og båten kunde de kort-<br>sagt ha trukket på land.<!-- NEWIMAGE2 -->")
         self.assertIn("kort-\nsagt", runeberg_html_to_text(source))
 
-    def test_runeberg_parser_rejects_navigation_only_page(self):
+    def test_runeberg_parser_maps_empty_marker_bounded_page_to_empty_slice(self):
         source = """<html><body><!-- mode=normal -->
 <!-- NEWIMAGE2 --></body></html>"""
-        with self.assertRaisesRegex(ValueError, "empty"):
-            runeberg_html_to_text(source)
+        self.assertEqual(runeberg_html_to_text(source), "")
 
-    def test_runeberg_parser_rejects_empty_or_malformed_pages(self):
-        with self.assertRaisesRegex(ValueError, "empty"):
-            runeberg_html_to_text(runeberg_page(""))
+    def test_runeberg_parser_accepts_empty_page_and_rejects_malformed_page(self):
+        self.assertEqual(runeberg_html_to_text(runeberg_page("")), "")
         with self.assertRaisesRegex(ValueError, "start marker"):
             runeberg_html_to_text("<html><body><p>orphan text</p></body></html>")
+
+    def test_runeberg_parser_maps_short_unbroken_title_field_to_empty_slice(self):
+        source = "<!-- mode=normal -->HUSFRUE<!-- NEWIMAGE2 -->"
+        self.assertEqual(runeberg_html_to_text(source), "")
+
+    def test_runeberg_parser_rejects_substantial_unbroken_ocr(self):
+        source = "<!-- mode=normal -->" + ("substantial OCR text " * 10) + "<!-- NEWIMAGE2 -->"
+        with self.assertRaisesRegex(ValueError, "substantial text but no structural <br>"):
+            runeberg_html_to_text(source)
 
     def test_runeberg_parser_rejects_missing_reversed_and_ambiguous_markers(self):
         with self.assertRaisesRegex(ValueError, "end marker not found"):
@@ -157,6 +164,20 @@ Gi<br><br>Pause. Victoria ytrer hen for sig:<br><br>Hvordan ser hun ut mon?<br>
                   "<!-- #### -->")
         text, marker = extract_runeberg_ocr(source)
         self.assertIn("substantial literary OCR", text)
+        self.assertEqual(marker, "####")
+
+    def test_runeberg_parser_ignores_status_fallback_before_ocr_start(self):
+        source = (
+            "<!-- #### --><p>This page has been proofread.</p>"
+            "<!-- mode=normal -->48<br><br>Tordis kom nu springende med et skindlaken;"
+            "<br>varsomt lempet hun barnet over paa dette.<!-- #### -->"
+        )
+        text, marker = extract_runeberg_ocr(source)
+        self.assertEqual(
+            text,
+            "Tordis kom nu springende med et skindlaken;\n"
+            "varsomt lempet hun barnet over paa dette.\n",
+        )
         self.assertEqual(marker, "####")
 
     def test_runeberg_proofread_parser_uses_structural_rules_and_excludes_chrome(self):

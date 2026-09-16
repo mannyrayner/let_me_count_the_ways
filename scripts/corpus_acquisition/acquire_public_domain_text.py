@@ -130,7 +130,15 @@ def runeberg_ocr_lines(fragment: str) -> str:
     """Discard structural page furniture, then preserve each OCR ``br`` exactly."""
     first_break = re.search(r"(?is)<br\s*/?\s*>", fragment)
     if first_break is None:
-        raise ValueError("Runeberg OCR is empty or its page-number field is not followed by <br>")
+        parser = RunebergOCRLines()
+        parser.feed(fragment)
+        parser.close()
+        structural_field = parser.text().strip()
+        # Some title/furniture-only scan pages have a mode marker but no OCR
+        # line breaks. They contribute an intentionally empty mapped slice.
+        if len(structural_field) <= 100:
+            return ""
+        raise ValueError("Runeberg OCR has substantial text but no structural <br>")
     # Everything before this first break is the structurally located printed-page
     # field, whether its OCR happens to be numeric, corrupt (for example Gi), or a
     # title-page label. It is not literary OCR.
@@ -174,8 +182,8 @@ def extract_runeberg_ocr(value: str) -> tuple[str, str]:
     else:
         fallback = [match.start() for match in
                     re.finditer(re.escape(RUNEBERG_OCR_FALLBACK_END), value)]
-        if any(position < content_start for position in fallback):
-            raise ValueError("Runeberg OCR fallback end marker occurs before start marker")
+        # Proofreading-status chrome can contain a #### marker before the OCR
+        # start. Only markers after mode=normal can terminate literary OCR.
         fallback_after = [position for position in fallback if position >= content_start]
         if not fallback_after:
             raise ValueError("Runeberg OCR end marker not found")

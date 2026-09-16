@@ -155,6 +155,14 @@ silent together, Simon walking toward the sleeping house with Jon and Ulf, and
 Sira Eiliv leading the man toward the cookhouse across new snow. Keep the parts
 as separate acquisition artifacts with their own maps and provenance.
 
+Runeberg's scan template is not uniform across these ranges. A proofread-status
+`####` comment can occur before `mode=normal`; it is chrome and only a fallback
+marker after `mode=normal` ends literary OCR. Some title/furniture-only pages
+(including the observed `husfrue/0010` and `korset/0008`) have a mode marker but
+no `<br>` OCR lines. The helper records them as empty page-map slices rather
+than retaining structural furniture. It still rejects substantial unbroken text,
+so a genuinely changed OCR layout cannot silently disappear.
+
 ```bash
 (
 set -euo pipefail
