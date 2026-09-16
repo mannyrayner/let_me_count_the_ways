@@ -28,24 +28,27 @@ homme de province à Paris*, and *Ève et David*. Do not manually cut that volum
 
 ## 2. Gutenberg
 
-Set each URL to the exact official UTF-8 text link reviewed on the corresponding
-catalogue page. These assignments intentionally fail until that human source
-review has occurred; do not infer or substitute a mirror URL.
+The commands below use the exact official UTF-8 text links from the reviewed
+catalogue pages. They run in a fail-fast subshell so a missing variable or failed
+download stops the entire group rather than allowing later commands to receive
+an empty URL. Do not replace these links with mirror URLs.
 
 ```bash
-: "${URL_798:?set from the reviewed Gutenberg catalogue page}"
-: "${URL_54723:?set from the reviewed Gutenberg catalogue page}"
-: "${URL_59926:?set from the reviewed Gutenberg catalogue page}"
-: "${URL_23582:?set from the reviewed Gutenberg catalogue page}"
-: "${URL_60810:?set from the reviewed Gutenberg catalogue page}"
-: "${URL_5323:?set from the reviewed Gutenberg catalogue page}"
-: "${URL_34346:?set from the reviewed Gutenberg catalogue page}"
-: "${URL_69294:?set from the reviewed Gutenberg catalogue page}"
-: "${URL_13175:?set from the reviewed Gutenberg catalogue page}"
-: "${URL_41786:?set from the reviewed Gutenberg catalogue page}"
-: "${URL_969:?set from the reviewed Gutenberg catalogue page}"
-: "${URL_105:?set from the reviewed Gutenberg catalogue page}"
-: "${URL_145:?set from the reviewed Gutenberg catalogue page}"
+(
+set -euo pipefail
+URL_798='https://www.gutenberg.org/ebooks/798.txt.utf-8'
+URL_54723='https://www.gutenberg.org/ebooks/54723.txt.utf-8'
+URL_59926='https://www.gutenberg.org/ebooks/59926.txt.utf-8'
+URL_23582='https://www.gutenberg.org/ebooks/23582.txt.utf-8'
+URL_60810='https://www.gutenberg.org/ebooks/60810.txt.utf-8'
+URL_5323='https://www.gutenberg.org/ebooks/5323.txt.utf-8'
+URL_34346='https://www.gutenberg.org/ebooks/34346.txt.utf-8'
+URL_69294='https://www.gutenberg.org/ebooks/69294.txt.utf-8'
+URL_13175='https://www.gutenberg.org/ebooks/13175.txt.utf-8'
+URL_41786='https://www.gutenberg.org/ebooks/41786.txt.utf-8'
+URL_969='https://www.gutenberg.org/ebooks/969.txt.utf-8'
+URL_105='https://www.gutenberg.org/ebooks/105.txt.utf-8'
+URL_145='https://www.gutenberg.org/ebooks/145.txt.utf-8'
 for SPEC in \
  "798 stendhal-le-rouge-et-le-noir $URL_798" \
  "54723 balzac-illusions-perdues $URL_54723" \
@@ -69,6 +72,7 @@ do
     > "data/raw/$WORK/acquisition-metadata.json.part" && \
   mv "data/raw/$WORK/acquisition-metadata.json"{.part,}
 done
+)
 ```
 
 ## 3. Runeberg Swedish
