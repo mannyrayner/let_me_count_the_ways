@@ -3,8 +3,8 @@ import unittest
 from pathlib import Path
 
 from scripts.corpus_acquisition.acquire_public_domain_text import (
-    acquire_gutenberg, acquire_runeberg, extract_runeberg_ocr, page_urls, runeberg_html_to_text,
-    sha256, trim_gutenberg,
+    acquire_gutenberg, acquire_runeberg, acquire_runeberg_pages, extract_runeberg_ocr,
+    named_page_urls, page_urls, runeberg_html_to_text, sha256, trim_gutenberg,
 )
 
 
@@ -197,6 +197,35 @@ Gi<br><br>Pause. Victoria ytrer hen for sig:<br><br>Hvordan ser hun ut mon?<br>
         self.assertEqual(first_map.read_text(encoding="utf-8"),
                          second_map.read_text(encoding="utf-8"))
 
+    def test_runeberg_named_pages_are_ordered_mapped_and_reproducible(self):
+        base = "https://runeberg.test/berling"
+        names = ["i01", "k01", "k02"]
+        urls = named_page_urls(base, names)
+        contents = {
+            url: runeberg_page(f"{name}<br><br>Litterär text från {name}.")
+            for name, url in zip(names, urls)
+        }
+        output, page_map = self.root / "berling.txt", self.root / "berling-map.json"
+        result = acquire_runeberg_pages(
+            base, names, self.root / "pages", output, page_map,
+            downloader=self.downloader(contents),
+        )
+        records = __import__("json").loads(page_map.read_text(encoding="utf-8"))
+        self.assertEqual([record["url_name"] for record in records], names)
+        self.assertEqual(result["runeberg_page_names"], names)
+        self.assertEqual(result["fallback_end_marker_page_names"], [])
+        self.assertEqual(
+            output.read_text(encoding="utf-8"),
+            "Litterär text från i01.\nLitterär text från k01.\n"
+            "Litterär text från k02.\n",
+        )
+
+    def test_runeberg_named_pages_reject_duplicates_and_unsafe_names(self):
+        with self.assertRaisesRegex(ValueError, "duplicates"):
+            named_page_urls("https://example.test/work", ["k01", "k01"])
+        with self.assertRaisesRegex(ValueError, "invalid"):
+            named_page_urls("https://example.test/work", ["../k01"])
+
     def test_runeberg_rejects_unexpected_or_missing_page(self):
         base = "https://runeberg.test/work/"
         urls = page_urls(base, 1, 2)
@@ -207,6 +236,14 @@ Gi<br><br>Pause. Victoria ytrer hen for sig:<br><br>Hvordan ser hun ut mon?<br>
             acquire_runeberg(base, 1, 2, raw, self.root / "out.txt",
                              self.root / "map.json",
                              downloader=self.downloader({u: runeberg_page(f"<p>{u}</p>") for u in urls}))
+
+    def test_runeberg_rejects_invalid_numeric_range_before_downloading(self):
+        with self.assertRaisesRegex(ValueError, "invalid Runeberg URL-index range"):
+            acquire_runeberg(
+                "https://example.test/work", 2, 1, self.root / "pages",
+                self.root / "out.txt", self.root / "map.json",
+                downloader=self.downloader({}),
+            )
 
     def test_runeberg_refuses_output_overwrite(self):
         output = self.root / "existing.txt"
