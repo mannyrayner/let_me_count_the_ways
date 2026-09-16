@@ -93,11 +93,17 @@ class ExpansionCanonicalizationTests(unittest.TestCase):
         ordinary = self.items[0]
         work_id = ordinary["work_id"]
         self.assertEqual((self.root / ordinary["derived_text_path"]).read_bytes(), (self.root / "corpus/works" / work_id / "canonical.txt").read_bytes())
-        trilogy = (self.root / "corpus/works/undset-kristin-lavransdatter/canonical.txt").read_text()
+        trilogy = (self.root / "corpus/works/undset-kristin-lavransdatter/canonical.txt").read_text(
+            encoding="utf-8"
+        )
         self.assertLess(trilogy.index("KRANSEN"), trilogy.index("HUSFRUE"))
         self.assertLess(trilogy.index("HUSFRUE"), trilogy.index("KORSET"))
         self.assertTrue(all(text in trilogy for text in UNDSET_REGRESSIONS))
-        checkpoint = json.loads((self.root / "data/canonicalization/expansion_15_v1/manifest.json").read_text())
+        checkpoint = json.loads(
+            (self.root / "data/canonicalization/expansion_15_v1/manifest.json").read_text(
+                encoding="utf-8"
+            )
+        )
         self.assertEqual(checkpoint["status"], "15/15 canonicalized")
         self.assertEqual(len(checkpoint["works"]), 15)
 
@@ -116,7 +122,7 @@ class ExpansionCanonicalizationTests(unittest.TestCase):
         (target / "canonical.txt").write_text("divergent\n")
         with self.assertRaisesRegex(ValueError, "refusing to overwrite"):
             execute(self.root)
-        self.assertEqual(old.read_text(), "do not touch\n")
+        self.assertEqual(old.read_text(encoding="utf-8"), "do not touch\n")
 
 
 if __name__ == "__main__":
