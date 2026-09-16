@@ -195,6 +195,36 @@ def runeberg_html_to_text(value: str) -> str:
     return extract_runeberg_ocr(value)[0]
 
 
+def extract_runeberg_proofread(value: str) -> str:
+    """Extract an older Runeberg proofread page bounded by its header/footer rules."""
+    if RUNEBERG_OCR_START in value:
+        raise ValueError("proofread-page extractor received raw OCR markup")
+    if "project runeberg" not in value.casefold():
+        raise ValueError("markerless page does not identify Project Runeberg")
+    body = re.search(r"(?is)<body\b[^>]*>(.*)</body\s*>", value)
+    if body is None:
+        raise ValueError("Runeberg proofread page has no complete body element")
+    rules = list(re.finditer(r"(?is)<hr\b[^>]*>", body.group(1)))
+    if len(rules) < 2:
+        raise ValueError("Runeberg proofread page has fewer than two structural rules")
+    # Runeberg's older proofread pages put navigation before the first rule and
+    # source/footer chrome after the last. Internal rules, if any, are literary.
+    fragment = body.group(1)[rules[0].end():rules[-1].start()]
+    text = html_to_text(fragment)
+    validate_runeberg_ocr_text(text)
+    if len(text.strip()) < 100:
+        raise ValueError("Runeberg proofread literary region is implausibly short")
+    return text
+
+
+def extract_runeberg_page(value: str) -> tuple[str, str]:
+    """Extract a raw-OCR or structurally bounded proofread Runeberg page."""
+    if RUNEBERG_OCR_START in value:
+        text, end_marker = extract_runeberg_ocr(value)
+        return text, f"raw_ocr:{end_marker}"
+    return extract_runeberg_proofread(value), "proofread_html:first_to_last_hr"
+
+
 def trim_gutenberg(value: str) -> str:
     start = GUTENBERG_START.search(value)
     end = GUTENBERG_END.search(value, start.end() if start else 0)
@@ -223,21 +253,54 @@ def page_urls(volume_url: str, first_url_index: int, last_url_index: int) -> lis
     return [f"{base}{index:04d}.html" for index in range(first_url_index, last_url_index + 1)]
 
 
+def named_page_urls(volume_url: str, page_names: list[str]) -> list[str]:
+    """Build Runeberg URLs for a reviewed, explicitly ordered nonnumeric page list."""
+    if not page_names:
+        raise ValueError("Runeberg named-page list is empty")
+    if len(page_names) != len(set(page_names)):
+        raise ValueError("Runeberg named-page list contains duplicates")
+    if any(not re.fullmatch(r"[A-Za-z0-9_-]+", name) for name in page_names):
+        raise ValueError("invalid Runeberg page name")
+    base = volume_url.rstrip("/") + "/"
+    return [f"{base}{name}.html" for name in page_names]
+
+
 def acquire_runeberg(volume_url: str, first_url_index: int, last_url_index: int,
                       raw_dir: Path, output: Path, page_map: Path,
                       printed_first: int | None = None, printed_last: int | None = None,
                       force: bool = False,
                       downloader: Callable[[str, Path], object] = atomic_download) -> dict:
     """Acquire and deterministically assemble a verified contiguous Runeberg range."""
+    if first_url_index < 0 or last_url_index < first_url_index:
+        raise ValueError("invalid Runeberg URL-index range")
+    indices = list(range(first_url_index, last_url_index + 1))
+    metadata = acquire_runeberg_pages(
+        volume_url, [f"{index:04d}" for index in indices], raw_dir, output, page_map,
+        printed_first, printed_last, force, downloader,
+    )
+    metadata["runeberg_url_index_range"] = [first_url_index, last_url_index]
+    metadata["ordered_url_indices"] = indices
+    metadata["fallback_end_marker_url_indices"] = [
+        int(name) for name in metadata.pop("fallback_end_marker_page_names")
+    ]
+    metadata.pop("runeberg_page_names")
+    return metadata
+
+
+def acquire_runeberg_pages(volume_url: str, page_names: list[str], raw_dir: Path,
+                           output: Path, page_map: Path,
+                           printed_first: int | None = None,
+                           printed_last: int | None = None, force: bool = False,
+                           downloader: Callable[[str, Path], object] = atomic_download) -> dict:
+    """Acquire a reviewed ordered Runeberg page list, including nonnumeric names."""
     if output.exists() or page_map.exists():
         raise FileExistsError(f"refusing to overwrite {output} or {page_map}")
     if (printed_first is None) != (printed_last is None):
         raise ValueError("printed page metadata requires both first and last")
     if printed_first is not None and printed_last < printed_first:
         raise ValueError("invalid printed-page range")
-    urls = page_urls(volume_url, first_url_index, last_url_index)
-    paths = [raw_dir / f"{index:04d}.html"
-             for index in range(first_url_index, last_url_index + 1)]
+    urls = named_page_urls(volume_url, page_names)
+    paths = [raw_dir / f"{name}.html" for name in page_names]
     downloaded = 0
     for url, path in zip(urls, paths):
         if downloader is atomic_download:
@@ -245,7 +308,7 @@ def acquire_runeberg(volume_url: str, first_url_index: int, last_url_index: int,
         else:
             downloaded += bool(downloader(url, path) is not False)
 
-    expected_names = [f"{index:04d}.html" for index in range(first_url_index, last_url_index + 1)]
+    expected_names = sorted(f"{name}.html" for name in page_names)
     actual_names = sorted(path.name for path in raw_dir.glob("*.html"))
     if actual_names != expected_names:
         raise ValueError("raw page directory has missing, duplicate, or unexpected HTML pages")
@@ -254,41 +317,69 @@ def acquire_runeberg(volume_url: str, first_url_index: int, last_url_index: int,
 
     chunks: list[str] = []
     records: list[dict] = []
-    fallback_end_marker_pages: list[int] = []
+    fallback_end_marker_pages: list[str] = []
     offset = 0
-    for index, url, path in zip(range(first_url_index, last_url_index + 1), urls, paths):
-        text, end_marker = extract_runeberg_ocr(path.read_text(encoding="utf-8-sig"))
+    for page_name, url, path in zip(page_names, urls, paths):
+        source_html = path.read_text(encoding="utf-8-sig")
+        try:
+            text, derivation_method = extract_runeberg_page(source_html)
+        except ValueError as error:
+            marker_counts = {
+                "mode=normal": source_html.count(RUNEBERG_OCR_START),
+                "NEWIMAGE2": source_html.count(RUNEBERG_OCR_END),
+                "####": source_html.count(RUNEBERG_OCR_FALLBACK_END),
+            }
+            raise ValueError(
+                f"Runeberg page {page_name!r} could not be parsed from {path} "
+                f"(source URL {url}; {len(source_html.encode('utf-8'))} UTF-8 bytes; "
+                f"marker counts {marker_counts}): {error}. Raw pages were preserved; "
+                "inspect this page before changing source boundaries or parser rules"
+            ) from error
         text = text.rstrip("\n")
-        if end_marker == "####":
-            fallback_end_marker_pages.append(index)
+        if derivation_method == "raw_ocr:####":
+            fallback_end_marker_pages.append(page_name)
         # A physical page transition prevents line merging but is not a paragraph.
         separator = "" if not text or offset == 0 else "\n"
         start = offset + len(separator)
         chunks.append(separator + text)
         offset += len(separator) + len(text)
-        records.append({"url_index": index, "url": url, "output_start": start,
+        record = {"url": url, "output_start": start,
                         "output_end": offset, "raw_path": str(path),
                         "raw_sha256": sha256(path), "facsimile_available": True,
-                        "ocr_end_marker": end_marker})
+                        "derivation_method": derivation_method}
+        if derivation_method.startswith("raw_ocr:"):
+            record["ocr_end_marker"] = derivation_method.removeprefix("raw_ocr:")
+        if page_name.isdigit():
+            record["url_index"] = int(page_name)
+        else:
+            record["url_name"] = page_name
+        records.append(record)
     assembled = "".join(chunks) + "\n"
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(assembled, encoding="utf-8", newline="\n")
     page_map.parent.mkdir(parents=True, exist_ok=True)
     page_map.write_text(json.dumps(records, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
+    derivation_methods = sorted({record["derivation_method"] for record in records})
     metadata = {
         "volume_url": volume_url.rstrip("/") + "/",
-        "runeberg_url_index_range": [first_url_index, last_url_index],
         "pages_requested": len(urls), "pages_downloaded": downloaded,
         "pages_nonempty": sum(path.stat().st_size > 0 for path in paths),
-        "ordered_url_indices": list(range(first_url_index, last_url_index + 1)),
+        "runeberg_page_names": page_names,
         "source_urls": urls, "download_paths": [str(path) for path in paths],
         "page_map": str(page_map), "local_path": str(output),
         "assembled_character_count": len(assembled),
         "assembled_word_count": len(assembled.split()), "sha256": sha256(output),
-        "fallback_end_marker_url_indices": fallback_end_marker_pages,
-        "ocr_status": "not proofread / uncorrected OCR", "facsimile_available": True,
+        "fallback_end_marker_page_names": fallback_end_marker_pages,
+        "page_derivation_methods": derivation_methods,
+        "facsimile_available": True,
     }
+    if all(method.startswith("raw_ocr:") for method in derivation_methods):
+        metadata["ocr_status"] = "not proofread / uncorrected OCR"
+    elif derivation_methods == ["proofread_html:first_to_last_hr"]:
+        metadata["text_status"] = "proofread electronic text"
+    else:
+        metadata["text_status"] = "mixed Runeberg page derivations"
     if printed_first is not None:
         metadata["printed_page_range"] = [printed_first, printed_last]
     return metadata
@@ -303,8 +394,12 @@ def main() -> None:
     gutenberg.add_argument("--output", type=Path, required=True)
     runeberg = subparsers.add_parser("runeberg-range")
     runeberg.add_argument("--volume-url", required=True)
-    runeberg.add_argument("--first-url-index", type=int, required=True)
-    runeberg.add_argument("--last-url-index", type=int, required=True)
+    runeberg.add_argument("--first-url-index", type=int)
+    runeberg.add_argument("--last-url-index", type=int)
+    runeberg.add_argument(
+        "--page-name", action="append", dest="page_names",
+        help="Reviewed page basename, repeated in source order; alternative to numeric indices",
+    )
     runeberg.add_argument("--printed-first", type=int)
     runeberg.add_argument("--printed-last", type=int)
     runeberg.add_argument("--raw-dir", type=Path, required=True)
@@ -315,10 +410,21 @@ def main() -> None:
     if args.command == "gutenberg":
         metadata = acquire_gutenberg(args.url, args.raw, args.output)
     else:
-        metadata = acquire_runeberg(args.volume_url, args.first_url_index,
-                                    args.last_url_index, args.raw_dir, args.output,
-                                    args.page_map, args.printed_first,
-                                    args.printed_last, args.force)
+        numeric = args.first_url_index is not None or args.last_url_index is not None
+        if numeric == bool(args.page_names):
+            parser.error("runeberg-range requires either both numeric indices or --page-name")
+        if numeric:
+            if args.first_url_index is None or args.last_url_index is None:
+                parser.error("both --first-url-index and --last-url-index are required")
+            metadata = acquire_runeberg(args.volume_url, args.first_url_index,
+                                        args.last_url_index, args.raw_dir, args.output,
+                                        args.page_map, args.printed_first,
+                                        args.printed_last, args.force)
+        else:
+            metadata = acquire_runeberg_pages(
+                args.volume_url, args.page_names, args.raw_dir, args.output,
+                args.page_map, args.printed_first, args.printed_last, args.force,
+            )
     print(json.dumps(metadata, indent=2, ensure_ascii=False))
 
 
