@@ -741,9 +741,9 @@
   ],
   "page_map": "data\\raw\\undset-kristin-lavransdatter\\kransen\\page-map.json",
   "local_path": "data\\raw\\undset-kristin-lavransdatter\\kransen\\runeberg-kristin-kransen.txt",
-  "assembled_character_count": 523445,
-  "assembled_word_count": 99325,
-  "sha256": "2b4d0587be9b503521233806645fc5de3eadc43b895a96175274f2f4b59cecf4",
+  "assembled_character_count": 535355,
+  "assembled_word_count": 101617,
+  "sha256": "59692c5a9652e0b79b64b4c4a55794a219bbb29494eb05f1c3128509a14ea87d",
   "page_derivation_methods": [
     "raw_ocr:####",
     "raw_ocr:NEWIMAGE2"
@@ -1125,5 +1125,12 @@
   "fallback_end_marker_url_indices": [
     52,
     53
-  ]
+  ],
+  "derivation_repair": {
+    "version": "runeberg-prefix-v1",
+    "reason": "Preserve nonnumeric text before the first OCR <br>; strip digits-only pagination.",
+    "raw_source_pages_unchanged": true,
+    "old_derived_sha256": "2b4d0587be9b503521233806645fc5de3eadc43b895a96175274f2f4b59cecf4",
+    "new_derived_sha256": "59692c5a9652e0b79b64b4c4a55794a219bbb29494eb05f1c3128509a14ea87d"
+  }
 }

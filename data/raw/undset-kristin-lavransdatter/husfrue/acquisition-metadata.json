@@ -1003,9 +1003,9 @@
   ],
   "page_map": "data\\raw\\undset-kristin-lavransdatter\\husfrue\\page-map.json",
   "local_path": "data\\raw\\undset-kristin-lavransdatter\\husfrue\\runeberg-kristin-husfrue.txt",
-  "assembled_character_count": 779301,
-  "assembled_word_count": 149425,
-  "sha256": "7eb13af362428e9ca1baf025c3e0a878b3ad3c628a4eb8232952de32f15c087c",
+  "assembled_character_count": 779391,
+  "assembled_word_count": 149457,
+  "sha256": "e10fe7240cfeb34713e597603dc3be0b6ef24cc1d920ab573de73c9aa6892e37",
   "page_derivation_methods": [
     "raw_ocr:NEWIMAGE2"
   ],
@@ -1514,5 +1514,12 @@
     504,
     505
   ],
-  "fallback_end_marker_url_indices": []
+  "fallback_end_marker_url_indices": [],
+  "derivation_repair": {
+    "version": "runeberg-prefix-v1",
+    "reason": "Preserve nonnumeric text before the first OCR <br>; strip digits-only pagination.",
+    "raw_source_pages_unchanged": true,
+    "old_derived_sha256": "7eb13af362428e9ca1baf025c3e0a878b3ad3c628a4eb8232952de32f15c087c",
+    "new_derived_sha256": "e10fe7240cfeb34713e597603dc3be0b6ef24cc1d920ab573de73c9aa6892e37"
+  }
 }
