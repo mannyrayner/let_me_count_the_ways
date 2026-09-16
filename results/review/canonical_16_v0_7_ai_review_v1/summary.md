@@ -16,10 +16,11 @@
 | `ibsen-et-dukkehjem` | 3 | 3 | 0 | 0 |
 | `lafayette-la-princesse-de-cleves` | 8 | 8 | 0 | 0 |
 | `lawrence-women-in-love` | 11 | 11 | 0 | 0 |
+| `mcmillan-error-of-understanding` | 7 | 7 | 0 | 0 |
 | `rostand-cyrano-de-bergerac` | 19 | 19 | 0 | 0 |
 | `strindberg-froken-julie` | 2 | 2 | 0 | 0 |
 | `wharton-age-of-innocence` | 2 | 2 | 0 | 0 |
-| **Total** | **118** | **117** | **1** | **0** |
+| **Total** | **125** | **124** | **1** | **0** |
 
 ## Exclusions by reason
 
