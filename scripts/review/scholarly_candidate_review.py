@@ -65,6 +65,40 @@ def reviews(root: Path) -> list[dict]:
     return rows
 
 
+def usage_summary(rows: list[dict], model: str, model_alias: str) -> dict:
+    """Summarise only separately metered API calls, not pre-existing reviews."""
+    metered = [row for row in rows if "model_usage" in row and "estimated_cost_usd" in row]
+    return {
+        "model": model,
+        "model_alias": model_alias,
+        "prompt_version": PROMPT_VERSION,
+        "generation_settings": GENERATION_SETTINGS,
+        "review_records_present": len(rows),
+        "records_with_api_usage": len(metered),
+        "records_without_api_usage": len(rows) - len(metered),
+        "usage_scope": "separately metered Responses API calls represented in review records",
+        "input_tokens": sum(row["model_usage"].get("input_tokens", 0) for row in metered),
+        "cached_input_tokens": sum(row["model_usage"].get("cached_input_tokens", 0) for row in metered),
+        "output_tokens": sum(row["model_usage"].get("output_tokens", 0) for row in metered),
+        "estimated_total_cost_usd": sum(row["estimated_cost_usd"] for row in metered),
+    }
+
+
+def updated_manifest(existing: dict, *, candidate_root: Path, candidate_count: int,
+                     review_count: int, model: str, model_alias: str) -> dict:
+    """Update runner-owned fields without discarding scholarly provenance."""
+    manifest = dict(existing)
+    manifest.update({
+        "schema_version": manifest.get("schema_version", SCHEMA_VERSION),
+        "status": "provisional_ai_review_pending_human_review",
+        "candidate_input": str(candidate_root), "candidate_count": candidate_count,
+        "review_count": review_count, "model": model, "model_alias": model_alias,
+        "prompt_version": PROMPT_VERSION, "generation_settings": GENERATION_SETTINGS,
+        "resumption_key": ["occurrence_id", "model", "prompt_version"],
+    })
+    return manifest
+
+
 def candidate_input(row: dict, work: dict | None = None) -> dict:
     return {
         "work_metadata": work or {"work_id": row["work_id"]},
@@ -172,20 +206,13 @@ def run(candidate_root: Path, output_root: Path, prompt_path: Path, schema_path:
         with path.open("a", encoding="utf-8") as stream:
             stream.write(json.dumps(record, ensure_ascii=False) + "\n")
     complete = reviews(output_root)
-    totals = {key: sum(row.get("model_usage", {}).get(key, 0) for row in complete)
-              for key in ("input_tokens", "cached_input_tokens", "output_tokens")}
-    totals["estimated_total_cost_usd"] = sum(row.get("estimated_cost_usd", 0) for row in complete)
-    write_json(output_root / "usage.json", {"model": api_model, "model_alias": model_alias,
-        "prompt_version": PROMPT_VERSION, "generation_settings": GENERATION_SETTINGS,
-        "candidates_reviewed": len(complete), **totals})
-    write_json(output_root / "manifest.json", {
-        "schema_version": SCHEMA_VERSION,
-        "status": "provisional_ai_review_pending_human_review",
-        "candidate_input": str(candidate_root), "candidate_count": len(candidates(candidate_root)),
-        "review_count": len(complete), "model": api_model, "model_alias": model_alias,
-        "prompt_version": PROMPT_VERSION, "generation_settings": GENERATION_SETTINGS,
-        "resumption_key": ["occurrence_id", "model", "prompt_version"],
-    })
+    write_json(output_root / "usage.json", usage_summary(complete, api_model, model_alias))
+    manifest_path = output_root / "manifest.json"
+    existing_manifest = read_json(manifest_path) if manifest_path.exists() else {}
+    manifest = updated_manifest(existing_manifest, candidate_root=candidate_root,
+        candidate_count=len(candidates(candidate_root)), review_count=len(complete),
+        model=api_model, model_alias=model_alias)
+    write_json(manifest_path, manifest)
 
 
 def render(candidate_roots: list[Path], review_roots: list[Path], public_output: Path,

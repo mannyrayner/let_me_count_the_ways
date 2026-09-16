@@ -95,6 +95,14 @@ cat "$PUBLIC_REVIEW/usage.json"
 cat "$PRIVATE_REVIEW/usage.json"
 ```
 
+The committed 118 public reviews were produced in an interactive Codex session,
+not by separately metered Responses API calls. Therefore the public usage file
+normally reports 118 review records, zero records with API usage, zero API
+tokens/cost, and 118 records without API usage. This is expected and does not
+mean that 118 zero-token API calls occurred. The private usage file should
+report seven records with API usage after the private run. Do not replace the
+public zeroes with invented platform-token estimates.
+
 Combine the two usage files when recording the public manifest totals: public
 and private candidate counts, total candidates, input/output tokens, total
 estimated USD cost, model, prompt version, and relevant generation settings.

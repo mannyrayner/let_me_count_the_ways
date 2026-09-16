@@ -3,7 +3,9 @@ from pathlib import Path
 
 import pytest
 
-from scripts.review.scholarly_candidate_review import PROMPT_VERSION, call_model, render, validate
+from scripts.review.scholarly_candidate_review import (
+    PROMPT_VERSION, call_model, render, updated_manifest, usage_summary, validate,
+)
 
 
 def write_jsonl(path: Path, rows: list[dict]) -> None:
@@ -93,3 +95,29 @@ def test_call_model_omits_unsupported_temperature(monkeypatch):
     assert "temperature" not in captured
     assert answer["decision"] == "KEEP"
     assert usage == {"input_tokens": 10, "output_tokens": 5}
+
+
+def test_usage_summary_distinguishes_unmetered_existing_reviews():
+    unmetered = review("one", "public")
+    metered = review("two", "public")
+    metered["model_usage"] = {"input_tokens": 20, "cached_input_tokens": 5,
+                              "output_tokens": 4}
+    metered["estimated_cost_usd"] = 0.001
+    summary = usage_summary([unmetered, metered], "gpt-5.6-sol", "5.6")
+    assert summary["review_records_present"] == 2
+    assert summary["records_with_api_usage"] == 1
+    assert summary["records_without_api_usage"] == 1
+    assert summary["input_tokens"] == 20
+    assert summary["estimated_total_cost_usd"] == 0.001
+
+
+def test_updated_manifest_preserves_existing_provenance():
+    existing = {"schema_version": "1.0", "review_id": "review-v1",
+                "execution_surface": "interactive", "rights_note": "keep private"}
+    result = updated_manifest(existing, candidate_root=Path("candidates"),
+                              candidate_count=118, review_count=118,
+                              model="gpt-5.6-sol", model_alias="5.6")
+    assert result["review_id"] == "review-v1"
+    assert result["execution_surface"] == "interactive"
+    assert result["rights_note"] == "keep private"
+    assert result["review_count"] == 118
