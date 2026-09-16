@@ -290,7 +290,21 @@ def acquire_runeberg_pages(volume_url: str, page_names: list[str], raw_dir: Path
     fallback_end_marker_pages: list[str] = []
     offset = 0
     for page_name, url, path in zip(page_names, urls, paths):
-        text, end_marker = extract_runeberg_ocr(path.read_text(encoding="utf-8-sig"))
+        source_html = path.read_text(encoding="utf-8-sig")
+        try:
+            text, end_marker = extract_runeberg_ocr(source_html)
+        except ValueError as error:
+            marker_counts = {
+                "mode=normal": source_html.count(RUNEBERG_OCR_START),
+                "NEWIMAGE2": source_html.count(RUNEBERG_OCR_END),
+                "####": source_html.count(RUNEBERG_OCR_FALLBACK_END),
+            }
+            raise ValueError(
+                f"Runeberg page {page_name!r} could not be parsed from {path} "
+                f"(source URL {url}; {len(source_html.encode('utf-8'))} UTF-8 bytes; "
+                f"marker counts {marker_counts}): {error}. Raw pages were preserved; "
+                "inspect this page before changing source boundaries or parser rules"
+            ) from error
         text = text.rstrip("\n")
         if end_marker == "####":
             fallback_end_marker_pages.append(page_name)

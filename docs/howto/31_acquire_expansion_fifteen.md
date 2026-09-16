@@ -104,6 +104,37 @@ mv data/raw/lagerlof-gosta-berlings-saga/acquisition-metadata.json{.part,}
 )
 ```
 
+If parsing stops, the exception now names the exact page, source URL, local raw
+path, byte size, and counts of all supported OCR boundary markers. The download
+phase completes before derivation, so keep the preserved raw pages: they will be
+reused without `--force`. Capture a compact diagnostic for the named page in the
+exception (replace `i01` below if another name is reported):
+
+```bash
+PAGE=i01
+RAW="data/raw/lagerlof-gosta-berlings-saga/source-pages/$PAGE.html"
+test -s "$RAW"
+python - "$RAW" <<'PY'
+import re, sys
+from pathlib import Path
+p=Path(sys.argv[1]); s=p.read_text(encoding='utf-8-sig')
+print('path:', p, 'characters:', len(s))
+for marker in ('<!-- mode=normal -->', '<!-- NEWIMAGE2 -->', '<!-- #### -->'):
+    print(repr(marker), s.count(marker))
+print('comments:', re.findall(r'<!--.*?-->', s, flags=re.S)[:20])
+print('title:', re.findall(r'<title[^>]*>(.*?)</title>', s, flags=re.I|re.S)[:1])
+PY
+```
+
+Stop and retain that output for parser review. Do not guess a new boundary,
+strip the page by hand, use a mirror, or delete `source-pages`. After a reviewed
+parser correction, remove only the incomplete metadata/derived targets and
+rerun the Step 3 command; all valid nonempty HTML files will be reused:
+
+```bash
+rm -f data/raw/lagerlof-gosta-berlings-saga/{acquisition-metadata.json.part,runeberg-berling.txt,page-map.json}
+```
+
 ## 4. Runeberg Norwegian trilogy
 
 The three independently reviewed numeric ranges are `0005`–`0370` for

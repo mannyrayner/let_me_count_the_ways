@@ -226,6 +226,24 @@ Gi<br><br>Pause. Victoria ytrer hen for sig:<br><br>Hvordan ser hun ut mon?<br>
         with self.assertRaisesRegex(ValueError, "invalid"):
             named_page_urls("https://example.test/work", ["../k01"])
 
+    def test_runeberg_parse_failure_identifies_preserved_page_and_markers(self):
+        base = "https://runeberg.test/berling"
+        url = named_page_urls(base, ["i01"])[0]
+        raw = self.root / "pages"
+        with self.assertRaisesRegex(
+            ValueError,
+            r"page 'i01'.*pages[/\\]i01\.html.*source URL .*i01\.html.*"
+            r"marker counts \{'mode=normal': 0, 'NEWIMAGE2': 0, '####': 0\}.*"
+            r"Raw pages were preserved",
+        ):
+            acquire_runeberg_pages(
+                base, ["i01"], raw, self.root / "out.txt", self.root / "map.json",
+                downloader=self.downloader({url: "<html><body>proofread text</body></html>"}),
+            )
+        self.assertTrue((raw / "i01.html").is_file())
+        self.assertFalse((self.root / "out.txt").exists())
+        self.assertFalse((self.root / "map.json").exists())
+
     def test_runeberg_rejects_unexpected_or_missing_page(self):
         base = "https://runeberg.test/work/"
         urls = page_urls(base, 1, 2)
