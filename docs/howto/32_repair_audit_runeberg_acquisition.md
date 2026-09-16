@@ -49,9 +49,9 @@ PY
 ## 3. Verify local Gutenberg provenance
 
 ```bash
-rg -n 'LES DEUX POÈTES|UN GRAND HOMME DE PROVINCE A PARIS|ÈVE ET DAVID' \
+grep -En 'LES DEUX POÈTES|UN GRAND HOMME DE PROVINCE A PARIS|ÈVE ET DAVID' \
   data/raw/balzac-illusions-perdues/gutenberg-54723.txt
-rg -n 'Title: Colei che non si deve amare: romanzo|EBOOK COLEI CHE NON SI DEVE AMARE: ROMANZO' \
+grep -En 'Title: Colei che non si deve amare: romanzo|EBOOK COLEI CHE NON SI DEVE AMARE: ROMANZO' \
   data/raw/verona-colei-che-non-si-deve-amare/source-download.txt
 ```
 
