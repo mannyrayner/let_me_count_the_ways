@@ -71,7 +71,7 @@ class AcquisitionTests(unittest.TestCase):
         self.assertNotIn("Previous", extracted)
         self.assertNotIn("Runeberg", extracted)
 
-    def test_runeberg_parser_excludes_scanned_page_link_chrome(self):
+    def test_runeberg_parser_preserves_nonnumeric_prefix(self):
         source = """<html><body><div>Project Runeberg</div>
 <div>Full resolution (JPEG); On this page / på denna sida; Victoria (1898)</div>
 <hr noshade><p>Below is the raw OCR text.</p>
@@ -82,11 +82,11 @@ Gi<br><br>Pause. Victoria ytrer hen for sig:<br><br>Hvordan ser hun ut mon?<br>
 <!-- NEWIMAGE2 --><!-- #### --><div>next page; Project Runeberg</div></body></html>"""
         self.assertEqual(
             runeberg_html_to_text(source),
-            "Pause. Victoria ytrer hen for sig:\n\nHvordan ser hun ut mon?\n\n"
+            "Gi\n\nPause. Victoria ytrer hen for sig:\n\nHvordan ser hun ut mon?\n\n"
             "Å Gud bevare dig, hun er vakrere end noget menneske på jorden.\n",
         )
         extracted = runeberg_html_to_text(source)
-        self.assertNotIn("Gi", extracted)
+        self.assertTrue(extracted.startswith("Gi\n"))
         self.assertIn("Pause. Victoria ytrer hen for sig:", extracted)
         self.assertNotIn("On this page / på denna sida", extracted)
         self.assertNotIn("Project Runeberg", extracted)
@@ -104,9 +104,42 @@ Gi<br><br>Pause. Victoria ytrer hen for sig:<br><br>Hvordan ser hun ut mon?<br>
         )
         self.assertNotIn("92", runeberg_html_to_text(source))
 
-    def test_runeberg_removes_corrupt_page_number(self):
+    def test_runeberg_preserves_nonnumeric_prefix_even_if_short(self):
         source = "<!-- mode=normal -->Gi<br><br>Pause. Victoria ytrer hen for sig:<!-- NEWIMAGE2 -->"
-        self.assertEqual(runeberg_html_to_text(source), "Pause. Victoria ytrer hen for sig:\n")
+        self.assertEqual(runeberg_html_to_text(source), "Gi\n\nPause. Victoria ytrer hen for sig:\n")
+
+    def test_runeberg_preserves_literary_first_line(self):
+        source = ("<!-- mode=normal -->Ved skiftet efter Ivar unge Gjesling paa Sundbu i"
+                  "<br>aaret 1306 kom hans jordegods ...<!-- NEWIMAGE2 -->")
+        self.assertEqual(
+            runeberg_html_to_text(source),
+            "Ved skiftet efter Ivar unge Gjesling paa Sundbu i\n"
+            "aaret 1306 kom hans jordegods ...\n",
+        )
+
+    def test_runeberg_preserves_roman_numeral_heading(self):
+        source = "<!-- mode=normal -->I<br><br>Møllerens søn gik og tænkte.<!-- NEWIMAGE2 -->"
+        self.assertEqual(runeberg_html_to_text(source), "I\n\nMøllerens søn gik og tænkte.\n")
+
+    def test_runeberg_empty_prefix_adds_no_line(self):
+        source = "<!-- mode=normal -->  <br>Første linje.<!-- NEWIMAGE2 -->"
+        self.assertEqual(runeberg_html_to_text(source), "Første linje.\n")
+
+    def test_repaired_kransen_boundaries_from_stored_derivation(self):
+        repository = Path(__file__).resolve().parents[2]
+        text = (repository / "data/raw/undset-kristin-lavransdatter/kransen/"
+                "runeberg-kristin-kransen.txt").read_text(encoding="utf-8")
+        self.assertTrue(text.startswith("I\nJØRUNDGAARD\nVed skiftet efter Ivar unge Gjesling"))
+        self.assertIn(
+            "Ved skiftet efter Ivar unge Gjesling paa Sundbu i\n"
+            "aaret 1306 kom hans jordegods", text,
+        )
+        self.assertIn("ti Ragnfrid var noget sær og tungsindig", text)
+        self.assertIn(
+            "Hun blir saa rusende, hun kan ikke gaa ned til\n"
+            "sæteren,» sa Halvdan og lo, men Lavrans strøk om\n"
+            "hendes runde kinder", text,
+        )
 
     def test_runeberg_preserves_single_and_blank_physical_lines(self):
         source = ("<!-- mode=normal -->92<br><br>Hvordan ser hun ut mon?<br><br>"
@@ -223,7 +256,7 @@ Gi<br><br>Pause. Victoria ytrer hen for sig:<br><br>Hvordan ser hun ut mon?<br>
     def test_runeberg_parser_accepts_short_title_page_and_rejects_forbidden_content(self):
         self.assertEqual(
             runeberg_html_to_text("<!-- mode=normal -->title<br><br>Victoria<!-- NEWIMAGE2 -->"),
-            "Victoria\n",
+            "title\n\nVictoria\n",
         )
         with self.assertRaisesRegex(ValueError, "forbidden navigation"):
             runeberg_html_to_text(
@@ -290,8 +323,8 @@ Gi<br><br>Pause. Victoria ytrer hen for sig:<br><br>Hvordan ser hun ut mon?<br>
         self.assertEqual(result["fallback_end_marker_page_names"], [])
         self.assertEqual(
             output.read_text(encoding="utf-8"),
-            "Litterär text från i01.\nLitterär text från k01.\n"
-            "Litterär text från k02.\n",
+            "i01\n\nLitterär text från i01.\nk01\n\nLitterär text från k01.\n"
+            "k02\n\nLitterär text från k02.\n",
         )
 
     def test_runeberg_named_pages_reject_duplicates_and_unsafe_names(self):

@@ -56,6 +56,7 @@ in-place because Git history already preserves them.
 | 29 | [Extract the private McMillan text locally](29_extract_private_mcmillan_text.md) | Private context-bearing candidates and a public-safe non-quoting count summary |
 | 30 | [Run the provisional AI scholarly review](30_ai_scholarly_review_canonical_candidates.md) | Resumable public/private AI membership decisions pending human review |
 | 31 | [Acquire the fifteen-work corpus expansion](31_acquire_expansion_fifteen.md) | Fifteen verified source acquisitions, or an exact blocked inventory |
+| 32 | [Repair and audit Runeberg acquisition](32_repair_audit_runeberg_acquisition.md) | Repaired Undset derivations, repository-wide prefix audit, and resolved provenance warnings |
 
 ## Conventions
 

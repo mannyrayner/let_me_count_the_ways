@@ -18,6 +18,6 @@
 | Persuasion | Gutenberg 105 | en | acquired | 464828 | — |
 | Middlemarch | Gutenberg 145 | en | acquired | 1780178 | — |
 | Gösta Berlings saga | Runeberg `/berling/` | sv | acquired | 710905 | — |
-| Kristin Lavransdatter | Runeberg `/kristin/` | no | acquired | 2122653 | Three separately preserved parts; uncorrected OCR |
+| Kristin Lavransdatter | Runeberg `/kristin/` | no | acquired | 2135282 | Three parts; source OCR retained; page-prefix extraction repaired |
 
 Hashes and source-level details are recorded in finalized provenance.
