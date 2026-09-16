@@ -96,6 +96,23 @@ class FinalizeAcquisitionProvenanceTests(unittest.TestCase):
             finalize_batch(batch, "2026-09-08", approve=True)
         self.assertEqual(json.loads(provenance.read_text()), original)
 
+    def test_expansion_batch_resolves_seventeen_sources_for_fifteen_works(self):
+        repository = Path(__file__).resolve().parents[2]
+        batch_path = repository / "data/batches/expansion_15_acquisition_v1.json"
+        batch = json.loads(batch_path.read_text(encoding="utf-8"))
+        self.assertEqual(batch["batch_id"], "expansion_15_acquisition_v1")
+        self.assertEqual(len(batch["sources"]), 17)
+        paths = [repository / member["provenance"] for member in batch["sources"]]
+        self.assertEqual(len(set(paths)), 17)
+        self.assertTrue(all(path.is_file() for path in paths))
+        records = [json.loads(path.read_text(encoding="utf-8")) for path in paths]
+        self.assertEqual(len({record["work_id"] for record in records}), 15)
+        self.assertEqual(sum(record["repository"] == "Project Gutenberg"
+                             for record in records), 13)
+        self.assertEqual(sum(record["repository"] == "Project Runeberg"
+                             for record in records), 4)
+        self.assertTrue(all(record["rights_note"] for record in records))
+
 
 if __name__ == "__main__":
     unittest.main()
