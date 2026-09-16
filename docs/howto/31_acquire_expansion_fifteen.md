@@ -77,39 +77,51 @@ done
 
 ## 3. Runeberg Swedish
 
-Inspect `/berling/`'s table of contents and its first, last, adjacent, and
-several internal facsimile/OCR pages. Record the verified contiguous URL-index
-range below. Never use `/gberlingen/`, which is an English translation.
+The reviewed Swedish electronic edition consists of the introduction page
+`i01.html`, followed by the 36 chapter pages `k01.html` through `k36.html`.
+The first page begins “Äntligen stod prästen i predikstolen.” The last ends with
+the little Ruster beehive exchange and the narrator's comparison between the
+imagination's giant bees and reality's hive. These nonnumeric Runeberg names
+are why the command uses the reviewed named-page form of `runeberg-range`.
+Never use `/gberlingen/`, which is an English translation.
 
 ```bash
-: "${BERLING_FIRST:?set to the reviewed first URL index}"
-: "${BERLING_LAST:?set to the reviewed last URL index}"
+(
+set -euo pipefail
+BERLING_PAGES=(i01)
+for NUMBER in {01..36}; do BERLING_PAGES+=("k$NUMBER"); done
+PAGE_ARGS=()
+for PAGE in "${BERLING_PAGES[@]}"; do PAGE_ARGS+=(--page-name "$PAGE"); done
 mkdir -p data/raw/lagerlof-gosta-berlings-saga
 python scripts/corpus_acquisition/acquire_public_domain_text.py runeberg-range \
   --volume-url 'https://runeberg.org/berling/' \
-  --first-url-index "$BERLING_FIRST" --last-url-index "$BERLING_LAST" \
+  "${PAGE_ARGS[@]}" \
   --raw-dir data/raw/lagerlof-gosta-berlings-saga/source-pages \
   --output data/raw/lagerlof-gosta-berlings-saga/runeberg-berling.txt \
   --page-map data/raw/lagerlof-gosta-berlings-saga/page-map.json \
   > data/raw/lagerlof-gosta-berlings-saga/acquisition-metadata.json.part && \
 mv data/raw/lagerlof-gosta-berlings-saga/acquisition-metadata.json{.part,}
+)
 ```
 
 ## 4. Runeberg Norwegian trilogy
 
-Inspect each subvolume table of contents and boundaries independently. Set all
-six reviewed indices; no range may be guessed and the three parts must remain
-separate acquisition artifacts with their own maps and provenance.
+The three independently reviewed numeric ranges are `0005`–`0370` for
+*Kransen*, `0009`–`0505` for *Husfrue*, and `0007`–`0527` for *Korset*. The
+first pages respectively begin “I / JØRUNDGAARD”, “SYNDENS FRUGT / f / I”, and
+“FRÆNDSØMD”; the isolated `f` and the other defects are source OCR and must not
+be corrected. The last pages respectively end with Kristin and Erlend sitting
+silent together, Simon walking toward the sleeping house with Jon and Ulf, and
+Sira Eiliv leading the man toward the cookhouse across new snow. Keep the parts
+as separate acquisition artifacts with their own maps and provenance.
 
 ```bash
-for NAME in KRANSEN HUSFRUE KORSET; do
-  eval ': "${'"$NAME"'_FIRST:?set reviewed first index}"'
-  eval ': "${'"$NAME"'_LAST:?set reviewed last index}"'
-done
+(
+set -euo pipefail
 for SPEC in \
- "1 kransen $KRANSEN_FIRST $KRANSEN_LAST" \
- "2 husfrue $HUSFRUE_FIRST $HUSFRUE_LAST" \
- "3 korset $KORSET_FIRST $KORSET_LAST"
+ "1 kransen 5 370" \
+ "2 husfrue 9 505" \
+ "3 korset 7 527"
 do
   set -- $SPEC; VOLUME=$1; PART=$2; FIRST=$3; LAST=$4
   ROOT="data/raw/undset-kristin-lavransdatter/$PART"
@@ -121,6 +133,7 @@ do
     --page-map "$ROOT/page-map.json" > "$ROOT/acquisition-metadata.json.part" && \
   mv "$ROOT/acquisition-metadata.json"{.part,}
 done
+)
 ```
 
 ## 5. Provenance, inventory, and validation
