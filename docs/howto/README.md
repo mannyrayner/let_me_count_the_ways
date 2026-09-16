@@ -55,6 +55,7 @@ in-place because Git history already preserves them.
 | 28 | [Extract the broadened canonical corpus](28_extract_broadened_canonical_corpus.md) | Public-safe multilingual candidate inventories and counts for human inspection |
 | 29 | [Extract the private McMillan text locally](29_extract_private_mcmillan_text.md) | Private context-bearing candidates and a public-safe non-quoting count summary |
 | 30 | [Run the provisional AI scholarly review](30_ai_scholarly_review_canonical_candidates.md) | Resumable public/private AI membership decisions pending human review |
+| 31 | [Acquire the fifteen-work corpus expansion](31_acquire_expansion_fifteen.md) | Fifteen verified source acquisitions, or an exact blocked inventory |
 
 ## Conventions
 

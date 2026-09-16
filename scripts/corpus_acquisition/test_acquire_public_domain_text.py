@@ -3,8 +3,9 @@ import unittest
 from pathlib import Path
 
 from scripts.corpus_acquisition.acquire_public_domain_text import (
-    acquire_gutenberg, acquire_runeberg, extract_runeberg_ocr, page_urls, runeberg_html_to_text,
-    sha256, trim_gutenberg,
+    acquire_gutenberg, acquire_runeberg, acquire_runeberg_pages, extract_runeberg_ocr,
+    extract_runeberg_page, extract_runeberg_proofread, named_page_urls, page_urls,
+    runeberg_html_to_text, sha256, trim_gutenberg,
 )
 
 
@@ -19,6 +20,16 @@ def runeberg_page(content):
 <!-- NEWIMAGE2 --><!-- #### -->
 <tt>Project Runeberg Previous Next footer</tt>
 </body></html>"""
+
+
+def runeberg_proofread_page(content):
+    return f"""<!doctype html><html><head><title>I. Prästen (Gösta Berlings saga)</title>
+</head><body><form><table><tr><td>Project Runeberg</td>
+<td>Previous Next</td></tr></table></form>
+<h1>I. Prästen</h1>{content}<br><hr>
+The above contents can be inspected in scanned images: <a href="0005.html">5</a>
+<hr>
+<footer>Project Runeberg navigation and source notes</footer></body></html>"""
 
 
 class AcquisitionTests(unittest.TestCase):
@@ -112,17 +123,24 @@ Gi<br><br>Pause. Victoria ytrer hen for sig:<br><br>Hvordan ser hun ut mon?<br>
                   "og båten kunde de kort-<br>sagt ha trukket på land.<!-- NEWIMAGE2 -->")
         self.assertIn("kort-\nsagt", runeberg_html_to_text(source))
 
-    def test_runeberg_parser_rejects_navigation_only_page(self):
+    def test_runeberg_parser_maps_empty_marker_bounded_page_to_empty_slice(self):
         source = """<html><body><!-- mode=normal -->
 <!-- NEWIMAGE2 --></body></html>"""
-        with self.assertRaisesRegex(ValueError, "empty"):
-            runeberg_html_to_text(source)
+        self.assertEqual(runeberg_html_to_text(source), "")
 
-    def test_runeberg_parser_rejects_empty_or_malformed_pages(self):
-        with self.assertRaisesRegex(ValueError, "empty"):
-            runeberg_html_to_text(runeberg_page(""))
+    def test_runeberg_parser_accepts_empty_page_and_rejects_malformed_page(self):
+        self.assertEqual(runeberg_html_to_text(runeberg_page("")), "")
         with self.assertRaisesRegex(ValueError, "start marker"):
             runeberg_html_to_text("<html><body><p>orphan text</p></body></html>")
+
+    def test_runeberg_parser_maps_short_unbroken_title_field_to_empty_slice(self):
+        source = "<!-- mode=normal -->HUSFRUE<!-- NEWIMAGE2 -->"
+        self.assertEqual(runeberg_html_to_text(source), "")
+
+    def test_runeberg_parser_rejects_substantial_unbroken_ocr(self):
+        source = "<!-- mode=normal -->" + ("substantial OCR text " * 10) + "<!-- NEWIMAGE2 -->"
+        with self.assertRaisesRegex(ValueError, "substantial text but no structural <br>"):
+            runeberg_html_to_text(source)
 
     def test_runeberg_parser_rejects_missing_reversed_and_ambiguous_markers(self):
         with self.assertRaisesRegex(ValueError, "end marker not found"):
@@ -147,6 +165,60 @@ Gi<br><br>Pause. Victoria ytrer hen for sig:<br><br>Hvordan ser hun ut mon?<br>
         text, marker = extract_runeberg_ocr(source)
         self.assertIn("substantial literary OCR", text)
         self.assertEqual(marker, "####")
+
+    def test_runeberg_parser_ignores_status_fallback_before_ocr_start(self):
+        source = (
+            "<!-- #### --><p>This page has been proofread.</p>"
+            "<!-- mode=normal -->48<br><br>Tordis kom nu springende med et skindlaken;"
+            "<br>varsomt lempet hun barnet over paa dette.<!-- #### -->"
+        )
+        text, marker = extract_runeberg_ocr(source)
+        self.assertEqual(
+            text,
+            "Tordis kom nu springende med et skindlaken;\n"
+            "varsomt lempet hun barnet over paa dette.\n",
+        )
+        self.assertEqual(marker, "####")
+
+    def test_runeberg_proofread_parser_uses_structural_rules_and_excludes_chrome(self):
+        source = runeberg_proofread_page(
+            "<p>Äntligen stod prästen i predikstolen.</p>"
+            "<p>Församlingens blickar följde honom genom den långa predikan, "
+            "medan den korrekturlästa berättelsen fortsatte oförändrad.</p>"
+        )
+        extracted = extract_runeberg_proofread(source)
+        self.assertIn("Äntligen stod prästen i predikstolen.", extracted)
+        self.assertNotIn("Project Runeberg", extracted)
+        self.assertNotIn("scanned images", extracted)
+        text, method = extract_runeberg_page(source)
+        self.assertEqual(text, extracted)
+        self.assertEqual(method, "proofread_html:after_form_to_first_hr")
+
+    def test_runeberg_proofread_parser_rejects_unbounded_markerless_html(self):
+        with self.assertRaisesRegex(ValueError, "navigation form boundary"):
+            extract_runeberg_proofread(
+                "<html><body>Project Runeberg<p>Literary-looking text</p></body></html>"
+            )
+
+    def test_runeberg_proofread_acquisition_records_derivation_status(self):
+        base = "https://runeberg.test/berling"
+        url = named_page_urls(base, ["i01"])[0]
+        result = acquire_runeberg_pages(
+            base, ["i01"], self.root / "proofread-pages",
+            self.root / "proofread.txt", self.root / "proofread-map.json",
+            downloader=self.downloader({
+                url: runeberg_proofread_page(
+                    "<p>Äntligen stod prästen i predikstolen och berättelsens "
+                    "korrekturlästa litterära text fortsatte genom hela sidan utan "
+                    "att navigationsfält eller källnotiser följde med.</p>"
+                )
+            }),
+        )
+        self.assertEqual(
+            result["page_derivation_methods"], ["proofread_html:after_form_to_first_hr"]
+        )
+        self.assertEqual(result["text_status"], "proofread electronic text")
+        self.assertNotIn("ocr_status", result)
 
     def test_runeberg_parser_accepts_short_title_page_and_rejects_forbidden_content(self):
         self.assertEqual(
@@ -180,6 +252,8 @@ Gi<br><br>Pause. Victoria ytrer hen for sig:<br><br>Hvordan ser hun ut mon?<br>
         assembled = first_output.read_text(encoding="utf-8")
         self.assertEqual([r["url_index"] for r in records], [401, 402])
         self.assertEqual([r["ocr_end_marker"] for r in records], ["NEWIMAGE2", "NEWIMAGE2"])
+        self.assertEqual([r["derivation_method"] for r in records],
+                         ["raw_ocr:NEWIMAGE2", "raw_ocr:NEWIMAGE2"])
         self.assertEqual(result["fallback_end_marker_url_indices"], [])
         self.assertEqual([assembled[r["output_start"]:r["output_end"]] for r in records],
                          ["Første blå side inneholder nok litterære ord til å passere den "
@@ -197,6 +271,55 @@ Gi<br><br>Pause. Victoria ytrer hen for sig:<br><br>Hvordan ser hun ut mon?<br>
         self.assertEqual(first_map.read_text(encoding="utf-8"),
                          second_map.read_text(encoding="utf-8"))
 
+    def test_runeberg_named_pages_are_ordered_mapped_and_reproducible(self):
+        base = "https://runeberg.test/berling"
+        names = ["i01", "k01", "k02"]
+        urls = named_page_urls(base, names)
+        contents = {
+            url: runeberg_page(f"{name}<br><br>Litterär text från {name}.")
+            for name, url in zip(names, urls)
+        }
+        output, page_map = self.root / "berling.txt", self.root / "berling-map.json"
+        result = acquire_runeberg_pages(
+            base, names, self.root / "pages", output, page_map,
+            downloader=self.downloader(contents),
+        )
+        records = __import__("json").loads(page_map.read_text(encoding="utf-8"))
+        self.assertEqual([record["url_name"] for record in records], names)
+        self.assertEqual(result["runeberg_page_names"], names)
+        self.assertEqual(result["fallback_end_marker_page_names"], [])
+        self.assertEqual(
+            output.read_text(encoding="utf-8"),
+            "Litterär text från i01.\nLitterär text från k01.\n"
+            "Litterär text från k02.\n",
+        )
+
+    def test_runeberg_named_pages_reject_duplicates_and_unsafe_names(self):
+        with self.assertRaisesRegex(ValueError, "duplicates"):
+            named_page_urls("https://example.test/work", ["k01", "k01"])
+        with self.assertRaisesRegex(ValueError, "invalid"):
+            named_page_urls("https://example.test/work", ["../k01"])
+
+    def test_runeberg_parse_failure_identifies_preserved_page_and_markers(self):
+        base = "https://runeberg.test/berling"
+        url = named_page_urls(base, ["i01"])[0]
+        raw = self.root / "pages"
+        with self.assertRaisesRegex(
+            ValueError,
+            r"page 'i01'.*pages[/\\]i01\.html.*source URL .*i01\.html.*"
+            r"marker counts \{'mode=normal': 0, 'NEWIMAGE2': 0, '####': 0\}.*"
+            r"Raw pages were preserved",
+        ):
+            acquire_runeberg_pages(
+                base, ["i01"], raw, self.root / "out.txt", self.root / "map.json",
+                downloader=self.downloader({
+                    url: "<html><body>Project Runeberg proofread text</body></html>"
+                }),
+            )
+        self.assertTrue((raw / "i01.html").is_file())
+        self.assertFalse((self.root / "out.txt").exists())
+        self.assertFalse((self.root / "map.json").exists())
+
     def test_runeberg_rejects_unexpected_or_missing_page(self):
         base = "https://runeberg.test/work/"
         urls = page_urls(base, 1, 2)
@@ -207,6 +330,14 @@ Gi<br><br>Pause. Victoria ytrer hen for sig:<br><br>Hvordan ser hun ut mon?<br>
             acquire_runeberg(base, 1, 2, raw, self.root / "out.txt",
                              self.root / "map.json",
                              downloader=self.downloader({u: runeberg_page(f"<p>{u}</p>") for u in urls}))
+
+    def test_runeberg_rejects_invalid_numeric_range_before_downloading(self):
+        with self.assertRaisesRegex(ValueError, "invalid Runeberg URL-index range"):
+            acquire_runeberg(
+                "https://example.test/work", 2, 1, self.root / "pages",
+                self.root / "out.txt", self.root / "map.json",
+                downloader=self.downloader({}),
+            )
 
     def test_runeberg_refuses_output_overwrite(self):
         output = self.root / "existing.txt"
