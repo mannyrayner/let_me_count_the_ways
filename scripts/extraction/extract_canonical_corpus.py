@@ -115,24 +115,46 @@ def write_jsonl(path: Path, records: list[dict]) -> None:
     path.write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in records), encoding="utf-8")
 
 
-def assert_known_cases(all_public: dict[str, list[dict]]) -> dict[str, bool]:
+def assert_known_cases(all_public: dict[str, list[dict]], included: set[str]) -> dict[str, bool | str]:
     surfaces = {work: [" ".join(r["match"].casefold().split()) for r in records]
                 for work, records in all_public.items()}
-    checks = {
-        "nora_negative_cessation": any("jeg elsker deg ikke mer" in s for s in surfaces.get("ibsen-et-dukkehjem", [])),
-        "rank_perfect_formal": any("jeg har elsket dem" in s for s in surfaces.get("ibsen-et-dukkehjem", [])),
-        "lawrence_surface_formula": any("i love you" in s for s in surfaces.get("lawrence-women-in-love", [])),
+    specifications = {
+        "nora_negative_cessation": ("ibsen-et-dukkehjem", "jeg elsker deg ikke mer"),
+        "rank_perfect_formal": ("ibsen-et-dukkehjem", "jeg har elsket dem"),
+        "lawrence_surface_formula": ("lawrence-women-in-love", "i love you"),
     }
-    missing = [name for name, found in checks.items() if not found]
+    checks = {name: (any(needle in s for s in surfaces.get(work_id, []))
+                     if work_id in included else "not_applicable")
+              for name, (work_id, needle) in specifications.items()}
+    missing = [name for name, found in checks.items() if found is False]
     if missing:
         raise RuntimeError("known-case assertion(s) failed: " + ", ".join(missing))
     return checks
 
 
-def run(pattern_path: Path, output: Path, private_output: Path, radius: int) -> dict:
+def requested_work_ids(path: Path) -> list[str]:
+    """Read ordered work IDs from a canonicalization-style work manifest."""
+    data = read_json(path)
+    works = data.get("works")
+    if not isinstance(works, list):
+        raise ValueError(f"work manifest has no works list: {path}")
+    ids = [item["work_id"] if isinstance(item, dict) else item for item in works]
+    if not all(isinstance(item, str) and item for item in ids) or len(ids) != len(set(ids)):
+        raise ValueError(f"work manifest contains invalid or duplicate work IDs: {path}")
+    return ids
+
+
+def run(pattern_path: Path, output: Path, private_output: Path, radius: int,
+        work_manifest: Path | None = None) -> dict:
     config = read_json(pattern_path)
     version = config["schema_version"]
-    manifests = sorted((ROOT / "corpus/works").glob("*/work.json"))
+    discovered = sorted((ROOT / "corpus/works").glob("*/work.json"))
+    by_id = {read_json(path)["work_id"]: path for path in discovered}
+    requested = requested_work_ids(work_manifest) if work_manifest else sorted(by_id)
+    missing_ids = [work_id for work_id in requested if work_id not in by_id]
+    if missing_ids:
+        raise ValueError("requested work ID(s) absent from canonical corpus: " + ", ".join(missing_ids))
+    manifests = [by_id[work_id] for work_id in requested]
     output.mkdir(parents=True, exist_ok=True)
     public_records, summaries = {}, []
     attempted = 0
@@ -183,12 +205,13 @@ def run(pattern_path: Path, output: Path, private_output: Path, radius: int) -> 
         write_json(output / "works" / work_id / "summary.json", work_summary)
         summaries.append(work_summary)
 
-    known = assert_known_cases(public_records)
+    known = assert_known_cases(public_records, set(requested))
     aggregate = {
         "run_id": output.name, "pattern_version": version, "extraction_tool_version": TOOL_VERSION,
         "canonical_offset_unit": "Unicode code points in the unmodified decoded canonical text",
         "occurrence_identity": "SHA-256 prefix of NUL-joined work_id, canonical_sha256, start, end, matched surface, pattern version",
-        "works_discovered": len(manifests), "works_attempted": attempted,
+        "works_discovered": len(discovered), "works_requested": len(requested),
+        "works_attempted": attempted,
         "works_extracted": sum(w["status"] == "extracted" for w in summaries),
         "works_unavailable": sum(w["status"] == "unavailable" for w in summaries),
         "total_candidates": sum(w["candidate_count"] or 0 for w in summaries),
@@ -197,14 +220,31 @@ def run(pattern_path: Path, output: Path, private_output: Path, radius: int) -> 
     write_json(output / "summary.json", aggregate)
     write_json(output / "manifest.json", {key: aggregate[key] for key in (
         "run_id", "pattern_version", "extraction_tool_version", "canonical_offset_unit",
-        "occurrence_identity", "works_discovered", "works_attempted")})
-    rows = ["# Canonical corpus extraction v0.7", "", f"Total candidates: **{aggregate['total_candidates']}**", "",
-            "| Work | Lang | Candidates | Artifact | Historical max | Form-family counts |",
-            "| --- | --- | ---: | --- | ---: | --- |"]
+        "occurrence_identity", "works_discovered", "works_requested", "works_attempted",
+        "works_extracted", "works_unavailable")})
+    zero = [w["work_id"] for w in summaries if w.get("candidate_count") == 0]
+    by_language = {}
+    for w in summaries:
+        if isinstance(w.get("candidate_count"), int):
+            by_language.setdefault(w["language"], []).append(w["candidate_count"])
+    high = []
+    for language, values in by_language.items():
+        median = sorted(values)[len(values) // 2]
+        threshold = max(10, median * 3)
+        high.extend(w["work_id"] for w in summaries
+                    if w["language"] == language and (w.get("candidate_count") or 0) > threshold)
+    aggregate["diagnostics"] = {"zero_yield_works": zero, "unusually_high_count_works": high}
+    write_json(output / "summary.json", aggregate)
+    rows = [f"# {output.name} extraction", "", f"Total candidates: **{aggregate['total_candidates']}**",
+            f"", f"**Zero-yield works:** {', '.join(zero) or 'none'}",
+            f"", f"**Unusually high-count works:** {', '.join(high) or 'none'}", "",
+            "| Work | Lang | Candidates | Artifact | Historical max | Form-family counts | Pattern counts |",
+            "| --- | --- | ---: | --- | ---: | --- | --- |"]
     for w in summaries:
         families = ", ".join(f"{k}: {v}" for k, v in w.get("counts_by_form_family", {}).items()) or "—"
+        patterns = ", ".join(f"{k}: {v}" for k, v in w.get("counts_by_pattern", {}).items()) or "—"
         old = w.get("historical_candidate_count")
-        rows.append(f"| {w['work_id']} | {w['language']} | {w['candidate_count'] if w['candidate_count'] is not None else 'unavailable'} | {w['candidate_artifact']} | {old if old is not None else '—'} | {families} |")
+        rows.append(f"| {w['work_id']} | {w['language']} | {w['candidate_count'] if w['candidate_count'] is not None else 'unavailable'} | {w['candidate_artifact']} | {old if old is not None else '—'} | {families} | {patterns} |")
     (output / "summary.md").write_text("\n".join(rows) + "\n", encoding="utf-8")
     return aggregate
 
@@ -215,9 +255,14 @@ def main() -> None:
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument("--private-output", type=Path, default=DEFAULT_PRIVATE_OUTPUT)
     parser.add_argument("--context-chars", type=int, default=1000)
+    parser.add_argument("--work-manifest", type=Path,
+                        help="JSON manifest whose works list selects canonical work IDs")
     args = parser.parse_args()
-    result = run(args.patterns.resolve(), args.output.resolve(), args.private_output.resolve(), args.context_chars)
-    print(f"attempted {result['works_attempted']} works; extracted {result['total_candidates']} candidates")
+    result = run(args.patterns.resolve(), args.output.resolve(), args.private_output.resolve(),
+                 args.context_chars, args.work_manifest.resolve() if args.work_manifest else None)
+    print(f"requested {result['works_requested']} of {result['works_discovered']} discovered works; "
+          f"attempted {result['works_attempted']}; extracted {result['works_extracted']} works / "
+          f"{result['total_candidates']} candidates")
 
 
 if __name__ == "__main__":
