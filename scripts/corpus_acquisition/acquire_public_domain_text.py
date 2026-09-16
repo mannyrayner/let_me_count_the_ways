@@ -196,7 +196,7 @@ def runeberg_html_to_text(value: str) -> str:
 
 
 def extract_runeberg_proofread(value: str) -> str:
-    """Extract an older Runeberg proofread page bounded by its header/footer rules."""
+    """Extract an older Runeberg proofread page between navigation and scan links."""
     if RUNEBERG_OCR_START in value:
         raise ValueError("proofread-page extractor received raw OCR markup")
     if "project runeberg" not in value.casefold():
@@ -204,12 +204,18 @@ def extract_runeberg_proofread(value: str) -> str:
     body = re.search(r"(?is)<body\b[^>]*>(.*)</body\s*>", value)
     if body is None:
         raise ValueError("Runeberg proofread page has no complete body element")
-    rules = list(re.finditer(r"(?is)<hr\b[^>]*>", body.group(1)))
+    body_html = body.group(1)
+    navigation_end = re.search(r"(?is)</form\s*>", body_html)
+    if navigation_end is None:
+        raise ValueError("Runeberg proofread page has no navigation form boundary")
+    rules = list(re.finditer(r"(?is)<hr\b[^>]*>", body_html[navigation_end.end():]))
     if len(rules) < 2:
-        raise ValueError("Runeberg proofread page has fewer than two structural rules")
-    # Runeberg's older proofread pages put navigation before the first rule and
-    # source/footer chrome after the last. Internal rules, if any, are literary.
-    fragment = body.group(1)[rules[0].end():rules[-1].start()]
+        raise ValueError("Runeberg proofread page has fewer than two footer rules")
+    # The old proofread template closes its navigation form immediately before
+    # the chapter and places the first rule immediately after the literary text.
+    # Scan links lie between the two footer rules and must not enter the output.
+    literary_end = navigation_end.end() + rules[0].start()
+    fragment = body_html[navigation_end.end():literary_end]
     text = html_to_text(fragment)
     validate_runeberg_ocr_text(text)
     if len(text.strip()) < 100:
@@ -222,7 +228,7 @@ def extract_runeberg_page(value: str) -> tuple[str, str]:
     if RUNEBERG_OCR_START in value:
         text, end_marker = extract_runeberg_ocr(value)
         return text, f"raw_ocr:{end_marker}"
-    return extract_runeberg_proofread(value), "proofread_html:first_to_last_hr"
+    return extract_runeberg_proofread(value), "proofread_html:after_form_to_first_hr"
 
 
 def trim_gutenberg(value: str) -> str:
@@ -376,7 +382,7 @@ def acquire_runeberg_pages(volume_url: str, page_names: list[str], raw_dir: Path
     }
     if all(method.startswith("raw_ocr:") for method in derivation_methods):
         metadata["ocr_status"] = "not proofread / uncorrected OCR"
-    elif derivation_methods == ["proofread_html:first_to_last_hr"]:
+    elif derivation_methods == ["proofread_html:after_form_to_first_hr"]:
         metadata["text_status"] = "proofread electronic text"
     else:
         metadata["text_status"] = "mixed Runeberg page derivations"

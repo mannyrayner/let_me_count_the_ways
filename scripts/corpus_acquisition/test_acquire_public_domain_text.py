@@ -24,8 +24,11 @@ def runeberg_page(content):
 
 def runeberg_proofread_page(content):
     return f"""<!doctype html><html><head><title>I. Prästen (Gösta Berlings saga)</title>
-</head><body><table><tr><td>Project Runeberg</td><td>Previous Next</td></tr></table>
-<hr><h1>I. Prästen</h1>{content}<hr>
+</head><body><form><table><tr><td>Project Runeberg</td>
+<td>Previous Next</td></tr></table></form>
+<h1>I. Prästen</h1>{content}<br><hr>
+The above contents can be inspected in scanned images: <a href="0005.html">5</a>
+<hr>
 <footer>Project Runeberg navigation and source notes</footer></body></html>"""
 
 
@@ -165,12 +168,13 @@ Gi<br><br>Pause. Victoria ytrer hen for sig:<br><br>Hvordan ser hun ut mon?<br>
         extracted = extract_runeberg_proofread(source)
         self.assertIn("Äntligen stod prästen i predikstolen.", extracted)
         self.assertNotIn("Project Runeberg", extracted)
+        self.assertNotIn("scanned images", extracted)
         text, method = extract_runeberg_page(source)
         self.assertEqual(text, extracted)
-        self.assertEqual(method, "proofread_html:first_to_last_hr")
+        self.assertEqual(method, "proofread_html:after_form_to_first_hr")
 
     def test_runeberg_proofread_parser_rejects_unbounded_markerless_html(self):
-        with self.assertRaisesRegex(ValueError, "fewer than two structural rules"):
+        with self.assertRaisesRegex(ValueError, "navigation form boundary"):
             extract_runeberg_proofread(
                 "<html><body>Project Runeberg<p>Literary-looking text</p></body></html>"
             )
@@ -190,7 +194,7 @@ Gi<br><br>Pause. Victoria ytrer hen for sig:<br><br>Hvordan ser hun ut mon?<br>
             }),
         )
         self.assertEqual(
-            result["page_derivation_methods"], ["proofread_html:first_to_last_hr"]
+            result["page_derivation_methods"], ["proofread_html:after_form_to_first_hr"]
         )
         self.assertEqual(result["text_status"], "proofread electronic text")
         self.assertNotIn("ocr_status", result)

@@ -87,12 +87,12 @@ Never use `/gberlingen/`, which is an English translation.
 
 Unlike the Norwegian facsimile OCR pages, this older, proofread electronic
 edition has no `mode=normal`, `NEWIMAGE2`, or `####` comments. Its navigation
-header and source footer are separated from the proofread literary HTML by the
-first and last `<hr>` elements. The shared acquisition command recognizes that
-structure, converts only the bounded literary region to text, rejects Runeberg
-navigation chrome, and records `proofread_html:first_to_last_hr` in every page
-map entry. It does not treat the embedded editorial HTML comments as text or
-apply OCR correction.
+header ends at `</form>`, while the first `<hr>` after that form begins the
+scanned-image links and source footer. The shared acquisition command converts
+only the literary HTML between those two verified boundaries, requires the two
+footer rules, rejects Runeberg navigation chrome, and records
+`proofread_html:after_form_to_first_hr` in every page-map entry. It does not
+treat the embedded editorial HTML comments as text or apply OCR correction.
 
 ```bash
 (
