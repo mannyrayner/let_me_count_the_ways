@@ -63,6 +63,7 @@ in-place because Git history already preserves them.
 | 36 | [Audit recall and extract with v0.9](36_audit_recall_and_extract_v0_9.md) | Cross-linguistic recall audit, bounded exclusive-target patterns, and full-corpus deterministic extraction |
 | 37 | [Finalize and freeze extraction v0.10](37_finalize_extraction_v0_10.md) | Targeted multilingual recall repairs, inspected v0.9 delta, and frozen deterministic candidates |
 | 38 | [Finalize extraction precision and freeze v0.11](38_finalize_extraction_v0_11.md) | German case-sensitive formal address, corrected French metadata, inspected delta, and frozen deterministic candidates |
+| 39 | [Review and calibrate canonical annotation](39_review_and_calibrate_canonical_annotation.md) | Uniform v0.11 membership review, frozen KEEP set, canonical enrichment, and an eight-case v0.3.1 calibration |
 
 ## Conventions
 
