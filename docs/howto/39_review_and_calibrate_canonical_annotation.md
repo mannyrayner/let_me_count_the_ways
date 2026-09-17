@@ -1,0 +1,64 @@
+# Review v0.11 candidates and calibrate canonical annotation
+
+This step treats `results/extraction/canonical_31_v0_11/` and
+`data/development/search_patterns_v0_11.json` as immutable. It reviews every
+public candidate from scratch, freezes only KEEP records, enriches canonical
+offsets, and annotates only the eight explicitly named calibration cases.
+
+```bash
+cd "$LMCW"
+python - <<'PY'
+import json, pathlib
+root=pathlib.Path('results/extraction/canonical_31_v0_11')
+rows=[json.loads(line) for p in root.glob('works/*/candidates.jsonl') for line in p.read_text(encoding='utf-8').splitlines() if line]
+assert len(rows)==227 and len({r['occurrence_id'] for r in rows})==227
+assert json.loads((root/'summary.json').read_text())['total_candidates']==227
+print('valid frozen extraction: 227 unique public candidates')
+PY
+```
+
+Run, validate, render, and freeze the uniform membership review (the first
+command resumes by occurrence/model/prompt and requires `OPENAI_API_KEY`):
+
+```bash
+python scripts/review/scholarly_candidate_review.py run --candidates results/extraction/canonical_31_v0_11 --output results/review/canonical_31_v0_11_ai_review_v1 --model 5.6
+python scripts/review/scholarly_candidate_review.py validate --candidates results/extraction/canonical_31_v0_11 --review results/review/canonical_31_v0_11_ai_review_v1 --expected-total 227
+python scripts/review/scholarly_candidate_review.py render --candidates results/extraction/canonical_31_v0_11 --review results/review/canonical_31_v0_11_ai_review_v1 --output results/review/canonical_31_v0_11_ai_review_v1
+python scripts/review/scholarly_candidate_review.py freeze --candidates results/extraction/canonical_31_v0_11 --review results/review/canonical_31_v0_11_ai_review_v1 --output results/review/canonical_31_v0_11_ai_review_v1/kept_candidates
+```
+
+Create inputs and inspect one English and one Norwegian record:
+
+```bash
+python scripts/annotation/enrich_canonical_candidates.py --reviewed results/review/canonical_31_v0_11_ai_review_v1/kept_candidates/kept_candidates.jsonl --output results/review/canonical_31_v0_11_ai_review_v1/kept_candidates/enriched.jsonl
+python - <<'PY'
+import json
+p='results/review/canonical_31_v0_11_ai_review_v1/kept_candidates/enriched.jsonl'
+rows=[json.loads(x) for x in open(p,encoding='utf-8')]
+for language in ('en','no'): print(next(r for r in rows if r['work_metadata']['language']==language))
+PY
+```
+
+Estimate first, then run only the fixed calibration manifest and render its
+summary (rendering occurs at the end of the run):
+
+```bash
+python scripts/annotation/annotate_canonical_candidates.py --enriched results/review/canonical_31_v0_11_ai_review_v1/kept_candidates/enriched.jsonl --calibration data/annotation/calibration_v1.json --output results/annotation/calibration_v1_v0_3_1 --estimate-only
+python scripts/annotation/annotate_canonical_candidates.py --enriched results/review/canonical_31_v0_11_ai_review_v1/kept_candidates/enriched.jsonl --calibration data/annotation/calibration_v1.json --output results/annotation/calibration_v1_v0_3_1
+cat results/annotation/calibration_v1_v0_3_1/summary.md
+```
+
+Run checks, explicitly stage only intended paths, commit, and check the commit:
+
+```bash
+python -m pytest
+python scripts/docs/validate_runbook_index.py
+git diff --check
+git status --short
+git add scripts/review/scholarly_candidate_review.py scripts/review/test_scholarly_candidate_review.py scripts/annotation/contracts.py scripts/annotation/enrich_canonical_candidates.py scripts/annotation/annotate_canonical_candidates.py scripts/annotation/test_canonical_annotation.py scripts/docs/test_howto_inventory.py data/annotation/calibration_v1.json docs/howto/39_review_and_calibrate_canonical_annotation.md docs/howto/README.md results/review/canonical_31_v0_11_ai_review_v1 results/annotation/calibration_v1_v0_3_1
+git commit -m "Review canonical candidates and calibrate annotation"
+git status --short
+git show --stat --oneline HEAD
+```
+
+Stop here. Do not annotate the full KEEP set until humans inspect all outputs.

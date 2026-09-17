@@ -4,7 +4,8 @@ from pathlib import Path
 import pytest
 
 from scripts.review.scholarly_candidate_review import (
-    PROMPT_VERSION, call_model, render, updated_manifest, usage_summary, validate,
+    PROMPT_VERSION, call_model, candidate_input, freeze_reviewed_candidates,
+    load_work_metadata, render, updated_manifest, usage_summary, validate,
 )
 
 
@@ -121,3 +122,25 @@ def test_updated_manifest_preserves_existing_provenance():
     assert result["execution_surface"] == "interactive"
     assert result["rights_note"] == "keep private"
     assert result["review_count"] == 118
+
+
+def test_full_canonical_work_metadata_is_bounded(tmp_path):
+    path=tmp_path/"works"/"public"; path.mkdir(parents=True)
+    (path/"work.json").write_text(json.dumps({"work_id":"public","title":"T","author":"A",
+        "language":"en","source_type":"gutenberg","canonical_sha256":"secret-extra",
+        "rights":{"public_render_policy":"PUBLIC_DOMAIN_FULL_CONTEXT_OK","analysis_allowed":True}}))
+    metadata=load_work_metadata(tmp_path,"public")
+    assert metadata == {"work_id":"public","title":"T","author":"A","language":"en",
+        "source_type":"gutenberg","rights":{"public_render_policy":"PUBLIC_DOMAIN_FULL_CONTEXT_OK"}}
+    assert candidate_input(candidate("one","public"),metadata)["work_metadata"] == metadata
+
+
+def test_freeze_separates_keep_and_uncertain(tmp_path):
+    source, output, frozen=tmp_path/"source",tmp_path/"review",tmp_path/"frozen"
+    write_jsonl(source/"works/public/candidates.jsonl",[candidate("one","public"),candidate("two","public")])
+    write_jsonl(output/"works/public/review.jsonl",[review("one","public"),
+        review("two","public","UNCERTAIN","UNCERTAIN_NEEDS_WIDER_CONTEXT")])
+    manifest=freeze_reviewed_candidates([source],[output],frozen)
+    assert manifest["KEEP"] == manifest["UNCERTAIN"] == 1
+    assert '"one"' in (frozen/"kept_candidates.jsonl").read_text()
+    assert '"two"' not in (frozen/"kept_candidates.jsonl").read_text()

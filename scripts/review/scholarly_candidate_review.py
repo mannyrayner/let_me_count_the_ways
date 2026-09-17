@@ -111,6 +111,20 @@ def candidate_input(row: dict, work: dict | None = None) -> dict:
     }
 
 
+def load_work_metadata(corpus_root: Path, work_id: str) -> dict:
+    """Load the deliberately small, canonical metadata view used by review."""
+    source = read_json(corpus_root / "works" / work_id / "work.json")
+    rights = source.get("rights", {})
+    return {
+        "work_id": work_id,
+        "title": source.get("title"),
+        "author": source.get("author"),
+        "language": source.get("language"),
+        "source_type": source.get("source_type"),
+        "rights": {"public_render_policy": rights.get("public_render_policy")},
+    }
+
+
 def validate_record(row: dict) -> list[str]:
     oid = row.get("occurrence_id", "<missing>")
     required = {"occurrence_id", "work_id", "decision", "reason_code", "confidence",
@@ -176,7 +190,8 @@ def call_model(*, prompt: str, schema: dict, payload_input: dict, model: str, en
 
 
 def run(candidate_root: Path, output_root: Path, prompt_path: Path, schema_path: Path,
-        model_alias: str, catalog_path: Path, endpoint: str) -> None:
+        model_alias: str, catalog_path: Path, endpoint: str,
+        corpus_root: Path = Path("corpus")) -> None:
     api_key = os.environ.get("OPENAI_API_KEY")
     if not api_key:
         raise ValueError("set OPENAI_API_KEY before running review")
@@ -190,7 +205,8 @@ def run(candidate_root: Path, output_root: Path, prompt_path: Path, schema_path:
             if old["review_model"] == api_model and old["review_prompt_version"] == PROMPT_VERSION:
                 continue
             raise ValueError(f"{oid}: earlier review exists with a different model or prompt")
-        answer, usage = call_model(prompt=prompt, schema=schema, payload_input=candidate_input(candidate),
+        metadata = load_work_metadata(corpus_root, candidate["work_id"])
+        answer, usage = call_model(prompt=prompt, schema=schema, payload_input=candidate_input(candidate, metadata),
                                    model=api_model, endpoint=endpoint, api_key=api_key)
         record = {"occurrence_id": oid, "work_id": candidate["work_id"], **answer,
                   "review_model": api_model, "review_prompt_version": PROMPT_VERSION,
@@ -213,6 +229,32 @@ def run(candidate_root: Path, output_root: Path, prompt_path: Path, schema_path:
         candidate_count=len(candidates(candidate_root)), review_count=len(complete),
         model=api_model, model_alias=model_alias)
     write_json(manifest_path, manifest)
+
+
+def freeze_reviewed_candidates(candidate_roots: list[Path], review_roots: list[Path], output: Path) -> dict:
+    """Freeze KEEP references and keep UNCERTAIN records visibly separate."""
+    source, reviewed = validate(candidate_roots, review_roots)
+    source_by_id = {row["occurrence_id"]: row for row in source}
+    selected = {}
+    for decision, filename in (("KEEP", "kept_candidates.jsonl"),
+                               ("UNCERTAIN", "uncertain_candidates.jsonl")):
+        rows = [{"occurrence_id": r["occurrence_id"], "work_id": r["work_id"],
+                 "candidate": source_by_id[r["occurrence_id"]],
+                 "review": {k: r[k] for k in ("decision", "confidence", "reason_code")}}
+                for r in reviewed if r["decision"] == decision]
+        rows.sort(key=lambda r: r["occurrence_id"])
+        path = output / filename; path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text("".join(json.dumps(row, ensure_ascii=False) + "\n" for row in rows), encoding="utf-8")
+        selected[decision] = len(rows)
+    manifest = {"schema_version": "1.0", "candidate_count": len(source),
+                "review_count": len(reviewed), "KEEP": selected["KEEP"],
+                "UNCERTAIN": selected["UNCERTAIN"],
+                "policy": "Only KEEP records are downstream defaults; UNCERTAIN is never promoted."}
+    write_json(output / "manifest.json", manifest)
+    (output / "summary.md").write_text(
+        f"# Frozen reviewed candidates\n\nKEEP: **{selected['KEEP']}**  \nUNCERTAIN: **{selected['UNCERTAIN']}**\n",
+        encoding="utf-8")
+    return manifest
 
 
 def render(candidate_roots: list[Path], review_roots: list[Path], public_output: Path,
@@ -265,19 +307,25 @@ def main() -> None:
     run_parser.add_argument("--schema", type=Path, default=Path("prompts/review/scholarly_candidate_review_schema_v1.json"))
     run_parser.add_argument("--model", default="5.6"); run_parser.add_argument("--model-catalog", type=Path, default=Path("config/api_models.json"))
     run_parser.add_argument("--endpoint", default="https://api.openai.com/v1/responses")
+    run_parser.add_argument("--corpus", type=Path, default=Path("corpus"))
     validate_parser = sub.add_parser("validate"); validate_parser.add_argument("--candidates", type=Path, action="append", required=True)
     validate_parser.add_argument("--review", type=Path, action="append", required=True); validate_parser.add_argument("--expected-total", type=int)
     render_parser = sub.add_parser("render"); render_parser.add_argument("--candidates", type=Path, action="append", required=True)
     render_parser.add_argument("--review", type=Path, action="append", required=True); render_parser.add_argument("--output", type=Path, required=True)
     render_parser.add_argument("--include-private-in-sheet", action="store_true",
                                help="only for a Git-ignored private output tree")
+    freeze_parser = sub.add_parser("freeze")
+    freeze_parser.add_argument("--candidates", type=Path, action="append", required=True)
+    freeze_parser.add_argument("--review", type=Path, action="append", required=True)
+    freeze_parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
-    if args.command == "run": run(args.candidates, args.output, args.prompt, args.schema, args.model, args.model_catalog, args.endpoint)
+    if args.command == "run": run(args.candidates, args.output, args.prompt, args.schema, args.model, args.model_catalog, args.endpoint, args.corpus)
     elif args.command == "validate":
         source, reviewed = validate(args.candidates, args.review, args.expected_total)
         print(f"valid: {len(reviewed)}/{len(source)} candidates have exactly one provisional AI review")
-    else: render(args.candidates, args.review, args.output,
+    elif args.command == "render": render(args.candidates, args.review, args.output,
                  private_work_id=None if args.include_private_in_sheet else "mcmillan-error-of-understanding")
+    else: freeze_reviewed_candidates(args.candidates, args.review, args.output)
 
 
 if __name__ == "__main__":
