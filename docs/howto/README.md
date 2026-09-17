@@ -61,6 +61,7 @@ in-place because Git history already preserves them.
 | 34 | [Complete special canonical provenance](34_complete_special_canonical_provenance.md) | Complete source and transformation provenance links for the two specially derived canonical works |
 | 35 | [Extract the fifteen-work expansion](35_extract_expansion_fifteen.md) | Deterministic Danish/Italian-aware candidate inventories and diagnostics for fifteen works |
 | 36 | [Audit recall and extract with v0.9](36_audit_recall_and_extract_v0_9.md) | Cross-linguistic recall audit, bounded exclusive-target patterns, and full-corpus deterministic extraction |
+| 37 | [Finalize and freeze extraction v0.10](37_finalize_extraction_v0_10.md) | Targeted multilingual recall repairs, inspected v0.9 delta, and frozen deterministic candidates |
 
 ## Conventions
 
