@@ -5,9 +5,11 @@ from pathlib import Path
 import pytest
 
 from scripts.annotation.annotate_canonical_candidates import (
+    attempt_directory,
     compatible,
     fingerprint,
     prepare_annotation_input,
+    render_reports,
     request_body,
     selected_rows,
 )
@@ -147,3 +149,44 @@ def test_annotation_fingerprint_controls_resumption(tmp_path):
     assert compatible(directory, validator, key)
     changed = fingerprint("oid", "model", "prompt", "schema", "input-two")
     assert not compatible(directory, validator, changed)
+
+
+def test_report_renderer_reads_unicode_model_output_as_utf8(tmp_path, monkeypatch):
+    key = fingerprint("oid", "model", "prompt", "schema", "input")
+    directory = attempt_directory(tmp_path, key)
+    directory.mkdir(parents=True)
+    result = {
+        "core_classification": {
+            "label_support": {
+                "truth_conditional": 4,
+                "performative": 0,
+                "exclamatory_reflexive": 0,
+                "other": 0,
+            },
+            "confidence": 0.9,
+        },
+        "utterance_status": {"status": "utterance"},
+        "ontology_assessment": {"fit": "natural"},
+        "background_knowledge": {"used": False},
+        "model_explanation": "Love letter 💝",
+    }
+    (directory / "output.json").write_text(
+        json.dumps(result, ensure_ascii=False), encoding="utf-8"
+    )
+    source = {
+        "occurrence": {"occurrence_id": "oid", "work_id": "work"},
+        "work_metadata": {"language": "en"},
+    }
+
+    original_read_text = Path.read_text
+
+    def windows_read_text(path, encoding=None, errors=None):
+        # Simulate a Windows legacy locale, where the UTF-8 bytes for the
+        # non-ASCII model output above cannot be decoded as cp1252.
+        return original_read_text(path, encoding=encoding or "cp1252", errors=errors)
+
+    monkeypatch.setattr(Path, "read_text", windows_read_text)
+
+    summary = render_reports(tmp_path, [source], [key], {"status": "complete"})
+
+    assert summary["cases"][0]["occurrence_id"] == "oid"
