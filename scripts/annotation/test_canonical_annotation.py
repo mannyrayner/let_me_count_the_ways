@@ -1,9 +1,12 @@
 import hashlib
 import json
+import sys
 from pathlib import Path
+from types import SimpleNamespace
 
 import pytest
 
+import scripts.annotation.annotate_canonical_candidates as annotation
 from scripts.annotation.annotate_canonical_candidates import (
     attempt_directory,
     compatible,
@@ -149,6 +152,84 @@ def test_annotation_fingerprint_controls_resumption(tmp_path):
     assert compatible(directory, validator, key)
     changed = fingerprint("oid", "model", "prompt", "schema", "input-two")
     assert not compatible(directory, validator, changed)
+
+
+def test_annotation_timeout_defaults_to_300(monkeypatch, tmp_path):
+    captured = {}
+    monkeypatch.setattr(annotation, "run", lambda args: captured.update(vars(args)))
+    monkeypatch.setattr(sys, "argv", ["annotate", "--enriched", str(tmp_path / "in.jsonl"),
+                                      "--all", "--output", str(tmp_path / "out")])
+
+    annotation.main()
+
+    assert captured["timeout"] == 300
+
+
+def _run_args(tmp_path, enriched, output, timeout):
+    return SimpleNamespace(
+        enriched=enriched, calibration=None, all=True, output=output, model="model",
+        model_catalog=tmp_path / "models.json", endpoint="https://example.test", timeout=timeout,
+        estimate_only=False,
+    )
+
+
+def _stub_annotation_dependencies(monkeypatch):
+    contract = SimpleNamespace(
+        prompt="PROMPT", schema=json.dumps({"type": "object"}),
+        validator=lambda value, oid: None if value.get("occurrence_id") == oid else (_ for _ in ()).throw(ValueError("wrong id")),
+    )
+    monkeypatch.setattr(annotation, "resolve_annotation_contract", lambda *_: contract)
+    monkeypatch.setattr(annotation, "resolve_model", lambda *_: ("model", {}))
+    monkeypatch.setattr(annotation, "calculate_cost", lambda *_: {
+        "input_tokens": 0, "cached_input_tokens": 0, "output_tokens": 0,
+        "estimated_total_cost": 0,
+    })
+    return contract
+
+
+def test_custom_timeout_reaches_injected_caller(tmp_path, monkeypatch):
+    row = enrich(fixture(tmp_path / "corpus"), tmp_path / "corpus")
+    enriched = tmp_path / "enriched.jsonl"
+    enriched.write_text(json.dumps(row) + "\n", encoding="utf-8")
+    _stub_annotation_dependencies(monkeypatch)
+    monkeypatch.setenv("OPENAI_API_KEY", "test-key")
+    received = []
+
+    annotation.run(_run_args(tmp_path, enriched, tmp_path / "output", 600),
+                   caller=lambda body, endpoint, key, timeout: received.append(timeout) or {})
+
+    assert received == [600]
+
+
+def test_changing_timeout_does_not_alter_fingerprint():
+    first = fingerprint("oid", "model", "prompt", "schema", "input")
+    timeout = 1200
+    second = fingerprint("oid", "model", "prompt", "schema", "input")
+
+    assert timeout == 1200
+    assert first == second
+    assert "timeout" not in first
+
+
+def test_compatible_annotation_resumes_under_different_timeout(tmp_path, monkeypatch):
+    row = enrich(fixture(tmp_path / "corpus"), tmp_path / "corpus")
+    enriched = tmp_path / "enriched.jsonl"
+    enriched.write_text(json.dumps(row) + "\n", encoding="utf-8")
+    contract = _stub_annotation_dependencies(monkeypatch)
+    prepared = prepare_annotation_input(row)
+    key = fingerprint("oid", "model", annotation.sha(contract.prompt), annotation.sha(contract.schema),
+                      annotation.sha(json.dumps(prepared, sort_keys=True, ensure_ascii=False, separators=(",", ":"))))
+    directory = attempt_directory(tmp_path / "output", key)
+    directory.mkdir(parents=True)
+    (directory / "provenance.json").write_text(json.dumps(key), encoding="utf-8")
+    (directory / "output.json").write_text(json.dumps({"occurrence_id": "oid"}), encoding="utf-8")
+    calls = []
+
+    summary = annotation.run(_run_args(tmp_path, enriched, tmp_path / "output", 600),
+                             caller=lambda *args: calls.append(args))
+
+    assert calls == []
+    assert summary["resumed"] == 1
 
 
 def test_report_renderer_reads_unicode_model_output_as_utf8(tmp_path, monkeypatch):

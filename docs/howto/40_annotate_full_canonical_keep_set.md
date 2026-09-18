@@ -80,6 +80,13 @@ print('review cases:',len(json.load(open('results/annotation/canonical_31_v0_11_
 PY
 ```
 
+If otherwise-valid annotation calls fail only because of the default
+300-second request timeout, rerun the same enriched input and output directory
+with `--timeout 600`. Compatible successful annotation artifacts resume
+automatically, so only unresolved cases are retried. If exceptional cases still
+time out, `--timeout 1200` may be used after confirming that the failures are
+timeout-only.
+
 ## 11. Run tests
 
 ```bash
