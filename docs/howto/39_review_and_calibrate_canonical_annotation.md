@@ -8,6 +8,7 @@ cases. Public enrichment includes both public-domain works and works whose
 permissions allow public context, such as `PERMISSIONED_CONTEXT_OK`.
 
 ```bash
+set -e
 cd "$LMCW"
 python - <<'PY'
 import json, pathlib
@@ -23,41 +24,58 @@ Run, validate, render, and freeze the uniform membership review (the first
 command resumes by occurrence/model/prompt and requires `OPENAI_API_KEY`):
 
 ```bash
+set -e
 python scripts/review/scholarly_candidate_review.py run --candidates results/extraction/canonical_31_v0_11 --output results/review/canonical_31_v0_11_ai_review_v1 --model 5.6
 python scripts/review/scholarly_candidate_review.py validate --candidates results/extraction/canonical_31_v0_11 --review results/review/canonical_31_v0_11_ai_review_v1 --expected-total 227
 python scripts/review/scholarly_candidate_review.py render --candidates results/extraction/canonical_31_v0_11 --review results/review/canonical_31_v0_11_ai_review_v1 --output results/review/canonical_31_v0_11_ai_review_v1
 python scripts/review/scholarly_candidate_review.py freeze --candidates results/extraction/canonical_31_v0_11 --review results/review/canonical_31_v0_11_ai_review_v1 --output results/review/canonical_31_v0_11_ai_review_v1/kept_candidates
 ```
 
-Create inputs and inspect one English and one Norwegian record:
+Before creating v2 inputs, prepare
+`data/annotation/calibration_v2_enrichment.json` as an occurrence-ID-keyed object
+containing the completed translation objects for every non-English calibration
+case. This curated enrichment artifact must not contain a `required` translation
+whose `text` is null. Create inputs and inspect one English and one Norwegian
+record:
 
 ```bash
-python scripts/annotation/enrich_canonical_candidates.py --reviewed results/review/canonical_31_v0_11_ai_review_v1/kept_candidates/kept_candidates.jsonl --output results/review/canonical_31_v0_11_ai_review_v1/kept_candidates/enriched.jsonl
+set -e
+python scripts/annotation/enrich_canonical_candidates.py --reviewed results/review/canonical_31_v0_11_ai_review_v1/kept_candidates/kept_candidates.jsonl --generated data/annotation/calibration_v2_enrichment.json --output results/review/canonical_31_v0_11_ai_review_v1/kept_candidates/enriched_v2.jsonl
 python - <<'PY'
 import json
-p='results/review/canonical_31_v0_11_ai_review_v1/kept_candidates/enriched.jsonl'
+p='results/review/canonical_31_v0_11_ai_review_v1/kept_candidates/enriched_v2.jsonl'
 rows=[json.loads(x) for x in open(p,encoding='utf-8')]
 for language in ('en','no'): print(next(r for r in rows if r['work_metadata']['language']==language))
 PY
 ```
 
+Translations are mandatory for non-English calibration records: annotation
+stops if an enrichment still has `translation.status == "required"` and null
+`translation.text`. Narrative-context summaries are optional calibration aids;
+their absence is represented explicitly as null.
+
 Estimate first, then run only the fixed calibration manifest and render its
-summary (rendering occurs at the end of the run):
+summary (rendering occurs at the end of the run). The old `enriched.jsonl` and
+`results/annotation/calibration_v1_v0_3_1` remain historical pre-full-enrichment
+artifacts; do not overwrite or delete them. The corrected run uses the new v2
+paths:
 
 ```bash
-python scripts/annotation/annotate_canonical_candidates.py --enriched results/review/canonical_31_v0_11_ai_review_v1/kept_candidates/enriched.jsonl --calibration data/annotation/calibration_v1.json --output results/annotation/calibration_v1_v0_3_1 --estimate-only
-python scripts/annotation/annotate_canonical_candidates.py --enriched results/review/canonical_31_v0_11_ai_review_v1/kept_candidates/enriched.jsonl --calibration data/annotation/calibration_v1.json --output results/annotation/calibration_v1_v0_3_1
-cat results/annotation/calibration_v1_v0_3_1/summary.md
+set -e
+python scripts/annotation/annotate_canonical_candidates.py --enriched results/review/canonical_31_v0_11_ai_review_v1/kept_candidates/enriched_v2.jsonl --calibration data/annotation/calibration_v1.json --output results/annotation/calibration_v2_v0_3_1 --estimate-only
+python scripts/annotation/annotate_canonical_candidates.py --enriched results/review/canonical_31_v0_11_ai_review_v1/kept_candidates/enriched_v2.jsonl --calibration data/annotation/calibration_v1.json --output results/annotation/calibration_v2_v0_3_1
+cat results/annotation/calibration_v2_v0_3_1/summary.md
 ```
 
 Run checks, explicitly stage only intended paths, commit, and check the commit:
 
 ```bash
+set -e
 python -m pytest
 python scripts/docs/validate_runbook_index.py
 git diff --check
 git status --short
-git add scripts/review/scholarly_candidate_review.py scripts/review/test_scholarly_candidate_review.py scripts/annotation/contracts.py scripts/annotation/enrich_canonical_candidates.py scripts/annotation/annotate_canonical_candidates.py scripts/annotation/test_canonical_annotation.py scripts/docs/test_howto_inventory.py data/annotation/calibration_v1.json docs/howto/39_review_and_calibrate_canonical_annotation.md docs/howto/README.md results/review/canonical_31_v0_11_ai_review_v1 results/annotation/calibration_v1_v0_3_1
+git add scripts/review/scholarly_candidate_review.py scripts/review/test_scholarly_candidate_review.py scripts/annotation/contracts.py scripts/annotation/enrich_canonical_candidates.py scripts/annotation/annotate_canonical_candidates.py scripts/annotation/test_canonical_annotation.py scripts/docs/test_howto_inventory.py data/annotation/calibration_v1.json data/annotation/calibration_v2_enrichment.json docs/howto/39_review_and_calibrate_canonical_annotation.md docs/howto/README.md results/review/canonical_31_v0_11_ai_review_v1/kept_candidates/enriched_v2.jsonl results/annotation/calibration_v2_v0_3_1
 git commit -m "Review canonical candidates and calibrate annotation"
 git status --short
 git show --stat --oneline HEAD

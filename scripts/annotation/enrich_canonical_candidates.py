@@ -42,10 +42,10 @@ def read_jsonl(path: Path) -> list[dict]:
 def wide_bounds(text: str, start: int, end: int, radius: int = WIDE_RADIUS) -> tuple[int, int]:
     """Return a stable radius window, expanding outward to paragraph boundaries."""
     left, right = max(0, start - radius), min(len(text), end + radius)
-    boundary = text.rfind("\n\n", left, start)
+    boundary = text.rfind("\n\n", 0, left)
     if boundary >= 0:
         left = boundary + 2
-    boundary = text.find("\n\n", end, right)
+    boundary = text.find("\n\n", right)
     if boundary >= 0:
         right = boundary
     return left, right
@@ -93,7 +93,7 @@ def enrich(record: dict, corpus_root: Path, generated: dict | None = None,
             "source_start": start, "source_end": end, "source_length": len(text)},
         "context": {"local": {"context_start": cs, "context_end": ce, "text": occurrence["context"]},
                     "wide": {"context_start": ws, "context_end": we, "text": text[ws:we],
-                             "policy": f"radius_{WIDE_RADIUS}_expanded_inward_to_paragraph_boundaries"}},
+                             "policy": f"radius_{WIDE_RADIUS}_expanded_outward_to_paragraph_boundaries"}},
         "translation": translation, "narrative_context": narrative,
         "background_knowledge": None,
     }
