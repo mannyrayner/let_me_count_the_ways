@@ -31,15 +31,68 @@ python scripts/review/scholarly_candidate_review.py render --candidates results/
 python scripts/review/scholarly_candidate_review.py freeze --candidates results/extraction/canonical_31_v0_11 --review results/review/canonical_31_v0_11_ai_review_v1 --output results/review/canonical_31_v0_11_ai_review_v1/kept_candidates
 ```
 
-Before creating v2 inputs, prepare
-`data/annotation/calibration_v2_enrichment.json` as an occurrence-ID-keyed object
-containing the completed translation objects for every non-English calibration
-case. This curated enrichment artifact must not contain a `required` translation
-whose `text` is null. Create inputs and inspect one English and one Norwegian
-record:
+Before creating v2 inputs, create the enrichment template below. The file is a
+curated, run-specific artifact, so it is intentionally not supplied by the
+repository. The command refuses to overwrite an existing file and limits the
+template to non-English cases in the fixed calibration manifest.
 
 ```bash
 set -e
+python - <<'PY'
+import json
+from pathlib import Path
+from scripts.annotation.enrich_canonical_candidates import enrich, read_jsonl
+
+reviewed = Path('results/review/canonical_31_v0_11_ai_review_v1/kept_candidates/kept_candidates.jsonl')
+manifest = json.loads(Path('data/annotation/calibration_v1.json').read_text(encoding='utf-8'))
+output = Path('data/annotation/calibration_v2_enrichment.json')
+if output.exists():
+    raise SystemExit(f'refusing to overwrite existing enrichment: {output}')
+rows = {row.get('candidate', row.get('occurrence', row))['occurrence_id']: row
+        for row in read_jsonl(reviewed)}
+generated = {}
+for case in manifest['cases']:
+    occurrence_id = case['occurrence_id']
+    if occurrence_id not in rows:
+        raise SystemExit(f'calibration case is not in frozen KEEP set: {occurrence_id}')
+    enriched = enrich(rows[occurrence_id], Path('corpus'))
+    if enriched['work_metadata']['language'] != 'en':
+        generated[occurrence_id] = {'translation': enriched['translation']}
+output.write_text(json.dumps(generated, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+print(f'wrote {len(generated)} translation templates to {output}')
+PY
+```
+
+Edit each translation in `data/annotation/calibration_v2_enrichment.json`: set
+`status` to `provided` and replace the null `text` with an English translation
+of the entire wide context. Preserve `source_occurrence_id`,
+`source_language_text_sha256`, `scope`, and `notice`, which bind the translation
+to its source context. Then validate the curated artifact and create v2 inputs:
+
+```bash
+set -e
+python - <<'PY'
+import json
+from pathlib import Path
+from scripts.annotation.enrich_canonical_candidates import enrich, read_jsonl
+
+p = Path('data/annotation/calibration_v2_enrichment.json')
+generated = json.loads(p.read_text(encoding='utf-8'))
+manifest = json.loads(Path('data/annotation/calibration_v1.json').read_text(encoding='utf-8'))
+reviewed = Path('results/review/canonical_31_v0_11_ai_review_v1/kept_candidates/kept_candidates.jsonl')
+rows = {row.get('candidate', row.get('occurrence', row))['occurrence_id']: row
+        for row in read_jsonl(reviewed)}
+expected = {case['occurrence_id'] for case in manifest['cases']
+            if enrich(rows[case['occurrence_id']], Path('corpus'))['work_metadata']['language'] != 'en'}
+if set(generated) != expected:
+    raise SystemExit(f'enrichment IDs differ: expected {sorted(expected)}, got {sorted(generated)}')
+incomplete = [occurrence_id for occurrence_id, item in generated.items()
+              if item.get('translation', {}).get('status') != 'provided'
+              or not item.get('translation', {}).get('text')]
+if incomplete:
+    raise SystemExit('incomplete translations: ' + ', '.join(incomplete))
+print(f'valid curated enrichment: {len(generated)} completed translations')
+PY
 python scripts/annotation/enrich_canonical_candidates.py --reviewed results/review/canonical_31_v0_11_ai_review_v1/kept_candidates/kept_candidates.jsonl --generated data/annotation/calibration_v2_enrichment.json --output results/review/canonical_31_v0_11_ai_review_v1/kept_candidates/enriched_v2.jsonl
 python - <<'PY'
 import json
