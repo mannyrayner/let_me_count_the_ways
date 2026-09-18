@@ -2,8 +2,10 @@
 
 This step treats `results/extraction/canonical_31_v0_11/` and
 `data/development/search_patterns_v0_11.json` as immutable. It reviews every
-public candidate from scratch, freezes only KEEP records, enriches canonical
-offsets, and annotates only the eight explicitly named calibration cases.
+publicly renderable candidate from scratch, freezes only KEEP records, enriches
+canonical offsets, and annotates only the eight explicitly named calibration
+cases. Public enrichment includes both public-domain works and works whose
+permissions allow public context, such as `PERMISSIONED_CONTEXT_OK`.
 
 ```bash
 cd "$LMCW"

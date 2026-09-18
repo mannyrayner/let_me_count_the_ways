@@ -16,7 +16,11 @@ if str(REPOSITORY_ROOT) not in sys.path:
 
 VERSION = "canonical_annotation_input_v1"
 WIDE_RADIUS = 3000
-PUBLIC_POLICIES = {"PUBLIC_DOMAIN_FULL_CONTEXT_OK", "PUBLIC_FULL_CONTEXT_OK"}
+PUBLIC_POLICIES = {
+    "PUBLIC_DOMAIN_FULL_CONTEXT_OK",
+    "PUBLIC_FULL_CONTEXT_OK",
+    "PERMISSIONED_CONTEXT_OK",
+}
 CHAPTER_PATTERN = re.compile(r"(?m)^(CHAPTER|CHAPITRE)\s+([^\n]+?)\s*$", re.IGNORECASE)
 
 def chapter_locations(text: str) -> list[tuple[int, str]]:
