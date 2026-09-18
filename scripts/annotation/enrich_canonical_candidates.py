@@ -40,7 +40,7 @@ def read_jsonl(path: Path) -> list[dict]:
 
 
 def validate_generated_enrichment(generated: dict) -> None:
-    """Reject translation templates that have not yet been curated."""
+    """Reject supplied translations that are incomplete."""
     incomplete = [
         occurrence_id
         for occurrence_id, item in generated.items()
@@ -94,8 +94,24 @@ def enrich(record: dict, corpus_root: Path, generated: dict | None = None,
     if language != "en" and translation is None:
         translation = {"status": "required", "text": None,
                        "source_occurrence_id": occurrence["occurrence_id"],
+                       "source_language": language,
                        "source_language_text_sha256": sha256_text(text[ws:we]),
                        "scope": "wide_context", "notice": "Analytical aid; not source text."}
+    if translation is not None:
+        expected_translation = {
+            "source_occurrence_id": occurrence["occurrence_id"],
+            "source_language": language,
+            "source_language_text_sha256": sha256_text(text[ws:we]),
+            "scope": "wide_context",
+            "notice": "Analytical aid; not source text.",
+        }
+        mismatched = [key for key, expected in expected_translation.items()
+                      if translation.get(key) != expected]
+        if mismatched:
+            raise ValueError(
+                f"{occurrence['occurrence_id']}: incompatible translation provenance: "
+                + ", ".join(mismatched)
+            )
     narrative = supplied.get("narrative_context")
     locations = chapter_locations(text)
     metadata = {k: work.get(k) for k in ("work_id", "title", "author", "language", "source_type")}
