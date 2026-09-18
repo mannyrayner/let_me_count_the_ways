@@ -66,6 +66,7 @@ in-place because Git history already preserves them.
 | 39 | [Review and calibrate canonical annotation](39_review_and_calibrate_canonical_annotation.md) | Uniform v0.11 membership review, frozen KEEP set, canonical enrichment, and an eight-case v0.3.1 calibration |
 | 40 | [Annotate the full canonical KEEP set](40_annotate_full_canonical_keep_set.md) | Resumable translations, enrichment, and T/P/E/O annotations for all 225 public KEEP candidates |
 | 41 | [Prepare full annotation inputs locally](41_prepare_full_annotation_inputs.md) | Validated full enrichment and a bounded annotation estimate, with no annotation API calls |
+| 42 | [Run the full canonical annotation locally](42_run_full_canonical_annotation_locally.md) | Complete resumable 225-case annotations, empty failures, and priority-review inventory |
 
 ## Conventions
 
