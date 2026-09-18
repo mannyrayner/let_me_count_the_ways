@@ -39,6 +39,21 @@ def read_jsonl(path: Path) -> list[dict]:
     return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line]
 
 
+def validate_generated_enrichment(generated: dict) -> None:
+    """Reject translation templates that have not yet been curated."""
+    incomplete = [
+        occurrence_id
+        for occurrence_id, item in generated.items()
+        if "translation" in item
+        and (item["translation"].get("status") != "provided"
+             or not item["translation"].get("text"))
+    ]
+    if incomplete:
+        raise ValueError(
+            "generated enrichment has incomplete translations: " + ", ".join(incomplete)
+        )
+
+
 def wide_bounds(text: str, start: int, end: int, radius: int = WIDE_RADIUS) -> tuple[int, int]:
     """Return a stable radius window, expanding outward to paragraph boundaries."""
     left, right = max(0, start - radius), min(len(text), end + radius)
@@ -108,6 +123,8 @@ def main() -> None:
     parser.add_argument("--private-output", action="store_true")
     args = parser.parse_args()
     generated = json.loads(args.generated.read_text(encoding="utf-8")) if args.generated else {}
+    if args.generated:
+        validate_generated_enrichment(generated)
     rows = [enrich(row, args.corpus, generated, args.private_output) for row in read_jsonl(args.reviewed)]
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text("".join(json.dumps(row, ensure_ascii=False) + "\n" for row in rows), encoding="utf-8")

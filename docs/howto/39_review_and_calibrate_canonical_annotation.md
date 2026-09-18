@@ -63,6 +63,12 @@ print(f'wrote {len(generated)} translation templates to {output}')
 PY
 ```
 
+The `wrote 4 translation templates` message means only that four blank forms
+were created; it is **not** a successful enrichment result. **Stop at this
+point. Do not run the next code block until all four translations have been
+manually completed.** A newly generated template intentionally contains
+`"status": "required"` and `"text": null` for every entry.
+
 Edit each translation in `data/annotation/calibration_v2_enrichment.json`: set
 `status` to `provided` and replace the null `text` with an English translation
 of the entire wide context. Preserve `source_occurrence_id`,
@@ -104,8 +110,11 @@ PY
 
 Translations are mandatory for non-English calibration records: annotation
 stops if an enrichment still has `translation.status == "required"` and null
-`translation.text`. Narrative-context summaries are optional calibration aids;
-their absence is represented explicitly as null.
+`translation.text`. The enrichment CLI also refuses a supplied generated file
+containing an incomplete translation, so disabling the shell's `set -e` cannot
+silently produce an unusable `enriched_v2.jsonl`. Narrative-context summaries
+are optional calibration aids; their absence is represented explicitly as
+null.
 
 Estimate first, then run only the fixed calibration manifest and render its
 summary (rendering occurs at the end of the run). The old `enriched.jsonl` and
