@@ -83,5 +83,31 @@ def test_invalid_structured_translation_is_rejected(tmp_path):
     def caller(*args):
         return {"text": "", "explanation": "not allowed"}, {}
 
-    with pytest.raises(ValueError, match="only the text field"):
-        run(tmp_path, caller)
+    summary = run(tmp_path, caller)
+    assert summary["status"] == "partial"
+    assert summary["failed"] == 1
+    failure = json.loads((tmp_path / "output/failures/italian.json").read_text())
+    assert failure["retry_appropriate"] is True
+
+
+def test_all_reviewed_failure_isolated_and_progress_reported(tmp_path, capsys):
+    reviewed, _ = write_inputs(tmp_path)
+    rows = [json.loads(line) for line in reviewed.read_text().splitlines()]
+    rows.append(fixture(tmp_path / "corpus", "no", occurrence_id="norwegian",
+                        work_id="norwegian-work"))
+    reviewed.write_text("".join(json.dumps(row) + "\n" for row in rows))
+    calls = []
+
+    def caller(*args):
+        calls.append(args[2]["occurrence_id"])
+        if len(calls) == 1:
+            raise RuntimeError("temporary")
+        return {"text": "Translation"}, {"input_tokens": 4, "output_tokens": 2}
+
+    summary = generate(reviewed=reviewed, calibration=None, all_reviewed=True,
+        output=tmp_path / "output", corpus=tmp_path / "corpus", model_alias="5.6",
+        model_catalog=Path("config/api_models.json"), endpoint="mock", api_key="test",
+        caller=caller)
+    assert calls == ["italian", "norwegian"]
+    assert summary["failed"] == 1 and summary["api_calls_this_run"] == 1
+    assert "API call started" in capsys.readouterr().err

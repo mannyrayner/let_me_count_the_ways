@@ -65,9 +65,13 @@ set -e
 python scripts/annotation/enrich_canonical_candidates.py --reviewed results/review/canonical_31_v0_11_ai_review_v1/kept_candidates/kept_candidates.jsonl --generated results/annotation/calibration_v2_translations/generated_enrichment.json --output results/review/canonical_31_v0_11_ai_review_v1/kept_candidates/enriched_v2.jsonl
 python - <<'PY'
 import json
-p='results/review/canonical_31_v0_11_ai_review_v1/kept_candidates/enriched_v2.jsonl'
-rows=[json.loads(x) for x in open(p,encoding='utf-8')]
-for language in ('en','no'): print(next(r for r in rows if r['work_metadata']['language']==language))
+manifest=json.load(open('data/annotation/calibration_v1.json',encoding='utf-8'))
+wanted={case['occurrence_id'] for case in manifest['cases']}
+rows=[json.loads(x) for x in open('results/review/canonical_31_v0_11_ai_review_v1/kept_candidates/enriched_v2.jsonl',encoding='utf-8')]
+non_english=[r for r in rows if r['occurrence']['occurrence_id'] in wanted and r['work_metadata']['language'] != 'en']
+assert len(non_english)==4
+for row in non_english:
+    print(row['occurrence']['occurrence_id'], row['work_metadata']['language'], row['translation'])
 PY
 ```
 
