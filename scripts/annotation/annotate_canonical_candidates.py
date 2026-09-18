@@ -38,7 +38,7 @@ def fingerprint(oid,model,prompt_hash,schema_hash,prepared_hash):
 
 def compatible(directory,validator,key):
     try:
-        provenance=json.loads((directory/'provenance.json').read_text()); result=json.loads((directory/'output.json').read_text())
+        provenance=json.loads((directory/'provenance.json').read_text(encoding='utf-8')); result=json.loads((directory/'output.json').read_text(encoding='utf-8'))
         if any(provenance.get(k)!=v for k,v in key.items()): return False
         validator(result,key['occurrence_id']); return True
     except (OSError,json.JSONDecodeError,ValueError,TypeError,KeyError): return False
@@ -56,7 +56,7 @@ def selected_rows(enriched,calibration,all_records):
         if any(r.get('review',{}).get('decision')!='KEEP' for r in rows): raise ValueError('--all input contains non-KEEP records')
         return rows
     if calibration is None: raise ValueError('choose --calibration or --all')
-    ids=[x['occurrence_id'] for x in json.loads(calibration.read_text())['cases']]
+    ids=[x['occurrence_id'] for x in json.loads(calibration.read_text(encoding='utf-8'))['cases']]
     if not 1<=len(ids)<=12 or len(ids)!=len(set(ids)): raise ValueError('calibration must contain 1-12 unique IDs')
     unknown=set(ids)-set(by_id)
     if unknown: raise ValueError(f'calibration IDs absent from enrichment: {sorted(unknown)}')
@@ -74,7 +74,7 @@ def render_reports(output,rows,keys,stats):
     cases=[]
     for source,key in zip(rows,keys):
         oid=source['occurrence']['occurrence_id']; path=attempt_directory(output,key)/'output.json'
-        if path.exists(): cases.append(result_row(oid,source,json.loads(path.read_text())))
+        if path.exists(): cases.append(result_row(oid,source,json.loads(path.read_text(encoding='utf-8'))))
     distributions={name:dict(Counter(r['scores'].get(key,0) for r in cases)) for name,key in [('T','truth_conditional'),('P','performative'),('E','exclamatory_reflexive'),('O','other')]}
     distributions.update({'ontology_fit':dict(Counter(r['ontology_fit'] for r in cases)),'utterance_status':dict(Counter(r['utterance_status'] for r in cases)),'background_knowledge_used':dict(Counter(str(r['background_knowledge_used']).lower() for r in cases))})
     summary={'annotation_version':'0.3.1',**stats,'distributions':distributions,'cases':cases}; write_json(output/'summary.json',summary)
