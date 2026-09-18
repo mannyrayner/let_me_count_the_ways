@@ -4,7 +4,13 @@ from pathlib import Path
 
 import pytest
 
-from scripts.annotation.annotate_canonical_candidates import prepare_annotation_input, request_body
+from scripts.annotation.annotate_canonical_candidates import (
+    compatible,
+    fingerprint,
+    prepare_annotation_input,
+    request_body,
+    selected_rows,
+)
 from scripts.annotation.enrich_canonical_candidates import (
     enrich,
     validate_generated_enrichment,
@@ -116,3 +122,28 @@ def test_annotation_rejects_incomplete_required_translation(tmp_path):
 def test_annotation_allows_optional_narrative_context_to_be_absent(tmp_path):
     row=enrich(fixture(tmp_path),tmp_path)
     assert prepare_annotation_input(row)["MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY"] is None
+
+
+def test_all_mode_is_explicit_and_selects_every_keep_record(tmp_path):
+    enriched = tmp_path / "enriched.jsonl"
+    rows = [enrich(fixture(tmp_path / "corpus", occurrence_id=f"oid-{i}"),
+                   tmp_path / "corpus") for i in range(2)]
+    enriched.write_text("".join(json.dumps(row) + "\n" for row in rows))
+    assert len(selected_rows(enriched, None, True)) == 2
+    with pytest.raises(ValueError, match="choose"):
+        selected_rows(enriched, None, False)
+
+
+def test_annotation_fingerprint_controls_resumption(tmp_path):
+    directory = tmp_path / "annotation"; directory.mkdir()
+    key = fingerprint("oid", "model", "prompt", "schema", "input-one")
+    (directory / "provenance.json").write_text(json.dumps(key))
+    (directory / "output.json").write_text(json.dumps({"occurrence_id": "oid"}))
+
+    def validator(value, oid):
+        if value.get("occurrence_id") != oid:
+            raise ValueError("wrong id")
+
+    assert compatible(directory, validator, key)
+    changed = fingerprint("oid", "model", "prompt", "schema", "input-two")
+    assert not compatible(directory, validator, changed)
