@@ -27,11 +27,17 @@ def read_jsonl(path: Path) -> list[dict]:
 def prepare_annotation_input(row: dict) -> dict:
     """Expose source and generated layers explicitly to the v0.3.1 contract."""
     occurrence = row["occurrence"]
+    translation = row.get("translation")
+    language = row["work_metadata"]["language"]
+    if language != "en" and translation and translation.get("status") == "required" and translation.get("text") is None:
+        raise ValueError(
+            f"{occurrence['occurrence_id']}: required translation is incomplete"
+        )
     return {
         "occurrence_id": occurrence["occurrence_id"],
         "SOURCE_TEXT": {"exact_match": occurrence["match"],
             "local_text": row["context"]["local"], "wider_canonical_context": row["context"]["wide"]},
-        "TRANSLATION_ANALYTICAL_AID": row.get("translation"),
+        "TRANSLATION_ANALYTICAL_AID": translation,
         "MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY": row.get("narrative_context"),
         "METADATA": {"work": row["work_metadata"], "location": row["canonical_location"],
             "form": {key: occurrence.get(key) for key in ("form_family", "polarity", "tense_aspect", "temporal_modifier", "syntactic_family")},
@@ -94,9 +100,10 @@ def run(args) -> None:
     if not 1 <= len(ids) <= 12 or len(ids) != len(set(ids)): raise ValueError("calibration must contain 1-12 unique IDs")
     unknown = set(ids) - set(all_rows)
     if unknown: raise ValueError(f"calibration IDs absent from enrichment: {sorted(unknown)}")
+    prepared_rows = {oid: prepare_annotation_input(all_rows[oid]) for oid in ids}
     model, pricing = resolve_model(args.model_catalog, args.model, date.today())
     if args.estimate_only:
-        chars = sum(len(json.dumps(prepare_annotation_input(all_rows[x]), ensure_ascii=False)) for x in ids)
+        chars = sum(len(json.dumps(prepared_rows[x], ensure_ascii=False)) for x in ids)
         estimate = calculate_cost({"input_tokens": chars//4, "output_tokens": len(ids)*900}, pricing)
         print(json.dumps({"cases": len(ids), "assumptions": "4 chars/input token; 900 output tokens/case", **estimate}, indent=2)); return
     key = os.environ.get("OPENAI_API_KEY")
@@ -106,7 +113,7 @@ def run(args) -> None:
     for oid in ids:
         directory = args.output / "annotations" / oid; directory.mkdir(parents=True, exist_ok=True)
         if valid_result(directory, contract.validator, oid): continue
-        body = request_body(contract.prompt, schema, prepare_annotation_input(all_rows[oid]), model)
+        body = request_body(contract.prompt, schema, prepared_rows[oid], model)
         (directory / "request.json").write_text(json.dumps(body, indent=2, ensure_ascii=False)+"\n", encoding="utf-8")
         try:
             req = urllib.request.Request(args.endpoint, data=json.dumps(body).encode(), headers={"Authorization":f"Bearer {key}","Content-Type":"application/json"}, method="POST")

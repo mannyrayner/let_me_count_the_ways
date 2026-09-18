@@ -12,8 +12,9 @@ def fixture(tmp_path: Path, language="en", policy="PUBLIC_DOMAIN_FULL_CONTEXT_OK
     text = "Opening paragraph.\n\nBefore I love you after.\n\nClosing paragraph."
     start = text.index("I love you"); end = start + len("I love you")
     work = tmp_path / "works" / "work"; work.mkdir(parents=True)
-    digest = hashlib.sha256(text.encode()).hexdigest()
-    (work / "canonical.txt").write_text(text, encoding="utf-8")
+    canonical_bytes = text.encode("utf-8")
+    digest = hashlib.sha256(canonical_bytes).hexdigest()
+    (work / "canonical.txt").write_bytes(canonical_bytes)
     (work / "work.json").write_text(json.dumps({"work_id":"work","title":"Title","author":"Author",
         "language":language,"source_type":"fixture","canonical_sha256":digest,
         "rights":{"public_render_policy":policy}}), encoding="utf-8")
@@ -29,6 +30,20 @@ def test_enrichment_validates_offsets_preserves_local_and_is_deterministic(tmp_p
     assert first["context"]["local"]["text"] == source["candidate"]["context"]
     assert first["translation"] is None
     assert wide_bounds("abc",1,2)==(0,3)
+
+
+def test_wide_context_expands_nominal_window_outward_across_paragraphs():
+    paragraphs = [character * 120 for character in "abcdefg"]
+    text = "\n\n".join(paragraphs)
+    start = text.index(paragraphs[3]) + 50
+    end = start + 10
+
+    ws, we = wide_bounds(text, start, end, radius=150)
+
+    assert ws <= start - 150
+    assert we >= end + 150
+    assert we - ws > len(paragraphs[3]) * 3
+    assert text[start:end] in text[ws:we]
 
 
 def test_enrichment_translation_placeholder_hash_and_rights(tmp_path):
@@ -61,3 +76,14 @@ def test_annotation_input_and_structured_request_are_layered(tmp_path):
     body=request_body("PROMPT",{"type":"object"},prepared,"model")
     assert body["model"]=="model" and body["text"]["format"]["type"]=="json_schema"
     assert "SOURCE_TEXT" in body["input"]
+
+
+def test_annotation_rejects_incomplete_required_translation(tmp_path):
+    row=enrich(fixture(tmp_path,"it"),tmp_path)
+    with pytest.raises(ValueError,match="required translation is incomplete"):
+        prepare_annotation_input(row)
+
+
+def test_annotation_allows_optional_narrative_context_to_be_absent(tmp_path):
+    row=enrich(fixture(tmp_path),tmp_path)
+    assert prepare_annotation_input(row)["MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY"] is None
