@@ -38,6 +38,12 @@ assert x['status']=='complete' and x['failed']==0
 PY
 ```
 
+If otherwise-valid translation calls fail only because of the default
+300-second request timeout, rerun the same output directory with `--timeout
+600`. Compatible successful artifacts resume automatically, so only unresolved
+translations are retried. The ordinary full run should continue to use the
+default timeout.
+
 ## 6–7. Build and validate all enriched records
 
 ```bash

@@ -90,14 +90,14 @@ def valid_artifact(value: object, key: dict, prompt_hash: str, schema_hash: str)
 
 
 def call_api(prompt: str, schema: dict, payload: dict, model: str,
-             endpoint: str, api_key: str) -> tuple[dict, dict]:
+             endpoint: str, api_key: str, timeout: float) -> tuple[dict, dict]:
     body = {"model": model,
             "input": prompt + "\n\n## Canonical context\n\n" + json.dumps(payload, ensure_ascii=False),
             "text": structured_output_format(schema, "canonical_context_translation")}
     request = urllib.request.Request(endpoint, data=json.dumps(body).encode(), headers={
         "Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}, method="POST")
     try:
-        with urllib.request.urlopen(request, timeout=300) as response:
+        with urllib.request.urlopen(request, timeout=timeout) as response:
             raw = json.loads(response.read().decode())
     except urllib.error.HTTPError as exc:
         raise RuntimeError(f"API error {exc.code}: {exc.read().decode(errors='replace')}") from exc
@@ -129,7 +129,8 @@ def select_rows(reviewed: Path, calibration: Path | None, all_reviewed: bool) ->
 def generate(*, reviewed: Path, calibration: Path | None, output: Path, corpus: Path,
              model_alias: str, model_catalog: Path, endpoint: str,
              estimate_only: bool = False, api_key: str | None = None,
-             caller: Callable = call_api, all_reviewed: bool = False) -> dict:
+             caller: Callable = call_api, all_reviewed: bool = False,
+             timeout: float = 300) -> dict:
     prompt = (ROOT / PROMPT_PATH).read_text(encoding="utf-8")
     schema_text = (ROOT / SCHEMA_PATH).read_text(encoding="utf-8")
     schema = json.loads(schema_text)
@@ -190,7 +191,8 @@ def generate(*, reviewed: Path, calibration: Path | None, output: Path, corpus: 
             try:
                 answer, usage = caller(prompt, schema, {
                     "occurrence_id": oid, "source_language": row["work_metadata"]["language"],
-                    "scope": "wide_context", "text": source_text}, model, endpoint, api_key)
+                    "scope": "wide_context", "text": source_text}, model, endpoint, api_key,
+                    timeout)
                 text = validate_output(answer)
                 cost = calculate_cost(usage, pricing)
                 artifact = {"status": "provided", "text": text,
@@ -205,6 +207,7 @@ def generate(*, reviewed: Path, calibration: Path | None, output: Path, corpus: 
                             "input_tokens", "cached_input_tokens", "output_tokens")},
                             "estimated_cost_usd": cost["estimated_total_cost"], "notice": NOTICE}
                 write_json(path, artifact)
+                (output / "failures" / f"{oid}.json").unlink(missing_ok=True)
                 called += 1
                 was_new = True
                 emit_progress(f"Translations [{index}/{len(pending)}] {oid} : valid, {time.monotonic()-started:.1f}s, USD {cost['estimated_total_cost']:.4f}")
@@ -221,6 +224,7 @@ def generate(*, reviewed: Path, calibration: Path | None, output: Path, corpus: 
                     emit_progress(f"Translation progress: {index}/{len(pending)} processed; {called} valid new, {resumed} resumed, {failed} failed; {len(pending)-index} remaining; USD {totals['estimated_total_cost_usd']:.2f} this run")
                 continue
         generated[oid] = {"translation": artifact}
+        (output / "failures" / f"{oid}.json").unlink(missing_ok=True)
         if was_new:
             for name in ("input_tokens", "cached_input_tokens", "output_tokens"):
                 totals[name] += artifact["model_usage"].get(name, 0)
@@ -250,12 +254,15 @@ def main() -> None:
     parser.add_argument("--model", default="5.6")
     parser.add_argument("--model-catalog", type=Path, default=Path("config/api_models.json"))
     parser.add_argument("--endpoint", default="https://api.openai.com/v1/responses")
+    parser.add_argument("--timeout", type=float, default=300,
+                        help="API request timeout in seconds (default: 300)")
     parser.add_argument("--estimate-only", action="store_true")
     args = parser.parse_args()
     generate(reviewed=args.reviewed, calibration=args.calibration, output=args.output,
              corpus=args.corpus, model_alias=args.model, model_catalog=args.model_catalog,
              endpoint=args.endpoint, estimate_only=args.estimate_only,
-             api_key=os.environ.get("OPENAI_API_KEY"), all_reviewed=args.all_reviewed)
+             api_key=os.environ.get("OPENAI_API_KEY"), all_reviewed=args.all_reviewed,
+             timeout=args.timeout)
 
 
 if __name__ == "__main__":
