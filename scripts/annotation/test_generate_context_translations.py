@@ -19,19 +19,20 @@ def write_inputs(tmp_path: Path) -> tuple[Path, Path]:
     return reviewed, calibration
 
 
-def run(tmp_path: Path, caller):
+def run(tmp_path: Path, caller, *, timeout=300):
     reviewed, calibration = write_inputs(tmp_path)
     return generate(reviewed=reviewed, calibration=calibration,
         output=tmp_path / "output", corpus=tmp_path / "corpus", model_alias="5.6",
         model_catalog=Path("config/api_models.json"), endpoint="mock", api_key="test",
-        caller=caller)
+        caller=caller, timeout=timeout)
 
 
 def test_english_skipped_non_english_generated_validated_and_resumed(tmp_path):
     calls = []
 
-    def caller(prompt, schema, payload, model, endpoint, api_key):
+    def caller(prompt, schema, payload, model, endpoint, api_key, timeout):
         calls.append(payload)
+        assert timeout == 300
         return {"text": "Before, I love you, after."}, {
             "input_tokens": 20, "output_tokens": 10,
             "input_tokens_details": {"cached_tokens": 2}}
@@ -111,3 +112,31 @@ def test_all_reviewed_failure_isolated_and_progress_reported(tmp_path, capsys):
     assert calls == ["italian", "norwegian"]
     assert summary["failed"] == 1 and summary["api_calls_this_run"] == 1
     assert "API call started" in capsys.readouterr().err
+
+
+def test_custom_timeout_retries_failure_clears_stale_state_and_then_resumes(tmp_path):
+    timeouts = []
+
+    def timeout_caller(*args):
+        timeouts.append(args[6])
+        raise TimeoutError("temporary")
+
+    first = run(tmp_path, timeout_caller)
+    failure_path = tmp_path / "output/failures/italian.json"
+    assert first["status"] == "partial" and failure_path.exists()
+
+    def successful_caller(*args):
+        timeouts.append(args[6])
+        return {"text": "Translation"}, {"input_tokens": 1, "output_tokens": 1}
+
+    second = run(tmp_path, successful_caller, timeout=600)
+    assert timeouts == [300, 600]
+    assert second["status"] == "complete"
+    assert second["translations"] == 1 and second["failed"] == 0
+    assert second["unresolved_occurrences"] == []
+    assert not failure_path.exists()
+
+    # Timeout is transport configuration, not part of the semantic resumption key.
+    third = run(tmp_path, successful_caller, timeout=123)
+    assert timeouts == [300, 600]
+    assert third["api_calls_this_run"] == 0 and third["resumed"] == 1
