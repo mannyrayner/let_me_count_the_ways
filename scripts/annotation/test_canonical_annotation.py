@@ -12,17 +12,18 @@ from scripts.annotation.enrich_canonical_candidates import (
 )
 
 
-def fixture(tmp_path: Path, language="en", policy="PUBLIC_DOMAIN_FULL_CONTEXT_OK"):
+def fixture(tmp_path: Path, language="en", policy="PUBLIC_DOMAIN_FULL_CONTEXT_OK",
+            occurrence_id="oid", work_id="work"):
     text = "Opening paragraph.\n\nBefore I love you after.\n\nClosing paragraph."
     start = text.index("I love you"); end = start + len("I love you")
-    work = tmp_path / "works" / "work"; work.mkdir(parents=True)
+    work = tmp_path / "works" / work_id; work.mkdir(parents=True, exist_ok=True)
     canonical_bytes = text.encode("utf-8")
     digest = hashlib.sha256(canonical_bytes).hexdigest()
     (work / "canonical.txt").write_bytes(canonical_bytes)
-    (work / "work.json").write_text(json.dumps({"work_id":"work","title":"Title","author":"Author",
+    (work / "work.json").write_text(json.dumps({"work_id":work_id,"title":"Title","author":"Author",
         "language":language,"source_type":"fixture","canonical_sha256":digest,
         "rights":{"public_render_policy":policy}}), encoding="utf-8")
-    candidate={"occurrence_id":"oid","work_id":"work","canonical_sha256":digest,"start":start,"end":end,
+    candidate={"occurrence_id":occurrence_id,"work_id":work_id,"canonical_sha256":digest,"start":start,"end":end,
         "context_start":start-7,"context_end":end+6,"match":"I love you","context":text[start-7:end+6],
         "pattern_id":"x","pattern_version":"0.11"}
     return {"candidate":candidate,"review":{"decision":"KEEP","confidence":.9,"reason_code":"VALID_EXPLICIT_LOVE_I_YOU"}}
@@ -67,6 +68,17 @@ def test_generated_enrichment_rejects_uncurated_translation_template():
         "status": "provided", "text": "A complete translation."
     }
     validate_generated_enrichment(generated)
+
+
+def test_enrichment_rejects_translation_for_different_source(tmp_path):
+    source = fixture(tmp_path, "it")
+    supplied = {"oid": {"translation": {
+        "status": "provided", "text": "Translation", "source_occurrence_id": "oid",
+        "source_language": "it", "source_language_text_sha256": "0" * 64,
+        "scope": "wide_context", "notice": "Analytical aid; not source text.",
+    }}}
+    with pytest.raises(ValueError, match="incompatible translation provenance"):
+        enrich(source, tmp_path, supplied)
 
 
 def test_enrichment_allows_permissioned_context_but_restricts_private_context(tmp_path):
