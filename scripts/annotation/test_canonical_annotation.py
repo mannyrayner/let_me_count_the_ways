@@ -5,7 +5,11 @@ from pathlib import Path
 import pytest
 
 from scripts.annotation.annotate_canonical_candidates import prepare_annotation_input, request_body
-from scripts.annotation.enrich_canonical_candidates import enrich, wide_bounds
+from scripts.annotation.enrich_canonical_candidates import (
+    enrich,
+    validate_generated_enrichment,
+    wide_bounds,
+)
 
 
 def fixture(tmp_path: Path, language="en", policy="PUBLIC_DOMAIN_FULL_CONTEXT_OK"):
@@ -50,6 +54,19 @@ def test_enrichment_translation_placeholder_hash_and_rights(tmp_path):
     source=fixture(tmp_path,"it"); result=enrich(source,tmp_path)
     assert result["translation"]["status"] == "required"
     assert len(result["translation"]["source_language_text_sha256"]) == 64
+
+
+def test_generated_enrichment_rejects_uncurated_translation_template():
+    generated = {
+        "example-id": {"translation": {"status": "required", "text": None}}
+    }
+    with pytest.raises(ValueError, match="incomplete translations: example-id"):
+        validate_generated_enrichment(generated)
+
+    generated["example-id"]["translation"] = {
+        "status": "provided", "text": "A complete translation."
+    }
+    validate_generated_enrichment(generated)
 
 
 def test_enrichment_allows_permissioned_context_but_restricts_private_context(tmp_path):
