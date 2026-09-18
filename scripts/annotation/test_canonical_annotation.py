@@ -35,6 +35,12 @@ def test_enrichment_translation_placeholder_hash_and_rights(tmp_path):
     source=fixture(tmp_path,"it"); result=enrich(source,tmp_path)
     assert result["translation"]["status"] == "required"
     assert len(result["translation"]["source_language_text_sha256"]) == 64
+
+
+def test_enrichment_allows_permissioned_context_but_restricts_private_context(tmp_path):
+    permissioned=fixture(tmp_path / "permissioned","en","PERMISSIONED_CONTEXT_OK")
+    assert enrich(permissioned,tmp_path / "permissioned")
+
     private=fixture(tmp_path / "private","en","LOCAL_PRIVATE_NO_PUBLIC_CONTEXT")
     with pytest.raises(ValueError,match="rights policy"): enrich(private,tmp_path / "private")
     assert enrich(private,tmp_path / "private",allow_private_output=True)
