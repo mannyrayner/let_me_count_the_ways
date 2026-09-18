@@ -46,9 +46,9 @@ def compatible(directory,validator,key):
 def attempt_directory(output, key):
     return output/'annotations'/key['occurrence_id']/key['fingerprint_sha256']
 
-def call_api(body,endpoint,key):
+def call_api(body,endpoint,key,timeout):
     req=urllib.request.Request(endpoint,data=json.dumps(body).encode(),headers={'Authorization':f'Bearer {key}','Content-Type':'application/json'},method='POST')
-    with urllib.request.urlopen(req,timeout=300) as response: return json.loads(response.read().decode())
+    with urllib.request.urlopen(req,timeout=timeout) as response: return json.loads(response.read().decode())
 
 def selected_rows(enriched,calibration,all_records):
     rows=read_jsonl(enriched); by_id={r['occurrence']['occurrence_id']:r for r in rows}
@@ -108,7 +108,7 @@ def run(args,caller:Callable=call_api):
         else:
             emit_progress(f'Annotations [{index}/{len(rows)}] {oid} : API call started'); started=time.monotonic(); body=request_body(contract.prompt,schema,p,model); write_json(directory/'request.json',body); calls+=1
             try:
-                raw=caller(body,args.endpoint,api_key); write_json(directory/'response.json',raw); raw_text=output_text(raw); (directory/'raw_output.txt').write_text(raw_text,encoding='utf-8'); parsed,method=parse_json_output(raw_text); contract.validator(parsed,oid); write_json(directory/'output.json',parsed); write_json(directory/'provenance.json',keydata)
+                raw=caller(body,args.endpoint,api_key,args.timeout); write_json(directory/'response.json',raw); raw_text=output_text(raw); (directory/'raw_output.txt').write_text(raw_text,encoding='utf-8'); parsed,method=parse_json_output(raw_text); contract.validator(parsed,oid); write_json(directory/'output.json',parsed); write_json(directory/'provenance.json',keydata)
                 cost=calculate_cost(raw.get('usage',{}),pricing); [totals.update({k:cost[k]}) for k in ('input_tokens','cached_input_tokens','output_tokens')]; totals['estimated_total_cost_usd']+=cost['estimated_total_cost']; valid+=1
                 s=parsed['core_classification']['label_support']; vals=[s.get(k,0) for k in ('truth_conditional','performative','exclamatory_reflexive','other')]
                 status={'state':'valid','parse_method':method,'timestamp':datetime.now(timezone.utc).isoformat(),'cost':cost}; emit_progress(f"Annotations [{index}/{len(rows)}] {oid} : valid, T/P/E/O={'/'.join(map(str,vals))}, {time.monotonic()-started:.1f}s, USD {cost['estimated_total_cost']:.4f}")
@@ -119,5 +119,5 @@ def run(args,caller:Callable=call_api):
     stats={'status':'complete' if not failed else 'partial','requested':len(rows),'valid':valid,'failed':failed,'resumed':resumed,'api_calls_this_run':calls,**dict(totals)}; write_json(output/'usage.json',stats); write_json(output/'failures.json',failures); return render_reports(output,rows,keys,stats)
 
 def main():
-    p=argparse.ArgumentParser(description=__doc__); p.add_argument('--enriched',type=Path,required=True); mode=p.add_mutually_exclusive_group(required=True); mode.add_argument('--calibration',type=Path); mode.add_argument('--all',action='store_true'); p.add_argument('--output',type=Path,required=True); p.add_argument('--model',default='5.6'); p.add_argument('--model-catalog',type=Path,default=Path('config/api_models.json')); p.add_argument('--endpoint',default='https://api.openai.com/v1/responses'); p.add_argument('--estimate-only',action='store_true'); run(p.parse_args())
+    p=argparse.ArgumentParser(description=__doc__); p.add_argument('--enriched',type=Path,required=True); mode=p.add_mutually_exclusive_group(required=True); mode.add_argument('--calibration',type=Path); mode.add_argument('--all',action='store_true'); p.add_argument('--output',type=Path,required=True); p.add_argument('--model',default='5.6'); p.add_argument('--model-catalog',type=Path,default=Path('config/api_models.json')); p.add_argument('--endpoint',default='https://api.openai.com/v1/responses'); p.add_argument('--timeout',type=float,default=300); p.add_argument('--estimate-only',action='store_true'); run(p.parse_args())
 if __name__=='__main__': main()
