@@ -1,0 +1,65 @@
+{
+  "occurrence_id": "ibsen-et-dukkehjem-22aa549e55c520e4",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 1,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.97,
+    "analysis": "Nora directly avows the cessation of her loving state: “Jeg elsker deg ikke mer” (“I no longer love you”). This is overwhelmingly truth-conditional. In the confrontation it also has weak force as a withdrawal from the marital relationship, but the sentence itself does not clearly undertake or promise a course of action. Its painful delivery does not make it an expressive/reflex-like discharge.",
+    "ambiguity": "There is slight T/P ambiguity because the avowal helps terminate the relationship, but its core wording describes Nora’s emotional state rather than explicitly enacting a commitment or separation."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "Nora directly addresses Torvald and tells him that she no longer loves him."
+  },
+  "contextual_interpretation": "Nora presents the disclosure as painful but unavoidable. Her acknowledgment that Torvald has been kind to her mitigates the interpersonal blow, while “Men jeg kan ikke gjøre ved det” (“But I cannot help it”) frames the loss of love as a state beyond voluntary control. This supports a considered, reluctant avowal rather than a reflexive emotional outburst.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "“Jeg elsker deg ikke mer” (“I no longer love you”).",
+      "supports": "Strong truth-conditional force: Nora explicitly presents the absence or cessation of love as true.",
+      "confidence": 1.0
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "“Å, det gjør meg så ondt, Torvald” (“Oh, it pains me so, Torvald”).",
+      "supports": "The admission causes Nora pain, but this is contextual affect rather than independent evidence of expressive/reflexive core force.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "“Men jeg kan ikke gjøre ved det” (“But I cannot help it”).",
+      "supports": "Frames the ceased love as an involuntary emotional condition and supports reading the utterance as an avowal of state.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "e4",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The form is identified as negative, present-tense, cessative, with the temporal modifier “no longer.”",
+      "supports": "Confirms that the core proposition concerns the cessation of a previously existing loving state.",
+      "confidence": 1.0
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the direct avowal of a ceased emotional state; weak P captures limited relational-withdrawal pressure. No independent E force or residual O dimension is needed.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": "The negative cessative equivalent is classified by its utterance force, not as a positive declaration of love."
+}

@@ -1,0 +1,58 @@
+{
+  "occurrence_id": "bronte-jane-eyre-a880a1f99d9b190d",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.99,
+    "analysis": "The embedded hypothetical utterance would present as true the proposition that the speaker loved the addressee. It is therefore strongly truth-conditional even though the surrounding sentence explicitly characterises it as a lie the speaker would tell under a counterfactual condition. It neither undertakes a relational commitment nor functions as an affect-driven verbal discharge.",
+    "ambiguity": "The target is not an actual profession of love but the content of a counterfactual, explicitly deceptive utterance; this affects its status and sincerity, not its truth-conditional mode."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "hypothetical",
+    "description": "An unrealised utterance embedded under the counterfactual construction “if I were [deceitful], I should say …”."
+  },
+  "contextual_interpretation": "The speaker invokes a hypothetical false profession of love to defend her honesty, then explicitly declares that she does not love the addressee and strongly dislikes her. Thus the target represents what she would deceptively say, not her actual emotional state. Deception is contextual and does not prevent the hypothetical profession from having truth-conditional assertive force.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "“if I were, I should say I loved you”",
+      "supports": "The conditional and modal framing identify the target as a hypothetical speech event rather than an actual avowal.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "“but I declare I do not love you: I dislike you”",
+      "supports": "The immediate correction establishes that the hypothetical profession would be false and contrasts it with the speaker’s actual avowal.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "“I am not deceitful”",
+      "supports": "The proposed profession is explicitly framed as something the speaker would say if she were deceitful, supporting a deceptive but still truth-presenting hypothetical use.",
+      "confidence": 0.98
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the hypothetical utterance’s presentation of a loving state as true. Its counterfactual status and intended falsity are adequately represented contextually, with no residual core force requiring P, E, or O.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

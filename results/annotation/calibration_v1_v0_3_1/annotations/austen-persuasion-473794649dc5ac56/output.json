@@ -1,0 +1,72 @@
+{
+  "occurrence_id": "austen-persuasion-473794649dc5ac56",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 2,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.96,
+    "analysis": "The sentence is primarily a truth-conditional avowal of exclusive and enduring love. It also participates in a renewed offer of relational commitment, though that performative force is clearer in the surrounding declaration than in the highlighted clause alone. Despite the writer's emotional agitation, the words are presented as a deliberate written avowal, not as a reflex-like expressive discharge.",
+    "ambiguity": "The main uncertainty is the degree of P: the clause supports and helps enact a renewed courtship undertaking, but grammatically and semantically it chiefly asserts past-to-present constancy."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "written",
+    "description": "A written declaration addressed to the beloved as part of a letter offering the writer to the addressee again."
+  },
+  "contextual_interpretation": "The declaration answers the possibility that the writer's love has died and presents his constancy as unbroken despite prior weakness and resentment. Its exclusive perfect construction supports an enduring-state avowal, while its placement beside “I offer myself to you again” gives it a secondary role in renewed courtship commitment. Statements such as “I can hardly write” and “overpowers me” establish intense affect but do not show that the highlighted words themselves are a reflexive discharge.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "“I have loved none but you.”",
+      "supports": "Strong T: the speaker presents exclusive, enduring love as true.",
+      "confidence": 1.0
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "“I offer myself to you again with a heart even more your own”",
+      "supports": "Moderate P: the highlighted avowal occurs within an explicit renewed relational offer.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "“Unjust I may have been, weak and resentful I have been, but never inconstant.”",
+      "supports": "Strong T and constancy: the speaker contrasts acknowledged faults with an asserted continuity of love.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e4",
+      "source": "local_text",
+      "quotation_or_description": "“I can hardly write. I am every instant hearing something which overpowers me.”",
+      "supports": "Shows emotional intensity and difficult circumstances of composition, but not independent expressive/reflexive force in the highlighted clause.",
+      "confidence": 0.97
+    },
+    {
+      "evidence_id": "e5",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is identified as an affirmative, perfect-tense, exclusive-target construction in Chapter XXIII of Jane Austen's Persuasion.",
+      "supports": "Corroborates the clause's retrospective-to-present, exclusive avowal structure and its status as a valid explicit love expression.",
+      "confidence": 1.0
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T/P/E adequately captures the core force: dominant avowal, secondary commitment-related force, and no independently evidenced reflexive discharge. Emotional intensity is handled contextually without requiring O.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}
