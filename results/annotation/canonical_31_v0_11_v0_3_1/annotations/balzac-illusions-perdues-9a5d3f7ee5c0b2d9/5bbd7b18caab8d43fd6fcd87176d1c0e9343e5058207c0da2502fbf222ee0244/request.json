@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"balzac-illusions-perdues-9a5d3f7ee5c0b2d9\", \"SOURCE_TEXT\": {\"exact_match\": \"je vous ai aimée depuis le\\npremier jour\", \"local_text\": {\"context_start\": 212073, \"context_end\": 212171, \"text\": \"—Vous êtes-vous aperçue, chère Ève, que je vous ai aimée depuis le\\npremier jour où je vous ai vue?\"}, \"wider_canonical_context\": {\"context_start\": 208096, \"context_end\": 215303, \"text\": \"—Ève! Ève! répondit David, je voudrais être le frère de Lucien.\\nVous seule pouvez me donner ce titre, qui lui permettrait de tout\\naccepter de moi, qui me donnerait le droit de me dévouer à lui avec\\nle saint amour que vous mettez à vos sacrifices, mais en y portant le\\ndiscernement du calculateur. Ève, cher enfant aimée, faites que Lucien\\nait un trésor où il puisse puiser sans honte? La bourse d'un frère ne\\nsera-t-elle pas comme la sienne? si vous saviez toutes les réflexions\\nque m'a suggérées la position nouvelle de Lucien! S'il veut aller chez\\nmadame de Bargeton, il ne doit plus être mon prote, il ne doit plus\\nloger à l'Houmeau, vous ne devez plus rester ouvrière, votre mère ne\\ndoit plus faire son métier. Si vous consentiez à devenir ma femme,\\ntout s'aplanirait: Lucien pourrait demeurer au second chez moi pendant\\nque je lui bâtirais un appartement au-dessus de l'appentis au fond de\\nla cour, à moins que mon père ne veuille élever un second étage. Nous\\nlui arrangerions ainsi une vie sans soucis, une vie indépendante. Mon\\ndésir de soutenir Lucien me donnera pour faire fortune un courage que\\nje n'aurais pas s'il ne s'agissait que de moi; mais il dépend de vous\\nd'autoriser mon dévouement. Peut-être un jour ira-t-il à Paris, le seul\\nthéâtre où il puisse se produire, et où ses talents seront appréciés\\net rétribués. La vie de Paris est chère, et nous ne serons pas trop\\nde trois pour l'y entretenir. D'ailleurs, à vous comme à votre mère,\\nne faudra-t-il pas un appui? Chère Ève, épousez-moi par amour pour\\nLucien. Plus tard vous m'aimerez peut-être en voyant les efforts que\\nje ferai pour le servir et pour vous rendre heureuse. Nous sommes tous\\ndeux également modestes dans nos goûts, il nous faudra peu de chose; le\\nbonheur de Lucien sera notre grande affaire, et son cœur sera le trésor\\noù nous mettrons fortune, sentiments, sensations, tout!\\n\\n—Les convenances nous séparent, dit Ève émue en voyant combien ce grand\\namour se faisait petit. Vous êtes riche et je suis pauvre. Il faut\\naimer beaucoup pour passer par-dessus une semblable difficulté.\\n\\n—Vous ne m'aimez donc pas assez encore? s'écria David atterré.\\n\\n—Mais votre père s'opposerait peut-être...\\n\\n—Bien, bien, répondit David, s'il n'y a que mon père à consulter, vous\\nserez ma femme. Ève, ma chère Ève! vous venez de me rendre la vie bien\\nfacile à porter en ce moment. J'avais, hélas! le cœur bien lourd de\\nsentiments que je ne pouvais ni ne savais exprimer. Dites-moi seulement\\nque vous m'aimez un peu, je prendrai le courage nécessaire pour vous\\nparler de tout le reste.\\n\\n—En vérité, dit-elle, vous me rendez tout honteuse; mais puisque nous\\nnous confions nos sentiments, je vous dirai que je n'ai jamais de\\nma vie pensé à un autre qu'à vous. J'ai vu en vous un de ces hommes\\nauxquels une femme peut se trouver fière d'appartenir, et je n'osais\\nespérer pour moi, pauvre ouvrière sans avenir, une si grande destinée.\\n\\n—Assez, assez, dit-il en s'asseyant sur la traverse du barrage auprès\\nduquel ils étaient revenus, car ils allaient et venaient comme des fous\\nen parcourant le même espace.\\n\\n—Qu'avez-vous? lui dit-elle en exprimant pour la première fois cette\\ninquiétude si gracieuse que les femmes éprouvent pour un être qui leur\\nappartient.\\n\\n—Rien que de bon, dit-il. En apercevant toute une vie heureuse,\\nl'esprit est comme ébloui, l'âme est accablée. Pourquoi suis-je le plus\\nheureux? dit-il avec une expression de mélancolie. Mais je le sais.\\n\\nÈve regarda David d'un air coquet et douteux qui voulait une\\nexplication.\\n\\n—Chère Ève, je reçois plus que je ne donne. Aussi vous aimerai-je\\ntoujours mieux que vous ne m'aimerez, parce que j'ai plus de raison de\\nvous aimer: vous êtes un ange et je suis un homme.\\n\\n—Je ne suis pas si savante, répondit Ève en souriant. Je vous aime\\nbien...\\n\\n—Autant que vous aimez Lucien? dit-il en l'interrompant.\\n\\n—Assez pour être votre femme, pour me consacrer à vous et tâcher de ne\\nvous donner aucune peine dans la vie, d'abord un peu pénible, que nous\\nmènerons.\\n\\n—Vous êtes-vous aperçue, chère Ève, que je vous ai aimée depuis le\\npremier jour où je vous ai vue?\\n\\n—Quelle est la femme qui ne se sent pas aimée? demanda-t-elle.\\n\\n—Laissez-moi donc dissiper les scrupules que vous cause ma prétendue\\nfortune. Je suis pauvre, ma chère Ève. Oui, mon père a pris plaisir\\nà me ruiner, il a spéculé sur mon travail, il a fait comme beaucoup\\nde prétendus bienfaiteurs avec leurs obligés. Si je deviens riche\\nce sera par vous. Ceci n'est pas une parole de l'amant, mais une\\nréflexion du penseur. Je dois vous faire connaître mes défauts, et ils\\nsont énormes chez un homme obligé de faire sa fortune. Mon caractère,\\nmes habitudes, les occupations qui me plaisent me rendent impropre à\\ntout ce qui est commerce et spéculation, et cependant nous ne pouvons\\ndevenir riches que par l'exercice de quelque industrie. Si je suis\\ncapable de découvrir une mine d'or, je suis singulièrement inhabile à\\nl'exploiter. Mais vous, qui, par amour pour votre frère, êtes descendue\\naux plus petits détails, qui avez le génie de l'économie, la patiente\\nattention du vrai commerçant, vous récolterez la moisson que j'aurai\\nsemée. Notre situation, car depuis long-temps je me suis mis au sein de\\nvotre famille, m'oppresse si fort le cœur que j'ai consumé mes jours\\net mes nuits à chercher une occasion de fortune. Mes connaissances en\\nchimie et l'observation des besoins du commerce m'ont mis sur la voie\\nd'une découverte lucrative. Je ne puis vous en rien dire encore, je\\nprévois trop de lenteurs. Nous souffrirons pendant quelques années\\npeut-être: mais je finirai par trouver les procédés industriels à la\\npiste desquels je suis depuis quelques jours, et qui nous procureront\\nune grande fortune. Je n'ai rien dit à Lucien, car son caractère ardent\\ngâterait tout, il convertirait mes espérances en réalités, il vivrait\\nen grand seigneur et s'endetterait peut-être. Ainsi gardez-moi le\\nsecret. Votre douce et chère compagnie pourra seule me consoler pendant\\nces longues épreuves, comme le désir de vous enrichir vous et Lucien me\\ndonnera de la constance et de la ténacité...\\n\\n—J'avais deviné aussi, lui dit Ève en l'interrompant, que vous étiez un\\nde ces inventeurs auxquels il faut, comme à mon pauvre père, une femme\\nqui prenne soin d'eux.\\n\\n—Vous m'aimez donc! Ah! dites-le-moi sans crainte, à moi qui ai vu dans\\nvotre nom un symbole de mon amour. Ève était la seule femme qu'il y\\neût dans le monde, et ce qui était matériellement vrai pour Adam l'est\\nmoralement pour moi. Mon Dieu! m'aimez-vous?\\n\\n—Oui, dit-elle en allongeant cette simple syllabe par la manière dont\\nelle la prononça comme pour peindre l'étendue de ses sentiments.\\n\\n—Hé! bien, asseyons-nous là, dit-il en conduisant Ève par la main vers\\nune longue poutre qui se trouvait au bas des roues d'une papeterie.\\nLaissez-moi respirer l'air du soir, entendre les cris des ranettes,\\nadmirer les rayons de la lune qui tremblent sur les eaux; laissez-moi\\nm'emparer de cette nature où je crois voir mon bonheur écrit en toute\\nchose, et qui m'apparaît pour la première fois dans sa splendeur,\\néclairée par l'amour, embellie par vous. Ève, chère aimée! voici le\\npremier moment de joie sans mélange que le sort m'ait donné! Je doute\\nque Lucien soit aussi heureux que moi!\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"“Ève! Ève!” David replied, “I wish I were Lucien’s brother. You alone can give me that title, which would allow him to accept everything from me, which would give me the right to devote myself to him with the holy love you bring to your sacrifices, but with the discernment of a calculating mind added to it. Ève, dear beloved child, see to it that Lucien has a treasure from which he may draw without shame. Will not a brother’s purse be as his own? If you knew all the thoughts Lucien’s new position has prompted in me! If he wishes to visit Madame de Bargeton, he must no longer be my foreman, he must no longer live in L’Houmeau, you must no longer remain a working girl, and your mother must no longer ply her trade. If you would consent to become my wife, every difficulty would be smoothed away: Lucien could live on the second floor of my house while I had an apartment built for him above the lean-to at the back of the courtyard, unless my father were willing to add another story. In this way we would arrange for him a life free of cares, an independent life. My desire to support Lucien will give me a courage to make my fortune that I would not have if only I myself were concerned; but it rests with you to authorize my devotion. Perhaps one day he will go to Paris, the only stage on which he can make his appearance, and where his talents will be appreciated and rewarded. Life in Paris is expensive, and the three of us will be none too many to maintain him there. Besides, will not you and your mother need support? Dear Ève, marry me for love of Lucien. Later, perhaps, you will love me when you see the efforts I shall make to serve him and to make you happy. We are both equally modest in our tastes; we shall need little; Lucien’s happiness will be our great concern, and his heart will be the treasure into which we shall put fortune, feelings, sensations—everything!\\n\\n“Propriety separates us,” said Ève, moved to see how this great love made itself humble. “You are rich and I am poor. One must love very much to surmount such a difficulty.”\\n\\n“Then you do not love me enough yet?” cried David, dismayed.\\n\\n“But perhaps your father would object...”\\n\\n“Good, good,” David replied, “if only my father need be consulted, you shall be my wife. Ève, my dear Ève! You have just made life very easy for me to bear at this moment. Alas, my heart was very heavy with feelings that I neither could nor knew how to express. Only tell me that you love me a little, and I shall summon the courage needed to speak to you of all the rest.”\\n\\n“Truly,” she said, “you make me feel thoroughly ashamed; but since we are confiding our feelings to each other, I shall tell you that never in my life have I thought of anyone but you. I saw in you one of those men to whom a woman may feel proud to belong, and I dared not hope for myself, a poor working girl with no future, for so great a destiny.”\\n\\n“Enough, enough,” he said, sitting down on the crossbeam of the weir to which they had returned, for they had been pacing back and forth like mad people over the same stretch.\\n\\n“What is the matter?” she asked him, expressing for the first time that graceful concern women feel for a being who belongs to them.\\n\\n“Nothing but good,” he said. “At the sight of an entire happy life, the mind is as though dazzled, the soul overwhelmed. Why am I the happier of us?” he said with an expression of melancholy. “But I know why.”\\n\\nÈve looked at David with a coquettish and questioning air that demanded an explanation.\\n\\n“Dear Ève, I receive more than I give. Therefore I shall always love you better than you will love me, because I have more reason to love you: you are an angel, and I am a man.”\\n\\n“I am not learned enough to understand that,” Ève replied with a smile. “I do love you...”\\n\\n“As much as you love Lucien?” he said, interrupting her.\\n\\n“Enough to be your wife, to devote myself to you, and to try never to cause you any distress in the life, somewhat difficult at first, that we shall lead.”\\n\\n“Have you noticed, dear Ève, that I have loved you since the first day I saw you?”\\n\\n“What woman does not feel when she is loved?” she asked.\\n\\n“Then let me dispel the scruples caused in you by my supposed fortune. I am poor, my dear Ève. Yes, my father took pleasure in ruining me; he speculated on my labor; he acted as many supposed benefactors do toward those beholden to them. If I become rich, it will be through you. This is not a lover’s declaration, but a thinker’s reflection. I must acquaint you with my faults, and they are enormous in a man obliged to make his fortune. My character, my habits, the occupations that please me make me unfit for anything involving business and speculation, and yet we can become rich only by pursuing some industry. Though I may be capable of discovering a gold mine, I am singularly inept at working it. But you, who, for love of your brother, have stooped to the smallest details, who possess the genius of economy and the patient attentiveness of the true merchant, will reap the harvest I have sown. Our situation—for a long time now I have placed myself within the bosom of your family—so oppresses my heart that I have consumed my days and nights in seeking an opportunity to make our fortune. My knowledge of chemistry and my observation of the needs of commerce have set me on the path of a lucrative discovery. I can tell you nothing about it yet; I foresee too many delays. We may suffer for several years, but I shall ultimately discover the industrial processes whose trail I have been following for the past few days and which will bring us a great fortune. I have said nothing to Lucien, for his ardent nature would spoil everything; he would turn my hopes into realities, live like a great lord, and perhaps fall into debt. So keep my secret for me. Your sweet and dear companionship alone will be able to console me during these long trials, just as the desire to enrich you and Lucien will give me constancy and tenacity...”\\n\\n“I too had guessed,” Ève said, interrupting him, “that you were one of those inventors who, like my poor father, need a woman to take care of them.”\\n\\n“Then you love me! Ah! Tell me so without fear—to me, who have seen in your name a symbol of my love. Eve was the only woman in the world, and what was materially true for Adam is morally true for me. My God! Do you love me?”\\n\\n“Yes,” she said, lengthening that simple syllable by the way she pronounced it, as though to portray the extent of her feelings.\\n\\n“Well, then, let us sit down there,” he said, leading Ève by the hand toward a long beam lying at the foot of the wheels of a paper mill. “Let me breathe the evening air, hear the cries of the tree frogs, admire the moonbeams trembling upon the waters; let me take possession of this natural world, in which I believe I see my happiness written in everything, and which appears to me for the first time in its splendor, illuminated by love, made beautiful by you. Ève, dear beloved! This is the first moment of unmixed joy fate has ever given me! I doubt that Lucien is as happy as I am!”\", \"source_occurrence_id\": \"balzac-illusions-perdues-9a5d3f7ee5c0b2d9\", \"source_language\": \"fr\", \"source_language_text_sha256\": \"40ce794063807a0665f7e1e1db0951aeffa622d238fa17db69ecec7f1961fc4d\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T10:16:24.313105+00:00\", \"model_usage\": {\"input_tokens\": 2167, \"cached_input_tokens\": 0, \"output_tokens\": 1793}, \"estimated_cost_usd\": 0.044528000000000005, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"balzac-illusions-perdues\", \"title\": \"Illusions perdues\", \"author\": \"Honoré de Balzac\", \"language\": \"fr\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.156773, \"source_start\": 212113, \"source_end\": 212152, \"source_length\": 1352994}, \"form\": {\"form_family\": \"perfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"perfect\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"fr_perfect\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 1.0, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

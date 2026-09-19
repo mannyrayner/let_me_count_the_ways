@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"dumas-fils-la-dame-aux-camelias-8072d693aa62fa51\", \"SOURCE_TEXT\": {\"exact_match\": \"Je vous\\naime\", \"local_text\": {\"context_start\": 179166, \"context_end\": 179379, \"text\": \"«Cher enfant, je suis un peu souffrante, et le médecin m'ordonne le\\nrepos. Je me coucherai de bonne heure ce soir et ne vous verrai pas.\\nMais, pour vous récompenser, je vous attendrai demain à midi. Je vous\\naime.»\"}, \"wider_canonical_context\": {\"context_start\": 176215, \"context_end\": 182506, \"text\": \"--Que voulez-vous, Marguerite, je vous aime trop, et je suis jaloux de\\nla moindre de vos pensées. Ce que vous m'avez proposé tout à l'heure me\\nrendrait fou de joie, mais le mystère qui précède l'exécution de ce\\nprojet me serre le cœur.\\n\\n--Voyons, raisonnons un peu, reprit-elle en me prenant les deux mains et\\nen me regardant avec un charmant sourire auquel il m'était impossible de\\nrésister; vous m'aimez, n'est-ce pas? et vous seriez heureux de passer\\ntrois ou quatre mois à la campagne avec moi seule; moi aussi, je serais\\nheureuse de cette solitude à deux, non seulement j'en serais heureuse,\\nmais j'en ai besoin pour ma santé. Je ne puis quitter Paris pour un si\\nlong temps sans mettre ordre à mes affaires, et les affaires d'une femme\\ncomme moi sont toujours très embrouillées; eh bien, j'ai trouvé le moyen\\nde tout concilier, mes affaires et mon amour pour vous, oui, pour vous,\\nne riez pas, j'ai la folie de vous aimer! Et voilà que vous prenez vos\\ngrands airs et me dites des grands mots. Enfant, trois fois enfant,\\nrappelez-vous seulement que je vous aime, et ne vous inquiétez de\\nrien.--Est-ce convenu, voyons?\\n\\n--Tout ce que vous voulez est convenu, vous le savez bien.\\n\\n--Alors, avant un mois, nous serons dans quelque village, à nous\\npromener au bord de l'eau et à boire du lait. Cela vous semble étrange\\nque je parle ainsi, moi, Marguerite Gautier; cela vient, mon ami, de ce\\nque quand cette vie de Paris, qui semble me rendre si heureuse, ne me\\nbrûle pas, elle m'ennuie, et alors j'ai des aspirations soudaines vers\\nune existence plus calme qui me rappellerait mon enfance. On a toujours\\neu une enfance, quoi que l'on soit devenue. Oh! soyez tranquille, je ne\\nvais pas vous dire que je suis la fille d'un colonel en retraite et que\\nj'ai été élevée à Saint-Denis. Je suis une pauvre fille de la campagne,\\net je ne savais pas écrire mon nom il y a six ans. Vous voilà rassuré,\\nn'est-ce pas? Pourquoi est-ce à vous le premier à qui je m'adresse pour\\npartager la joie du désir qui m'est venu? Sans doute parce que j'ai\\nreconnu que vous m'aimiez pour moi et non pour vous, tandis que les\\nautres ne m'ont jamais aimée que pour eux.\\n\\n«J'ai été bien souvent à la campagne, mais jamais comme j'aurais voulu y\\naller. C'est sur vous que je compte pour ce bonheur facile, ne soyez\\ndonc pas méchant et accordez-le-moi. Dites-vous ceci: elle ne doit pas\\nvivre vieille, et je me repentirais un jour de n'avoir pas fait pour\\nelle la première chose qu'elle m'a demandée, et qu'il était si facile de\\nfaire.\\n\\nQue répondre à de pareilles paroles, surtout avec le souvenir d'une\\npremière nuit d'amour, et dans l'attente d'une seconde?\\n\\nUne heure après, je tenais Marguerite dans mes bras, et elle m'eût\\ndemandé de commettre un crime que je lui eusse obéi.\\n\\nÀ six heures du matin je partis, et avant de partir je lui dis:\\n\\n--À ce soir?\\n\\nElle m'embrassa plus fort, mais elle ne me répondit pas.\\n\\nDans la journée, je reçus une lettre qui contenait ces mots:\\n\\n«Cher enfant, je suis un peu souffrante, et le médecin m'ordonne le\\nrepos. Je me coucherai de bonne heure ce soir et ne vous verrai pas.\\nMais, pour vous récompenser, je vous attendrai demain à midi. Je vous\\naime.»\\n\\nMon premier mot fut: «elle me trompe!»\\n\\nUne sueur glacée passa sur mon front, car j'aimais déjà trop cette femme\\npour que ce soupçon ne me bouleversât point.\\n\\nEt cependant je devais m'attendre à cet événement presque tous les jours\\navec Marguerite, et cela m'était arrivé souvent avec mes autres\\nmaîtresses, sans que je m'en préoccupasse fort. D'où venait donc\\nl'empire que cette femme prenait sur ma vie?\\n\\nAlors je songeai, puisque j'avais la clef de chez elle, à aller la voir\\ncomme de coutume. De cette façon, je saurais bien vite la vérité, et, si\\nje trouvais un homme, je le souffletterais.\\n\\nEn attendant, j'allai aux Champs-Elysées. J'y restai quatre heures. Elle\\nne parut pas. Le soir, j'entrai dans tous les théâtres où elle avait\\nl'habitude d'aller. Elle n'était dans aucun.\\n\\nÀ onze heures, je me rendis rue d'Antin.\\n\\nIl n'y avait pas de lumière aux fenêtres de Marguerite. Je sonnai\\nnéanmoins. Le portier me demanda où j'allais.\\n\\n--Chez mademoiselle Gautier, lui dis-je.\\n\\n--Elle n'est pas rentrée.\\n\\n--Je vais monter l'attendre.\\n\\n--Il n'y a personne chez elle.\\n\\nEvidemment c'était là une consigne que je pouvais forcer puisque j'avais\\nla clef, mais je craignis un esclandre ridicule, et je sortis.\\n\\nSeulement, je ne rentrai pas chez moi, je ne pouvais quitter la rue, et\\nne perdais pas des yeux la maison de Marguerite. Il me semblait que\\nj'avais encore quelque chose à apprendre, ou du moins que mes soupçons\\nallaient se confirmer.\\n\\nVers minuit, un coupé que je connaissais bien s'arrêta vers le numéro 9.\\n\\nLe comte de G... en descendit et entra dans la maison, après avoir\\ncongédié sa voiture.\\n\\nUn moment j'espérai que, comme à moi, on allait lui dire que Marguerite\\nn'était pas chez elle, et que j'allais le voir sortir; mais à quatre\\nheures du matin j'attendais encore.\\n\\nJ'ai bien souffert depuis trois semaines, mais ce n'est rien, je crois,\\nen comparaison de ce que je souffris cette nuit-là.\\n\\n\\n\\n\\nChapitre XIV\\n\\n\\nRentré chez moi, je me mis à pleurer comme un enfant. Il n'y a pas\\nd'homme qui n'ait été trompé au moins une fois, et qui ne sache ce que\\nl'on souffre.\\n\\nJe me dis, sous le poids de ces résolutions de la fièvre que l'on croit\\ntoujours avoir la force de tenir, qu'il fallait rompre immédiatement\\navec cet amour, et j'attendis le jour avec impatience pour aller retenir\\nma place, retourner auprès de mon père et de ma sœur, double amour dont\\nj'étais certain, et qui ne me tromperait pas, lui.\\n\\nCependant je ne voulais pas partir sans que Marguerite sût bien pourquoi\\nje partais. Seul, un homme qui n'aime décidément plus sa maîtresse la\\nquitte sans lui écrire.\\n\\nJe fis et refis vingt lettres dans ma tête.\\n\\nJ'avais eu affaire à une fille semblable à toutes les filles\\nentretenues, je l'avais beaucoup trop poétisée, elle m'avait traité en\\nécolier, en employant, pour me tromper, une ruse d'une simplicité\\ninsultante, c'était clair. Mon amour-propre prit alors le dessus. Il\\nfallait quitter cette femme sans lui donner la satisfaction de savoir ce\\nque cette rupture me faisait souffrir, et voici ce que je lui écrivis de\\nmon écriture la plus élégante, et des larmes de rage et de douleur dans\\nles yeux:\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"“What do you expect, Marguerite? I love you too much, and I am jealous of the least of your thoughts. What you proposed to me just now would drive me mad with joy, but the mystery that precedes the execution of this plan constricts my heart.”\\n\\n“Come, let us reason a little,” she resumed, taking both my hands and looking at me with a charming smile which it was impossible for me to resist; “you love me, do you not? And you would be happy to spend three or four months in the country alone with me; I too would be happy with this solitude for two; not only would I be happy with it, but I need it for my health. I cannot leave Paris for so long without putting my affairs in order, and the affairs of a woman like me are always very tangled; well, I have found a way to reconcile everything, my affairs and my love for you—yes, for you, do not laugh, I am mad enough to love you! And now you put on your grand airs and say grand things to me. Child, three times a child, just remember that I love you, and do not worry about anything. Is it agreed, then?”\\n\\n“Whatever you wish is agreed; you know that very well.”\\n\\n“Then, before a month has passed, we shall be in some village, walking along the water’s edge and drinking milk. It seems strange to you to hear me talk this way, me, Marguerite Gautier; that is because, my friend, when this Parisian life, which seems to make me so happy, does not burn me, it wearies me, and then I have sudden longings for a quieter existence that would remind me of my childhood. One has always had a childhood, whatever one may have become. Oh! Do not worry, I am not going to tell you that I am the daughter of a retired colonel and that I was educated at Saint-Denis. I am a poor country girl, and six years ago I did not know how to write my name. There, you are reassured, are you not? Why are you the first person to whom I turn to share the joy of the desire that has come over me? No doubt because I have recognized that you loved me for myself and not for yourself, whereas the others have never loved me except for themselves.\\n\\n“I have very often been to the country, but never as I would have wished to go there. I am counting on you for this simple happiness, so do not be unkind, and grant it to me. Tell yourself this: she is not destined to live to old age, and one day I would regret not having done for her the first thing she asked of me, when it was so easy to do.”\\n\\nWhat could one answer to such words, especially with the memory of a first night of love, and in expectation of a second?\\n\\nAn hour later, I held Marguerite in my arms, and had she asked me to commit a crime, I would have obeyed her.\\n\\nAt six in the morning I left, and before leaving I said to her:\\n\\n“Until this evening?”\\n\\nShe embraced me more tightly, but did not answer me.\\n\\nDuring the day, I received a letter containing these words:\\n\\n“Dear child, I am a little unwell, and the doctor orders me to rest. I shall go to bed early this evening and shall not see you. But, to reward you, I shall expect you tomorrow at noon. I love you.”\\n\\nMy first words were: “She is deceiving me!”\\n\\nAn icy sweat passed over my brow, for I already loved this woman too much for that suspicion not to overwhelm me.\\n\\nAnd yet, with Marguerite, I ought to have expected such an occurrence almost every day, and it had often happened to me with my other mistresses without my troubling much about it. Whence, then, came the power this woman was gaining over my life?\\n\\nThen I thought that, since I had the key to her apartment, I would go and see her as usual. In that way I would very soon know the truth, and if I found a man there, I would slap his face.\\n\\nIn the meantime, I went to the Champs-Élysées. I remained there for four hours. She did not appear. In the evening, I went into every theater she habitually attended. She was in none of them.\\n\\nAt eleven o’clock, I went to the Rue d’Antin.\\n\\nThere was no light in Marguerite’s windows. Nevertheless, I rang. The porter asked me where I was going.\\n\\n“To Mademoiselle Gautier’s,” I told him.\\n\\n“She has not come home.”\\n\\n“I shall go upstairs and wait for her.”\\n\\n“There is no one at her apartment.”\\n\\nClearly, these were instructions that I could override, since I had the key, but I feared a ridiculous scene, and I left.\\n\\nOnly, I did not go home; I could not leave the street, and I did not take my eyes off Marguerite’s house. It seemed to me that I still had something to learn, or at least that my suspicions were going to be confirmed.\\n\\nAround midnight, a coupé that I knew well stopped near number 9.\\n\\nThe Comte de G... stepped out of it and entered the house, after dismissing his carriage.\\n\\nFor a moment I hoped that, as with me, he would be told that Marguerite was not at home, and that I would see him come out again; but at four in the morning I was still waiting.\\n\\nI have suffered greatly during the past three weeks, but it is nothing, I believe, compared with what I suffered that night.\\n\\n\\n\\n\\nChapter XIV\\n\\n\\nOnce home, I began to weep like a child. There is no man who has not been deceived at least once, and who does not know what one suffers.\\n\\nUnder the weight of those feverish resolutions which one always believes one will have the strength to keep, I told myself that I must break off this love immediately, and I waited impatiently for daylight so that I could go and book my seat and return to my father and my sister, a twofold love of which I was certain, and which would not deceive me.\\n\\nHowever, I did not wish to leave without Marguerite knowing clearly why I was leaving. Only a man who has definitively ceased to love his mistress leaves her without writing to her.\\n\\nI composed and recomposed twenty letters in my head.\\n\\nI had been dealing with a girl like all kept women; I had idealized her far too much; she had treated me like a schoolboy, using, in order to deceive me, a ruse of insulting simplicity; it was clear. My pride then gained the upper hand. I had to leave this woman without giving her the satisfaction of knowing how much this break was making me suffer, and this is what I wrote to her, in my most elegant handwriting and with tears of rage and grief in my eyes:\", \"source_occurrence_id\": \"dumas-fils-la-dame-aux-camelias-8072d693aa62fa51\", \"source_language\": \"fr\", \"source_language_text_sha256\": \"694d599c9e8e2c5d0c8761387a1c965abfd6aa465656a0ad0a4971e2d32e2129\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T10:30:09.601213+00:00\", \"model_usage\": {\"input_tokens\": 1931, \"cached_input_tokens\": 0, \"output_tokens\": 1650}, \"estimated_cost_usd\": 0.040724, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"dumas-fils-la-dame-aux-camelias\", \"title\": \"La Dame aux camélias\", \"author\": \"Alexandre Dumas fils\", \"language\": \"fr\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": \"CHAPITRE XIII\", \"relative_position\": 0.482251, \"source_start\": 179365, \"source_end\": 179377, \"source_length\": 371933}, \"form\": {\"form_family\": \"present_or_imperfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": \"optional\", \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"fr_present_past\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 1.0, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

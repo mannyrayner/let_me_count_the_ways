@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"stendhal-le-rouge-et-le-noir-78daff51c5dcf1c7\", \"SOURCE_TEXT\": {\"exact_match\": \"je vous aime\", \"local_text\": {\"context_start\": 325900, \"context_end\": 325954, \"text\": \"--Je sens que je vous aime de l'amour le plus violent.\"}, \"wider_canonical_context\": {\"context_start\": 322803, \"context_end\": 328935, \"text\": \"--Madame, je viens pour la première fois de ma vie à Besançon; je\\nvoudrais bien avoir, en payant, un pain et une tasse de café.\\n\\nLa demoiselle sourit un peu et puis rougit; elle craignait, pour ce joli\\njeune homme, l'attention ironique et les plaisanteries des joueurs de\\nbillard. Il serait effrayé et ne reparaîtrait plus.\\n\\n--Placez-vous ici près de moi, dit-elle en lui montrant une table de\\nmarbre, presque tout à fait cachée par l'énorme comptoir d'acajou qui\\ns'avance dans la salle.\\n\\nLa demoiselle se pencha en dehors du comptoir, ce qui lui donna\\nl'occasion de déployer une taille superbe. Julien la remarqua, toutes\\nses idées changèrent. La belle demoiselle venait de placer devant lui\\nune tasse, du sucre et un petit pain. Elle hésitait à appeler un garçon\\npour avoir du café, comprenant bien qu'à l'arrivée de ce garçon, son\\ntête-à-tête avec Julien allait finir.\\n\\nJulien, pensif, comparait cette beauté blonde et gaie à certains\\nsouvenirs qui l'agitaient souvent. L'idée de la passion dont il avait\\nété l'objet lui ôta presque toute sa timidité. La belle demoiselle\\nn'avait qu'un instant; elle lut dans les regards de Julien.\\n\\n--Cette fumée de pipe vous fait tousser, venez déjeuner demain avant\\nhuit heures du matin; alors, je suis presque seule.\\n\\n--Quel est votre nom? dit Julien, avec le sourire caressant de la\\ntimidité heureuse.\\n\\n--Amanda Binet.\\n\\n--Permettez-vous que je vous envoie, dans une heure, un petit paquet\\ngros comme celui-ci?\\n\\nLa belle Amanda réfléchit un peu.\\n\\n--Je suis surveillée: ce que vous me demandez peut me compromettre;\\ncependant je m'en vais écrire mon adresse sur une carte, que vous\\nplacerez sur votre paquet. Envoyez-le-moi hardiment.\\n\\n--Je m'appelle Julien Sorel, dit le jeune homme; je n'ai ni parents, ni\\nconnaissance à Besançon.\\n\\n--Ah! je comprends, dit-elle avec joie, vous venez pour l'école de\\ndroit?\\n\\n--Hélas! non, répondit Julien; on m'envoie au séminaire.\\n\\nLe découragement le plus complet éteignit les traits d'Amanda; elle\\nappela un garçon: elle avait du courage maintenant. Le garçon versa du\\ncafé à Julien, sans le regarder.\\n\\nAmanda recevait de l'argent au comptoir; Julien était fier d'avoir osé\\nparler: on se disputa à l'un des billards. Les cris et les démentis des\\njoueurs, retentissant dans cette salle immense, faisaient un tapage qui\\nétonnait Julien. Amanda était rêveuse et baissait les yeux.\\n\\n--Si vous voulez mademoiselle, lui dit-il tout à coup avec assurance, je\\ndirai que je suis votre cousin?\\n\\nCe petit air d'autorité plut à Amanda. Ce n'est pas un jeune homme de\\nrien, pensa-t-elle. Elle lui dit fort vite, sans le regarder, car son\\noeil était occupé à voir si quelqu'un s'approchait du comptoir:\\n\\n--Moi je suis de Genlis, près de Dijon; dites que vous êtes aussi de\\nGenlis, et cousin de ma mère.\\n\\n--Je n'y manquerai pas.\\n\\n--Tous les jeudis à cinq heures en été, MM. les séminaristes passent ici\\ndevant le café.\\n\\n--Si vous pensez à moi, quand je passerai, ayez un bouquet de violettes\\nà la main.\\n\\nAmanda le regarda d'un air étonné; ce regard changea le courage de\\nJulien en témérité; cependant il rougit beaucoup en lui disant:\\n\\n--Je sens que je vous aime de l'amour le plus violent.\\n\\n--Parlez donc plus bas, lui dit-elle d'un air effrayé. Julien songeait à\\nse rappeler les phrases d'un volume dépareillé de la _Nouvelle Héloïse_,\\nqu'il avait trouvé à Vergy. Sa mémoire le servit bien; depuis dix\\nminutes, il récitait la _Nouvelle Héloïse_ à Mlle Amanda, ravie, il\\nétait heureux de sa bravoure, quand tout à coup la belle Franc-comtoise\\nprit un air glacial. Un de ses amants paraissait à la porte du café.\\n\\nIl s'approcha du comptoir, en sifflant et marchant des épaules; il\\nregarda Julien. A l'instant, l'imagination de celui-ci, toujours dans\\nles extrêmes, ne fut remplie que d'idées de duel. Il pâlit beaucoup,\\néloigna sa tasse, prit une mine assurée, et regarda son rival fort\\nattentivement. Comme ce rival baissait la tête en se versant\\nfamilièrement un verre d'eau-de-vie sur le comptoir, d'un regard Amanda\\nordonna à Julien de baisser les yeux. Il obéit, et, pendant deux\\nminutes, se tint immobile à sa place pâle résolu et ne songeant qu'à ce\\nqui allait arriver; il était vraiment bien en cet instant. Le rival\\navait été étonné des yeux de Julien, son verre d'eau-de-vie avalé d'un\\ntrait il dit un mot à Amanda, plaça ses deux mains dans les poches\\nlatérales de sa grosse redingote, et s'approcha d'un billard en\\nsoufflant et regardant Julien. Celui-ci se leva transporté de colères;\\nmais il ne savait comment s'y prendre pour être insolent. Il posa son\\npetit paquet, et, de l'air le plus dandinant qu'il put, marcha vers le\\nbillard.\\n\\nEn vain la prudence lui disait: Mais avec un duel dès l'arrivée à\\nBesançon, la carrière ecclésiastique est perdue.\\n\\nQu'importe, il ne sera pas dit que je manque un insolent.\\n\\nAmanda vit son courage, il faisait un joli contraste avec la naïveté de\\nses manières; en un instant, elle le préféra au grand jeune homme en\\nredingote. Elle se leva, et, tout en avant l'air de suivre de l'oeil\\nquelqu'un qui passait dans la rue, elle vint se placer rapidement entre\\nlui et le billard:\\n\\n--Gardez-vous de regarder de travers ce monsieur, c'est mon beau-frère.\\n\\n--Que m'importe? il m'a regardé.\\n\\n--Voulez-vous me rendre malheureuse? Sans doute il vous a regardé,\\npeut-être même il va venir vous parler. Je lui ai dit que vous êtes un\\nparent de ma mère, et que vous arrivez de Genlis. Lui est Franc-comtois\\net n'a jamais dépassé Dole, sur la route de la Bourgogne; ainsi dites ce\\nque vous voudrez, ne craignez rien.\\n\\nJulien hésitait encore, elle ajouta bien vite, son imagination de dame\\nde comptoir lui fournissant des mensonges en abondance:\\n\\n--Sans doute il vous a regardé, mais c'est au moment où il me demandait\\nqui vous êtes; c'est un homme qui est manant avec tout le monde, il n'a\\npas voulu vous insulter.\\n\\nL'oeil de Julien suivait le prétendu beau-frère; il le vit acheter un\\nnuméro à la poule que l'on jouait au plus éloigné des deux billards.\\nJulien entendit sa grosse voix qui criait, d'un ton menaçant: Je prends\\nà faire. Il passa vivement derrière Mlle Amanda, et fit un pas vers le\\nbillard. Amanda le saisit par le bras:\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"“Madame, I have just come to Besançon for the first time in my life; I should very much like to have, and pay for, a piece of bread and a cup of coffee.”\\n\\nThe young lady smiled a little and then blushed; she feared, for this handsome young man, the ironic attention and jests of the billiard players. He would be frightened and would never return.\\n\\n“Sit here beside me,” she said, showing him a marble table almost entirely hidden by the enormous mahogany counter that projected into the room.\\n\\nThe young lady leaned out from behind the counter, which gave her the opportunity to display a superb figure. Julien noticed it; all his thoughts changed. The beautiful young lady had just placed before him a cup, some sugar, and a small bread roll. She hesitated to call a waiter to bring coffee, fully understanding that when the waiter arrived, her tête-à-tête with Julien would end.\\n\\nLost in thought, Julien compared this cheerful blonde beauty with certain memories that often stirred him. The thought of the passion of which he had been the object took away almost all his timidity. The beautiful young lady had only a moment; she read it in Julien’s eyes.\\n\\n“This pipe smoke is making you cough; come and have breakfast tomorrow before eight in the morning; then I am almost alone.”\\n\\n“What is your name?” said Julien, with the caressing smile of happy timidity.\\n\\n“Amanda Binet.”\\n\\n“Will you allow me to send you, in an hour, a little parcel about this size?”\\n\\nThe beautiful Amanda reflected for a moment.\\n\\n“I am watched: what you are asking of me may compromise me; nevertheless, I am going to write my address on a card, which you will put on your parcel. Send it to me without fear.”\\n\\n“My name is Julien Sorel,” said the young man; “I have neither relatives nor acquaintances in Besançon.”\\n\\n“Ah! I understand,” she said joyfully, “you have come for the law school?”\\n\\n“Alas, no,” Julien replied; “I am being sent to the seminary.”\\n\\nThe most complete discouragement extinguished the animation in Amanda’s features; she called a waiter: she had courage now. The waiter poured coffee for Julien without looking at him.\\n\\nAmanda was taking money at the counter; Julien was proud of having dared to speak: a quarrel broke out at one of the billiard tables. The shouts and denials of the players, resounding through that immense room, made a din that astonished Julien. Amanda was pensive and kept her eyes lowered.\\n\\n“If you wish, Mademoiselle,” he suddenly said to her with assurance, “I shall say that I am your cousin.”\\n\\nThis little air of authority pleased Amanda. He is not an insignificant young man, she thought. She said to him very quickly, without looking at him, for her eye was occupied in seeing whether anyone was approaching the counter:\\n\\n“I am from Genlis, near Dijon; say that you too are from Genlis, and that you are my mother’s cousin.”\\n\\n“I shall not fail to do so.”\\n\\n“Every Thursday at five o’clock in summer, the gentlemen from the seminary pass here in front of the café.”\\n\\n“If you think of me when I pass, have a bouquet of violets in your hand.”\\n\\nAmanda looked at him in astonishment; that look changed Julien’s courage into boldness; nevertheless, he blushed deeply as he said to her:\\n\\n“I feel that I love you with the most violent love.”\\n\\n“Do speak more softly,” she said to him with a frightened air. Julien was trying to recall the phrases from an odd volume of the New Heloise that he had found at Vergy. His memory served him well; for ten minutes he had been reciting the New Heloise to Mademoiselle Amanda, who was delighted; he was happy in his bravery, when suddenly the beautiful woman from Franche-Comté assumed an icy expression. One of her lovers had appeared at the door of the café.\\n\\nHe approached the counter, whistling and swaggering with his shoulders; he looked at Julien. At once, the latter’s imagination, always running to extremes, was filled with nothing but thoughts of a duel. He turned very pale, pushed his cup away, assumed a confident expression, and looked at his rival very attentively. As this rival lowered his head while familiarly pouring himself a glass of brandy at the counter, Amanda ordered Julien with a glance to lower his eyes. He obeyed and, for two minutes, remained motionless in his place, pale, resolute, and thinking only of what was about to happen; he was truly admirable at that moment. The rival had been astonished by Julien’s eyes; after swallowing his glass of brandy in one draught, he said a word to Amanda, put both hands into the side pockets of his heavy frock coat, and approached a billiard table, puffing and looking at Julien. The latter rose, carried away by anger; but he did not know how to go about being insolent. He put down his little parcel and, with the most swaggering air he could manage, walked toward the billiard table.\\n\\nIn vain prudence told him: But with a duel as soon as you arrive in Besançon, your ecclesiastical career is ruined.\\n\\nWhat does it matter? It shall not be said that I let an insolent fellow escape me.\\n\\nAmanda saw his courage; it made a charming contrast with the naïveté of his manners; in an instant, she preferred him to the tall young man in the frock coat. She rose and, while appearing to follow with her eyes someone passing in the street, quickly came and placed herself between him and the billiard table:\\n\\n“Take care not to look askance at that gentleman; he is my brother-in-law.”\\n\\n“What do I care? He looked at me.”\\n\\n“Do you want to make me unhappy? No doubt he looked at you; perhaps he is even going to come and speak to you. I told him that you are a relative of my mother’s and that you have just arrived from Genlis. He is from Franche-Comté and has never gone beyond Dole on the road to Burgundy; so say whatever you like, and do not be afraid.”\\n\\nJulien was still hesitating; she added very quickly, her counter-girl’s imagination supplying her with lies in abundance:\\n\\n“No doubt he looked at you, but it was at the moment when he was asking me who you are; he is a man who is boorish with everyone; he did not mean to insult you.”\\n\\nJulien’s eye followed the supposed brother-in-law; he saw him buy a number in the pool being played at the farther of the two billiard tables. Julien heard his loud voice shout in a threatening tone, “I’ll take the shot.” He passed swiftly behind Mademoiselle Amanda and took a step toward the billiard table. Amanda seized him by the arm:\", \"source_occurrence_id\": \"stendhal-le-rouge-et-le-noir-78daff51c5dcf1c7\", \"source_language\": \"fr\", \"source_language_text_sha256\": \"41bce2b910c757e9f0939ef7b79eaba2a1254d7e7ec5aea470052bdf65fd6be7\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T11:41:29.428406+00:00\", \"model_usage\": {\"input_tokens\": 1933, \"cached_input_tokens\": 0, \"output_tokens\": 1716}, \"estimated_cost_usd\": 0.042052000000000006, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"stendhal-le-rouge-et-le-noir\", \"title\": \"Le Rouge et le Noir\", \"author\": \"Stendhal\", \"language\": \"fr\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": \"CHAPITRE XXIV\", \"relative_position\": 0.323198, \"source_start\": 325914, \"source_end\": 325926, \"source_length\": 1008402}, \"form\": {\"form_family\": \"present_or_imperfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": \"optional\", \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"fr_present_past\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 1.0, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"lafayette-la-princesse-de-cleves-63e18c98a4bf1337\", \"SOURCE_TEXT\": {\"exact_match\": \"je vous aimais\", \"local_text\": {\"context_start\": 293068, \"context_end\": 294443, \"text\": \"mort agréable, et\\nqu'après m'avoir ôté l'estime et la tendresse que j'avais pour vous, la\\nvie me ferait horreur. Que ferais-je de la vie, reprit-il, pour la\\npasser avec une personne que j'ai tant aimée, et dont j'ai été si\\ncruellement trompé, ou pour vivre séparé de cette même personne, et en\\nvenir à un éclat et à des violences si opposées à mon humeur et à la\\npassion que j'avais pour vous? Elle a été au-delà de ce que vous en\\navez vu, Madame; je vous en ai caché la plus grande partie, par la\\ncrainte de vous importuner, ou de perdre quelque chose de votre estime,\\npar des manières qui ne convenaient pas à un mari. Enfin je méritais\\nvotre coeur; encore une fois, je meurs sans regret, puisque je n'ai pu\\nl'avoir, et que je ne puis plus le désirer. Adieu, Madame, vous\\nregretterez quelque jour un homme qui vous aimait d'une passion\\nvéritable et légitime. Vous sentirez le chagrin que trouvent les\\npersonnes raisonnables dans ces engagements, et vous connaîtrez la\\ndifférence d'être aimée comme je vous aimais, à l'être par des gens qui,\\nen vous témoignant de l'amour, ne cherchent que l'honneur de vous\\nséduire. Mais ma mort vous laissera en liberté, ajouta-t-il, et vous\\npourrez rendre monsieur de Nemours heureux, sans qu'il vous en coûte des\\ncrimes. Qu'importe, reprit-il, ce qui arrivera quand je ne serai plus,\\net faut-il que j'aie la faiblesse d'y jeter les yeux!\"}, \"wider_canonical_context\": {\"context_start\": 290162, \"context_end\": 297451, \"text\": \"D'abord qu'elle fut à Blois, où la cour était alors, monsieur de Nemours\\nne put s'empêcher d'avoir de la joie de savoir qu'elle était dans le\\nmême lieu que lui. Il essaya de la voir, et alla tous les jours chez\\nmonsieur de Clèves, sur le prétexte de savoir de ses nouvelles; mais ce\\nfut inutilement. Elle ne sortait point de la chambre de son mari, et\\navait une douleur violente de l'état où elle le voyait. Monsieur de\\nNemours était désespéré qu'elle fût si affligée; il jugeait aisément\\ncombien cette affliction renouvelait l'amitié qu'elle avait pour\\nmonsieur de Clèves, et combien cette amitié faisait une diversion\\ndangereuse à la passion qu'elle avait dans le coeur. Ce sentiment lui\\ndonna un chagrin mortel pendant quelque temps; mais l'extrémité du mal\\nde monsieur de Clèves lui ouvrit de nouvelles espérances. Il vit que\\nmadame de Clèves serait peut-être en liberté de suivre son inclination,\\net qu'il pourrait trouver dans l'avenir une suite de bonheur et de\\nplaisirs durables. Il ne pouvait soutenir cette pensée, tant elle lui\\ndonnait de trouble et de transports, et il en éloignait son esprit par\\nla crainte de se trouver trop malheureux, s'il venait à perdre ses\\nespérances.\\n\\nCependant monsieur de Clèves était presque abandonné des médecins. Un\\ndes derniers jours de son mal, après avoir passé une nuit très fâcheuse,\\nil dit sur le matin qu'il voulait reposer. Madame de Clèves demeura\\nseule dans sa chambre; il lui parut qu'au lieu de reposer, il avait\\nbeaucoup d'inquiétude. Elle s'approcha et se vint mettre à genoux devant\\nson lit le visage tout couvert de larmes. Monsieur de Clèves avait\\nrésolu de ne lui point témoigner le violent chagrin qu'il avait contre\\nelle; mais les soins qu'elle lui rendait, et son affliction, qui lui\\nparaissait quelquefois véritable, et qu'il regardait aussi quelquefois\\ncomme des marques de dissimulation et de perfidie, lui causaient des\\nsentiments si opposés et si douloureux, qu'il ne les put renfermer en\\nlui-même.\\n\\n--Vous versez bien des pleurs, Madame, lui dit-il, pour une mort que\\nvous causez, et qui ne vous peut donner la douleur que vous faites\\nparaître. Je ne suis plus en état de vous faire des reproches,\\ncontinua-t-il avec une voix affaiblie par la maladie et par la douleur;\\nmais je meurs du cruel déplaisir que vous m'avez donné. Fallait-il\\nqu'une action aussi extraordinaire que celle que vous aviez faite de me\\nparler à Coulommiers eût si peu de suite? Pourquoi m'éclairer sur la\\npassion que vous aviez pour monsieur de Nemours, si votre vertu n'avait\\npas plus d'étendue pour y résister? Je vous aimais jusqu'à être bien\\naise d'être trompé, je l'avoue à ma honte; j'ai regretté ce faux repos\\ndont vous m'avez tiré. Que ne me laissiez-vous dans cet aveuglement\\ntranquille dont jouissent tant de maris? J'eusse, peut-être, ignoré\\ntoute ma vie que vous aimiez monsieur de Nemours. Je mourrai,\\najouta-t-il; mais sachez que vous me rendez la mort agréable, et\\nqu'après m'avoir ôté l'estime et la tendresse que j'avais pour vous, la\\nvie me ferait horreur. Que ferais-je de la vie, reprit-il, pour la\\npasser avec une personne que j'ai tant aimée, et dont j'ai été si\\ncruellement trompé, ou pour vivre séparé de cette même personne, et en\\nvenir à un éclat et à des violences si opposées à mon humeur et à la\\npassion que j'avais pour vous? Elle a été au-delà de ce que vous en\\navez vu, Madame; je vous en ai caché la plus grande partie, par la\\ncrainte de vous importuner, ou de perdre quelque chose de votre estime,\\npar des manières qui ne convenaient pas à un mari. Enfin je méritais\\nvotre coeur; encore une fois, je meurs sans regret, puisque je n'ai pu\\nl'avoir, et que je ne puis plus le désirer. Adieu, Madame, vous\\nregretterez quelque jour un homme qui vous aimait d'une passion\\nvéritable et légitime. Vous sentirez le chagrin que trouvent les\\npersonnes raisonnables dans ces engagements, et vous connaîtrez la\\ndifférence d'être aimée comme je vous aimais, à l'être par des gens qui,\\nen vous témoignant de l'amour, ne cherchent que l'honneur de vous\\nséduire. Mais ma mort vous laissera en liberté, ajouta-t-il, et vous\\npourrez rendre monsieur de Nemours heureux, sans qu'il vous en coûte des\\ncrimes. Qu'importe, reprit-il, ce qui arrivera quand je ne serai plus,\\net faut-il que j'aie la faiblesse d'y jeter les yeux!\\n\\nMadame de Clèves était si éloignée de s'imaginer que son mari pût avoir\\ndes soupçons contre elle, qu'elle écouta toutes ces paroles sans les\\ncomprendre, et sans avoir d'autre idée, sinon qu'il lui reprochait son\\ninclination pour monsieur de Nemours; enfin, sortant tout d'un coup de\\nson aveuglement:\\n\\n--Moi, des crimes! s'écria-t-elle; la pensée même m'en est inconnue. La\\nvertu la plus austère ne peut inspirer d'autre conduite que celle que\\nj'ai eue; et je n'ai jamais fait d'action dont je n'eusse souhaité que\\nvous eussiez été témoin.\\n\\n--Eussiez-vous souhaité, répliqua monsieur de Clèves, en la regardant\\navec dédain, que je l'eusse été des nuits que vous avez passées avec\\nmonsieur de Nemours? Ah! Madame, est-ce de vous dont je parle, quand je\\nparle d'une femme qui a passé des nuits avec un homme?\\n\\n--Non, Monsieur, reprit-elle; non, ce n'est pas de moi dont vous parlez.\\nJe n'ai jamais passé ni de nuits ni de moments avec monsieur de Nemours.\\nIl ne m'a jamais vue en particulier; je ne l'ai jamais souffert, ni\\nécouté, et j'en ferais tous les serments...\\n\\n--N'en dites pas davantage, interrompit monsieur de Clèves; de faux\\nserments ou un aveu me feraient peut-être une égale peine.\\n\\nMadame de Clèves ne pouvait répondre; ses larmes et sa douleur lui\\nôtaient la parole; enfin, faisant un effort:\\n\\n--Regardez-moi du moins; écoutez-moi, lui dit-elle. S'il n'y allait que\\nde mon intérêt, je souffrirais ces reproches; mais il y va de votre vie.\\nÉcoutez-moi, pour l'amour de vous-même: il est impossible qu'avec tant\\nde vérité, je ne vous persuade mon innocence.\\n\\n--Plût à Dieu que vous me la puissiez persuader! s'écria-t-il; mais que\\nme pouvez-vous dire? Monsieur de Nemours n'a-t-il pas été à Coulommiers\\navec sa soeur? Et n'avait-il pas passé les deux nuits précédentes avec\\nvous dans le jardin de la forêt?\\n\\n--Si c'est là mon crime, répliqua-t-elle, il m'est aisé de me justifier.\\nJe ne vous demande point de me croire; mais croyez tous vos domestiques,\\net sachez si j'allai dans le jardin de la forêt la veille que monsieur\\nde Nemours vint à Coulommiers, et si je n'en sortis pas le soir\\nd'auparavant deux heures plus tôt que je n'avais accoutumé.\\n\\nElle lui conta ensuite comme elle avait cru voir quelqu'un dans ce\\njardin. Elle lui avoua qu'elle avait cru que c'était monsieur de\\nNemours. Elle lui parla avec tant d'assurance, et la vérité se persuade\\nsi aisément lors même qu'elle n'est pas vraisemblable, que monsieur de\\nClèves fut presque convaincu de son innocence.\\n\\n--Je ne sais, lui dit-il, si je me dois laisser aller à vous croire. Je\\nme sens si proche de la mort, que je ne veux rien voir de ce qui me\\npourrait faire regretter la vie. Vous m'avez éclairci trop tard; mais ce\\nme sera toujours un soulagement d'emporter la pensée que vous êtes digne\\nde l'estime que j'aie eue pour vous. Je vous prie que je puisse encore\\navoir la consolation de croire que ma mémoire vous sera chère, et que,\\ns'il eût dépendu de vous, vous eussiez eu pour moi les sentiments que\\nvous avez pour un autre.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"As soon as she was at Blois, where the court then was, Monsieur de Nemours could not keep himself from rejoicing to know that she was in the same place as he. He tried to see her and went every day to Monsieur de Clèves’s house, on the pretext of inquiring after his health; but it was in vain. She never left her husband’s room and was in violent grief over the condition in which she saw him. Monsieur de Nemours was in despair that she was so afflicted; he easily judged how greatly this affliction renewed the affection she had for Monsieur de Clèves, and how greatly this affection dangerously diverted her from the passion she had in her heart. This thought caused him mortal anguish for some time; but the extremity of Monsieur de Clèves’s illness opened new hopes to him. He saw that Madame de Clèves might perhaps be free to follow her inclination, and that he might find in the future a succession of lasting happiness and pleasures. He could not endure this thought, so much agitation and rapture did it cause him, and he turned his mind away from it for fear of finding himself too unhappy if he should lose his hopes.\\n\\nMeanwhile, Monsieur de Clèves had been almost given up by the physicians. On one of the last days of his illness, after spending a very distressing night, he said toward morning that he wished to rest. Madame de Clèves remained alone in his room; it seemed to her that, instead of resting, he was very uneasy. She approached and came to kneel before his bed, her face entirely covered with tears. Monsieur de Clèves had resolved not to show her the violent resentment he felt against her; but the care she lavished on him and her affliction, which sometimes seemed genuine to him and which he also sometimes regarded as signs of dissimulation and perfidy, caused such conflicting and painful feelings in him that he could not contain them within himself.\\n\\n—You shed many tears, Madame, he said to her, for a death that you are causing and that cannot give you the grief you display. I am no longer in a condition to reproach you, he continued, in a voice weakened by illness and sorrow; but I am dying of the cruel pain you have caused me. Was it necessary that an action as extraordinary as your speaking to me at Coulommiers should have so little consequence? Why enlighten me about the passion you had for Monsieur de Nemours if your virtue did not extend far enough to resist it? I loved you to the point of being glad to be deceived, I confess it to my shame; I have regretted that false peace from which you roused me. Why did you not leave me in that tranquil blindness enjoyed by so many husbands? I might have remained ignorant all my life that you loved Monsieur de Nemours. I shall die, he added; but know that you make death welcome to me, and that, after depriving me of the esteem and tenderness I had for you, life would fill me with horror. What would I do with life, he went on, whether I spent it with a person whom I loved so greatly and by whom I have been so cruelly deceived, or lived apart from that same person and went so far as a public scandal and acts of violence so contrary to my disposition and to the passion I had for you? It went beyond what you saw of it, Madame; I concealed the greater part of it from you for fear of importuning you or of losing some of your esteem through conduct unbecoming to a husband. In short, I deserved your heart; once again, I die without regret, since I could not have it and can no longer desire it. Farewell, Madame; one day you will regret a man who loved you with a true and legitimate passion. You will feel the sorrow that reasonable people find in such attachments, and you will know the difference between being loved as I loved you and being loved by people who, while professing love for you, seek only the honor of seducing you. But my death will leave you free, he added, and you will be able to make Monsieur de Nemours happy without its costing you the commission of crimes. What does it matter, he went on, what will happen when I am no more, and must I be so weak as to turn my eyes toward it!\\n\\nMadame de Clèves was so far from imagining that her husband could harbor suspicions against her that she listened to all these words without understanding them and with no other idea than that he was reproaching her for her inclination toward Monsieur de Nemours; at last, suddenly emerging from her blindness:\\n\\n—I, guilty of crimes! she exclaimed; the very thought of them is unknown to me. The most austere virtue could inspire no conduct other than mine; and I have never done anything without wishing that you had witnessed it.\\n\\n—Would you have wished, Monsieur de Clèves replied, looking at her disdainfully, that I had witnessed the nights you spent with Monsieur de Nemours? Ah! Madame, can it be you of whom I speak when I speak of a woman who has spent nights with a man?\\n\\n—No, Monsieur, she replied; no, it is not of me that you speak. I have never spent either nights or moments with Monsieur de Nemours. He has never seen me in private; I have never permitted him to approach me or listened to him, and I would swear every oath to it...\\n\\n—Say no more, Monsieur de Clèves interrupted; false oaths or a confession might cause me equal pain.\\n\\nMadame de Clèves could not answer; her tears and sorrow deprived her of speech; at last, making an effort:\\n\\n—At least look at me; listen to me, she said to him. If only my own interest were at stake, I would endure these reproaches; but your life is at stake. Listen to me, for your own sake: it is impossible that, speaking with such truth, I should not convince you of my innocence.\\n\\n—Would to God that you could convince me of it! he exclaimed; but what can you tell me? Did Monsieur de Nemours not come to Coulommiers with his sister? And had he not spent the two preceding nights with you in the forest garden?\\n\\n—If that is my crime, she replied, it is easy for me to justify myself. I do not ask you to believe me; but believe all your servants, and find out whether I went into the forest garden on the day before Monsieur de Nemours came to Coulommiers, and whether, on the evening before that, I did not leave it two hours earlier than was my custom.\\n\\nShe then told him how she had thought she saw someone in that garden. She admitted to him that she had believed it was Monsieur de Nemours. She spoke to him with such assurance, and truth is so readily believed even when it is not plausible, that Monsieur de Clèves was almost convinced of her innocence.\\n\\n—I do not know, he said to her, whether I ought to allow myself to believe you. I feel so near death that I do not wish to see anything that might make me regret life. You have enlightened me too late; but it will always be a comfort to me to carry away with me the thought that you are worthy of the esteem I have had for you. I beg you to allow me still to have the consolation of believing that my memory will be dear to you, and that, had it depended upon you, you would have had for me the feelings you have for another.\", \"source_occurrence_id\": \"lafayette-la-princesse-de-cleves-63e18c98a4bf1337\", \"source_language\": \"fr\", \"source_language_text_sha256\": \"31f3d258787ca96d8e8232f287df89bd4c760168105e6750611f98b9ab194cd4\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T10:58:39.954828+00:00\", \"model_usage\": {\"input_tokens\": 2176, \"cached_input_tokens\": 0, \"output_tokens\": 1915}, \"estimated_cost_usd\": 0.047004000000000004, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"lafayette-la-princesse-de-cleves\", \"title\": \"La Princesse de Clèves\", \"author\": \"Madame de La Fayette\", \"language\": \"fr\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.871426, \"source_start\": 294068, \"source_end\": 294082, \"source_length\": 337456}, \"form\": {\"form_family\": \"present_or_imperfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": \"optional\", \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"fr_present_past\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

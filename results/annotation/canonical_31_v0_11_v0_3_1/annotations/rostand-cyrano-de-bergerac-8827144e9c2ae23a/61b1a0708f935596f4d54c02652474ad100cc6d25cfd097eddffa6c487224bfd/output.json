@@ -1,0 +1,65 @@
+{
+  "occurrence_id": "rostand-cyrano-de-bergerac-8827144e9c2ae23a",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.97,
+    "analysis": "The embedded “Je t’aime!” represents a straightforward avowal of loving feeling. Its imagined power to transform the ashamed prince is a perlocutionary fairy-tale effect, not a relational undertaking, and there is no independent evidence that the words function as reflex-like affective discharge.",
+    "ambiguity": "The phrase is simultaneously a generic fairy-tale quotation and Cyrano’s revoicing of Roxane’s immediately preceding declaration, but either construal gives it predominantly truth-conditional force."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "quoted_or_revoiced",
+    "description": "Cyrano embeds the formula in a generic fairy-tale scenario (“when one says ‘I love you’”), while also echoing and reformulating Roxane’s direct “Je vous aime” addressed to him."
+  },
+  "contextual_interpretation": "After Roxane declares “Je vous aime, vivez!”, Cyrano revoices her declaration as the fairy-tale words spoken to a shame-filled, ugly prince. He contrasts their miraculous effect in stories with his own unchanged appearance. This self-deprecating framing and the words’ hoped-for emotional impact do not change the represented love formula from an avowal into a commitment or expressive discharge.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "“lorsqu’on dit: Je t’aime ! au prince plein de honte”",
+      "supports": "The love formula is explicitly embedded as speech to a recipient and represents an avowal of love rather than a direct declaration by Cyrano.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "Roxane immediately says, “Je vous aime, vivez !” before Cyrano’s reply.",
+      "supports": "Cyrano’s quoted formula revoices Roxane’s direct avowal, strengthening the truth-conditional reading.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "“Il sent sa laideur fondre à ces mots de soleil”",
+      "supports": "The represented words have a transformative fairy-tale effect, but that effect is perlocutionary and does not establish performative commitment or expressive/reflexive force.",
+      "confidence": 0.97
+    },
+    {
+      "evidence_id": "e4",
+      "source": "local_text",
+      "quotation_or_description": "“Mais tu t’apercevrais que je reste pareil.”",
+      "supports": "Cyrano applies the fairy-tale comparison to Roxane and himself while denying that her words can literally transform him; this is contextual framing rather than ontology failure.",
+      "confidence": 0.98
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the represented avowal. The fairy-tale quotation, revoicing, and imagined transformative effect are adequately handled as utterance status and context; they create no residual core force requiring E, P, or O.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

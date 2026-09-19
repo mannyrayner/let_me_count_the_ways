@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"zuccoli-lamore-di-loredana-d3e14cfbfa1e549d\", \"SOURCE_TEXT\": {\"exact_match\": \"ti ho amata\", \"local_text\": {\"context_start\": 371946, \"context_end\": 372873, \"text\": \"--E poi, perchè discutere la tua innocenza? Io non ci credo, via!... È\\npossibile che tutta una città si rivolti, così per capriccio, contro una\\ndonna, una ragazza?... Mi dirai che guadagno ci fanno quelli che parlan\\nmale di te!... Perchè non parlan male di tante altre?... Io, vedi,\\nquando mi avvertono che bisogna diffidare dei pettegolezzi, mi metto a\\nridere; i pettegolezzi si fanno contro quelli che se li meritano; di me\\nnon si è mai detto nulla, per esempio?... Sarà meglio non parlare della\\ntua innocenza, la quale, del resto, se anche fosse, non varrebbe una\\nsaetta, ormai.... Che cosa hai opposto alle accuse determinate e\\nprecise? Che tutto è falso! Ma questo me l'aspettavo; non verrai mica a\\nraccontarmi i tuoi amori, a me, che ti ho amata davvero, onestamente....\\nE avevi tanta paura del mio giudizio, che mi hai fermato per istrada e\\nmi hai chiesto se sapevo.... Ecco un'altra prova.... E poi, devo\\naggiungere....\"}, \"wider_canonical_context\": {\"context_start\": 369434, \"context_end\": 375923, \"text\": \"--Anche se è falso, importa poco, perchè quando tutti la pensano a un\\nmodo, è come se fosse vero. Mi capisci? Se uno è accusato d'essere un\\nladro, per andare a spasso con lui e per tenergli l'amicizia non basta\\ncredere e anche sapere che è onesto; occorre un coraggio, che io non ho,\\nperchè gli altri credono ch'egli è un ladro e io non posso essere\\nl'amico d'un ladro.... Tu hai tutte le apparenze contro di te, e Venezia\\nintera parla di te come d'una ragazzaccia pericolosa; e che ci posso far\\nio?... Del resto, qualche cosa ci sarà, non può essere inventato\\ntutto.... Ma se anche non c'è nulla, proprio nulla di vero, io ho la\\nfamiglia che mi rimprovera d'amarti e di seguirti, ho gli amici che\\nridono, ho il direttore della Banca il quale non vuole che gli impiegati\\nfrequentino donne cattive; e come faccio io a persuadere tutta questa\\ngente che tu non sei una donna cattiva, dopo uno scandalo di cui si\\nparla da tanti giorni e con tanti particolari in ogni angolo della\\ncittà?... Non sarà colpa tua, ammettiamolo, ma sei disonorata, ecco; e\\nle tue proteste si perdono nel fracasso, e oramai, qualunque buona e\\nbella cosa tu faccia, non ti potrà giovare....\\n\\nAfferrò la tazza di birra, l'accostò alle labbra e non la rimise sul\\npiattello che quando l'ebbe vuotata.\\n\\n--Ma allora,--disse Loredana con un brivido di terrore,--essere\\ninnocente significa nulla?\\n\\n--Significa...., significa.... So io che cosa significa?--rispose\\nAdolfo, il quale non s'accorgeva della sua crudeltà, sbalordito egli\\nstesso per la bontà delle facili argomentazioni.--Ciò che importa nel\\nmondo, è di essere creduto, a torto od a ragione; anche i miracoli non\\nservono, se nessuno vi crede.... E nessuno crede alla tua onestà....\\nSarebbe meglio per te essere disonesta, veramente disonesta, e che tutti\\nlodassero la tua virtù....\\n\\nUn bel fondo color d'ocra, robustamente tracciato alla brava, incorniciò\\nnell'albo la testolina della giovane dai capelli a riflessi dorati;\\neffetto di chiaroscuri che l'artista confrontò con l'originale, movendo\\nil capo a destra e a sinistra, e tenendo a distanza il disegno.\\n\\n--Se quell'idiota non finisce di tormentarla,--borbottò a fior di\\nlabbra,--a lui gli faccio la caricatura!\\n\\nMa Adolfo non la finiva, esaltato dalla voluttà di torturare quella\\nch'era stata sempre in suo confronto vittoriosa, assillato dal bisogno\\ndi calpestare e di distruggere il suo amore, cupamente soddisfatto di\\nveder la fidanzata d'un giorno ridotta senza difesa, ebbro di ferocia\\ncontro di lei e contro se stesso....\\n\\n--E poi, perchè discutere la tua innocenza? Io non ci credo, via!... È\\npossibile che tutta una città si rivolti, così per capriccio, contro una\\ndonna, una ragazza?... Mi dirai che guadagno ci fanno quelli che parlan\\nmale di te!... Perchè non parlan male di tante altre?... Io, vedi,\\nquando mi avvertono che bisogna diffidare dei pettegolezzi, mi metto a\\nridere; i pettegolezzi si fanno contro quelli che se li meritano; di me\\nnon si è mai detto nulla, per esempio?... Sarà meglio non parlare della\\ntua innocenza, la quale, del resto, se anche fosse, non varrebbe una\\nsaetta, ormai.... Che cosa hai opposto alle accuse determinate e\\nprecise? Che tutto è falso! Ma questo me l'aspettavo; non verrai mica a\\nraccontarmi i tuoi amori, a me, che ti ho amata davvero, onestamente....\\nE avevi tanta paura del mio giudizio, che mi hai fermato per istrada e\\nmi hai chiesto se sapevo.... Ecco un'altra prova.... E poi, devo\\naggiungere....\\n\\nLoredana si alzò lentamente.\\n\\n--Ti ringrazio,--interruppe con voce malsicura.--Mi hai detto cose molto\\nutili....\\n\\nFece per avviarsi, e barcollò....\\n\\n--Non ti muovere,--soggiunse, appoggiandosi a un angolo della\\ntavola.--Voglio uscire sola....\\n\\nDopo alcuni passi incerti, mentre Adolfo la guardava con occhio spento,\\nLoredana riacquistò forza, mosse francamente, passò vicino all'artista,\\nil quale rimirando il pastello e la giovane, sentì d'amarli ambedue....\\nAdolfo rimase immobile accasciato sulla sua panca; d'un tratto, il\\nrimorso gl'invadeva l'animo, lasciandolo con la bocca aperta, in\\nun'espressione di smarrimento ebete.\\n\\nVenne voglia a Loredana di strappar dalle mani del disegnatore l'albo in\\ncui sapeva d'essere stata ritratta, e di batterglielo in faccia. Dovette\\nchiudere gli occhi per vincersi.\\n\\nUscì, tra la nebbia; la nebbia era calata repentinamente, con un lieve\\nodor di bruciato, rotta qua e là dall'alone rossastro delle fiamme a\\ngas.\\n\\nE la giovane si rimise in cammino verso le Zattere, verso Flopi, che\\nparevan le une e l'altro perduti in quella infinita distesa, densa e\\nacre.\\n\\n--Che cosa gli porto?--si domandò Loredana.\\n\\nGli portava il suo corpo, che la folla diceva mantrugiato da altri, e il\\ndisonore.\\n\\nCerto egli s'illudeva, Filippo; non gli avevano cantato in faccia tutte\\nle accuse e ignorava in qual dispregio fosse tenuta la sua amante; ella\\ngli portava in casa il ridicolo come un fluido avvelenato. Le parole\\nd'Adolfo Gianella eran l'eco di quella saggezza che si trova per terra,\\nfra gli sputi e le carte unte, e si chiama pubblica opinione. Egli\\ndiceva bene: non importa essere, ma parere; quando una calunnia è\\nripetuta da tutti, vale una verità: il male è quel che si vede, non\\nquello che si commette. Aforismi che uccidono; bestialità caparbia;\\ntirannia inappellabile della maggioranza.... Ma la vita procede su\\nquesto carro della morte, e ogni giorno qualcuno cade sotto le sue ruote\\nper un gesto sbagliato.\\n\\nLoredana arrossiva di se stessa; abbeveratasi lunghe ore al torrente di\\nfango, le pareva d'averne la bocca piena, il corpo inzaccherato, le mani\\nmàcere. Come lasciarsi abbracciare e baciare da Filippo, che avrebbe\\nnotato sul volto di lei le tracce delle sofferenze patite, un solco\\nnella fronte, un livido sotto gli occhi? Baciarsi ed amarsi tra i ghigni\\ndella platea? Tremare agli sguardi sardonici? Vivere a fianco d'un uomo\\nche, se non si staccava presto e decisamente da lei, diventava ridicolo?\\n\\nLa folla s'era gettata sul suo amore e l'aveva fatto a pezzi.\\n\\nProtezione sicura e forte, confidenze gentili e fuggenti attimi di\\nletizia, tenerezze segrete e impetuosi scoppii di passione, lunghi oblii\\nd'ogni cosa mortale, viaggi sognati, casetta delle Zattere, bel sole di\\nSirmione, tutto affogato nella nebbia per sempre!\\n\\nVoleva correre a casa e dire a Filippo:\\n\\n--Tu m'hai avuta ancora bambina, e pel tuo amore tu m'hai fatta donna.\\nPrendimi; amami un'ultima volta; spegni fra le braccia questa vita che è\\ntua, e non lasciar che altri uccida lentamente, per odio, colei che vuol\\nmorire per te.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"—Even if it is false, it matters little, because when everyone thinks the same way, it is as though it were true. Do you understand me? If someone is accused of being a thief, in order to go about with him and remain his friend, it is not enough to believe and even to know that he is honest; it takes a courage that I do not have, because other people believe he is a thief, and I cannot be the friend of a thief.... All appearances are against you, and all Venice speaks of you as a dangerous little hussy; and what can I do about it?... Besides, there must be something to it; it cannot all have been invented.... But even if there is nothing, absolutely nothing true in it, I have my family reproaching me for loving you and following you, I have my friends laughing, I have the director of the Bank, who does not want his employees associating with bad women; and how am I to persuade all these people that you are not a bad woman, after a scandal that has been talked about for so many days and in such detail in every corner of the city?... It may not be your fault, let us grant that, but you are dishonored, there it is; and your protests are lost in the din, and by now, whatever good and beautiful thing you may do, it will be of no use to you....\\n\\nHe seized the mug of beer, raised it to his lips, and did not put it back on the saucer until he had emptied it.\\n\\n—But then,—said Loredana with a shiver of terror,—does being innocent mean nothing?\\n\\n—It means.... it means.... How should I know what it means?—replied Adolfo, who did not perceive his own cruelty, himself astounded by the soundness of his facile arguments.—What matters in the world is to be believed, rightly or wrongly; even miracles are of no use if no one believes in them.... And no one believes in your honesty.... It would be better for you to be dishonest, truly dishonest, and for everyone to praise your virtue....\\n\\nA fine ocher-colored background, boldly laid in with vigorous strokes, framed in the sketchbook the little head of the young woman with golden glints in her hair; an effect of light and shade that the artist compared with the original, moving his head to right and left and holding the drawing at a distance.\\n\\n—If that idiot does not stop tormenting her,—he muttered under his breath,—I’ll make a caricature of him!\\n\\nBut Adolfo did not stop, exalted by the voluptuous pleasure of torturing the woman who had always been victorious over him, driven by the need to trample upon and destroy his love, darkly satisfied to see his one-time fiancée reduced to defenselessness, drunk with ferocity against her and against himself....\\n\\n—And besides, why discuss your innocence? I do not believe in it, come now!... Is it possible that an entire city would turn against a woman, a girl, like this, merely on a whim?... You will tell me that those who speak ill of you gain nothing by it!... Why do they not speak ill of so many others?... You see, when people warn me that one must be wary of gossip, I laugh; gossip is spread about those who deserve it; nothing has ever been said about me, for instance?... It would be better not to speak of your innocence, which, besides, even if it existed, would not be worth a damn by now.... What have you set against the specific and precise accusations? That it is all false! But I expected that; you are hardly going to tell me about your love affairs—to me, who truly, honestly loved you.... And you were so afraid of my judgment that you stopped me in the street and asked whether I knew.... There is another proof.... And then, I must add....\\n\\nLoredana rose slowly.\\n\\n—Thank you,—she interrupted in an unsteady voice.—You have told me some very useful things....\\n\\nShe made to leave and staggered....\\n\\n—Do not move,—she added, leaning against a corner of the table.—I want to go out alone....\\n\\nAfter a few uncertain steps, while Adolfo watched her with lifeless eyes, Loredana regained her strength, walked on resolutely, and passed close to the artist, who, looking back and forth between the pastel and the young woman, felt that he loved them both.... Adolfo remained motionless, slumped on his bench; suddenly remorse invaded his soul, leaving him open-mouthed, with an expression of blank bewilderment.\\n\\nLoredana felt the urge to snatch from the artist’s hands the sketchbook in which she knew she had been portrayed and strike him in the face with it. She had to close her eyes to master herself.\\n\\nShe went out into the fog; the fog had descended suddenly, with a faint smell of burning, broken here and there by the reddish halos of the gas flames.\\n\\nAnd the young woman set off again toward the Zattere, toward Flopi, the one and the other seeming lost in that infinite, dense, acrid expanse.\\n\\n—What am I bringing him?—Loredana asked herself.\\n\\nShe was bringing him her body, which the crowd said had been mauled by others, and dishonor.\\n\\nCertainly he was deluding himself, Filippo; no one had hurled all the accusations in his face, and he did not know how much his mistress was despised; she was bringing ridicule into his home like a poisoned fluid. Adolfo Gianella’s words were the echo of that wisdom found on the ground, among the spittle and greasy papers, which is called public opinion. He spoke truly: what matters is not to be, but to appear; when a slander is repeated by everyone, it has the force of truth: evil is what is seen, not what is committed. Aphorisms that kill; stubborn bestiality; the majority’s tyranny, against which there is no appeal.... But life proceeds on this chariot of death, and every day someone falls beneath its wheels because of one mistaken gesture.\\n\\nLoredana blushed for herself; having drunk for long hours from the stream of mud, she felt as though her mouth were full of it, her body splattered, her hands macerated. How could she allow herself to be embraced and kissed by Filippo, who would notice on her face the traces of the sufferings she had endured, a furrow on her brow, a bruise beneath her eyes? To kiss and love each other amid the audience’s jeers? To tremble beneath sardonic gazes? To live beside a man who, unless he quickly and decisively broke away from her, would become ridiculous?\\n\\nThe crowd had fallen upon her love and torn it to pieces.\\n\\nSafe and strong protection, tender confidences and fleeting moments of joy, secret tenderness and impetuous outbursts of passion, long oblivion of every mortal thing, dreamed-of journeys, the little house on the Zattere, the beautiful sun of Sirmione—all drowned in the fog forever!\\n\\nShe wanted to run home and say to Filippo:\\n\\n—You had me when I was still a child, and through your love you made me a woman. Take me; love me one last time; extinguish in your arms this life that is yours, and do not let others slowly kill, out of hatred, the woman who wants to die for you.\", \"source_occurrence_id\": \"zuccoli-lamore-di-loredana-d3e14cfbfa1e549d\", \"source_language\": \"it\", \"source_language_text_sha256\": \"a498e1dcee8fcd7a118789766cb5fb9bd738268459207d011344cfb540754f3a\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T12:39:22.963874+00:00\", \"model_usage\": {\"input_tokens\": 2202, \"cached_input_tokens\": 0, \"output_tokens\": 2008}, \"estimated_cost_usd\": 0.048968, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"zuccoli-lamore-di-loredana\", \"title\": \"L'amore di Loredana\", \"author\": \"Luciano Zùccoli\", \"language\": \"it\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.846219, \"source_start\": 372686, \"source_end\": 372697, \"source_length\": 440413}, \"form\": {\"form_family\": \"perfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"perfect\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"it_perfect\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"strindberg-froken-julie-f75e1e15f1a3e50c\", \"SOURCE_TEXT\": {\"exact_match\": \"Jag älskar er\", \"local_text\": {\"context_start\": 28376, \"context_end\": 28478, \"text\": \"Jag vill - men jag törs inte! Inte här i huset mer! Jag älskar er\\n- utan tvivel - kan ni tveka på det?\"}, \"wider_canonical_context\": {\"context_start\": 25398, \"context_end\": 31630, \"text\": \"Fly? Men vart? Ut kommer vi inte! Och till Kristin kan vi inte gå!\\n\\nJEAN\\n\\nSå! In till mig då? Nöden har ingen lag; och på mig kan ni lita,\\nty jag är er verkliga, uppriktiga och vördnadsfulla vän!\\n\\nFRöKEN\\n\\nMen tänk! - tänk om man söker er där?\\n\\nJEAN\\n\\nJag riglar dörrn, och vill man bryta sig in, så skjuter jag! - Kom!\\n\\nPå knä.\\n\\nKom!\\n\\nFRöKEN\\n\\nbetydelsefullt.\\n\\nLovar ni mig ---\\n\\nJEAN\\n\\nJag svär!\\n\\nFröken ut hastigt till höger. Jean häftigt efter.\\n\\nProject Runeberg, Tue Dec 11 18:21:53 2012\\n(aronsson)\\n(diff)\\n(history)\\n(download)\\n<< Previous\\nNext >>\\n\\nhttps://runeberg.org/frkjulie/03.html\\n\\ndel 4 (Fröken Julie)\\n\\nFröken Julie /\\ndel 4\\n\\nAuthor: August Strindberg - Tema: Drama, Theater Plays\\n\\nTable of Contents / Innehåll | << Previous | Next >>\\n\\nProject Runeberg\\n| Catalog\\n| Recent Changes\\n| Donate\\n| Comments?\\n|\\n\\nBALETT\\n\\nBondfolket in högtidsklädda, med blommor i hattarna; en\\nfiolspelare i spetsen; en ankare svagdricka och en kutting brännvin\\nsirade med grönt läggs opp på bordet; glas tagas fram. Därpå\\ndrickes. Sedan tar man i ring och sjunger och dansar dansleken: \\\"Det\\nkommo två fruar från skogen.\\\"\\n\\nNär detta är gjort gå de igen sjungande.\\n\\nFröken in ensam; ser förödelsen i köket; slår ihop händerna;\\ndärpå tar hon upp en pudervippa och pudrar sitt ansikte.\\n\\nJEAN\\n\\nin; exalterad.\\n\\nDär ser ni! Och ni har hört! Anser ni det möjligt att stanna här?\\n\\nFRöKEN\\n\\nNej! Det anser jag inte! Men vad skola vi så göra!\\n\\nJEAN\\n\\nFly, resa, långt härifrån!\\n\\nFRöKEN\\n\\nResa? Ja, men vart?\\n\\nJEAN\\n\\nTill Schweiz, till Italienska sjöarna; - där har ni aldrig varit?\\n\\nFRöKEN\\n\\nNej! är det vackert där?\\n\\nJEAN\\n\\nåh, en evig sommar, oranger, lagrar, åh!\\n\\nFRöKEN\\n\\nMen vad ska vi sedan göra där?\\n\\nJEAN\\n\\nDär sätter jag opp ett hotell med första klassens varor och första\\nklassens kunder.\\n\\nFRöKEN\\n\\nHotell?\\n\\nJEAN\\n\\nDet är ett liv skall ni tro; oupphörligt nya ansikten, nya språk;\\ninte en minuts ledighet till grubbel eller nerver; intet letande efter\\nsysselsättning, då arbetet ger sig själv; natt och dag klockan som\\nringer, tåget som blåser, omnibussen som kommer och går; under det\\nguldstyckena rulla på byrån. Det är ett liv!\\n\\nFRöKEN\\n\\nJa, det är att leva! Och jag?\\n\\nJEAN\\n\\nHusets härskarinna; firmans prydnad. Med ert utseende, och ert\\nsätt - åh - det är en given succés! Kolossal! Ni sitter som en\\ndrottning på kontoret och sätter slavarne i rörelse med att trycka på\\nen elektrisk knapp; gästerna defilera inför er tron och lägga blyga\\nsin skatt på ert bord - ni kan aldrig tro vad mänskorna darrar när de\\nfå en räkning i sin hand - jag skall salta notorna och ni skall sockra\\npå dem med ert vackraste leende - ack! låt oss resa härifrån -\\n\\ntar upp en kommunikationstabell ur fickan\\n\\ngenast, med nästa tåg! - vi äro i Malmö klockan sex och trettio;\\nHamburg åtta och fyrtio i morgon tidigt; Frankfurt - Basel en dag och\\ni Como genom Gotthardbanan om, låt mig se, tre dar! Tre dar!\\n\\nFRöKEN\\n\\nAllt det där är bra! Med Jean - du skall ge mig mod -Säg att du\\nälskar mig! Kom och omfamna mig!\\n\\nJEAN\\n\\ntvekande.\\n\\nJag vill - men jag törs inte! Inte här i huset mer! Jag älskar er\\n- utan tvivel - kan ni tveka på det?\\n\\nFRöKEN\\n\\nblygt, sant kvinnligt.\\n\\nNi! -Säg du! Mellan oss finns inga skrankor mer! - Säg du!\\n\\nJEAN\\n\\nplågad.\\n\\nJag kan inte! - Det finns skrankor mellan oss ännu, så länge vi\\nvistas i detta hus - det finns det förflutna, det finns greven - och\\njag har aldrig träffat någon person, som jag har sådan respekt för -\\njag behöver bara se hans handskar ligga på en stol, så känner jag mig\\nliten - jag behöver bara höra klockan däroppe, så far jag ihop som en\\nskygg häst - och när jag nu ser hans stövlar stå där så raka och\\nkavata, så drar det i ryggen på mig!\\n\\nSparkar till stövlarna.\\n\\nVidskepelse, fördomar, som man har lärt oss från barndomen - men\\nsom man kan glömma lika lätt. Kom till ett annat land bara där det är\\nrepublik, och man står på näsan för min portiers livré - på näsan ska\\nman stå, se; men jag ska det inte! Jag är inte född till att stå på\\nnäsan, för det finns stoff i mig, det finns karaktär, och bara jag får\\nfatt i första grenen ska ni se mig klättra!\\n\\nJag är betjänt i dag, men nästa år är jag proprietär, om tio år är\\njag rentier, och sedan reser jag till Rumänien, låter dekorera mig,\\noch kan - märk väl jag säger kan - sluta som greve!\\n\\nFRöKEN\\n\\nVackert, vackert!\\n\\nJEAN\\n\\nAh, i Rumänien köper man sig grevetiteln, och så blir ni grevinna\\nlikafullt! Min grevinna!\\n\\nFRöKEN\\n\\nVad bryr jag mig om allt det där, som jag nu kastar bakom mig!\\n- Säg att du älskar mig, eljes - ja vad är jag eljes?\\n\\nJEAN\\n\\nJag skall säga det, tusen gånger - sedan - bara icke här! Och\\nframför allt, inga känslor, om icke allt skall vara förlorat! Vi måste\\nta saken kallt! som kloka mänskor!\\n\\nTar opp en cigarr, snoppar och tänder den.\\n\\nSitt nu ner där! så sitter jag mig här och så språka vi, som om\\ningenting skulle ha inträffat!\\n\\nFRöKEN\\n\\nförtvivlad.\\n\\nO min Gud! Har ni då inga känslor!\\n\\nJEAN\\n\\nJag! Det finns ingen människa så känslofull som jag; men jag kan\\nlägga band på mig.\\n\\nFRöKEN\\n\\nNyss kunde ni kyssa min sko - och nu!\\n\\nJEAN\\n\\nhårt.\\n\\nJa det var då! Nu ha vi annat att tänka på!\\n\\nFRöKEN\\n\\nTala inte hårt till mig!\\n\\nJEAN\\n\\nNej, men klokt! En dårskap är begången, begå inte fler! Greven kan\\nvara här när som helst och innan dess måste våra öden vara\\navgjorda. Vad synes er om mina planer för framtiden! Gillar ni dem?\\n\\nFRöKEN\\n\\nDe synas mig rätt antagliga, men blott en fråga: till ett så stort\\nföretag fodras stort kapital; har ni det?\\n\\nJEAN\\n\\ntuggar cigarren.\\n\\nJag! Helt visst! Jag har mina fackkunskaper, min oerhörda\\nerfarenhet, min språkkännedom! Det är kapital som duger vill jag tro!\\n\\nFRöKEN\\n\\nMen för det kan ni inte ens köpa en järnvägsbiljett.\\n\\nJEAN\\n\\nDet är visserligen sant; men det är därför jag söker en\\nförlagsman, som kan försträcka fonderna!\\n\\nFRöKEN\\n\\nVar finner ni den i hast?\\n\\nJEAN\\n\\nDen skall ni finna, om ni vill bli min kompanjon!\\n\\nFRöKEN\\n\\nDet kan jag inte, och jag äger intet själv.\\n\\nPaus.\\n\\nJEAN\\n\\nDå förfaller hela saken ---\\n\\nFRöKEN\\n\\nOch ---\\n\\nJEAN\\n\\nDet blir som det är!\\n\\nFRöKEN\\n\\nTror ni att jag stannar under detta tak som er frilla? Tror ni att\\njag vill låta folket peka finger åt mig; tänker ni att jag kan se min\\nfar i ansiktet efter detta? Nej! För mig bort härifrån: från\\nförnedringen, och vanäran! -O, vad har jag gjort, min Gud, min Gud!\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"Flee? But where? We cannot get out! And we cannot go to Kristin!\\n\\nJEAN\\n\\nWell then! Into my room? Necessity knows no law; and you can trust me,\\nfor I am your true, sincere, and respectful friend!\\n\\nMISS JULIE\\n\\nBut think!—suppose they look for you there?\\n\\nJEAN\\n\\nI shall bolt the door, and if anyone tries to break in, I shall shoot!—Come!\\n\\nOn his knees.\\n\\nCome!\\n\\nMISS JULIE\\n\\nmeaningfully.\\n\\nDo you promise me—\\n\\nJEAN\\n\\nI swear!\\n\\nMiss Julie exits hastily to the right. Jean rushes after her.\\n\\nProject Runeberg, Tue Dec 11 18:21:53 2012\\n(aronsson)\\n(diff)\\n(history)\\n(download)\\n<< Previous\\nNext >>\\n\\nhttps://runeberg.org/frkjulie/03.html\\n\\npart 4 (Miss Julie)\\n\\nMiss Julie /\\npart 4\\n\\nAuthor: August Strindberg—Theme: Drama, Theater Plays\\n\\nTable of Contents / Contents | << Previous | Next >>\\n\\nProject Runeberg\\n| Catalog\\n| Recent Changes\\n| Donate\\n| Comments?\\n|\\n\\nBALLET\\n\\nThe country folk enter in festive dress, with flowers in their hats; a\\nfiddler at their head; a keg of small beer and a small cask of brandy,\\ndecorated with greenery, are set on the table; glasses are brought out.\\nThen they drink. Afterward they form a ring and sing and dance the singing\\ngame: “There Came Two Ladies from the Woods.”\\n\\nWhen this is over, they leave, still singing.\\n\\nMiss Julie enters alone; sees the devastation in the kitchen; clasps her\\nhands; then picks up a powder puff and powders her face.\\n\\nJEAN\\n\\nenters; exalted.\\n\\nThere, you see! And you have heard! Do you consider it possible to remain\\nhere?\\n\\nMISS JULIE\\n\\nNo! I do not! But what, then, are we to do?\\n\\nJEAN\\n\\nFlee, travel, far away from here!\\n\\nMISS JULIE\\n\\nTravel? Yes, but where?\\n\\nJEAN\\n\\nTo Switzerland, to the Italian lakes;—you have never been there?\\n\\nMISS JULIE\\n\\nNo! Is it beautiful there?\\n\\nJEAN\\n\\nOh, an eternal summer, orange trees, laurels, oh!\\n\\nMISS JULIE\\n\\nBut what shall we do there afterward?\\n\\nJEAN\\n\\nThere I shall establish a hotel with first-class goods and first-class\\ncustomers.\\n\\nMISS JULIE\\n\\nA hotel?\\n\\nJEAN\\n\\nThat is a life, believe me; constantly new faces, new languages; not a\\nminute’s leisure for brooding or nerves; no searching for something to do,\\nfor the work presents itself; night and day, the bell ringing, the train\\nwhistling, the omnibus coming and going; while the gold pieces roll onto\\nthe bureau. That is a life!\\n\\nMISS JULIE\\n\\nYes, that is living! And I?\\n\\nJEAN\\n\\nMistress of the house; the ornament of the firm. With your looks and your\\nmanner—oh—it is a certain success! Colossal! You sit like a queen in the\\noffice and set the slaves in motion by pressing an electric button; the\\nguests file past your throne and timidly lay their tribute on your table—you\\nwould never believe how people tremble when they are handed a bill—I shall\\nsalt the accounts, and you shall sugar them with your loveliest smile—ah!\\nlet us travel away from here—\\n\\nTakes a timetable from his pocket.\\n\\nat once, on the next train!—we shall be in Malmö at six thirty; Hamburg at\\neight forty early tomorrow morning; Frankfurt—Basel in one day, and in Como\\nby the Gotthard Railway in, let me see, three days! Three days!\\n\\nMISS JULIE\\n\\nAll that is well and good! But Jean—you must give me courage—say that you\\nlove me! Come and embrace me!\\n\\nJEAN\\n\\nhesitating.\\n\\nI want to—but I dare not! Not here in this house anymore! I love you—without\\na doubt—can you doubt it?\\n\\nMISS JULIE\\n\\nshyly, truly womanly.\\n\\nNot “you”!—Say “thou”! There are no barriers between us anymore!—Say “thou”!\\n\\nJEAN\\n\\nin anguish.\\n\\nI cannot!—There are still barriers between us, as long as we remain in this\\nhouse—there is the past, there is the Count—and I have never met anyone for\\nwhom I have such respect—I need only see his gloves lying on a chair, and I\\nfeel small—I need only hear the bell upstairs, and I start like a skittish\\nhorse—and when I now see his boots standing there so straight and\\nself-assured, I feel my back bending!\\n\\nKicks the boots.\\n\\nSuperstition, prejudices that we have been taught since childhood—but that\\none can forget just as easily. Just come to another country where there is\\na republic, and people fall flat on their faces before my doorman’s livery—on\\ntheir faces they shall fall, you see; but I shall not! I was not born to\\nfall on my face, for there is substance in me, there is character, and once\\nI get hold of the first branch, you shall see me climb!\\n\\nI am a servant today, but next year I shall be a proprietor, in ten years I\\nshall be a man of independent means, and then I shall travel to Romania,\\nhave myself decorated, and may—mark well, I say may—end as a count!\\n\\nMISS JULIE\\n\\nBeautiful, beautiful!\\n\\nJEAN\\n\\nAh, in Romania one buys oneself the title of count, and then you will be a\\ncountess after all! My countess!\\n\\nMISS JULIE\\n\\nWhat do I care about all that, which I am now casting behind me!—Say that\\nyou love me, otherwise—yes, what am I otherwise?\\n\\nJEAN\\n\\nI shall say it a thousand times—afterward—only not here! And above all, no\\nfeelings, unless everything is to be lost! We must approach the matter\\ncoldly! Like sensible people!\\n\\nTakes out a cigar, clips and lights it.\\n\\nNow sit down there! Then I shall sit here, and we shall talk as though\\nnothing had happened!\\n\\nMISS JULIE\\n\\ndespairingly.\\n\\nOh my God! Have you no feelings, then?\\n\\nJEAN\\n\\nI! There is no one as full of feeling as I am; but I can restrain myself.\\n\\nMISS JULIE\\n\\nJust now you could kiss my shoe—and now!\\n\\nJEAN\\n\\nharshly.\\n\\nYes, that was then! Now we have other things to think about!\\n\\nMISS JULIE\\n\\nDo not speak harshly to me!\\n\\nJEAN\\n\\nNo, but sensibly! One folly has been committed; do not commit more! The\\nCount may be here at any moment, and before then our fates must be decided.\\nWhat do you think of my plans for the future? Do you approve of them?\\n\\nMISS JULIE\\n\\nThey seem quite acceptable to me, but just one question: so large an\\nenterprise requires considerable capital; do you have it?\\n\\nJEAN\\n\\nchews the cigar.\\n\\nI! Certainly! I have my professional knowledge, my vast experience, my\\nknowledge of languages! That is capital of real worth, I should think!\\n\\nMISS JULIE\\n\\nBut with that you cannot even buy a railway ticket.\\n\\nJEAN\\n\\nThat is certainly true; but that is why I am looking for a backer who can\\nadvance the funds!\\n\\nMISS JULIE\\n\\nWhere will you find one in such haste?\\n\\nJEAN\\n\\nYou shall find one, if you are willing to become my partner!\\n\\nMISS JULIE\\n\\nI cannot, and I own nothing myself.\\n\\nPause.\\n\\nJEAN\\n\\nThen the whole matter falls through—\\n\\nMISS JULIE\\n\\nAnd—\\n\\nJEAN\\n\\nThings will remain as they are!\\n\\nMISS JULIE\\n\\nDo you think I shall remain under this roof as your mistress? Do you think\\nI am willing to let the people point their fingers at me; do you imagine I\\ncan look my father in the face after this? No! Take me away from here: from\\nthe humiliation and the disgrace!—Oh, what have I done, my God, my God!\", \"source_occurrence_id\": \"strindberg-froken-julie-f75e1e15f1a3e50c\", \"source_language\": \"sv\", \"source_language_text_sha256\": \"6e9b5bc37ba7542fab20ab9ef2227bc770aff405529287c90fd633bfa3a47877\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T11:44:13.981547+00:00\", \"model_usage\": {\"input_tokens\": 2373, \"cached_input_tokens\": 0, \"output_tokens\": 2185}, \"estimated_cost_usd\": 0.053192, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"strindberg-froken-julie\", \"title\": \"Fröken Julie\", \"author\": \"August Strindberg\", \"language\": \"sv\", \"source_type\": \"runeberg\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.417684, \"source_start\": 28428, \"source_end\": 28441, \"source_length\": 68061}, \"form\": {\"form_family\": \"present_or_past\", \"polarity\": \"surface_optional_negative\", \"tense_aspect\": \"present\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"sv_main\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

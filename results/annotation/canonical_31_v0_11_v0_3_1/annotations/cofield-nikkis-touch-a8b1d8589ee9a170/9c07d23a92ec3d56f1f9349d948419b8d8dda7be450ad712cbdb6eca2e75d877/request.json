@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"cofield-nikkis-touch-a8b1d8589ee9a170\", \"SOURCE_TEXT\": {\"exact_match\": \"I love you\", \"local_text\": {\"context_start\": 227313, \"context_end\": 227398, \"text\": \"\\tKeith stilled, then smiled. “I love you too,” he said, his voice steady and sincere.\"}, \"wider_canonical_context\": {\"context_start\": 224339, \"context_end\": 230608, \"text\": \"\\t“Promise me you’ll think about it,” Nikki pressed.\\n\\n\\t“I promise,” Meko said, smiling.\\n\\n\\tThey hugged tightly before parting ways, leaving Nikki feeling both lighter and heavier. The goodbye was harder than she anticipated, but she also felt hopeful. Meko was special, and Nikki was certain their paths would cross again.\\n\\n\\n\\n\\tBack at the Airbnb, Nikki was nearly done packing. Her suitcases were lined up by the door, and she was double-checking drawers and corners to make sure she hadn’t left anything behind. The place felt strangely empty now, stripped of the personal touches she had added during her stay.\\n\\n\\tAs she was zipping up her last suitcase, her phone buzzed. It was a text from Keith.\\n\\n\\tKeith: I have that vodka you wanted. Mind if I stop by?\\n\\n\\tNikki smirked, shaking her head. Keith, with his charm and thoughtfulness, had a way of surprising her. She had mentioned the vodka in passing weeks ago, never expecting him to remember, let alone show up with it.\\n\\n\\tNikki: Sure. Come over.\\n\\n\\tFifteen minutes later, there was a knock at the door. Nikki opened it to find Keith standing there, a bottle of vodka in one hand and a playful grin on his face. He looked casual yet impossibly handsome in a fitted navy T-shirt and dark jeans.\\n\\n\\t“You really didn’t have to do this,” Nikki said, taking the bottle from him.\\n\\n\\t“I wanted to,” Keith replied, stepping inside. “Consider it a send-off gift.”\\n\\n\\tShe gestured for him to sit, grabbing two shot glasses from the kitchen. They sat on the couch, the mood light but charged with unspoken tension.\\n\\n\\tNikki poured the vodka into the glasses and raised hers. “To Houston. And to you, Keith.”\\n\\n\\t“To you, Nikki,” Keith said, clinking his glass against hers.\\n\\n\\tThey threw back the shots, the vodka burning warmly as it went down. Keith set his glass down and leaned back, his eyes lingering on Nikki. “You know,” he said, his voice softer now, “I’ve been trying to play it cool, but I don’t want you to leave.”\\n\\n\\tNikki’s heart skipped a beat. “Keith…” she began, but he cut her off.\\n\\n\\t“I know you have your life in Atlanta, and I would never ask you to change that. But I just… I’ve never met anyone like you, Nikki. You’re amazing.”\\n\\n\\tBefore she could overthink it, he leaned in and kissed her. It was slow at first, a tentative exploration, but quickly deepened as they gave in to the pull between them. Nikki felt her reservations melting away, replaced by an overwhelming need to be close to him.\\n\\n\\tOne kiss turned into another, and soon they were tangled together, their emotions spilling over into every touch. Keith lifted her effortlessly, carrying her to the bedroom where their passion ignited fully. The hours that followed were filled with laughter, tenderness, and a connection that felt both intense and comforting.\\n\\n\\n\\n\\tAs they lay in bed afterward, Keith traced lazy circles on Nikki’s arm. She turned to him, her heart full. “I love you,” she said suddenly, the words spilling out before she could stop them.\\n\\n\\tKeith stilled, then smiled. “I love you too,” he said, his voice steady and sincere.\\n\\n\\tThe admission felt like a release, a moment of pure honesty that left them both vulnerable but deeply connected. They kissed again, their bodies and emotions perfectly in sync.\\n\\n\\n\\n\\tWhen Nikki finally glanced at the clock, she realized with a jolt that she had missed her flight. “Oh my God,” she said, sitting up in bed. “I can’t believe this.”\\n\\n\\tKeith propped himself up on one elbow, a smirk playing on his lips. “Guess you’ll have to stay a little longer.”\\n\\n\\t“Don’t tempt me,” Nikki said, throwing a pillow at him.\\n\\n\\tKeith laughed, leaning over to kiss her forehead. “I have to head to the club soon, but… this doesn’t have to be goodbye, Nikki.”\\n\\n\\t“I know,” she said softly.\\n\\n\\tAs Keith got dressed and left for work, Nikki sat on the edge of the bed, her mind spinning. She was overwhelmed, unsure of what the future held but certain of one thing—her time in Houston had changed her in ways she couldn’t yet fully grasp. And as much as she loved Atlanta, part of her heart would always belong to this city and the man who had stolen it.\\n\\n\\n\\n\\tNikki woke up early the next morning, her mind clear but her heart heavy. After three months in Houston, she was finally heading back to Atlanta. Her emotions were a storm of excitement and longing—she was eager to check on her house, to feel the comfort of home again, but she also felt the ache of leaving Keith behind. Their last night together had been nothing short of magical, and his constant texts since then only solidified what she had begun to realize: Keith might be her person.\\n\\n\\tAs she packed the last of her belongings into her carry-on, Keith sent another text.\\n\\n\\tKeith: Good morning, gorgeous. Let me know when you land safely. Missing you already.\\n\\n\\tNikki smiled at her phone, her fingers hovering over the screen before she typed back.\\n\\n\\tNikki: Morning! I’ll text you as soon as I land. Missing you too.\\n\\n\\n\\n\\tThe flight back to Atlanta felt longer than usual, and by the time Nikki stepped off the plane, her emotions were a mix of relief and sadness. She had loved Houston, but Atlanta was her heart. The city felt like an old friend as she drove through familiar streets, eventually pulling into the driveway of her beautifully designed home.\\n\\n\\tThe moment she stepped inside, she felt a wave of calm. The house was pristine, just as she had left it, but Nikki had to walk through each room to make sure. Cameras were great, but there was nothing like seeing and feeling the space in person. Her design touches were everywhere—the soft blush tones in the living room, the curated art pieces on the walls, and the plush rugs that made every step feel luxurious.\\n\\n\\tShe dropped her bags by the staircase and sank onto the couch. Her phone buzzed with another text from Keith.\\n\\n\\tKeith: How’s it feel to be home?\\n\\n\\tNikki: Overwhelming but good. I miss you though.\\n\\n\\tKeith: I miss you too. Call me tonight?\\n\\n\\tNikki: Of course.\\n\\n\\tNikki set the phone down and exhaled deeply. She missed Keith more than she expected, and the realization scared her a little. How had he become so important to her in such a short time? She had always been fiercely independent, focused on her career and her goals. But Keith made her feel seen in a way no one else had.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": null, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"cofield-nikkis-touch\", \"title\": \"Nikki's Touch\", \"author\": \"Ania Cofield\", \"language\": \"en\", \"source_type\": \"local_permissioned\", \"rights\": {\"public_render_policy\": \"PERMISSIONED_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.618718, \"source_start\": 227343, \"source_end\": 227353, \"source_length\": 367442}, \"form\": {\"form_family\": \"present\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": \"optional\", \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"en_present\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 1.0, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

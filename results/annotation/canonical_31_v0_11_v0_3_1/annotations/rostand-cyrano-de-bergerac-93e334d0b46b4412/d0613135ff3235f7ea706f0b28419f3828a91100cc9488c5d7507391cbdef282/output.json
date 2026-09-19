@@ -1,0 +1,65 @@
+{
+  "occurrence_id": "rostand-cyrano-de-bergerac-93e334d0b46b4412",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.97,
+    "analysis": "The highlighted occurrence is Roxane’s direct “je vous aime” within the fuller phrase “Oh ! je vous aime bien.” It avows fondness or affectionate friendship toward Cyrano. Neither the phrase nor its setting independently enacts a relational commitment, and the initial “Oh !” does not by itself establish expressive/reflex-like force.",
+    "ambiguity": "The exact match is embedded in “je vous aime bien,” whose idiomatic force is closer to “I am very fond of you” than an unqualified romantic “I love you.” A separate “Oh ! je vous aime !” occurs shortly afterward but is not the highlighted occurrence."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "Roxane directly addresses Cyrano; the classified event is the first occurrence, “Oh ! je vous aime bien,” rather than the nearby later repetition."
+  },
+  "contextual_interpretation": "Roxane says this immediately after Cyrano promises to protect Christian, the man she romantically loves. Her words express affectionate gratitude and confirm her “tender friendship” with Cyrano, not romantic love for him. The context is painfully ironic because Cyrano loves Roxane, but that narrative asymmetry does not alter the utterance’s predominantly truth-conditional force.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "“Oh ! je vous aime bien. Il faut que je m'en aille.”",
+      "supports": "The adverb “bien” qualifies the direct avowal as fondness or affectionate friendship, strongly supporting T.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "Immediately beforehand Roxane says, “J'ai toujours eu pour vous une amitié si tendre,” and Cyrano promises to protect Christian and be his friend.",
+      "supports": "Identifies the affection as friendship and places the utterance as grateful acknowledgment rather than a new undertaking.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "Roxane has already said of Christian, “Enfin, je l'aime,” and later tells Cyrano, “Nous sommes de grands amis !”",
+      "supports": "Distinguishes her romantic love for Christian from her friendly affection toward Cyrano.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "e4",
+      "source": "local_text",
+      "quotation_or_description": "The utterance begins with “Oh !” but there is no narration that Roxane blurts the words involuntarily or speaks before reflection.",
+      "supports": "Emotional coloring is present, but the passage supplies no independent evidence for expressive/reflexive core force.",
+      "confidence": 0.95
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the avowal of friendly affection. Gratitude, dramatic irony, and emotional coloring belong to contextual interpretation and create no residual pressure beyond T/P/E.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": "The nearby second occurrence should not be conflated with the highlighted exact match at the start of “je vous aime bien.”"
+}

@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"flaubert-madame-bovary-235416d6f3edeafa\", \"SOURCE_TEXT\": {\"exact_match\": \"je t’aime\", \"local_text\": {\"context_start\": 373156, \"context_end\": 373267, \"text\": \"— Qu’as-tu? qu’as-tu? répétait-il stupéfait. Calme-toi!\\nreprends-toi!... Tu sais bien que je t’aime! ... viens!\"}, \"wider_canonical_context\": {\"context_start\": 370160, \"context_end\": 376344, \"text\": \"Comment donc avait-elle fait (elle qui était si intelligente!) pour se\\nméprendre encore une fois? Du reste, par quelle déplorable manie avoir\\nainsi abîmé son existence en sacrifices continuels? Elle se rappela\\ntous ses instincts de luxe, toutes les privations de son âme, les\\nbassesses du mariage, du ménage, ses rêves tombant dans la boue comme\\ndes hirondelles blessées, tout ce qu’elle avait désiré, tout ce qu’elle\\ns’était refusé, tout ce qu’elle aurait pu avoir! et pourquoi? pourquoi?\\n\\nAu milieu du silence qui emplissait le village, un cri déchirant\\ntraversa l’air. Bovary devint pâle à s’évanouir. Elle fronça les\\nsourcils d’un geste nerveux, puis continua. C’était pour lui cependant,\\npour cet être, pour cet homme qui ne comprenait rien, qui ne sentait\\nrien! car il était là, tout tranquillement, et sans même se douter que\\nle ridicule de son nom allait désormais la salir comme lui. Elle avait\\nfait des efforts pour l’aimer, et elle s’était repentie en pleurant\\nd’avoir cédé à un autre.\\n\\n— Mais c’était peut-être un valgus! exclama soudain Bovary, qui\\nméditait.\\n\\nAu choc imprévu de cette phrase tombant sur sa pensée comme une balle\\nde plomb dans un plat d’argent, Emma tressaillant leva la tête pour\\ndeviner ce qu’il voulait dire; et ils se regardèrent silencieusement,\\npresque ébahis de se voir, tant ils étaient par leur conscience\\néloignés l’un de l’autre. Charles la considérait avec le regard\\ntrouble d’un homme ivre, tout en écoutant, immobile, les derniers\\ncris de l’amputé qui se suivaient en modulations traînantes, coupées\\nde saccades aiguës, comme le hurlement lointain de quelque bête qu’on\\négorge. Emma mordait ses lèvres blêmes, et, roulant entre ses doigts\\nun des brins du polypier qu’elle avait cassé, elle fixait sur Charles\\nla pointe ardente de ses prunelles, comme deux flèches de feu prêtes à\\npartir. Tout en lui l’irritait maintenant, sa figure, son costume, ce\\nqu’il ne disait pas, sa personne entière, son existence enfin. Elle se\\nrepentait, comme d’un crime, de sa vertu passée, et ce qui en restait\\nencore s’écroulait sous les coups furieux de son orgueil. Elle se\\ndélectait dans toutes les ironies mauvaises de l’adultère triomphant.\\nLe souvenir de son amant revenait à elle avec des attractions\\nvertigineuses: elle y jetait son âme, emportée vers cette image par\\nun enthousiasme nouveau; et Charles lui semblait aussi détaché de sa\\nvie, aussi absent pour toujours, aussi impossible et anéanti, que s’il\\nallait mourir et qu’il eût agonisé sous ses yeux.\\n\\nIl se fit un bruit de pas sur le trottoir. Charles regarda; et, à\\ntravers la jalousie baissée, il aperçut au bord des halles, en plein\\nsoleil, le docteur Canivet qui s’essuyait le front avec son foulard.\\nHomais, derrière lui, portait à la main une grande boîte rouge, et ils\\nse dirigeaient tous les deux du côté de la pharmacie.\\n\\nAlors, par tendresse subite et découragement, Charles se tourna vers sa\\nfemme en lui disant:\\n\\n— Embrasse-moi donc, ma bonne!\\n\\n— Laisse-moi! fit-elle, toute rouge de colère.\\n\\n— Qu’as-tu? qu’as-tu? répétait-il stupéfait. Calme-toi!\\nreprends-toi!... Tu sais bien que je t’aime! ... viens!\\n\\n— Assez! s’écria-t-elle d’un air terrible.\\n\\nEt s’échappant de la salle, Emma ferma la porte si fort, que le\\nbaromètre bondit de la muraille et s’écrasa par terre.\\n\\nCharles s’affaissa dans son fauteuil, bouleversé, cherchant ce\\nqu’elle pouvait avoir, imaginant une maladie nerveuse, pleurant, et\\nsentant vaguement circuler autour de lui quelque chose de funeste et\\nd’incompréhensible.\\n\\nQuand Rodolphe, le soir, arriva dans le jardin, il trouva sa maîtresse\\nqui l’attendait au bas du perron, sur la première marche. Ils\\ns’étreignirent, et toute leur rancune se fondit comme une neige sous la\\nchaleur de ce baiser.\\n\\n\\n\\n\\nXII\\n\\n\\nIls recommencèrent à s’aimer. Souvent même, au milieu de la journée,\\nEmma lui écrivait tout à coup; puis, à travers les carreaux, faisait\\nun signe à Justin, qui, dénouant vite sa serpillière, s’envolait à la\\nHuchette. Rodolphe arrivait; c’était pour lui dire qu’elle s’ennuyait,\\nque son mari était odieux et son existence affreuse!\\n\\n— Est-ce que j’y peux quelque chose? s’écria-t-il un jour, impatienté.\\n\\n— Ah! si tu voulais! ...\\n\\nElle était assise par terre, entre ses genoux, les bandeaux dénoués, le\\nregard perdu.\\n\\n— Quoi donc? fit Rodolphe.\\n\\nElle soupira.\\n\\n— Nous irions vivre ailleurs..., quelque part...\\n\\n— Tu es folle, vraiment! dit-il en riant. Est-ce possible?\\n\\nElle revint là-dessus; il eut l’air de ne pas comprendre et détourna la\\nconversation.\\n\\nCe qu’il ne comprenait pas, c’était tout ce trouble dans une chose\\naussi simple que l’amour. Elle avait un motif, une raison, et comme un\\nauxiliaire à son attachement.\\n\\nCette tendresse, en effet, chaque jour s’accroissait davantage\\nsous la répulsion du mari. Plus elle se livrait à l’un, plus elle\\nexécrait l’autre; jamais Charles ne lui paraissait aussi désagréable,\\navoir les doigts aussi carrés, l’esprit aussi lourd, les façons\\nsi communes qu’après ses rendez-vous avec Rodolphe, quand ils se\\ntrouvaient ensemble. Alors, tout en faisant l’épouse et la vertueuse,\\nelle s’enflammait à l’idée de cette tête dont les cheveux noirs se\\ntournaient en une boucle vers le front hâlé, de cette taille à la\\nfois si robuste et si élégante, de cet homme enfin qui possédait tant\\nd’expérience dans la raison, tant d’emportement dans le désir! C’était\\npour lui qu’elle se limait les ongles avec un soin de ciseleur, et\\nqu’il n’y avait jamais assez de cold-cream sur sa peau, ni de patchouli\\ndans ses mouchoirs. Elle se chargeait de bracelets, de bagues, de\\ncolliers. Quand il devait venir, elle emplissait de roses ses deux\\ngrands vases de verre bleu, et disposait son appartement et sa personne\\ncomme une courtisane qui attend un prince. Il fallait que la domestique\\nfût sans cesse à blanchir du linge; et, de toute la journée, Félicité\\nne bougeait de la cuisine, où le petit Justin, qui souvent lui tenait\\ncompagnie, la regardait travailler.\\n\\nLe coude sur la longue planche où elle repassait, il considérait\\navidement toutes ces affaires de femmes étalées autour de lui: les\\njupons de basin, les fichus, les collerettes, et les pantalons à\\ncoulisse, vastes de hanches et qui se rétrécissaient par le bas.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"How, then, had she managed—she who was so intelligent!—to be mistaken yet again? Besides, through what deplorable mania had she thus ruined her life in continual sacrifices? She recalled all her instincts for luxury, all the privations of her soul, the baseness of marriage, of domestic life, her dreams falling into the mud like wounded swallows, everything she had desired, everything she had denied herself, everything she might have had! And why? Why?\\n\\nAmid the silence that filled the village, a heartrending cry passed through the air. Bovary turned pale, almost fainting. She frowned with a nervous gesture, then continued. Yet it was for him, for that creature, for that man who understood nothing, who felt nothing! For there he was, perfectly calm, without even suspecting that the ridiculousness of his name would henceforth soil her as it did him. She had made efforts to love him, and she had repented with tears for having yielded to another.\\n\\n“But perhaps it was a valgus!” Bovary suddenly exclaimed, deep in thought.\\n\\nAt the unexpected impact of this sentence, dropping onto her thoughts like a lead ball onto a silver platter, Emma started and raised her head to guess what he meant; and they looked at each other in silence, almost astonished to see one another, so far apart were they in their consciousness. Charles regarded her with the clouded gaze of a drunken man, while listening motionlessly to the amputee’s final cries, which followed one another in drawn-out modulations, broken by sharp jolts, like the distant howling of some animal being slaughtered. Emma bit her pale lips and, rolling between her fingers one of the branches of the coral she had broken, fixed upon Charles the burning tips of her eyes, like two fiery arrows ready to fly. Everything about him irritated her now: his face, his clothes, what he did not say, his entire person, his very existence. She repented of her former virtue as though it were a crime, and what still remained of it was crumbling beneath the furious blows of her pride. She reveled in all the malicious ironies of triumphant adultery. The memory of her lover returned to her with dizzying allurements: she cast her soul into it, swept toward that image by a new enthusiasm; and Charles seemed to her as detached from her life, as forever absent, as impossible and annihilated, as if he were about to die and had lain in his death agony before her eyes.\\n\\nThere came a sound of footsteps on the pavement. Charles looked; and through the lowered blind he saw, at the edge of the market halls, in full sunlight, Doctor Canivet wiping his forehead with his handkerchief. Homais, behind him, carried a large red box in his hand, and they were both making their way toward the pharmacy.\\n\\nThen, out of sudden tenderness and discouragement, Charles turned to his wife and said to her:\\n\\n“Do kiss me, my dear!”\\n\\n“Leave me alone!” she said, her face crimson with anger.\\n\\n“What is it? What is it?” he repeated, dumbfounded. “Calm down! Pull yourself together!... You know very well that I love you!... Come!”\\n\\n“Enough!” she cried with a terrible expression.\\n\\nAnd, fleeing from the room, Emma slammed the door so hard that the barometer leapt from the wall and shattered on the floor.\\n\\nCharles collapsed into his armchair, distraught, trying to determine what might be wrong with her, imagining some nervous illness, weeping, and vaguely sensing something ominous and incomprehensible moving around him.\\n\\nWhen Rodolphe arrived in the garden that evening, he found his mistress waiting for him at the foot of the front steps, on the first step. They embraced, and all their resentment melted like snow beneath the warmth of that kiss.\\n\\nXII\\n\\nThey began to love each other again. Often, even in the middle of the day, Emma would suddenly write to him; then, through the windowpanes, she would signal to Justin, who, quickly untying his floor cloth, would fly off to La Huchette. Rodolphe would arrive; it was so that she could tell him that she was bored, that her husband was odious and her life dreadful!\\n\\n“Can I do anything about it?” he exclaimed one day, growing impatient.\\n\\n“Ah! If only you were willing!...”\\n\\nShe was sitting on the floor between his knees, her hair loosened at the sides, her gaze lost.\\n\\n“What, then?” said Rodolphe.\\n\\nShe sighed.\\n\\n“We would go and live elsewhere... somewhere...”\\n\\n“You really are mad!” he said, laughing. “Is that possible?”\\n\\nShe returned to the subject; he pretended not to understand and changed the conversation.\\n\\nWhat he did not understand was all this turmoil over something as simple as love. She had a motive, a reason, and something like an ally supporting her attachment.\\n\\nIndeed, this tenderness grew greater every day under the influence of her revulsion for her husband. The more she gave herself to the one, the more she abhorred the other; never did Charles seem so disagreeable to her, his fingers so square, his mind so dull, his manners so common, as after her meetings with Rodolphe, when they were together. Then, while playing the wife and the virtuous woman, she would take fire at the thought of that head whose black hair curled toward the tanned forehead, of that figure at once so robust and so elegant, of that man, in short, who possessed so much experience in reason, so much passion in desire! It was for him that she filed her nails with an engraver’s care, and that there could never be enough cold cream on her skin or patchouli in her handkerchiefs. She loaded herself with bracelets, rings, necklaces. When he was due to come, she filled her two large blue glass vases with roses, and arranged her apartment and her person like a courtesan awaiting a prince. The maid had to be constantly laundering linen; and all day long Félicité never left the kitchen, where young Justin, who often kept her company, watched her work.\\n\\nWith his elbow on the long board where she ironed, he gazed avidly at all those women’s things spread out around him: the dimity petticoats, the fichus, the little collars, and the drawstring drawers, broad at the hips and narrowing toward the bottom.\", \"source_occurrence_id\": \"flaubert-madame-bovary-235416d6f3edeafa\", \"source_language\": \"fr\", \"source_language_text_sha256\": \"d09cc1fdb83856a5edc045d887e045de7728783bd3e86250e223b2723f2854a1\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T10:35:48.187710+00:00\", \"model_usage\": {\"input_tokens\": 1943, \"cached_input_tokens\": 0, \"output_tokens\": 1720}, \"estimated_cost_usd\": 0.042172, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"flaubert-madame-bovary\", \"title\": \"Madame Bovary\", \"author\": \"Gustave Flaubert\", \"language\": \"fr\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.530874, \"source_start\": 373246, \"source_end\": 373255, \"source_length\": 703078}, \"form\": {\"form_family\": \"present_or_imperfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": \"optional\", \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"fr_present_past\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 1.0, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

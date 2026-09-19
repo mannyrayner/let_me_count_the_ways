@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"colette-le-ble-en-herbe-2344cebfeaed45b2\", \"SOURCE_TEXT\": {\"exact_match\": \"je t'aime toujours\", \"local_text\": {\"context_start\": 97340, \"context_end\": 97408, \"text\": \"—-Oh! Phil, je t'aime toujours. Malheureusement, ça n'y change rien.\"}, \"wider_canonical_context\": {\"context_start\": 92840, \"context_end\": 100375, \"text\": \"Août finissait, et l'on dînait déjà à la lueur des lampes, les portes\\nouvertes sur le couchant vert où nageait encore un fuseau de cuivre\\nrose. La mer déserte, d'un bleu noir d'hirondelle, dormait, et quand les\\ndîneurs se taisaient, on entendait le petit flux lassé et régulier des\\nmarées de morte-eau. Philippe chercha, entre les Ombres, le regard de\\nVinca, pour éprouver la force de ce fil invisible qui les liait l'un à\\nl'autre depuis tant d'années et les préservait, exaltés et purs, de\\nla mélancolie qui accable les fins de repas, les fins de saison, les\\nfins de journée. Mais elle baissait les yeux sur son assiette, et la\\nlumière de la suspension polissait ses paupières bombées, ses joues\\nrondes et brunes, son petit menton. Alors il se sentit abandonné et\\nchercha--par delà la presqu'île en forme de lion qui s'avançait, sommée\\nde trois étoiles tremblantes, sur la mer—-le chemin, blanc dans la nuit,\\nqui menait à _Ker-Anna._ Quelques heures encore, un peu plus de cendre\\nbleue dans ce ciel que le couchant teignait d'aurore, encore quelques\\nphrases rituelles: «Eh, eh, déjà dix heures. Les enfants, vous n'avez\\npas l'air de vous douter qu'on se couche à dix heures, ici?» «Je n'ai\\npourtant rien fait d'extraordinaire, madame Audebert, eh bien, je me\\nsens fatiguée comme si je n'avais pas arrêté...» Encore quelques\\ntintements de vaisselle, le dur clapotis des dominos sur la table nue,\\nencore une protestation gémissante de Lisette qui, endormie aux trois\\nquarts, refuserait de se coucher... Encore une tentative pour reconquérir\\nle regard, le sourire intérieur, la confiance de Vinca mystérieusement\\nblessée, et l'heure sonnerait, la même heure qui avait vu, la veille,\\nPhilippe s'en aller furtivement... Il y songea sans désir précis, sans\\ndessein, et comme contraint, par l'humeur de Vinca, de battre en retraite\\nvers un autre refuge, une autre douce épaule, une chaleur efficace,\\nurgente à ce convalescent du plaisir, meurtri en outre par l'hostilité\\npassionnée d'une adolescente...\\n\\nLes rites s'accomplirent, un à un; une servante emporta Lisette\\ngeignante, et Mme Ferret posa, sur la table miroitante, le double-six.\\n\\n—-Tu viens dehors, Vinca? C'est assommant, ces bombyx qui se cognent à\\ntoutes les lampes...\\n\\nElle le suivit sans répondre et ils trouvèrent encore, près de la mer,\\ncette clarté qu'y abandonne longtemps le crépuscule.\\n\\n—-Tu ne veux pas que j'aille te chercher ton écharpe?\\n\\n—-Non, merci.\\n\\nIls marchèrent tous deux, baignés d'une buée bleue très légère qui\\nmontait du pré de mer, et qui sentait le serpolet Philippe se retint\\nde prendre le bras de son amie, et s'épouvanta de sa discrétion.\\n\\n«Mon Dieu, qu'y a-t-il entre nous? Sommes-nous perdus l'un pour l'autre?\\nPuisqu'elle ignore ce qui s'est passé _là-bas_, je n'ai peut-être, moi,\\nqu'à l'oublier, et nous redeviendrons heureux comme avant, malheureux\\ncomme avant, unis comme avant?»\\n\\nMais il n'ajoutait pas à son souhait la foi hypnotique, puisque Vinca\\nmarchait à son côté, froide et douce comme si son grand amour l'eût\\nquittée, et qu'elle ne percevait pas l'angoisse de son compagnon. Aussi\\nbien Phil sentait approcher l'_heure_ et souffrait d'une trépidation\\npareille à la fièvre qu'il eut le lendemain du jour où, piqué par une\\nvive, il sentait dans son bras pansé la brûlure qu'y réveillait la marée\\nmontante...\\n\\nIl s'arrêta, s'essuya le front:\\n\\n—-J'étouffe. Je ne suis pas bien, Vinca.\\n\\n--Oh! non, pas bien, dit en écho la voix de Vinca.\\n\\nIl crut à une trêve, s'empressa de la voix et du geste:\\n\\n—-Oh! tu es gentille! Oh! chérie!...\\n\\n—-Non, interrompit la voix, je ne suis pas gentille.\\n\\nLa phrase enfantine laissa de l'espoir à Philippe, qui saisit le bras\\nnu de son amie.\\n\\n—-Tu m'en veux, je sais bien, d'avoir pleure aujourd'hui comme une\\nfemme...\\n\\n—-Non, pas comme une femme...\\n\\nIl rougit dans l'ombre, et tenta de s'expliquer:\\n\\n—-Tu comprends, ce congre que tu tourmentais dans son trou... Le sang\\nde cette bête sur ton croc à homards... J'en ai eu brusquement le cœur\\ntourné...\\n\\n—-Ah! oui, le cœur... tourné...\\n\\nLe son de la voix fut si intelligent que Philippe retint son souffle\\neffrayé. «Elle sait tout». Il attendit l'écrasant récit et l'explosion\\ndes larmes, des plaintes. Mais Vinca resta muette, et après un long\\ntemps, comme après la pause calme qui suit la foudre, il risqua une\\nquestion timide:\\n\\n—-Et cette faiblesse-là suffit pour que tu aies l'air de ne plus m'aimer?\\n\\nVinca tourna vers lui la tache nébuleuse et claire de son visage, serré\\nentre les deux haies rigides de ses cheveux:\\n\\n—-Oh! Phil, je t'aime toujours. Malheureusement, ça n'y change rien.\\n\\nIl sentit son cœur bondissant heurter sa gorge:\\n\\n—-Oui? Alors tu vas me pardonner d'avoir été si «petite fille», si\\nridicule?\\n\\nElle n'hésita qu'une seconde:\\n\\n—-Mais oui. Je vais te pardonner, Phil. Mais ça aussi, ça n'y change\\nrien.\\n\\n--À quoi?\\n\\n—-À nous, Phil.\\n\\nElle parlait avec une douceur sibylline, qu'il n'osa interroger\\ndavantage, et dont il n'osa se réjouir. Vinca le suivit sans doute dans\\nson mouvement de repli mental, car elle ajouta subtilement:\\n\\n—-Tu te souviens des scènes que tu me faisais, et des miennes, il n'y\\na pas trois semaines, parce que nous nous impatientions d'avoir quatre\\nans, cinq ans à nous morfondre avant de nous marier?... Mon pauvre Phil,\\nje crois bien que j'aimerais retourner en arrière et redevenir enfant,\\naujourd'hui...\\n\\nIl attendit qu'elle soulignât, qu'elle commentât cet habile, cet\\ninsidieux «aujourd'hui» suspendu devant lui dans l'air pur et bleu de\\nla nuit d'août. Mais Vinca savait déjà s'armer de silence. Il insista:\\n\\n—-Alors, tu ne m'en veux plus? Demain, nous serons... nous serons Vinca\\net Phil, comme toujours? Pour toujours?\\n\\n—-Pour toujours, si tu le veux, Phil... Viens. Rentrons. Il fait trais.\\n\\nElle n'avait pas répété après lui «comme toujours». Mais il se contenta\\nde ce serment incomplet et de la froide petite main serrée un moment\\ndans la sienne. Car à cet instant, la chaîne du puits déroulée, le tocsin\\ndu seau vide sur la margelle, le grincement des rideaux au long de leur\\ntringle dans une fenêtre ouverte, les derniers bruits humains de la\\njournée sonnèrent pour Philippe l'heure, la même heure qu'il avait\\nguettée, la veille, pour rouvrir la porte de la villa et s'élancer\\nsecrètement... Ah! la sourde et rouge lumière d'une chambre inconnue...\\nAh! le noir bonheur, la mort atteinte par degrés, la vie recouvrée par\\nlents coups d'aile...\\n\\nComme s'il eût attendu, depuis la veille, une sorte d'absolution de\\nVinca, absolution ambiguë qu'elle venait de lui accorder avec tant de\\nsincérité dans l'accent, tant de réticence dans les mots, il évalua\\nsoudain, en homme, le don qu'une belle démone autoritaire lui avait remis.\\n\\n\\n\\n\\nXIV\\n\\n\\n—-Il est fixé, le jour de votre départ pour Paris? demanda Mme Dalleray.\\n\\n—-C'est toujours le 25 septembre que nous devons rentrer, répondit\\nPhilippe. Quelquefois, selon la place des dimanches dans le mois, notre\\ndépart tombe le 23 ou le 24, ou le 26. Mais ça ne varie guère de plus de\\ndeux jours.\\n\\n—-Oui... En somme, vous partez dans une quinzaine. Dans une quinzaine, à\\ncette heure-ci...\\n\\nPhilippe détacha son regard de la mer, plate et blanche près des sables,\\nau loin couleur de dos de thon sous les nuées basses, et se tourna avec\\nétonnement vers Mme Dalleray. Enroulée dans une étoffe ample et blanche\\ncomme la robe des femmes de Tahiti, elle fumait gravement, coiffée net,\\npoudrée d'une poudre de la même couleur que sa peau, et rien en elle ne\\nrévélait que ce jeune homme assis non loin d'elle, beau et brun comme\\nelle, lui fût autre chose qu'un jeune frère.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"August was drawing to a close, and they were already dining by lamplight, the doors open onto the green sunset where a spindle of rosy copper still floated. The deserted sea, a swallow’s blue-black, slept, and when the diners fell silent, one could hear the small, weary, regular wash of the neap tides. Among the shadows, Philippe sought Vinca’s gaze, to test the strength of that invisible thread which had bound them to one another for so many years and preserved them, exalted and pure, from the melancholy that weighs upon the ends of meals, the ends of seasons, the ends of days. But she lowered her eyes to her plate, and the light from the hanging lamp polished her rounded eyelids, her round brown cheeks, her little chin. Then he felt abandoned and sought—beyond the lion-shaped peninsula that jutted out over the sea, crowned by three trembling stars—the road, white in the night, that led to Ker-Anna. A few hours more, a little more blue ash in this sky that the sunset tinged with dawn, a few more ritual phrases: “Well, well, ten o’clock already. Children, you don’t seem to realize that here one goes to bed at ten?” “And yet I haven’t done anything out of the ordinary, Madame Audebert; well, I feel as tired as if I hadn’t stopped...” A few more clinks of crockery, the hard clatter of dominoes on the bare table, one more moaning protest from Lisette who, three-quarters asleep, would refuse to go to bed... One more attempt to win back the gaze, the inward smile, the trust of the mysteriously wounded Vinca, and the hour would strike, the same hour that, the night before, had seen Philippe steal away... He thought of it without any precise desire, without any plan, and as though compelled by Vinca’s mood to retreat toward another refuge, another gentle shoulder, an efficacious warmth, urgently needed by this convalescent from pleasure, wounded besides by the passionate hostility of an adolescent...\\n\\nThe rites were performed, one by one; a servant carried away the whimpering Lisette, and Madame Ferret placed the double six on the gleaming table.\\n\\n“Are you coming outside, Vinca? These silkworm moths banging into all the lamps are unbearable...”\\n\\nShe followed him without answering, and near the sea they still found that light which twilight leaves there for so long.\\n\\n“Don’t you want me to go and fetch your scarf?”\\n\\n“No, thank you.”\\n\\nThey walked together, bathed in a very light blue mist that rose from the salt meadow and smelled of wild thyme. Philippe restrained himself from taking his friend’s arm, and was appalled by his own discretion.\\n\\n“My God, what is there between us? Are we lost to one another? Since she knows nothing of what happened over there, perhaps I have only to forget it, and we shall become happy again as before, unhappy as before, united as before?”\\n\\nBut he did not add hypnotic faith to his wish, since Vinca walked beside him, cold and gentle as though her great love had left her, and she did not perceive her companion’s anguish. Besides, Phil felt the hour drawing near and suffered from a quivering like the fever he had the day after, stung by a weever fish, he had felt in his bandaged arm the burning that the rising tide reawakened there...\\n\\nHe stopped and wiped his forehead:\\n\\n“I’m suffocating. I don’t feel well, Vinca.”\\n\\n“Oh! no, not well,” Vinca’s voice echoed.\\n\\nHe thought it a truce and eagerly reached toward her with voice and gesture:\\n\\n“Oh! you’re so sweet! Oh! darling!...”\\n\\n“No,” the voice interrupted, “I’m not sweet.”\\n\\nThe childish sentence left Philippe some hope, and he seized his friend’s bare arm.\\n\\n“You’re angry with me, I know, for having cried today like a woman...”\\n\\n“No, not like a woman...”\\n\\nHe blushed in the darkness and tried to explain himself:\\n\\n“You understand, that conger eel you were tormenting in its hole... That creature’s blood on your lobster hook... It suddenly turned my stomach...”\\n\\n“Ah! yes, your stomach... turned...”\\n\\nThe tone of her voice was so knowing that Philippe held his breath in fear. “She knows everything.” He waited for the crushing account and the explosion of tears and reproaches. But Vinca remained silent, and after a long while, as after the calm pause that follows a thunderbolt, he ventured a timid question:\\n\\n“And is that weakness enough to make you seem as though you no longer love me?”\\n\\nVinca turned toward him the pale, hazy patch of her face, confined between the two rigid hedges of her hair:\\n\\n“Oh! Phil, I still love you. Unfortunately, that changes nothing.”\\n\\nHe felt his leaping heart strike his throat:\\n\\n“Yes? Then you’re going to forgive me for having been such a ‘little girl,’ so ridiculous?”\\n\\nShe hesitated for only a second:\\n\\n“Why, yes. I’m going to forgive you, Phil. But that, too, changes nothing.”\\n\\n“About what?”\\n\\n“About us, Phil.”\\n\\nShe spoke with a sibylline gentleness which he did not dare question further and in which he did not dare rejoice. Vinca must have followed him in his mental retreat, for she added subtly:\\n\\n“Do you remember the scenes you used to make with me, and the ones I made with you, not three weeks ago, because we were impatient at having four years, five years, to languish before getting married?... My poor Phil, I really think I would like to go backward and become a child again, today...”\\n\\nHe waited for her to emphasize, to comment upon that skillful, insidious “today” suspended before him in the pure blue air of the August night. But Vinca already knew how to arm herself with silence. He insisted:\\n\\n“Then you’re not angry with me anymore? Tomorrow, we shall be... we shall be Vinca and Phil, as always? Forever?”\\n\\n“Forever, if you want, Phil... Come. Let’s go back inside. It’s cool.”\\n\\nShe had not repeated “as always” after him. But he contented himself with that incomplete oath and with the cold little hand clasped for a moment in his own. For at that instant, the unwinding chain of the well, the alarm-bell clang of the empty bucket against the curb, the scraping of curtains along their rod in an open window—the day’s last human sounds—rang out the hour for Philippe, the same hour for which he had watched the night before, in order to reopen the villa door and dart out in secret... Ah! the muted red light of an unknown room... Ah! the dark happiness, death attained by degrees, life regained by slow beats of the wings...\\n\\nAs though, since the night before, he had been awaiting a sort of absolution from Vinca—an ambiguous absolution which she had just granted him with such sincerity in her tone, such reticence in her words—he suddenly assessed, as a man, the gift that a beautiful, imperious demoness had bestowed upon him.\\n\\n\\n\\n\\nXIV\\n\\n\\n“Has the date of your departure for Paris been settled?” Madame Dalleray asked.\\n\\n“We are still due to go back on September twenty-fifth,” Philippe replied. “Sometimes, depending on where the Sundays fall in the month, our departure falls on the twenty-third or twenty-fourth, or the twenty-sixth. But it rarely varies by more than two days.”\\n\\n“Yes... In short, you are leaving in a fortnight. In a fortnight, at this time...”\\n\\nPhilippe tore his gaze from the sea, flat and white near the sands, in the distance the color of a tuna’s back beneath the low clouds, and turned in astonishment toward Madame Dalleray. Wrapped in ample white cloth like the dress of the women of Tahiti, she smoked gravely, her hair impeccably arranged, powdered with a powder the same color as her skin, and nothing about her revealed that this young man seated not far from her, handsome and dark like her, was anything to her other than a younger brother.\", \"source_occurrence_id\": \"colette-le-ble-en-herbe-2344cebfeaed45b2\", \"source_language\": \"fr\", \"source_language_text_sha256\": \"4472ffdadc8d4ce3bf7832b6dfd33cca260c403b13c266be34b1cf04bb036b20\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T10:20:34.756445+00:00\", \"model_usage\": {\"input_tokens\": 2435, \"cached_input_tokens\": 0, \"output_tokens\": 2039}, \"estimated_cost_usd\": 0.050519999999999995, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"colette-le-ble-en-herbe\", \"title\": \"Le blé en herbe\", \"author\": \"Colette\", \"language\": \"fr\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.536795, \"source_start\": 97352, \"source_end\": 97370, \"source_length\": 181358}, \"form\": {\"form_family\": \"present_or_imperfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": \"optional\", \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"fr_present_past\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 1.0, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

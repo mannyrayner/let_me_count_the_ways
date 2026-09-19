@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"verona-colei-che-non-si-deve-amare-c613a8f4abbc3670\", \"SOURCE_TEXT\": {\"exact_match\": \"ti amo\", \"local_text\": {\"context_start\": 371842, \"context_end\": 372256, \"text\": \"Quand’ella gli parlava d’amore, avrebbe voluto a sua volta,\\nrisponderle: «Sì, ti amo! sei la prima che amo, la sola che potrò mai\\namare... Tu muovi dentro di me una gran tempesta che m’inebbria...» Ma\\ndi questo si vergognava, e le parole che suonavan dentro gli parevano\\nimpossibili a dirsi. Allora taceva, lasciando a lei che parlasse, a\\nlei, poich’era quasi una bambina, una piccola bambina, e tutto poteva\\ndire.\"}, \"wider_canonical_context\": {\"context_start\": 368834, \"context_end\": 374978, \"text\": \"E il cavalluccio trottava; il cavalluccio insensibile ai tepori\\ndella primavera, ugualmente stracco e rassegnato nelle intemperie\\ndell’inverno come nelle canicole dell’estate, zoppiccava sul sasso\\nnemico, piano piano, con quella irremovibile filosofia che vien dopo\\nla disperazione; povera vecchia macchina fatta d’ossa e di dolori,\\nindifferente alle stratte, alle frustate, alla premura de’ clienti,\\nquasichè sapesse ormai che tutto il suo destino era di camminare, a\\nforza d’inciampi e di asma, piano, ma camminare.\\n\\nLa campagna vicina mandava tra l’ultime case qualche odore agreste,\\ne già compariva tutta sgombra, quasi ravvolta in un’aria violacea,\\nper le contrade laterali che non erano più selciate. In una d’esse il\\nvetturino svoltò.\\n\\n— Non sono mai venuta fin qui, — disse Loretta. — Sembra d’essere in\\ncampagna; senti che buon odore!\\n\\nAvevano falciato qualche prato là intorno; i mucchi dalla fienatura\\nodoravano di fragranze vegetali nella sera primaverile. Anche il\\nronzino, a quell’odor di maggengo saporito, pareva sentirsi dilatare\\nnei fianchi magri l’anima ingorda, e puntava più forte. Il vetturino si\\ncacciò un mozzicone di sigaro fra i denti e prese a canticchiare; con\\nla frusta schioccante accompagnava la sua monotona cantilena. Questo\\nfece ridere Loretta.\\n\\n— Com’è buffo! — disse piano al fratello. E gli si accostò, con una\\npiccola risata, che gli diede in faccia il suo fresco respiro.\\n\\nEgli non parlava; una specie di torpore, una sensazione mai conosciuta\\nfasciava dolcemente il suo spirito comunicandogli una stanchezza\\nfisica, una specie di sensuale abbattimento. Per una breve ora gli\\npiaceva scordare che la sua piccola compagna, colei della quale era\\ndolce sentirsi il braccio sotto il braccio ed il respiro nel viso,\\nfosse la sua medesima sorella, uscita dal grembo medesimo che aveva\\ndata la vita, nutrita con lo stesso latte, cullata nella medesima cuna:\\nla figlia del suo padre e della sua madre, la sorella germana.\\n\\nEgli aveva nel medesimo tempo un immenso orrore, un orrore\\ninconsapevole, di sè stesso, e in ciò trovava nondimeno la sua più\\nforte voluttà. Gli piaceva udirla parlare; quella voce, che gli pareva\\ndi non aver conosciuta mai per l’addietro, gli entrava sin nell’intimo\\ndel cuore prodigandogli quasi una lenta ed affaticante carezza. Ch’ella\\ndicesse di amarlo, ch’ella osasse dirgli che lo amava, che il suo\\ndesiderio gli fosse così palese, così pronto a lasciarsi cogliere,\\nch’ell’avesse un bisogno quasi malato di fasciarsi intorno alla sua\\npersona e fargli sentire la trepidazione delle sue morbide membra ancor\\nintatte, ch’ella parlasse a lui come al suo primo innamorato... tutto\\nquesto lo stordiva, lo tentava, lo inebbriava, metteva nel suo cuor\\nforte una pulsazione veemente, nelle sue vene concitate un brivido\\nquasi di terrore, ne’ suoi nervi rudi una specie di tormento, del quale\\nassaporava con lentezza tutta la perversità.\\n\\nIn lei veramente era il possesso vietato, era la gioia che non doveva\\nconoscersi, era il delitto e la somma voluttà.\\n\\nQuand’ella gli parlava d’amore, avrebbe voluto a sua volta,\\nrisponderle: «Sì, ti amo! sei la prima che amo, la sola che potrò mai\\namare... Tu muovi dentro di me una gran tempesta che m’inebbria...» Ma\\ndi questo si vergognava, e le parole che suonavan dentro gli parevano\\nimpossibili a dirsi. Allora taceva, lasciando a lei che parlasse, a\\nlei, poich’era quasi una bambina, una piccola bambina, e tutto poteva\\ndire.\\n\\nMa solo nel chiamarla, nel parlarle, nel profferire il suo nome, egli\\nmetteva un infinito amore. Non era più solamente il desiderio di lei,\\nquel desiderio veemente che l’aveva assalito, facendolo schiavo e\\ntorcendolo fino al dolore; adesso era qualcosa di più, una specie di\\ntristezza, un furor chiuso e torbido, che lo possedeva sin nell’intimo\\ne lo feriva come una spina infittagli nel cuore.\\n\\nEgli, che non aveva mai affrontata la propria coscienza, aveva ora\\npaura di sè. Temeva qualcosa d’oscuro; c’era fra lui e lei una forza\\nindefinibile, ignota, che lo atterriva; sopra il suo colpevole amore\\npendeva quasi una minaccia più che umana. Voleva esser aspro, e non\\ngli riusciva che d’esser dolce; voleva non guardarla, ed i suoi occhi,\\nsenza volerlo, andavano incontro a’ suoi. Quand’era pur lontano e\\ndistratto, ne aveva senza tregua l’immagine fissa nella mente. Voleva\\npensare ad altre donne, ad altri amori, ed ella furtivamente gli si\\nannidava tra le braccia con una promessa più forte; voleva respingerla\\nda sè, quasi per purificarsi di questa colpa, e la colpa gli ritornava,\\ngli affluiva nel cuore per tutte le vene, come un’ondata di voluttà.\\n\\nIl cavalluccio trottava; la campagna uguale riposava dal lavoro\\ndiurno, rotta dai casolari, percorsa dalle strade, segnata dalle siepi.\\nQualche filare di pioppi, traverso la vaporosa pianura, s’allontanava a\\nperdita d’occhio nella notte bianca. Dietro loro si addensava la città,\\nsovrastata da una luce rossastra, ch’era, nell’aria ferma, il riflesso\\ndelle sue molte luci.\\n\\nDi là da una siepe videro un gregge di pecore che pernottava; s’era\\nsparso nel praticello, a piccoli gruppi, e biancheggiando vi dormiva.\\nIl cane accorse su la proda, tutto ispido, ed abbaiò.\\n\\n— Guarda, — disse Loretta con un’ammirazione infantile, — guarda come\\nsono bianche e come dormono vicine.\\n\\nQuelle pecorelle addormentate davano al suo cuore di bimba una\\ntenerezza singolare. Soggiunse:\\n\\n— La vita nelle campagne dev’essere migliore che nelle città. Perchè\\nnon mi porti via, Rigo?\\n\\n— Portarti via? Ma dove?\\n\\n— Dove non importa. Una settimana sola. Vorrei fare un piccolo viaggio\\ncon te, starti vicina sempre, giorno e notte, non lasciarti mai, giorno\\ne notte... Che felicità, pensa!\\n\\nIl fratello scosse il capo, e tacendo le diede una carezza sul dosso\\ndelle mani, poi su le ginocchia.\\n\\n— Portami via... — ella disse ancora, supplichevole.\\n\\n— Non si può.\\n\\nIncontrarono in quel punto un’allegra comitiva che tornava in città\\ncantando. Apparve di lontano un villaggio, e, prima del villaggio,\\ndietro una casa, un gruppo d’alberi folti ove brillavano molti lumi.\\n\\n— Vedi: è là che si pranza, — disse Arrigo segnando il chiarore. —\\nViene molta gente in estate perchè vi si mangia bene.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"And the little horse trotted on; the little horse, insensible to the warmth of spring, equally weary and resigned in the storms of winter and in the dog days of summer, limped over the hostile stones, slowly, slowly, with that immovable philosophy which comes after despair; a poor old machine made of bones and aches, indifferent to the tugs, the lashes, the impatience of the customers, as though by now it knew that its entire destiny was to keep going, by dint of stumbling and wheezing, slowly, but to keep going.\\n\\nThe nearby countryside sent a few rural scents among the last houses, and already appeared entirely open, almost wrapped in a violet air, along the side roads that were no longer paved. The driver turned into one of them.\\n\\n“I have never come this far,” Loretta said. “It feels as though we are in the country; smell how lovely it is!”\\n\\nSome meadow nearby had been mown; the haymaking stacks gave off vegetal fragrances in the spring evening. Even the nag, at that scent of savory May hay, seemed to feel its greedy soul swell within its lean flanks, and pulled harder. The driver stuck a cigar stub between his teeth and began to hum; with cracks of his whip he accompanied his monotonous singsong. This made Loretta laugh.\\n\\n“How funny he is!” she said softly to her brother. And she drew close to him with a little laugh that breathed her fresh breath into his face.\\n\\nHe did not speak; a sort of torpor, a sensation he had never known, gently enveloped his spirit, imparting to him a physical weariness, a kind of sensual languor. For one brief hour he liked to forget that his little companion, she whose arm it was sweet to feel beneath his arm and whose breath upon his face, was his very own sister, come from the same womb that had given him life, nourished with the same milk, rocked in the same cradle: the daughter of his father and his mother, his full sister.\\n\\nAt the same time he felt an immense horror, an unconscious horror, of himself, and yet in this he found his greatest voluptuous pleasure. He liked to hear her speak; that voice, which he felt he had never known before, entered the innermost depths of his heart, lavishing upon him something like a slow and exhausting caress. That she said she loved him, that she dared tell him that she loved him, that her desire was so manifest to him, so ready to let itself be seized, that she had an almost morbid need to wrap herself around his person and make him feel the trembling of her soft, still untouched limbs, that she spoke to him as to her first sweetheart... all this dazed him, tempted him, intoxicated him, set a vehement pulse beating in his strong heart, a shiver almost of terror in his excited veins, a kind of torment in his rough nerves, whose every perversity he savored slowly.\\n\\nIn her truly lay forbidden possession, the joy that was not to be known, the crime and the supreme voluptuous pleasure.\\n\\nWhen she spoke to him of love, he would have liked, in turn, to answer her: “Yes, I love you! You are the first I love, the only one I shall ever be able to love... You stir a great tempest within me that intoxicates me...” But he was ashamed of this, and the words that resounded within him seemed impossible to utter. So he remained silent, leaving it to her to speak—to her, since she was almost a child, a little child, and could say anything.\\n\\nBut merely in calling to her, in speaking to her, in uttering her name, he put an infinite love. It was no longer merely his desire for her, that vehement desire which had assailed him, enslaving him and twisting him to the point of pain; now it was something more, a kind of sadness, a pent-up and murky frenzy that possessed him to his innermost depths and wounded him like a thorn driven into his heart.\\n\\nHe, who had never faced his own conscience, was now afraid of himself. He feared something obscure; between him and her there was an indefinable, unknown force that terrified him; over his guilty love there hung something like a more-than-human threat. He wanted to be harsh, and could only manage to be gentle; he wanted not to look at her, and his eyes, despite himself, went to meet hers. Even when he was far away and distracted, her image remained fixed in his mind without respite. He wanted to think of other women, other loves, and she furtively nestled in his arms with a stronger promise; he wanted to thrust her away from him, as though to purify himself of this guilt, and the guilt came back to him, flowed into his heart through every vein, like a wave of voluptuous pleasure.\\n\\nThe little horse trotted on; the uniform countryside rested from the day’s labor, broken by farmhouses, crossed by roads, marked by hedges. A row of poplars here and there, across the vaporous plain, receded out of sight into the white night. Behind them the city loomed, overhung by a reddish glow which, in the still air, was the reflection of its many lights.\\n\\nBeyond a hedge they saw a flock of sheep spending the night; it had spread across the little meadow in small groups, and slept there, gleaming white. The dog rushed to the verge, its fur all bristling, and barked.\\n\\n“Look,” Loretta said with childlike wonder, “look how white they are and how close together they sleep.”\\n\\nThose sleeping little sheep inspired a singular tenderness in her child’s heart. She added:\\n\\n“Life in the country must be better than in the cities. Why don’t you take me away, Rigo?”\\n\\n“Take you away? But where?”\\n\\n“It doesn’t matter where. Just for one week. I should like to take a little journey with you, to stay close to you always, day and night, never to leave you, day and night... What happiness—just think!”\\n\\nHer brother shook his head and, without speaking, caressed the backs of her hands, then her knees.\\n\\n“Take me away...” she said again, pleadingly.\\n\\n“It cannot be done.”\\n\\nAt that moment they passed a merry party returning to the city singing. A village appeared in the distance, and, before the village, behind a house, a cluster of thick trees where many lights shone.\\n\\n“You see: that is where we are dining,” Arrigo said, pointing to the glow. “Many people come in summer because the food is good there.”\", \"source_occurrence_id\": \"verona-colei-che-non-si-deve-amare-c613a8f4abbc3670\", \"source_language\": \"it\", \"source_language_text_sha256\": \"04175f4c82f6845fe9d66944d243a78169448732c7807fc26cdcdf79d8540f48\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T12:26:30.984709+00:00\", \"model_usage\": {\"input_tokens\": 2068, \"cached_input_tokens\": 0, \"output_tokens\": 1660}, \"estimated_cost_usd\": 0.041472, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"verona-colei-che-non-si-deve-amare\", \"title\": \"Colei che non si deve amare\", \"author\": \"Guido da Verona\", \"language\": \"it\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.510763, \"source_start\": 371920, \"source_end\": 371926, \"source_length\": 728165}, \"form\": {\"form_family\": \"present\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"it_present\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 1.0, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

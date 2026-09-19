@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"hamsun-victoria-3fdcd3aed593bedb\", \"SOURCE_TEXT\": {\"exact_match\": \"Jeg\\nelsker Dem\", \"local_text\": {\"context_start\": 102172, \"context_end\": 103444, \"text\": \"e grepet sit glas og drukket. Skål,\\nse på mig hvor pent jeg drikker .... Se forøvrig på en kvinde\\nfra siden når hun drikker. Lat hende drikke av en kop, av et\\nglas, av hvadsomhelst, men se på hende fra siden. Hun skaper\\nsig så det er en gru. Hun spidser munden og dypper den\\nytterste rand av den ned i drikken og hun er fortvilet hvis\\nman herunder lægger mærke til hendes hånd. Se i det hele tat\\nikke en kvinde på hånden. Hun utstår det ikke, hun kapitulerer.\\nHun begynder straks å rykke sin hånd til sig, å lægge den i\\nen skjønnere og skjønnere stilling, altsammen for å skjule en\\nrynke, en krokethet i fingrene eller en mindre velformet negl.\\nTilsist holder hun det ikke længer ut, men spør ute av sig selv:\\nhvad ser De på? .... Hun hadde engang kysset ham, engang,\\nen sommer. Det var så længe siden, Gud vet om det endog var\\nsandt. Hvordan var det, sat de ikke på en bænk? De talte længe\\nsammen og da de gik kom han hende så aldeles nær at han\\nberørte hendes arm. Utenfor en entré kysset hun ham. Jeg\\nelsker Dem! sa hun. .... Nu gik de forbi, de sat kanske endnu\\ni lysthuset. Løitnanten vilde gi ham et slag på øret, sa han.\\nHan hørte det så godt, han sov ikke, men han reiste sig heller\\nikke og trådte frem. En officers hånd, sa han. Javel, det var\\nham likegyldig ....\"}, \"wider_canonical_context\": {\"context_start\": 100044, \"context_end\": 106315, \"text\": \"Forresten var det aldrig spart på pengene på Slottet, sum-\\nmerne var altid store der. Hvad kostet for eksempel ikke en\\nslik middag! Men nu skulde det se tomt ut allevegne, endog\\ni slotsfruens bekjendte juvelskrin, og derfor skulde svigersøn-\\nnens penger gjenreise herligheten.\\n\\nHvormeget har han mon?\\n\\nÅ fy, han har så uransakelig med penger at.\\n\\nJohannes reiste sig igjen og gik ned i haven. Syrinerne blom-\\nstret, strømme av duft av aurikler og pinseliljer, jasminer og\\nliljekonvaller slog ham imøte. Han søkte sig en krok nede ved\\nmuren og satte sig på en sten; et buskads skjulte ham for al-\\nverden. Han var utmattet av sindsbevægelser, slavetræt, hans\\nforstand formørket; han tænkte på å reise sig og gå hjem, men\\nblev sittende dump og sløv. Da hører han en mumling fremme\\npå grusgangen, nogen kommer, han gjenkjender Victorias røst.\\nHan holder pusten og venter litt, da blinker det også i løit-\\nnantens uniform gjennem løvet. De forlovede spaserer sammen.\\n\\nJeg synes ikke, sier han, at dette hænger rigtig sammen. Du\\nhører på hvad han sier, du sitter og bryr dig om hans tale og\\nskriker op. Hvad betydde egentlig det?\\n\\nHun stanser og står høi foran ham.\\n\\nVil du vite det? sier hun.\\n\\nJa.\\n\\nHun tier.\\n\\nDet kan være mig det samme hvis det intet betydde, ved-\\nblir han. Da behøver du ikke å si det.\\n\\nHun synker igjen sammen.\\n\\nNei det betydde ikke noget, svarer hun.\\n\\nDe begynder igjen å gå. Løitnanten aksler nervøst sine epau-\\nletter og uttaler høit:\\n\\nHan skulde agte sig litt. En officers hånd kunde ellers stryke\\nham om ørene.\\n\\nDe tok veien til lysthuset.\\n\\nJohannes blev en tidlang sittende på stenen, dump og for-\\npint som før. Alt begyndte å bli ham likegyldig. Løitnanten\\nhadde fattet mistanke til ham og hans forlovede gjorde på\\nstand rede for sig. Hun sa det som skulde sies, stillet officerens\\nhjærte tilfreds og gik videre med ham. Og stærene pludret i\\ngrenene over deres hoder. Javel. Måtte Gud beskjære dem et\\nlangt liv .... Han hadde talt for hende ved middagen og\\nrevet sit hjærte ut; det hadde kostet ham meget å rette på og\\ndække over hendes uforskammede avbrytelse og hun hadde ikke\\ntakket ham derfor. Hun hadde grepet sit glas og drukket. Skål,\\nse på mig hvor pent jeg drikker .... Se forøvrig på en kvinde\\nfra siden når hun drikker. Lat hende drikke av en kop, av et\\nglas, av hvadsomhelst, men se på hende fra siden. Hun skaper\\nsig så det er en gru. Hun spidser munden og dypper den\\nytterste rand av den ned i drikken og hun er fortvilet hvis\\nman herunder lægger mærke til hendes hånd. Se i det hele tat\\nikke en kvinde på hånden. Hun utstår det ikke, hun kapitulerer.\\nHun begynder straks å rykke sin hånd til sig, å lægge den i\\nen skjønnere og skjønnere stilling, altsammen for å skjule en\\nrynke, en krokethet i fingrene eller en mindre velformet negl.\\nTilsist holder hun det ikke længer ut, men spør ute av sig selv:\\nhvad ser De på? .... Hun hadde engang kysset ham, engang,\\nen sommer. Det var så længe siden, Gud vet om det endog var\\nsandt. Hvordan var det, sat de ikke på en bænk? De talte længe\\nsammen og da de gik kom han hende så aldeles nær at han\\nberørte hendes arm. Utenfor en entré kysset hun ham. Jeg\\nelsker Dem! sa hun. .... Nu gik de forbi, de sat kanske endnu\\ni lysthuset. Løitnanten vilde gi ham et slag på øret, sa han.\\nHan hørte det så godt, han sov ikke, men han reiste sig heller\\nikke og trådte frem. En officers hånd, sa han. Javel, det var\\nham likegyldig ....\\n\\nHan stod op fra stenen og gik efter til lysthuset. Det var\\ntomt. Oppe ved hovedbygningens veranda stod Camilla og ropte\\npå ham; værsågod, det var kaffe i havestuen. Han fulgte hende.\\nDe forlovede sat i havestuen; det var også flere andre tilstede.\\nHan fik sin kaffe, trådte tilbake og fandt sig en plass.\\n\\nCamilla begyndte å tale med ham. Hun var så lvs av ansigt\\nog så på ham med åpne øine, han kunde ikke motstå hende,\\nhan talte med, svarte på hendes spørsmål og lo. Hvor hadde\\nhan været henne? I haven? Det var slet ikke sandt, hun hadde\\nlett i haven og ikke fundet ham. Langtifra, i haven hadde han\\nikke været.\\n\\nVar han i haven, Victoria? spør hun.\\n\\nVictoria svarer:\\n\\nNei jeg så ham ikke.\\n\\nLøitnanten tilkaster hende et forbitret blik og for å gi sin\\nforlovede et varsku sier han unødig høit over til godseieren:\\n\\nVar det så at De vilde ta mig med på rugdejagt hos Dem?\\n\\nJavel, svarer godseieren. Velkommen.\\n\\nLøitnanten ser på Victoria. Hun sier intet og sitter som før,\\navholder ham aldeles ikke fra denne rugdejagt hos godseieren.\\nDet trækker mere og mere op i hans ansigt, han stryker sit over-\\nskjæg med nervøse bevægelser.\\nCamilla retter atter et spørsmål til Victoria.\\n\\nDa reiser løitnanten sig med en snar bevægelse og sier til\\ngodseieren:\\n\\nGodt, så tar jeg med Dem iaften, straks.\\n\\nDermed forlater han stuen.\\n\\nGodseieren og nogen andre følger efter.\\n\\nDet blev en kort pause.\\n\\nPludselig går døren op og løitnanten træder atter ind. Han\\ner i den største ophidselse.\\n\\nHar du glemt noget? spør Victoria og reiser sig.\\n\\nHan gjør nogen hoppende skridt ved døren som om han\\nikke kunde stå stille og går like til Johannes hvem han like-\\nsom i forbigående støter til med hånden. Derpå løper han til-\\nbake til døren og vedblir å hoppe.\\n\\nTa Dem i agt, mand, De støtte mig i øiet, sa Johannes og\\nlo hult.\\n\\nDe tar feil, svarte løitnanten, jeg gav Dem en ørefik. For-\\nstår De? forstår De?\\n\\nJohannes grep til lommetørklædet, tørket sig i øiet og sa:\\n\\nDet mener De ikke. De vet jo at jeg kan lægge Dem dobbelt\\nog stikke Dem i lommen.\\n\\nI det samme reiste han sig.\\n\\nDa åpnet løitnanten ilsomt døren og trådte utenfor.\\n\\nJeg mener det! skrek han tilbake. Jeg mener det, øk!\\n\\nSå slog han døren i med et skrald.\\n\\nJohannes satte sig igjen.\\n\\nVictoria stod endnu omtrent midt på gulvet. Hun så på ham\\nog var blek som et lik.\\n\\nStøtte han Dem? spurte Camilla i høieste forundring.\\n\\nAv vanvare. Han traf mig 1 øiet. Vil De se.\\n\\nGud, det er jo rødt, der er blod. Nei gnid det ikke, lat mig\\nhælde vand på. Deres lommetørklæde er så grovt, se her, ta\\ndet igjen; jeg bruker mit eget. Har man set maken, like i øiet!\\n\\nVictoria rakte også sit lommetørklæde ut. Hun sa intet. Derpå\\ngik hun ganske langsomt til glasdøren, hvor hun blev stående\\nmed ryggen til stuen og se ut. Hun rev sit lommetørklæde op\\ni små strimler. Nogen minutter efter åpnet hun døren og forlot\\nhavestuen, stille og stum.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"Besides, money had never been spared at the Castle; the sums were always large there. What, for example, did a dinner like that not cost! But now it was to look empty everywhere, even in the lady of the Castle’s familiar jewel case, and therefore the son-in-law’s money was to restore the splendour.\\n\\nHow much does he have, one wonders?\\n\\nOh, fie, he has such an unfathomable amount of money.\\n\\nJohannes rose again and went down into the garden. The lilacs were in bloom; streams of fragrance from auriculas and narcissi, jasmines and lilies of the valley met him. He sought out a corner down by the wall and sat on a stone; a thicket concealed him from all the world. He was exhausted by emotion, weary as a slave, his reason darkened; he thought of getting up and going home, but remained sitting there, dull and listless. Then he heard murmuring farther along the gravel path; someone was coming, and he recognized Victoria’s voice. He held his breath and waited a little; then the lieutenant’s uniform also flashed through the foliage. The betrothed couple were walking together.\\n\\nI do not think, he said, that this quite adds up. You listen to what he says, you sit there concerning yourself with his speech and cry out. What did that really mean?\\n\\nShe stopped and stood tall before him.\\n\\nDo you want to know? she said.\\n\\nYes.\\n\\nShe was silent.\\n\\nIt is all the same to me if it meant nothing, he continued. Then you need not say it.\\n\\nShe subsided again.\\n\\nNo, it meant nothing, she replied.\\n\\nThey began walking again. The lieutenant nervously shrugged his epaulettes and said loudly:\\n\\nHe ought to watch himself a little. Otherwise an officer’s hand might box his ears.\\n\\nThey took the path to the summerhouse.\\n\\nJohannes remained sitting on the stone for a while, dull and tormented as before. Everything was beginning to be a matter of indifference to him. The lieutenant had grown suspicious of him, and his fiancée had given an account of herself on the spot. She said what had to be said, set the officer’s heart at rest, and walked on with him. And the starlings chattered in the branches above their heads. Indeed. May God grant them a long life.... He had spoken on her behalf at dinner and torn out his heart; it had cost him dearly to put right and cover over her insolent interruption, and she had not thanked him for it. She had seized her glass and drunk. Cheers, look at me, how prettily I drink.... For that matter, look at a woman from the side when she drinks. Let her drink from a cup, from a glass, from anything at all, but look at her from the side. She puts on such airs that it is dreadful. She purses her mouth and dips its outermost rim into the drink, and she is in despair if, while she does so, anyone notices her hand. On the whole, do not look at a woman’s hand. She cannot bear it; she capitulates. At once she begins drawing her hand back, placing it in an ever more beautiful position, all to conceal a wrinkle, a crookedness in the fingers, or a less well-shaped nail. In the end she can bear it no longer, but asks, beside herself: what are you looking at?.... She had once kissed him, once, one summer. It was so long ago; God knows whether it had even been true. How was it—had they not been sitting on a bench? They talked together for a long time, and when they left he came so very close to her that he touched her arm. Outside an entrance she kissed him. I love you! she said.... Now they had passed by; perhaps they were still sitting in the summerhouse. The lieutenant would box his ears, he had said. He had heard it perfectly well; he was not asleep, but neither did he rise and step forward. An officer’s hand, he had said. Indeed, it was a matter of indifference to him....\\n\\nHe rose from the stone and followed them to the summerhouse. It was empty. Up by the veranda of the main building, Camilla stood calling to him; would he please come, there was coffee in the garden room. He followed her. The betrothed couple were sitting in the garden room; several others were present as well. He was given his coffee, stepped back, and found himself a place.\\n\\nCamilla began talking to him. Her face was so bright, and she looked at him with open eyes; he could not resist her, he joined in the conversation, answered her questions, and laughed. Where had he been? In the garden? That was not true at all; she had searched in the garden and had not found him. Far from it, he had not been in the garden.\\n\\nWas he in the garden, Victoria? she asked.\\n\\nVictoria replied:\\n\\nNo, I did not see him.\\n\\nThe lieutenant cast her an embittered glance and, to give his fiancée a warning, said unnecessarily loudly across to the landowner:\\n\\nWas it the case that you wished to take me woodcock shooting at your estate?\\n\\nYes indeed, the landowner replied. You are welcome.\\n\\nThe lieutenant looked at Victoria. She said nothing and remained sitting as before, making no effort whatever to dissuade him from this woodcock shoot at the landowner’s estate. His face grew darker and darker; he stroked his moustache with nervous movements.\\n\\nCamilla addressed another question to Victoria.\\n\\nThen the lieutenant rose with a sudden movement and said to the landowner:\\n\\nVery well, then I shall go with you tonight, at once.\\n\\nWith that he left the room.\\n\\nThe landowner and some others followed.\\n\\nThere was a brief pause.\\n\\nSuddenly the door opened and the lieutenant entered again. He was in a state of extreme agitation.\\n\\nHave you forgotten something? Victoria asked, rising.\\n\\nHe took a few bounding steps by the door, as though unable to stand still, and went straight over to Johannes, whom, as if in passing, he struck with his hand. Then he ran back to the door and continued hopping about.\\n\\nTake care, man, you struck me in the eye, Johannes said, laughing hollowly.\\n\\nYou are mistaken, the lieutenant replied. I boxed your ear. Do you understand? Do you understand?\\n\\nJohannes reached for his handkerchief, wiped his eye, and said:\\n\\nYou do not mean that. You know I can fold you double and put you in my pocket.\\n\\nAt that same moment he rose.\\n\\nThen the lieutenant hastily opened the door and stepped outside.\\n\\nI do mean it! he shouted back. I mean it, you nag!\\n\\nThen he slammed the door with a crash.\\n\\nJohannes sat down again.\\n\\nVictoria was still standing approximately in the middle of the floor. She looked at him and was pale as a corpse.\\n\\nDid he strike you? Camilla asked in the greatest astonishment.\\n\\nBy accident. He caught me in the eye. Would you like to see?\\n\\nGod, it is red; there is blood. No, do not rub it; let me pour water on it. Your handkerchief is so coarse—here, take it back; I shall use my own. Did anyone ever see the like, right in the eye!\\n\\nVictoria also held out her handkerchief. She said nothing. Then she walked very slowly to the glass door, where she remained standing with her back to the room, looking out. She tore her handkerchief into small strips. A few minutes later she opened the door and left the garden room, silent and mute.\", \"source_occurrence_id\": \"hamsun-victoria-3fdcd3aed593bedb\", \"source_language\": \"no\", \"source_language_text_sha256\": \"cf756c3ccedb6b7d6e6d93e9b0410d13e2d083335e0df47ef05b2b0b5f1567e7\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T10:49:04.242432+00:00\", \"model_usage\": {\"input_tokens\": 2188, \"cached_input_tokens\": 0, \"output_tokens\": 2157}, \"estimated_cost_usd\": 0.051891999999999994, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"hamsun-victoria\", \"title\": \"Victoria\", \"author\": \"Knut Hamsun\", \"language\": \"no\", \"source_type\": \"runeberg\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.654238, \"source_start\": 103172, \"source_end\": 103186, \"source_length\": 157698}, \"form\": {\"form_family\": \"present_or_past\", \"polarity\": \"surface_optional_negative\", \"tense_aspect\": \"present\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"no_main\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"stendhal-le-rouge-et-le-noir-3b3ce51fe2c1c280\", \"SOURCE_TEXT\": {\"exact_match\": \"je\\nvous ai assez aimée\", \"local_text\": {\"context_start\": 433029, \"context_end\": 433247, \"text\": \"--Après quatorze mois de malheur, je ne vous quitterai certainement pas\\nsans vous avoir parlé. Je veux savoir tout ce que vous avez fait. Ah! je\\nvous ai assez aimée pour mériter cette confidence... Je veux tout\\nsavoir.\"}, \"wider_canonical_context\": {\"context_start\": 430126, \"context_end\": 436499, \"text\": \"Cette chambre est inhabitée cette nuit, pensa-t-il, ou, quelle que soit\\nla personne qui y couche, elle est éveillée maintenant. Ainsi plus rien\\nà ménager envers elle; il faut seulement tâcher de n'être pas entendu\\npar les personnes qui couchent dans les autres chambres.\\n\\nIl descendit, plaça son échelle contre un des volets, remonta et passant\\nla main dans l'ouverture en forme de coeur, il eut le bonheur de trouver\\nassez vite le fil de fer attaché au crochet qui fermait le volet. Il\\ntira ce fil de fer ce fut avec une joie inexprimable qu'il sentit que ce\\nvolet n'était plus retenu et cédait à son effort. Il faut l'ouvrir petit\\nà petit, et faire reconnaître ma voix. Il ouvrit le volet assez pour\\npasser la tête, et en répétant à voix basse: C'est un ami.\\n\\nIl s'assura, en prêtant l'oreille, que rien ne troublait le silence\\nprofond de la chambre. Mais décidément, il n'y avait point de veilleuse\\nmême à demi éteinte, dans la cheminée; c'était un bien mauvais signe.\\n\\nGare le coup de fusil! Il réfléchit un peu; puis, avec le doigt, il osa\\nfrapper contre la vitre: pas de réponse; il frappa plus fort. Quand je\\ndevrais casser la vitre, il faut en finir. Comme il frappait très fort,\\nil crut entrevoir, au milieu de l'extrême obscurité comme une ombre\\nblanche qui traversait la chambré. Enfin, il n'y eut plus de doute, il\\nvit une ombre qui semblait s'avancer avec une extrême lenteur. Tout à\\ncoup il vit une joue qui s'appuyait à la vitre contre laquelle était son\\noeil.\\n\\nIl tressaillit, et s'éloigna un peu. Mais la nuit était tellement noire\\nque, même à cette distance, il ne put distinguer si c'était Mme de\\nRênal. Il craignait un premier cri d'alarme; depuis un moment, il\\nentendait les chiens rôder et gronder à demi autour du pied de son\\néchelle.\\n\\n--C'est moi, répétait-il assez haut, un ami.\\n\\nPas de réponse; le fantôme blanc avait disparu.\\n\\n--Daignez m'ouvrir, il faut que je vous parle, je suis trop malheureux!\\net il frappait de façon à briser la vitre.\\n\\nUn petit bruit sec se fit entendre; l'espagnolette de la fenêtre cédait;\\nil poussa la croisée, et sauta légèrement dans la chambre.\\n\\nLe fantôme blanc s'éloignait; il lui prit les bras; c'était une femme.\\nToutes ses idées de courage s'évanouirent. Si c'est elle, que va-t-elle\\ndire? Que devint-il, quand il comprit à un petit cri que c'était Mme de\\nRênal?\\n\\nIl la serra dans ses bras; elle tremblait, et avait à peine la force de\\nle repousser.\\n\\n--Malheureux! que faites-vous?\\n\\nA peine si sa voix convulsive pouvait articuler ces mots. Julien y vit\\nl'indignation la plus vraie.\\n\\n--Je viens vous voir après quatorze mois d'une cruelle séparation.\\n\\n--Sortez, quittez-moi à l'instant. Ah! M. Chélan, pourquoi m'avoir\\nempêché de lui écrire? j'aurais prévenu cette horreur. Elle le repoussa\\navec une force vraiment extraordinaire. Je me repens de mon crime, le\\nciel a daigné m'éclairer, répétait-elle d'une voix entrecoupée. Sortez!\\nfuyez!\\n\\n--Après quatorze mois de malheur, je ne vous quitterai certainement pas\\nsans vous avoir parlé. Je veux savoir tout ce que vous avez fait. Ah! je\\nvous ai assez aimée pour mériter cette confidence... Je veux tout\\nsavoir.\\n\\nMalgré Mme de Rênal, ce ton d'autorité avait de l'empire sur son coeur.\\n\\nJulien, qui la tenait serrée avec passion, et résistait à ses efforts\\npour se dégager, cessa de la presser dans ses bras. Ce mouvement rassura\\nun peu Mme de Rênal.\\n\\n--Je vais retirer l'échelle, dit-il, pour qu'elle ne nous compromette\\npas si quelque domestique, éveillé par le bruit, fait une ronde.\\n\\n--Ah! sortez, sortez au contraire, lui dit-on avec une véritable colère!\\nQue m'importent les hommes? c'est Dieu qui voit l'affreuse scène que\\nvous me faites et qui m'en punira. Vous abusez lâchement des sentiments\\nque j'eus pour vous, mais que je n'ai plus. Entendez-vous, monsieur\\nJulien?\\n\\nIl retirait l'échelle fort lentement pour ne pas faire de bruit.\\n\\n--Ton mari est-il à la ville? lui dit-il, non pour la braver mais\\nemporté par l'ancienne habitude.\\n\\n--Ne me parlez pas ainsi, de grâce, ou j'appelle mon mari. Je ne suis\\ndéjà que trop coupable de ne pas vous avoir chassé, quoi qu'il pût en\\narriver. J'ai pitié de vous lui dit-elle, cherchant à blesser son\\norgueil qu'elle connaissait si irritable.\\n\\nCe refus de tutoiement, cette façon brusque de briser un lien si tendre,\\net sur lequel il comptait encore, portèrent jusqu'au délire le transport\\nd'amour de Julien.\\n\\n--Quoi! est-il possible que vous ne m'aimiez plus! lui dit-il avec un de\\nces accents du coeur, si difficiles à écouter de sang-froid.\\n\\nElle ne répondit pas; pour lui, il pleurait amèrement.\\n\\nRéellement, il n'avait plus la force de parler.\\n\\n--Ainsi je suis complètement oublié du seul être qui m'ait jamais aimé!\\nA quoi bon vivre désormais? Tout son courage l'avait quitté dès qu'il\\nn'avait plus eu à craindre le danger de rencontrer un homme; tout avait\\ndisparu de son coeur, hors l'amour.\\n\\nIl pleura longtemps en silence; elle entendait le bruit de ses sanglots.\\nIl prit sa main, elle voulut la retirer; et cependant, après quelques\\nmouvements presque convulsifs, elle la lui laissa. L'obscurité était\\nextrême; ils se trouvaient l'un et l'autre assis sur le lit de Mme de\\nRênal.\\n\\nQuelle différence avec ce qui était il y a quatorze mois! pensa Julien;\\net ses larmes redoublèrent. Ainsi l'absence détruit sûrement tous les\\nsentiments de l'homme! Il vaut mieux m'en aller.\\n\\n--Daignez me dire ce qui vous est arrivé, dit enfin Julien d'une voix\\npresque éteinte par la douleur.\\n\\n--Sans doute, répondit Mme de Rênal d'une voix dure, et dont l'accent\\navait quelque chose de sec et de reprochant pour Julien, mes égarements\\nétaient connus dans la ville, lors de votre départ. Il y avait eu tant\\nd'imprudence dans vos démarches! Quelque temps après, alors j'étais au\\ndésespoir, le respectable M. Chélan vint me voir. Ce fut en vain que,\\npendant longtemps, il voulut obtenir un aveu. Un jour, il eut l'idée de\\nme conduire dans cette église de Dijon, où j'ai fait ma première\\ncommunion. Là, il osa parler le premier...\\n\\nMme de Rênal fut interrompue par ses larmes.\\n\\n--Quel moment de honte! J'avouai tout. Cet homme si bon daigna ne point\\nm'accabler du poids de son indignation: il s'affligea avec moi. Dans ce\\ntemps-là, je vous écrivais tous les jours des lettres que je n'osais\\nvous envoyer; je les cachais soigneusement, et quand j'étais trop\\nmalheureuse, je m'enfermais dans ma chambre et relisais mes lettres.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"This room is unoccupied tonight, he thought, or, whoever the person sleeping in it may be, that person is awake now. Thus there is no longer any need to take precautions on that person's account; he must only try not to be heard by the people sleeping in the other rooms.\\n\\nHe went down, placed his ladder against one of the shutters, climbed back up and, passing his hand through the heart-shaped opening, had the good fortune to find fairly quickly the wire attached to the hook that held the shutter closed. He pulled this wire; it was with inexpressible joy that he felt that the shutter was no longer fastened and was yielding to his effort. I must open it little by little, and make my voice recognizable. He opened the shutter wide enough to put his head through, repeating in a low voice: It is a friend.\\n\\nBy listening carefully, he made certain that nothing disturbed the profound silence of the room. But decidedly there was no night-light, even a half-extinguished one, in the fireplace; it was a very bad sign.\\n\\nBeware the gunshot! He reflected for a moment; then, with his finger, he dared to tap on the pane: no answer; he tapped harder. Even if I must break the pane, this must be brought to an end. As he was tapping very hard, he thought he glimpsed, amid the extreme darkness, something like a white shadow crossing the room. At last there was no longer any doubt: he saw a shadow that seemed to be advancing with extreme slowness. Suddenly he saw a cheek pressed against the pane on which his eye rested.\\n\\nHe started, and drew back a little. But the night was so black that, even at that distance, he could not make out whether it was Madame de Rênal. He feared an initial cry of alarm; for some moments he had heard the dogs prowling and growling softly around the foot of his ladder.\\n\\n“It is I,” he repeated loudly enough, “a friend.”\\n\\nNo answer; the white phantom had disappeared.\\n\\n“Deign to open the window for me; I must speak to you; I am too unhappy!” And he struck the pane hard enough to break it.\\n\\nA slight, dry sound was heard; the window fastening gave way; he pushed open the casement and leapt lightly into the room.\\n\\nThe white phantom was moving away; he seized its arms; it was a woman. All his notions of courage vanished. If it is she, what will she say? What became of him when he understood from a little cry that it was Madame de Rênal?\\n\\nHe clasped her in his arms; she was trembling, and scarcely had the strength to push him away.\\n\\n“Wretched man! What are you doing?”\\n\\nHer convulsive voice could barely articulate these words. Julien saw in it the truest indignation.\\n\\n“I have come to see you after fourteen months of cruel separation.”\\n\\n“Go, leave me this instant. Ah! Monsieur Chélan, why did you prevent me from writing to him? I would have forestalled this horror.” She pushed him away with truly extraordinary strength. “I repent of my crime; Heaven has deigned to enlighten me,” she repeated in a broken voice. “Go! Flee!”\\n\\n“After fourteen months of misery, I shall certainly not leave you without having spoken to you. I want to know everything you have done. Ah! I loved you enough to deserve this confidence... I want to know everything.”\\n\\nDespite Madame de Rênal, this tone of authority held sway over her heart.\\n\\nJulien, who was holding her tightly with passion and resisting her efforts to free herself, ceased clasping her in his arms. This movement reassured Madame de Rênal a little.\\n\\n“I am going to take away the ladder,” he said, “so that it does not compromise us if some servant, awakened by the noise, makes the rounds.”\\n\\n“Ah! Go, go instead,” she said to him with genuine anger. “What do men matter to me? It is God who sees the dreadful scene you are subjecting me to, and who will punish me for it. You are cowardly taking advantage of the feelings I once had for you, but which I no longer have. Do you hear me, Monsieur Julien?”\\n\\nHe was taking away the ladder very slowly so as not to make any noise.\\n\\n“Is thy husband in town?” he said to her, not in order to defy her but carried away by old habit.\\n\\n“Do not speak to me in that way, I beg you, or I shall call my husband. I am already only too guilty for not having driven you away, whatever might have come of it. I pity you,” she said to him, seeking to wound his pride, which she knew to be so irritable.\\n\\nThis rejection of his addressing her with thou, this abrupt way of breaking a bond so tender and on which he still relied, drove Julien’s transport of love to the point of delirium.\\n\\n“What! Is it possible that you no longer love me?” he said to her with one of those accents of the heart that are so difficult to hear unmoved.\\n\\nShe did not answer; as for him, he wept bitterly.\\n\\nTruly, he no longer had the strength to speak.\\n\\n“Thus I am completely forgotten by the only being who has ever loved me! What is the use of living henceforth?” All his courage had left him as soon as he no longer had to fear the danger of encountering a man; everything had vanished from his heart except love.\\n\\nHe wept for a long time in silence; she heard the sound of his sobs. He took her hand; she tried to withdraw it; and yet, after a few almost convulsive movements, she left it in his. The darkness was extreme; they were both seated on Madame de Rênal’s bed.\\n\\nWhat a difference from what it was fourteen months ago! Julien thought; and his tears redoubled. Thus absence surely destroys every human feeling! It is better for me to go away.\\n\\n“Deign to tell me what happened to you,” Julien finally said in a voice almost extinguished by grief.\\n\\n“Certainly,” Madame de Rênal replied in a harsh voice, whose tone held something dry and reproachful for Julien, “my transgressions were known in the town when you left. There had been so much imprudence in your actions! Some time afterward, when I was in despair, the venerable Monsieur Chélan came to see me. For a long time he tried in vain to obtain a confession. One day, he had the idea of taking me to that church in Dijon where I made my First Communion. There, he dared to speak first...”\\n\\nMadame de Rênal was interrupted by her tears.\\n\\n“What a moment of shame! I confessed everything. That good man deigned not to crush me beneath the weight of his indignation: he grieved with me. At that time, I wrote you letters every day which I did not dare send you; I hid them carefully, and when I was too unhappy, I shut myself in my room and reread my letters.”}泉析室内开奖直播法国 stendhal 小说段落。完整翻译成准确英语。重点 love 分类。只 JSON。Need ensure \", \"source_occurrence_id\": \"stendhal-le-rouge-et-le-noir-3b3ce51fe2c1c280\", \"source_language\": \"fr\", \"source_language_text_sha256\": \"508cde69e7742991c871410b5ef68e08396f8313efac7480a4ad93fe5f175b55\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T14:24:10.662436+00:00\", \"model_usage\": {\"input_tokens\": 2000, \"cached_input_tokens\": 0, \"output_tokens\": 2009}, \"estimated_cost_usd\": 0.04818, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"stendhal-le-rouge-et-le-noir\", \"title\": \"Le Rouge et le Noir\", \"author\": \"Stendhal\", \"language\": \"fr\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": \"CHAPITRE XXX\", \"relative_position\": 0.429562, \"source_start\": 433171, \"source_end\": 433193, \"source_length\": 1008402}, \"form\": {\"form_family\": \"perfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"perfect\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"fr_perfect\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

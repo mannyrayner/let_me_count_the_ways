@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"flaubert-madame-bovary-176b95833345dab6\", \"SOURCE_TEXT\": {\"exact_match\": \"je\\nt’aime\", \"local_text\": {\"context_start\": 346712, \"context_end\": 346825, \"text\": \"— Amenez-la-moi! dit sa mère se précipitant pour l’embrasser. Comme je\\nt’aime, ma pauvre enfant! comme je t’aime!\"}, \"wider_canonical_context\": {\"context_start\": 343617, \"context_end\": 349886, \"text\": \"«J’ai appris d’un colporteur qui, voyageant cet hiver par votre pays,\\ns’est fait arracher une dent, que Bovary travaillait toujours dur. Ça\\nne m’étonne pas, et il m’a montré sa dent; nous avons pris un café\\nensemble. Je lui ai demandé s’il t’avait vue, il m’a dit que non, mais\\nqu’il avait vu dans l’écurie deux animaux, d’où je conclus que le\\nmétier roule. Tant mieux, mes chers enfants, et que le bon Dieu vous\\nenvoie tout le bonheur imaginable.\\n\\n«Il me fait deuil de ne pas connaître encore ma bien-aimée petite-fille\\nBerthe Bovary. J’ai planté pour elle, dans le jardin, sous ta chambre,\\nun prunier de prunes d’avoine, et je ne veux pas qu’on y touche, si\\nce n’est pour lui faire plus tard des compotes, que je garderai dans\\nl’armoire, à son intention, quand elle viendra.\\n\\n«Adieu, mes chers enfants. Je t’embrasse, ma fille; vous aussi, mon\\ngendre, et la petite, sur les deux joues.\\n\\n«Je suis, avec bien des compliments,\\n\\n«Votre tendre père,\\n\\n«THEODORE ROUAULT.»\\n\\nElle resta quelques minutes à tenir entre ses doigts ce gros papier.\\nLes fautes d’orthographe s’y enlaçaient les unes aux autres, et Emma\\npoursuivait la pensée douce qui caquetait tout au travers comme une\\npoule à demi cachée dans une haie d’épines. On avait séché l’écriture\\navec les cendres du foyer, car un peu de poussière grise glissa de\\nla lettre sur sa robe, et elle crut presque apercevoir son père se\\ncourbant vers l’âtre pour saisir les pincettes. Comme il y avait\\nlongtemps qu’elle n’était plus auprès de lui, sur l’escabeau, dans la\\ncheminée, quand elle faisait brûler le bout d’un bâton à la grande\\nflamme des joncs marins qui pétillaient!...\\n\\nElle se rappela des soirs d’été tout pleins de soleil. Les poulains\\nhennissaient quand on passait, et galopaient, galopaient... Il y\\navait sous sa fenêtre une ruche à miel, et quelquefois les abeilles,\\ntournoyant dans la lumière, frappaient contre les carreaux comme des\\nballes d’or rebondissantes. Quel bonheur dans ce temps-là! quelle\\nliberté! quel espoir! quelle abondance d’illusions! Il n’en restait\\nplus maintenant! Elle en avait dépensé à toutes les aventures de son\\nâme, par toutes les conditions successives, dans la virginité, dans le\\nmariage et dans l’amour; — les perdant ainsi continuellement le long\\nde sa vie, comme un voyageur qui laisse quelque chose de sa richesse à\\ntoutes les auberges de la route.\\n\\nMais qui donc la rendait si malheureuse? où était la catastrophe\\nextraordinaire qui l’avait bouleversée? Et elle releva la tête,\\nregardant autour d’elle, comme pour chercher la cause de ce qui la\\nfaisait souffrir.\\n\\nUn rayon d’avril chatoyait sur les porcelaines de l’étagère; le feu\\nbrûlait; elle sentait sous ses pantoufles la douceur du tapis; le\\njour était blanc, l’atmosphère tiède, et elle entendit son enfant qui\\npoussait des éclats de rire.\\n\\nEn effet, la petite fille se roulait alors sur le gazon, au milieu de\\nl’herbe qu’on fanait. Elle était couchée à plat ventre, au haut d’une\\nmeule. Sa bonne la retenait par la jupe. Lestiboudois ratissait à côté,\\net, chaque fois qu’il s’approchait, elle se penchait en battant l’air\\nde ses deux bras.\\n\\n— Amenez-la-moi! dit sa mère se précipitant pour l’embrasser. Comme je\\nt’aime, ma pauvre enfant! comme je t’aime!\\n\\nPuis, s’apercevant qu’elle avait le bout des oreilles un peu sale,\\nelle sonna vite pour avoir de l’eau chaude, et la nettoya, la changea\\nde linge, de bas, de souliers, fit mille questions sur sa santé, comme\\nau retour d’un voyage, et enfin, la baisant encore et pleurant un peu,\\nelle la remit aux mains de la domestique, qui restait fort ébahie\\ndevant cet excès de tendresse.\\n\\nRodolphe, le soir, la trouva plus sérieuse que d’habitude.\\n\\n— Cela se passera, jugea-t-il, c’est un caprice.\\n\\nEt il manqua consécutivement à trois rendez-vous. Quand il revint, elle\\nse montra froide et presque dédaigneuse.\\n\\n— Ah! tu perds ton temps, ma mignonne...\\n\\nEt il eut l’air de ne point remarquer ses soupirs mélancoliques, ni le\\nmouchoir qu’elle tirait.\\n\\nC’est alors qu’Emma se repentit!\\n\\nElle se demanda même pourquoi donc elle exécrait Charles, et s’il\\nn’eût pas été meilleur de le pouvoir aimer. Mais il n’offrait pas\\ngrande prise à ces retours du sentiment, si bien qu’elle demeurait fort\\nembarrassée dans sa velléité de sacrifice, lorsque l’apothicaire vint à\\npropos lui fournir une occasion.\\n\\n\\n\\n\\nXI\\n\\n\\nIl avait lu dernièrement l’éloge d’une nouvelle méthode pour la cure\\ndes pieds-bots; et comme il était partisan du progrès, il conçut cette\\nidée patriotique que Yonville, pour se mettre au niveau, devait avoir\\ndes opérations de stréphopodie.\\n\\n— Car, disait-il à Emma, que risque-t-on? Examinez (et il énumérait,\\nsur ses doigts, les avantages de la tentative); succès presque certain,\\nsoulagement et embellissement du malade, célébrité vite acquise\\nà l’opérateur. Pourquoi votre mari, par exemple, ne voudrait-il\\npas débarrasser ce pauvre Hippolyte, du Lion d’or? Notez qu’il ne\\nmanquerait pas de raconter sa guérison à tous les voyageurs, et\\npuis (Homais baissait la voix et regardait autour de lui) qui donc\\nm’empêcherait d’envoyer au journal une petite note là-dessus? Eh! mon\\nDieu! un article circule..., on en parle..., cela finit par faire la\\nboule de neige! Et qui sait? qui sait?\\n\\nEn effet, Bovary pouvait réussir; rien n’affirmait à Emma qu’il ne fût\\npas habile, et quelle satisfaction pour elle que de l’avoir engagé à\\nune démarche d’où sa réputation et sa fortune se trouveraient accrues?\\nElle ne demandait qu’à s’appuyer sur quelque chose de plus solide que\\nl’amour.\\n\\nCharles, sollicité par l’apothicaire et par elle, se laissa convaincre.\\nIl fit venir de Rouen le volume du docteur Duval, et, tous les soirs,\\nse prenant la tête entre les mains, il s’enfonçait dans cette lecture.\\n\\nTandis qu’il étudiait les équins, les varus et les valgus, c’est-à-dire\\nla stréphocatopodie, la stréphendopodie et la stréphexopodie (ou,\\npour parler mieux, les différentes déviations du pied, soit en bas,\\nen dedans ou en dehors), avec la stréphypopodie et la stréphanopodie\\n(autrement dit torsion en dessous et redressement en haut), M. Homais\\npar toute sorte de raisonnements, exhortait le garçon d’auberge à se\\nfaire opérer.\\n\\n— À peine sentiras-tu, peut-être, une légère douleur; c’est une simple\\npiqûre comme une petite saignée, moins que l’extirpation de certains\\ncors.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"“I learned from a peddler who, while traveling through your part of the country this winter, had a tooth pulled, that Bovary was still working hard. That does not surprise me, and he showed me his tooth; we had coffee together. I asked him whether he had seen you; he told me no, but that he had seen two animals in the stable, from which I conclude that business is going well. So much the better, my dear children, and may the good Lord send you every happiness imaginable.\\n\\n“It grieves me not yet to know my beloved little granddaughter Berthe Bovary. For her I have planted, in the garden beneath your room, an oat-plum tree, and I do not want anyone to touch it, except to make preserves for her later, which I shall keep in the cupboard for her when she comes.\\n\\n“Farewell, my dear children. I embrace you, my daughter; you too, my son-in-law, and the little one, on both cheeks.\\n\\n“I remain, with many compliments,\\n\\n“Your loving father,\\n\\n“THEODORE ROUAULT.”\\n\\nFor several minutes she remained holding the thick paper between her fingers. The spelling mistakes intertwined with one another, and Emma followed the gentle thought that chattered throughout it like a hen half hidden in a thorn hedge. The writing had been dried with ashes from the hearth, for a little gray dust slipped from the letter onto her dress, and she almost thought she could see her father bending toward the hearth to pick up the tongs. How long it had been since she had sat beside him, on the stool in the chimney corner, when she would burn the end of a stick in the great flame of the crackling sea rushes!...\\n\\nShe remembered summer evenings filled with sunlight. The foals neighed when anyone passed and galloped, galloped... Beneath her window there was a beehive, and sometimes the bees, wheeling in the light, struck against the panes like rebounding golden balls. What happiness there had been then! What freedom! What hope! What an abundance of illusions! None remained now! She had spent them on all the adventures of her soul, throughout every successive condition, in virginity, in marriage, and in love—thus continually losing them along the course of her life, like a traveler who leaves something of his wealth at every inn along the road.\\n\\nBut what, then, was making her so unhappy? Where was the extraordinary catastrophe that had turned her life upside down? And she raised her head, looking around her as though to seek the cause of what was making her suffer.\\n\\nAn April sunbeam shimmered on the china on the shelf; the fire was burning; beneath her slippers she felt the softness of the carpet; the daylight was white, the air mild, and she heard her child bursting into laughter.\\n\\nIndeed, the little girl was then rolling on the lawn amid the grass that was being made into hay. She lay flat on her stomach atop a haycock. Her nurse held her by the skirt. Lestiboudois was raking nearby, and each time he approached, she leaned forward, beating the air with both arms.\\n\\n“Bring her to me!” said her mother, rushing to kiss her. “How I love you, my poor child! How I love you!”\\n\\nThen, noticing that the tips of her ears were a little dirty, she quickly rang for hot water, cleaned her, changed her linen, stockings, and shoes, asked a thousand questions about her health, as though she had returned from a journey, and at last, kissing her again and weeping a little, placed her back in the servant’s hands; the woman remained quite dumbfounded by this excess of tenderness.\\n\\nThat evening, Rodolphe found her more serious than usual.\\n\\n“It will pass,” he judged. “It is a whim.”\\n\\nAnd he then failed to keep three appointments in a row. When he returned, she showed herself cold and almost disdainful.\\n\\n“Ah! You are wasting your time, my pretty one...”\\n\\nAnd he appeared not to notice her melancholy sighs or the handkerchief she took out.\\n\\nIt was then that Emma repented!\\n\\nShe even asked herself why she hated Charles so, and whether it would not have been better if she could have loved him. But he offered little purchase for such revivals of feeling, so that she remained greatly perplexed in her faint impulse toward sacrifice, when the apothecary came at just the right moment to provide her with an opportunity.\\n\\n\\n\\n\\nXI\\n\\n\\nHe had recently read a eulogy of a new method for curing clubfeet; and since he was a partisan of progress, he conceived the patriotic idea that Yonville, in order to keep abreast, ought to have strephopodic operations.\\n\\n“For,” he said to Emma, “what does one risk? Consider”—and he enumerated the advantages of the attempt on his fingers—“almost certain success, relief and improvement in the patient’s appearance, fame quickly acquired by the operator. Why, for example, should your husband not wish to rid that poor Hippolyte, from the Lion d’Or, of his affliction? Bear in mind that he would not fail to tell every traveler of his cure, and then”—Homais lowered his voice and looked around him—“who could prevent me from sending the newspaper a short notice about it? Ah, good Lord! An article circulates... people talk about it... it ends by snowballing! And who knows? Who knows?”\\n\\nIndeed, Bovary might succeed; nothing assured Emma that he was not skillful, and what satisfaction it would be for her to have urged him into an undertaking by which his reputation and fortune would be increased? She asked only to lean on something more solid than love.\\n\\nCharles, pressed by the apothecary and by her, allowed himself to be persuaded. He sent to Rouen for Doctor Duval’s volume, and every evening, with his head in his hands, he immersed himself in the book.\\n\\nWhile he studied equinus, varus, and valgus—that is, strephocatopodia, strephendopodia, and strephexopodia (or, more plainly speaking, the different deviations of the foot, whether downward, inward, or outward)—together with strephyopodia and strephanopodia (in other words, twisting beneath and bending upward), Monsieur Homais, with all manner of arguments, exhorted the inn servant to undergo the operation.\\n\\n“You will perhaps feel scarcely more than a slight pain; it is a mere prick, like a little bloodletting, less than the excision of certain corns.”\", \"source_occurrence_id\": \"flaubert-madame-bovary-176b95833345dab6\", \"source_language\": \"fr\", \"source_language_text_sha256\": \"d2f179eead5291728085905534da814a409c011d8237e9ce20c633e556d124f2\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T10:35:18.163275+00:00\", \"model_usage\": {\"input_tokens\": 1986, \"cached_input_tokens\": 0, \"output_tokens\": 1548}, \"estimated_cost_usd\": 0.038904, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"flaubert-madame-bovary\", \"title\": \"Madame Bovary\", \"author\": \"Gustave Flaubert\", \"language\": \"fr\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.493231, \"source_start\": 346780, \"source_end\": 346789, \"source_length\": 703078}, \"form\": {\"form_family\": \"present_or_imperfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": \"optional\", \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"fr_present_past\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 1.0, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

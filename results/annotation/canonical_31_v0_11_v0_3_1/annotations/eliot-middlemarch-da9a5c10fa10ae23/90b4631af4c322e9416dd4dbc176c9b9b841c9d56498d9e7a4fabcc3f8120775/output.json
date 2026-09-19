@@ -1,0 +1,65 @@
+{
+  "occurrence_id": "eliot-middlemarch-da9a5c10fa10ae23",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 1,
+      "performative": 0,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.96,
+    "analysis": "Mary embeds the loving-state proposition in a hypothetical antecedent rather than avowing it as true. The utterance neither undertakes a relationship nor functions as an affective verbal discharge; indeed, it explicitly separates possible love from any promise of marriage.",
+    "ambiguity": "The counterfactual-sounding wording may pragmatically suggest that Mary denies loving Fred, or may allow her to conceal feelings, but it does not assert either interpretation."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "hypothetical",
+    "description": "Mary directly utters the phrase as the antecedent of “If I did love you,” entertaining rather than asserting the loving state."
+  },
+  "contextual_interpretation": "Fred asks Mary to say that she loves him and promise marriage. Mary refuses the requested encouragement by arguing that even love would not justify marrying an idle, indebted man. Her formulation is therefore a hypothetical rebuttal to Fred’s attempt to connect affection with marital obligation, not a straightforward confession. Her reddening and Fred’s belief that she cares may create interpersonal ambiguity, but they do not change the core hypothetical force.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "“If I did love you, I would not marry you: I would certainly not promise ever to marry you.”",
+      "supports": "The conditional construction makes the loving state hypothetical and explicitly rejects promissory or marital force.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "Fred asks Mary to say that she loves him and to promise to marry him; Mary answers with the highlighted conditional.",
+      "supports": "Mary declines rather than performs the avowal and commitment Fred solicits.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "Mary later repeats that it would be wicked to marry Fred “even if I did love you.”",
+      "supports": "The repeated concessive hypothetical confirms that her point is the independence of possible love from a marriage undertaking.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "e4",
+      "source": "local_text",
+      "quotation_or_description": "Mary refuses “any encouragement,” while reddening; Fred remains persuaded that she “really did care for him.”",
+      "supports": "There is contextual uncertainty about Mary’s actual feelings, but no direct truth-conditional avowal in the classified occurrence.",
+      "confidence": 0.94
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "The low T score captures an entertained loving-state proposition without an avowal, while zero P and E capture the absence of undertaking and expressive discharge. Hypothetical embedding is adequately recorded by utterance status and context, so it creates no residual pressure for O.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

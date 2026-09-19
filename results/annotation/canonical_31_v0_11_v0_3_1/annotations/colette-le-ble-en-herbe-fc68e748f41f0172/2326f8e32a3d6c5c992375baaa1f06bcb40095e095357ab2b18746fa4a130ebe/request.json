@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"colette-le-ble-en-herbe-fc68e748f41f0172\", \"SOURCE_TEXT\": {\"exact_match\": \"Je\\nt'aime\", \"local_text\": {\"context_start\": 2804, \"context_end\": 3121, \"text\": \"C'est peut-être l'an prochain qu'elle tombera à ses pieds et qu'elle\\nlui dira des paroles de femme: «Phil! ne sois pas méchant... Je\\nt'aime, Phil, fais de moi ce que tu voudras... Parle-moi, Phil...» Mais\\ncette année elle garde encore la dignité revêche des enfants, elle\\nrésiste, et Phil n'aime pas cette résistance.\"}, \"wider_canonical_context\": {\"context_start\": 0, \"context_end\": 6113, \"text\": \"Produced by Laura Natal Rodrigues at Free Literature (Images\\ngenerously made available by Hathi Trust.)\\n\\n\\n\\n\\n\\nCOLETTE\\n\\nLe blé en herbe\\n\\nRoman\\n\\nPARIS\\n\\nERNEST FLAMMARION, ÉDITEUR\\n\\n26, Rue Racine, 26\\n\\n\\n\\n\\n\\nI\\n\\n\\n—-Tu vas à la pêche, Vinca?\\n\\nD'un signe de tête hautain, la Pervenche Vinca aux yeux couleur de\\npluie printanière, répondit qu'elle allait, en effet, à la pêche. Son\\nchandail reprisé en témoignait, et ses espadrilles racornies par le\\nsel. On savait que sa jupe à carreaux bleus et verts, qui datait de\\ntrois ans et laissait voir ses genoux, appartenait à la crevette et\\naux crabes. Et ces deux havenets sur l'épaule, et ce béret de laine\\nhérissé et bleuâtre comme un chardon des dunes, constituaient-ils une\\npanoplie de pêche, oui ou non?\\n\\nElle dépassa celui qui l'avait hélée. Elle descendit vers les rochers,\\nà grandes enjambées de ses fuseaux maigres et bien tournés, couleur\\nde terre cuite. Philippe la regardait marcher, comparant l'une à\\nl'autre Vinca de cette année et Vinca des dernières vacances. A-t-elle\\nfini de grandir? il est temps qu'elle s'arrête. Elle n'a pas plus de\\nchair que l'autre année. Ses cheveux courts s'éparpillent en paille\\nraide et bien dorée, qu'elle laisse pousser depuis quatre mois, mais\\nqu'on ne peut ni tresser ni rouler. Elle a les joues et les mains\\nnoires de hâle, le cou blanc comme lait sous ses cheveux, le sourire\\ncontraint, le rire éclatant, et si elle ferme étroitement, sur une\\ngorge absente, blousons et chandails, elle trousse jupe et culotte\\npour descendre à l'eau, aussi haut qu'elle peut, avec une sérénité\\nde petit garçon...\\n\\nLe camarade qui l'épiait, couché sur la dune à longs poils d'herbe,\\nberçait sur ses bras croisés son menton fendu d'une fossette. Il\\ncompte seize ans et demi, puisque Vinca atteint ses quinze ans et demi.\\nToute leur enfance les a unis, l'adolescence les sépare. L'an passé,\\ndéjà, ils échangeaient des répliques aigres, des horions sournois;\\nmaintenant le silence, à tout moment, tombe entre eux si lourdement\\nqu'ils préfèrent une bouderie à l'effort de la conversation. Mais\\nPhilippe, subtil, né pour la chasse et la tromperie, habille de mystère\\nson mutisme, et s'arme de tout ce qui le gêne. Il ébauche des gestes\\ndésabusés, risque des «À quoi bon?... Tu ne peux pas comprendre...»,\\ntandis que Vinca ne sait que se taire, souffrir de ce qu'elle tait, de\\nce qu'elle voudrait apprendre, et se raidir contre le précoce,\\nl'impérieux instinct de tout donner, contre la crainte que Philippe, de\\njour en jour changé, d'heure en heure plus fort, ne rompe la frêle\\namarre qui le ramène, tous les ans, de juillet en octobre, au bois\\ntouffu incliné sur la mer, aux rochers chevelus de fucus noir. Déjà\\nil a une manière funeste de regarder son amie fixement, sans la voir,\\ncomme si Vinca était transparente, fluide, négligeable...\\n\\nC'est peut-être l'an prochain qu'elle tombera à ses pieds et qu'elle\\nlui dira des paroles de femme: «Phil! ne sois pas méchant... Je\\nt'aime, Phil, fais de moi ce que tu voudras... Parle-moi, Phil...» Mais\\ncette année elle garde encore la dignité revêche des enfants, elle\\nrésiste, et Phil n'aime pas cette résistance.\\n\\nIl regardait la plate et gracieuse fille, qui descendait à cette heure\\nvers la mer. Il n'avait pas plus l'envie de la caresser que de la\\nbattre, mais il la voulait confiante, promise à lui seul, et disponible\\ncomme ces trésors dont il rougissait,--pétales séchés, billes d'agate,\\ncoquilles et graines, images, petite montre d'argent...\\n\\n—-Attends-moi, Vinca! Je vais à la pêche avec toi! cria-t-il.\\n\\nElle ralentit le pas sans se retourner. Il l'atteignit en quelques bonds\\net s'empara d'un des havenets.\\n\\n—-Pourquoi en avais-tu pris deux?\\n\\n—-J'ai pris la petite poche pour les trous étroits, et mon havenet à\\nmoi, comme d'habitude.\\n\\nIl plongea dans les yeux bleus son plus doux regard noir:\\n\\n—-Alors ce n'était pas pour moi?\\n\\nEn même temps il lui offrait la main pour franchir le mauvais couloir de\\nrochers, et le sang monta sous le hâle des joues de Vinca. Un geste\\nnouveau, un regard nouveau suffisaient à la confondre. Hier, ils\\nbattaient les falaises, sondaient les trous côte à côte--à chacun son\\nrisque... Aussi leste que lui, elle ne se souvenait pas d'avoir requis\\nl'aide de Phil...\\n\\n--Un peu de douceur, Vinca! pria-t-il en souriant, parce qu'elle a\\nretiré sa main d'un trop grand geste anguleux. Qu'est-ce que tu as donc\\ncontre moi?\\n\\nElle mordit ses lèvres, fendillées parles plongeons quotidiens, et\\nchemina sur les rochers hérissés de balanes. Elle réfléchissait et se\\nsentait pleine de doute. Qu'a-t-il donc lui-même? Le voici prévenant,\\ncharmant, et il vient de lui offrir la main comme à une dame... Elle\\nabaissa lentement la poche de filet dans une cavité où l'eau marine,\\nimmobile, révélait des algues, des holoturies, des «loups», rascasses\\ntout en tête et en nageoires, des crabes noirs à passepoils rouges et\\ndes crevettes... L'ombre de Phil obscurcit la flaque ensoleillée.\\n\\n--Ôte-toi donc! Tu mets ton ombre sur les crevettes, et puis c'est à\\nmoi, ce grand trou-là!\\n\\nIl n'insista pas et elle pêcha toute seule, impatiente, moins adroite\\nque de coutume. Dix crevettes, vingt crevettes échappèrent à son coup\\nde filet trop brusque, pour se tapir dans des fissures d'où leurs\\nbarbes fines tâtent l'eau et narguent l'engin...\\n\\n--Phil! Viens, Phil! C'en est rempli, de crevettes, et elles ne veulent\\npas se laisser prendre!\\n\\nIl approcha, nonchalant, se pencha sur le petit abîme pullulant:\\n\\n--Naturellement! C'est que tu ne sais pas...\\n\\n--Je sais très bien, cria Vinca aigrement, seulement je n'ai pas la\\npatience.\\n\\nPhil enfonça le havenet dans l'eau et le tint immobile.\\n\\n--Dans la fente de rocher, chuchota Vinca derrière son épaule, il y en\\na de belles, belles... Tu ne vois pas leurs cornes?\\n\\n--Non. Ça n'a pas d'importance. Elles viendront bien.\\n\\n--Tu crois ça!\\n\\n--Mais oui. Regarde.\\n\\nElle se pencha davantage, et ses cheveux battirent, comme une aile\\ncourte et prisonnière, la joue de son compagnon. Elle recula, puis\\nrevint d'un mouvement insensible, pour reculer encore. Il ne parut\\npas s'en apercevoir, mais sa main libre attira le bras nu, hâlé et\\nsalé, de Vinca.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"Produced by Laura Natal Rodrigues at Free Literature (Images\\ngenerously made available by Hathi Trust.)\\n\\n\\n\\n\\n\\nCOLETTE\\n\\nThe Ripening Grain\\n\\nA Novel\\n\\nPARIS\\n\\nERNEST FLAMMARION, PUBLISHER\\n\\n26, Rue Racine, 26\\n\\n\\n\\n\\n\\nI\\n\\n\\n“Are you going fishing, Vinca?”\\n\\nWith a haughty nod of her head, the Periwinkle Vinca, whose eyes were the color of spring rain, replied that she was indeed going fishing. Her mended sweater bore witness to it, as did her espadrilles, stiffened by salt. Everyone knew that her blue-and-green checked skirt, which was three years old and left her knees bare, belonged to the shrimps and crabs. And did those two hand nets over her shoulder, and that bristling woolen beret, bluish like a dune thistle, constitute fishing gear, yes or no?\\n\\nShe passed the one who had hailed her. She went down toward the rocks, taking long strides on her thin, shapely, terra-cotta-colored spindle legs. Philippe watched her walk, comparing this year’s Vinca with the Vinca of previous holidays. Has she finished growing? It is time she stopped. She has no more flesh on her than last year. Her short hair scatters into stiff, richly golden straw; she has been letting it grow for four months, but it can neither be braided nor rolled up. Her cheeks and hands are dark with sunburn, her neck milk-white beneath her hair, her smile constrained, her laugh ringing; and though she fastens smocks and sweaters tightly over a nonexistent bosom, she hikes up skirt and drawers to go down into the water, as high as she can, with the serenity of a little boy...\\n\\nThe companion who was watching her, lying on the dune amid long-haired grass, cradled his dimple-cleft chin on his crossed arms. He is sixteen and a half, since Vinca has reached fifteen and a half. Their whole childhood united them; adolescence separates them. Last year already, they exchanged sour retorts and furtive blows; now silence falls between them at every moment, so heavily that they prefer sulking to the effort of conversation. But Philippe, subtle, born for hunting and deceit, cloaks his muteness in mystery and turns everything that troubles him into a weapon. He sketches disillusioned gestures, ventures remarks such as “What’s the use?... You can’t understand...,” while Vinca knows only how to remain silent, to suffer from what she keeps silent, from what she would like to learn, and to stiffen herself against the premature, imperious instinct to give everything, against the fear that Philippe, changed from day to day, stronger from hour to hour, may break the frail mooring that brings him back every year, from July to October, to the dense wood sloping toward the sea, to the rocks hairy with black bladder wrack. Already he has a disastrous way of staring fixedly at his friend without seeing her, as though Vinca were transparent, fluid, negligible...\\n\\nPerhaps next year she will fall at his feet and say a woman’s words to him: “Phil! Don’t be unkind... I love you, Phil; do with me whatever you wish... Speak to me, Phil...” But this year she still retains the surly dignity of children; she resists, and Phil does not like that resistance.\\n\\nHe watched the slender, graceful girl who was now going down toward the sea. He had no more desire to caress her than to beat her, but he wanted her trusting, promised to him alone, and available like those treasures of which he was ashamed—dried petals, agate marbles, shells and seeds, pictures, a little silver watch...\\n\\n“Wait for me, Vinca! I’m going fishing with you!” he cried.\\n\\nShe slowed her pace without turning around. He caught up with her in a few bounds and took possession of one of the hand nets.\\n\\n“Why did you take two?”\\n\\n“I took the little bag net for the narrow holes, and my own hand net, as usual.”\\n\\nHe plunged his gentlest dark gaze into her blue eyes:\\n\\n“So it wasn’t for me?”\\n\\nAt the same time he offered her his hand to cross the difficult passage through the rocks, and blood rose beneath the tan of Vinca’s cheeks. A new gesture, a new look, were enough to disconcert her. Yesterday they had scoured the cliffs and probed the holes side by side—each at their own risk... As nimble as he, she could not remember ever having asked Phil for help...\\n\\n“A little gentleness, Vinca!” he pleaded with a smile, for she had pulled her hand away with an overly broad, angular gesture. “What have you got against me?”\\n\\nShe bit her lips, cracked by her daily plunges, and made her way over the rocks bristling with barnacles. She was reflecting and felt full of doubt. What is the matter with him? Here he is, attentive and charming, and he has just offered her his hand as though she were a lady... She slowly lowered the net bag into a hollow where the motionless seawater revealed seaweed, sea cucumbers, “wolf-fish,” scorpionfish all head and fins, black crabs edged with red, and shrimps... Phil’s shadow darkened the sunlit pool.\\n\\n“Move away! You’re casting your shadow over the shrimps, and besides, that big hole is mine!”\\n\\nHe did not insist, and she fished alone, impatient and less skillful than usual. Ten shrimps, twenty shrimps escaped her too-abrupt sweep of the net and hid in cracks from which their fine whiskers felt the water and mocked the implement...\\n\\n“Phil! Come, Phil! It’s full of shrimps, and they won’t let themselves be caught!”\\n\\nHe came over nonchalantly and leaned above the teeming little abyss:\\n\\n“Naturally! That’s because you don’t know how...”\\n\\n“I know perfectly well,” Vinca cried sharply, “only I haven’t the patience.”\\n\\nPhil plunged the hand net into the water and held it motionless.\\n\\n“In the crack in the rock,” Vinca whispered behind his shoulder, “there are some beautiful, beautiful ones... Can’t you see their horns?”\\n\\n“No. It doesn’t matter. They’ll come.”\\n\\n“You think so!”\\n\\n“Of course. Look.”\\n\\nShe leaned farther over, and her hair brushed her companion’s cheek like a short, captive wing. She drew back, then returned with an imperceptible movement, only to draw back again. He did not seem to notice, but his free hand drew Vinca’s bare, tanned, salt-covered arm toward him.\", \"source_occurrence_id\": \"colette-le-ble-en-herbe-fc68e748f41f0172\", \"source_language\": \"fr\", \"source_language_text_sha256\": \"2c724f38626162d94acfc07fdab00c7973aa2f373b77235b7d7aba9f72588f46\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T10:22:18.328147+00:00\", \"model_usage\": {\"input_tokens\": 2015, \"cached_input_tokens\": 0, \"output_tokens\": 2254}, \"estimated_cost_usd\": 0.05314, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"colette-le-ble-en-herbe\", \"title\": \"Le blé en herbe\", \"author\": \"Colette\", \"language\": \"fr\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.016178, \"source_start\": 2934, \"source_end\": 2943, \"source_length\": 181358}, \"form\": {\"form_family\": \"present_or_imperfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": \"optional\", \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"fr_present_past\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 1.0, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

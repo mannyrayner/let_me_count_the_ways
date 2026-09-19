@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"zuccoli-lamore-di-loredana-788df1cbe03c9c66\", \"SOURCE_TEXT\": {\"exact_match\": \"vi amerò\", \"local_text\": {\"context_start\": 403881, \"context_end\": 404447, \"text\": \"--Perchè mi volete?--seguitò Loredana, lanciandogli uno sguardo di\\nsprezzo.--Io amo Filippo, e mi sacrifico per lui. Non è chiaro? Non è\\nchiaro che io voglio perdermi per salvare lui? Non ve l'ho detto già! E\\nho scelto proprio voi, perchè egli mi disprezzi tanto che non mi cerchi\\npiù!... E voi vi prestate a questo giuoco?... Se io acconsentissi a\\ndiventar la vostra amante, sarebbe quello il momento in cui amerei di\\npiù Filippo, perchè sarebbe quello il sacrificio più grave che io potrei\\nfargli.... E non lo avete capito? Come devo dirvi che io non vi amerò\\nmai?\"}, \"wider_canonical_context\": {\"context_start\": 401100, \"context_end\": 407771, \"text\": \"Dove andava? A casa, sua? Filippo l'avrebbe ripresa. A casa di Filippo?\\nLa madre di lui ne sarebbe morta. E Filippo a quell'ora doveva aver già\\nletto le poche righe che Loredana gli aveva lasciato: «Non ti\\ndimenticherò mai; ti amerò sempre; quanto più ti parrò lontana, tanto\\npiù sarò tua....» E dopo questo, ella sarebbe tornata da lui, a capo\\nbasso, a guisa d'una scolaretta pentita, e sempre troppo tardi per\\nessere perdonata?\\n\\nVide ancora quella maledetta femmina dai piedi caprigni, seminuda, che\\ncol braccio destro levato sembrava imporle di fermarsi. Si volse, e\\nall'altro lato vide Berto, il quale non osava muoversi per trattenerla,\\nnon osava parlare per non impaurirla, e andava guardandola, per\\nindovinar dal gesto di lei la risoluzione che avrebbe presa.\\n\\nElla tornò alla sua poltrona, vi si lasciò cadere, non disse parola.\\n\\nSeguì in tal modo un silenzio angoscioso di alcuni minuti, durante i\\nquali Loredana e Berto si fissarono acutamente, immobili, quasi\\nscrutandosi; ma Berto non potè resistere più a lungo, le si avvicinò di\\nnuovo, le afferrò le mani.\\n\\n--Resta!--disse con voce velata dalla passione.--Resta! Te ne scongiuro!\\nSo che non mi ami, e ciò non mi spaventa....\\n\\nEgli cercava di toglierle un guanto; ella se ne avvide, e lo sbottonò\\ncon un rapido gesto, offrendogli la mano e il polso nudi da baciare; ma\\nquando sentì quelle labbra avide sulle carni, volse il capo quasi con\\nribrezzo.\\n\\n--No!--disse.--Aspettate!\\n\\nAfferrò la coppa e la vuotò avidamente, poi la tese di nuovo a Berto\\nperchè versasse ancora, e di nuovo bevve; ma scorgendosi nello specchio,\\ngettò la coppa vuota a terra, dove s'infranse.\\n\\n--Che cosa volete fare di me?--disse poi.\\n\\n--Tutto quello che tu mi comanderai,--rispose Berto.--Io sono libero;\\nposso partire oggi stesso, stanotte, domani, quando tu me lo chieda.\\n\\n--Sì,--dichiarò Loredana.--Partiremo subito. Andremo a Roma.\\n\\nElla diede in una risata così cruda e sardonica, che Berto la guardò\\nimpaurito.\\n\\n--A Roma,--ripetè Loredana.--Dovevo andarvi con Flopi; andrò con voi.\\nNon è lo stesso? Non sono la vostra amante? Non hanno voluto che io\\nfossi la vostra amante? Un uomo o un altro, poco importa.... Perchè non\\nandiamo anche a Sirmione?... Io voglio calpestare tutto il mio passato,\\nio voglio distruggere ogni ricordo, io voglio che non rimanga più nulla,\\npiù nulla di ciò che mi è stato tanto caro, e che mi farebbe\\narrossire!... Ah, voi non sapete l'orrore che io sento per la vita!...\\nVoi non pensate che a impossessarvi di me; lo vedo nei vostri occhi, e\\nnon capite che io non sono più viva, non capite che io vi odio, e più vi\\navvicinate a me e più vi odio!...\\n\\nBerto non rispose, ma la sua mano che teneva la mano della giovane,\\nallentò la stretta; egli si ritrasse, percosso dalla veemenza selvaggia\\ndi quelle parole.\\n\\n--Perchè mi volete?--seguitò Loredana, lanciandogli uno sguardo di\\nsprezzo.--Io amo Filippo, e mi sacrifico per lui. Non è chiaro? Non è\\nchiaro che io voglio perdermi per salvare lui? Non ve l'ho detto già! E\\nho scelto proprio voi, perchè egli mi disprezzi tanto che non mi cerchi\\npiù!... E voi vi prestate a questo giuoco?... Se io acconsentissi a\\ndiventar la vostra amante, sarebbe quello il momento in cui amerei di\\npiù Filippo, perchè sarebbe quello il sacrificio più grave che io potrei\\nfargli.... E non lo avete capito? Come devo dirvi che io non vi amerò\\nmai?\\n\\nStretto dalla logica feroce, che sembrava dettata da quel bisogno di\\nmordere e di distruggere onde Loredana si sentiva tutta vibrare, Berto\\nnon trovò dapprima risposta; poi ebbe la parola unica che spiegava\\nqualunque follia:\\n\\n--Ma io ti amo,--disse.--Io ti amo, Loredana; e non so altro....\\n\\nLa giovane lo guardò, sentendo ch'egli non mentiva; le parve sommesso e\\nvinto, e ne ebbe pietà.\\n\\n--Suvvia,--mormorò, alzandosi,--mi lasci andare!\\n\\n--Dove, dove vuoi andare?--chiese Berto, movendo un passo verso di\\nlei.--Dove vuoi andare, così?\\n\\nElla s'era avviata alla porta, senza cappello, come una pazza.\\n\\nBerto la guardò elegante e sottile nell'abito tutto liscio color\\nd'ametista, leggiadramente ornato con una lista di pelliccia scura, che\\nle correva intorno al petto e per l'estremo lembo della gonna a guisa\\nd'un serpentello.\\n\\nUsciva, partiva, fuggiva; d'improvviso aveva sentito che il sacrificio\\nera troppo ripugnante, che meglio era morire, riposare, non pensare più\\nad alcuno, e aveva ricordato il canale nero e fondo che scorreva innanzi\\nalla casa di Berto.\\n\\nL'ora era tarda, la luce fievole, la gente rada in quella serata\\nd'inverno. Loredana avrebbe potuto gettarsi all'acqua e affogarvi, senza\\nche alcuno accorresse.\\n\\n--Dove vuoi andare?--ripetè Berto.\\n\\nS'incontrarono sul limitare e si fissarono, l'uno con gli occhi\\nfiammeggianti di desiderio, l'altra con lo sguardo smarrito della\\ndisperazione; ma perchè essa voleva procedere, egli l'afferrò per le\\nbraccia e la rattenne.\\n\\nLoredana ruppe di nuovo in una risata.\\n\\nAveva in bocca il sapore di quel fango al quale s'abbeverano gli umani,\\ndi quel fango che è tutta la vita, e un'arsura insaziata le bruciava le\\nvene, come avesse ingoiato un fuoco liquido....\\n\\nQualcuno alle spalle di Berto--forse la femmina seminuda dai piedi\\ncaprigni--gli suggerì un pensiero: la giovane non si sarebbe mai decisa\\nnè a partire, nè a rimanere, nè a vivere, nè a morire; bisognava\\nforzarla.\\n\\nEgli l'attrasse bruscamente al petto, le suggellò la bocca con la bocca\\ndandole un bacio così lungo, che pareva, volesse beverne la vita,\\nl'anima, il sangue; sentì che Loredana s'inclinava a poco a poco, si\\nrovesciava indietro, e assecondò il movimento senza staccar la bocca\\ndalla bocca agognata, e l'adagiò sul divano ampio.\\n\\n\\n\\n\\nXVII.\\n\\n\\nFu una lieta primavera, quella del 1894 a Venezia. Una falange\\nsterminata di stranieri calò da tutte le parti del mondo, le donne e gli\\nuomini già ebbri di delizie e di desiderio, con l'anima vibrante di quel\\nromanticismo sensuale che Venezia, la torpida, ispira.\\n\\nNuove passioni e nuovi drammi pullularono tra quell'affoltata di gente,\\ne la Piazza San Marco divenne in certe serate un prodigioso salotto pel\\nquale s'aggiravano le eleganti di New-York e di Parigi, di Londra e di\\nVienna, di Berlino e di Pietroburgo, lasciando sui loro passi un solco\\ndi profumi esotici.\\n\\nEsse vedevano Venezia con gli occhi della leggenda e della storia e la\\nloro anima si trasformava, effondendosi e pervertendosi fra i tesori\\nd'arte e il silenzio mortale della città voluttuosa. La gondola, lenta e\\ncarezzevole, agile e muta, faceva loro sognare i sogni erotici e le\\nrapide tragedie dei romanzi; la notte, o rischiarata dal raggio lunare\\nsui rii e sui canali, o tenebrosa o velata, sembrava loro così\\nenimmatica e stravagante quale in nessun'altra città del mondo.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"Where was she going? Home—to her own home? Filippo would have taken her back. To Filippo’s house?\\nHis mother would have died of it. And by that hour Filippo must already have read the few lines Loredana had left him: “I shall never forget thee; I shall always love thee; the farther away I seem to thee, the more shall I be thine....” And after this, would she have gone back to him, with bowed head, like a repentant schoolgirl, and still too late to be forgiven?\\n\\nOnce more she saw that accursed, half-naked woman with goat-like feet, who, with her right arm raised, seemed to command her to stop. She turned, and on the other side saw Berto, who dared not move to detain her, dared not speak lest he frighten her, and kept watching her, trying to divine from her gestures what decision she would make.\\n\\nShe returned to her armchair, let herself fall into it, and said not a word.\\n\\nThus followed an anguished silence of several minutes, during which Loredana and Berto stared keenly at one another, motionless, as though searching each other; but Berto could endure it no longer. He approached her again and seized her hands.\\n\\n“Stay!” he said, his voice veiled by passion. “Stay! I beseech thee! I know thou dost not love me, and that does not frighten me....”\\n\\nHe was trying to remove one of her gloves; she noticed, and unbuttoned it with a quick gesture, offering him her bare hand and wrist to kiss; but when she felt those avid lips upon her flesh, she turned her head away as though in disgust.\\n\\n“No!” she said. “Wait!”\\n\\nShe seized the goblet and drained it avidly, then held it out to Berto again so that he might pour more, and drank once more; but, catching sight of herself in the mirror, she flung the empty goblet to the floor, where it shattered.\\n\\n“What do you wish to do with me?” she then said.\\n\\n“Everything thou shalt command me to do,” Berto replied. “I am free; I can leave this very day, tonight, tomorrow, whenever thou askest it of me.”\\n\\n“Yes,” Loredana declared. “We shall leave at once. We shall go to Rome.”\\n\\nShe burst into so harsh and sardonic a laugh that Berto looked at her in alarm.\\n\\n“To Rome,” Loredana repeated. “I was to go there with Flopi; I shall go with you. Is it not the same? Am I not your mistress? Did they not want me to be your mistress? One man or another matters little.... Why do we not go to Sirmione as well?... I want to trample upon all my past, I want to destroy every memory, I want nothing to remain, nothing at all of what was so dear to me and would make me blush!... Ah, you do not know the horror I feel for life!... You think only of possessing me; I see it in your eyes, and you do not understand that I am no longer alive, you do not understand that I hate you, and the nearer you come to me, the more I hate you!...”\\n\\nBerto did not answer, but the hand holding the young woman’s loosened its grip; he drew back, struck by the savage vehemence of those words.\\n\\n“Why do you want me?” Loredana continued, casting him a contemptuous glance. “I love Filippo, and I sacrifice myself for him. Is that not clear? Is it not clear that I want to ruin myself in order to save him? Have I not told you already! And I chose you in particular so that he might despise me so much that he would seek me no more!... And you lend yourself to this game?... If I consented to become your mistress, that would be the moment when I loved Filippo most, because it would be the gravest sacrifice I could make for him.... And have you not understood? How must I tell you that I shall never love you?”\\n\\nCornered by that ferocious logic, which seemed dictated by the need to bite and destroy with which Loredana felt herself vibrating through and through, Berto at first found no answer; then he uttered the single phrase that explained any madness:\\n\\n“But I love thee,” he said. “I love thee, Loredana; and I know nothing else....”\\n\\nThe young woman looked at him, sensing that he was not lying; he seemed submissive and defeated to her, and she pitied him.\\n\\n“Come,” she murmured, rising, “let me go!”\\n\\n“Where, where dost thou wish to go?” Berto asked, taking a step toward her. “Where dost thou wish to go, like this?”\\n\\nShe had started toward the door, without a hat, like a madwoman.\\n\\nBerto looked at her, elegant and slender in her perfectly plain amethyst-colored dress, gracefully adorned with a strip of dark fur that ran around her breast and along the bottom hem of her skirt like a little serpent.\\n\\nShe was going out, departing, fleeing; suddenly she had felt that the sacrifice was too repugnant, that it was better to die, to rest, to think of no one ever again, and she had remembered the black, deep canal flowing before Berto’s house.\\n\\nThe hour was late, the light dim, the people few on that winter evening. Loredana could have thrown herself into the water and drowned there without anyone coming to her aid.\\n\\n“Where dost thou wish to go?” Berto repeated.\\n\\nThey met upon the threshold and stared at one another, he with eyes blazing with desire, she with the lost gaze of despair; but when she tried to go on, he seized her by the arms and held her back.\\n\\nLoredana broke into laughter once more.\\n\\nIn her mouth was the taste of that mud from which human beings drink, that mud which is all of life, and an unslaked burning scorched her veins, as though she had swallowed liquid fire....\\n\\nSomeone behind Berto—perhaps the half-naked woman with goat-like feet—suggested a thought to him: the young woman would never bring herself either to leave or to remain, either to live or to die; she had to be forced.\\n\\nHe drew her abruptly to his breast, sealed her mouth with his own, giving her so long a kiss that he seemed to wish to drink her life, her soul, her blood; he felt Loredana gradually yielding, bending backward, and he followed the movement without taking his mouth from the coveted mouth, and laid her upon the broad divan.\\n\\n\\n\\n\\nXVII.\\n\\n\\nIt was a joyous spring, that of 1894 in Venice. An immense host of foreigners descended from every part of the world, women and men already drunk with delight and desire, their souls vibrating with that sensual romanticism inspired by languid Venice.\\n\\nNew passions and new dramas sprang up amid that throng of people, and on certain evenings Saint Mark’s Square became a wondrous drawing room through which the fashionable women of New York and Paris, London and Vienna, Berlin and Petersburg wandered, leaving in their wake a trail of exotic perfumes.\\n\\nThey saw Venice through the eyes of legend and history, and their souls were transformed, pouring themselves forth and becoming perverted among the treasures of art and the deathly silence of the voluptuous city. The gondola, slow and caressing, agile and silent, made them dream the erotic dreams and swift tragedies of novels; the night, whether illumined by moonlight upon the narrow waterways and canals, or dark, or veiled, seemed to them as enigmatic and extravagant as in no other city in the world.\", \"source_occurrence_id\": \"zuccoli-lamore-di-loredana-788df1cbe03c9c66\", \"source_language\": \"it\", \"source_language_text_sha256\": \"c775d4bf4bdb9493df004eabe8eef33bd93064871780e763d274eaddecd48b9d\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T12:35:18.954026+00:00\", \"model_usage\": {\"input_tokens\": 2314, \"cached_input_tokens\": 0, \"output_tokens\": 2730}, \"estimated_cost_usd\": 0.063856, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"zuccoli-lamore-di-loredana\", \"title\": \"L'amore di Loredana\", \"author\": \"Luciano Zùccoli\", \"language\": \"it\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.918306, \"source_start\": 404434, \"source_end\": 404442, \"source_length\": 440413}, \"form\": {\"form_family\": \"future\", \"polarity\": \"affirmative\", \"tense_aspect\": \"future\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"it_future\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

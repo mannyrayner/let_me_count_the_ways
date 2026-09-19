@@ -1,0 +1,65 @@
+{
+  "occurrence_id": "hamsun-victoria-3fa9da6674c8bd2e",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 2,
+      "other": 0
+    },
+    "confidence": 0.9,
+    "analysis": "Johannes privately avows that he still loves Victoria, strongly supporting T. The self-directed whisper, outstretched hands, and immediate repetition also give moderate independent support to E: the words function partly as an affective discharge when he is no longer speaking with her. Nothing indicates a commitment or relational undertaking, so P is unsupported.",
+    "ambiguity": "The E evidence is meaningful but not decisive: the episode can also be read as a highly emotional private avowal whose force remains predominantly truth-conditional."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "A directly narrated but privately spoken utterance: after Victoria walks away, Johannes whispers “I still love you, love you” to himself rather than addressing it audibly to her."
+  },
+  "contextual_interpretation": "The declaration follows a guarded, wounded exchange in which Johannes and Victoria separate without openly acknowledging their attachment. Once she is walking away, Johannes contradicts his outward bitterness in a private avowal of continuing love. His reaching toward her and repeating the phrase suggest emotional overflow, but he does not use the declaration to undertake a commitment or alter their relationship; he calls only her name aloud afterward.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "“jeg elsker Dem endnu, elsker Dem” (“I still love you, love you”).",
+      "supports": "The present-tense declaration, especially “endnu” (‘still’), explicitly presents Johannes’s continuing love as true, strongly supporting T.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "“Han strakte hænderne ut og hvisket, sa ømme ord for sig selv” (“He stretched out his hands and whispered, speaking tender words to himself”).",
+      "supports": "The noncommunicative self-address and embodied reaching provide moderate evidence that producing the words partly serves as expressive affective discharge, supporting E independently of mere passionate delivery.",
+      "confidence": 0.86
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "After the private declaration, he calls “Victoria!”; she turns but continues walking.",
+      "supports": "Victoria does not receive the love declaration itself, and Johannes makes no promise or relational undertaking, weighing against P.",
+      "confidence": 0.96
+    },
+    {
+      "evidence_id": "e4",
+      "source": "local_text",
+      "quotation_or_description": "Immediately before parting, their dialogue is defensive and mutually wounded: “My impressions are as immaterial to you now as they were before.”",
+      "supports": "The contrast between Johannes’s guarded public speech and subsequent private declaration frames the latter as a sincere-seeming avowal and emotional release.",
+      "confidence": 0.91
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T captures the explicit avowal of enduring love, while a moderate E score captures the self-directed expressive overflow. P is unnecessary, and no important aspect of the core force falls outside T/P/E.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": "The analytical translation was used only to aid interpretation; quoted evidence is grounded in the supplied Norwegian source text."
+}

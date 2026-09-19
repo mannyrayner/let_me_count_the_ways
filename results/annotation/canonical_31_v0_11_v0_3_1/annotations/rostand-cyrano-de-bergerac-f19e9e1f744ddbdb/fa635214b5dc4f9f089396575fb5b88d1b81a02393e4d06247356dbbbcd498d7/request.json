@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"rostand-cyrano-de-bergerac-f19e9e1f744ddbdb\", \"SOURCE_TEXT\": {\"exact_match\": \"Je vous aime\", \"local_text\": {\"context_start\": 66604, \"context_end\": 66691, \"text\": \"CYRANO (écrivant, à part,--on l'entend murmurer de temps en temps):\\n  Je vous aime. . .\"}, \"wider_canonical_context\": {\"context_start\": 63656, \"context_end\": 69713, \"text\": \"LISE (à Cyrano, qui en passant devant son comptoir lui a serré\\n  distraitement la main):\\n  Qu'avez-vous à la main ?\\n\\nCYRANO:\\n  Rien. Une estafilade.\\n\\nRAGUENEAU:\\n  Courûtes-vous quelque péril ?\\n\\nCYRANO:\\n  Aucun péril.\\n\\nLISE (le menaçant du doigt):\\n  Je crois que vous mentez !\\n\\nCYRANO:\\n  Mon nez remuerait-il ?\\n  Il faudrait que ce fût pour un mensonge énorme !\\n  (Changeant de ton):\\n  J'attends ici quelqu'un. Si ce n'est pas sous l'orme,\\n  Vous nous laisserez seuls.\\n\\nRAGUENEAU:\\n  C'est que je ne peux pas;\\n  Mes rimeurs vont venir. . .\\n\\nLISE (ironique):\\n  Pour leur premier repas.\\n\\nCYRANO:\\n  Tu les éloigneras quand je te ferai signe. . .\\n  L'heure ?\\n\\nRAGUENEAU:\\n  Six heures dix.\\n\\nCYRANO (s'asseyant nerveusement à la table de Ragueneau et prenant du\\n  papier):\\n  Une plume ?. . .\\n\\nRAGUENEAU (lui offrant celle qu'il a à son oreille):\\n  De cygne.\\n\\nUN MOUSQUETAIRE (superbement moustachu, entre et d'une voix de stentor):\\n  Salut !\\n  (Lise remonte vivement vers lui.)\\n\\nCYRANO (se retournant):\\n  Qu'est-ce ?\\n\\nRAGUENEAU:\\n  Un ami de ma femme. Un guerrier\\n  Terrible,--à ce qu'il dit !. . .\\n\\nCYRANO (reprenant la plume et éloignant du geste Ragueneau):\\n  Chut !. . .\\n  Écrire,--plier,--\\n  (A lui-même):\\n  Lui donner,--me sauver. . .\\n  (Jetant la plume):\\n  Lâche !. . .Mais que je meure,\\n  Si j'ose lui parler, lui dire un seul mot. . .\\n  (A Ragueneau):\\n  L'heure ?\\n\\nRAGUENEAU:\\n  Six et quart !. . .\\n\\nCYRANO (frappant sa poitrine):\\n  --un seul mot de tous ceux que j'ai là !\\n  Tandis qu'en écrivant. . .\\n  (Il reprend la plume):\\n  Eh bien ! écrivons-la,\\n  Cette lettre d'amour qu'en moi-même j'ai faite\\n  Et refaite cent fois, de sorte qu'elle est prête,\\n  Et que mettant mon âme à côté du papier,\\n  Je n'ai tout simplement qu'à la recopier.\\n  (Il écrit.--Derrière le vitrage de la porte on voit s'agiter des\\n  silhouettes maigres et hésitantes.)\\n\\n\\n\\nScène 2.IV.\\n\\nRagueneau, Lise, le mousquetaire, Cyrano, à la petite table, écrivant,\\nles poètes, vêtus de noir, les bas tombants, couverts de boue.\\n\\n\\nLISE (entrant, à Ragueneau):\\n  Les voici vos crottés !\\n\\nPREMIER POÈTE (entrant, à Ragueneau):\\n  Confrère !. . .\\n\\nDEUXIÈME POÈTE (de même, lui secouant les mains):\\n  Cher confrère !\\n\\nTROISIÈME POÈTE:\\n  Aigle des pâtissiers !\\n  (Il renifle):\\n  Ça sent bon dans votre aire,\\n\\nQUATRIÈME POÈTE:\\n  O Phœbus-Rôtisseur !\\n\\nCINQUIÈME POÈTE:\\n  Apollon maître-queux !. . .\\n\\nRAGUENEAU (entouré, embrassé, secoué):\\n  Comme on est tout de suite à son aise avec eux !. . .\\n\\nPREMIER POÈTE:\\n  Nous fûmes retardés par la foule attroupée\\n  A la porte de Nesle !. . .\\n\\nDEUXIÈME POÈTE:\\n  Ouverts à coups d'épée,\\n  Huit malandrins sanglants illustraient les pavés !\\n\\nCYRANO (levant une seconde la tête):\\n  Huit ?. . .Tiens, je croyais sept.\\n  (Il reprend sa lettre.)\\n\\nRAGUENEAU (à Cyrano):\\n  Est-ce que vous savez\\n  Le héros du combat ?\\n\\nCYRANO (négligemment):\\n  Moi ?. . .Non !\\n\\nLISE (au mousquetaire):\\n  Et vous ?\\n\\nLE MOUSQUETAIRE (se frisant la moustache):\\n  Peut-être !\\n\\nCYRANO (écrivant, à part,--on l'entend murmurer de temps en temps):\\n  Je vous aime. . .\\n\\nPREMIER POÈTE:\\n  Un seul homme, assurait-on, sut mettre\\n  Toute une bande en fuite !. . .\\n\\nDEUXIÈME POÈTE:\\n  Oh ! c'etait curieux !\\n  Des piques, des bâtons jonchaient le sol !. . .\\n\\nCYRANO (écrivant):\\n  . . .vos yeux. . .\\n\\nTROISIÈME POÈTE:\\n  On trouvait des chapeaux jusqu'au quai des Orfèvres !\\n\\nPREMIER POÈTE:\\n  Sapristi ! ce dut être un féroce. . .\\n\\nCYRANO (même jeu):\\n  . . .vos lèvres. . .\\n\\nPREMIER POÈTE:\\n  Un terrible géant, l'auteur de ces exploits !\\n\\nCYRANO (même jeu):\\n  . . .Et je m'évanouis de peur quand je vous vois.\\n\\nDEUXIÈME POÈTE (happant un gâteau):\\n  Qu'as-tu rimé de neuf, Ragueneau ?\\n\\nCYRANO (même jeu):\\n  . . .qui vous aime. . .\\n  (Il s'arrête au moment de signer, et se lève, mettant sa lettre dans\\n  son pourpoint):\\n  Pas besoin de signer. Je la donne moi-même.\\n\\nRAGUENEAU (au deuxième poète):\\n  J'ai mis une recette en vers.\\n\\nTROISIÈME POÈTE (s'installant près d'un plateau de choux à la crème):\\n  Oyons ces vers !\\n\\nQUATRIÈME POÈTE (regardant une brioche qu'il a prise):\\n  Cette brioche a mis son bonnet de travers.\\n  (Il la décoiffe d'un coup de dent.)\\n\\nPREMIER POÈTE:\\n  Ce pain d'épice suit le rimeur famélique,\\n  De ses yeux en amande aux sourcils d'angélique !\\n  (Il happe le morceau de pain d'épice.)\\n\\nDEUXIÈME POÈTE:\\n  Nous écoutons.\\n\\nTROISIÈME POÈTE (serrant légèrement un chou entre ses doigts):\\n  Ce chou bave sa crème. Il rit.\\n\\nDEUXIÈME POÈTE (mordant à même la grande lyre de pâtisserie):\\n  Pour la première fois la Lyre me nourrit !\\n\\nRAGUENEAU (qui s'est préparé à réciter, qui a toussé, assuré son bonnet,\\n  pris une pose):\\n  Une recette en vers. . .\\n\\nDEUXIÈME POÈTE (au premier, lui donnant un coup de coude):\\n  Tu déjeunes ?\\n\\nPREMIER POÈTE (au deuxième):\\n  Tu dînes !\\n\\nRAGUENEAU:\\n  Comment on fait les tartelettes amandines.\\n  Battez, pour qu'ils soient mousseux,\\n  Quelques œufs;\\n  Incorporez à leur mousse\\n  Un jus de cédrat choisi;\\n  Versez-y\\n  Un bon lait d'amande douce;\\n  Mettez de la pâte à flan\\n  Dans le flanc\\n  De moules à tartelette;\\n  D'un doigt preste, abricotez\\n  Les côtés;\\n  Versez goutte à gouttelette\\n  Votre mousse en ces puits, puis\\n  Que ces puits\\n  Passent au four, et, blondines,\\n  Sortant en gais troupelets,\\n  Ce sont les\\n  Tartelettes amandines !\\n\\nLES POÈTES (la bouche pleine):\\n  Exquis ! Délicieux !\\n\\nUN POÈTE (s'étouffant):\\n  Homph !\\n  (Ils remontent vers le fond, en mangeant.)\\n\\nCYRANO (qui a observé s'avance vers Ragueneau):\\n  Bercés par ta voix,\\n  Ne vois-tu pas comme ils s'empiffrent ?\\n\\nRAGUENEAU (plus bas, avec un sourire):\\n  Je le vois. . .\\n  Sans regarder, de peur que cela ne les trouble;\\n  Et dire ainsi mes vers me donne un plaisir double,\\n  Puisque je satisfais un doux faible que j'ai\\n  Tout en laissant manger ceux qui n'ont pas mangé !\\n\\nCYRANO (lui frappant sur l'épaule):\\n  Toi, tu me plais !. . .\\n  (Ragueneau va rejoindre ses amis. Cyrano le suit des yeux, puis, un\\n  peu brusquement):\\n  Hé là, Lise ?\\n  (Lise, en conversation tendre avec le mousquetaire, tressaille et\\n  descend vers Cyrano):\\n  Ce capitaine. . .\\n  Vous assiège ?\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"LISE (to Cyrano, who, passing in front of her counter, has absentmindedly squeezed her hand):\\n  What is the matter with your hand?\\n\\nCYRANO:\\n  Nothing. A sword cut.\\n\\nRAGUENEAU:\\n  Did you run into some danger?\\n\\nCYRANO:\\n  No danger at all.\\n\\nLISE (threatening him with her finger):\\n  I believe you are lying!\\n\\nCYRANO:\\n  Would my nose be twitching?\\n  It would have to be for an enormous lie!\\n  (Changing his tone):\\n  I am expecting someone here. Unless it is under the elm,\\n  You will leave us alone.\\n\\nRAGUENEAU:\\n  But I cannot;\\n  My versifiers will be coming...\\n\\nLISE (ironically):\\n  For their first meal.\\n\\nCYRANO:\\n  Thou wilt send them away when I give thee the sign...\\n  The time?\\n\\nRAGUENEAU:\\n  Ten past six.\\n\\nCYRANO (sitting down nervously at Ragueneau’s table and taking some paper):\\n  A pen?...\\n\\nRAGUENEAU (offering him the one he has behind his ear):\\n  A swan’s quill.\\n\\nA MUSKETEER (magnificently mustachioed, enters and speaks in a stentorian voice):\\n  Greetings!\\n  (Lise quickly goes upstage toward him.)\\n\\nCYRANO (turning around):\\n  What is that?\\n\\nRAGUENEAU:\\n  A friend of my wife’s. A fearsome\\n  Warrior—so he says!...\\n\\nCYRANO (taking up the pen again and motioning Ragueneau away):\\n  Hush!...\\n  Write—fold it—\\n  (To himself):\\n  Give it to her—flee...\\n  (Throwing down the pen):\\n  Coward!... But may I die\\n  If I dare speak to her, say a single word to her...\\n  (To Ragueneau):\\n  The time?\\n\\nRAGUENEAU:\\n  A quarter past six!...\\n\\nCYRANO (striking his chest):\\n  —a single word of all those I have in here!\\n  Whereas, by writing...\\n  (He takes up the pen again):\\n  Very well! Let us write it,\\n  That love letter I have composed within myself\\n  And composed again a hundred times, so that it is ready,\\n  And, placing my soul beside the paper,\\n  All I have to do is simply copy it out.\\n  (He writes.—Behind the glass panes of the door, thin, hesitant silhouettes can be seen moving about.)\\n\\n\\n\\nScene 2.IV.\\n\\nRagueneau, Lise, the musketeer, Cyrano, writing at the small table,\\nthe poets, dressed in black, their stockings sagging, covered in mud.\\n\\n\\nLISE (entering, to Ragueneau):\\n  Here are your mud-spattered lot!\\n\\nFIRST POET (entering, to Ragueneau):\\n  Fellow craftsman!...\\n\\nSECOND POET (likewise, shaking his hands):\\n  Dear fellow craftsman!\\n\\nTHIRD POET:\\n  Eagle of pastry cooks!\\n  (He sniffs):\\n  It smells good in your eyrie,\\n\\nFOURTH POET:\\n  O Phoebus of the Roasting Spit!\\n\\nFIFTH POET:\\n  Apollo, master cook!...\\n\\nRAGUENEAU (surrounded, embraced, shaken):\\n  How quickly one feels at ease with them!...\\n\\nFIRST POET:\\n  We were delayed by the crowd gathered\\n  At the Porte de Nesle!...\\n\\nSECOND POET:\\n  Slashed open by sword blows,\\n  Eight bloodied villains adorned the cobblestones!\\n\\nCYRANO (raising his head for a moment):\\n  Eight?... Well, I thought there were seven.\\n  (He resumes his letter.)\\n\\nRAGUENEAU (to Cyrano):\\n  Do you know\\n  The hero of the fight?\\n\\nCYRANO (casually):\\n  I?... No!\\n\\nLISE (to the musketeer):\\n  And you?\\n\\nTHE MUSKETEER (twirling his mustache):\\n  Perhaps!\\n\\nCYRANO (writing, aside—he can be heard murmuring from time to time):\\n  I love you...\\n\\nFIRST POET:\\n  One man alone, they said, managed to put\\n  A whole band to flight!...\\n\\nSECOND POET:\\n  Oh! It was a curious sight!\\n  Pikes and clubs littered the ground!...\\n\\nCYRANO (writing):\\n  ...your eyes...\\n\\nTHIRD POET:\\n  Hats were found as far away as the Quai des Orfèvres!\\n\\nFIRST POET:\\n  Good heavens! He must have been a savage brute...\\n\\nCYRANO (doing the same):\\n  ...your lips...\\n\\nFIRST POET:\\n  A fearsome giant, the author of these exploits!\\n\\nCYRANO (doing the same):\\n  ...And I faint with fear when I see you.\\n\\nSECOND POET (snatching a cake):\\n  What new thing hast thou put into verse, Ragueneau?\\n\\nCYRANO (doing the same):\\n  ...he who loves you...\\n  (He stops just as he is about to sign, and rises, putting his letter into his doublet):\\n  No need to sign it. I shall give it to her myself.\\n\\nRAGUENEAU (to the second poet):\\n  I have put a recipe into verse.\\n\\nTHIRD POET (settling himself beside a tray of cream puffs):\\n  Let us hear these verses!\\n\\nFOURTH POET (looking at a brioche he has taken):\\n  This brioche has put its cap on crooked.\\n  (He knocks its cap off with one bite.)\\n\\nFIRST POET:\\n  This gingerbread follows the famished rhymester\\n  With its almond-shaped eyes and angelica eyebrows!\\n  (He snatches the piece of gingerbread.)\\n\\nSECOND POET:\\n  We are listening.\\n\\nTHIRD POET (lightly squeezing a cream puff between his fingers):\\n  This puff is drooling cream. It is laughing.\\n\\nSECOND POET (biting directly into the large pastry lyre):\\n  For the first time, the Lyre is feeding me!\\n\\nRAGUENEAU (who has prepared himself to recite, cleared his throat, adjusted his cap, and struck a pose):\\n  A recipe in verse...\\n\\nSECOND POET (to the first, nudging him with his elbow):\\n  Art thou breakfasting?\\n\\nFIRST POET (to the second):\\n  Thou art dining!\\n\\nRAGUENEAU:\\n  How to make almond tartlets.\\n  Beat, until they are frothy,\\n  Several eggs;\\n  Into their froth incorporate\\n  The juice of a choice citron;\\n  Pour into it\\n  Good sweet almond milk;\\n  Put custard pastry\\n  Along the sides\\n  Of tartlet molds;\\n  With a nimble finger, glaze\\n  The edges with apricot;\\n  Drop by tiny drop\\n  Your froth into these wells; then\\n  Let these wells\\n  Go into the oven, and, golden,\\n  Emerging in merry little troops,\\n  These are the\\n  Almond tartlets!\\n\\nTHE POETS (their mouths full):\\n  Exquisite! Delicious!\\n\\nA POET (choking):\\n  Homph!\\n  (They move upstage, eating.)\\n\\nCYRANO (who has been watching, comes toward Ragueneau):\\n  Lulled by thy voice,\\n  Dost thou not see how they are stuffing themselves?\\n\\nRAGUENEAU (more quietly, with a smile):\\n  I see it...\\n  Without looking, for fear it might disturb them;\\n  And reciting my verses like this gives me double pleasure,\\n  Since I satisfy a sweet weakness of mine\\n  While letting those who have not eaten eat!\\n\\nCYRANO (slapping him on the shoulder):\\n  Thou—I like thee!...\\n  (Ragueneau goes to rejoin his friends. Cyrano watches him go, then, somewhat abruptly):\\n  Ho there, Lise?\\n  (Lise, in tender conversation with the musketeer, starts and comes downstage toward Cyrano):\\n  This captain...\\n  Is he laying siege to you?\", \"source_occurrence_id\": \"rostand-cyrano-de-bergerac-f19e9e1f744ddbdb\", \"source_language\": \"fr\", \"source_language_text_sha256\": \"ad28a2cf7bc3e80c17bc586d9f050cc63402e04a513ad072723addfcae9e20bd\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T11:21:42.372250+00:00\", \"model_usage\": {\"input_tokens\": 2540, \"cached_input_tokens\": 0, \"output_tokens\": 2747}, \"estimated_cost_usd\": 0.0651, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"rostand-cyrano-de-bergerac\", \"title\": \"Cyrano de Bergerac\", \"author\": \"Edmond Rostand\", \"language\": \"fr\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.275049, \"source_start\": 66674, \"source_end\": 66686, \"source_length\": 242408}, \"form\": {\"form_family\": \"present_or_imperfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": \"optional\", \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"fr_present_past\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 1.0, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"balzac-illusions-perdues-fea9b48ae4e48717\", \"SOURCE_TEXT\": {\"exact_match\": \"Je vous aime\", \"local_text\": {\"context_start\": 1276911, \"context_end\": 1277122, \"text\": \"—Qu'il se trouve derrière toutes vos belles qualités une force _semper\\nvirens_, dit le prêtre en tenant à montrer qu'il savait un peu de\\nlatin, et rien ne vous résistera dans le monde. Je vous aime assez\\ndéjà...\"}, \"wider_canonical_context\": {\"context_start\": 1273946, \"context_end\": 1284938, \"text\": \"—Je l'ai bien vu, reprit le chanoine. Mais en ce moment vous vous\\ndites: Ce chanoine espagnol invente des anecdotes et pressure\\nl'histoire pour me prouver que j'ai eu trop de vertu...\\n\\nLucien se prit à sourire en voyant ses pensées si bien devinées.\\n\\n—Eh! bien, jeune homme, prenons des faits passés à l'état de banalité,\\ndit le prêtre. Un jour la France est à peu près conquise par les\\nAnglais, le roi n'a plus qu'une province. Du sein du peuple deux êtres\\nse dressent: une pauvre jeune fille, cette même Jeanne d'Arc dont nous\\nparlions; puis un bourgeois nommé Jacques Cœur. L'une donne son bras\\net le prestige de sa virginité, l'autre donne son or: le royaume est\\nsauvé. Mais la fille est prise!... Le roi, qui peut racheter la fille,\\nla laisse brûler vive. Quant à l'héroïque bourgeois, le roi le laisse\\naccuser de crimes capitaux par ses courtisans, qui en font curée.\\nLes dépouilles de l'innocent, traqué, cerné, abattu par la justice,\\nenrichissent cinq maisons nobles... Et le père de l'archevêque de\\nBourges sort du royaume, pour n'y jamais revenir, sans un sou de ses\\nbiens en France, n'ayant d'autre argent à lui que celui qu'il avait\\nconfié aux Arabes, aux Sarrasins en Égypte. Vous pouvez dire encore:\\nCes exemples sont bien vieux, toutes ces ingratitudes ont trois cents\\nans d'Instruction Publique, et les squelettes de cet âge-là sont\\nfabuleux. Eh! bien, jeune homme, croyez-vous au dernier demi-dieu de la\\nFrance, à Napoléon? Il a tenu l'un de ses généraux dans sa disgrâce,\\nil ne l'a fait maréchal qu'à contrecœur, jamais il ne s'en est servi\\nvolontiers. Ce maréchal se nomme Kellermann. Savez-vous pourquoi!.....\\nKellermann a sauvé la France et le premier consul à Marengo par une\\ncharge audacieuse qui fut applaudie au milieu du sang et du feu. Il ne\\nfut même pas question de cette charge héroïque dans le bulletin. La\\ncause de la froideur de Napoléon pour Kellermann est aussi la cause de\\nla disgrâce de Fouché, du Prince de Talleyrand: c'est l'ingratitude du\\nroi Charles VII, de Richelieu, l'ingratitude...\\n\\n—Mais, mon père, à supposer que vous me sauviez la vie et que vous\\nfassiez ma fortune, dit Lucien, vous me rendez ainsi la reconnaissance\\nassez légère.\\n\\n—Petit drôle, dit l'abbé souriant et prenant l'oreille de Lucien pour\\nla lui tortiller avec une familiarité quasi royale, si vous étiez\\ningrat avec moi, vous seriez alors un homme fort, et je ne vous en\\nvoudrais pas; mais vous n'en êtes pas encore là, car, simple écolier,\\nvous avez voulu passer trop tôt maître. C'est le défaut des Français\\ndans votre époque. Ils ont été gâtés tous par l'exemple de Napoléon.\\nVous donnez votre démission parce que vous ne pouvez pas obtenir\\nl'épaulette que vous souhaitez... Mais avez-vous rapporté tous vos\\nvouloirs, toutes vos actions à une idée?...\\n\\n—Hélas! non, dit Lucien.\\n\\n—Vous avez été ce que les Anglais appellent _inconsistent_, reprit le\\nchanoine en souriant.\\n\\n—Qu'importe ce que j'ai été, si je ne puis plus rien être! répondit\\nLucien.\\n\\n—Qu'il se trouve derrière toutes vos belles qualités une force _semper\\nvirens_, dit le prêtre en tenant à montrer qu'il savait un peu de\\nlatin, et rien ne vous résistera dans le monde. Je vous aime assez\\ndéjà...\\n\\nLucien sourit d'un air d'incrédulité.\\n\\n—Oui, reprit l'inconnu en répondant au sourire de Lucien, vous\\nm'intéressez comme si vous étiez mon fils, et je suis assez puissant\\npour vous parler à cœur ouvert, comme vous venez de me parler.\\nSavez-vous ce qui me plaît de vous?... Vous avez fait en vous-même\\ntable rase, et vous pouvez alors entendre un cours de morale qui ne\\nse fait nulle part; car les hommes, rassemblés en troupe, sont encore\\nplus hypocrites qu'ils ne le sont quand leur intérêt les oblige à jouer\\nla comédie. Aussi passe-t-on une bonne partie de sa vie à sarcler ce\\nque l'on a laissé pousser dans son cœur pendant son adolescence. Cette\\nopération s'appelle acquérir de l'expérience.\\n\\nLucien, en écoutant le prêtre, se disait:—Voilà quelque vieux politique\\nenchanté de s'amuser en chemin. Il se plaît à faire changer d'opinion\\nun pauvre garçon qu'il rencontre sur le bord d'un suicide, et il va me\\nlâcher au bout de sa plaisanterie... Mais il entend bien le paradoxe,\\net il me paraît tout aussi fort que Blondet ou que Lousteau.\\n\\nMalgré cette sage réflexion, la corruption tentée par ce diplomate\\nsur Lucien entrait profondément dans cette âme assez disposée à la\\nrecevoir, et y faisait d'autant plus de ravages qu'elle s'appuyait sur\\nde célèbres exemples. Pris par le charme de cette conversation cynique,\\nLucien se raccrochait d'autant plus volontiers à la vie qu'il se\\nsentait ramené du fond de son suicide à la surface par un bras puissant.\\n\\nEn ceci, le prêtre triomphait évidemment. Aussi, de temps en temps,\\navait-il accompagné ses sarcasmes historiques d'un malicieux sourire.\\n\\n—Si votre façon de traiter la morale ressemble à votre manière\\nd'envisager l'histoire, dit Lucien, je voudrais bien savoir quel est en\\nce moment le mobile de votre apparente charité?\\n\\n—Ceci, jeune homme, est le dernier point de mon prône, et vous me\\npermettrez de le réserver, car alors nous ne nous quitterons pas\\naujourd'hui, répondit-il avec la finesse d'un prêtre qui voit sa malice\\nréussie.\\n\\n—Eh! bien, parlez-moi morale? dit Lucien qui se dit en lui-même: Je\\nvais le faire poser.\\n\\n—La morale, jeune homme, commence à la loi, dit le prêtre. S'il ne\\ns'agissait que de religion, les lois seraient inutiles: les peuples\\nreligieux ont peu de lois. Au-dessus de la loi civile, est la loi\\npolitique. Eh! bien, voulez-vous savoir ce qui, pour un homme\\npolitique, est écrit sur le front de votre dix-neuvième siècle? Les\\nFrançais ont inventé, en 1793, une souveraineté populaire qui s'est\\nterminée par un empereur absolu. Voilà pour votre histoire nationale.\\nQuant aux mœurs: madame Tallien et madame de Beauharnais ont tenu\\nla même conduite, Napoléon épouse l'une, en fait votre impératrice,\\net n'a jamais voulu recevoir l'autre, quoiqu'elle fût princesse.\\nSans-culotte en 1793, Napoléon chausse la couronne de fer en 1804. Les\\nféroces amants de _l'Égalité ou la Mort_ de 1792, deviennent, dès 1806,\\ncomplices d'une aristocratie légitimée par Louis XVIII. A l'étranger,\\nl'aristocratie, qui trône aujourd'hui dans son faubourg Saint-Germain,\\na fait pis: elle a été usurière, elle a été marchande, elle a fait des\\npetits pâtés, elle a été cuisinière, fermière, gardeuse de moutons. En\\nFrance donc, la loi politique aussi bien que la loi morale, tous et\\nchacun ont démenti le début au point d'arrivée, leurs opinions par la\\nconduite, ou la conduite par les opinions. Il n'y a pas eu de logique,\\nni dans le gouvernement, ni chez les particuliers. Aussi n'avez-vous\\nplus de morale. Aujourd'hui, chez vous, le succès est la raison suprême\\nde toutes les actions, quelles qu'elles soient. Le fait n'est donc plus\\nrien en lui-même, il est tout entier dans l'idée que les autres s'en\\nforment. De là, jeune homme, un second précepte: ayez de beaux dehors!\\ncachez l'envers de votre vie, et présentez un endroit très-brillant.\\nLa discrétion, cette devise des ambitieux, est celle de notre Ordre:\\nfaites-en la vôtre. Les grands commettent presque autant de lâchetés\\nque les misérables; mais ils les commettent dans l'ombre et font parade\\nde leurs vertus: ils restent grands. Les petits déploient leurs vertus\\ndans l'ombre, ils exposent leurs misères au grand jour: ils sont\\nméprisés. Vous avez caché vos grandeurs et vous avez laissé voir vos\\nplaies. Vous avez eu publiquement pour maîtresse une actrice, vous avez\\nvécu chez elle, avec elle: vous n'étiez nullement répréhensible, chacun\\nvous trouvait l'un et l'autre parfaitement libres; mais vous rompiez en\\nvisière aux idées du monde et vous n'avez pas eu la considération que\\nle monde accorde à ceux qui lui obéissent. Si vous aviez laissé Coralie\\nà ce monsieur Camusot, si vous aviez caché vos relations avec elle,\\nvous auriez épousé madame de Bargeton, vous seriez préfet d'Angoulême\\net marquis de Rubempré. Changez de conduite: mettez en dehors votre\\nbeauté, vos grâces, votre esprit, votre poésie. Si vous vous permettez\\nde petites infamies, que ce soit entre quatre murs: dès lors vous ne\\nserez plus coupable de faire tache sur les décorations de ce grand\\nthéâtre appelé le monde. Napoléon, appelle cela: _laver son linge sale\\nen famille_. Du second précepte découle ce corollaire: tout est dans la\\nforme. Saisissez bien ce que j'appelle la Forme. Il y a des gens sans\\ninstruction qui, pressés par le besoin, prennent une somme quelconque,\\npar violence, à autrui: on les nomme criminels et ils sont forcés de\\ncompter avec la justice. Un pauvre homme de génie trouve un secret\\ndont l'exploitation équivaut à un trésor, vous lui prêtez trois mille\\nfrancs (à l'instar de ces Cointet qui se sont trouvé vos trois mille\\nfrancs entre les mains et qui vont dépouiller votre beau-frère), vous\\nle tourmentez de manière à vous faire céder tout ou partie du secret,\\nvous ne comptez qu'avec votre conscience, et votre conscience ne vous\\nmène pas en Cour d'Assises. Les ennemis de l'ordre social profitent de\\nce contraste pour japper après la justice et se courroucer au nom du\\npeuple de ce qu'on envoie aux galères un voleur de nuit et de poules\\ndans une enceinte habitée, tandis qu'on met en prison, à peine pour\\nquelques mois, un homme qui ruine des familles: mais ces hypocrites\\nsavent bien qu'en condamnant le voleur les juges maintiennent la\\nbarrière entre les pauvres et les riches, qui, renversée, amènerait la\\nfin de l'ordre social; tandis que le banqueroutier, l'adroit capteur\\nde successions, le banquier qui tue une affaire à son profit, ne\\nproduisent que des déplacements de fortune. Ainsi, la société, mon\\nfils, est forcée de distinguer, pour son compte, ce que je vous fais\\ndistinguer pour le vôtre. Le grand point est de s'égaler à toute la\\nSociété. Napoléon, Richelieu, les Médicis s'égalèrent à leur siècle.\\nVous, vous vous estimez douze mille francs!... Votre Société n'adore\\nplus le vrai Dieu, mais le Veau-d'Or! Telle est la religion de votre\\nCharte, qui ne tient plus compte, en politique, que de la propriété.\\nN'est-ce pas dire à tous les sujets: Tâchez d'être riches!... Quand,\\naprès avoir su trouver légalement une fortune, vous serez riche et\\nmarquis de Rubempré, vous vous permettrez le luxe de l'honneur. Vous\\nferez alors profession de tant de délicatesse, que personne n'osera\\nvous accuser d'en avoir jamais manqué, si vous en manquiez toutefois en\\nfaisant fortune, ce que je ne vous conseillerais jamais, dit le prêtre\\nen prenant la main de Lucien et la lui tapotant. Que devez-vous donc\\nmettre dans cette belle tête?... Uniquement le thème que voici: Se\\ndonner un but éclatant et cacher ses moyens d'arriver, tout en cachant\\nsa marche. Vous avez agi en enfant, soyez homme, soyez chasseur,\\nmettez-vous à l'affût, embusquez-vous dans le monde parisien, attendez\\nune proie et un hasard, ne ménagez ni votre personne, ni ce qu'on\\nappelle la dignité; car nous obéissons tous à quelque chose, à un vice,\\nà une nécessité, mais observez la loi suprême! le secret.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"“I saw that perfectly well,” resumed the canon. “But at this moment you are saying to yourself: This Spanish canon is inventing anecdotes and squeezing history to prove to me that I have been too virtuous...”\\n\\nLucien began to smile when he saw his thoughts so accurately divined.\\n\\n“Well then, young man, let us take facts that have passed into the realm of commonplace,” said the priest. “One day France is almost entirely conquered by the English; the king has only one province left. From the midst of the people two beings arise: a poor young girl, that same Joan of Arc of whom we were speaking; then a burgher named Jacques Cœur. The one gives her arm and the prestige of her virginity, the other gives his gold: the kingdom is saved. But the girl is captured!... The king, who can ransom the girl, lets her be burned alive. As for the heroic burgher, the king allows his courtiers, who make a quarry of him, to accuse him of capital crimes. The spoils of the innocent man, hunted down, surrounded, struck down by justice, enrich five noble houses... And the father of the Archbishop of Bourges leaves the kingdom, never to return, without a penny of his property in France, having no money of his own other than what he had entrusted to the Arabs, to the Saracens in Egypt. You may still say: These examples are very old; all this ingratitude has had three hundred years of Public Education, and the skeletons of that age are fabulous. Well then, young man, do you believe in France’s latest demigod, Napoleon? He kept one of his generals in disgrace; he made him a marshal only reluctantly and never willingly made use of him. That marshal’s name was Kellermann. Do you know why?..... Kellermann saved France and the First Consul at Marengo by a daring charge that was applauded amid blood and fire. That heroic charge was not even mentioned in the bulletin. The cause of Napoleon’s coldness toward Kellermann is also the cause of the disgrace of Fouché, of the Prince de Talleyrand: it is the ingratitude of King Charles VII, of Richelieu, ingratitude...”\\n\\n“But, Father, supposing you were to save my life and make my fortune,” said Lucien, “you are thus making gratitude easy enough for me.”\\n\\n“You little rascal,” said the abbé, smiling and taking Lucien by the ear to twist it with an almost royal familiarity, “if you were ungrateful to me, you would then be a strong man, and I would not hold it against you; but you have not reached that point yet, for, a mere schoolboy, you tried to become a master too soon. That is the failing of the French in your time. They have all been spoiled by Napoleon’s example. You resign your commission because you cannot obtain the epaulette you desire... But have you subordinated all your desires, all your actions, to a single idea?...”\\n\\n“Alas! no,” said Lucien.\\n\\n“You have been what the English call inconsistent,” resumed the canon with a smile.\\n\\n“What does it matter what I have been, if I can no longer be anything!” Lucien replied.\\n\\n“Let there be, behind all your fine qualities, a force semper virens,” said the priest, intent on showing that he knew a little Latin, “and nothing in the world will withstand you. I already love you well enough...”\\n\\nLucien smiled incredulously.\\n\\n“Yes,” resumed the stranger, responding to Lucien’s smile, “you interest me as though you were my son, and I am powerful enough to speak to you with an open heart, as you have just spoken to me. Do you know what pleases me about you?... You have wiped the slate clean within yourself, and you can therefore listen to a course in morality that is taught nowhere; for men, when gathered in a crowd, are even more hypocritical than they are when their interests compel them to play a part. Thus one spends a good part of one’s life weeding out what one allowed to grow in one’s heart during adolescence. That operation is called acquiring experience.”\\n\\nAs he listened to the priest, Lucien was saying to himself: “Here is some old politician delighted to amuse himself on the road. He enjoys making a poor boy whom he finds on the brink of suicide change his mind, and he will drop me at the end of his jest... But he has a fine grasp of paradox, and he seems to me every bit as able as Blondet or Lousteau.”\\n\\nDespite this judicious reflection, the corruption that this diplomat was attempting upon Lucien was sinking deeply into a soul quite disposed to receive it, and wrought all the greater havoc there because it was supported by famous examples. Captivated by the charm of this cynical conversation, Lucien clung all the more willingly to life because he felt himself being drawn back from the depths of his suicide to the surface by a powerful arm.\\n\\nIn this, the priest was plainly triumphant. And so, from time to time, he had accompanied his historical sarcasms with a mischievous smile.\\n\\n“If your way of treating morality resembles your way of viewing history,” said Lucien, “I should very much like to know what, at this moment, is the motive behind your apparent charity?”\\n\\n“That, young man, is the final point of my sermon, and you will allow me to reserve it, for then we shall not part today,” he replied, with the subtlety of a priest who sees his stratagem succeeding.\\n\\n“Well then, talk to me about morality?” said Lucien, saying to himself: “I am going to make him show himself off.”\\n\\n“Morality, young man, begins with the law,” said the priest. “If religion alone were at issue, laws would be useless: religious peoples have few laws. Above civil law stands political law. Well then, do you want to know what, for a statesman, is written across the brow of your nineteenth century? In 1793 the French invented popular sovereignty, which ended in an absolute emperor. So much for your national history. As for morals: Madame Tallien and Madame de Beauharnais behaved in the same way; Napoleon married the one, made her your empress, and never consented to receive the other, although she was a princess. A sans-culotte in 1793, Napoleon put on the Iron Crown in 1804. The ferocious devotees of Equality or Death in 1792 became, by 1806, accomplices of an aristocracy legitimized by Louis XVIII. Abroad, the aristocracy that reigns today in its Faubourg Saint-Germain did worse: it practiced usury, kept shop, made little pies, worked as cooks, farmers, and shepherdesses. In France, therefore, in political law as in moral law, one and all have belied their beginnings by their endings, their opinions by their conduct, or their conduct by their opinions. There has been no consistency, either in government or among private individuals. And so you no longer have any morality. Today, among you, success is the supreme justification for every action, whatever it may be. The deed is therefore no longer anything in itself; it lies wholly in the idea others form of it. From this, young man, comes a second precept: keep up a fine appearance! Conceal the reverse side of your life, and display a very brilliant face. Discretion, that motto of the ambitious, is the motto of our Order: make it yours. The great commit almost as many acts of cowardice as the wretched; but they commit them in the shadows and parade their virtues: they remain great. The lowly display their virtues in the shadows and expose their wretchedness in broad daylight: they are despised. You concealed your greatness and allowed your wounds to be seen. You openly had an actress as your mistress; you lived at her home, with her: you were in no way blameworthy, everyone considered both of you perfectly free; but you flew in the face of society’s ideas, and you did not receive the consideration society grants to those who obey it. If you had left Coralie to that Monsieur Camusot, if you had concealed your relations with her, you would have married Madame de Bargeton, you would now be prefect of Angoulême and Marquis de Rubempré. Change your conduct: put your beauty, your graces, your wit, your poetry on display. If you permit yourself petty acts of infamy, let them take place within four walls: then you will no longer be guilty of leaving a stain upon the scenery of that great theater called the world. Napoleon calls that washing one’s dirty linen in the family. From the second precept follows this corollary: everything lies in form. Grasp clearly what I call Form. There are uneducated people who, driven by need, violently take some sum or other from another person: they are called criminals, and they are forced to answer to justice. A poor man of genius discovers a secret whose exploitation is equivalent to a treasure; you lend him three thousand francs—following the example of those Cointets who found your three thousand francs in their hands and are going to strip your brother-in-law—you torment him in such a way as to make him surrender all or part of the secret; you answer only to your conscience, and your conscience does not bring you before the Court of Assizes. The enemies of the social order take advantage of this contrast to yelp at justice and wax indignant in the name of the people because a man who steals chickens by night within an inhabited enclosure is sent to the galleys, while a man who ruins families is imprisoned for scarcely a few months; but those hypocrites know perfectly well that, in condemning the thief, the judges maintain the barrier between rich and poor, the overthrow of which would bring about the end of the social order; whereas the bankrupt, the skillful captor of inheritances, the banker who kills a business for his own profit, merely bring about transfers of fortune. Thus society, my son, is forced to distinguish, on its own account, what I am teaching you to distinguish on yours. The great point is to make oneself equal to the whole of Society. Napoleon, Richelieu, the Medici made themselves equal to their age. You—you value yourself at twelve thousand francs!... Your Society no longer worships the true God, but the Golden Calf! Such is the religion of your Charter, which in politics no longer takes anything but property into account. Is that not saying to all its subjects: Try to become rich!... When, after having known how to obtain a fortune legally, you are rich and Marquis de Rubempré, you will allow yourself the luxury of honor. You will then profess such great delicacy that no one will dare accuse you of ever having lacked it, if indeed you did lack it while making your fortune—which I would never advise you to do,” said the priest, taking Lucien’s hand and patting it. “What, then, must you put into that handsome head?... Only the following theme: Set yourself a dazzling goal and conceal the means by which you attain it, while concealing your progress. You have behaved like a child; be a man, be a hunter, lie in wait, conceal yourself in ambush within Parisian society, wait for prey and for chance, spare neither your person nor what is called dignity; for we all obey something—a vice, a necessity—but observe the supreme law! secrecy.”\", \"source_occurrence_id\": \"balzac-illusions-perdues-fea9b48ae4e48717\", \"source_language\": \"fr\", \"source_language_text_sha256\": \"7b80b4caed6b5e567fca42954c2774051bf19c4b1dd2cbb7dbc05b1ceef81ac4\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T10:19:14.366687+00:00\", \"model_usage\": {\"input_tokens\": 3212, \"cached_input_tokens\": 0, \"output_tokens\": 2570}, \"estimated_cost_usd\": 0.064248, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"balzac-illusions-perdues\", \"title\": \"Illusions perdues\", \"author\": \"Honoré de Balzac\", \"language\": \"fr\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.943904, \"source_start\": 1277096, \"source_end\": 1277108, \"source_length\": 1352994}, \"form\": {\"form_family\": \"present_or_imperfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": \"optional\", \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"fr_present_past\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

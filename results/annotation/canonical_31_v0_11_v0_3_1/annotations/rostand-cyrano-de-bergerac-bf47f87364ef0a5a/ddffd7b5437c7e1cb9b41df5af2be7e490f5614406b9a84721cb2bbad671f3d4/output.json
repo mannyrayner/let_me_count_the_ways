@@ -1,0 +1,72 @@
+{
+  "occurrence_id": "rostand-cyrano-de-bergerac-bf47f87364ef0a5a",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.96,
+    "analysis": "Cyrano’s direct assertion literally denies having loved Roxane, but its transparent falsity in context makes it pragmatically function as an indirect avowal of the very love he denies. Its core force remains truth-conditional: it presents a proposition about his loving state, without undertaking a relational commitment. Repetition, weakening delivery, and emotional struggle intensify the denial but do not independently establish expressive/reflexive force.",
+    "ambiguity": "There is a sharp divergence between the literal denial and the contextually understood avowal, but both are truth-conditional uses rather than an ontology failure."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "Cyrano directly tells Roxane, “Non, non, mon cher amour, je ne vous aimais pas !” (“No, no, my dear love, I did not love you!”)."
+  },
+  "contextual_interpretation": "Roxane has recognized that Cyrano authored the letters and supplied the balcony voice, exposing his fourteen-year concealment. Cyrano continues the self-effacing imposture by denying his love, but the endearment “mon cher amour,” his weakening voice, Roxane’s confident contradiction, and the accumulated evidence make the denial transparently unconvincing. The line therefore operates dramatically as a self-cancelling denial and indirect confession, not as a promise or undertaking.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "“Non, non, mon cher amour, je ne vous aimais pas !”",
+      "supports": "The highlighted event is a direct, propositionally structured denial of love; the simultaneous endearment helps make that denial pragmatically self-undermining.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "Roxane identifies the letters, tender words, nocturnal voice, and soul as Cyrano’s; when he says “Je ne vous aimais pas,” she answers, “Vous m’aimiez !”",
+      "supports": "The immediate dialogue frames Cyrano’s denial as false and contextually understood as concealing or indirectly avowing his love.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "Cyrano’s preceding “Non” is delivered “d’une voix qui faiblit,” and Roxane observes, “Déjà vous le dites plus bas !”",
+      "supports": "His weakening resistance makes the denial less credible, while remaining delivery evidence rather than sufficient evidence of independent expressive/reflexive force.",
+      "confidence": 0.96
+    },
+    {
+      "evidence_id": "e4",
+      "source": "local_text",
+      "quotation_or_description": "Roxane asks why he remained silent for fourteen years and identifies the tears on the letter as his.",
+      "supports": "His denial belongs to a longstanding pattern of self-sacrificing concealment rather than a new relational undertaking enacted by this utterance.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "e5",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is identified as a French negative-present form with exact match “je ne vous aimais pas” in Edmond Rostand’s Cyrano de Bergerac.",
+      "supports": "Confirms the classified occurrence and its explicit negative love construction.",
+      "confidence": 0.99
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T/P/E adequately represents the core utterance as a truth-conditional, pragmatically inverted avowal. Its deception, dramatic irony, and self-sacrificing motive are contextual complexities rather than missing dimensions of core force.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": "The imperfect “aimais” is naturally rendered here as “did not love,” despite the supplied metadata’s broad negative-present label."
+}

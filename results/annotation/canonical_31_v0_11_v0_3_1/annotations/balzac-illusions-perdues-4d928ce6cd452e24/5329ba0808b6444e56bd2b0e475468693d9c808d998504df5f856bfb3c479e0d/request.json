@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"balzac-illusions-perdues-4d928ce6cd452e24\", \"SOURCE_TEXT\": {\"exact_match\": \"Je vous aimerais\", \"local_text\": {\"context_start\": 781106, \"context_end\": 782463, \"text\": \"—Vous ne connaissez pas les femmes, répondit madame d'Espard en\\ninterrompant Lucien. Vous avez blessé le cœur le plus angélique et\\nl'âme la plus noble que je connaisse. Vous ignorez tout ce que Louise\\nvoulait faire pour vous, et combien elle mettait de finesse dans son\\nplan. Oh! elle eût réussi, fit-elle à une muette dénégation de Lucien.\\nSon mari qui maintenant est mort, comme il devait mourir, d'une\\nindigestion, n'allait-il pas lui rendre, tôt ou tard, sa liberté?\\nCroyez-vous qu'elle voulût être madame Chardon? Le titre de comtesse de\\nRubempré valait bien la peine d'être conquis. Voyez-vous? l'amour est\\nune grande vanité qui doit s'accorder, surtout en mariage, avec toutes\\nles autres vanités. Je vous aimerais à la folie, c'est-à-dire assez\\npour vous épouser, il me serait très-dur de m'appeler madame Chardon.\\nConvenez-en? Maintenant, vous avez vu les difficultés de la vie à\\nParis, vous savez combien de détours il faut faire pour arriver au but;\\neh! bien, avouez que pour un inconnu sans fortune, Louise aspirait à\\nune faveur presque impossible, elle devait donc ne rien négliger. Vous\\navez beaucoup d'esprit, mais quand nous aimons, nous en avons encore\\nplus que l'homme le plus spirituel. Ma cousine voulait employer ce\\nridicule Châtelet... Je vous dois des plaisirs, vos articles contre lui\\nm'ont fait bien rire! dit-elle en s'interrompant.\"}, \"wider_canonical_context\": {\"context_start\": 778719, \"context_end\": 785368, \"text\": \"Chacun regagna les tables de jeu. Les lueurs de l'aurore firent bientôt\\npâlir les bougies.\\n\\n—Tes amis de la rue des Quatre-Vents étaient tristes comme des\\ncondamnés à mort, dit Coralie à son amant.\\n\\n—Ils étaient les juges, répondit le poète.\\n\\n—Les juges sont plus amusants que ça, dit Coralie.\\n\\nLucien vit pendant un mois son temps pris par des soupers, des dîners,\\ndes déjeuners, des soirées, et fut entraîné par un courant invincible\\ndans un tourbillon de plaisirs et de travaux faciles. Il ne calcula\\nplus. La puissance du calcul au milieu des complications de la vie\\nest le sceau des grandes volontés que les poètes, les gens faibles\\nou purement spirituels ne contrefont jamais. Comme la plupart des\\njournalistes, Lucien vécut au jour le jour, dépensant son argent à\\nmesure qu'il le gagnait, ne songeant point aux charges périodiques\\nde la vie parisienne, si écrasantes pour ces bohémiens. Sa mise et\\nsa tournure rivalisaient avec celles des dandies les plus célèbres.\\nCoralie aimait, comme tous les fanatiques, à parer son idole; elle se\\nruina pour donner à son cher poète cet élégant mobilier des élégants\\nqu'il avait tant désiré pendant sa première promenade aux Tuileries.\\nLucien eut alors des cannes merveilleuses, une charmante lorgnette,\\ndes boutons de diamants, des anneaux pour ses cravates du matin, des\\nbagues à la chevalière, enfin des gilets mirifiques en assez grand\\nnombre pour pouvoir assortir les couleurs de sa mise. Il passa bientôt\\ndandy. Le jour où il se rendit à l'invitation du diplomate allemand,\\nsa métamorphose excita une sorte d'envie contenue chez les jeunes gens\\nqui s'y trouvèrent, et qui tenaient le haut du pavé dans le royaume\\nde la fashion, tels que de Marsay, Vandenesse, Ajuda-Pinto, Maxime de\\nTreilles, Rastignac, le duc de Maufrigneuse, Beaudenord, Manerville,\\netc. Les hommes du monde sont jaloux entre eux à la manière des femmes.\\nLa comtesse de Montcornet et la marquise d'Espard, pour qui le dîner se\\ndonnait, eurent Lucien entre elles, et le comblèrent de coquetteries.\\n\\n—Pourquoi donc avez-vous quitté le monde! lui demanda la marquise,\\nil était si disposé à vous bien accueillir, à vous fêter. J'ai une\\nquerelle à vous faire! vous me deviez une visite, et je l'attends\\nencore. Je vous ai aperçu l'autre jour à l'Opéra, vous n'avez pas\\ndaigné venir me voir ni me saluer.\\n\\n—Votre cousine, madame, m'a si positivement signifié mon congé...\\n\\n—Vous ne connaissez pas les femmes, répondit madame d'Espard en\\ninterrompant Lucien. Vous avez blessé le cœur le plus angélique et\\nl'âme la plus noble que je connaisse. Vous ignorez tout ce que Louise\\nvoulait faire pour vous, et combien elle mettait de finesse dans son\\nplan. Oh! elle eût réussi, fit-elle à une muette dénégation de Lucien.\\nSon mari qui maintenant est mort, comme il devait mourir, d'une\\nindigestion, n'allait-il pas lui rendre, tôt ou tard, sa liberté?\\nCroyez-vous qu'elle voulût être madame Chardon? Le titre de comtesse de\\nRubempré valait bien la peine d'être conquis. Voyez-vous? l'amour est\\nune grande vanité qui doit s'accorder, surtout en mariage, avec toutes\\nles autres vanités. Je vous aimerais à la folie, c'est-à-dire assez\\npour vous épouser, il me serait très-dur de m'appeler madame Chardon.\\nConvenez-en? Maintenant, vous avez vu les difficultés de la vie à\\nParis, vous savez combien de détours il faut faire pour arriver au but;\\neh! bien, avouez que pour un inconnu sans fortune, Louise aspirait à\\nune faveur presque impossible, elle devait donc ne rien négliger. Vous\\navez beaucoup d'esprit, mais quand nous aimons, nous en avons encore\\nplus que l'homme le plus spirituel. Ma cousine voulait employer ce\\nridicule Châtelet... Je vous dois des plaisirs, vos articles contre lui\\nm'ont fait bien rire! dit-elle en s'interrompant.\\n\\nLucien ne savait plus que penser. Initié aux trahisons et aux perfidies\\ndu journalisme, il ignorait celles du monde; aussi, malgré sa\\nperspicacité, devait-il recevoir de rudes leçons.\\n\\n—Comment, madame, dit le poète dont la curiosité fut vivement éveillée,\\nne protégez-vous pas le Héron?\\n\\n—Mais dans le monde on est forcé de faire des politesses à ses plus\\ncruels ennemis, de paraître s'amuser avec les ennuyeux, et souvent on\\nsacrifie en apparence ses amis pour les mieux servir. Vous êtes donc\\nencore bien neuf? Comment, vous qui voulez écrire, vous ignorez les\\ntromperies courantes du monde. Si ma cousine a semblé vous sacrifier au\\nHéron, ne le fallait-il pas pour mettre cette influence à profit pour\\nvous, car notre homme est très-bien vu par le Ministère actuel; aussi,\\nlui avons-nous démontré que jusqu'à un certain point vos attaques le\\nservaient, afin de pouvoir vous raccommoder tous deux, un jour. On a\\ndédommagé Châtelet de vos persécutions. Comme le disait des Lupeaulx\\naux ministres: Pendant que les journaux tournent Châtelet en ridicule,\\nils laissent en repos le Ministère.\\n\\n—Monsieur Blondet m'a fait espérer que j'aurais le plaisir de vous\\nvoir chez vous, dit la comtesse de Montcornet pendant le temps que la\\nmarquise abandonna Lucien à ses réflexions. Vous y trouverez quelques\\nartistes, des écrivains et une femme qui a le plus vif désir de vous\\nconnaître, mademoiselle des Touches, un de ces talents rares parmi\\nnotre sexe, et chez qui sans doute vous irez. Mademoiselle des Touches,\\nCamille Maupin, si vous voulez, a l'un des salons les plus remarquables\\nde Paris, elle est prodigieusement riche; on lui a dit que vous êtes\\naussi beau que spirituel, elle se meurt d'envie de vous voir.\\n\\nLucien ne put que se confondre en remercîments, et jeta sur Blondet\\nun regard d'envie. Il y avait autant de différence entre une femme\\ndu genre et de la qualité de la comtesse de Montcornet et Coralie\\nqu'entre Coralie et une fille des rues. Cette comtesse, jeune, belle\\net spirituelle, avait, pour beauté spéciale, la blancheur excessive\\ndes femmes du Nord; sa mère était née princesse Scherbellof, aussi le\\nministre, avant de dîner, lui avait-il prodigué ses plus respectueuses\\nattentions. La marquise avait alors achevé de sucer dédaigneusement une\\naile de poulet.\\n\\n—Ma pauvre Louise, dit-elle à Lucien, avait tant d'affection pour vous!\\nj'étais dans la confidence du bel avenir qu'elle rêvait pour vous:\\nelle aurait supporté bien des choses, mais quel mépris vous lui avez\\nmarqué en lui renvoyant ses lettres! Nous pardonnons les cruautés, il\\nfaut encore croire en nous pour nous blesser; mais l'indifférence!...\\nl'indifférence est comme la glace des pôles, elle étouffe tout. Allons,\\nconvenez-en, vous avez perdu des trésors par votre faute. Pourquoi\\nrompre? Quand même vous eussiez été dédaigné, n'avez-vous pas votre\\nfortune à faire, votre nom à reconquérir? Louise pensait à tout cela.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"Everyone returned to the gaming tables. The gleams of dawn soon made the candles grow pale.\\n\\n“Your friends from the rue des Quatre-Vents were as gloomy as men condemned to death,” Coralie said to her lover.\\n\\n“They were the judges,” replied the poet.\\n\\n“Judges are more amusing than that,” said Coralie.\\n\\nFor a month Lucien found his time taken up by suppers, dinners, luncheons, evening parties, and was swept along by an irresistible current into a whirlpool of pleasures and easy work. He ceased to calculate. The power of calculation amid the complications of life is the seal of great wills, which poets, weak people, or those who are purely spiritual never counterfeit. Like most journalists, Lucien lived from day to day, spending his money as he earned it, giving no thought to the periodic expenses of Parisian life, so crushing for these bohemians. His dress and bearing rivaled those of the most celebrated dandies. Coralie, like all fanatics, loved to adorn her idol; she ruined herself to give her dear poet that elegant furniture of the fashionable which he had so greatly desired during his first walk in the Tuileries. Lucien then possessed marvelous canes, a charming lorgnette, diamond studs, rings for his morning cravats, signet rings, and, finally, enough wondrous waistcoats to allow him to match the colors of his attire. He soon passed for a dandy. On the day when he attended the German diplomat’s invitation, his metamorphosis aroused a kind of restrained envy among the young men present, who held pride of place in the realm of fashion, such as de Marsay, Vandenesse, Ajuda-Pinto, Maxime de Treilles, Rastignac, the Duc de Maufrigneuse, Beaudenord, Manerville, etc. Men of the world are jealous of one another after the manner of women. The Comtesse de Montcornet and the Marquise d’Espard, for whom the dinner was being given, seated Lucien between them and lavished coquetries upon him.\\n\\n“Why, then, did you leave society?” the marquise asked him. “It was so ready to welcome you warmly, to celebrate you. I have a quarrel to take up with you! You owed me a visit, and I am still waiting for it. I caught sight of you at the Opera the other day; you did not deign to come and see me or even greet me.”\\n\\n“Your cousin, madame, dismissed me in such unequivocal terms...”\\n\\n“You do not know women,” Madame d’Espard replied, interrupting Lucien. “You wounded the most angelic heart and the noblest soul I know. You have no idea of all that Louise wished to do for you, or how much subtlety she put into her plan. Oh! she would have succeeded,” she said in response to a silent denial from Lucien. “Was not her husband, who has now died, as he was bound to die, of indigestion, going to restore her freedom sooner or later? Do you think she wanted to be Madame Chardon? The title of Comtesse de Rubempré was well worth conquering. You see, love is a great vanity which must accord, especially in marriage, with all the other vanities. Were I to love you madly—that is to say, enough to marry you—it would be very hard for me to be called Madame Chardon. Admit it. Now you have seen the difficulties of life in Paris; you know how many detours must be made to reach one’s goal. Well, admit that, for an unknown man without a fortune, Louise was aspiring to an almost impossible favor, and therefore she could afford to neglect nothing. You have a great deal of wit, but when we love, we have even more of it than the wittiest man. My cousin intended to make use of that ridiculous Châtelet... I owe you some pleasures; your articles against him made me laugh heartily!” she said, interrupting herself.\\n\\nLucien no longer knew what to think. Initiated into the betrayals and perfidies of journalism, he knew nothing of those of society; and so, despite his perspicacity, he was destined to receive some harsh lessons.\\n\\n“What, madame,” said the poet, whose curiosity had been keenly aroused, “are you not the Heron’s patroness?”\\n\\n“But in society one is forced to show courtesy to one’s cruelest enemies, to appear to enjoy oneself with bores, and often one seemingly sacrifices one’s friends in order to serve them better. Are you still so very inexperienced? What! you, who wish to write, are ignorant of the ordinary deceptions of society. If my cousin appeared to sacrifice you to the Heron, was it not necessary in order to turn his influence to your advantage? For our man is very well regarded by the present Ministry; and so we demonstrated to him that, up to a certain point, your attacks were serving him, so that one day we might reconcile the two of you. Châtelet has been compensated for your persecutions. As des Lupeaulx said to the ministers: While the newspapers are making Châtelet ridiculous, they leave the Ministry in peace.”\\n\\n“Monsieur Blondet has led me to hope that I shall have the pleasure of seeing you at my home,” said the Comtesse de Montcornet while the marquise left Lucien to his reflections. “You will find a few artists and writers there, and a woman who has the keenest desire to meet you, Mademoiselle des Touches, one of those talents rare among our sex, and whose home you will doubtless visit. Mademoiselle des Touches—Camille Maupin, if you prefer—has one of the most remarkable salons in Paris; she is prodigiously rich. She has been told that you are as handsome as you are witty, and she is dying to see you.”\\n\\nLucien could do nothing but overwhelm her with thanks, and cast an envious glance at Blondet. There was as much difference between a woman of the kind and quality of the Comtesse de Montcornet and Coralie as between Coralie and a streetwalker. This countess, young, beautiful, and witty, possessed, as her distinctive beauty, the extreme fairness of Northern women; her mother had been born Princess Scherbellof, and so, before dinner, the minister had lavished his most respectful attentions upon her. The marquise had by then finished disdainfully sucking a chicken wing.\\n\\n“My poor Louise,” she said to Lucien, “had so much affection for you! I was privy to the splendid future she dreamed of for you: she would have endured many things, but what contempt you showed her by sending her letters back! We forgive cruelties—one must still believe in us in order to hurt us—but indifference!... Indifference is like the ice of the poles; it stifles everything. Come, admit it: through your own fault you have lost treasures. Why break it off? Even had you been spurned, do you not have your fortune to make, your name to win back? Louise was thinking of all that.”\", \"source_occurrence_id\": \"balzac-illusions-perdues-4d928ce6cd452e24\", \"source_language\": \"fr\", \"source_language_text_sha256\": \"b2eeaa9b1119c9fa9a3c197cc3f6a904984d3ea23f4b6d6580154f86fd621629\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T10:14:40.745304+00:00\", \"model_usage\": {\"input_tokens\": 2013, \"cached_input_tokens\": 0, \"output_tokens\": 1779}, \"estimated_cost_usd\": 0.043632000000000004, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"balzac-illusions-perdues\", \"title\": \"Illusions perdues\", \"author\": \"Honoré de Balzac\", \"language\": \"fr\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.577837, \"source_start\": 781810, \"source_end\": 781826, \"source_length\": 1352994}, \"form\": {\"form_family\": \"conditional\", \"polarity\": \"affirmative\", \"tense_aspect\": \"modal\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"fr_conditional\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

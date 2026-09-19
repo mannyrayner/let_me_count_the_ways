@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"sand-la-mare-au-diable-af23d094c2185575\", \"SOURCE_TEXT\": {\"exact_match\": \"je t’aime\", \"local_text\": {\"context_start\": 191917, \"context_end\": 192625, \"text\": \"—Tiens, Marie, j’arrive là un peu plus content que le jour où\\nje t’ai ramenée chez nous, des bois de Chanteloube, croyant\\nque tu ne m’aimerais jamais; je te pris dans mes bras pour te\\nmettre à terre comme à présent; mais je pensais que nous ne\\nnous retrouverions plus jamais sur la pauvre bonne Grise avec\\ncet enfant sur nos genoux. Tiens, je t’aime tant, j’aime tant\\nces pauvres petits, je suis si heureux que tu m’aimes, et que\\ntu les aimes, et que mes parents t’aiment, et j’aime tant ta\\nmère et mes amis, et tout le monde aujourd’hui, que je\\nvoudrais avoir trois ou quatre cœurs pour y suffire. Vrai,\\nc’est trop peu d’un pour y loger tant d’amitiés et tant de\\ncontentement! J’en ai comme mal à l’estomac.\"}, \"wider_canonical_context\": {\"context_start\": 188897, \"context_end\": 195373, \"text\": \"Puis la joyeuse cavalcade se mit en route, escortée par les\\nenfants à pied, qui couraient en tirant des coups de pistolet\\net faisaient bondir les chevaux. La mère Maurice était montée\\nsur une petite charrette avec les trois enfants de Germain et\\nles ménétriers. Ils ouvraient la marche au son des\\ninstruments. Petit-Pierre était si beau, que la vieille grand-\\nmère en était tout orgueilleuse. Mais l’impétueux enfant ne\\ntint pas longtemps à ses côtés. A un temps d’arrêt qu’il\\nfallut faire à mi-chemin pour s’engager dans un passage\\ndifficile, il s’esquiva et alla supplier son père de l’asseoir\\ndevant lui sur la _Grise_.\\n\\n—Oui-da! répondit Germain, cela va nous attirer de mauvaises\\nplaisanteries! il ne faut point.\\n\\n—Je ne me soucie guère de ce que diront les gens de Saint-\\nChartier, dit la petite Marie. Prenez-le, Germain, je vous en\\nprie: je serai encore plus fière de lui que de ma toilette de\\nnoces.\\n\\nGermain céda, et le beau trio s’élança dans les rangs au galop\\ntriomphant de la _Grise_.\\n\\nEt, de fait, les gens de Saint-Chartier, quoique très\\nrailleurs et un peu taquins à l’endroit des paroisses\\nenvironnantes réunies à la leur, ne songèrent point à rire en\\nvoyant un si beau marié, une si jolie mariée, et un enfant qui\\neût fait envie à la femme d’un roi. Petit-Pierre avait un\\nhabit complet de drap bleu barbeau, un gilet rouge si coquet\\net si court qu’il ne lui descendait guère au-dessous du\\nmenton. Le tailleur du village lui avait si bien serré les\\nentournures qu’il ne pouvait rapprocher ses deux petits bras.\\nAussi comme il était fier! Il avait un chapeau rond avec une\\nganse noir et or, et une plume de paon sortant crânement d’une\\ntouffe de plumes de pintade. Un bouquet de fleurs plus gros\\nque sa tête lui couvrait l’épaule, et les rubans lui\\nflottaient jusqu’aux pieds. Le chanvreur, qui était aussi le\\nbarbier et le perruquier de l’endroit, lui avait coupé les\\ncheveux en rond, en lui couvrant la tête d’une écuelle et\\nretranchant tout ce qui passait, méthode infaillible pour\\nassurer le coup de ciseau. Ainsi accoutré, le pauvre enfant\\nétait moins poétique, à coup sûr, qu’avec ses longs cheveux au\\nvent et sa peau de mouton à la saint Jean-Baptiste; mais il\\nn’en croyait rien, et tout le monde l’admirait, disant qu’il\\navait l’air d’un petit homme. Sa beauté triomphait de tout, et\\nde quoi ne triompherait pas, en effet, l’incomparable beauté\\nde l’enfance?\\n\\nSa petite sœur Solange avait, pour la première fois de sa vie,\\nune cornette à la place du béguin d’indienne que portent les\\npetites filles jusqu’à l’âge de deux ou trois ans. Et quelle\\ncornette! plus haute et plus large que tout le corps de la\\npauvrette. Aussi comme elle se trouvait belle! Elle n’osait\\npas tourner la tête, et se tenait toute raide, pensant qu’on\\nla prendrait pour la mariée.\\n\\nQuant au petit Sylvain, il était encore en robe, et, endormi\\nsur les genoux de sa grand’mère, il ne se doutait guère de ce\\nque c’est qu’une noce.\\n\\nGermain regardait ses enfants avec amour, et, en arrivant à la\\nmairie, il dit à sa fiancée:\\n\\n—Tiens, Marie, j’arrive là un peu plus content que le jour où\\nje t’ai ramenée chez nous, des bois de Chanteloube, croyant\\nque tu ne m’aimerais jamais; je te pris dans mes bras pour te\\nmettre à terre comme à présent; mais je pensais que nous ne\\nnous retrouverions plus jamais sur la pauvre bonne Grise avec\\ncet enfant sur nos genoux. Tiens, je t’aime tant, j’aime tant\\nces pauvres petits, je suis si heureux que tu m’aimes, et que\\ntu les aimes, et que mes parents t’aiment, et j’aime tant ta\\nmère et mes amis, et tout le monde aujourd’hui, que je\\nvoudrais avoir trois ou quatre cœurs pour y suffire. Vrai,\\nc’est trop peu d’un pour y loger tant d’amitiés et tant de\\ncontentement! J’en ai comme mal à l’estomac.\\n\\nIl y eut une foule à la porte de la mairie et de l’église pour\\nregarder la jolie mariée. Pourquoi ne dirions-nous pas son\\ncostume? il lui allait si bien! Sa cornette de mousseline\\nclaire et brodée partout, avait les barbes garnies de\\nrientelle. Dans ce temps-là les paysannes ne se permettaient\\npas de montrer un seul cheveu; et quoiqu’elles cachent sous\\nleurs cornettes de magnifiques chevelures roulées dans des\\nrubans de fil blanc pour soutenir la coiffe, encore\\naujourd’hui ce serait une action indécente et honteuse que de\\nse montrer aux hommes la tête nue. Cependant elles se\\npermettent à présent de laisser sur le front un mince bandeau\\nqui les embellit beaucoup. Mais je regrette la coiffure\\nclassique de mon temps: ces dentelles blanches à cru sur la\\npeau avaient un caractère d’antique chasteté qui me semblait\\nplus solennel, et quand une figure était belle ainsi, c’était\\nd’une beauté dont rien ne peut exprimer le charme et la\\nmajesté naïve.\\n\\nLa petite Marie portait encore cette coiffure, et son front\\nétait si blanc et si pur, qu’il défiait le blanc du linge de\\nl’assombrir. Quoiqu’elle n’eût pas fermé l’œil de la nuit,\\nl’air du matin et surtout la joie intérieure d’une âme aussi\\nlimpide que le ciel, et puis encore un peu de flamme secrète,\\ncontenue par la pudeur de l’adolescence, lui faisaient monter\\naux joues un éclat aussi suave que la fleur du pêcher aux\\npremiers rayons d’avril.\\n\\nSon fichu blanc, chastement croisé sur son sein, ne laissait\\nvoir que les contours délicats d’un cou arrondi comme celui\\nd’une tourterelle; son déshabillé de drap fin vert-myrte\\ndessinait sa petite taille, qui semblait parfaite, mais qui\\ndevait grandir et se développer encore, car elle n’avait pas\\ndix-sept ans. Elle portait un tablier de soie violet-pensée,\\navec la bavette, que nos villageoises ont eu le tort de\\nsupprimer et qui donnait tant d’élégance et de modestie à la\\npoitrine. Aujourd’hui elles étalent leur fichu avec plus\\nd’orgueil, mais il n’y a plus dans leur toilette cette fine\\nfleur d’antique pudicité qui les faisait ressembler à des\\nvierges d’Holbein. Elles sont plus coquettes, plus gracieuses.\\nLe bon genre autrefois était une sorte de raideur sévère qui\\nrendait leur rare sourire plus profond et plus idéal.\\n\\nA l’offrande, Germain mit, selon l’usage, le _treizain_, c’est-\\nà-dire treize pièces d’argent, dans la main de sa fiancée. Il\\nlui passa au doigt une bague d’argent, d’une forme invariable\\ndepuis des siècles, mais que _l’alliance d’or_ a remplacée\\ndésormais. Au sortir de l’église, Marie lui dit tout bas:\\n\\n—Est-ce bien la bague que je souhaitais? celle que je vous ai\\ndemandée, Germain?\\n\\n—Oui, répondit-il, celle que ma Catherine avait au doigt\\nlorsqu’elle est morte. C’est la même bague pour mes deux\\nmariages.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"Then the joyous cavalcade set out, escorted by the children on foot, who ran along firing pistol shots and making the horses rear. Mother Maurice rode in a little cart with Germain’s three children and the minstrels. They led the procession to the sound of the instruments. Little Pierre was so handsome that the old grandmother was very proud of him. But the impetuous child did not remain beside her for long. During a halt that had to be made halfway there in order to enter a difficult passage, he slipped away and went to beg his father to seat him in front of him on the _Gray Mare_.\\n\\n“Indeed!” replied Germain, “that will bring unpleasant jests down on us! We must not.”\\n\\n“I care little what the people of Saint-Chartier will say,” said little Marie. “Take him, Germain, I beg you: I shall be even prouder of him than of my wedding finery.”\\n\\nGermain yielded, and the handsome trio dashed through the ranks at the triumphant gallop of the _Gray Mare_.\\n\\nAnd indeed, although the people of Saint-Chartier were great mockers and somewhat given to teasing the neighboring parishes that had gathered in theirs, it did not occur to them to laugh when they saw so handsome a bridegroom, so pretty a bride, and a child who would have been the envy of a king’s wife. Little Pierre had a complete suit of cornflower-blue cloth, and a red waistcoat so smart and so short that it scarcely reached below his chin. The village tailor had made the armholes so tight that he could not bring his two little arms together. And how proud he was! He had a round hat with a black-and-gold band, and a peacock feather jutting boldly from a tuft of guinea-fowl feathers. A bouquet of flowers larger than his head covered his shoulder, and its ribbons floated down to his feet. The hemp-dresser, who was also the local barber and wigmaker, had cut his hair in a circle by covering his head with a bowl and trimming off everything that protruded, an infallible method for ensuring an even cut. Dressed up in this fashion, the poor child was assuredly less poetic than with his long hair blowing in the wind and his sheepskin in the manner of Saint John the Baptist; but he did not think so, and everyone admired him, saying that he looked like a little man. His beauty triumphed over everything; and over what, indeed, would the incomparable beauty of childhood not triumph?\\n\\nHis little sister Solange wore, for the first time in her life, a bonnet instead of the printed-cotton cap worn by little girls until the age of two or three. And what a bonnet! Taller and broader than the poor little thing’s whole body. And how beautiful she thought herself! She did not dare turn her head and held herself perfectly stiff, thinking that people would take her for the bride.\\n\\nAs for little Sylvain, he was still in a gown, and, asleep on his grandmother’s lap, he had scarcely any notion of what a wedding was.\\n\\nGermain looked lovingly at his children, and upon arriving at the town hall, he said to his betrothed:\\n\\n“Look, Marie, I arrive here a little happier than on the day when I brought you home from the woods of Chanteloube, believing that you would never love me; I took you in my arms to set you on the ground, just as I do now; but I thought that we would never again find ourselves together on the poor good Gray Mare with this child on our knees. Look, I love you so much, I love these poor little ones so much, I am so happy that you love me, and that you love them, and that my parents love you, and I love your mother and my friends and everyone so much today that I wish I had three or four hearts to hold it all. Truly, one is too little to house so much affection and so much happiness! It almost gives me a pain in my stomach.”\\n\\nThere was a crowd at the doors of the town hall and the church to look at the pretty bride. Why should we not describe her attire? It suited her so well! Her bonnet of sheer muslin, embroidered all over, had lappets trimmed with _rientelle_ lace. In those days peasant women did not permit themselves to show a single hair; and although beneath their bonnets they conceal magnificent heads of hair wound in white cotton ribbons to support the headdress, even today it would be considered indecent and shameful to appear before men bareheaded. Nevertheless, they now permit themselves to leave a narrow band of hair visible across the forehead, which greatly enhances their beauty. But I regret the classical headdress of my day: that white lace lying directly against the skin possessed a quality of ancient chastity that seemed to me more solemn, and when a face was beautiful framed in that way, its beauty had a charm and artless majesty that nothing can express.\\n\\nLittle Marie still wore that headdress, and her forehead was so white and pure that it defied the whiteness of the linen to make it look dark. Although she had not closed her eyes all night, the morning air, and above all the inward joy of a soul as limpid as the sky, together with a little secret ardor, restrained by adolescent modesty, brought to her cheeks a radiance as sweet as peach blossom in the first rays of April.\\n\\nHer white kerchief, chastely crossed over her breast, revealed only the delicate contours of a neck rounded like a turtledove’s; her jacket of fine myrtle-green cloth outlined her small waist, which seemed perfect but was yet to grow and develop, for she was not seventeen. She wore a pansy-purple silk apron with a bib, which our village women were wrong to do away with and which lent so much elegance and modesty to the bosom. Today they display their kerchiefs with greater pride, but their attire no longer possesses that delicate bloom of ancient chasteness that made them resemble Holbein virgins. They are more coquettish, more graceful. In former times, good style consisted of a kind of severe stiffness that made their rare smiles deeper and more ideal.\\n\\nAt the offertory, Germain placed in his betrothed’s hand, according to custom, the _treizain_, that is, thirteen silver coins. He slipped onto her finger a silver ring, of a form unchanged for centuries, but which has now been replaced by the _gold wedding band_. On leaving the church, Marie said softly to him:\\n\\n“Is it really the ring I wished for? The one I asked you for, Germain?”\\n\\n“Yes,” he replied, “the one my Catherine wore on her finger when she died. It is the same ring for both my marriages.”\", \"source_occurrence_id\": \"sand-la-mare-au-diable-af23d094c2185575\", \"source_language\": \"fr\", \"source_language_text_sha256\": \"cce1f524c6032b16fbb0166a599ef7f42e917772d6412289cab9aeb3835aa0af\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T11:26:19.072973+00:00\", \"model_usage\": {\"input_tokens\": 2040, \"cached_input_tokens\": 0, \"output_tokens\": 1580}, \"estimated_cost_usd\": 0.039760000000000004, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"sand-la-mare-au-diable\", \"title\": \"La Mare au Diable\", \"author\": \"George Sand\", \"language\": \"fr\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.90337, \"source_start\": 192257, \"source_end\": 192266, \"source_length\": 212822}, \"form\": {\"form_family\": \"present_or_imperfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": \"optional\", \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"fr_present_past\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 1.0, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "occurrence_id": "dumas-fils-la-dame-aux-camelias-f4ed9ebfe1dde635",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 2,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.94,
+    "analysis": "The apparent negation is qualified by the comparison: Armand does not deny loving Marguerite but swears that he loves her differently from her previous lovers, implying a more genuine and noncommercial love. This is principally a truth-conditional avowal. Its embedding in “je te jure” gives it some performative force as a solemn assurance and relational pledge, though it does not clearly undertake a specific future obligation. Nothing indicates reflex-like expressive discharge.",
+    "ambiguity": "The oath supports some P, but it may be read primarily as strengthening the asserted avowal rather than creating a substantial relational undertaking."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "Armand directly addresses Marguerite; the love avowal is embedded in an oath and phrased as a comparative negation: “je ne t'aime pas comme les autres t'aimaient.”"
+  },
+  "contextual_interpretation": "Armand uses the avowal to persuade Marguerite to grant him the exceptional privilege of keeping her key. The continuation makes clear that he claims not an absence of love but a love unlike that of her former clients or lovers. Marguerite understands it as evidence that he loves her, and the narrator subsequently frames his happiness as arising from being genuinely loved by a courtesan. The persuasive setting may heighten or strategically deploy the avowal, but it does not alter its core T/P analysis.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "“car je te jure que, moi, je ne t'aime pas comme les autres t'aimaient”",
+      "supports": "The comparative complement converts the surface negative into a claim that Armand's love differs from that of Marguerite's previous lovers; “je te jure” also supplies oath-like performative support.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "Marguerite immediately asks, “Tu m'aimes donc un peu?”",
+      "supports": "Her response treats Armand's statement as an avowal of love rather than a literal denial of love.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "Armand makes the statement while asking Marguerite to let him keep her private key, something she says she has never done for anyone.",
+      "supports": "The avowal distinguishes their relationship and functions as solemn persuasion, providing limited support for relational performative force.",
+      "confidence": 0.95
+    },
+    {
+      "evidence_id": "e4",
+      "source": "local_text",
+      "quotation_or_description": "The narrator soon contrasts ordinary courtship with “être réellement aimé d'une courtisane” and describes commercial love versus love given without transaction.",
+      "supports": "The narrative framing clarifies Armand's intended contrast: his love is presented as genuine and unlike the purchased or conventional attentions Marguerite has known.",
+      "confidence": 0.96
+    },
+    {
+      "evidence_id": "e5",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is located in Chapter XII and identified morphosyntactically as a negative present form.",
+      "supports": "Confirms the location and surface form while leaving the wider comparative clause to determine the pragmatic interpretation.",
+      "confidence": 0.99
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T captures the avowal of a distinct and genuine loving state, while P captures the limited oath-like and relational force of presenting it as a sworn assurance. Delivery and context require no independent E or O component.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": "The highlighted substring alone appears to deny love, but classification requires the complete clause “je ne t'aime pas comme les autres t'aimaient,” whose comparative qualification reverses that isolated impression."
+}

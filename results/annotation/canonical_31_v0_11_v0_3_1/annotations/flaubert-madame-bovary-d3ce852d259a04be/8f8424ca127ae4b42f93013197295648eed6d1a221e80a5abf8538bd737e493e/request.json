@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"flaubert-madame-bovary-d3ce852d259a04be\", \"SOURCE_TEXT\": {\"exact_match\": \"je vous aime\", \"local_text\": {\"context_start\": 597365, \"context_end\": 597398, \"text\": \"— De grâce, restez! je vous aime!\"}, \"wider_canonical_context\": {\"context_start\": 594230, \"context_end\": 600578, \"text\": \"Maître Guillaumin la connaissait, étant lié secrètement avec le\\nmarchand d’étoffes, chez lequel il trouvait toujours des capitaux pour\\nles prêts hypothécaires qu’on lui demandait à contracter.\\n\\nDonc, il savait (et mieux qu’elle) la longue histoire de ces billets,\\nminimes d’abord, portant comme endosseurs des noms divers, espacés à\\nde longues échéances et renouvelés continuellement, jusqu’au jour où,\\nramassant tous les protêts, le marchand avait chargé son ami Vinçart de\\nfaire en son nom propre les poursuites qu’il fallait, ne voulant point\\npasser pour un tigre parmi ses concitoyens.\\n\\nElle entremêla son récit de récriminations contre Lheureux,\\nrécriminations auxquelles le notaire répondait de temps à autre par\\nune parole insignifiante. Mangeant sa côtelette et buvant son thé,\\nil baissait le menton dans sa cravate bleu de ciel, piquée par deux\\népingles de diamants que rattachait une chaînette d’or; et il souriait\\nd’un singulier sourire, d’une façon douceâtre et ambiguë. Mais,\\ns’apercevant qu’elle avait les pieds humides:\\n\\n— Approchez-vous donc du poêle... plus haut..., contre la porcelaine.\\n\\nElle avait peur de la salir. Le notaire reprit d’un ton galant:\\n\\n— Les belles choses ne gâtent rien.\\n\\nAlors elle tâcha de l’émouvoir, et, s’émotionnant elle-même, elle\\nvint à lui conter l’étroitesse de son ménage, ses tiraillements, ses\\nbesoins. Il comprenait cela: une femme élégante! et, sans s’interrompre\\nde manger, il s’était tourné vers elle complètement, si bien qu’il\\nfrôlait du genou sa bottine, dont la semelle se recourbait tout en\\nfumant contre le poêle.\\n\\nMais, lorsqu’elle lui demanda mille écus, il serra les lèvres, puis\\nse déclara très peiné de n’avoir pas eu autrefois la direction de sa\\nfortune, car il y avait cent moyens fort commodes, même pour une dame,\\nde faire valoir son argent. On aurait pu, soit dans les tourbières\\nde Grumesnil ou les terrains du Havre, hasarder presque à coup sûr\\nd’excellentes spéculations; et il la laissa se dévorer de rage à l’idée\\ndes sommes fantastiques qu’elle aurait certainement gagnées.\\n\\n— D’où vient, reprit-il, que vous n’êtes pas venue chez moi?\\n\\n— Je ne sais trop, dit-elle.\\n\\n— Pourquoi, hein?... Je vous faisais donc bien peur? C’est moi, au\\ncontraire, qui devrais me plaindre! À peine si nous nous connaissons!\\nJe vous suis pourtant très dévoué; vous n’en doutez plus, j’espère?\\n\\nIl tendit sa main, prit la sienne, la couvrit d’un baiser vorace, puis\\nla garda sur son genou; et il jouait avec ses doigts délicatement, tout\\nen lui contant mille douceurs.\\n\\nSa voix fade susurrait, comme un ruisseau qui coule; une étincelle\\njaillissait de sa pupille à travers le miroitement de ses lunettes, et\\nses mains s’avançaient dans la manche d’Emma, pour lui palper le bras.\\nElle sentait contre sa joue le souffle d’une respiration haletante. Cet\\nhomme la gênait horriblement.\\n\\nElle se leva d’un bond et lui dit:\\n\\n— Monsieur, j’attends!\\n\\n— Quoi donc? fit le notaire, qui devint tout à coup extrêmement pâle.\\n\\n— Cet argent.\\n\\n— Mais...\\n\\nPuis, cédant à l’irruption d’un désir trop fort:\\n\\n— Eh bien, oui!...\\n\\nIl se traînait à genoux vers elle, sans égard pour sa robe de chambre.\\n\\n— De grâce, restez! je vous aime!\\n\\nIl la saisit par la taille.\\n\\nUn flot de pourpre monta vite au visage de madame Bovary. Elle se\\nrecula d’un air terrible, en s’écriant:\\n\\n— Vous profitez impudemment de ma détresse, monsieur! Je suis à\\nplaindre, mais pas à vendre!\\n\\nEt elle sortit.\\n\\nLe notaire resta fort stupéfait, les yeux fixés sur ses belles\\npantoufles en tapisserie. C’était un présent de l’amour. Cette vue à\\nla fin le consola. D’ailleurs, il songeait qu’une aventure pareille\\nl’aurait entraîné trop loin.\\n\\n— Quel misérable! quel goujat!... quelle infamie! se disait-elle,\\nen fuyant d’un pied nerveux sous les trembles de la route. Le\\ndésappointement de l’insuccès renforçait l’indignation de sa pudeur\\noutragée; il lui semblait que la Providence s’acharnait à la\\npoursuivre, et, s’en rehaussant d’orgueil, jamais elle n’avait eu tant\\nd’estime pour elle-même ni tant de mépris pour les autres. Quelque\\nchose de belliqueux la transportait. Elle aurait voulu battre les\\nhommes, leur cracher au visage, les broyer tous; et elle continuait à\\nmarcher rapidement devant elle, pâle, frémissante, enragée, furetant\\nd’un œil en pleurs l’horizon vide, et comme se délectant à la haine qui\\nl’étouffait.\\n\\nQuand elle aperçut sa maison, un engourdissement la saisit. Elle ne\\npouvait avancer; il le fallait cependant; d’ailleurs, où fuir?\\n\\nFélicité l’attendait sur la porte.\\n\\n— Eh bien?\\n\\n— Non! dit Emma.\\n\\nEt, pendant un quart d’heure, toutes les deux, elles avisèrent les\\ndifférentes personnes d’Yonville disposées peut-être à la secourir.\\nMais, chaque fois que Félicité nommait quelqu’un, Emma répliquait:\\n\\n— Est-ce possible! Ils ne voudront pas!\\n\\n— Et monsieur qui va rentrer!\\n\\n— Je le sais bien... Laisse-moi seule.\\n\\nElle avait tout tenté. Il n’y avait plus rien à faire maintenant; et,\\nquand Charles paraîtrait, elle allait donc lui dire:\\n\\n— Retire-toi. Ce tapis où tu marches n’est plus à nous. De ta maison,\\ntu n’as pas un meuble, une épingle, une paille, et c’est moi qui t’ai\\nruiné, pauvre homme!\\n\\nAlors ce serait un grand sanglot, puis il pleurerait abondamment, et\\nenfin, la surprise passée, il pardonnerait.\\n\\n— Oui, murmurait-elle en grinçant des dents, il me pardonnera, lui qui\\nn’aurait pas assez d’un million à m’offrir pour que je l’excuse de\\nm’avoir connue... Jamais! jamais!\\n\\nCette idée de la supériorité de Bovary sur elle l’exaspérait. Puis,\\nqu’elle avouât ou n’avouât pas, tout à l’heure, tantôt, demain, il\\nn’en saurait pas moins la catastrophe; donc, il fallait attendre cette\\nhorrible scène et subir le poids de sa magnanimité. L’envie lui vint\\nde retourner chez Lheureux: à quoi bon? d’écrire à son père; il était\\ntrop tard; et peut-être qu’elle se repentait maintenant de n’avoir\\npas cédé à l’autre, lorsqu’elle entendit le trot d’un cheval dans\\nl’allée. C’était lui, il ouvrait la barrière, il était plus blême que\\nle mur de plâtre. Bondissant dans l’escalier, elle s’échappa vivement\\npar la place; et la femme du maire, qui causait devant l’église avec\\nLestiboudois, la vit entrer chez le percepteur.\\n\\nElle courut le dire à madame Caron. Ces deux dames montèrent dans le\\ngrenier; et cachées par du linge étendu sur des perches, se postèrent\\ncommodément pour apercevoir tout l’intérieur de Binet.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"Maître Guillaumin knew her, being secretly associated with the cloth merchant, from whom he could always obtain capital for the mortgage loans he was asked to arrange.\\n\\nThus he knew (and better than she did) the long history of those notes, small at first, bearing the names of various endorsers, set at distant maturities and continually renewed, until the day when, gathering together all the protested notes, the merchant had instructed his friend Vinçart to conduct the necessary proceedings in his own name, not wishing to pass for a tiger among his fellow townspeople.\\n\\nShe interspersed her account with recriminations against Lheureux, recriminations to which the notary responded from time to time with some meaningless remark. As he ate his cutlet and drank his tea, he lowered his chin into his sky-blue cravat, fastened with two diamond pins linked by a little gold chain; and he smiled a peculiar smile, in a mawkish and ambiguous manner. But, noticing that her feet were damp:\\n\\n“Do move closer to the stove... higher up... against the porcelain.”\\n\\nShe was afraid of soiling it. The notary resumed in a gallant tone:\\n\\n“Beautiful things spoil nothing.”\\n\\nThen she tried to move him, and, becoming emotional herself, she began telling him about the straitened circumstances of her household, her difficulties, her needs. He understood that: an elegant woman! And, without interrupting his eating, he had turned completely toward her, so that his knee brushed her ankle boot, whose sole curled upward as it steamed against the stove.\\n\\nBut when she asked him for a thousand crowns, he pursed his lips, then declared himself deeply distressed that he had not formerly been entrusted with the management of her fortune, for there were a hundred very convenient ways, even for a lady, to make her money yield a return. Whether in the peat bogs of Grumesnil or in land at Le Havre, one could have ventured upon excellent speculations with almost certain success; and he left her to consume herself with rage at the thought of the fabulous sums she would certainly have made.\\n\\n“How is it,” he resumed, “that you never came to me?”\\n\\n“I hardly know,” she said.\\n\\n“Why, eh?... Was I really so frightening to you? On the contrary, it is I who should complain! We scarcely know each other! And yet I am very devoted to you; you no longer doubt that, I hope?”\\n\\nHe held out his hand, took hers, covered it with a ravenous kiss, then kept it on his knee; and he played delicately with her fingers while murmuring a thousand endearments to her.\\n\\nHis insipid voice whispered like a flowing stream; a spark flashed from his pupil through the glint of his spectacles, and his hands advanced into Emma’s sleeve to feel her arm. Against her cheek she felt the breath of his panting respiration. This man made her horribly uncomfortable.\\n\\nShe sprang to her feet and said to him:\\n\\n“Sir, I am waiting!”\\n\\n“For what?” said the notary, who suddenly turned extremely pale.\\n\\n“For that money.”\\n\\n“But...”\\n\\nThen, yielding to the onrush of an overpowering desire:\\n\\n“Well, yes!...”\\n\\nHe dragged himself toward her on his knees, heedless of his dressing gown.\\n\\n“For pity’s sake, stay! I love you!”\\n\\nHe seized her around the waist.\\n\\nA flood of crimson swiftly rose to Madame Bovary’s face. She drew back with a terrible look, exclaiming:\\n\\n“You are shamelessly taking advantage of my distress, sir! I am to be pitied, but I am not for sale!”\\n\\nAnd she went out.\\n\\nThe notary remained utterly stupefied, his eyes fixed on his handsome tapestry slippers. They were a gift from love. The sight of them finally consoled him. Besides, he reflected that an affair of that kind would have taken him too far.\\n\\n“What a wretch! What a boor!... What infamy!” she said to herself as she fled with a nervous stride beneath the poplars along the road. The disappointment of failure reinforced the indignation of her outraged modesty; it seemed to her that Providence was bent on persecuting her, and, her pride exalted by this, never had she felt so much esteem for herself or so much contempt for others. Something warlike swept her away. She would have liked to beat men, spit in their faces, crush them all; and she continued walking rapidly straight ahead, pale, trembling, enraged, searching the empty horizon with tearful eyes, as though savoring the hatred that was choking her.\\n\\nWhen she caught sight of her house, a numbness seized her. She could not go on; yet she had to; besides, where could she flee?\\n\\nFélicité was waiting for her in the doorway.\\n\\n“Well?”\\n\\n“No!” said Emma.\\n\\nAnd for a quarter of an hour the two of them considered the various people in Yonville who might perhaps be willing to help her. But each time Félicité named someone, Emma replied:\\n\\n“Is it possible! They won’t!”\\n\\n“And Monsieur will be coming home!”\\n\\n“I know that perfectly well... Leave me alone.”\\n\\nShe had tried everything. There was nothing more to be done now; and when Charles appeared, she would therefore say to him:\\n\\n“Go away. This carpet you are walking on is no longer ours. In your house you do not own a piece of furniture, a pin, or a wisp of straw, and it is I who have ruined you, poor man!”\\n\\nThen there would be a great sob, after which he would weep profusely, and at last, once the surprise had passed, he would forgive her.\\n\\n“Yes,” she murmured through clenched teeth, “he will forgive me, he who could offer me a million and still not have enough for me to forgive him for having known me... Never! Never!”\\n\\nThe idea of Bovary’s superiority over her exasperated her. Then, whether she confessed or did not confess, in a moment, later, tomorrow, he would nevertheless learn of the catastrophe; so she would have to await that horrible scene and bear the weight of his magnanimity. She felt the urge to return to Lheureux: what good would it do? To write to her father; it was too late; and perhaps she was now regretting not having yielded to the other man when she heard the trot of a horse in the lane. It was he; he opened the gate; he was paler than the plaster wall. Bounding up the stairs, she quickly escaped across the square; and the mayor’s wife, who was talking in front of the church with Lestiboudois, saw her enter the tax collector’s house.\\n\\nShe ran to tell Madame Caron. The two ladies went up into the attic; and, concealed by linen spread over poles, they settled themselves comfortably so as to see the entire interior of Binet’s house.\", \"source_occurrence_id\": \"flaubert-madame-bovary-d3ce852d259a04be\", \"source_language\": \"fr\", \"source_language_text_sha256\": \"63a984975110bac9e92670db5c1a0cd35b3f838aa18e64b43c8e06cab020239b\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T10:40:31.240449+00:00\", \"model_usage\": {\"input_tokens\": 2045, \"cached_input_tokens\": 0, \"output_tokens\": 1680}, \"estimated_cost_usd\": 0.04178, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"flaubert-madame-bovary\", \"title\": \"Madame Bovary\", \"author\": \"Gustave Flaubert\", \"language\": \"fr\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.849671, \"source_start\": 597385, \"source_end\": 597397, \"source_length\": 703078}, \"form\": {\"form_family\": \"present_or_imperfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": \"optional\", \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"fr_present_past\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 1.0, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

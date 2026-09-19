@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"dumas-fils-la-dame-aux-camelias-ec6992c7f9430c90\", \"SOURCE_TEXT\": {\"exact_match\": \"je vous aimais\", \"local_text\": {\"context_start\": 358259, \"context_end\": 358460, \"text\": \"«Quoi qu'il arrive, je vous aimais bien, Armand, et je serais morte\\ndepuis longtemps si je n'avais pour m'assister le souvenir de cet amour,\\net comme un vague espoir de vous revoir encore près de moi.»\"}, \"wider_canonical_context\": {\"context_start\": 355158, \"context_end\": 361481, \"text\": \"«Comme l'aspect de la vie et du bonheur des autres fait désirer de vivre\\nceux-là qui, la veille, dans la solitude de leur âme et dans l'ombre de\\nleur chambre de malade, souhaitaient de mourir vite!»\\n\\n<tb>\\n\\n«10 janvier:\\n\\n«Cette espérance de santé n'était qu'un rêve. Me voici de nouveau dans\\nmon lit, le corps couvert d'emplâtres qui me brûlent. Va donc offrir ce\\ncorps que l'on payait si cher autrefois, et vois ce que l'on t'en\\ndonnera aujourd'hui!\\n\\n«Il faut que nous ayons bien fait du mal avant de naître, ou que nous\\ndevions jouir d'un bien grand bonheur après notre mort, pour que Dieu\\npermette que cette vie ait toutes les tortures de l'expiation et toutes\\nles douleurs de l'épreuve.»\\n\\n<tb>\\n\\n«12 janvier:\\n\\n«Je souffre toujours.\\n\\n«Le comte de N... m'a envoyé de l'argent hier, je ne l'ai pas accepté.\\nJe ne veux rien de cet homme. C'est lui qui est cause que vous n'êtes\\npas près de moi.\\n\\n«Oh! nos beaux jours de Bougival! où êtes-vous?\\n\\n«Si je sors vivante de cette chambre, ce sera pour faire un pèlerinage à\\nla maison que nous habitions ensemble, mais je n'en sortirai plus que\\nmorte.\\n\\n«Qui sait si je vous écrirai demain?»\\n\\n<tb>\\n\\n«25 janvier:\\n\\n«Voilà onze nuits que je ne dors pas, que j'étouffe et que je crois à\\nchaque instant que je vais mourir. Le médecin a ordonné qu'on ne me\\nlaissât pas toucher une plume. Julie Duprat, qui me veille, me permet\\nencore de vous écrire ces quelques lignes. Ne reviendrez-vous donc point\\navant que je meure? Est-ce donc éternellement fini entre nous? Il me\\nsemble que, si vous veniez, je guérirais. À quoi bon guérir?»\\n\\n<tb>\\n\\n«28 janvier:\\n\\n«Ce matin j'ai été réveillée par un grand bruit. Julie, qui dormait dans\\nma chambre, s'est précipitée dans la salle à manger. J'ai entendu des\\nvoix d'hommes contre lesquelles la sienne luttait en vain. Elle est\\nrentrée en pleurant.\\n\\n«On venait saisir. Je lui ai dit de laisser faire ce qu'ils appellent la\\njustice. L'huissier est entré dans ma chambre, le chapeau sur la tête.\\nIl a ouvert les tiroirs, a inscrit tout ce qu'il a vu, et n'a pas eu\\nl'air de s'apercevoir qu'il y avait une mourante dans le lit\\nqu'heureusement la charité de la loi me laisse.\\n\\n«Il a consenti à me dire en partant que je pouvais mettre opposition\\navant neuf jours, mais il a laissé un gardien! Que vais-je devenir, mon\\nDieu! Cette scène m'a rendue encore plus malade. Prudence voulait\\ndemander de l'argent à l'ami de votre père, je m'y suis opposée.\\n\\n«J'ai reçu votre lettre ce matin. J'en avais besoin. Ma réponse vous\\narrivera-t-elle à temps? Me verrez-vous encore? Voilà une journée\\nheureuse qui me fait oublier toutes celles que j'ai passées depuis six\\nsemaines. Il me semble que je vais mieux, malgré le sentiment de\\ntristesse sous l'impression duquel je vous ai répondu.\\n\\n«Après tout, on ne doit pas toujours être malheureux.\\n\\n«Quand je pense qu'il peut arriver que je ne meure pas, que vous\\nreveniez, que je revoie le printemps, que vous m'aimiez encore et que\\nnous recommencions notre vie de l'année dernière!\\n\\n«Folle que je suis! c'est à peine si je puis tenir la plume avec\\nlaquelle je vous écris ce rêve insensé de mon cœur.\\n\\n«Quoi qu'il arrive, je vous aimais bien, Armand, et je serais morte\\ndepuis longtemps si je n'avais pour m'assister le souvenir de cet amour,\\net comme un vague espoir de vous revoir encore près de moi.»\\n\\n<tb>\\n\\n«4 février:\\n\\n«Le comte de G... est revenu. Sa maîtresse l'a trompé. Il est fort\\ntriste, il l'aimait beaucoup. Il est venu me conter tout cela. Le pauvre\\ngarçon est assez mal dans ses affaires, ce qui ne l'a pas empêché de\\npayer mon huissier et de congédier le gardien.\\n\\n«Je lui ai parlé de vous et il m'a promis de vous parler de moi. Comme\\nj'oubliais dans ces moments-là que j'avais été sa maîtresse et comme il\\nessayait de me le faire oublier aussi! C'est un brave cœur.\\n\\n«Le duc a envoyé savoir de mes nouvelles hier, et il est venu ce matin.\\nJe ne sais pas ce qui peut faire vivre encore ce vieillard. Il est resté\\ntrois heures auprès de moi, et il ne m'a pas dit vingt mots. Deux\\ngrosses larmes sont tombées de ses yeux quand il m'a vue si pâle. Le\\nsouvenir de la mort de sa fille le faisait pleurer sans doute. Il l'aura\\nvue mourir deux fois. Son dos est courbé, sa tête penche vers la terre,\\nsa lèvre est pendante, son regard est éteint. L'âge et la douleur pèsent\\nde leur double poids sur son corps épuisé. Il ne m'a pas fait un\\nreproche. On eût même dit qu'il jouissait secrètement du ravage que la\\nmaladie avait fait en moi. Il semblait fier d'être debout, quand moi,\\njeune encore, j'étais écrasée par la souffrance.\\n\\n«Le mauvais temps est revenu. Personne ne vient me voir. Julie veille le\\nplus qu'elle peut auprès de moi. Prudence, à qui je ne peux plus donner\\nautant d'argent qu'autrefois, commence à prétexter des affaires pour\\ns'éloigner.\\n\\n«Maintenant que je suis près de mourir, malgré ce que me disent les\\nmédecins, car j'en ai plusieurs, ce qui prouve que la maladie augmente,\\nje regrette presque d'avoir écouté votre père; si j'avais su ne prendre\\nqu'une année à votre avenir, je n'aurais pas résisté au désir de passer\\ncette année avec vous, et au moins je mourrais en tenant la main d'un\\nami. Il est vrai que si nous avions vécu ensemble cette année, je ne\\nserais pas morte sitôt.\\n\\n«La volonté de Dieu soit faite!»\\n\\n<tb>\\n\\n«5 février:\\n\\n«Oh! Venez, venez, Armand, je souffre horriblement, je vais mourir, mon\\nDieu. J'étais si triste hier que j'ai voulu passer autre part que chez\\nmoi la soirée qui promettait d'être longue comme celle de la veille. Le\\nduc était venu le matin. Il me semble que la vue de ce vieillard oublié\\npar la mort me fait mourir plus vite.\\n\\n«Malgré l'ardente fièvre qui me brûlait, je me suis fait habiller et\\nconduire au Vaudeville. Julie m'avait mis du rouge, sans quoi j'aurais\\neu l'air d'un cadavre. Je suis allée dans cette loge où je vous ai donné\\nnotre premier rendez-vous; tout le temps j'ai eu les yeux fixés sur la\\nstalle que vous occupiez ce jour-là, et qu'occupait hier une sorte de\\nrustre, qui riait bruyamment de toutes les sottes choses que débitaient\\nles acteurs. On m'a rapportée à moitié morte chez moi. J'ai toussé et\\ncraché le sang toute la nuit. Aujourd'hui je ne peux plus parler, à\\npeine si je peux remuer les bras. Mon Dieu! Mon Dieu! Je vais mourir. Je\\nm'y attendais, mais je ne puis me faire à l'idée de souffrir plus que je\\nne souffre, et si...»\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"“How the sight of other people’s life and happiness makes those wish to live who, the day before, in the solitude of their souls and in the shadows of their sickrooms, wished to die quickly!”\\n\\n<tb>\\n\\n“10 January:\\n\\n“This hope of health was only a dream. Here I am back in my bed, my body covered with plasters that burn me. Go, then, and offer this body for which people once paid so dearly, and see what they will give you for it today!\\n\\n“We must have done a great deal of evil before we were born, or else be destined to enjoy very great happiness after our death, for God to allow this life to contain all the torments of expiation and all the sufferings of trial.”\\n\\n<tb>\\n\\n“12 January:\\n\\n“I am still suffering.\\n\\n“The Comte de N... sent me money yesterday; I did not accept it. I want nothing from that man. It is because of him that you are not here beside me.\\n\\n“Oh, our beautiful days at Bougival! Where are you?\\n\\n“If I leave this room alive, it will be to make a pilgrimage to the house where we lived together; but I shall leave it only when I am dead.\\n\\n“Who knows whether I shall write to you tomorrow?”\\n\\n<tb>\\n\\n“25 January:\\n\\n“For eleven nights now I have not slept; I have been suffocating and believing at every moment that I am about to die. The doctor ordered that I not be allowed to touch a pen. Julie Duprat, who watches over me, is still allowing me to write you these few lines. Will you not come back, then, before I die? Is it over between us forever, then? It seems to me that, if you came, I would recover. What would be the use of recovering?”\\n\\n<tb>\\n\\n“28 January:\\n\\n“This morning I was awakened by a great commotion. Julie, who was sleeping in my room, rushed into the dining room. I heard men’s voices against which hers struggled in vain. She came back in tears.\\n\\n“They had come to seize my property. I told her to let them carry out what they call justice. The bailiff entered my room with his hat on his head. He opened the drawers, recorded everything he saw, and did not appear to notice that there was a dying woman in the bed which, fortunately, the charity of the law allows me to keep.\\n\\n“As he was leaving, he consented to tell me that I could lodge an objection within nine days, but he left a custodian behind! What is to become of me, my God! This scene has made me even more ill. Prudence wanted to ask your father’s friend for money; I opposed it.\\n\\n“I received your letter this morning. I needed it. Will my reply reach you in time? Will you see me again? This has been a happy day, making me forget all those I have spent during the past six weeks. It seems to me that I am better, despite the feeling of sadness under whose influence I replied to you.\\n\\n“After all, one should not always be unhappy.\\n\\n“When I think that it may happen that I do not die, that you come back, that I see the spring again, that you still love me, and that we begin our life of last year again!\\n\\n“What a madwoman I am! I can scarcely hold the pen with which I am writing you this senseless dream of my heart.\\n\\n“Whatever happens, I loved you dearly, Armand, and I would have died long ago if I did not have, to sustain me, the memory of that love and a vague hope of seeing you beside me once more.”\\n\\n<tb>\\n\\n“4 February:\\n\\n“The Comte de G... has returned. His mistress betrayed him. He is very sad; he loved her very much. He came to tell me all about it. The poor fellow is in rather bad financial circumstances, which did not prevent him from paying my bailiff and dismissing the custodian.\\n\\n“I spoke to him about you, and he promised to speak to you about me. How completely I forgot at such moments that I had been his mistress, and how he tried to make me forget it too! He has a good heart.\\n\\n“The duke sent to inquire after me yesterday, and he came this morning. I do not know what can still be keeping that old man alive. He remained beside me for three hours and did not say twenty words to me. Two large tears fell from his eyes when he saw me so pale. The memory of his daughter’s death was no doubt making him weep. He must have seen her die twice. His back is bent, his head inclines toward the ground, his lip droops, his gaze is lifeless. Age and sorrow weigh with their double burden upon his exhausted body. He did not reproach me. One might even have said that he secretly delighted in the devastation the illness had wrought in me. He seemed proud to be standing when I, still young, was crushed by suffering.\\n\\n“The bad weather has returned. No one comes to see me. Julie watches beside me as much as she can. Prudence, to whom I can no longer give as much money as I once did, is beginning to make business affairs a pretext for staying away.\\n\\n“Now that I am close to death, despite what the doctors tell me—for I have several of them, which proves that the illness is worsening—I almost regret having listened to your father. If I had known that I would take only one year from your future, I would not have resisted the desire to spend that year with you, and at least I would be dying while holding a friend’s hand. It is true that if we had lived together this year, I would not have died so soon.\\n\\n“May God’s will be done!”\\n\\n<tb>\\n\\n“5 February:\\n\\n“Oh! Come, come, Armand; I am suffering horribly, I am going to die, my God. I was so sad yesterday that I wanted to spend the evening somewhere other than at home, an evening that promised to be as long as the one before. The duke had come in the morning. It seems to me that the sight of this old man forgotten by death is making me die more quickly.\\n\\n“Despite the burning fever that was consuming me, I had myself dressed and taken to the Vaudeville. Julie had put rouge on me, without which I would have looked like a corpse. I went to that box where I gave you our first rendezvous; the whole time, my eyes remained fixed on the orchestra seat you occupied that day and which yesterday was occupied by a sort of boor who laughed loudly at all the foolish things the actors were spouting. I was carried home half dead. I coughed and spat blood all night. Today I can no longer speak; I can scarcely move my arms. My God! My God! I am going to die. I expected it, but I cannot accustom myself to the idea of suffering more than I am suffering, and if...”\", \"source_occurrence_id\": \"dumas-fils-la-dame-aux-camelias-ec6992c7f9430c90\", \"source_language\": \"fr\", \"source_language_text_sha256\": \"282071993ec5dcca003792be4bf0b8cc53e3851a73d006f054a42dbcb2bdced7\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T10:33:49.925350+00:00\", \"model_usage\": {\"input_tokens\": 2017, \"cached_input_tokens\": 0, \"output_tokens\": 2054}, \"estimated_cost_usd\": 0.049148, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"dumas-fils-la-dame-aux-camelias\", \"title\": \"La Dame aux camélias\", \"author\": \"Alexandre Dumas fils\", \"language\": \"fr\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": \"CHAPITRE XXVI\", \"relative_position\": 0.963289, \"source_start\": 358279, \"source_end\": 358293, \"source_length\": 371933}, \"form\": {\"form_family\": \"present_or_imperfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": \"optional\", \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"fr_present_past\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

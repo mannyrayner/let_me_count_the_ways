@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"lagerlof-gosta-berlings-saga-ea36a229384cb926\", \"SOURCE_TEXT\": {\"exact_match\": \"jag älskar dig\", \"local_text\": {\"context_start\": 618578, \"context_end\": 619030, \"text\": \"\\\"O, mitt folk\\\", tänkte han, \\\"o, mitt folk, vad jag älskar dig!\\\" Han\\nkände hur han älskade hela denna skaran, som drog bort i nattmörkret\\nmed den döda flickan i spetsen av tåget, alla dessa i grova kläder och\\nillaluktande skodon, alla dessa, som bodde i de gråa stugorna vid\\nskogskanten, alla dessa, som inte kunde föra en penna och ofta nog\\ninte heller läsa, alla dessa, som inte kände livets fullhet och\\nrikedom, endast strävan för det dagliga brödet.\"}, \"wider_canonical_context\": {\"context_start\": 615438, \"context_end\": 621666, \"text\": \"Nu ska jag säga er vem hon är. För det första är hon en ängel från\\nhimmelen, för det andra är det hon, som har varit gift med greven på\\nBorg. Men hennes svärmor plågade henne både natt och dag. Hon måste\\nstå vid sjön och tvätta kläder som en vanlig piga, hon blev slagen och\\npinad så, att ingen av era kvinnor kan ha det värre. Ja, det var nära,\\natt hon hade kastat sig i Klarälven, därför att man plågade livet ur\\nhenne. Jag undrar just vilken av er, era kanaljer, som då var till\\nhands för att rädda livet på henne. Ingen av er var där, men vi\\nkavaljerer, vi gjorde det. Jaha, vi gjorde det.\\n\\nOch när hon sedan födde ett barn borta i en bondgård och greven lät\\nhälsa henne och säga: \\\"Vi gifte oss i det främmande landet, vi följde\\ninte lag och förordning. Du är inte min hustru, jag är inte din\\nman. Ditt barn bryr jag mig inte om\\\", ja, när det var så och hon inte\\nville, att barnet skulle stå faderlöst i kyrkboken, då skulle ni nog\\nha blivit högfärdiga, om hon hade sagt till någon av er: \\\"Kom och gift\\ndig med mig! Jag måste ha en far åt barnet.\\\" Men hon valde ingen av\\ner. Hon tog Gösta Berling, den fattige prästen, som aldrig mera får\\ntala Guds ord. Ja, det säger jag er, bönder, att svårare sak har jag\\naldrig gjort, för jag var henne så ovärdig, att jag inte tordes se\\nhenne in i ögonen, men jag vågade inte heller säga nej, för hon var i\\nstor förtvivlan.\\n\\nOch nu må ni tro vad ont ni vill om oss kavaljerer, men mot henne\\ndär har vi gjort vad gott vi har kunnat. Och det är hennes förtjänst,\\natt vi inte har skjutit ihjäl er allihop i natt. Men nu säger jag er:\\nsläpp henne lös och gå er väg, eljest tänker jag jorden öppnar sig och\\nuppslukar er! Och när ni går härifrån, så be Gud förlåta er, att ni\\nhar skrämt och bedrövat den, som är så god och oskyldig! Och nu bort\\nmed er! Vi har haft nog av er!\\n\\nLångt innan han hade slutat tala, hade de, som hade burit ut\\ngrevinnan, satt ner henne på ett av stentrappstegen, och nu kom en\\nstor bonde helt betänksamt fram till henne och räckte henne sin stora\\nhand.\\n\\n- Tack och god natt! sade han. Vi ville henne inget ont, grevinna.\\n\\nEfter honom kom en annan och gav henne en varsam handtryckning.\\n\\n- Tack och god natt! Hon ska inte vara ledsen på oss!\\n\\nGösta hoppade ner och ställde sig vid hennes sida. Då togo de också\\nhonom i hand.\\n\\nSå kommo de nu fram långsamma och sävliga, en efter en, för att ta\\ngod natt av dem, innan de gingo. De voro åter kuvade, åter voro de\\nmänniskor, såsom de voro, när de om morgonen lämnade sina hem, innan\\nhungern och hämnden hade gjort dem till vilddjur.\\n\\nDe sågo grevinnan rätt in i ansiktet, och Gösta märkte hur\\nanblicken av den oskuld och fromhet, som de där sågo bragte tårar i\\nmångas ögon. Det var hos dem alla en tyst tillbedjan av det ädlaste de\\nhade skådat. Det var människor, som gladde sig åt att en av dem hade\\nen så stor kärlek till det goda.\\n\\nAlla kunde ju inte skaka hand med henne. De voro ju så förfärligt\\nmånga, och den unga kvinnan var trött och svag. Men alla skulle dock\\nupp och se henne, och så kunde de ta Gösta i hand, hans armar tålde\\nnog skakningen.\\n\\nGösta stod som i en dröm. I hans hjärta rann denna kväll upp en ny\\nkärlek.\\n\\n\\\"O, mitt folk\\\", tänkte han, \\\"o, mitt folk, vad jag älskar dig!\\\" Han\\nkände hur han älskade hela denna skaran, som drog bort i nattmörkret\\nmed den döda flickan i spetsen av tåget, alla dessa i grova kläder och\\nillaluktande skodon, alla dessa, som bodde i de gråa stugorna vid\\nskogskanten, alla dessa, som inte kunde föra en penna och ofta nog\\ninte heller läsa, alla dessa, som inte kände livets fullhet och\\nrikedom, endast strävan för det dagliga brödet.\\n\\nHan älskade dem med en smärtsam, brinnande ömhet, som tvingade fram\\ntårar i hans ögon. Han visste inte vad han ville göra för dem, men han\\nälskade dem, alla och envar, med fel och laster och skröpligheter. O,\\nherregud, om den dag kunde komma, då också han bleve älskad av dem!\\n\\nHan vaknade ur sin dröm. Hans hustru lade sin hand på hans\\narm. Folket var borta. De voro ensamma på trappan.\\n\\n- O Gösta, Gösta, hur kunde du?\\n\\nHon satte händerna för ansiktet och grät.\\n\\nDet är sant vad jag sa, utbrast han. Jag har aldrig lovat\\nNygårdsflickan att gifta mig med henne. \\\"Kom hit nästa fredag, så ska\\ndu få se på roligt!\\\" var allt, vad jag sa till henne. Jag rår inte för\\natt hon tyckte om mig.\\n\\n- O, det var inte detta! Men hur kunde du säga till folket, att jag\\nvar god och ren? Gösta, Gösta, vet du inte, att jag älskade dig, när\\njag ännu inte hade lov därtill? Jag blygdes för folket, Gösta. Jag\\nville dö av blygsel.\\n\\nOch hon skakades av snyftningar.\\n\\nHan stod och såg på henne.\\n\\nO, min vän, min älskade! sade han stilla. Vad du är lycklig, som är\\nså god! Vad du är lycklig, som i ditt inre har en så skön själ!\\nTRETTIOTREDJE KAPITLET.\\n\\nKevenhüller.\\n\\nPå 1770-talet föddes i Tyskland den sedermera\\nlärde och mångkunnige Kevenhüller. Han var son till en borggreve och\\nkunde ha fått bo i höga slott och rida vid kejsarens sida, om han hade\\nhaft lust, men det hade han inte.\\n\\nHan skulle ha velat fästa väderkvarnsvingar vid borgens högsta\\ntorn, göra riddarsalen till en klensmedja och frustugan till en\\nurmakarverkstad. Han skulle ha velat fylla borgen med snurrande hjul\\noch arbetande hävstänger. Men då sådant inte lät sig göra, lämnade han\\nhela ståten och gav sig i urmakarlära. Där lärde han allt, som läras\\nkunde, om kugghjul, fjädrar och pendlar. Han lärde att göra solur och\\nstjärnur, pendyler med pipande kanariefåglar och lurblåsande herdar,\\nklockspel, som fyllde ett helt kyrktorn med sitt underliga maskineri,\\noch urverk så små, att de kunde infattas i en medaljong.\\n\\nNär han hade fått sitt mästarbrev, satte han ränseln på ryggen, tog\\nknölpåken i hand och vandrade från ort till ort för att studera allt,\\nsom gick med rullar och hjul. Kevenhüller var ingen vanlig urmakare,\\nhan ville bli en stor uppfinnare och världsförbättrare.\\n\\nNär han så hade genomvandrat många land, begav han sig också till\\nVärmland för att studera kvarnhjul och gruvkonster. En vacker\\nsommarmorgon hände sig, att han gick tvärsöver Karlstads torg. Men i\\nsamma vackra morgonstund hade skogsfrun funnit för gott att utsträcka\\nsin vandring ända in i staden. Den höga damen kom, också hon,\\ntvärsöver torget, men från motsatt håll, och så mötte hon Kevenhüller.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"Now I shall tell you who she is. In the first place, she is an angel from heaven; in the second, she is the woman who was married to the count at Borg. But her mother-in-law tormented her night and day. She had to stand by the lake and wash clothes like an ordinary maidservant; she was beaten and tortured so that none of your women can have it worse. Yes, she came close to throwing herself into the Klarälven because they were tormenting the life out of her. I wonder which of you, you scoundrels, was then at hand to save her life. None of you was there, but we cavaliers—we did it. Yes indeed, we did it.\\n\\nAnd when she later gave birth to a child out at a peasant farm and the count sent word to her, saying: “We married in a foreign country; we did not follow law and ordinance. You are not my wife; I am not your husband. I do not care about your child,” yes, when that was how matters stood and she did not want the child to be entered as fatherless in the church register, then you would surely have grown proud if she had said to one of you: “Come and marry me! I must have a father for the child.” But she chose none of you. She took Gösta Berling, the poor priest who may never again speak the word of God. Yes, I tell you, peasants, I have never done a harder thing, for I was so unworthy of her that I did not dare look her in the eyes, but neither did I dare say no, for she was in great despair.\\n\\nAnd now you may believe whatever evil you like about us cavaliers, but toward her there we have done all the good we could. And it is thanks to her that we have not shot every last one of you dead tonight. But now I tell you: let her go and be on your way, or else I think the earth will open and swallow you up! And when you leave here, ask God to forgive you for having frightened and distressed one who is so good and innocent! And now away with you! We have had enough of you!\\n\\nLong before he had finished speaking, those who had carried the countess out had set her down on one of the stone steps, and now a large peasant came forward to her, quite deliberately, and held out his large hand.\\n\\n“Thank you and good night!” he said. “We meant you no harm, Countess.”\\n\\nAfter him came another and gave her hand a gentle squeeze.\\n\\n“Thank you and good night! You must not be angry with us!”\\n\\nGösta jumped down and placed himself at her side. Then they shook his hand as well.\\n\\nAnd so they came forward now, slow and sedate, one by one, to bid them good night before they left. They were subdued once more; once more they were human beings, as they had been when they left their homes that morning, before hunger and vengeance had turned them into wild beasts.\\n\\nThey looked the countess straight in the face, and Gösta noticed how the sight of the innocence and piety they saw there brought tears to many eyes. In all of them there was a silent adoration of the noblest thing they had ever beheld. They were people who rejoiced that one of their number possessed so great a love for the good.\\n\\nThey could not all shake hands with her, of course. There were so terribly many of them, and the young woman was tired and weak. But all of them still had to come up and see her, and then they could shake Gösta’s hand; his arms could surely withstand the shaking.\\n\\nGösta stood as if in a dream. That evening a new love welled up in his heart.\\n\\n“O my people,” he thought, “O my people, how I love you!” He felt how he loved that whole multitude as it moved away into the darkness of the night, with the dead girl at the head of the procession—all those in coarse clothes and foul-smelling footwear, all those who lived in the gray cottages at the edge of the forest, all those who could not wield a pen and often could not read either, all those who did not know life’s fullness and richness, but only the struggle for their daily bread.\\n\\nHe loved them with a painful, burning tenderness that forced tears into his eyes. He did not know what he wanted to do for them, but he loved them, each and every one, with their faults and vices and frailties. O Lord God, if only the day might come when he too would be loved by them!\\n\\nHe awoke from his dream. His wife laid her hand on his arm. The people were gone. They were alone on the steps.\\n\\n“O Gösta, Gösta, how could you?”\\n\\nShe covered her face with her hands and wept.\\n\\n“What I said is true,” he burst out. “I never promised the Nygård girl that I would marry her. ‘Come here next Friday and you shall see something amusing!’ was all I said to her. I cannot help it that she took a liking to me.”\\n\\n“O, it was not that! But how could you tell the people that I was good and pure? Gösta, Gösta, do you not know that I loved you when I did not yet have permission to do so? I was ashamed before the people, Gösta. I wanted to die of shame.”\\n\\nAnd she was shaken by sobs.\\n\\nHe stood looking at her.\\n\\n“O my friend, my beloved!” he said quietly. “How fortunate you are to be so good! How fortunate you are to have so beautiful a soul within you!”\\n\\nCHAPTER THIRTY-THREE\\n\\nKevenhüller\\n\\nIn the 1770s, Kevenhüller, who would later become learned and possessed of wide knowledge, was born in Germany. He was the son of a burgrave and could have lived in lofty castles and ridden at the emperor’s side if he had wished, but he did not.\\n\\nHe would have liked to fasten windmill sails to the castle’s highest tower, turn the knights’ hall into a fine-metal workshop and the ladies’ chamber into a watchmaker’s workshop. He would have liked to fill the castle with spinning wheels and working levers. But as such a thing could not be done, he left all the splendor behind and apprenticed himself to a watchmaker. There he learned everything that could be learned about cogwheels, springs, and pendulums. He learned to make sundials and star clocks, clocks with piping canaries and shepherds blowing horns, clockworks that filled an entire church tower with their strange machinery, and timepieces so small that they could be set in a locket.\\n\\nWhen he had received his master’s certificate, he put his knapsack on his back, took his knotted cudgel in hand, and wandered from place to place to study everything that moved by rollers and wheels. Kevenhüller was no ordinary watchmaker; he wanted to become a great inventor and improver of the world.\\n\\nAfter he had thus wandered through many lands, he also made his way to Värmland to study mill wheels and mining machinery. One beautiful summer morning, it happened that he was walking across the marketplace in Karlstad. But at that same beautiful hour of morning, the Lady of the Forest had seen fit to extend her walk all the way into the town. The tall lady was also crossing the marketplace, but from the opposite direction, and thus she met Kevenhüller.\", \"source_occurrence_id\": \"lagerlof-gosta-berlings-saga-ea36a229384cb926\", \"source_language\": \"sv\", \"source_language_text_sha256\": \"5a2e56d19e80b79393acf1a4fd4183bfde1e3952272f8d2ff7a478401087510b\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T11:04:40.085227+00:00\", \"model_usage\": {\"input_tokens\": 2194, \"cached_input_tokens\": 0, \"output_tokens\": 1998}, \"estimated_cost_usd\": 0.048736, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"lagerlof-gosta-berlings-saga\", \"title\": \"Gösta Berlings saga\", \"author\": \"Selma Lagerlöf\", \"language\": \"sv\", \"source_type\": \"runeberg\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.870194, \"source_start\": 618625, \"source_end\": 618639, \"source_length\": 710905}, \"form\": {\"form_family\": \"present_or_past\", \"polarity\": \"surface_optional_negative\", \"tense_aspect\": \"present\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"sv_main\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

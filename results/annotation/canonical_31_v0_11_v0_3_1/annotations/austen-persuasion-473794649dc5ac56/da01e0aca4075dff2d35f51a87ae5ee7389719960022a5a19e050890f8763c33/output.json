@@ -1,0 +1,65 @@
+{
+  "occurrence_id": "austen-persuasion-473794649dc5ac56",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 2,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.95,
+    "analysis": "“I have loved none but you” is primarily an avowal presented as true: Wentworth asserts the exclusivity and continuity of his love. It also contributes to his renewed offer of himself and invokes relational constancy, giving it moderate performative support, though the sentence itself is not an explicit promise. Despite the letter’s intense and hurried composition, the words are formulated as an assertion rather than a reflex-like affective discharge.",
+    "ambiguity": "The main uncertainty concerns P: the sentence participates in a renewed proposal and assurance of constancy, but its own grammatical and semantic force remains chiefly assertive."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "written",
+    "description": "Wentworth writes the utterance in a private letter to Anne, which she subsequently reads; it represents his own contemporaneous avowal rather than a merely quoted formula."
+  },
+  "contextual_interpretation": "The sentence appears within Wentworth’s urgent written renewal of his suit. Its perfect aspect and exclusive form defend his constancy across their eight-and-a-half-year separation, correcting the possible inference that resentment or delay meant his love had ended. The surrounding “I offer myself to you again” gives the avowal courtship and commitment significance. His agitation and claim that he can hardly write establish emotional intensity, but do not independently make the core sentence expressive/reflexive.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "“I have loved none but you. Unjust I may have been, weak and resentful I have been, but never inconstant.”",
+      "supports": "Strong T support: Wentworth explicitly presents his love as exclusive and enduring, contrasting faults in conduct with emotional constancy.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "“I offer myself to you again with a heart even more your own than when you almost broke it, eight years and a half ago.”",
+      "supports": "Moderate P support: the avowal is embedded in a renewed relational offer, so it helps enact courtship and commitment rather than merely supplying detached information.",
+      "confidence": 0.97
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "“I can hardly write. I am every instant hearing something which overpowers me.”",
+      "supports": "Shows intense and pressured composition, but does not show that the exact avowal was blurted or produced as a reflex-like discharge; therefore it does not independently support E.",
+      "confidence": 0.94
+    },
+    {
+      "evidence_id": "e4",
+      "source": "local_text",
+      "quotation_or_description": "Wentworth deliberately writes, seals, and places the letter before Anne, asking for “A word, a look” to decide whether he will enter her father’s house.",
+      "supports": "Confirms the utterance’s written status and the letter’s purposeful courtship function.",
+      "confidence": 0.98
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T captures the sentence’s central avowal of exclusive, continuing love, while P captures its secondary role in renewing a relational undertaking. Emotional agitation can remain contextual because the passage supplies no independent reflexive force requiring E, and no core feature escapes T/P/E.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

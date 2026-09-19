@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"lawrence-women-in-love-133276800ca1b0fd\", \"SOURCE_TEXT\": {\"exact_match\": \"I will love you\", \"local_text\": {\"context_start\": 937839, \"context_end\": 937915, \"text\": \"“I will love you always,” he repeated, in real agony, forcing the words\\nout.\"}, \"wider_canonical_context\": {\"context_start\": 934807, \"context_end\": 941001, \"text\": \"He crouched beside her, to look through the low window.\\n\\n“No,” he said. “It is very fine.”\\n\\n“_Isn’t_ it beautiful! Do you notice how it darts different coloured\\nfires—it flashes really superbly—”\\n\\nThey remained in silence. With a mute, heavy gesture she put her hand\\non his knee, and took his hand.\\n\\n“Are you regretting Ursula?” he asked.\\n\\n“No, not at all,” she said. Then, in a slow mood, she asked:\\n\\n“How much do you love me?”\\n\\nHe stiffened himself further against her.\\n\\n“How much do you think I do?” he asked.\\n\\n“I don’t know,” she replied.\\n\\n“But what is your opinion?” he asked.\\n\\nThere was a pause. At length, in the darkness, came her voice, hard and\\nindifferent:\\n\\n“Very little indeed,” she said coldly, almost flippant.\\n\\nHis heart went icy at the sound of her voice.\\n\\n“Why don’t I love you?” he asked, as if admitting the truth of her\\naccusation, yet hating her for it.\\n\\n“I don’t know why you don’t—I’ve been good to you. You were in a\\n_fearful_ state when you came to me.”\\n\\nHer heart was beating to suffocate her, yet she was strong and\\nunrelenting.\\n\\n“When was I in a fearful state?” he asked.\\n\\n“When you first came to me. I _had_ to take pity on you. But it was\\nnever love.”\\n\\nIt was that statement “It was never love,” which sounded in his ears\\nwith madness.\\n\\n“Why must you repeat it so often, that there is no love?” he said in a\\nvoice strangled with rage.\\n\\n“Well you don’t _think_ you love, do you?” she asked.\\n\\nHe was silent with cold passion of anger.\\n\\n“You don’t think you _can_ love me, do you?” she repeated almost with a\\nsneer.\\n\\n“No,” he said.\\n\\n“You know you never _have_ loved me, don’t you?”\\n\\n“I don’t know what you mean by the word “love,” he replied.\\n\\n“Yes, you do. You know all right that you have never loved me. Have\\nyou, do you think?”\\n\\n“No,” he said, prompted by some barren spirit of truthfulness and\\nobstinacy.\\n\\n“And you never _will_ love me,” she said finally, “will you?”\\n\\nThere was a diabolic coldness in her, too much to bear.\\n\\n“No,” he said.\\n\\n“Then,” she replied, “what have you against me!”\\n\\nHe was silent in cold, frightened rage and despair. “If only I could\\nkill her,” his heart was whispering repeatedly. “If only I could kill\\nher—I should be free.”\\n\\nIt seemed to him that death was the only severing of this Gordian knot.\\n\\n“Why do you torture me?” he said.\\n\\nShe flung her arms round his neck.\\n\\n“Ah, I don’t want to torture you,” she said pityingly, as if she were\\ncomforting a child. The impertinence made his veins go cold, he was\\ninsensible. She held her arms round his neck, in a triumph of pity. And\\nher pity for him was as cold as stone, its deepest motive was hate of\\nhim, and fear of his power over her, which she must always counterfoil.\\n\\n“Say you love me,” she pleaded. “Say you will love me for ever—won’t\\nyou—won’t you?”\\n\\nBut it was her voice only that coaxed him. Her senses were entirely\\napart from him, cold and destructive of him. It was her overbearing\\n_will_ that insisted.\\n\\n“Won’t you say you’ll love me always?” she coaxed. “Say it, even if it\\nisn’t true—say it Gerald, do.”\\n\\n“I will love you always,” he repeated, in real agony, forcing the words\\nout.\\n\\nShe gave him a quick kiss.\\n\\n“Fancy your actually having said it,” she said with a touch of\\nraillery.\\n\\nHe stood as if he had been beaten.\\n\\n“Try to love me a little more, and to want me a little less,” she said,\\nin a half contemptuous, half coaxing tone.\\n\\nThe darkness seemed to be swaying in waves across his mind, great waves\\nof darkness plunging across his mind. It seemed to him he was degraded\\nat the very quick, made of no account.\\n\\n“You mean you don’t want me?” he said.\\n\\n“You are so insistent, and there is so little grace in you, so little\\nfineness. You are so crude. You break me—you only waste me—it is\\nhorrible to me.”\\n\\n“Horrible to you?” he repeated.\\n\\n“Yes. Don’t you think I might have a room to myself, now Ursula has\\ngone? You can say you want a dressing room.”\\n\\n“You do as you like—you can leave altogether if you like,” he managed\\nto articulate.\\n\\n“Yes, I know that,” she replied. “So can you. You can leave me whenever\\nyou like—without notice even.”\\n\\nThe great tides of darkness were swinging across his mind, he could\\nhardly stand upright. A terrible weariness overcame him, he felt he\\nmust lie on the floor. Dropping off his clothes, he got into bed, and\\nlay like a man suddenly overcome by drunkenness, the darkness lifting\\nand plunging as if he were lying upon a black, giddy sea. He lay still\\nin this strange, horrific reeling for some time, purely unconscious.\\n\\nAt length she slipped from her own bed and came over to him. He\\nremained rigid, his back to her. He was all but unconscious.\\n\\nShe put her arms round his terrifying, insentient body, and laid her\\ncheek against his hard shoulder.\\n\\n“Gerald,” she whispered. “Gerald.”\\n\\nThere was no change in him. She caught him against her. She pressed her\\nbreasts against his shoulders, she kissed his shoulder, through the\\nsleeping jacket. Her mind wondered, over his rigid, unliving body. She\\nwas bewildered, and insistent, only her will was set for him to speak\\nto her.\\n\\n“Gerald, my dear!” she whispered, bending over him, kissing his ear.\\n\\nHer warm breath playing, flying rhythmically over his ear, seemed to\\nrelax the tension. She could feel his body gradually relaxing a little,\\nlosing its terrifying, unnatural rigidity. Her hands clutched his\\nlimbs, his muscles, going over him spasmodically.\\n\\nThe hot blood began to flow again through his veins, his limbs relaxed.\\n\\n“Turn round to me,” she whispered, forlorn with insistence and triumph.\\n\\nSo at last he was given again, warm and flexible. He turned and\\ngathered her in his arms. And feeling her soft against him, so\\nperfectly and wondrously soft and recipient, his arms tightened on her.\\nShe was as if crushed, powerless in him. His brain seemed hard and\\ninvincible now like a jewel, there was no resisting him.\\n\\nHis passion was awful to her, tense and ghastly, and impersonal, like a\\ndestruction, ultimate. She felt it would kill her. She was being\\nkilled.\\n\\n“My God, my God,” she cried, in anguish, in his embrace, feeling her\\nlife being killed within her. And when he was kissing her, soothing\\nher, her breath came slowly, as if she were really spent, dying.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": null, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"lawrence-women-in-love\", \"title\": \"Women in Love\", \"author\": \"D. H. Lawrence\", \"language\": \"en\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": \"CHAPTER XXX.\", \"relative_position\": 0.916267, \"source_start\": 937840, \"source_end\": 937855, \"source_length\": 1023545}, \"form\": {\"form_family\": \"future\", \"polarity\": \"affirmative\", \"tense_aspect\": \"future\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"en_future\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 1.0, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

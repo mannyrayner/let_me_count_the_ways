@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"stael-corinne-3cff302d84f1b4da\", \"SOURCE_TEXT\": {\"exact_match\": \"je vous aime\", \"local_text\": {\"context_start\": 238518, \"context_end\": 239772, \"text\": \"«Il faut, disait-elle à lord Nelvil, qui lui reprochait cette intention,\\nil faut pourtant que je sache s'il n'y a plus que vous au monde qui\\npuissiez remplir ma vie, si ce qui me plaisait autrefois ne peut pas\\nencore m'amuser, et si le sentiment que vous m'inspirez doit absorber\\ntout autre intérêt et toute autre idée.--Vous voulez donc cesser de\\nm'aimer? reprit Oswald.--Non, répondit Corinne; mais ce n'est que dans\\nla vie domestique qu'il peut être doux de se sentir ainsi dominée par\\nune seule affection. Moi qui ai besoin de mes talents, de mon esprit, de\\nmon imagination, pour soutenir l'éclat de la vie que j'ai adoptée, cela\\nme fait mal, et beaucoup de mal, d'aimer comme je vous aime.--Vous ne me\\nsacrifieriez donc pas, lui dit Oswald, ces hommages, cette\\ngloire?...--Que vous importe, dit Corinne, de savoir si je vous les\\nsacrifierais! Il ne faut pas, puisque nous ne sommes point destinés l'un\\nà l'autre, flétrir à jamais pour moi le genre de bonheur dont je dois me\\ncontenter.» Lord Nelvil ne répondit point, parce qu'il fallait, en\\nexprimant son sentiment, dire aussi quel dessein ce sentiment lui\\ninspirait; et son coeur l'ignorait encore. Il se tut donc en soupirant,\\net suivit Corinne au bal, quoiqu'il lui en coûtât beaucoup d'y aller.\"}, \"wider_canonical_context\": {\"context_start\": 235687, \"context_end\": 243245, \"text\": \"L'irrésolution du caractère d'Oswald, augmentée par ses malheurs, le\\nportait à craindre tous les partis irrévocables. Il n'avait pas même\\nosé, dans son incertitude, demander à Corinne le secret de son nom et de\\nsa destinée, et cependant son amour pour elle acquérait chaque jour de\\nnouvelles forces; il ne la regardait jamais sans émotion; il pouvait à\\npeine, au milieu de la société, s'éloigner, même pour un instant, de la\\nplace où elle était assise; elle ne disait pas un mot qu'il ne sentît;\\nelle n'avait pas un instant de tristesse ou de gaieté dont le reflet ne\\nse peignît sur sa propre physionomie. Mais, tout en admirant, tout en\\naimant Corinne, il se rappelait combien une telle femme s'accordait peu\\navec la manière de vivre des Anglais, combien elle différait de l'idée\\nque son père s'était formée de celle qu'il lui convenait d'épouser; et\\nce qu'il disait à Corinne se ressentait du trouble et de la contrainte\\nque ces réflexions faisaient naître en lui.\\n\\nCorinne ne s'en apercevait que trop bien; mais il lui en aurait tant\\ncoûté de rompre avec lord Nelvil, qu'elle se prêtait elle-même à ce\\nqu'il n'y eût point entre eux d'explication décisive; et comme elle\\navait dans le caractère assez d'imprévoyance, elle était heureuse du\\nprésent tel qu'il était, quoiqu'il lui fût impossible de savoir ce qui\\ndevait en arriver.\\n\\nElle s'était entièrement séparée du monde pour se consacrer à son\\nsentiment pour Oswald. Mais à la fin, blessée de son silence sur leur\\navenir, elle résolut d'accepter une invitation pour un bal où elle était\\nvivement désirée. Rien n'est plus indifférent à Rome que de quitter la\\nsociété et d'y reparaître tour à tour, selon que cela convient: c'est le\\npays où l'on s'occupe le moins de ce qu'on appelle ailleurs le\\n_commérage_; chacun fait ce qu'il veut sans que personne s'en informe, à\\nmoins qu'on ne rencontre dans les autres un obstacle à son amour ou à\\nson ambition. Les Romains ne s'inquiètent pas plus de la conduite de\\nleurs compatriotes que de celle des étrangers qui passent et repassent\\ndans leur ville, rendez-vous des Européens. Quand lord Nelvil sut que\\nCorinne allait au bal, il en éprouva de l'humeur. Il avait cru voir en\\nelle depuis quelque temps une disposition mélancolique qui sympathisait\\navec la sienne; tout à coup elle lui parut vivement occupée de la danse,\\nde ce talent dans lequel elle excellait, et son imagination semblait\\nanimée par la perspective d'une fête. Corinne n'était pas une personne\\nfrivole, mais elle se sentait chaque jour plus subjuguée par son amour\\npour Oswald, et elle voulait essayer d'en affaiblir la force. Elle\\nsavait par expérience que la réflexion et les sacrifices ont moins de\\npouvoir sur les caractères passionnés que la distraction, et elle\\npensait que la raison ne consiste pas à triompher de soi selon les\\nrègles, mais comme on le peut.\\n\\n«Il faut, disait-elle à lord Nelvil, qui lui reprochait cette intention,\\nil faut pourtant que je sache s'il n'y a plus que vous au monde qui\\npuissiez remplir ma vie, si ce qui me plaisait autrefois ne peut pas\\nencore m'amuser, et si le sentiment que vous m'inspirez doit absorber\\ntout autre intérêt et toute autre idée.--Vous voulez donc cesser de\\nm'aimer? reprit Oswald.--Non, répondit Corinne; mais ce n'est que dans\\nla vie domestique qu'il peut être doux de se sentir ainsi dominée par\\nune seule affection. Moi qui ai besoin de mes talents, de mon esprit, de\\nmon imagination, pour soutenir l'éclat de la vie que j'ai adoptée, cela\\nme fait mal, et beaucoup de mal, d'aimer comme je vous aime.--Vous ne me\\nsacrifieriez donc pas, lui dit Oswald, ces hommages, cette\\ngloire?...--Que vous importe, dit Corinne, de savoir si je vous les\\nsacrifierais! Il ne faut pas, puisque nous ne sommes point destinés l'un\\nà l'autre, flétrir à jamais pour moi le genre de bonheur dont je dois me\\ncontenter.» Lord Nelvil ne répondit point, parce qu'il fallait, en\\nexprimant son sentiment, dire aussi quel dessein ce sentiment lui\\ninspirait; et son coeur l'ignorait encore. Il se tut donc en soupirant,\\net suivit Corinne au bal, quoiqu'il lui en coûtât beaucoup d'y aller.\\n\\nC'était la première fois, depuis son malheur, qu'il revoyait une grande\\nassemblée; et le tumulte d'une fête lui causa une telle impression de\\ntristesse, qu'il resta longtemps dans une salle à côté de celle du bal,\\nla tête appuyée sur sa main, et ne cherchant pas même à voir danser\\nCorinne. Il écoutait cette musique de danse, qui, comme toutes les\\nmusiques, fait rêver, bien qu'elle ne semble destinée qu'à la joie. Le\\ncomte d'Erfeuil arriva, tout enchanté d'un bal, d'une assemblée, d'une\\nsociété nombreuse enfin qui lui rappelait un peu la France. «J'ai fait\\nce que j'ai pu, dit-il à lord Nelvil, pour trouver quelque intérêt à ces\\nruines dont on parle tant à Rome; je ne vois rien de beau dans cela:\\nc'est un préjugé que l'admiration de ces débris couverts de ronces. J'en\\ndirai mon avis quand je reviendrai à Paris, car il est temps que ce\\nprestige de l'Italie finisse. Il n'y a pas un monument en Europe,\\nsubsistant aujourd'hui dans son entier, qui ne vaille mieux que ces\\ntronçons de colonnes, que ces bas-reliefs noircis par le temps, qu'on ne\\npeut admirer qu'à force d'érudition. Un plaisir qu'il faut acheter par\\ntant d'études ne me paraît pas bien vif en lui-même; car, pour être ravi\\npar les spectacles de Paris, personne n'a besoin de pâlir sur les\\nlivres.» Lord Nelvil ne répondit rien. Le comte d'Erfeuil l'interrogea\\nde nouveau sur l'impression que Rome avait produite sur lui. «Au milieu\\nd'un bal, dit Oswald, ce n'est pas trop le moment d'en parler d'une\\nmanière sérieuse, et vous savez que je ne sais pas parler autrement.--A\\nla bonne heure, reprit le comte d'Erfeuil: je suis plus gai que vous,\\nj'en conviens; mais qui sait si je ne suis pas plus sage? Il y a\\nbeaucoup de philosophie, croyez-moi, dans mon apparente légèreté; la vie\\ndoit être prise comme cela.--Vous avez peut-être raison, reprit Oswald;\\nmais c'est par nature et non par réflexion, que vous êtes ainsi, et\\nvoilà pourquoi votre manière d'être ne convient qu'à vous.»\\n\\nLe comte d'Erfeuil entendit nommer Corinne dans la salle du bal, et il y\\nentra pour savoir ce dont il s'agissait. Lord Nelvil s'avança jusqu'à la\\nporte, et vit le prince d'Amalfi, Napolitain de la plus belle figure,\\nqui priait Corinne de danser avec lui la _Tarentelle_, une danse de\\nNaples, pleine de grâce et d'originalité. Les amis de Corinne le lui\\ndemandaient aussi. Elle accepta sans se faire prier, ce qui étonna assez\\nle comte d'Erfeuil, accoutumé qu'il était aux refus par lesquels il est\\nd'usage de faire précéder le consentement. Mais, en Italie, on ne\\nconnaît pas ce genre de grâces, et chacun croit tout simplement plaire\\ndavantage à la société en s'empressant de faire ce qu'elle désire.\\nCorinne aurait inventé cette manière naturelle, si déjà elle n'avait pas\\nété en usage. L'habit qu'elle avait mis pour le bal était élégant et\\nléger; ses cheveux étaient rassemblés dans un filet de soie à\\nl'italienne, et ses yeux exprimaient un plaisir vif qui la rendait plus\\nséduisante que jamais. Oswald en fut troublé; il combattait contre\\nlui-même; il s'indignait d'être captivé par des charmes dont il devait\\nse plaindre, puisque, loin de songer à lui plaire, c'était presque pour\\néchapper à son empire que Corinne se montrait si ravissante. Mais qui\\npeut résister aux séductions de la grâce? Fût-elle même dédaigneuse,\\nelle serait encore toute-puissante; et ce n'était assurément pas la\\ndisposition de Corinne. Elle aperçut lord Nelvil, rougit, et ses yeux\\navaient, en le regardant, une douceur enchanteresse.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"The irresolution of Oswald's character, increased by his misfortunes, inclined him to fear every irrevocable course. In his uncertainty, he had not even dared to ask Corinne the secret of her name and her fate, and yet his love for her was gaining new strength every day; he never looked at her without emotion; in company, he could scarcely move away, even for an instant, from the place where she was sitting; she did not utter a word that he did not feel; she did not have an instant of sadness or gaiety whose reflection was not depicted on his own countenance. But, even as he admired, even as he loved Corinne, he remembered how ill such a woman accorded with the English way of life, how much she differed from his father's conception of the woman it would be fitting for him to marry; and what he said to Corinne bore the marks of the agitation and constraint that these reflections aroused in him.\\n\\nCorinne was only too well aware of it; but it would have cost her so much to break with Lord Nelvil that she herself acquiesced in there being no decisive explanation between them; and as there was a certain lack of foresight in her character, she was happy with the present as it was, although it was impossible for her to know what would come of it.\\n\\nShe had withdrawn entirely from society to devote herself to her feelings for Oswald. But at last, wounded by his silence about their future, she resolved to accept an invitation to a ball where her presence was eagerly desired. Nothing is regarded with more indifference in Rome than withdrawing from society and reappearing in it by turns, as it suits one: it is the country where people concern themselves least with what elsewhere is called gossip; everyone does as he pleases without anyone inquiring into it, unless in others one encounters an obstacle to one's love or ambition. The Romans are no more concerned about the conduct of their compatriots than about that of the foreigners who come and go through their city, the meeting place of Europeans. When Lord Nelvil learned that Corinne was going to the ball, he felt vexed. For some time he had thought he saw in her a melancholy disposition that sympathized with his own; all at once she appeared to him keenly preoccupied with dancing, with that talent in which she excelled, and her imagination seemed animated by the prospect of a celebration. Corinne was not a frivolous person, but every day she felt herself more subjugated by her love for Oswald, and she wanted to try to weaken its force. She knew from experience that reflection and sacrifices have less power over passionate natures than distraction does, and she thought that reason consists not in triumphing over oneself according to the rules, but as best one can.\\n\\n“I must,” she said to Lord Nelvil, who was reproaching her for this intention, “I must nevertheless find out whether there is no one but you left in the world who can fill my life, whether what pleased me formerly can no longer amuse me, and whether the feeling you inspire in me must absorb every other interest and every other thought.”—“So you wish to cease loving me?” Oswald replied.—“No,” Corinne answered; “but only in domestic life can it be sweet to feel oneself thus ruled by a single affection. For me, who need my talents, my wit, my imagination, to sustain the brilliance of the life I have adopted, it hurts me, and hurts me greatly, to love as I love you.”—“So you would not sacrifice to me,” Oswald said to her, “that homage, that glory?”—“What does it matter to you,” Corinne said, “to know whether I would sacrifice them to you! Since we are not destined for one another, you must not forever blight for me the kind of happiness with which I must content myself.” Lord Nelvil did not reply, because, in expressing his feeling, he would also have had to say what design that feeling inspired in him; and his heart did not yet know. He therefore remained silent, sighing, and followed Corinne to the ball, although it cost him a great deal to go there.\\n\\nIt was the first time since his misfortune that he had again seen a large gathering; and the tumult of a celebration produced in him such an impression of sadness that he remained for a long time in a room adjoining the ballroom, his head resting on his hand, without even seeking to watch Corinne dance. He listened to that dance music which, like all music, makes one dream, although it seems intended only for joy. The Count d’Erfeuil arrived, utterly delighted by a ball, a gathering, in short, by a numerous company that reminded him a little of France. “I have done all I could,” he said to Lord Nelvil, “to find some interest in those ruins about which there is so much talk in Rome; I see nothing beautiful in them: admiration for those fragments covered with brambles is a prejudice. I shall give my opinion of them when I return to Paris, for it is time that this enchantment with Italy should end. There is not a monument in Europe still standing whole today that is not worth more than those broken columns, those bas-reliefs blackened by time, which can be admired only by dint of erudition. A pleasure that must be purchased with so much study does not seem to me very keen in itself; for no one needs to grow pale over books in order to be enraptured by the spectacles of Paris.” Lord Nelvil made no reply. The Count d’Erfeuil questioned him again about the impression Rome had made on him. “In the midst of a ball,” Oswald said, “this is hardly the time to speak of it seriously, and you know that I do not know how to speak otherwise.”—“Very well,” the Count d’Erfeuil replied; “I am gayer than you, I admit it; but who knows whether I am not wiser? There is a great deal of philosophy, believe me, in my apparent lightness; life must be taken that way.”—“You may be right,” Oswald replied; “but it is by nature, and not through reflection, that you are so, and that is why your way of being suits no one but you.”\\n\\nThe Count d’Erfeuil heard Corinne's name mentioned in the ballroom, and he went in to find out what was happening. Lord Nelvil advanced as far as the door and saw the Prince of Amalfi, a Neapolitan of the handsomest appearance, asking Corinne to dance the Tarantella with him, a dance from Naples, full of grace and originality. Corinne's friends were asking her to do so as well. She accepted without waiting to be pressed, which greatly surprised the Count d’Erfeuil, accustomed as he was to the refusals with which it is customary to preface consent. But in Italy, that kind of affectation is unknown, and everyone quite simply believes that one pleases society more by readily doing what it desires. Corinne would have invented this natural manner had it not already been customary. The dress she had put on for the ball was elegant and light; her hair was gathered into a silk net in the Italian fashion, and her eyes expressed a keen pleasure that made her more alluring than ever. Oswald was troubled by it; he struggled against himself; he was indignant at being captivated by charms of which he ought to complain, since, far from thinking of pleasing him, it was almost in order to escape his sway that Corinne showed herself so ravishing. But who can resist the seductions of grace? Even were it disdainful, it would still be all-powerful; and that was assuredly not Corinne's disposition. She caught sight of Lord Nelvil, blushed, and, as she looked at him, her eyes held an enchanting tenderness.\", \"source_occurrence_id\": \"stael-corinne-3cff302d84f1b4da\", \"source_language\": \"fr\", \"source_language_text_sha256\": \"b38e099ddc33d50c2f4dbd2d32586871175a3778f1d2a801465052cd8d915379\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T11:27:32.666974+00:00\", \"model_usage\": {\"input_tokens\": 2245, \"cached_input_tokens\": 0, \"output_tokens\": 1708}, \"estimated_cost_usd\": 0.043140000000000005, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"stael-corinne\", \"title\": \"Corinne; ou, l'Italie\", \"author\": \"Madame de Staël\", \"language\": \"fr\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": \"CHAPITRE PREMIER\", \"relative_position\": 0.223767, \"source_start\": 239199, \"source_end\": 239211, \"source_length\": 1068964}, \"form\": {\"form_family\": \"present_or_imperfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": \"optional\", \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"fr_present_past\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

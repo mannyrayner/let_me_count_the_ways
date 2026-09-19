@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"nansen-maria-a95aa1804441024d\", \"SOURCE_TEXT\": {\"exact_match\": \"elsker jeg Dig\", \"local_text\": {\"context_start\": 89610, \"context_end\": 90113, \"text\": \"Jeg svarer: »Saavist som jeg altid hellere har sagt Dig for lidt\\nend for meget, saavist elsker jeg Dig. Jeg elsker Dig i Lyst og i\\nNød, Hverdage og Festdage. Du er den, jeg vil dø med, men først vil\\njeg leve meget, meget længe med Dig. Javel har jeg længtes efter\\nmin yndige Elskerindes Kærtegn. Men mest har jeg længtes efter alt\\ndet andet, som ogsaa er Dig: dit trofaste Hjærte, din rene Tanke,\\ndin milde Tale, dit lyse Smil, som er min Sol i Tvivlen, dit gode\\nHaandtryk, som er min Styrke paa Vejen.«\"}, \"wider_canonical_context\": {\"context_start\": 86411, \"context_end\": 92729, \"text\": \"Jeg staar paa Waggonens Platform. Jeg har staaet der hele Natten,\\nsvøbt i min Kappe. Jeg har set Aftenens Skygger fra Dalene krybe op\\nad Bjærgene, indtil alt var hyllet i Mørke. Nu lakker det mod Dag,\\net blegt Skær lysner i Horisonten; med stedse rappere Stempelslag, i\\nTakt med mit Hjærte, haster Toget afsted mod den fremmede By.\\n\\nHvilken sælsom Uro har holdt mig vaagen den ganske Nat? Hvilke\\nangstfulde Spørgsmaal er det, mit Hjærte søger Svar paa, mens jeg\\ngrublende stirrer ud i Mørket?\\n\\nJeg kan jo ikke tvivle om Marias Kærlighed, jeg tvivler ikke længer\\nom min egen.\\n\\nDog drager jeg skælvende til Mødet. Thi mit angstfulde Spørgsmaal er\\ndette: Vil vi mon ikke føle os fremmede for hinanden?\\n\\nDen Maria, jeg rejser ud for at finde, er ikke Maria fra før. Det\\ner ikke det hensynsløst forelskede Barn, der i gamle Dage lagde\\nsig i mine Arme, ikke den muntre og altid beredte Elskerinde, min\\nErobring og mit Bytte, -- det er vel baade det ene og det andet, men\\nsamtidig noget større og højere, det, som maaske altid var hendes\\nVæsens Baggrund, det, jeg troede at fornemme de sidste Gange, vi var\\nsammen, det, som, til Syvende og sidst, blev min ensomme Tilbedelses\\nMadonnabilled.\\n\\nOg hun, vil hun genkende mig? Jeg gør det jo næppe selv. Jeg vandt\\nhende i Leg, jeg tog hende med Sværd i Haand. Alle Dage var det saa\\nlet en Dans, vi traadte. Og nu kommer jeg til hende med vaabenløs\\nAlvor. Før gjaldt det en Dans, nu gælder det Livet. Før nøjedes jeg i\\nrigt Overmod med lidet, nu beder jeg i fattig Ydmyghed om Alt.\\n\\n... Vi farer frem mod den dæmrende Morgen. Pludselig er det atter\\nsort Nat: under buldrende Larm jager Toget gennem en Tunnel. Mørket\\nstemmer mig for Brystet, det suser i mine Øren, og svimmel griber\\njeg om Platformens Gelænder. Jeg synes, denne Tunnel aldrig faar\\nEnde, jeg famler mig frem for at naa ind i den lyse Waggon -- da ...\\nhvilken Aabenbarelse! I den purpurne Himmelrand opstiger Solskiven,\\nspreder sin gyldne Glorie vidt om, gyder dirrende Varmelys over\\nfugtigt blinkende Græsdale og Kornskraaninger.\\n\\nSkønne fagre Dag, med frydelig Tak knæler jeg for Dig, Du, som friede\\nmig ud af min vaandefulde Nat og førte mig, med genfødt Tro, til\\nMaria.\\n\\n\\n\\n\\nLXI.\\n\\n\\nGensyns gyldne Sol over Bjærge, Gensyns tindrende Graad i stille Dale.\\n\\nI undrende Betagelse staar vi overfor hinanden, véd ej Ord at finde,\\nkan ikke spørge, ikke svare, kan kun synke i hinandens Arme og,\\njublende, grædende, i fælles Lyksalighed lovprise den opstigende Dag.\\n\\nVar det virkelig ingen Drøm? Var det virkelig Dig og mig? Vi ser paa\\nhinanden, vi ryster vantro paa Hovedet. Og dog, først nu synes vi,\\nvi rigtigt kender hinanden. Thi det er jo vort Gensyns høje Under:\\nvi mødes, som saa ofte tilforn vi mødtes i vor næppe tilstaaede\\nLængsels Lykkedrøm. Nu er Drømmen lyslevende.\\n\\nOg Du dejlige lyslevende Pige, med Forklarelsens stille Lykke i dine\\nskælmske Øjne, med Kvindens voksne Tænksomhed paa din Barne-Pande, Du\\nlægger dine Arme om min Hals og Du siger: »Saa skete det da omsider,\\ni den elvte Time, men ikke for sent, det, jeg aldrig ophørte at\\nhaabe. For det er jo sandt, ikke noget, Du imorgen fortryder, ikke\\nnoget, Du nu bilder Dig ind, fordi Du har længtes en Smule efter din\\nElskerinde?«\\n\\nJeg svarer: »Saavist som jeg altid hellere har sagt Dig for lidt\\nend for meget, saavist elsker jeg Dig. Jeg elsker Dig i Lyst og i\\nNød, Hverdage og Festdage. Du er den, jeg vil dø med, men først vil\\njeg leve meget, meget længe med Dig. Javel har jeg længtes efter\\nmin yndige Elskerindes Kærtegn. Men mest har jeg længtes efter alt\\ndet andet, som ogsaa er Dig: dit trofaste Hjærte, din rene Tanke,\\ndin milde Tale, dit lyse Smil, som er min Sol i Tvivlen, dit gode\\nHaandtryk, som er min Styrke paa Vejen.«\\n\\nMen da jeg siger Maria dette, græder hun, fordi hun forstaar, jeg\\ntaler sandt, og fordi hun er lykkelig.\\n\\n\\n\\n\\nLXII.\\n\\n\\nDer er En, som bagfra rykker mig i Ærmet. Jeg sidder med Maria paa\\nSkødet og siger vredt: »Hvem vover at forstyrre?«\\n\\nMen en Stemme hvisker: »Jeg kommer som Deputation fra Læserne. Deres\\nBog, som i Begyndelsen var frygtelig, er efterhaanden kommen ind paa\\net bedre Spor. Der er endogsaa nogle af os, som har faaet Taarer i\\nØjnene. Men nu er vi saa bange for, at den alligevel tilsidst skal\\nskeje ud. For Guds Skyld: De vil da vel ægte Maria? Husk paa, De har\\ntaget hende fra hendes Bejler, som havde de agtværdigste Hensigter?«\\n\\nMin strænge Censorinde, frygt ikke. Maria, siig den rare Dame, at hun\\nuden Skrupler kan lade os ene.\\n\\n\\n\\n\\nLXIII.\\n\\n\\nBispen staar foran Altret i sin Guldkjole og skinner omkap med\\nKandelabrene. De ærværdige Marmorstatuer i Nicherne er blevne\\nvaskede, og ved Orglet sidder den højt bedagede Mester med Silkekalot\\npaa Hovedet og Storkorset paa sit Bryst.\\n\\nStolestaderne er fyldte med Landets mest forelskede unge Piger og\\nMænd. De har Blomster i Hænderne, de sidder Par ved Par, de unge\\nPiger med hvide Roser, de unge Mænd med røde. Alle stirrer de ned mod\\nIndgangsdøren, hvor tolv venlige gamle Præster i sorte Fløjlskjoler\\nstaar opstillede, seks paa hver Side.\\n\\nSaa begynder Mesteren at spille. Orgeltonerne bruser under de høje\\nHvælvinger. De unge Piger og Mænd rejser sig.\\n\\nDen tunge Egetræsdør slaas op, et blændende Lys fylder Aabningen: dér\\nstaar Maria i sin hvide Brudekjole, ombølget af det lange Slør. En\\nblussende Jomfru med nedslagne Blikke. Himmelsk Højhed, salig Lykke\\nudstraaler fra hende.\\n\\nGennem Kirken gaar en beundrende Mumlen, Bispen ved Altret vender\\nsig, sætter sine Briller paa, og da han ser, hvor yndig Maria er,\\niler han hende i Møde, bøjer sig for hende og fører hende ved Haanden\\ntil Altret.\\n\\nDe unge Piger og Mænd strøer deres Roser, de røde og de hvide, over\\nhende, idet hun gaar forbi; nogle af Roserne bliver hængende i\\nSløret, og Maria smiler, da hun ser den blomstrede Kjole.\\n\\nMen den gamle Mester er hørt op at spille, han bøjer sig ud over\\nOrgelpulpiturets Ballustrade for at se Maria, og gennem Glughullerne\\ni Hvælvingerne kigger nysgærrige Engleansigter.\\n\\n... Saa er Maria med det gamle og nye Testamentes Ord givet i min\\nHaand, jeg fører hende ud, fulgt af Bispen og de tolv Præster samt\\nalle de forelskede unge Par, mens den gamle Mester spiller med den\\nene Haand og vifter til os med den anden.\\n\\nUdenfor holder Kareten med de hvide Heste for, og vi stiger op for at\\nkøre hjem til mig, hjem til os. Og saa begynder Klokkerne at kime.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"I am standing on the platform of the railway carriage. I have stood there all night,\\nwrapped in my cloak. I have watched the evening shadows creep up from the valleys\\nalong the mountains, until everything was shrouded in darkness. Now daybreak draws near;\\na pale glow brightens on the horizon; with ever quicker piston strokes, in\\ntime with my heart, the train speeds onward toward the foreign city.\\n\\nWhat strange unrest has kept me awake the whole night? What\\nanxious questions are these for which my heart seeks answers as I\\nstare broodingly out into the darkness?\\n\\nSurely I cannot doubt Maria's love; I no longer doubt\\nmy own.\\n\\nYet I journey trembling to our meeting. For my anxious question is\\nthis: Might we not feel like strangers to one another?\\n\\nThe Maria whom I am travelling out to find is not the Maria of before. She\\nis not the recklessly enamoured child who in days gone by laid\\nherself in my arms, not the merry and ever-ready mistress, my\\nconquest and my prize—it is presumably both the one and the other, but\\nat the same time something greater and higher, that which perhaps had always been\\nthe foundation of her being, that which I thought I sensed the last times we were\\ntogether, that which, ultimately, became the Madonna image of my solitary\\nworship.\\n\\nAnd she—will she recognize me? I scarcely do so myself. I won\\nher in play; I took her, sword in hand. All along, the dance\\nwe danced was so light. And now I come to her with unarmed\\nearnestness. Before, it was a matter of a dance; now, life is at stake. Before, in\\nwealthy arrogance, I contented myself with little; now, in impoverished humility, I ask for Everything.\\n\\n... We rush onward toward the dawning morning. Suddenly it is black\\nnight again: amid a thunderous din, the train hurtles through a tunnel. The darkness\\nconstricts my chest, there is a rushing in my ears, and, dizzy, I clutch\\nthe railing of the platform. It seems to me that this tunnel will never\\nend; I grope my way forward to reach the brightly lit carriage—then ...\\nwhat a revelation! From the purple rim of the sky rises the disc of the sun,\\nspreading its golden halo far and wide, pouring quivering, warm light over\\nmoistly gleaming grassy valleys and slopes of grain.\\n\\nBeautiful, fair Day, with joyful gratitude I kneel before You, You who delivered\\nme from my agonizing Night and led me, with faith reborn, to\\nMaria.\\n\\n\\n\\n\\nLXI.\\n\\n\\nGolden sun of reunion over mountains, sparkling tears of reunion in quiet valleys.\\n\\nIn wondering rapture we stand facing one another, know not what words to find,\\ncannot ask, cannot answer, can only fall into each other's arms and,\\nrejoicing, weeping, in shared bliss praise the rising Day.\\n\\nWas it really not a dream? Was it really You and me? We look at\\none another; we shake our heads in disbelief. And yet only now, it seems to us,\\ndo we truly know one another. For this is the lofty miracle of our reunion:\\nwe meet as so often before we met in the blissful dream of our scarcely confessed\\nlonging. Now the dream is vividly alive.\\n\\nAnd You, lovely, vividly alive girl, with the quiet happiness of transfiguration in Your\\nmischievous eyes, with the mature thoughtfulness of a woman upon Your child's brow, You\\nput Your arms around my neck and You say: “So at last it has happened,\\nat the eleventh hour, but not too late, that which I never ceased to\\nhope for. For it is true, is it not—not something You will regret tomorrow, not\\nsomething You are now imagining because You have missed Your\\nmistress a little?”\\n\\nI answer: “As surely as I have always preferred to tell You too little\\nrather than too much, I love You. I love You in joy and in\\nadversity, on weekdays and feast days. You are the one with whom I wish to die, but first I wish\\nto live a very, very long time with You. It is true that I have longed for\\nmy lovely mistress's caresses. But most of all I have longed for all\\nthe rest that is also You: Your faithful heart, Your pure thought,\\nYour gentle speech, Your bright smile, which is my sun in doubt, Your good\\nhandclasp, which is my strength upon the road.”\\n\\nBut when I tell Maria this, she weeps because she understands that I\\nspeak the truth, and because she is happy.\\n\\n\\n\\n\\nLXII.\\n\\n\\nThere is Someone tugging at my sleeve from behind. I am sitting with Maria on\\nmy lap and say angrily: “Who dares disturb us?”\\n\\nBut a voice whispers: “I come as a deputation from the readers. Your\\nbook, which was terrible at the beginning, has gradually got onto a better track.\\nThere are even some of us whose eyes have filled with tears. But now we are so\\nafraid that it may nevertheless go off course in the end. For God's sake: surely\\nyou do intend to marry Maria? Remember, you have taken her from her suitor,\\nwho had the most respectable intentions?”\\n\\nMy stern lady censor, do not fear. Maria, tell the nice lady that she\\nmay leave us alone without qualms.\\n\\n\\n\\n\\nLXIII.\\n\\n\\nThe Bishop stands before the altar in his golden robe and vies in radiance with\\nthe candelabra. The venerable marble statues in the niches have been\\nwashed, and at the organ sits the greatly aged Master, with a silk skullcap\\non his head and the Grand Cross upon his breast.\\n\\nThe pews are filled with the country's most enamoured young women and\\nmen. They have flowers in their hands; they sit pair by pair, the young\\nwomen with white roses, the young men with red. They all stare down toward\\nthe entrance door, where twelve kindly old priests in black velvet robes\\nstand arrayed, six on either side.\\n\\nThen the Master begins to play. The notes of the organ surge beneath the high\\nvaults. The young women and men rise.\\n\\nThe heavy oak door is flung open; a dazzling light fills the opening: there\\nstands Maria in her white bridal gown, enveloped by the long veil. A\\nblushing maiden with downcast eyes. Heavenly majesty, blessed happiness\\nradiate from her.\\n\\nA murmur of admiration passes through the church; the Bishop at the altar turns,\\nputs on his spectacles, and when he sees how lovely Maria is,\\nhe hurries to meet her, bows to her, and leads her by the hand\\nto the altar.\\n\\nThe young women and men strew their roses, the red and the white, over\\nher as she passes; some of the roses remain caught in\\nthe veil, and Maria smiles when she sees the flower-covered gown.\\n\\nBut the old Master has stopped playing; he leans out over\\nthe balustrade of the organ loft to see Maria, and through the apertures\\nin the vaults curious angels' faces peer.\\n\\n... Then, with the words of the Old and New Testaments, Maria is given into my\\nhand; I lead her out, followed by the Bishop and the twelve priests, as well as\\nall the enamoured young couples, while the old Master plays with one\\nhand and waves to us with the other.\\n\\nOutside, the carriage with the white horses is waiting, and we climb in to\\ndrive home to me, home to us. And then the bells begin to peal.\", \"source_occurrence_id\": \"nansen-maria-a95aa1804441024d\", \"source_language\": \"da\", \"source_language_text_sha256\": \"646342d1941ed3c1c08ad2e137d127169da7b981ddba63ddadcaffded6e05efe\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T11:07:13.988058+00:00\", \"model_usage\": {\"input_tokens\": 2308, \"cached_input_tokens\": 0, \"output_tokens\": 3549}, \"estimated_cost_usd\": 0.080212, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"nansen-maria\", \"title\": \"Maria: En Bog om Kærlighed\", \"author\": \"Peter Nansen\", \"language\": \"da\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.949436, \"source_start\": 89698, \"source_end\": 89712, \"source_length\": 94475}, \"form\": {\"form_family\": \"inverted_present_or_past\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": null, \"syntactic_family\": \"interrogative\"}, \"pattern\": {\"pattern_id\": \"da_inverted\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 1.0, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

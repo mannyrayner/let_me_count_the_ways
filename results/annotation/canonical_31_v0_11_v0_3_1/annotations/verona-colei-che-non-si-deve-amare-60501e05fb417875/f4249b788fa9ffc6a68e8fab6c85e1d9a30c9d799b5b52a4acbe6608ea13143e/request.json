@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"verona-colei-che-non-si-deve-amare-60501e05fb417875\", \"SOURCE_TEXT\": {\"exact_match\": \"ti amerei\", \"local_text\": {\"context_start\": 460230, \"context_end\": 460347, \"text\": \"— Non dire così, Loretta; sai bene che non è vero. Per te sento anche\\nun profondo rispetto: altrimenti non ti amerei.\"}, \"wider_canonical_context\": {\"context_start\": 456630, \"context_end\": 463381, \"text\": \"Il giovine svoltò per un viale che s’infoltava tra gli alberi;\\nella fece un lungo giro. Camminava piano, pensierosa, nervosa; con\\nl’ombrellino molestava l’erbe sul margine dei prati. Si trovava in\\nuno stato d’animo quanto mai perplesso. Nonostante le sue lunghe\\nriflessioni, ora non comprendeva più sè stessa, nè il fratello, e\\nnon sapeva più che farsi di questo Rafa così devoto e così ricco. In\\nfondo al cuore ella si sentiva anche triste; l’amore la struggeva,\\nla malinconia saliva dal fondo del suo essere, causandole una specie\\ndi lenta soffocazione. Il giorno prima era stata nella casa d’Arrigo,\\nperchè non poteva più rimanere senza vederlo; lo aveva trovato assorto\\ne quasi ostile. Non l’aveva baciata, non s’era lasciato baciare; aveva\\ncercato mille pretesti per mandarla via, e, vicino a lei, pareva su le\\nspine. Di Rafa non aveva neanche voluto udir parlare; le aveva detto\\nruvidamente:\\n\\n— Fanne quello che vuoi! Non m’interesso più di nulla.\\n\\nEd ella si era fatta mansueta, aveva cercato di carezzarlo, gli aveva\\ndetto:\\n\\n— Lo dovrò vedere domani: dammi un buon consiglio.\\n\\nAllora egli s’era messo a ridere, d’un riso acre, malvagio, di cui\\nella non poteva intendere il senso; poi si era messo a camminare per la\\nstanza, concitato, accigliato.\\n\\n— Lo vedrai domani?\\n\\n— Sì.\\n\\n— Allora digli ch’è un imbecille! Al suo posto io t’avrei già presa.\\n\\n— Perch’è parli così, Rigo? — ella gli aveva domandato con le lacrime\\nagli occhi. E lui a scrollar le spalle, senza rispondere. Poi l’aveva\\npregata che se n’andasse, perchè gli doleva il capo e voleva rimaner\\nsolo. Ma su l’uscio se l’era presa in braccio, se l’era stretta fra le\\nbraccia, con passione, e l’aveva spinta fuori.\\n\\nPiù tardi, verso la sera, con il pretesto di chiedere una informazione\\nal padre, era venuto a casa loro, forse per vederla un momento, per\\nsorriderle un attimo, dopo essere stato così ruvido.\\n\\nE s’erano baciati ancora, di nascosto, con più ansia, nella casa\\npaterna.\\n\\nElla non poteva comprenderlo bene. Forse lo struggeva una sciocca\\ngelosia di quest’uomo che in fondo ella derideva e sul quale faceva\\nun calcolo così diverso, così lontano dall’amore. Ma ell’avrebbe\\nrinunziato mille volte a Rafa, s’egli le avesse detta una sola parola!\\nE perchè non la voleva? Perchè faceva sopportare ad entrambi, con tanta\\nostinazione, una sofferenza così logorante?\\n\\nDietro la cancellata vide l’automobile ferma; vi corse rapida, vi\\nentrò. Gli ordini eran già dati al meccanico: partirono in fretta.\\n\\nNel caldo pomeriggio le campagne sfavillavan come oro: la strada era\\nsovrastata da una ferma nube di polvere: i carri enormi, carichi\\ndi mobili o di mercanzie, trascinati da molti cavalli in fila, ne\\ningombravan il mezzo e si scostavan lenti, con un gran scricchiolare,\\nai segnali della tromba. Quando un’altra automobile passava, rapida,\\ncon urli di sirena, tutto, per un lungo tratto, s’annebbiava in un\\nfolto polverìo, tutto: anche il sole.\\n\\nRafa le metteva un braccio intorno alla cintura, ella cercava di\\nrespingerlo, ma debolmente; non era più nè loquace nè gaia.\\n\\n— Vedete, — diceva, — non posso fidarmi di voi...\\n\\nEgli ubbidiva e ricominciava.\\n\\n— Andiamo lontano?\\n\\n— Non molto.\\n\\n— Ebbene, cos’avete a dirmi?\\n\\n— Non ora; parleremo dopo.\\n\\n— Ah, dopo...\\n\\n— Sei triste oggi?\\n\\n— Sì, un poco.\\n\\n— Perchè?\\n\\n— Per tante cose... tante cose...\\n\\n— Raccóntami, Loretta.\\n\\n— No, che serve? Tanto mi considerate per una ragazza molto leggera...\\nSono qui con voi... ne avete anche il diritto!\\n\\nElla mescolava ora in un modo singolare, senza rendersene conto,\\nl’astuzia con la sincerità. Il giovine si chinò su lei, fin quasi a\\nbaciarla.\\n\\n— Non dire così, Loretta; sai bene che non è vero. Per te sento anche\\nun profondo rispetto: altrimenti non ti amerei.\\n\\n— No, voi mi desiderate; questa è la parola giusta. Ma quanto ad\\namarmi, è ben altra cosa; non mi fareste venire qui.\\n\\n— Dammi ancora del tu, Loretta, come l’altre volte.\\n\\n— Non oggi, non oggi!\\n\\n— Allora non credi ch’io ti voglia bene?\\n\\nElla scosse il capo, incredula, sorridendo.\\n\\n— Ne sei certa?\\n\\n— Certissima.\\n\\nArrivarono in poco più di mezz’ora ad un piccolo villaggio, che\\ndistendeva le sue case bianche nella grande pianura, percorso intorno\\nda un fossatello quasi arido, con le due rive coperte di fiori gialli,\\ntra l’erbe polverose.\\n\\nL’automobile sostò nella piazza, ed uno sciame di monelli scamiciati\\naccorse intorno saltellando sui ciottoli a piedi scalzi. C’era un\\npiccolo giardino pieno di frescura e di pace a ridosso della chiesetta;\\nuna raggiera dorata bruciava, percossa in pieno dal sole, sul\\nfrontone della chiesa, e tanto splendeva, che pareva ruotasse; la casa\\nparrocchiale, dietro il verde, aveva le persiane delle due finestre\\nsocchiuse; da una pendeva un lenzuolo, dall’altra una camicia di\\npercallo a righe bianche e blu. Un cagnaccio di color fulvo annaspava\\nlungo il muro.\\n\\n— Vieni, — disse Rafa; — c’è un alberghetto in fondo al villaggio: vi\\nberremo il vin bianco.\\n\\n— No; voglio andare in chiesa, — rispose Loretta.\\n\\n— In chiesa?\\n\\n— Sì.\\n\\n— Bene, andiamo pure, se vuoi.\\n\\nIl meccanico si recò all’albergo per attenderli; essi traversarono la\\npiazza, il giardinetto pieno d’ombra, e salirono i quattro gradini del\\nsagrato. Molti monelli rincorrevano la macchina fragorosa.\\n\\nNon era tardi; s’udivano ancora tutti i romori del villaggio: i fabbri\\nmartellare, i falegnami piallare, le tessitrici muovere i telai. Un\\nbambinotto vestito da chierico leggeva un libro seduto all’ombra nel\\ngiardino. Li guardò e non si mosse. Sotto l’arco luminoso della porta\\nmaggiore si vedevano ronzar sciami. Entrarono. La chiesa era povera,\\nma religiosa e chiara come l’anima d’un seminatore; dalle alte vetrate\\npioveva il sole scomposto in polvere bionda. Solo una vecchia donna,\\nconfusa nell’ombra dei colonnati, pregava col volto fra le mani; ma era\\ncosì ferma, così genuflessa che pareva una suppellettile della chiesa.\\n\\nLa fanciulla intinse la mano nell’acquasantiera e si segnò, piegando\\nleggermente il ginocchio. Una goccia le rimase su la fronte, nitida\\ncome una perla. Poi girarono tutt’intorno all’abside guardando i quadri\\ndella Passione di Cristo.\\n\\nL’aria fresca odorava d’incenso evaporato.\\n\\n— Perchè hai voluto entrare in questa chiesa?\\n\\n— Un capriccio.\\n\\nEll’andava innanzi con un passo elastico, quasi per non far rumore;\\nla sua ombra s’allungava obliqua sul lucido pavimento. Piegò di nuovo\\nil ginocchio passando innanzi all’altare, poi sedette sovra un banco,\\nnell’ombra del colonnato, e si raccolse la fronte nella mano.\\n\\nIl Cristo crocifisso riscintillava della sua corona d’argento.\\n\\n— Ed ora che fai? — domandò Rafa.\\n\\n— Niente. Mi piace.\\n\\nEgli s’appoggiò alla colonna presso di lei, un po’ curvo.\\n\\n— Amo le chiese, — disse Loretta — e i canti e gli organi delle chiese.\\n\\nRafa la guardò a lungo, poi disse:\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"The young man turned down an avenue that grew thick among the trees;\\nshe made a long circuit there. She walked slowly, thoughtful, nervous;\\nwith her parasol she bothered the grass at the edges of the meadows. She\\nwas in an extremely perplexed state of mind. Despite her long\\nreflections, she no longer understood herself or her brother now, and\\nshe no longer knew what to do with this Rafa, so devoted and so rich. In\\nthe depths of her heart she also felt sad; love was consuming her,\\nmelancholy rose from the depths of her being, causing her a kind\\nof slow suffocation. The day before she had been at Arrigo’s house,\\nbecause she could no longer bear to remain without seeing him; she had\\nfound him absorbed and almost hostile. He had not kissed her, had not\\nallowed himself to be kissed; he had sought a thousand pretexts to send\\nher away, and, when near her, he seemed to be on tenterhooks. He had not\\neven wanted to hear Rafa spoken of; he had said to her roughly:\\n\\n— Do whatever you like with him! I no longer care about anything.\\n\\nAnd she had grown meek, had tried to caress him, had said to him:\\n\\n— I shall have to see him tomorrow: give me some good advice.\\n\\nThen he had begun to laugh, with a bitter, malicious laugh whose\\nmeaning she could not understand; then he had begun to pace about the\\nroom, agitated, scowling.\\n\\n— You will see him tomorrow?\\n\\n— Yes.\\n\\n— Then tell him he is an imbecile! In his place I would already have\\ntaken you.\\n\\n— Why do you speak like that, Rigo? — she had asked him with tears\\nin her eyes. And he had shrugged his shoulders without answering. Then\\nhe had begged her to leave, because his head hurt and he wanted to be\\nalone. But at the door he had taken her in his arms, had clasped her in\\nhis arms passionately, and had pushed her out.\\n\\nLater, toward evening, on the pretext of asking her father for some\\ninformation, he had come to their house, perhaps to see her for a\\nmoment, to smile at her for an instant, after having been so rough.\\n\\nAnd they had kissed again, in secret, with greater anxiety, in her\\nfather’s house.\\n\\nShe could not understand him properly. Perhaps he was being consumed\\nby a foolish jealousy of this man whom, deep down, she mocked and about\\nwhom she was making a calculation so different, so remote from love.\\nBut she would have renounced Rafa a thousand times over if he had said\\njust one word to her! And why did he not want her? Why did he, with such\\nobstinacy, make both of them endure such wearing suffering?\\n\\nBehind the gate she saw the automobile standing there; she ran quickly\\nto it and got in. The chauffeur had already been given his orders: they\\nset off in haste.\\n\\nIn the hot afternoon the countryside glittered like gold: a motionless\\ncloud of dust hung over the road; enormous carts, loaded with furniture\\nor merchandise, drawn by many horses in single file, obstructed its\\nmiddle and moved slowly aside, with a great creaking, at the signals of\\nthe horn. When another automobile sped past, with shrieks of its siren,\\neverything, for a long stretch, grew clouded in a thick haze of dust,\\neverything: even the sun.\\n\\nRafa put an arm around her waist; she tried to push him away, but\\nweakly; she was no longer talkative or merry.\\n\\n— You see, — she said, — I cannot trust you...\\n\\nHe obeyed and began again.\\n\\n— Are we going far?\\n\\n— Not very.\\n\\n— Well, what have you to tell me?\\n\\n— Not now; we shall talk afterward.\\n\\n— Ah, afterward...\\n\\n— Are you sad today?\\n\\n— Yes, a little.\\n\\n— Why?\\n\\n— Because of so many things... so many things...\\n\\n— Tell me about them, Loretta.\\n\\n— No, what good would it do? In any case, you consider me a very\\nfrivolous girl... I am here with you... you even have the right to think\\nso!\\n\\nShe was now mingling cunning with sincerity in a singular way, without\\nrealizing it. The young man bent over her, almost to the point of\\nkissing her.\\n\\n— Do not say that, Loretta; you know very well it is not true. I also\\nfeel a profound respect for you: otherwise I would not love you.\\n\\n— No, you desire me; that is the right word. But as for loving me,\\nthat is quite another matter; you would not have me come here.\\n\\n— Use the familiar form with me again, Loretta, as you did the other\\ntimes.\\n\\n— Not today, not today!\\n\\n— Then you do not believe that I care for you?\\n\\nShe shook her head, incredulous, smiling.\\n\\n— Are you certain of it?\\n\\n— Absolutely certain.\\n\\nIn a little over half an hour they reached a small village that spread\\nits white houses across the great plain, encircled by an almost dry\\nlittle ditch, with both its banks covered in yellow flowers among the\\ndusty grasses.\\n\\nThe automobile stopped in the square, and a swarm of barefoot,\\nshirtless urchins came running up, hopping over the cobblestones. There\\nwas a small garden full of coolness and peace beside the little church;\\na gilded sunburst blazed, struck full by the sun, on the church façade,\\nand it shone so brightly that it seemed to be turning; the parish\\nhouse, behind the greenery, had the shutters of its two windows partly\\nclosed; from one hung a sheet, from the other a white-and-blue-striped\\npercale shirt. A large tawny dog scrabbled along the wall.\\n\\n— Come, — said Rafa; — there is a little inn at the end of the village:\\nwe shall drink white wine there.\\n\\n— No; I want to go into the church, — Loretta replied.\\n\\n— Into the church?\\n\\n— Yes.\\n\\n— Very well, let us go, if you wish.\\n\\nThe chauffeur went to the inn to wait for them; they crossed the\\nsquare, the little garden full of shade, and climbed the four steps to\\nthe churchyard. Many urchins ran after the noisy automobile.\\n\\nIt was not late; all the sounds of the village could still be heard:\\nthe blacksmiths hammering, the carpenters planing, the weavers working\\ntheir looms. A chubby little boy dressed as a cleric was reading a book\\nwhile seated in the shade in the garden. He looked at them and did not\\nmove. Beneath the luminous arch of the main doorway, swarms could be\\nseen buzzing. They entered. The church was poor, but devout and bright\\nlike the soul of a sower; through the tall windows the sunlight poured,\\nbroken into golden dust. Only an old woman, indistinct in the shadow of\\nthe colonnades, was praying with her face in her hands; but she was so\\nstill, so firmly kneeling, that she seemed one of the church’s\\nfurnishings.\\n\\nThe girl dipped her hand into the holy-water font and crossed herself,\\nbending her knee slightly. A drop remained on her forehead, clear as a\\npearl. Then they walked all around the apse, looking at the paintings of\\nthe Passion of Christ.\\n\\nThe cool air smelled of faded incense.\\n\\n— Why did you want to enter this church?\\n\\n— A whim.\\n\\nShe walked ahead with a springy step, almost so as not to make any\\nnoise; her shadow stretched obliquely across the polished floor. She\\nbent her knee again as she passed before the altar, then sat down on a\\npew in the shadow of the colonnade and rested her forehead in her hand.\\n\\nThe crucified Christ glittered anew beneath his silver crown.\\n\\n— And what are you doing now? — Rafa asked.\\n\\n— Nothing. I like it.\\n\\nHe leaned against the column beside her, slightly stooped.\\n\\n— I love churches, — said Loretta, — and the singing and the organs in\\nchurches.\\n\\nRafa looked at her for a long time, then said:\", \"source_occurrence_id\": \"verona-colei-che-non-si-deve-amare-60501e05fb417875\", \"source_language\": \"it\", \"source_language_text_sha256\": \"b0ea7be0fec1c243cb4141b4e47a83c430a02bdcf2359a4b1f3c1e611f4c4299\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T12:22:11.106120+00:00\", \"model_usage\": {\"input_tokens\": 2378, \"cached_input_tokens\": 0, \"output_tokens\": 3150}, \"estimated_cost_usd\": 0.072512, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"verona-colei-che-non-si-deve-amare\", \"title\": \"Colei che non si deve amare\", \"author\": \"Guido da Verona\", \"language\": \"it\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.632188, \"source_start\": 460337, \"source_end\": 460346, \"source_length\": 728165}, \"form\": {\"form_family\": \"modal\", \"polarity\": \"affirmative\", \"tense_aspect\": \"modal\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"it_conditional\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"lagerlof-gosta-berlings-saga-9af4d5260c8d49d8\", \"SOURCE_TEXT\": {\"exact_match\": \"jag har älskat dig\", \"local_text\": {\"context_start\": 686812, \"context_end\": 687244, \"text\": \"Det är dock så mycket att säga till den, som håller på att\\ndö. Orden trängas på tungan, när man vet, att i nästa rum ligger den,\\nvars öra snart ska stängas för alltid. \\\"Ack, min vän min vän\\\", vill\\nman säga, \\\"kan du förlåta? Kan du tro, att jag har älskat dig trots\\nallt? Hur kunde det dock bli så, att jag skulle vålla dig så mycken\\nsorg, medan vi vandrade här tillsammans? Ack, min vän, tack för all\\nglädje, som du har skänkt mig!\\\"\"}, \"wider_canonical_context\": {\"context_start\": 683863, \"context_end\": 690148, \"text\": \"- Vår gamle prost har vaknat upp till nytt liv och ny kraft, sade\\nen tredje. Varje söndag talar han med oss om Guds rikes\\ntillkommelse. Vem kan vilja synda mer? Det godas välde tillstundar.\\n\\nOch majorskan åkte långsamt vidare, frågande vem hon mötte:\\n\\n- Hur går det med er? Lider ni inte brist här på orten?\\n\\nOch feberhettan och den stickande smärtan i bröstet stillades, när\\nde svarade henne:\\n\\n- Här finns två goda, rika kvinnor, Marianne Sinclaire och Anna\\nStjärnhök. De hjälper Gösta Berling med att gå ur hus i hus och se\\ntill, att ingen behöver svälta. Och numera kastas ingen säd i\\nbrännvinspannan.\\n\\nDet var, som om majorskan hade suttit där i släden och hållit en\\nlång gudstjänst. Hon var kommen till ett heligt land. Hon såg gamla,\\nfårade ansikten klarna, när det talades om de tider, som voro\\nkomna. Sjuklingarna glömde sina smärtor för att prisa glädjens dag.\\n\\n- Vi vill alla vara sådana som den gode kapten Lennart, sade de. Vi\\nvill alla vara goda. Vi vill tro alla om gott. Vi vill inte skada\\nnågon. Sådant ska påskynda Guds rikes tillkommelse.\\n\\nHon fann dem alla gripna av samma ande. På herrgårdarna hölls fri\\nspisning för de mest behövande. Den, som hade ett arbete att utföra,\\nlät det nu ske, och på alla majorskans bruk var verksamheten i full\\ngång.\\n\\nAldrig hade hon känt sig friskare, än när hon satt där och lät den\\nkalla luften strömma in i sitt verkande bröst. Ingen gård kunde hon\\nresa förbi utan att stanna och fråga.\\n\\n- Nu är allt gott, sade då husfolket. Här var stor nöd å färde, men\\nde goda herrarna från Ekeby hjälper oss. Majorskan ska komma att\\nförundra sig över allt, som har blivit utfört där. Nu är kvarnen\\nnästan färdig, och smedjan är i gång, och det brända huset är\\nupptimrat till takåsen.\\n\\nDet var nöden och de hjärteskakande händelserna, som hade\\nförvandlat dem alla. Ack, det skulle väl bara räcka en liten tid! Men\\ndet var ända gott att vända åter till ett land, där den ene tjänade\\nden andre och där alla ville göra det goda. Majorskan kände, att hon\\nkunde förlåta kavaljererna, och hon tackade Gud därför.\\n\\nAnna Lisa, sade hon, jag, gamla människa, sitter här och tror, att\\njag redan färdas in i de saligas himmel.\\n\\nNär hon äntligen kom fram till Ekeby och kavaljererna skyndade till\\nför att hjälpa henne ur släden, kunde de knappt känna igen henne, ty\\nhon var lika god och blid som deras egen unga grevinna. De äldre, som\\nhade sett henne som ung, viskade till varandra:\\n\\n- Det är inte majorskan på Ekeby, det är Margareta Celsing, som\\nkommer tillbaka.\\n\\nStor var kavaljerernas glädje över att se henne komma så god och så\\nfri från alla hämndtankar, men snart byttes den i sorg, när de funno\\nhur sjuk hon var. Hon måste genast bäras in i gästrummet i\\nkontorsflygeln och bäddas ner. Men på tröskeln vände hon sig om och\\ntalade till dem.\\n\\n- Det har varit Guds storm, sade hon, Guds storm. Jag vet nu, att\\nallt har varit till det bästa.\\n\\nDärmed stängdes dörren till sjukrummet, och de fingo inte se henne\\nmer.\\n\\nDet är dock så mycket att säga till den, som håller på att\\ndö. Orden trängas på tungan, när man vet, att i nästa rum ligger den,\\nvars öra snart ska stängas för alltid. \\\"Ack, min vän min vän\\\", vill\\nman säga, \\\"kan du förlåta? Kan du tro, att jag har älskat dig trots\\nallt? Hur kunde det dock bli så, att jag skulle vålla dig så mycken\\nsorg, medan vi vandrade här tillsammans? Ack, min vän, tack för all\\nglädje, som du har skänkt mig!\\\"\\n\\nDetta ville man säga och så mycket, mycket annat.\\n\\nMen majorskan låg i brinnande feber, och kavaljerernas röst kunde\\ninte nå henne. Skulle hon då aldrig få veta hur de hade arbetat, hur\\nde hade upptagit hennes verk, hur de hade räddat Ekeby ära och glans?\\nSkulle hon aldrig få veta det?\\n\\nKort därpå gingo kavaljererna ner till smedjan. Där var allt arbete\\navstannat, men de kastade nya kol och nytt tackjärn i ugnen och redde\\ntill en smälta. De kallade inte smederna, som hade gått hem för att\\nfira jul, utan arbetade själva vid härden. Kunde blott majorskan få\\nleva, tills hammaren komme i gång, då skulle den tala deras sak hos\\nhenne.\\n\\nDet blev kväll, och det blev natt under arbetet. Flera av dem\\ntänkte på hur underligt det var, att de nu åter kommo att fira julnatt\\ni smedjan.\\n\\nDen mångförfarne Kevenhüller, som hade varit smedjans och kvarnens\\nbyggmästare under denna bråda tid, och Kristian Bergh, den starke\\nkaptenen, stodo framme vid härden och skötte smältan. Gösta och Julius\\ndrogo kol. Av de övriga sutto några på städet under den upphissade\\nhammaren, och andra hade slagit sig ner på kolkärror och\\ntackjärnshögar. Löwenborg, den gamle mystikern, talade med farbror\\nEberbard, filosofen, som satt bredvid honom på städet.\\n\\n- I natt dör Sintram, sade han.\\n\\n- Varför just i natt? frågade Eberhard.\\n\\n- Bror vet väl, att vi i fjol ingick ett vad. Nu har vi intet\\ngjort, som inte har varit kavaljersmässigt, och därför har han\\nförlorat.\\n\\n- Bror, som tror på sådant, vet väl då också, att vi har gjort\\nmycket, som inte har varit kavaljersmässigt. För det första hjälpte vi\\ninte majorskan, för det andra började vi arbeta, för det tredje var\\ndet inte fullt riktigt, att Gösta Berling inte dödade sig, när han\\nhade lovat det.\\n\\n- Jag har också tänkt på detta, yttrade Löwenborg, men jag\\nförmenar, att bror inte uppfattar saken rätt. Att handla i tanke på\\negna, småaktiga fördelar var oss förbjudet, men inte att handla så,\\nsom kärleken eller äran eller vår eviga salighet fordrade. Jag tror,\\natt Sintram har förlorat.\\n\\n- Bror kan ha rätt.\\n\\n- Jag ska säga bror, att jag vet det. Jag har hört hans bjällror\\nhela kvällen, men det är inga riktiga bjällror. Snart har vi honom\\nhär.\\n\\nOch den lille gubben satt och stirrade fram mot smedjeporten, som\\nstod öppen, och mot det av glesa stjärnor besatta stycke blå himmel,\\nsom syntes genom den.\\n\\nOm en stund for han upp.\\n\\n- Ser bror honom? viskade han. Där kommer han nu insmygande. Ser\\ninte bror honom i dörröppningen?\\n\\n- Ingenting ser jag, genmälde farbror Eberhard. Bror är sömnig, det\\när hela saken.\\n\\n- Jag såg honom så tydligt mot den ljusa himlen. Han hade sin långa\\nvargskinnspäls och pälsmössan. Nu är han inne i mörkret, och jag kan\\ninte se honom. Se, nu är han framme vid ugnen! Han står tätt bredvid\\nKristian Bergh, men Kristian ser honom visst inte. Nu lutar han sig\\nfram och kastar något i elden. Å, vad han ser stygg ut! Akta er,\\nvänner, akta er!\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"“Our old dean has awakened to new life and new strength,” said a third. “Every Sunday he speaks to us about the coming of the kingdom of God. Who can wish to sin any longer? The reign of goodness is at hand.”\\n\\nAnd the major’s wife drove slowly onward, asking whomever she met:\\n\\n“How are things with you? Are you not suffering want here in the district?”\\n\\nAnd the feverish heat and the stabbing pain in her breast subsided when they answered her:\\n\\n“There are two good, wealthy women here, Marianne Sinclaire and Anna Stjärnhök. They help Gösta Berling go from house to house and make sure that no one need starve. And nowadays no grain is thrown into the brandy still.”\\n\\nIt was as though the major’s wife had sat there in the sleigh and conducted a long church service. She had come to a holy land. She saw old, furrowed faces brighten when people spoke of the times that had come. The sick forgot their pains to praise the day of joy.\\n\\n“We all want to be like the good Captain Lennart,” they said. “We all want to be good. We want to believe good of everyone. We do not want to harm anyone. Such things will hasten the coming of the kingdom of God.”\\n\\nShe found them all seized by the same spirit. At the manor houses, free meals were provided for those in greatest need. Whoever had work to be done now had it carried out, and at all the major’s wife’s works, activity was in full swing.\\n\\nNever had she felt healthier than when she sat there and let the cold air stream into her aching breast. She could not pass a single farm without stopping to ask.\\n\\n“Now all is well,” the household would then say. “Great distress was at hand here, but the good gentlemen from Ekeby are helping us. The major’s wife will be astonished at everything that has been accomplished there. Now the mill is almost finished, and the smithy is in operation, and the burned house has been timbered up to the roof ridge.”\\n\\nIt was the distress and the heart-shaking events that had transformed them all. Ah, surely it would last only a little while! But it was good nevertheless to return to a land where one served another and where everyone wished to do good. The major’s wife felt that she could forgive the cavaliers, and she thanked God for it.\\n\\n“Anna Lisa,” she said, “I, an old woman, sit here believing that I am already journeying into the heaven of the blessed.”\\n\\nWhen she finally arrived at Ekeby and the cavaliers hurried over to help her out of the sleigh, they could scarcely recognize her, for she was as good and gentle as their own young countess. The older ones, who had seen her when she was young, whispered to one another:\\n\\n“It is not the major’s wife of Ekeby; it is Margareta Celsing returning.”\\n\\nGreat was the cavaliers’ joy at seeing her arrive so good and so free of all thoughts of vengeance, but it soon changed to sorrow when they discovered how ill she was. She had to be carried at once into the guest room in the office wing and put to bed. But on the threshold she turned around and spoke to them.\\n\\n“It has been God’s storm,” she said, “God’s storm. I know now that everything has been for the best.”\\n\\nWith that, the door to the sickroom was closed, and they were not allowed to see her again.\\n\\nYet there is so much to say to someone who is dying. The words crowd upon one’s tongue when one knows that in the next room lies the one whose ear will soon be closed forever. “Ah, my friend, my friend,” one wishes to say, “can you forgive? Can you believe that I have loved you despite everything? How could it nevertheless come to pass that I should cause you so much sorrow while we walked here together? Ah, my friend, thank you for all the joy you have given me!”\\n\\nThis one wished to say, and so much, much else.\\n\\nBut the major’s wife lay in a burning fever, and the cavaliers’ voices could not reach her. Would she then never learn how they had worked, how they had taken up her work, how they had saved Ekeby’s honor and splendor? Would she never learn it?\\n\\nShortly afterward, the cavaliers went down to the smithy. All work there had stopped, but they threw fresh charcoal and fresh pig iron into the furnace and prepared a heat. They did not call the smiths, who had gone home to celebrate Christmas, but worked at the hearth themselves. If only the major’s wife could live until the hammer started up, then it would plead their case with her.\\n\\nEvening came, and night came during the work. Several of them thought how strange it was that they had now once again come to celebrate Christmas night in the smithy.\\n\\nThe much-experienced Kevenhüller, who had been the master builder of the smithy and the mill during this busy time, and Kristian Bergh, the strong captain, stood by the hearth and tended the heat. Gösta and Julius hauled charcoal. Of the others, some sat on the anvil beneath the raised hammer, while others had settled down on charcoal carts and heaps of pig iron. Löwenborg, the old mystic, spoke with Uncle Eberbard, the philosopher, who sat beside him on the anvil.\\n\\n“Tonight Sintram dies,” he said.\\n\\n“Why tonight in particular?” Eberhard asked.\\n\\n“Brother surely knows that last year we entered into a wager. Now we have done nothing that has not been worthy of cavaliers, and therefore he has lost.”\\n\\n“Brother, who believes in such things, surely also knows that we have done much that has not been worthy of cavaliers. First, we did not help the major’s wife; second, we began to work; third, it was not entirely proper that Gösta Berling did not kill himself when he had promised to do so.”\\n\\n“I have thought of this too,” Löwenborg said, “but I believe that Brother does not understand the matter correctly. We were forbidden to act with our own petty advantages in mind, but not to act as love or honor or our eternal salvation required. I believe that Sintram has lost.”\\n\\n“Brother may be right.”\\n\\n“I shall tell Brother that I know it. I have heard his sleigh bells all evening, but they are not real sleigh bells. Soon we shall have him here.”\\n\\nAnd the little old man sat staring toward the smithy gate, which stood open, and toward the patch of blue sky studded with sparse stars that could be seen through it.\\n\\nAfter a while, he started up.\\n\\n“Does Brother see him?” he whispered. “There he comes now, slinking in. Does Brother not see him in the doorway?”\\n\\n“I see nothing,” Uncle Eberhard replied. “Brother is sleepy; that is the whole matter.”\\n\\n“I saw him so clearly against the bright sky. He was wearing his long wolfskin coat and fur cap. Now he is inside in the darkness, and I cannot see him. Look, now he is at the furnace! He is standing close beside Kristian Bergh, but Kristian evidently does not see him. Now he leans forward and throws something into the fire. Oh, how wicked he looks! Take care, friends, take care!”\", \"source_occurrence_id\": \"lagerlof-gosta-berlings-saga-9af4d5260c8d49d8\", \"source_language\": \"sv\", \"source_language_text_sha256\": \"d5bc28081ab874fad1f87d4b1f688c1159d58a4c97b1bf6038ecd03fa42e0b83\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T11:02:20.958898+00:00\", \"model_usage\": {\"input_tokens\": 2193, \"cached_input_tokens\": 0, \"output_tokens\": 1881}, \"estimated_cost_usd\": 0.046392, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"lagerlof-gosta-berlings-saga\", \"title\": \"Gösta Berlings saga\", \"author\": \"Selma Lagerlöf\", \"language\": \"sv\", \"source_type\": \"runeberg\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.966447, \"source_start\": 687052, \"source_end\": 687070, \"source_length\": 710905}, \"form\": {\"form_family\": \"perfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"perfect\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"sv_perfect\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 1.0, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

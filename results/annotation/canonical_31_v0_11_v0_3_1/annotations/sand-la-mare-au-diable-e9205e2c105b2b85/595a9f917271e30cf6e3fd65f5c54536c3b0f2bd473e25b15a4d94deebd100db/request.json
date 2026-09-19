@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"sand-la-mare-au-diable-e9205e2c105b2b85\", \"SOURCE_TEXT\": {\"exact_match\": \"je t’aimerai\", \"local_text\": {\"context_start\": 100925, \"context_end\": 102345, \"text\": \"—Les parents ont raison de dire cela, j’en conviens, Marie,\\nreprit Germain; mais enfin ils sacrifieraient tout le temps de\\nla jeunesse, qui est le meilleur, à prévoir ce qu’on deviendra\\nà l’âge où l’on n’est plus bon à rien, et où il est\\nindifférent de finir d’une manière ou d’une autre. Mais moi,\\nje ne suis pas dans le danger de mourir de faim sur mes vieux\\njours. Je suis à même d’amasser quelque chose, puisque, vivant\\navec les parents de ma femme, je travaille beaucoup et ne\\ndépense rien. D’ailleurs, je t’aimerai tant, vois-tu, que ça\\nm’empêchera de vieillir. On dit que quand un homme est\\nheureux, il se conserve, et je sens bien que je suis plus\\njeune que Bastien pour t’aimer; car il ne t’aime pas, lui, il\\nest trop bête, trop enfant pour comprendre comme tu es jolie\\net bonne, et faite pour être recherchée. Allons, Marie, ne me\\ndéteste pas, je ne suis pas un méchant homme: j’ai rendu ma\\nCatherine heureuse, elle a dit devant Dieu à son lit de mort\\nqu’elle n’avait jamais eu de moi que du contentement, et elle\\nm’a recommandé de me remarier. Il semble que son esprit ait\\nparlé ce soir à son enfant, au moment où il s’est endormi.\\nEst-ce que tu n’as pas entendu ce qu’il disait? et comme sa\\npetite bouche tremblait, pendant que ses yeux regardaient en\\nl’air quelque chose que nous ne pouvions pas voir! Il voyait\\nsa mère, sois-en sûre, et c’était elle qui lui faisait dire\\nqu’il te voulait pour la remplacer.\"}, \"wider_canonical_context\": {\"context_start\": 98338, \"context_end\": 105001, \"text\": \"Elle procéda de nouveau au coucher du petit Pierre, qui était\\nsi bien endormi cette fois qu’il ne s’aperçut en rien de ce\\nnouveau voyage. Germain mit tant de bois au feu que toute la\\nforêt en resplendit à la ronde; mais la petite Marie n’en\\npouvait plus, et quoiqu’elle ne se plaignît de rien, elle ne\\nse soutenait plus sur ses jambes. Elle était pâle et ses dents\\nclaquaient de froid et de faiblesse. Germain la prit dans ses\\nbras pour la réchauffer; et l’inquiétude, la compassion, des\\nmouvements de tendresse irrésistible s’emparant de son cœur,\\nfirent taire ses sens. Sa langue se délia comme par miracle,\\net toute honte cessant:\\n\\n—Marie, lui dit-il, tu me plais, et je suis bien malheureux\\nde ne pas te plaire. Si tu voulais m’accepter pour ton mari,\\nil n’y aurait ni beau-père, ni parents, ni voisins, ni\\nconseils qui pussent m’empêcher de me donner à toi. Je sais\\nque tu rendrais mes enfants heureux, que tu leur apprendrais à\\nrespecter le souvenir de leur mère, et, ma conscience étant en\\nrepos, je pourrais contenter mon cœur. J’ai toujours eu de\\nl’amitié pour toi, et à présent je me sens si amoureux que si\\ntu me demandais de faire toute ma vie tes mille volontés, je\\nte le jurerais sur l’heure. Vois, je t’en prie, comme je\\nt’aime, et tâche d’oublier mon âge. Pense que c’est une fausse\\nidée qu’on se fait quand on croit qu’un homme de trente ans\\nest vieux. D’ailleurs je n’ai que vingt-huit ans! une jeune\\nfille craint de se faire critiquer en prenant un homme qui a\\ndix ou douze ans de plus qu’elle, parce que ce n’est pas la\\ncoutume du pays; mais j’ai entendu dire que dans d’autres pays\\non ne regardait point à cela; qu’au contraire on aimait mieux\\ndonner pour soutien, à une jeunesse, un homme raisonnable et\\nd’un courage bien éprouvé qu’un jeune gars qui peut se\\ndéranger, et, de bon sujet qu’on le croyait, devenir un\\nmauvais garnement. D’ailleurs, les années ne font pas toujours\\nl’âge. Cela dépend de la force et de la santé qu’on a. Quand\\nun homme est usé par trop de travail et de misère ou par la\\nmauvaise conduite, il est vieux avant vingt-cinq ans. Au lieu\\nque moi... Mais tu ne m’écoutes pas, Marie.\\n\\n—Si fait, Germain, je vous entends bien, répondit la petite\\nMarie, mais je songe à ce que m’a toujours dit ma mère: c’est\\nqu’une femme de soixante ans est bien à plaindre quand son\\nmari en a soixante-dix ou soixante-quinze, et qu’il ne peut\\nplus travailler pour la nourrir. Il devient infirme, et il\\nfaut qu’elle le soigne à l’âge où elle commencerait elle-même\\nà avoir grand besoin de ménagement et de repos. C’est ainsi\\nqu’on arrive à finir sur la paille.\\n\\n—Les parents ont raison de dire cela, j’en conviens, Marie,\\nreprit Germain; mais enfin ils sacrifieraient tout le temps de\\nla jeunesse, qui est le meilleur, à prévoir ce qu’on deviendra\\nà l’âge où l’on n’est plus bon à rien, et où il est\\nindifférent de finir d’une manière ou d’une autre. Mais moi,\\nje ne suis pas dans le danger de mourir de faim sur mes vieux\\njours. Je suis à même d’amasser quelque chose, puisque, vivant\\navec les parents de ma femme, je travaille beaucoup et ne\\ndépense rien. D’ailleurs, je t’aimerai tant, vois-tu, que ça\\nm’empêchera de vieillir. On dit que quand un homme est\\nheureux, il se conserve, et je sens bien que je suis plus\\njeune que Bastien pour t’aimer; car il ne t’aime pas, lui, il\\nest trop bête, trop enfant pour comprendre comme tu es jolie\\net bonne, et faite pour être recherchée. Allons, Marie, ne me\\ndéteste pas, je ne suis pas un méchant homme: j’ai rendu ma\\nCatherine heureuse, elle a dit devant Dieu à son lit de mort\\nqu’elle n’avait jamais eu de moi que du contentement, et elle\\nm’a recommandé de me remarier. Il semble que son esprit ait\\nparlé ce soir à son enfant, au moment où il s’est endormi.\\nEst-ce que tu n’as pas entendu ce qu’il disait? et comme sa\\npetite bouche tremblait, pendant que ses yeux regardaient en\\nl’air quelque chose que nous ne pouvions pas voir! Il voyait\\nsa mère, sois-en sûre, et c’était elle qui lui faisait dire\\nqu’il te voulait pour la remplacer.\\n\\n—Germain, répondit Marie, tout étonnée et toute pensive, vous\\nparlez honnêtement et tout ce que vous dites est vrai. Je suis\\nsûre que je ferais bien de vous aimer, si ça ne mécontentait\\npas trop vos parents: mais que voulez-vous que j’y fasse? le\\ncœur ne m’en dit pas pour vous. Je vous aime bien, mais\\nquoique votre âge ne vous enlaidisse pas, il me fait peur. Il\\nme semble que vous êtes quelque chose pour moi, comme un oncle\\nou un parrain; que je vous dois le respect, et que vous auriez\\ndes moments où vous me traiteriez comme une petite fille\\nplutôt que comme votre femme et votre égale. Enfin, mes\\ncamarades se moqueraient peut-être de moi, et quoique ça soit\\nune sottise de faire attention à cela, je crois que je serais\\nhonteuse et un peu triste le jour de mes noces.\\n\\n—Ce sont là des raisons d’enfant; tu parles tout à fait comme\\nun enfant, Marie!\\n\\n—Eh bien! oui, je suis un enfant, dit-elle, et c’est à cause\\nde cela que je crains un homme trop raisonnable. Vous voyez\\nbien que je suis trop jeune pour vous, puisque déjà vous me\\nreprochez de parler sans raison! Je ne puis pas avoir plus de\\nraison que mon âge n’en comporte.\\n\\n—Hélas! mon Dieu, que je suis donc à plaindre d’être si\\nmaladroit et de dire si mal ce que je pense! s’écria Germain.\\nMarie, vous ne m’aimez pas, voilà le fait; vous me trouvez\\ntrop simple et trop lourd. Si vous m’aimiez un peu, vous ne\\nverriez pas si clairement mes défauts. Mais vous ne m’aimez\\npas, voilà!\\n\\n—Eh bien! ce n’est pas ma faute, répondit-elle, un peu\\nblessée de ce qu’il ne la tutoyait plus; j’y fais mon possible\\nen vous écoutant, mais plus je m’y essaie et moins je peux me\\nmettre dans la tête que nous devions être mari et femme.\\n\\nGermain ne répondit pas. Il mit sa tête dans ses deux mains et\\nil fut impossible à la petite Marie de savoir s’il pleurait,\\ns’il boudait, ou s’il était endormi. Elle fut un peu inquiète\\nde le voir si morne et de ne pas deviner ce qui roulait dans\\nson esprit; mais elle n’osa pas lui parler davantage, et comme\\nelle était trop étonnée de ce qui venait de se passer pour\\navoir envie de se rendormir, elle attendit le jour avec\\nimpatience, soignant toujours le feu et veillant l’enfant,\\ndont Germain paraissait ne plus se souvenir. Cependant Germain\\nne dormait point; il ne réfléchissait pas à son sort, et ne\\nfaisait ni projets de courage, ni plans de séduction. Il\\nsouffrait, il avait une montagne d’ennui sur le cœur. Il aurait\\nvoulu être mort. Tout paraissait devoir tourner mal pour lui,\\net s’il eût pu pleurer il ne l’aurait pas fait à demi. Mais il\\ny avait un peu de colère contre lui-même, mêlée à sa peine, et\\nil étouffait sans pouvoir et sans vouloir se plaindre.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"She once again set about putting little Pierre to bed; this time he was so sound asleep that he noticed nothing at all of this new journey. Germain put so much wood on the fire that the whole forest shone with it all around; but little Marie could bear no more, and although she complained of nothing, she could no longer stand on her legs. She was pale, and her teeth were chattering from cold and weakness. Germain took her in his arms to warm her; and anxiety, compassion, and impulses of irresistible tenderness, taking possession of his heart, silenced his senses. His tongue was loosened as if by a miracle, and all shame fell away:\\n\\n“Marie,” he said to her, “thou pleasest me, and I am very unhappy not to please thee. If thou wouldst accept me as thy husband, there would be neither father-in-law, nor parents, nor neighbors, nor advice that could prevent me from giving myself to thee. I know that thou wouldst make my children happy, that thou wouldst teach them to respect their mother’s memory, and, with my conscience at rest, I could satisfy my heart. I have always felt affection for thee, and now I feel so much in love that if thou askedst me to do thy every bidding all my life, I would swear it to thee this very hour. See, I beg thee, how I love thee, and try to forget my age. Think that it is a false notion people have when they believe that a man of thirty is old. Besides, I am only twenty-eight! A young girl fears being criticized if she takes a man ten or twelve years older than herself, because that is not the custom of the region; but I have heard it said that in other regions they pay no attention to that; that, on the contrary, they prefer to give a young woman, as her support, a sensible man of well-proven courage rather than a young fellow who may go astray and, though thought a good sort, turn into a worthless rascal. Besides, years do not always make age. It depends on the strength and health one has. When a man is worn out by too much work and hardship, or by bad conduct, he is old before twenty-five. Whereas I... But thou art not listening to me, Marie.”\\n\\n“Indeed I am, Germain; I hear you clearly,” little Marie replied, “but I am thinking of what my mother has always told me: that a woman of sixty is much to be pitied when her husband is seventy or seventy-five and can no longer work to feed her. He becomes infirm, and she must care for him at the age when she herself would begin to have great need of care and rest. That is how one ends up dying on straw.”\\n\\n“Parents are right to say that, I admit it, Marie,” Germain resumed; “but then they would sacrifice all of youth, which is the best time, to foreseeing what one will become at an age when one is no longer good for anything and when it makes no difference whether one ends one way or another. But I am in no danger of starving in my old age. I am in a position to save something, since, living with my wife’s parents, I work a great deal and spend nothing. Besides, I shall love thee so much, dost thou see, that it will keep me from growing old. They say that when a man is happy, he keeps well, and I feel sure that I am younger than Bastien when it comes to loving thee; for he does not love thee: he is too stupid, too much of a child to understand how pretty and good thou art, and how deserving of being sought after. Come, Marie, do not detest me; I am not a wicked man. I made my Catherine happy; before God, on her deathbed, she said that she had never received anything from me but happiness, and she urged me to marry again. It seems that her spirit spoke this evening to her child, just as he was falling asleep. Didst thou not hear what he was saying? And how his little mouth trembled while his eyes gazed upward at something we could not see! He saw his mother, be sure of it, and it was she who made him say that he wanted thee to take her place.”\\n\\n“Germain,” Marie replied, utterly astonished and thoughtful, “you speak honorably, and everything you say is true. I am sure I would do well to love you, if that did not displease your parents too much; but what would you have me do about it? My heart is not inclined toward you. I am very fond of you, but although your age does not make you unattractive, it frightens me. It seems to me that you are something to me like an uncle or a godfather; that I owe you respect, and that there would be times when you would treat me like a little girl rather than like your wife and your equal. In short, my companions might make fun of me, and although it is foolish to pay attention to that, I think I would feel ashamed and a little sad on my wedding day.”\\n\\n“Those are a child’s reasons; thou speakest exactly like a child, Marie!”\\n\\n“Well, yes, I am a child,” she said, “and that is why I fear a man who is too sensible. You can plainly see that I am too young for you, since already you reproach me for speaking without reason! I cannot have more reason than my age allows.”\\n\\n“Alas, my God, how greatly I am to be pitied for being so clumsy and expressing what I think so badly!” Germain exclaimed. “Marie, you do not love me; that is the fact of it. You find me too simple and too dull. If you loved me a little, you would not see my faults so clearly. But you do not love me, that is all!”\\n\\n“Well, it is not my fault,” she replied, a little hurt that he was no longer addressing her as ‘thou’; “I am doing my best as I listen to you, but the more I try, the less I can get it into my head that we ought to be husband and wife.”\\n\\nGermain did not reply. He put his head in both his hands, and it was impossible for little Marie to know whether he was weeping, sulking, or asleep. She was a little worried to see him so gloomy and not to be able to guess what was passing through his mind; but she did not dare speak to him any further, and as she was too astonished by what had just happened to feel like going back to sleep, she waited impatiently for daylight, still tending the fire and watching over the child, whom Germain appeared no longer to remember. Germain, however, was not asleep; he was not reflecting on his fate, and was making neither courageous resolutions nor plans of seduction. He was suffering; he had a mountain of sorrow upon his heart. He wished he were dead. Everything seemed bound to turn out badly for him, and if he had been able to weep, he would not have done so by halves. But there was a little anger against himself mingled with his grief, and he was choking, unable and unwilling to complain.\", \"source_occurrence_id\": \"sand-la-mare-au-diable-e9205e2c105b2b85\", \"source_language\": \"fr\", \"source_language_text_sha256\": \"deff2f70a8d0d92c306f0a6f4cd60feb3628b6d083df6ab40f69279edf74c424\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T11:26:58.496553+00:00\", \"model_usage\": {\"input_tokens\": 2057, \"cached_input_tokens\": 0, \"output_tokens\": 1779}, \"estimated_cost_usd\": 0.043808, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"sand-la-mare-au-diable\", \"title\": \"La Mare au Diable\", \"author\": \"George Sand\", \"language\": \"fr\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.47661, \"source_start\": 101433, \"source_end\": 101445, \"source_length\": 212822}, \"form\": {\"form_family\": \"future\", \"polarity\": \"affirmative\", \"tense_aspect\": \"future\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"fr_future\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

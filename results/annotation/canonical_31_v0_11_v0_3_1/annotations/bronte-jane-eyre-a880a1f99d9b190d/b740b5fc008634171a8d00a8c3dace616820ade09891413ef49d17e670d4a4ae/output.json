@@ -1,0 +1,65 @@
+{
+  "occurrence_id": "bronte-jane-eyre-a880a1f99d9b190d",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.99,
+    "analysis": "The highlighted clause is a counterfactual, knowingly false avowal Jane says she would make if she were deceitful. Its represented force is truth-conditional because it would present Jane as having loved Mrs. Reed, even though the surrounding sentence explicitly denies that state. It neither undertakes a relational commitment nor functions as affect-driven verbal discharge.",
+    "ambiguity": null
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "hypothetical",
+    "description": "An embedded counterfactual love avowal: Jane says that, if she were deceitful, she would say she loved Mrs. Reed; she does not actually make that avowal as true."
+  },
+  "contextual_interpretation": "Jane invokes the hypothetical false avowal to prove her own candour by contrast with her direct declaration that she does not love Mrs. Reed. The wider scene frames her speech as retaliatory truth-telling after Mrs. Reed has accused her of deceit. Jane's intense resentment and excitement characterize the delivery and motivation of the surrounding confrontation, but do not give the hypothetical love formula independent expressive/reflexive force.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "“if I were, I should say I loved you”",
+      "supports": "The conditional construction makes the highlighted avowal hypothetical rather than an actual profession of love.",
+      "confidence": 1.0
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "“but I declare I do not love you”",
+      "supports": "The explicit correction establishes that the hypothetical avowal would be false while still presenting a loving state as true, supporting T rather than O.",
+      "confidence": 1.0
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "“I am not deceitful” and “Because it is the truth.”",
+      "supports": "Jane contrasts deceptive avowal with truthful denunciation, confirming that the imagined love utterance is conceived as an assertion rather than a commitment or reflexive discharge.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e4",
+      "source": "local_text",
+      "quotation_or_description": "The narration says Jane “gathered [her] energies and launched” the sentence as retaliation after resentment had built within her.",
+      "supports": "The speech is deliberate and confrontational despite its emotional intensity; this weighs against independent expressive/reflexive force for the embedded love clause.",
+      "confidence": 0.96
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the represented force of the imagined deceptive avowal. Its hypothetical status and falsity are contextual qualifications, not missing dimensions of core force.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": "The metadata's affirmative polarity applies to the embedded wording, but the governing counterfactual and immediate denial reverse its discourse-level implication."
+}

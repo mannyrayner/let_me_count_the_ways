@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"verona-colei-che-non-si-deve-amare-6e05cf6014ac655b\", \"SOURCE_TEXT\": {\"exact_match\": \"Ti amo\", \"local_text\": {\"context_start\": 535549, \"context_end\": 536239, \"text\": \"— Là, nel giardino, m’hai dette cose talmente gravi, che ne sono\\nturbata; vorrei piangere, ma in fondo al mio cuore v’è una gioia che\\nride, una specie di speranza inesprimibile... Non lasciarmi sola. Od\\nanche mi piacerebbe fare una cosa che non ho fatta mai: venire nel tuo\\nletto, addormentarmi vicino a te... Báciami! E poi dimmi qualcosa di\\nveramente pericoloso... Anche una parola innocente, se non vuoi dirmi\\naltro... Ti amo, e sola non potrò dormire... perchè ho voglia che tu\\nmi baci. Senti come la mia bocca è innamorata... Bàciami! Sono tua...\\ntua... préndimi! Non desidero altro che soffrire di te... per te...\\nFammi un po’ male... dammi un bacio, uno solo, senza fine.. chínati...\"}, \"wider_canonical_context\": {\"context_start\": 531953, \"context_end\": 539028, \"text\": \"La vide curva sul catino a rinfrescarsi la faccia; immaginò che per\\nuna sua civetteria feminea s’incipriasse tutta, prima di coricarsi.\\nQuell’odor morbido della cipria e della sua pelle profumata, commisto\\ninsieme, gli alitò sotto le narici come una cosa viva. Ed egli la vide\\nsedersi vicino al letto, stirarsi un poco nella pigrizia, nella delizia\\ndell’imminente riposo, accavallare una gamba su l’altra per togliersi\\nla scarpina, lasciarla cadere su lo scendiletto, poi farsi scorrere\\nlentamente, giù dal polpaccio, la finissima calza nera, ed il piccolo\\npiede uscirne, polito come un gioiello d’avorio, inquieto nella sua\\nforma sottile, nervoso come una mano. Indugiare un poco a togliersi\\nparimenti l’altra scarpina, l’altra calza, guardarsi intorno con quello\\nsguardo svogliato di colei che non vorrebbe dormir sola, poi levarsi,\\nprendere di su la coltre una bella camicia tutta pizzi e nastrini,\\nprepararla con qualche movimento carezzevole, slacciarsi quella che\\nportava indosso e lasciarla scivolare giù, come una guaina, con un\\nsorriso lento....\\n\\nSi andava per l’ultima volta a guardar nello specchio, poi si coricava.\\n\\nEgli si raffigurò queste cose minutamente, angosciosamente, come alcuno\\nche bevesse a piccoli sorsi un veleno soavissimo. La tepida notte\\nlo fasciava di profumi troppo forti; un indefinibile silenzio pieno\\nd’agitazioni pendeva tra cielo e terra; la nascosta vita notturna si\\nmoltiplicava intorno a lui, nell’ebbro giardino.\\n\\nTraverso il fogliame degli alberi guardava con una specie di\\nstupefazione quella finestra illuminata, sul terrazzo del primo piano.\\n\\nD’un tratto, non potè più resistere a quelle visioni, traversò il\\ngiardino in fretta, e salì.\\n\\nElla era uscita sul terrazzo deserto, s’era stesa pigramente nella\\npoltrona a sdraio, ed or l’aspettava, guardando nel miracolo della\\nnotte, ove tremava con una specie di furiosa intensità la magnificenza\\ndelle stelle.\\n\\n— Che fai lì fuori? Non ti sei dunque coricata?\\n\\nUn po’ ebbra di stelle, di silenzio e d’amore, tese a lui le due\\nbraccia senza rispondere.\\n\\n— Perchè non ti spogli? — domandò egli ancora.\\n\\n— Aspettavo te, — ella rispose con una voce lenta, un po’ velata.\\n\\nIl lieve alito notturno era passato fra i suoi capelli; nel suo viso\\nbatteva la bianchezza del raggio lunare. — Fa umido la sera, — egli\\nosservò; — non rimaner fuori troppo a lungo.\\n\\nPoi, volgendosi con rapidità: — Ora è tardi, — le disse; — dormi bene.\\nAddio.\\n\\n— Rigo... — ella profferì a bassa voce, quasi fosse ancora sperduta\\nnel sogno. E v’era un poco d’ebrietà nella sua femminile indolenza, ne’\\nsuoi modi ambigui, nella voce con cui lo chiamava. — Rigo, vieni qui:\\nsiéditi.\\n\\nGli fece un piccolo posto accanto a sè. Egli ubbidì silenziosamente.\\nIl calore di quel dolce corpo gli si propagò nelle vene come un piacere\\navvelenato e lentissimo. Stava curvo sopra il suo volto; le mani della\\nfanciulla gli carezzavano i capelli, la fronte.\\n\\nAllora ella si mise a parlargli piano, facendo lunghe pause, con\\ntrepidazione.\\n\\n— Non devi lasciarmi sola... Questa notte più che mai sento il bisogno\\ndi esserti vicina, molto vicina, perchè sarebbe una vera malinconia\\nmettere una parete, chiudere un uscio, fra me e te... Non vedi che\\nnotte magnifica? C’è un odore di gelsomini che vola per l’aria come una\\npolvere ubbriacante. Poi mi sento piena di torpore, questa notte...\\nBáciami!... Ho le mani calde, senti... Mi fanno male... Brúciano.\\nVoglio rimaner qui tutta la notte, a parlarti, a carezzarti, piuttosto\\nche rimaner sola.\\n\\nCacciava le dita ne’ suoi folti capelli, come alle volte si fa, nelle\\npellicce tepide, l’inverno. E continuava:\\n\\n— Là, nel giardino, m’hai dette cose talmente gravi, che ne sono\\nturbata; vorrei piangere, ma in fondo al mio cuore v’è una gioia che\\nride, una specie di speranza inesprimibile... Non lasciarmi sola. Od\\nanche mi piacerebbe fare una cosa che non ho fatta mai: venire nel tuo\\nletto, addormentarmi vicino a te... Báciami! E poi dimmi qualcosa di\\nveramente pericoloso... Anche una parola innocente, se non vuoi dirmi\\naltro... Ti amo, e sola non potrò dormire... perchè ho voglia che tu\\nmi baci. Senti come la mia bocca è innamorata... Bàciami! Sono tua...\\ntua... préndimi! Non desidero altro che soffrire di te... per te...\\nFammi un po’ male... dammi un bacio, uno solo, senza fine.. chínati...\\n\\nQueste parole, dette vicino alla sua bocca, lo addormentavan come\\nla musica d’un soave malefizio, fasciavan i suoi sensi dolorosi\\nd’un ineffabile ristoro, e chiudendo gli occhi egli s’irrigidiva per\\nascoltarla. Su la sua carne fredda passava un gran brivido di piacere;\\nuna consumazione insensibile, uno struggimento senza fine si propagava\\nin lui, sotto la carezza di quella voce.\\n\\nElla disse ancora, snervata, spossata:\\n\\n— Guarda: chiudo gli occhi... dormo. Chínati un poco, báciami!... ho\\ntanto sonno... ti amo. Sii dolce con me... Ascolta: non c’è rumore,\\nnessuno ci guarda... báciami!\\n\\nCome un pazzo egli le baciò la bocca, la fronte, le tempie, il collo,\\ni polsi, le mani, con un roco ansito nella gola soffocata, e la baciò\\nper tutta la sua carne profumata finchè il respiro gli venne meno. Poi\\nsi levò scapigliato, si sciolse da lei che lo teneva, la ricacciò con\\nviolenza sui cuscini, corse nella sua propria camera, vi si chiuse.\\n\\nElla dette un piccolo grido, e vibrante com’era sotto il flagello\\ndi quei baci, ruppe in un convulso di lacrime, poi restò per qualche\\nattimo quasi priva di vita.\\n\\nLa mezza luna saliva sopra le montagne, alta, limpida, lontana dalle\\nstelle.\\n\\nEgli si buttò sul letto, mordendo i cuscini, aggrappandosi alle coltri,\\nper dominare il tumulto che dentro lo schiantava, e non udir quella\\nvoce sommessa che dietro l’uscio lo supplicava, e non guardar più oltre\\nnella terribile possibilità di quell’ora.\\n\\nLa notte s’inoltrava, limpida, quasi tremante, verso i culmini del suo\\nglorioso fulgore, disseminando nella curva dell’infinito una più grande\\nmagnificenza di stelle. Il lago, le rive, abitate dall’ombre notturne,\\ninvase dall’ambiguità del silenzio, si vestivan di bianchi splendori\\nnell’incantesimo della notte.\\n\\nTrascorse un tempo che a lui parve infinito, poi gli sembrò di\\ncomprendere ch’ell’avesse cominciato a svestirsi. Non più intese per\\nil pavimento il rumore de’ suoi tacchi sottili, ma il camminar soffice\\ndi due pianelle che andassero frettolose; allora ebbe la tentazione\\nd’accostarsi all’uscio interno, che li divideva, e mettersi ad\\nascoltare. Ma subitamente invece la porta verso il corridoio s’aperse,\\ned ella entrò.\\n\\nEra in vestaglia, paurosa, pallida, e ristette sul limitare. Egli balzò\\ngiù dal letto, rimase attonito a guardarla.\\n\\n— Che vuoi?... — balbettò con voce soffocata.\\n\\n— Nulla, — rispose. Lo guardò. Negli occhi alterati aveva una luce\\ninsolita; l’espressione di quel viso era singolarmente mutata. Qualcosa\\ndi aspro e di selvaggio era pure in lei, nella sua bocca per solito\\ncosì ridente.\\n\\n— Non dormirai stanotte?\\n\\n— No.\\n\\nAllora il fratello si mise a camminare cupamente per la camera, senza\\npassarle vicino, come se meditasse contro lei qualche orribile cosa.\\n\\nMa rapidamente aperse la finestra ed uscì sul terrazzo.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"He saw her bent over the washbasin, cooling her face; he imagined that, out of some feminine coquetry, she powdered herself all over before going to bed. That soft scent of the powder and of her perfumed skin, mingled together, breathed beneath his nostrils like a living thing. And he saw her sit down beside the bed, stretch a little in her languor, in the delight of imminent rest, cross one leg over the other to take off her little shoe, let it fall upon the bedside rug, then slowly roll the very fine black stocking down her calf, and the small foot emerge from it, polished like an ivory jewel, restless in its slender shape, nervous as a hand. Linger a little as she likewise took off the other little shoe, the other stocking, look around with that listless gaze of a woman who would not wish to sleep alone, then rise, take from atop the coverlet a beautiful nightgown all lace and ribbons, lay it out with a few caressing movements, unfasten the one she wore and let it slip down like a sheath, with a slow smile....\\n\\nShe would go to look in the mirror one last time, then go to bed.\\n\\nHe pictured these things minutely, agonizingly, like someone drinking an exquisite poison in little sips. The tepid night swathed him in scents too strong; an indefinable silence full of agitation hung between heaven and earth; the hidden nocturnal life multiplied around him in the drunken garden.\\n\\nThrough the foliage of the trees he gazed with a kind of stupefaction at that lighted window on the first-floor terrace.\\n\\nSuddenly, he could no longer withstand those visions; he crossed the garden in haste and went upstairs.\\n\\nShe had gone out onto the deserted terrace, had stretched out languidly in the reclining chair, and was now waiting for him, gazing into the miracle of the night, where the magnificence of the stars trembled with a kind of furious intensity.\\n\\n“What are you doing out there? Haven’t you gone to bed, then?”\\n\\nA little intoxicated by the stars, by the silence, and by love, she held out both arms to him without answering.\\n\\n“Why don’t you undress?” he asked again.\\n\\n“I was waiting for you,” she replied in a slow, slightly veiled voice.\\n\\nThe light breath of night had passed through her hair; the whiteness of the moonbeam shone upon her face. “It is damp in the evening,” he observed; “do not stay outside too long.”\\n\\nThen, turning quickly, he said to her, “It is late now; sleep well. Farewell.”\\n\\n“Rigo...” she uttered softly, as though she were still lost in the dream. And there was a little intoxication in her feminine languor, in her ambiguous manner, in the voice with which she called him. “Rigo, come here: sit down.”\\n\\nShe made a little room for him beside her. He obeyed silently. The warmth of that sweet body spread through his veins like a poisoned, exceedingly slow pleasure. He was bent over her face; the girl’s hands caressed his hair, his forehead.\\n\\nThen she began to speak to him softly, with long pauses, trembling.\\n\\n“You must not leave me alone.... Tonight more than ever I feel the need to be close to you, very close, because it would be truly melancholy to put a wall, to close a door, between you and me.... Do you not see what a magnificent night it is? There is a scent of jasmine drifting through the air like an intoxicating powder. And then I feel so full of torpor tonight.... Kiss me!... My hands are hot, feel.... They hurt.... They burn. I want to stay here all night, talking to you, caressing you, rather than remain alone.”\\n\\nShe thrust her fingers into his thick hair, as one sometimes does into warm furs in winter. And she continued:\\n\\n“Down there, in the garden, you said such grave things to me that I am troubled by them; I should like to weep, but in the depths of my heart there is a joy that laughs, a kind of inexpressible hope.... Do not leave me alone. Or I should even like to do something I have never done: come into your bed, fall asleep beside you.... Kiss me! And then tell me something truly dangerous.... Even an innocent word, if you do not wish to tell me anything else.... I love you, and alone I shall not be able to sleep... because I want you to kiss me. Feel how much in love my mouth is.... Kiss me! I am yours... yours... take me! I desire nothing but to suffer from you... for you.... Hurt me a little... give me a kiss, only one, without end... bend down....”\\n\\nThese words, spoken close to his mouth, lulled him like the music of a sweet enchantment, swathed his aching senses in ineffable relief, and, closing his eyes, he stiffened in order to listen to her. A great shudder of pleasure passed over his cold flesh; an imperceptible wasting, an endless yearning spread through him beneath the caress of that voice.\\n\\nShe spoke again, enervated, exhausted:\\n\\n“Look: I am closing my eyes... I am asleep. Bend down a little, kiss me!... I am so sleepy... I love you. Be gentle with me.... Listen: there is no sound, no one is watching us... kiss me!”\\n\\nLike a madman he kissed her mouth, her forehead, her temples, her neck, her wrists, her hands, with a hoarse pant in his constricted throat, and he kissed her all over her perfumed flesh until his breath failed him. Then he rose, his hair disheveled, tore himself free from her as she held him, thrust her violently back upon the cushions, ran into his own room, and locked himself in.\\n\\nShe gave a little cry and, still quivering beneath the scourge of those kisses, burst into a convulsion of tears, then for a few moments remained almost lifeless.\\n\\nThe half-moon was rising above the mountains, high, clear, far from the stars.\\n\\nHe flung himself onto the bed, biting the pillows, clutching at the covers, to master the tumult that was rending him within, and not to hear that hushed voice pleading with him from behind the door, and not to look any further into the terrible possibility of that hour.\\n\\nThe night advanced, clear, almost trembling, toward the heights of its glorious radiance, strewing across the vault of infinity a still greater magnificence of stars. The lake and the shores, inhabited by the shadows of night, pervaded by the ambiguity of silence, clothed themselves in white splendors beneath the enchantment of the night.\\n\\nA span of time passed that seemed infinite to him; then he thought he understood that she had begun to undress. He no longer heard upon the floor the sound of her slender heels, but the soft tread of two slippers moving hurriedly; then he was tempted to go to the inner door that separated them and listen. But instead the door to the corridor suddenly opened, and she entered.\\n\\nShe was in a dressing gown, frightened, pale, and stopped on the threshold. He sprang down from the bed and stood staring at her in astonishment.\\n\\n“What do you want?...” he stammered in a choked voice.\\n\\n“Nothing,” she replied. She looked at him. There was an unfamiliar light in her altered eyes; the expression of that face was singularly changed. There was something harsh and wild in her too, in her mouth, usually so smiling.\\n\\n“Will you not sleep tonight?”\\n\\n“No.”\\n\\nThen her brother began to pace gloomily about the room, without going near her, as though he were contemplating some horrible act against her.\\n\\nBut abruptly he opened the window and went out onto the terrace.\", \"source_occurrence_id\": \"verona-colei-che-non-si-deve-amare-6e05cf6014ac655b\", \"source_language\": \"it\", \"source_language_text_sha256\": \"2bacb3270489fd48e10e3a0f28ca21673130b874646025699aedbba137a410ea\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T12:23:59.149466+00:00\", \"model_usage\": {\"input_tokens\": 2387, \"cached_input_tokens\": 0, \"output_tokens\": 1925}, \"estimated_cost_usd\": 0.048048, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"verona-colei-che-non-si-deve-amare\", \"title\": \"Colei che non si deve amare\", \"author\": \"Guido da Verona\", \"language\": \"it\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.736057, \"source_start\": 535971, \"source_end\": 535977, \"source_length\": 728165}, \"form\": {\"form_family\": \"present\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"it_present\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 1.0, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

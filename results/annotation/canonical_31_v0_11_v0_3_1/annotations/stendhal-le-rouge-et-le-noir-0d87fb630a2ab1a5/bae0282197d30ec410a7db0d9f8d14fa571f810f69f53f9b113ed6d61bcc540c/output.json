@@ -1,0 +1,65 @@
+{
+  "occurrence_id": "stendhal-le-rouge-et-le-noir-0d87fb630a2ab1a5",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.96,
+    "analysis": "The embedded clause “je t’aime” presents Madame de Rênal’s love for Julien as true and is therefore strongly truth-conditional. It does not itself undertake a commitment, despite the letter’s surrounding language of sacrifice. The wording occurs within a deliberate instruction about what Julien should tell Valenod, so the tearful and impassioned delivery does not independently establish expressive/reflexive force.",
+    "ambiguity": "The clause is a written avowal embedded within an imperative that imagines its later revoicing by Julien; this affects utterance status but not its dominant truth-conditional force."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "written",
+    "description": "Madame de Rênal writes “Dis-lui que je t’aime” in a letter to Julien, presenting her avowal inside an instruction that he could repeat it to Valenod."
+  },
+  "contextual_interpretation": "Madame de Rênal’s letter follows her fear that Julien no longer loves her and that their affair has been exposed. She asks him to tell Valenod that she loves him, then immediately rejects that formulation as almost blasphemously inadequate and substitutes the stronger “je t’adore.” Her tears, haste, agitation, and sacrificial rhetoric show extreme emotional intensity, but the highlighted clause remains a considered representation of her loving state rather than a reflex-like verbal discharge.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "“Dis-lui que je t’aime; mais non, ne prononce pas un tel blasphème; dis-lui que je t’adore”",
+      "supports": "The complement “que je t’aime” explicitly represents the writer’s loving state, strongly supporting T; its replacement by “je t’adore” frames it as a deliberately selected description rather than a reflexive discharge.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "The letter is described as “écrite à la hâte, baignée de larmes,” followed by fears of abandonment and declarations of sacrifice.",
+      "supports": "This establishes intense, distressed delivery and the sincerity presented by the scene, while not by itself supplying independent E or P force to the highlighted clause.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "“Ne m’aimes-tu pas… Veux-tu me perdre?” precedes the highlighted wording.",
+      "supports": "The avowal answers a crisis of reciprocal feeling and abandonment, reinforcing its truth-conditional presentation of love.",
+      "confidence": 0.97
+    },
+    {
+      "evidence_id": "e4",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is located in Chapter XX, “LES LETTRES ANONYMES,” of Stendhal’s Le Rouge et le Noir.",
+      "supports": "Confirms the bibliographic and epistolary setting used to identify the event as written.",
+      "confidence": 1.0
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the core avowal. The letter’s emotional intensity, rhetorical escalation, and imagined revoicing are adequately handled as context and utterance-status complications; they do not create residual pressure for E or O.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

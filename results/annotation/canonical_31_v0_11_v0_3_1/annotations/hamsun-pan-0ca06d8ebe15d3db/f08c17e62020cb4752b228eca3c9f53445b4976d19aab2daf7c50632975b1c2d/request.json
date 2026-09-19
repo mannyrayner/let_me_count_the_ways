@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"hamsun-pan-0ca06d8ebe15d3db\", \"SOURCE_TEXT\": {\"exact_match\": \"Jeg\\nelsker dig\", \"local_text\": {\"context_start\": 48226, \"context_end\": 48359, \"text\": \"Det var ikke noget, svarte hun. Det lydde så underlig at\\nGud vilde lønne mig for det. Du sier slikt noget som .... Jeg\\nelsker dig så!\"}, \"wider_canonical_context\": {\"context_start\": 45127, \"context_end\": 51464, \"text\": \"Hver dag, hver dag traf jeg hende. Jeg tilstår sandheten,\\njeg traf hende gjærne, ja mit hjærte fløi bort. Det er iår to\\når siden, nu tænker jeg på det bare når jeg vil, det hele æventyr\\nmorer og adspreder mig. Og hvad de to grønne fuglefjær angår\\nda skal jeg forklare det om litt.\\nVi hadde flere steder å træffes på, ved møllen, på veien,\\nja endog i min hytte; hun kom hvorhen jeg vilde. Goddag! ropte\\nhun altid først og jeg svarte goddag.\\n\\nDu er glad i dag, du synger, sier hun, og hendes øine funkler.\\n\\nJa jeg er glad, svarer jeg. Du har en flæk der på akslen,\\ndet er støv, kanske er det søle fra veien; jeg vil kysse den flæk,\\njo lat mig få lov til å kysse den. Alt hvad som er ved dig\\nvirker ømt på mig, jeg er så forstyrret efter dig. Inat sov jeg ikke.\\n\\nOg det var sandt, i mere end en nat lå jeg søvnløs.\\n\\nVi spaserer side om side bortefter veien.\\n\\nHvad synes du, bærer jeg mig ad således som du liker det?\\nsier hun. Kanske snakker jeg formeget? Ikke? Ja men du skal\\nsi hvad du synes. Stundom tænker jeg ved mig selv at dette\\naldrig kan gå vel ....\\n\\nHvad er det som ikke skal gå vel? spør jeg.\\n\\nDette med os. At det ikke kommer til å gå vel. Enten du\\ntror det eller ikke så går jeg her og fryser nu; det isner mig\\nnedover ryggen bare jeg kommer indtil dig. Det er av lykke.\\n\\nJa i like måte, svarer jeg, det isner også gjennem mig bare\\njeg ser dig. Jo det skal nok gå vel. Forresten skal jeg klappe\\ndig litt på ryggen for å varme dig.\\n\\nHun later mig motstræbende gjøre det, jeg klapper litt hår-\\ndere, bare for spøk, jeg ler og spør om det ikke hjælper.\\n\\nÅ nei ikke vær så snil å dunke mig mere i ryggen, sier hun.\\n\\nDisse par ord! Det lydde så hjælpeløst for mig at hun sa:\\nikke vær så snil.\\n\\nSå gik vi videre bortover veien. Er hun misfornøiet med\\nmig for min spøk? spurte jeg mig selv og jeg tænkte: lat os se.\\n\\neg sa:\\n\\n; eg kommer til å huske noget. Engang på en kanetur var\\ndet en ung dame som tok et hvitt silketørklæ av sin egen hals\\nog bandt det om min. Om kvælden sa jeg til damen: De skal\\nfå Deres tørklæ tilbake imorgen, jeg vil la det vaske. Nei,\\nsvarer hun, lat mig få det nu, jeg vil opbevare det som det er,\\nganske som De har brukt det. Og hun fik tørklædet. Tre år\\nefter traf jeg den unge dame igjen. Tørklædet? sa jeg. Hun\\nbragte tørklædet. Det lå i sit papir like uvasket, jeg så det selv.\\n\\nEdvarda skottet op på mig.\\n\\nJa? Hvordan gik det så?\\n\\nNei det var ikke mere, sa jeg. Men jeg synes det var et\\nskjønt træk.\\n\\nPause.\\n\\nHvor er den dame nu?\\n\\nI utlandet.\\n\\n23 — Hamsun: II\\nVi talte ikke mere derom. Men da hun skulde gå hjem sa hun:\\n\\nGodnat da. Nei ikke gå og tænk mere på den dame, vel?\\nJeg tænker ikke på nogen anden end dig.\\n\\nJeg trodde hende, jeg så at hun mente hvad hun sa og det\\nvar mig evig nok når hun bare tænkte på mig. Jeg gik efter\\nhende.\\n\\nTak, Edvarda, sa jeg. Senere la jeg til av ganske hjærte: Du\\ner altfor god for mig, men jeg er taknemmelig for at du vil\\nha mig; Gud vil lønne dig for det. Jeg er vel ikke så herlig som\\nmange andre du kunde få; men jeg er så ganske din, så vold-\\nsomt din, ved min udødelige sjæl. Hvad tænker du på? Du fik\\ntårer i øinene.\\n\\nDet var ikke noget, svarte hun. Det lydde så underlig at\\nGud vilde lønne mig for det. Du sier slikt noget som .... Jeg\\nelsker dig så!\\n\\nHun fløi mig med en gang om halsen like midt på veien og\\nkysset mig hæftig.\\n\\nDa hun var gåt bøiet jeg av og stak ind i skogen for å skjule\\nmig og være alene med min glæde. Og jeg sprang bevæget til-\\nbake til veien igjen og så om nogen skulde ha lagt mærke til at\\njeg gik ind der. Men jeg så ingen.\\n\\nXIII\\n\\nSommernætter og stille vand og uendelig stille skoger. Intet\\nskrik, intet fottrin fra veiene, mit hjærte var fuldt som av\\ndunkel vin.\\n\\nMøl og sværmere kommer lydløst flyvende ind gjennem mit\\nvindu, hitlokket av skinnet fra gruven og av duften fra min\\nstekte fugl. De støter mot taket med en dump lyd, svirrer\\nforbi mine ører så det farer koldt gjennem mig og sætter sig\\npå mit hvite krudthorn på væggen. Jeg betragter dem, de sitte1\\nskjælvende og ser på mig, det er spindere, borere og møl. Jeg\\nsynes at nogen av dem er som flyvende stedmorsblomster.\\n\\nJeg træder utenfor hytten og lytter. Ingenting, ingen støl,\\nalt sover. Luften lyser av flyvende insekter, av myriader svir-\\nrende vinger. Borte i skogkanten står bregner og stormhat,\\nmelbærlyngen blomstrer og jeg elsker dens små blomster. Tak\\nmin Gud, for hver lyngblomst jeg har set; de har været som små\\nroser på min vei og jeg gråter av kjærlighet til dem. Et eller\\nandet sted i nærheten er vild nellik, jeg ser den ikke, men jeg\\nfornemmer dens duft.\\n\\nMen nu i nattens timer har pludselig store, hvite blomster\\nutfoldet sig i skogen, deres ar står åpne, de ånder. Og lodne\\ntusmørkesværmere sænker sig ned i deres blade og bringer hele\\nplanten til å skjælve. Jeg går fra den ene til den andre blomst,\\nde er berusede, det er kjønslig berusede blomster og jeg ser\\nhvorledes de beruses.\\n\\nLette fottrin, et menneskes åndedrag, et glad godaften.\\n\\nJeg svarer og kaster mig ned på veien og omfavner de to knær\\nog den fattige kjole.\\n\\nGodaften, Edvarda! sier jeg endnu en gang, utslitt av lykke.\\n\\nHvor du er glad i mig! hvisker hun.\\n\\nHvor jeg kan være taknemmelig! svarer jeg. Du er min og\\nmit hjærte ligger hele dagen stille i mig og tænker på dig. Du\\ner den skjønneste pike på denne jord og jeg har kysset dig.\\nOfte blir jeg rød av glæde når jeg bare husker på at jeg har\\nkysset dig.\\n\\nHvorfor er du blit så glad i mig just i kvæld? spør hun.\\n\\nOg det var jeg blit av utallige grunde, jeg hadde bare behøvet\\nå tænke på hende for å bli det. Dette blik under de buede øien-\\nbryn høit op i panden og denne mørke, hulde hud!\\n\\nSkulde jeg ikke være glad i dig! sier jeg. Jeg går og takker\\nhvert træ for at du er frisk og har din helse. Engang på et ball\\nvar det en ung dame som sat over dans efter dans og alle lot\\nhende sitte. Jeg kjendte hende ikke, men hendes ansigt gjorde\\nindtryk på mig og jeg bukket for hende. Nu? Nei hun rystet\\npå hodet. Frøkenen danser ikke? sa jeg. Kan De begripe det,\\nsvarte hun, min far var så smuk og min mor var en fuldkommen\\nskjønhet, og min far seiret over min mor med storm. Men jeg\\nblev halt.\\n\\nEdvarda så på mig.\\n\\nLat os sætte os, sa hun.\\n\\nVi satte os i lyngen.\\n\\nVet du hvad min veninde sier om dig? begyndte hun. Du\\nhar dyreblik, sier hun, og når du ser på hende gjør du hende\\ngal. Det er som om du berører hende, sier hun.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"Every day, every day I met her. I confess the truth,\\nI was glad to meet her, yes, my heart took flight. This year it is two\\nyears ago; now I think of it only when I wish, the whole adventure\\namuses and distracts me. And as for the two green bird feathers,\\nI shall explain that shortly.\\nWe had several places where we could meet, by the mill, on the road,\\nyes, even in my hut; she came wherever I wished. Good day! she always\\ncalled first, and I answered good day.\\n\\nYou are happy today, you are singing, she says, and her eyes sparkle.\\n\\nYes, I am happy, I answer. You have a spot there on your shoulder;\\nit is dust, perhaps it is mud from the road; I want to kiss that spot,\\noh, do let me kiss it. Everything about you affects me tenderly,\\nI am so distraught over you. Last night I did not sleep.\\n\\nAnd it was true; for more than one night I lay sleepless.\\n\\nWe walk side by side along the road.\\n\\nWhat do you think, am I behaving as you like? she says. Perhaps\\nI talk too much? No? Yes, but you must tell me what you think.\\nSometimes I think to myself that this can never turn out well....\\n\\nWhat is it that will not turn out well? I ask.\\n\\nThis thing between us. That it will not turn out well. Whether you\\nbelieve it or not, I am walking here shivering now; a chill runs\\ndown my back merely when I come near you. It is from happiness.\\n\\nYes, the same with me, I answer; a chill also runs through me merely\\nwhen I see you. Oh, it will surely turn out well. Besides, I shall pat\\nyou a little on the back to warm you.\\n\\nShe reluctantly lets me do it; I pat a little harder, only in jest;\\nI laugh and ask whether it does not help.\\n\\nOh no, do not be so kind as to thump me on the back anymore, she says.\\n\\nThose few words! It sounded so helpless to me when she said:\\ndo not be so kind.\\n\\nThen we went on along the road. Is she displeased with me because\\nof my jest? I asked myself, and I thought: let us see.\\nI said:\\n\\nI happen to remember something. Once, on a sleigh ride, there was\\na young lady who took a white silk handkerchief from around her own neck\\nand tied it around mine. In the evening I said to the lady: You shall\\nhave Your handkerchief back tomorrow; I shall have it washed. No,\\nshe answered, let me have it now; I want to keep it as it is,\\njust as You have worn it. And she was given the handkerchief. Three years\\nlater I met the young lady again. The handkerchief? I said. She\\nbrought the handkerchief. It lay in its paper, still unwashed; I saw it myself.\\n\\nEdvarda glanced up at me.\\n\\nYes? What happened then?\\n\\nNo, there was no more, I said. But I thought it was a\\nlovely gesture.\\n\\nPause.\\n\\nWhere is that lady now?\\n\\nAbroad.\\n\\n23 — Hamsun: II\\nWe spoke no more about it. But when she was going home, she said:\\n\\nGood night, then. Do not go on thinking about that lady, will you?\\nI think of no one but you.\\n\\nI believed her; I saw that she meant what she said, and it was enough\\nfor me for all eternity if only she thought of me. I followed her.\\n\\nThank you, Edvarda, I said. Later I added with all my heart: You\\nare far too good for me, but I am grateful that you want me;\\nGod will reward you for it. I may not be as splendid as\\nmany others you could have; but I am so entirely yours, so violently\\nyours, by my immortal soul. What are you thinking about? There are\\ntears in your eyes.\\n\\nIt was nothing, she answered. It sounded so strange that\\nGod would reward me for it. You say such things as.... I\\nlove you so much!\\n\\nShe suddenly threw her arms around my neck right in the middle of the road\\nand kissed me passionately.\\n\\nWhen she had gone, I turned aside and slipped into the forest to hide\\nand be alone with my joy. And, deeply moved, I ran back\\nto the road again and looked to see whether anyone might have noticed that\\nI went in there. But I saw no one.\\n\\nXIII\\n\\nSummer nights and still water and endlessly still forests. No\\ncry, no footstep from the roads; my heart was full as though with\\ndark wine.\\n\\nMoths and hawk moths come flying soundlessly in through my\\nwindow, lured here by the glow from the hearth and by the smell of my\\nroasted bird. They strike the ceiling with a dull sound, whir\\npast my ears so that a chill passes through me, and settle\\non my white powder horn on the wall. I observe them; they sit\\ntrembling and look at me; they are spinners, borers, and moths. I\\nthink some of them are like flying pansies.\\n\\nI step outside the hut and listen. Nothing, no mountain farm,\\neverything sleeps. The air glows with flying insects, with myriads of\\nwhirring wings. Over at the edge of the forest stand ferns and monkshood;\\nthe bearberry is in bloom, and I love its little flowers. Thank\\nYou, my God, for every heather blossom I have seen; they have been like little\\nroses on my path, and I weep for love of them. Somewhere\\nnearby there are wild pinks; I do not see them, but I\\nsense their fragrance.\\n\\nBut now, in the hours of night, great white flowers have suddenly\\nunfolded in the forest; their stigmas stand open, they breathe. And shaggy\\nhawk moths descend into their petals and make the whole\\nplant tremble. I go from one flower to another;\\nthey are intoxicated, they are sexually intoxicated flowers, and I see\\nhow they become intoxicated.\\n\\nLight footsteps, a human being’s breath, a cheerful good evening.\\n\\nI answer and throw myself down on the road and embrace the two knees\\nand the poor dress.\\n\\nGood evening, Edvarda! I say once again, exhausted with happiness.\\n\\nHow you love me! she whispers.\\n\\nHow grateful I can be! I answer. You are mine, and\\nall day my heart lies still within me and thinks of you. You\\nare the most beautiful girl on this earth, and I have kissed you.\\nOften I blush with joy merely when I remember that I have\\nkissed you.\\n\\nWhy have you come to love me so much this very evening? she asks.\\n\\nAnd I had for countless reasons; I had only needed\\nto think of her for it to happen. That gaze beneath the arched eyebrows\\nhigh upon her forehead, and that dark, lovely skin!\\n\\nShould I not love you! I say. I go about thanking\\nevery tree because you are well and in good health. Once, at a ball,\\nthere was a young lady who sat out dance after dance, and everyone left\\nher sitting. I did not know her, but her face made\\nan impression on me, and I bowed to her. Well? No, she shook\\nher head. Does the young lady not dance? I said. Can You understand it,\\nshe answered; my father was so handsome and my mother was a perfect\\nbeauty, and my father swept my mother off her feet. But I\\nbecame lame.\\n\\nEdvarda looked at me.\\n\\nLet us sit down, she said.\\n\\nWe sat down in the heather.\\n\\nDo you know what my friend says about you? she began. You\\nhave the eyes of an animal, she says, and when you look at her you drive her\\nmad. It is as though you were touching her, she says.\", \"source_occurrence_id\": \"hamsun-pan-0ca06d8ebe15d3db\", \"source_language\": \"no\", \"source_language_text_sha256\": \"e4e2488d3f467874f0535b5ce0f43ad6b3478a3a0cda01842035e2464c6954bc\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T10:45:01.936371+00:00\", \"model_usage\": {\"input_tokens\": 2262, \"cached_input_tokens\": 0, \"output_tokens\": 2949}, \"estimated_cost_usd\": 0.068028, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"hamsun-pan\", \"title\": \"Pan\", \"author\": \"Knut Hamsun\", \"language\": \"no\", \"source_type\": \"runeberg\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.279542, \"source_start\": 48341, \"source_end\": 48355, \"source_length\": 172929}, \"form\": {\"form_family\": \"present_or_past\", \"polarity\": \"surface_optional_negative\", \"tense_aspect\": \"present\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"no_main\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

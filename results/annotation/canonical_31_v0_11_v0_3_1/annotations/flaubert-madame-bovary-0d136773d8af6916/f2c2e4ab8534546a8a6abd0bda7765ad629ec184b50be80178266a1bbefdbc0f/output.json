@@ -1,0 +1,72 @@
+{
+  "occurrence_id": "flaubert-madame-bovary-0d136773d8af6916",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.97,
+    "analysis": "Rodolphe’s reply directly presents as true that he loves Emma, making T the clear core force. It is an elicited, habitual reassurance rather than an undertaking or commitment, and nothing indicates that the words emerge as a reflex-like affective discharge.",
+    "ambiguity": "Rodolphe’s sincerity is doubtful, but possible insincerity does not reduce the utterance’s truth-conditional mode. Its reassuring function does not by itself establish P."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "Directly represented speech by Rodolphe, presented iteratively as his habitual answer to Emma’s repeated question."
+  },
+  "contextual_interpretation": "Emma repeatedly demands confirmation of Rodolphe’s love, and he answers with the conventional avowal “Mais oui, je t’aime!” The narration calls her question an “eternal” formula and depicts him consoling her with protestations embellished by puns. His emotional distance and later wish to exploit her attachment cast doubt on sincerity and suggest routine reassurance, but the utterance still semantically avows love rather than undertaking commitment or discharging affect reflexively.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "Emma’s recurrent question “M’aimes-tu?” is followed by Rodolphe’s answer: “Mais oui, je t’aime!”",
+      "supports": "The reply explicitly avows a loving state and therefore strongly supports T.",
+      "confidence": 1.0
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "The exchange is described as recurring: Emma’s reproaches “se terminaient toujours par l’éternel mot,” and Rodolphe “répondait-il.”",
+      "supports": "The iterative framing makes the utterance an elicited, habitual reassurance, providing no positive evidence for expressive/reflexive E.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "Rodolphe tries to console Emma while “enjolivant de calembours ses protestations.”",
+      "supports": "His words function contextually as calculated or conventional reassurance; this bears on sincerity and delivery but remains compatible with a T-mode avowal.",
+      "confidence": 0.96
+    },
+    {
+      "evidence_id": "e4",
+      "source": "local_text",
+      "quotation_or_description": "The narrator characterizes Rodolphe as one who “dans n’importe quel engagement, se tient en arrière” and says he sees pleasures to exploit in Emma’s love.",
+      "supports": "This weighs strongly against construing the reply as a relational undertaking under P, while contextualizing its likely insincerity or emotional shallowness.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "e5",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is identified in Gustave Flaubert’s Madame Bovary as an affirmative present-tense explicit love expression.",
+      "supports": "Confirms the identified core expression and its grammatical presentation as a current-state avowal.",
+      "confidence": 1.0
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the avowal’s core force. Rodolphe’s routinization, reassurance, and doubtful sincerity are contextual features adequately described without adding P, E, or O.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

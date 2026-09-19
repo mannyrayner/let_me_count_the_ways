@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"hamsun-victoria-5fa7bf1d366f41a3\", \"SOURCE_TEXT\": {\"exact_match\": \"Jeg elsker Dem\", \"local_text\": {\"context_start\": 66029, \"context_end\": 67197, \"text\": \" en majestæt. Herren reiser sig brat, hans\\nmørke sjæl blir som beskinnet av en lystre-ild i samme nu. De\\ner så god mot alle, sier han bitter, De kommer også til mig. Hun\\nsvarer ikke, hun står bare og ser på ham og hendes ansigt blir\\ndunkelt rødt. Hvad vil De? spør han like så bittert som før: er\\nDe kommet for å minde mig om det forbigangne? for så er det\\nsiste gang, nådige frue, nu reiser jeg for altid. Og fremdeles\\nsvarer ikke den unge slotsfrue, men hendes mund bæver. Han\\nsier: Er det Dem ikke nok at jeg har erkjendt min dårskap én\\ngang, så hør, jeg gjør det igjen: min hu stod til Dem, jeg var\\nDem ikke værdig, — er De nu tilfreds? Han fortsætter med sti-\\ngende hæftighet: De svarte mig nei, De tok en anden; jeg var\\nen bonde, en bjørn, en barbar som i min ungdom var tumlet\\nind på en kongelig vildtbane! Men da kaster herren sig på\\nen stol og hulker og ber: Å, gål tilgiv mig, gå Deres veil Nu er\\nal rødme veket fra slotsfruens ansigt. Så sier hun og hun uttaler\\nordene så langsomt og vel: Jeg elsker Dem; misforstå mig ikke\\nmere, det er Dem jeg elsker; farvel! Og det var sig den unge slots-\\nfrue, hun la hænderne for ansigtet og gik hurtig ut av døren ....\"}, \"wider_canonical_context\": {\"context_start\": 63773, \"context_end\": 70207, \"text\": \"Det går uker og måneder igjen og våren kom. Sneen var\\nallerede borte, det bruste langt ute i rummet som av løste\\nvande fra solen til månen. Svalerne var kommet og i skogen\\nutenfor byen våknet et spillende liv av alle slags hoppende dyr\\nog fugler med fremmede tungemål. En fersk og søtlig lukt\\nsvævet op fra jorden.\\n\\nHans arbeide har varet den ganske vinter. Som en opsang\\nhadde poplernes tørre grener knirket mot husvæggen nat og\\ndag; nu var våren kommet, stormene var forbi og stampeværket\\nhadde knaket istå.\\n\\nHan åpner vinduet og ser ut, gaten er allerede rolig skjønt\\ndet ikke er midnat, stjærnerne blinker på en himmel uten\\nskyer, det tegner til en varm og lys dag den dag imorgen. Han\\nhører buldret fra byen som blander sig med det evige brus i det\\nfjærne. Pludselig skingrer en jærnbanepipe, det er nattogets\\nsignal; det lyder som et enkelt hanegal i den stille nat. Nu er\\ntiden til arbeide inde, denne togfløite har været som et bud\\ntil ham i hele vinter.\\n\\nOg han lukker vinduet og sætter sig ved bordet igjen. Han\\nkaster de bøker han har læst i tilside og finder papirerne frem.\\nHan griper pennen.\\n\\nNu er hans store arbeide næsten færdig, det mangler bare\\net slutningskapitel, en hilsen som fra et bortseilende skib, og\\nhan har det allerede i hodet:\\n\\nDet sitter en herre i et gjæstgiversted ved veien, han er på\\ngjennemreise og skal langt, langt ut i verden. Han er grå i hår\\nog skjæg og det er gåt mange år hen over ham; men han er\\nstor og stærk endnu og han er næppe så gammel som han ser\\nut. Utenfor står hans vogn, hestene hviler, kusken er glad og\\nfornøiet; for han har fåt vin og mat av den fremmede. Da\\nherren har indskrevet sit navn kjender værten ham og bøier sig\\nfor ham og viser ham megen ære. Hvem lever på Slottet nu?\\nspør herren. Værten svarer: Kapteinen, han er meget rik; fruen\\ner god mot alle. Mot alle? spør herren sig selv og smiler sælsomt,\\nogså mot mig? Og herren sætter sig til å skrive på et papir\\nog da det er utskrevet læser han det over, det er et dikt, tungt\\nog rolig, men med mange bitre ord. Men bakefter river han\\npapiret istykker og han vedblir å sitte der og rive papiret endnu\\nmere istykker. Da banker det på hans dør og en gulklædt\\nkvinde træder ind. Hun slår sløret op, det er slotsfruen, fru\\nVictoria. Hun er som en majestæt. Herren reiser sig brat, hans\\nmørke sjæl blir som beskinnet av en lystre-ild i samme nu. De\\ner så god mot alle, sier han bitter, De kommer også til mig. Hun\\nsvarer ikke, hun står bare og ser på ham og hendes ansigt blir\\ndunkelt rødt. Hvad vil De? spør han like så bittert som før: er\\nDe kommet for å minde mig om det forbigangne? for så er det\\nsiste gang, nådige frue, nu reiser jeg for altid. Og fremdeles\\nsvarer ikke den unge slotsfrue, men hendes mund bæver. Han\\nsier: Er det Dem ikke nok at jeg har erkjendt min dårskap én\\ngang, så hør, jeg gjør det igjen: min hu stod til Dem, jeg var\\nDem ikke værdig, — er De nu tilfreds? Han fortsætter med sti-\\ngende hæftighet: De svarte mig nei, De tok en anden; jeg var\\nen bonde, en bjørn, en barbar som i min ungdom var tumlet\\nind på en kongelig vildtbane! Men da kaster herren sig på\\nen stol og hulker og ber: Å, gål tilgiv mig, gå Deres veil Nu er\\nal rødme veket fra slotsfruens ansigt. Så sier hun og hun uttaler\\nordene så langsomt og vel: Jeg elsker Dem; misforstå mig ikke\\nmere, det er Dem jeg elsker; farvel! Og det var sig den unge slots-\\nfrue, hun la hænderne for ansigtet og gik hurtig ut av døren ....\\n\\nHan lægger pennen ned og læner sig tilbake. Javel, punktum,\\nende. Der lå boken, alle de beskrevne blade, ni måneders ar-\\nbeide. En varm tilfredshet risler gjennem ham fordi hans værk\\ner ført tilende. Og mens han sitter der og ser mot vinduet\\nhvorigjennem dagen gryr summer og banker det i hans hode og\\nhans ånd arbeider videre. Han er fuld av stemning, hans hjærne\\nligger som en uhøstet vild have hvor det damper av jorden:\\n\\nHan er på en hemmelighetsfuld måte kommet ind i en dyp,\\nutdødd dal hvor intet levende findes. Langt borte, alene og\\nefterglemt står et orgel og spiller. Han går det nærmere, han\\nundersøker det, orglet blør, det rinder blod ut av dets ene side\\nmens det spiller. Længer fremme kommer han til et torv. Der\\ner alt øde, intet træ ses og ingen lyd høres, det er bare et øde\\ntorv. Men på sandet er det mærker efter folks sko og i luften\\nstår likesom endnu de siste ord som var uttalt på stedet, så nylig\\nvar det forlatt. En sælsom fornemmelse opfylder ham, disse\\nord som står igjen i luften over torvet ængster ham, kommer\\nham nærmere, trykker ham. Han slår dem bort fra sig og de\\nkommer igjen, det er ikke ord, det er oldinger, en gruppe\\noldinger som danser; han ser dem nu. Hvorfor danser de og\\nhvorfor er de ikke det minste glade når de danser? Det står\\net koldt gust ut fra dette selskap av gamle, de ser ham ikke,\\nde er blinde, og da han roper til dem hører de ham ikke,\\nde er døde. Han vandrer mot østen, mot solen, han kommer til\\net berg. En røst roper: Er du ved et berg? Ja, svarer han, jeg\\nstår ved et berg. Da sier røsten: Det berg du står ved er min\\nfot; jeg ligger bundet i det ytterste land, kom og løs mig!\\nSå begir han sig avsted til det ytterste land. Ved en bro står\\nen mand og passer ham op, han samler skygger ind; manden\\ner av moskus. En isnende rædsel griper ham ved synet av denne\\nmand som vil ta hans skygge. Han spytter imot ham og truer\\nham med knyttede hænder, men manden står urørlig og venter\\npå ham. Vend om! roper en røst bak ham. Han vender sig og\\nser et hode som triller avsted på veien og viser ham retningen.\\nHodet er et menneskes hode og nu og da ler det stille og tyst.\\nHan følger det. Det triller i dager og nætter og han følger det;\\nved havbredden smutter det ned i jorden og gjæmmer sig. Han\\nvader ut i havet og dukker. Han står ved en vældig port og\\nhan møter en stor, gjøende fisk. Den har faks på halsen og den\\ngjør imot ham som en hund. Bak fisken står Victoria. Han\\nstrækker hænderne ut mot hende, hun har ingen klær på, hun\\nler imot ham og det blåser en storm gjennem hendes hår. Da\\nroper han til hende, han hører selv sit skrik — og våkner.\\n\\nJohannes reiser sig og går til vinduet. Det er blit næsten lyst\\nog i det lille speil på vindusposten ser han at hans tindinger\\ner røde. Han slukker lampen og læser endnu en gang i det grå\\nlys av dagen den siste side i sin bok. Så lægger han sig.\\nUt på eftermiddagen den samme dag hadde Johannes betalt\\nsit værelse, leveret sit manuskript og forlatt byen. Han var\\nreist utenlands, ingen visste hvorhen.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"Weeks and months pass again, and spring came. The snow was already gone; far out in space there was a roaring as of waters released from the sun to the moon. The swallows had come, and in the forest outside the town a lively life awoke, of all kinds of leaping animals and birds with foreign tongues. A fresh, sweetish smell drifted up from the earth.\\n\\nHis work has lasted the whole winter. Like a work song, the poplars’ dry branches had creaked against the wall of the house night and day; now spring had come, the storms were past, and the stamping mill had creaked to a halt.\\n\\nHe opens the window and looks out; the street is already quiet although it is not midnight, the stars twinkle in a cloudless sky, and tomorrow promises to be a warm and bright day. He hears the rumble from the town mingling with the eternal roar in the distance. Suddenly a railway whistle shrills; it is the night train’s signal; it sounds like a single cockcrow in the still night. Now the time for work has come; this train whistle has been like a summons to him all winter.\\n\\nAnd he closes the window and sits down at the table again. He throws aside the books he has been reading and brings out the papers. He takes up the pen.\\n\\nNow his great work is almost finished; it lacks only a final chapter, a greeting as though from a ship sailing away, and he already has it in his head:\\n\\nA gentleman is sitting in an inn by the road; he is passing through and is going far, far out into the world. His hair and beard are gray, and many years have passed over him; but he is still big and strong, and he is hardly as old as he looks. Outside stands his carriage, the horses are resting, the coachman is happy and content; for the stranger has given him wine and food. When the gentleman has entered his name, the innkeeper recognizes him and bows to him and shows him great honor. Who lives at the Castle now? the gentleman asks. The innkeeper answers: The Captain; he is very rich; his wife is good to everyone. To everyone? the gentleman asks himself and smiles strangely, to me as well? And the gentleman sits down to write on a piece of paper, and when it is filled he reads it over; it is a poem, grave and calm, but with many bitter words. But afterward he tears the paper to pieces, and he continues to sit there and tear the paper into still smaller pieces. Then there is a knock at his door, and a woman clad in yellow enters. She lifts her veil; it is the lady of the Castle, Mrs. Victoria. She is like a majesty. The gentleman rises abruptly; his dark soul is as though lit by a flash of lightning at that very moment. You are so good to everyone, he says bitterly; You come to me as well. She does not answer; she merely stands and looks at him, and her face turns a dusky red. What do You want? he asks, just as bitterly as before: have You come to remind me of what is past? For then it is for the last time, gracious lady; now I am leaving forever. And still the young lady of the Castle does not answer, but her mouth trembles. He says: Is it not enough for You that I have acknowledged my folly once? Then hear me, I do so again: my heart was set on You, I was not worthy of You—are You satisfied now? He continues with mounting vehemence: You answered me no, You took another; I was a peasant, a bear, a barbarian who in his youth had blundered into a royal game preserve! But then the gentleman throws himself onto a chair and sobs and begs: Oh, go! Forgive me, go Your way! Now all the flush has left the lady of the Castle’s face. Then she says, pronouncing the words so slowly and distinctly: I love You; misunderstand me no longer, it is You whom I love; farewell! And the young lady of the Castle turned away; she put her hands over her face and went quickly out of the door....\\n\\nHe puts down the pen and leans back. Yes, full stop, the end. There lay the book, all the written pages, nine months’ work. A warm satisfaction ripples through him because his work has been brought to completion. And while he sits there looking toward the window through which day is dawning, it hums and pounds in his head, and his spirit continues to work. He is full of feeling; his brain lies like an unharvested wild garden from whose earth steam rises:\\n\\nIn some mysterious way he has entered a deep, extinct valley where no living thing is to be found. Far away, alone and forgotten, an organ stands playing. He goes nearer to it, he examines it; the organ is bleeding, blood runs from one of its sides while it plays. Farther on he comes to a square. Everything there is deserted; no tree can be seen and no sound can be heard; it is merely an empty square. But in the sand are marks left by people’s shoes, and the last words spoken in the place seem still to remain in the air, so recently was it abandoned. A strange sensation fills him; these words remaining in the air above the square distress him, come nearer to him, press upon him. He strikes them away from himself and they return; they are not words, they are old men, a group of old men dancing; he sees them now. Why are they dancing, and why are they not in the least happy when they dance? A cold, ghastly air emanates from this company of old men; they do not see him, they are blind, and when he calls to them they do not hear him, they are dead. He wanders toward the east, toward the sun; he comes to a mountain. A voice calls: Are you beside a mountain? Yes, he answers, I am standing beside a mountain. Then the voice says: The mountain beside which you stand is my foot; I lie bound in the outermost land; come and free me!\\n\\nThen he sets out for the outermost land. By a bridge a man stands lying in wait for him; he collects shadows; the man is made of musk. An icy terror grips him at the sight of this man who means to take his shadow. He spits at him and threatens him with clenched fists, but the man stands motionless and waits for him. Turn back! a voice calls behind him. He turns and sees a head rolling along the road and showing him the direction. The head is a human head, and now and then it laughs softly and soundlessly. He follows it. It rolls for days and nights, and he follows it; at the seashore it slips down into the earth and hides. He wades out into the sea and dives. He stands before a mighty gate and encounters a large, barking fish. It has a mane on its neck and barks at him like a dog. Behind the fish stands Victoria. He stretches his hands out toward her; she has no clothes on, she laughs toward him, and a storm blows through her hair. Then he calls out to her, he himself hears his scream—and wakes.\\n\\nJohannes rises and goes to the window. It has grown almost light, and in the little mirror on the window jamb he sees that his temples are red. He puts out the lamp and, once more, in the gray light of day, reads the last page of his book. Then he lies down.\\n\\nBy the afternoon of that same day Johannes had paid for his room, delivered his manuscript, and left the town. He had gone abroad; no one knew where.\", \"source_occurrence_id\": \"hamsun-victoria-5fa7bf1d366f41a3\", \"source_language\": \"no\", \"source_language_text_sha256\": \"374ab315ba6ddc38af1628822b5dfb82a9d666f92e446adb767652d1a91de82c\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T10:50:32.886274+00:00\", \"model_usage\": {\"input_tokens\": 2196, \"cached_input_tokens\": 0, \"output_tokens\": 2754}, \"estimated_cost_usd\": 0.063864, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"hamsun-victoria\", \"title\": \"Victoria\", \"author\": \"Knut Hamsun\", \"language\": \"no\", \"source_type\": \"runeberg\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.425047, \"source_start\": 67029, \"source_end\": 67043, \"source_length\": 157698}, \"form\": {\"form_family\": \"present_or_past\", \"polarity\": \"surface_optional_negative\", \"tense_aspect\": \"present\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"no_main\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 1.0, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

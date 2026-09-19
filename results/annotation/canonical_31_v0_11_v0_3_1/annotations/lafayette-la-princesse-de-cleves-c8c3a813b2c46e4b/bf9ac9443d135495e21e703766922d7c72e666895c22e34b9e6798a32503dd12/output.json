@@ -1,0 +1,65 @@
+{
+  "occurrence_id": "lafayette-la-princesse-de-cleves-c8c3a813b2c46e4b",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.98,
+    "analysis": "Monsieur de Clèves directly avows his continuing romantic love for his wife while contrasting it with her love for another man. The utterance primarily presents his emotional state as true and helps explain his jealousy and suffering. It does not itself undertake a new commitment, and its emotional intensity does not make it a reflex-like expressive discharge.",
+    "ambiguity": "The marital setting gives the avowal relational significance, but there is no independent evidence that these words enact or renew an undertaking."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "Monsieur de Clèves speaks the highlighted words directly to Madame de Clèves during a jealous confrontation."
+  },
+  "contextual_interpretation": "The avowal occurs within a sustained, intelligible reproach: “You are my wife; I love you as my beloved, and I see you love another.” Its function is to assert the emotional premise of Clèves’s jealousy and misery. The distinction between her being his wife and his loving her “comme ma maîtresse” emphasizes that his attachment is not merely formal or conjugal. Although the surrounding speech is highly distressed, the target clause remains a deliberate avowal rather than an affect-driven verbal reflex.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "“Vous êtes ma femme, je vous aime comme ma maîtresse, et je vous en vois aimer un autre.”",
+      "supports": "The coordinated contrast explicitly presents Clèves’s own romantic love as a fact while accusing his wife of loving another, strongly supporting T.",
+      "confidence": 1.0
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "Immediately before the target, Clèves says that he is more unhappy than he had believed and “le plus malheureux de tous les hommes.”",
+      "supports": "His avowal supplies a reason for his jealousy and unhappiness; the emotional context supports an intense truth-conditional avowal without independently establishing E.",
+      "confidence": 0.97
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "Later he explains that he loved her desperately, was her husband, and had violent, unstable feelings over which he had no control.",
+      "supports": "The wider exchange corroborates the sincerity and intensity of the represented loving state, while showing that intensity and loss of composure are described contextually rather than encoded as reflexive force in the highlighted clause.",
+      "confidence": 0.96
+    },
+    {
+      "evidence_id": "e4",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is identified as an affirmative present-tense explicit love expression in Madame de La Fayette’s La Princesse de Clèves.",
+      "supports": "Confirms that the highlighted present-tense clause is the relevant explicit love avowal.",
+      "confidence": 0.99
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the core force as an avowal of romantic feeling. The jealousy, marital status, and emotional violence belong to contextual interpretation and create no residual pressure for P, E, or O.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

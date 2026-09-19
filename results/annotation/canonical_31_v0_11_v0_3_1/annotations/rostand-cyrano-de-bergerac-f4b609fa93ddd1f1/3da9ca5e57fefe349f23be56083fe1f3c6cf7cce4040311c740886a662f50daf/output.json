@@ -1,0 +1,72 @@
+{
+  "occurrence_id": "rostand-cyrano-de-bergerac-f4b609fa93ddd1f1",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.97,
+    "analysis": "Roxane’s conditional “Je t’aimerais encore” directly avows that her love would persist even if Christian lost his beauty. It presents a counterfactual loving disposition as true, rather than undertaking a new relational commitment. The exclamation and emotional setting intensify the avowal but provide no independent evidence of expressive/reflex-like discharge.",
+    "ambiguity": "The future-oriented conditional can sound pledge-like, especially when Roxane later says “je le jure,” but its core force is a claim about the persistence and basis of her existing love, not a relational undertaking."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "Roxane directly addresses Christian with a conditional avowal: she would continue to love him if his beauty vanished."
+  },
+  "contextual_interpretation": "Roxane is correcting her earlier, beauty-based attraction and insisting that she now loves what she takes to be Christian’s soul. Her statement answers Christian’s doubt and reassures him by asserting that ugliness would not alter her love. Dramatic irony complicates the addressee and object of that love: the soul disclosed through the voice and letters is substantially Cyrano’s, and Christian immediately concludes that she therefore loves Cyrano. This misidentification affects the utterance’s truth and narrative import, but not its predominantly truth-conditional force.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "“Je t’aimerais encore ! / Si toute ta beauté tout d’un coup s’envolait” (“I would love you still if all your beauty suddenly vanished”).",
+      "supports": "The conditional explicitly presents the persistence of Roxane’s loving state under a counterfactual loss of beauty, strongly supporting T.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "Immediately beforehand Roxane says, “ce n’est plus que pour ton âme que je t’aime” and “C’est ce qui te fait toi ... que j’adore.”",
+      "supports": "The highlighted line continues an extended, reflective explanation of what she loves, supporting avowal rather than reflex-like discharge.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "After Christian protests, Roxane deliberately reaffirms the statement: “Si, je le dis !” and, when asked whether she would love him ugly, “Laid ! je le jure !”",
+      "supports": "Her conscious defence and ratification of the proposition support deliberate assertion. The oath reinforces asserted sincerity but does not convert the love utterance into a relational undertaking.",
+      "confidence": 0.97
+    },
+    {
+      "evidence_id": "e4",
+      "source": "local_text",
+      "quotation_or_description": "Christian subsequently tells Cyrano, “Elle n’aime plus que mon âme ! ... C’est donc bien toi qu’elle aime,” because Cyrano supplied the voice and letters Roxane identifies with Christian’s soul.",
+      "supports": "Establishes the dramatic irony and mistaken attribution surrounding Roxane’s avowal while leaving its core T/P/E classification intact.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "e5",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is identified as a French affirmative conditional form in Edmond Rostand’s Cyrano de Bergerac.",
+      "supports": "Confirms that the highlighted form is conditional and belongs to the stated dramatic work.",
+      "confidence": 0.99
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the conditional avowal. Its reassurance, oath-like reinforcement, and dramatic irony are adequately treated as contextual features; they create no residual core force requiring P, E, or O.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": "The grammatical conditional expresses counterfactual persistence of an existing love, not merely a hypothetical rehearsal of an utterance."
+}

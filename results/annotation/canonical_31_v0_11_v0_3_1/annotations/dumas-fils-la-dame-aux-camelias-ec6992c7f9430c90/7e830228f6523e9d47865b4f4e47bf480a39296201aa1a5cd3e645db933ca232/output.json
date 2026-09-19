@@ -1,0 +1,72 @@
+{
+  "occurrence_id": "dumas-fils-la-dame-aux-camelias-ec6992c7f9430c90",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.97,
+    "analysis": "The sentence is a retrospective but unequivocal written avowal that the writer loved Armand. It presents her love as a real emotional state whose memory sustains her. It makes no commitment or relational undertaking, and its emotional intensity does not turn the carefully contextualized written statement into an expressive/reflex-like discharge.",
+    "ambiguity": "The imperfect “je vous aimais” can locate the love in the past, but the continuing memory of the love and hope of seeing Armand again suggest enduring emotional significance. This temporal nuance does not weaken the utterance’s truth-conditional force."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "written",
+    "description": "A first-person avowal written to Armand in the writer’s dated correspondence while she is gravely ill."
+  },
+  "contextual_interpretation": "Facing possible death, the writer records that she loved Armand and that the memory of this love, together with hope of seeing him again, has sustained her. The surrounding reflections on reunion and their former shared life intensify and substantiate the avowal, but do not constitute a promise. The composed causal explanation and explicit act of writing favor a reflective assertion over a reflex-like verbal discharge.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "“Quoi qu'il arrive, je vous aimais bien, Armand”",
+      "supports": "Directly presents the writer’s love for Armand as true, strongly supporting T.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "“le souvenir de cet amour” has sustained her and is joined by “un vague espoir de vous revoir encore près de moi.”",
+      "supports": "Identifies the avowed love as an enduringly consequential emotional state and supports a sincere-seeming T reading without creating an undertaking.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "Immediately beforehand she says she can scarcely hold “la plume avec laquelle je vous écris ce rêve insensé de mon cœur.”",
+      "supports": "Establishes that the utterance is written and reflectively embedded in an articulated train of thought rather than presented as an involuntary verbal reflex.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e4",
+      "source": "local_text",
+      "quotation_or_description": "She imagines that Armand might return and that “nous recommencions notre vie de l'année dernière.”",
+      "supports": "Provides contextual longing for renewed life together, but no commitment or obligation sufficient for P.",
+      "confidence": 0.96
+    },
+    {
+      "evidence_id": "e5",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is located in Chapter XXVI of Alexandre Dumas fils’s La Dame aux camélias.",
+      "supports": "Identifies the bibliographic and narrative location of the written occurrence.",
+      "confidence": 1.0
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the core written avowal. Its mortal setting, longing, and emotional intensity are contextual features adequately described without adding P, E, or O.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

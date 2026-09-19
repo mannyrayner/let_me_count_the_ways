@@ -1,0 +1,58 @@
+{
+  "occurrence_id": "flaubert-madame-bovary-176b95833345dab6",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 2,
+      "other": 0
+    },
+    "confidence": 0.88,
+    "analysis": "Emma’s repeated “Comme je t’aime” directly avows intense maternal love for Berthe, giving T maximal support. It does not undertake or renew a relational obligation, so P is unsupported. The sudden movement from nostalgic distress to rushing at Berthe, repeated exclamative wording, and the narration’s characterization of the episode as an “excès de tendresse” provide some independent evidence that the words are an affective outpouring rather than only an emphatic assertion, supporting moderate E.",
+    "ambiguity": "E is the main uncertainty: the scene presents an impulsive emotional effusion, but its expressive force could also be represented as a very intense, spontaneous T-avowal."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "Emma directly addresses her young daughter Berthe; the highlighted declaration is immediately repeated as part of one maternal outpouring."
+  },
+  "contextual_interpretation": "After reading her father’s affectionate letter and mourning her lost happiness and illusions, Emma hears Berthe laughing, rushes to embrace her, and twice declares her love. The tenderness appears genuine in the moment but unusually sudden and excessive: Emma cleans and fusses over Berthe, kisses her, weeps, and then returns her to the servant, who is astonished. This framing suggests a transient surge of maternal feeling shaped by Emma’s nostalgia and unhappiness, without converting the declaration into a commitment or undermining its avowal force.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "“Amenez-la-moi! dit sa mère se précipitant pour l’embrasser. Comme je t’aime, ma pauvre enfant! comme je t’aime!”",
+      "supports": "The direct address and repeated present-tense declaration strongly support T; Emma’s rushing embrace and immediate repetition also provide some evidence of an affective outpouring relevant to E.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "Immediately beforehand Emma remembers childhood happiness, recognizes that her illusions are gone, and then hears her child laughing.",
+      "supports": "The abrupt emotional transition helps explain the declaration as a spontaneous surge of maternal tenderness, modestly strengthening E while contextualizing T.",
+      "confidence": 0.93
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "Emma kisses Berthe again, weeps a little, and returns her to the servant, who is astonished by “cet excès de tendresse.”",
+      "supports": "The narrator explicitly frames the whole episode as an unusual excess of tenderness, supporting genuine affect and moderate expressive/outpouring force, though these delivery features do not alone establish E.",
+      "confidence": 0.96
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the avowal of maternal love, while E captures the partially independent force of the sudden affective outpouring. No important aspect of the core utterance requires O; the episode’s transience and psychological framing belong to contextual interpretation.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": "The two adjacent declarations are treated as one repeated utterance event centered on the highlighted occurrence."
+}

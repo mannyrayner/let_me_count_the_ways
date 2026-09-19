@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"stael-corinne-f1c617850c7c64aa\", \"SOURCE_TEXT\": {\"exact_match\": \"je vous aime\", \"local_text\": {\"context_start\": 213920, \"context_end\": 215214, \"text\": \"En achevant ces mots, les yeux de Corinne se remplirent de larmes; un\\nsentiment cruel, un soupçon pénible s'empara du coeur d'Oswald.\\n«Corinne, s'écria-t-il, Corinne! votre âme délicate n'a-t-elle rien à se\\nreprocher? Si je pouvais disposer de moi, si je pouvais m'offrir à vous,\\nn'aurais-je point de rivaux dans le passé? pourrais-je être fier de mon\\nchoix? une jalousie cruelle ne troublerait-elle pas mon bonheur?--Je\\nsuis libre, et je vous aime comme je n'ai jamais aimé, répondit Corinne;\\nque voulez-vous de plus? Faut-il me condamner à vous avouer qu'avant de\\nvous avoir connu, mon imagination a pu me tromper sur l'intérêt qu'on\\nm'inspirait! et n'y a-t-il pas dans le coeur de l'homme une pitié divine\\npour les erreurs que le sentiment, ou du moins l'illusion du sentiment,\\naurait fait commettre!» En achevant ces mots, une rougeur modeste\\ncouvrit son visage. Oswald tressaillit, mais il se tut. Il y avait dans\\nle regard de Corinne une expression de repentir et de timidité qui ne\\nlui permit pas de la juger avec rigueur, et il lui sembla qu'un rayon du\\nciel descendait sur elle pour l'absoudre. Il prit sa main, la serra\\ncontre son coeur, et se mit à genoux devant elle, sans rien prononcer,\\nsans rien promettre, mais en la contemplant avec un regard d'amour qui\\nlaissait tout espérer.\"}, \"wider_canonical_context\": {\"context_start\": 210285, \"context_end\": 218831, \"text\": \"L'aspect de la campagne, autour de Rome, a quelque chose de\\nsingulièrement remarquable: sans doute c'est un désert, car il n'y a\\npoint d'arbres ni d'habitations; mais la terre est couverte de plantes\\nnaturelles que l'énergie de la végétation renouvelle sans cesse. Ces\\nplantes parasites se glissent dans les tombeaux, décorent les ruines, et\\nsemblent là seulement pour honorer les morts. On dirait que\\nl'orgueilleuse nature a repoussé tous les travaux de l'homme, depuis que\\nles Cincinnatus ne conduisent plus la charrue qui sillonnait son sein;\\nelle produit des plantes au hasard, sans permettre que les vivants se\\nservent de sa richesse. Ces plaines incultes doivent déplaire aux\\nagriculteurs, aux administrateurs, à tous ceux qui spéculent sur la\\nterre et veulent l'exploiter pour les besoins de l'homme; mais les âmes\\nrêveuses, que la mort occupe autant que la vie, se plaisent à contempler\\ncette campagne de Rome, où le temps présent n'a imprimé aucune trace;\\ncette terre qui chérit ses morts et les couvre avec amour des inutiles\\nfleurs, des inutiles plantes qui se traînent sur le sol, et ne s'élèvent\\njamais assez pour se séparer des cendres qu'elles ont l'air de caresser.\\n\\nOswald convint que dans ce lieu l'on devait goûter plus de calme que\\npartout ailleurs. L'âme n'y souffre pas autant par les images que la\\ndouleur lui présente; il semble que l'on partage encore avec ceux qui ne\\nsont plus les charmes de cet air, de ce soleil et de cette verdure.\\nCorinne observa l'impression que recevait lord Nelvil, et elle en conçut\\nquelque espérance. Elle ne se flattait point de consoler Oswald; elle\\nn'eût pas même souhaité d'effacer de son coeur les justes regrets qu'il\\ndevait à la perte de son père; mais il y a dans le sentiment même des\\nregrets quelque chose de doux et d'harmonieux qu'il faut tâcher de faire\\nconnaître à ceux qui n'en ont encore éprouvé que les amertumes: c'est le\\nseul bien qu'on puisse leur faire.\\n\\n«Arrêtons-nous ici, dit Corinne, en face de ce tombeau, le seul qui\\nreste encore presque en entier: ce n'est point le tombeau d'un Romain\\ncélèbre; c'est celui de Cécilia Métella, jeune fille à qui son père a\\nfait élever ce monument.--Heureux, dit Oswald, heureux les enfants qui\\nmeurent dans les bras de leur père, et qui reçoivent la mort dans le\\nsein qui leur donna la vie! la mort elle-même alors perd son aiguillon\\npour eux.\\n\\n--Oui, dit Corinne avec émotion, heureux ceux qui ne sont pas orphelins!\\nVoyez, on a sculpté des armes sur ce tombeau, bien que ce soit celui\\nd'une femme; mais les filles des héros peuvent avoir sur leurs tombes\\nles trophées de leur père: c'est une belle union que celle de\\nl'innocence et de la valeur. Il y a une élégie de Properce, qui peint\\nmieux qu'aucun autre écrit de l'antiquité cette dignité des femmes chez\\nles Romains, plus imposante et plus pure que l'éclat même dont elles\\njouissaient pendant le temps de la chevalerie. Cornélie, morte dans sa\\njeunesse, adresse à son époux les adieux et les consolations les plus\\ntouchantes, et l'on y sent presque à chaque mot tout ce qu'il y a de\\nrespectable et de sacré dans les liens de famille. Le noble orgueil\\nd'une vie sans tache se peint dans cette poésie majestueuse des Latins,\\ndans cette poésie noble et sévère comme les maîtres du monde. _Oui_, dit\\nCornélie, _aucune tache n'a souillé ma vie: depuis l'hymen jusqu'au\\nbûcher, j'ai vécu pure entre les deux flambeaux._ Quelle admirable\\nexpression! s'écria Corinne; quelle image sublime! et qu'il est digne\\nd'envie, le sort de la femme qui peut ainsi conserver la plus parfaite\\nunité dans sa destinée, et n'emporte au tombeau qu'un souvenir! c'est\\nassez pour une vie.»\\n\\nEn achevant ces mots, les yeux de Corinne se remplirent de larmes; un\\nsentiment cruel, un soupçon pénible s'empara du coeur d'Oswald.\\n«Corinne, s'écria-t-il, Corinne! votre âme délicate n'a-t-elle rien à se\\nreprocher? Si je pouvais disposer de moi, si je pouvais m'offrir à vous,\\nn'aurais-je point de rivaux dans le passé? pourrais-je être fier de mon\\nchoix? une jalousie cruelle ne troublerait-elle pas mon bonheur?--Je\\nsuis libre, et je vous aime comme je n'ai jamais aimé, répondit Corinne;\\nque voulez-vous de plus? Faut-il me condamner à vous avouer qu'avant de\\nvous avoir connu, mon imagination a pu me tromper sur l'intérêt qu'on\\nm'inspirait! et n'y a-t-il pas dans le coeur de l'homme une pitié divine\\npour les erreurs que le sentiment, ou du moins l'illusion du sentiment,\\naurait fait commettre!» En achevant ces mots, une rougeur modeste\\ncouvrit son visage. Oswald tressaillit, mais il se tut. Il y avait dans\\nle regard de Corinne une expression de repentir et de timidité qui ne\\nlui permit pas de la juger avec rigueur, et il lui sembla qu'un rayon du\\nciel descendait sur elle pour l'absoudre. Il prit sa main, la serra\\ncontre son coeur, et se mit à genoux devant elle, sans rien prononcer,\\nsans rien promettre, mais en la contemplant avec un regard d'amour qui\\nlaissait tout espérer.\\n\\n«Croyez-moi, dit Corinne à lord Nelvil, ne formons point de plan pour\\nles années qui suivront: les plus heureux moments de la vie sont encore\\nceux qu'un hasard bienfaisant nous accorde. Est-ce donc ici, est-ce donc\\nau milieu des tombeaux, qu'il faut tant croire à l'avenir?--Non, s'écria\\nlord Nelvil, non, je ne crois point à l'avenir qui nous séparerait! Ces\\nquatre jours d'absence m'ont trop bien appris que je n'existais plus\\nmaintenant que par vous.» Corinne ne répondit rien à ces douces paroles,\\nmais elle les recueillit religieusement dans son coeur; elle craignait\\ntoujours, en prolongeant l'entretien sur le sentiment qui seul\\nl'occupait, d'exciter Oswald à déclarer ses projets avant qu'une plus\\nlongue habitude lui rendît la séparation impossible. Souvent même elle\\ndirigeait à dessein son attention vers les objets extérieurs; comme\\ncette sultane des contes arabes, qui cherchait à captiver par mille\\nrécits divers l'intérêt de celui qu'elle aimait, afin d'éloigner la\\ndécision de son sort jusqu'au moment où les charmes de son esprit\\nremportèrent la victoire.\\n\\n\\nCHAPITRE II\\n\\nNon loin de la voie Appienne, Oswald et Corinne se firent montrer les\\n_Columbarium_, où les esclaves sont réunis à leurs maîtres, où l'on voit\\ndans un même tombeau tout ce qui vécut par la protection d'un seul homme\\nou d'une seule femme. Les femmes de Livie, par exemple, celles qui,\\nconsacrées jadis aux soins de sa beauté, luttaient pour elle contre le\\ntemps, et disputaient aux années quelques-uns de ses charmes, sont\\nplacées à côté d'elle dans de petites urnes. On croit voir une\\ncollection de morts obscurs autour d'un mort illustre, non moins\\nsilencieux que son cortége. A peu de distance de là, l'on aperçoit un\\nchamp où les vestales infidèles à leurs voeux étaient enterrées\\nvivantes: singulier exemple de fanatisme dans une religion naturellement\\ntolérante.\\n\\n«Je ne vous mènerai point aux catacombes, dit Corinne à lord Nelvil,\\nquoique, par un hasard singulier, elles soient au-dessous de cette voie\\nAppienne, et qu'ainsi les tombeaux reposent sur les tombeaux. Mais cet\\nasile des chrétiens persécutés a quelque chose de si sombre et de si\\nterrible, que je ne puis me résoudre à y retourner: ce n'est pas cette\\nmélancolie touchante que l'on respire dans les lieux ouverts, c'est le\\ncachot près du sépulcre, c'est le supplice de la vie à côté des horreurs\\nde la mort. Sans doute on se sent pénétré d'admiration pour les hommes\\nqui, par la seule puissance de l'enthousiasme, ont pu supporter cette\\nvie souterraine, et se sont ainsi séparés entièrement du soleil et de la\\nnature; mais l'âme est si mal à l'aise dans ce lieu, qu'il n'en peut\\nrésulter aucun bien pour elle. L'homme est une partie de la création; il\\nfaut qu'il trouve son harmonie morale dans l'ensemble de l'univers, dans\\nl'ordre habituel de la destinée; et de certaines exceptions violentes et\\nredoutables peuvent étonner la pensée, mais effrayent tellement\\nl'imagination, que la disposition habituelle de l'âme ne saurait y\\ngagner. Allons plutôt, continua Corinne, voir la pyramide de Cestius:\\nles protestants qui meurent ici sont tous ensevelis autour de cette\\npyramide, et c'est un doux asile, tolérant et libéral.--Oui, répondit\\nOswald, c'est là que plusieurs de mes compatriotes ont trouvé leur\\ndernier séjour. Allons-y; peut-être est-ce ainsi du moins que je ne vous\\nquitterai jamais.» Corinne frémit à ces mots, et sa main tremblait en\\ns'appuyant sur le bras de lord Nelvil. «Je suis mieux, reprit-il, bien\\nmieux depuis que je vous connais.» Et le visage de Corinne fut éclairé\\nde nouveau par cette joie douce et tendre, son expression habituelle.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"The aspect of the countryside around Rome has something singularly remarkable about it: it is doubtless a desert, for there are neither trees nor dwellings; but the earth is covered with wild plants, ceaselessly renewed by the vigor of vegetation. These parasitic plants creep into the tombs, adorn the ruins, and seem to be there only to honor the dead. One would say that proud nature has rejected all the works of man since the Cincinnatuses ceased to guide the plow that furrowed her bosom; she produces plants at random, without allowing the living to make use of her wealth. These uncultivated plains must displease farmers, administrators, all those who speculate upon the land and wish to exploit it for the needs of man; but dreamy souls, occupied with death as much as with life, delight in contemplating this countryside of Rome, upon which the present time has left no trace; this earth that cherishes its dead and lovingly covers them with useless flowers, with useless plants that trail along the ground and never rise high enough to separate themselves from the ashes they appear to caress.\\n\\nOswald agreed that in this place one must experience more tranquillity than anywhere else. The soul does not suffer there as much from the images that grief presents to it; it seems that one still shares with those who are no more the charms of this air, this sun, and this greenery. Corinne observed the impression lord Nelvil was receiving from it, and conceived some hope from it. She did not flatter herself that she could console Oswald; she would not even have wished to efface from his heart the rightful regrets he owed to the loss of his father; but in the very feeling of regret there is something sweet and harmonious that one must endeavor to make known to those who have so far experienced only its bitterness: that is the only good one can do them.\\n\\n“Let us stop here,” said Corinne, “facing this tomb, the only one that still remains almost intact: it is not the tomb of a famous Roman; it is that of Cecilia Metella, a young woman for whom her father had this monument erected.—Happy,” said Oswald, “happy are the children who die in their father’s arms, and who receive death in the bosom that gave them life! Death itself then loses its sting for them.”\\n\\n“Yes,” said Corinne with emotion, “happy are those who are not orphans! Look, weapons have been carved upon this tomb, although it is that of a woman; but the daughters of heroes may have the trophies of their father upon their graves: the union of innocence and valor is a beautiful one. There is an elegy by Propertius that portrays, better than any other work of antiquity, this dignity of women among the Romans, more imposing and purer than even the splendor they enjoyed during the age of chivalry. Cornelia, who died in her youth, addresses the most touching farewells and consolations to her husband, and in it one feels, in almost every word, all that is worthy of respect and sacred in family bonds. The noble pride of a spotless life is portrayed in that majestic poetry of the Latins, in that poetry noble and austere like the masters of the world. ‘Yes,’ says Cornelia, ‘no stain has sullied my life: from the nuptial rite to the funeral pyre, I lived pure between the two torches.’ What an admirable expression!” exclaimed Corinne; “what a sublime image! And how enviable is the fate of the woman who can thus preserve the most perfect unity in her destiny, and carry but one memory to the grave! That is enough for a lifetime.”\\n\\nAs she finished these words, Corinne’s eyes filled with tears; a cruel feeling, a painful suspicion, took possession of Oswald’s heart. “Corinne,” he exclaimed, “Corinne! Has your delicate soul nothing with which to reproach itself? If I could dispose of myself, if I could offer myself to you, would I have no rivals in the past? Could I be proud of my choice? Would cruel jealousy not disturb my happiness?—I am free, and I love you as I have never loved before,” Corinne replied; “what more do you want? Must I be condemned to confess to you that, before I knew you, my imagination may have deceived me concerning the interest someone inspired in me! And is there not in the heart of man a divine pity for the errors that feeling, or at least the illusion of feeling, might have caused one to commit!” As she finished these words, a modest blush covered her face. Oswald shuddered, but remained silent. There was in Corinne’s gaze an expression of repentance and timidity that did not permit him to judge her harshly, and it seemed to him that a ray from heaven descended upon her to absolve her. He took her hand, pressed it against his heart, and knelt before her, uttering nothing, promising nothing, but contemplating her with a look of love that left room for every hope.\\n\\n“Believe me,” Corinne said to lord Nelvil, “let us make no plans for the years to come: the happiest moments of life are still those that a benevolent chance grants us. Is it here, then, is it in the midst of tombs, that we should place so much faith in the future?—No,” exclaimed lord Nelvil, “no, I do not believe in the future that would separate us! These four days of absence have taught me all too well that I now exist only through you.” Corinne made no reply to these tender words, but devoutly gathered them into her heart; she was always afraid that, by prolonging the conversation about the feeling that alone occupied her, she might incite Oswald to declare his plans before longer habit had made separation impossible for him. Often, indeed, she deliberately directed his attention toward external objects; like that sultana of the Arabian tales who sought, through a thousand different stories, to captivate the interest of the man she loved, so as to postpone the decision of her fate until the moment when the charms of her mind won the victory.\\n\\n\\nCHAPTER II\\n\\nNot far from the Appian Way, Oswald and Corinne had themselves shown the columbaria, where slaves are reunited with their masters, where one sees within a single tomb all those who lived under the protection of a single man or woman. Livia’s women, for example, those who, once devoted to the care of her beauty, struggled on her behalf against time and contested with the years for some of her charms, are placed beside her in small urns. One seems to see a collection of obscure dead surrounding an illustrious dead person, no less silent than the retinue. A short distance from there, one perceives a field where Vestal Virgins unfaithful to their vows were buried alive: a singular example of fanaticism in a naturally tolerant religion.\\n\\n“I shall not take you to the catacombs,” Corinne said to lord Nelvil, “although, by a singular chance, they lie beneath this Appian Way, so that tombs rest upon tombs. But this refuge of persecuted Christians has something so dark and so terrible about it that I cannot bring myself to return there: it is not that touching melancholy one breathes in open places; it is the dungeon beside the sepulcher, the torment of life alongside the horrors of death. Doubtless one feels filled with admiration for the men who, through the sole power of enthusiasm, were able to endure this subterranean life and thus separated themselves entirely from the sun and from nature; but the soul is so ill at ease in that place that no good can result from it. Man is a part of creation; he must find his moral harmony in the whole of the universe, in the customary order of destiny; and certain violent and dreadful exceptions may astonish the mind, but they so greatly frighten the imagination that the soul’s habitual disposition cannot benefit from them. Let us go instead,” Corinne continued, “to see the Pyramid of Cestius: the Protestants who die here are all buried around that pyramid, and it is a gentle, tolerant, and liberal refuge.—Yes,” Oswald replied, “it is there that several of my compatriots have found their final resting place. Let us go there; perhaps that, at least, is how I shall never leave you.” Corinne shuddered at these words, and her hand trembled as she leaned upon lord Nelvil’s arm. “I am better,” he resumed, “much better since I have known you.” And Corinne’s face was once more illuminated by that sweet and tender joy, its habitual expression.\", \"source_occurrence_id\": \"stael-corinne-f1c617850c7c64aa\", \"source_language\": \"fr\", \"source_language_text_sha256\": \"cb43074e811b2e8fea6cb72dc44ec69c1624cb55219fb88c220a891f9afe5e14\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T11:32:14.543467+00:00\", \"model_usage\": {\"input_tokens\": 2523, \"cached_input_tokens\": 0, \"output_tokens\": 1923}, \"estimated_cost_usd\": 0.048552, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"stael-corinne\", \"title\": \"Corinne; ou, l'Italie\", \"author\": \"Madame de Staël\", \"language\": \"fr\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": \"CHAPITRE PREMIER\", \"relative_position\": 0.200527, \"source_start\": 214356, \"source_end\": 214368, \"source_length\": 1068964}, \"form\": {\"form_family\": \"present_or_imperfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": \"optional\", \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"fr_present_past\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

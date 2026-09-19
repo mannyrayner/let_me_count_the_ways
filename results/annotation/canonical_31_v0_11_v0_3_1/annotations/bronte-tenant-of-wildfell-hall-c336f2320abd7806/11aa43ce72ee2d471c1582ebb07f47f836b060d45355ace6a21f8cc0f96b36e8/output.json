@@ -1,0 +1,65 @@
+{
+  "occurrence_id": "bronte-tenant-of-wildfell-hall-c336f2320abd7806",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.96,
+    "analysis": "Arthur’s embedded “I love you” presents his continuing love as a true state and as the premise for his claim that Helen cannot hate him. It does not itself undertake a commitment. Although repeated vehemently, it is framed as an emphatic protestation rather than a reflex-like discharge.",
+    "ambiguity": "Arthur’s sincerity is doubtful and the avowal is self-serving, but sincerity does not affect its strongly truth-conditional mode."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "quoted_or_revoiced",
+    "description": "Helen’s written first-person narrative reproduces Arthur’s earlier spoken words as direct dialogue; the classified core is the embedded clause “I love you” in “You cannot hate me as long as I love you.”"
+  },
+  "contextual_interpretation": "Arthur makes the avowal during a dispute about his flirtation with Lady Lowborough. He uses his professed love to deny that Helen can come to hate him and to seek forgiveness without fully accepting her criticism. Helen immediately questions whether his conduct is compatible with love and calls such declarations “protestations,” reinforcing their assertive character while casting doubt on their credibility. His vehemence intensifies the avowal but does not independently establish expressive/reflexive force.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "“You cannot hate me as long as I love you.”",
+      "supports": "The embedded clause explicitly presents Arthur’s love as an enduring emotional state and uses it as a premise, strongly supporting T.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "He “repeated more vehemently” after returning to his former position at Helen’s feet.",
+      "supports": "This establishes emphatic delivery, but supplies no positive evidence that the words are a reflex-like discharge rather than an intense avowal; E therefore remains unsupported.",
+      "confidence": 0.96
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "Helen replies, “But how can I believe that you love me, if you continue to act in this way?” and asks whether he would believe her “protestations.”",
+      "supports": "Helen treats the utterance as a disputable claim or avowal whose truth is tested against conduct, supporting T rather than P or E.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "e4",
+      "source": "local_text",
+      "quotation_or_description": "Arthur’s statement follows Helen’s question whether he will continue his conduct until she hates him, and precedes his attempt to obtain forgiveness.",
+      "supports": "The avowal has a self-exculpatory and persuasive contextual function, but that instrumental use does not create undertaking force or ontology failure.",
+      "confidence": 0.94
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the core avowal. Its vehemence, questionable sincerity, and manipulative conversational use are adequately represented as contextual features rather than additional core-force categories.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": "No promise of fidelity or reform is contained in the love clause itself; any nearby request for forgiveness should not be conflated with P."
+}

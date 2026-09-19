@@ -1,0 +1,58 @@
+{
+  "occurrence_id": "rostand-cyrano-de-bergerac-920ae26958d61661",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 1,
+      "performative": 0,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.97,
+    "analysis": "“Je vous aimais” occurs inside the counterfactual condition “si je vous aimais” (“if I loved you”). It introduces a loving state proposition but neither avows nor presents that state as actually true; in context it strongly implies the opposite. There is no relational undertaking and no expressive/reflex-like discharge.",
+    "ambiguity": "T receives slight support because ordinary love-state content is truth-conditionally represented within the conditional, although it is not asserted and is pragmatically rejected."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "hypothetical",
+    "description": "De Guiche embeds the love expression in a counterfactual antecedent: if he loved Cyrano, he would not have selected Cyrano and his men for this deadly assignment."
+  },
+  "contextual_interpretation": "De Guiche is responding to Cyrano’s accusation of revenge. His courtly counterfactual is caustic rather than affectionate: he effectively disclaims love while admitting that rancor helped motivate his decision. He also credits the Gascons’ unmatched bravery and claims that sacrificing them serves the King. The love wording therefore structures an ironic counterfactual contrast, not an avowal of affection.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "“Je ne prétendrai pas que si je vous aimais / Je vous eusse choisis vous et les vôtres” (“I shall not claim that, if I loved you, I would have chosen you and your men”).",
+      "supports": "The love proposition is embedded in a counterfactual and is not asserted as an actual emotional state; this supports only minimal T and no P or E.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "Cyrano asks, “Ah ! voilà la vengeance ?” immediately before the highlighted speech.",
+      "supports": "The exchange frames De Guiche’s selection of the cadets as revenge, reinforcing the implication that “if I loved you” is contrary to fact.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "De Guiche concludes, “C’est mon Roi que je sers en servant ma rancune” (“It is my King I serve by serving my rancor”).",
+      "supports": "He explicitly identifies rancor, alongside royal service, as his motive; the hypothetical love language is therefore ironic and disclaiming rather than affectionate or performative.",
+      "confidence": 0.99
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T/P/E/O is adequate when combined with the hypothetical utterance status: the embedded clause contains ordinary truth-conditional love-state content, while its counterfactual syntax and context explain why it is not an avowal. No residual core force requires O.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

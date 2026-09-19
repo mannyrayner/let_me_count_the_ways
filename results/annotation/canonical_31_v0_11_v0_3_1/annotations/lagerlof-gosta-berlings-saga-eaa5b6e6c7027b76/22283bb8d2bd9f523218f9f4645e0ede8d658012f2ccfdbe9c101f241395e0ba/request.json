@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"lagerlof-gosta-berlings-saga-eaa5b6e6c7027b76\", \"SOURCE_TEXT\": {\"exact_match\": \"Jag älskar dig\", \"local_text\": {\"context_start\": 240863, \"context_end\": 241192, \"text\": \"»Jag ser hur det är, jag ser hur det är», säger majorskan. »Ett\\nsnällt barn och ingenting mer, gråter med de bedrövade och skrattar\\nmed de glada. Och tvungen att säga 'ja' till den förste, som säger:\\n'Jag älskar dig'. Ja visst, ja. Gå nu in och dansa, min kära unga\\ngrevinna! Dansa ni och var glad! Det finns ingenting ont i er.»\"}, \"wider_canonical_context\": {\"context_start\": 238003, \"context_end\": 244105, \"text\": \"Då majorskan har kommit så långt, ser hon alltid upp, blickar\\nomkring sig, ser den stängda dörren och vet var hon är.\\n\\nDå undrar hon om hon håller på att bli tokig och sätter sig att\\ntänka och vila. Men om en stund är hon i färd på nytt, sammanräknar\\nalnar och famnar till halvmil och mil, håller små korta raster i\\nfinnpörtena och sover varken natt eller dag, förrän hon åter har\\ntillryggalagt de tjugo milen.\\n\\nUnder hela den tid hon har suttit fången har hon nästan aldrig\\nsovit.\\n\\nOch de båda kvinnorna, som ha kommit för att se till henne, se på\\nhenne med ångest.\\n\\nDen unga grevinnan skall sedan alltid minnas henne, sådan hon då\\ngick där. Hon ser henne sedan ofta i sina drömmar och vaknar då upp\\nfrån synen med ögonen våta av tårar och en klagan på läpparna.\\n\\nDen gamla är ängsligt förfallen, håret ser tunt ut, och lösa tovor\\ntränga sig ut ur den smala flätan. Ansiktet är slappt och insjunket,\\nkläderna oordnade och trasiga. Men med allt detta har hon kvar så\\nmycket av den högt stående, allom bjudande härskarinnan, att hon inte\\ninger medlidande blott, utan även vördnad.\\n\\nMen vad grevinnan tydligen mindes, var ögonen, insjunkna,\\ninåtvända, inte ännu berövade allt förståndets ljus, men nästan\\nfärdiga att slockna och med en vildhetens gnista lurande på djupet, så\\natt man måste fasa och frukta för att i nästa ögonblick ha den gamla\\növer sig, med tänderna färdiga att bita, fingrarna att klösa.\\n\\nDe ha nu stått där en god stund, då majorskan med ens stannar\\ninför den unga kvinnan och ser på henne med en sträng blick.\\nGrevinnan tar ett steg baklänges och griper fru Scharlings arm.\\n\\nMajorskans drag få med ens liv och uttryck, hennes ögon se ut i\\nvärlden med fullt förstånd.\\n\\n»Ånej, ånej», säger hon och småler, »så illa är det ändå inte, min\\nkära unga dam.»\\n\\nHon bjuder dem nu sitta ned och sätter sig även själv. Hon tar an\\nen air av gammaldags ståtlighet, känd från de stora kalasen på Ekeby\\noch kungabalerna i landshövdingeresidenset i Karlstad. De glömma\\ntrasorna och häktet och se endast den stoltaste och rikaste frun i\\nVärmland.\\n\\n»Min kära grevinna!» säger hon. »Vad kan förmå er att lämna\\ndansen för att uppsöka en ensam gammal gumma som jag? Ni måtte vara\\nmycket god.»\\n\\nGrevinnan Elisabet kan inte svara. Hennes röst är kvävd av\\nrörelse. Fru Scharling svarar i hennes ställe, att hon inte har\\nkunnat dansa, därför att hon har tänkt på majorskan.\\n\\n»Kära fru Scharling», svarar majorskan, »är det nu så långt kommet\\nmed mig, att jag stör de unga i deras glädje? Ni skall inte gråta\\növer mig, min kära unga grevinna», fortfor hon. »Jag är en elak\\ngammal kvinna, som förtjänar mitt öde. Ni håller det inte för rätt\\natt slå sin mor?»\\n\\n»Nej, men...»\\n\\nMajorskan avbryter henne och stryker det krusiga, ljusa håret upp\\nur hennes panna.\\n\\n»Barn, barn», säger hon, »hur kunde ni gå och gifta er med den\\ndumma Henrik Dohna?»\\n\\n»Men jag älskar honom.»\\n\\n»Jag ser hur det är, jag ser hur det är», säger majorskan. »Ett\\nsnällt barn och ingenting mer, gråter med de bedrövade och skrattar\\nmed de glada. Och tvungen att säga 'ja' till den förste, som säger:\\n'Jag älskar dig'. Ja visst, ja. Gå nu in och dansa, min kära unga\\ngrevinna! Dansa ni och var glad! Det finns ingenting ont i er.»\\n\\n»Men jag ville göra något för majorskan.»\\n\\n»Barn», säger majorskan högtidligt, »det bodde en gammal kvinna på\\nEkeby, som höll himmelens vindar fångna. Nu är hon fängslad, och\\nvindarna äro fria. Är det underligt, att det går en storm genom\\nlandet?\\n\\nJag, som är gammal, har sett den förr, grevinna. Jag känner den.\\nJag vet, att den dånande Guds storm kommer över oss. Än susar den\\nfram över de stora rikena, än över de små, bortglömda samhällena.\\nGuds storm glömmer ingen. Den kommer så över stora som över små. Det\\när grant att se Guds storm komma.\\n\\nGuds storm, du välsignade Herrans väder, blås över jorden! Röster\\ni luften, röster i vattnen, ljuden och förfären! Gören Guds storm\\ndånande! Gören Guds storm skräckinjagande! Må stormbyarna draga ut\\növer landet, störta fram mot vacklande väggar, bryta de lås, som ha\\nrostat, och de hus, som luta till fall!\\n\\nÅngest skall breda sig över landet. De små fågelnästena skola\\nfalla från sitt fäste på grenen. Hökboet i furans topp skall ristas\\ntill jorden med stort dån, och ända in till uvnästet i bergsskrevan\\nskall vinden väsa med sin draktunga.\\n\\nVi tyckte, att allt var gott här hos oss, men det var inte så.\\nGuds storm behövs nog. Jag förstår det, och jag klagar inte. Jag\\nville blott, att jag finge gå till min mor.»\\n\\nHon faller med ens samman.\\n\\n»Gå nu, unga kvinna!» säger hon. »Jag har inte tid mer. Jag\\nmåste gå. Gå nu, och akta er för dem, som rida på stormmolnen!»\\n\\nDärmed återtar hon sin vandring. Dragen slappas, blicken blir\\ninåtvänd. Grevinnan och fru Scharling måste lämna henne.\\n\\nSå snart de åter äro inne hos de dansande, går unga grevinnan rätt\\nfram till Gösta Berling.\\n\\n»Jag skall hälsa herr Berling från majorskan», säger hon. »Hon\\nväntar, att herr Berling skall ta henne ur ur fängelset.»\\n\\n»Då får hon också vänta, grevinna.»\\n\\n»Å, hjälp henne, herr Berling!»\\n\\nGösta blickar mörkt framför sig. »Nej», säger han, »varför skulle\\njag hjälpa henne? Vad är jag henne för tack skyldig? Allt, vad hon\\nhar gjort för mig, har varit till mitt fördärv.»\\n\\n»Men, herr Berling...»\\n\\n»Om hon inte hade funnits», säger han häftigt, »sove jag nu\\ndäruppe under de eviga skogarna. Skall jag vara skyldig att våga\\nlivet för henne, därför att hon har gjort mig till kavaljer på Ekeby?\\nTror grevinnan, att det följer mycken berömmelse med det ämbetet?»\\n\\nDen unga grevinnan vänder sig ifrån honom utan att svara. Hon är\\nond.\\n\\nHon går till sin plats, tänkande bittra tankar om kavaljererna.\\nHit äro de komna med valthorn och fioler och ämna låta stråkarna gnida\\növer strängarna, till dess taglet har nötts ut, utan att tänka på att\\nde lustiga tonerna klinga över till den fångnas usla rum. Hit komma\\nde för att dansa, till dess skosulorna bli till stoft, och tänka inte\\npå att deras gamla välgörarinna kan se deras skuggor svänga förbi\\ninnanför de immade rutorna. Ack, vad världen blev grå och ful! Ack,\\nvilken skugga nöden och hårdheten kastade över unga grevinnans själ!\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"When the major’s wife has come this far, she always looks up, gazes about her, sees the closed door, and knows where she is.\\n\\nThen she wonders whether she is going mad, and sits down to think and rest. But after a while she is at it again, adding ells and fathoms into half-miles and miles, taking short rests in the Finnish huts, and sleeping neither night nor day until she has once more covered the twenty miles.\\n\\nDuring all the time she has been held prisoner, she has hardly ever slept.\\n\\nAnd the two women who have come to look after her watch her with anguish.\\n\\nThe young countess would always remember her afterward as she walked there then. She often sees her afterward in her dreams, and then awakens from the vision with her eyes wet with tears and a lament on her lips.\\n\\nThe old woman has deteriorated distressingly; her hair looks thin, and loose tangles protrude from the narrow braid. Her face is slack and sunken, her clothes disordered and torn. But despite all this she retains so much of the exalted ruler who commanded everyone that she inspires not only pity but also reverence.\\n\\nBut what the countess clearly remembered was the eyes, sunken, turned inward, not yet deprived of all the light of reason, but almost ready to go out, with a spark of wildness lurking in their depths, so that one could not help dreading and fearing that in the next moment the old woman would be upon one, her teeth ready to bite, her fingers to claw.\\n\\nThey have now stood there for quite some time when the major’s wife suddenly stops before the young woman and looks at her sternly. The countess takes a step backward and grasps Mrs. Scharling’s arm.\\n\\nThe features of the major’s wife suddenly take on life and expression; her eyes look out upon the world with full understanding.\\n\\n“Oh no, oh no,” she says with a little smile, “it is not quite so bad as that, my dear young lady.”\\n\\nShe now invites them to sit down and also seats herself. She assumes an air of old-fashioned stateliness, familiar from the great feasts at Ekeby and the royal balls at the governor’s residence in Karlstad. They forget the rags and the prison and see only the proudest and richest lady in Värmland.\\n\\n“My dear countess!” she says. “What could induce you to leave the dance to seek out a lonely old woman like me? You must be very kind.”\\n\\nCountess Elisabet cannot answer. Her voice is choked with emotion. Mrs. Scharling answers in her stead that she has been unable to dance because she has been thinking of the major’s wife.\\n\\n“Dear Mrs. Scharling,” the major’s wife replies, “have things now come to such a pass with me that I disturb the young in their joy? You must not weep over me, my dear young countess,” she continued. “I am a wicked old woman who deserves my fate. You do not consider it right to strike one’s mother, do you?”\\n\\n“No, but—”\\n\\nThe major’s wife interrupts her and brushes the curly, fair hair back from her forehead.\\n\\n“Child, child,” she says, “how could you go and marry that foolish Henrik Dohna?”\\n\\n“But I love him.”\\n\\n“I see how it is, I see how it is,” says the major’s wife. “A good child and nothing more, weeping with the sorrowful and laughing with the merry. And compelled to say ‘yes’ to the first man who says, ‘I love you.’ Yes, certainly, yes. Go in and dance now, my dear young countess! Dance and be glad! There is nothing evil in you.”\\n\\n“But I wanted to do something for the major’s wife.”\\n\\n“Child,” says the major’s wife solemnly, “there once lived an old woman at Ekeby who held the winds of heaven captive. Now she is imprisoned, and the winds are free. Is it strange that a storm is sweeping through the land?\\n\\nI, who am old, have seen it before, countess. I know it. I know that the thundering storm of God is coming upon us. Now it rushes over the great realms, now over the small, forgotten communities. God’s storm forgets no one. It comes upon great and small alike. It is glorious to see God’s storm coming.\\n\\nStorm of God, you blessed tempest of the Lord, blow over the earth! Voices in the air, voices in the waters, resound and strike terror! Make God’s storm thunder! Make God’s storm terrifying! May the gusts sweep out across the land, hurl themselves against tottering walls, break the locks that have rusted and the houses that lean toward their fall!\\n\\nAnguish shall spread across the land. The little birds’ nests shall fall from their hold upon the branch. The hawk’s nest at the top of the pine shall be shaken to the ground with a great crash, and even into the owl’s nest in the mountain cleft the wind shall hiss with its dragon tongue.\\n\\nWe thought that all was well here among us, but it was not so. God’s storm is surely needed. I understand that, and I do not complain. I only wish that I might go to my mother.”\\n\\nShe suddenly collapses.\\n\\n“Go now, young woman!” she says. “I have no more time. I must go. Go now, and beware of those who ride upon the storm clouds!”\\n\\nWith that she resumes her pacing. Her features go slack, her gaze turns inward. The countess and Mrs. Scharling must leave her.\\n\\nAs soon as they are back among the dancers, the young countess goes straight up to Gösta Berling.\\n\\n“I am to give Mr. Berling the major’s wife’s greetings,” she says. “She expects Mr. Berling to get her out of prison.”\\n\\n“Then she will have to wait, countess.”\\n\\n“Oh, help her, Mr. Berling!”\\n\\nGösta stares darkly before him. “No,” he says, “why should I help her? What gratitude do I owe her? Everything she has done for me has been to my ruin.”\\n\\n“But, Mr. Berling—”\\n\\n“If she had not existed,” he says vehemently, “I would now be sleeping up there beneath the eternal forests. Am I obliged to risk my life for her because she made me a cavalier at Ekeby? Does the countess think that much renown comes with that office?”\\n\\nThe young countess turns away from him without answering. She is angry.\\n\\nShe goes to her place, thinking bitter thoughts about the cavaliers. They have come here with French horns and fiddles and intend to let the bows scrape across the strings until the horsehair has worn away, without thinking that the merry notes carry into the prisoner’s wretched room. They come here to dance until the soles of their shoes turn to dust, and do not think that their old benefactress may see their shadows swing past inside the misted panes. Ah, how gray and ugly the world had become! Ah, what a shadow distress and hardness cast over the young countess’s soul!\", \"source_occurrence_id\": \"lagerlof-gosta-berlings-saga-eaa5b6e6c7027b76\", \"source_language\": \"sv\", \"source_language_text_sha256\": \"8a6dbf27a656d28dfa6d56b4b05973cfb7132f8f92ade21c82f945b7c10e25cf\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T11:05:35.717918+00:00\", \"model_usage\": {\"input_tokens\": 2198, \"cached_input_tokens\": 0, \"output_tokens\": 2598}, \"estimated_cost_usd\": 0.060752, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"lagerlof-gosta-berlings-saga\", \"title\": \"Gösta Berlings saga\", \"author\": \"Selma Lagerlöf\", \"language\": \"sv\", \"source_type\": \"runeberg\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.339095, \"source_start\": 241064, \"source_end\": 241078, \"source_length\": 710905}, \"form\": {\"form_family\": \"present_or_past\", \"polarity\": \"surface_optional_negative\", \"tense_aspect\": \"present\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"sv_main\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

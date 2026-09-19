@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"lafayette-la-princesse-de-cleves-676df60b4dfe3de4\", \"SOURCE_TEXT\": {\"exact_match\": \"je vous aimais\", \"local_text\": {\"context_start\": 266078, \"context_end\": 267301, \"text\": \"--N'en doutez pas, Madame, répliqua monsieur de Clèves, vous vous êtes\\ntrompée; vous avez attendu de moi des choses aussi impossibles que\\ncelles que j'attendais de vous. Comment pouviez-vous espérer que je\\nconservasse de la raison? Vous aviez donc oublié que je vous aimais\\néperdument et que j'étais votre mari? L'un des deux peut porter aux\\nextrémités: que ne peuvent point les deux ensemble? Eh! que ne font-ils\\npoint aussi! continua-t-il, je n'ai que des sentiments violents et\\nincertains dont je ne suis pas le maître. Je ne me trouve plus digne de\\nvous; vous ne me paraissez plus digne de moi. Je vous adore, je vous\\nhais; je vous offense, je vous demande pardon; je vous admire, j'ai\\nhonte de vous admirer. Enfin il n'y a plus en moi ni de calme ni de\\nraison. Je ne sais comment j'ai pu vivre depuis que vous me parlâtes à\\nCoulommiers, et depuis le jour que vous apprîtes de madame la dauphine\\nque l'on savait votre aventure. Je ne saurais démêler par où elle a été\\nsue, ni ce qui se passa entre monsieur de Nemours et vous sur ce sujet:\\nvous ne me l'expliquerez jamais, et je ne vous demande point de me\\nl'expliquer. Je vous demande seulement de vous souvenir que vous m'avez\\nrendu le plus malheureux homme du monde.\"}, \"wider_canonical_context\": {\"context_start\": 261811, \"context_end\": 269908, \"text\": \"Mesdames de Nevers et de Martigues, en sortant de chez elle, allèrent\\nchez la reine dauphine; monsieur de Clèves y était. Cette princesse leur\\ndemanda d'où elles venaient; elles lui dirent qu'elles venaient de chez\\nmonsieur de Clèves, où elles avaient passé une partie de l'après-dînée\\navec beaucoup de monde, et qu'elles n'y avaient laissé que monsieur de\\nNemours. Ces paroles, qu'elles croyaient si indifférentes, ne l'étaient\\npas pour monsieur de Clèves. Quoiqu'il dût bien s'imaginer que monsieur\\nde Nemours pouvait trouver souvent des occasions de parler à sa femme,\\nnéanmoins la pensée qu'il était chez elle, qu'il y était seul et qu'il\\nlui pouvait parler de son amour, lui parut dans ce moment une chose si\\nnouvelle et si insupportable, que la jalousie s'alluma dans son coeur\\navec plus de violence qu'elle n'avait encore fait. Il lui fut impossible\\nde demeurer chez la reine; il s'en revint, ne sachant pas même pourquoi\\nil revenait, et s'il avait dessein d'aller interrompre monsieur de\\nNemours. Sitôt qu'il approcha de chez lui, il regarda s'il ne verrait\\nrien qui lui pût faire juger si ce prince y était encore: il sentit du\\nsoulagement en voyant qu'il n'y était plus, et il trouva de la douceur à\\npenser qu'il ne pouvait y avoir demeuré longtemps. Il s'imagina que ce\\nn'était peut-être pas monsieur de Nemours, dont il devait être jaloux:\\net quoiqu'il n'en doutât point, il cherchait à en douter; mais tant de\\nchoses l'en auraient persuadé, qu'il ne demeurait pas longtemps dans\\ncette incertitude qu'il désirait. Il alla d'abord dans la chambre de sa\\nfemme, et après lui avoir parlé quelque temps de choses indifférentes,\\nil ne put s'empêcher de lui demander ce qu'elle avait fait et qui elle\\navait vu; elle lui en rendit compte. Comme il vit qu'elle ne lui nommait\\npoint monsieur de Nemours, il lui demanda, en tremblant, si c'était tout\\nce qu'elle avait vu, afin de lui donner lieu de nommer ce prince et de\\nn'avoir pas la douleur qu'elle lui en fît une finesse. Comme elle ne\\nl'avait point vu, elle ne le lui nomma point, et monsieur de Clèves\\nreprenant la parole avec un ton qui marquait son affliction:\\n\\n--Et monsieur de Nemours, lui dit-il, ne l'avez-vous point vu, ou\\nl'avez-vous oublié?\\n\\n--Je ne l'ai point vu, en effet, répondit-elle; je me trouvais mal, et\\nj'ai envoyé une de mes femmes lui faire des excuses.\\n\\n--Vous ne vous trouviez donc mal que pour lui, reprit monsieur de\\nClèves. Puisque vous avez vu tout le monde, pourquoi des distinctions\\npour monsieur de Nemours? Pourquoi ne vous est-il pas comme un autre?\\nPourquoi faut-il que vous craigniez sa vue? Pourquoi lui laissez-vous\\nvoir que vous la craignez? Pourquoi lui faites-vous connaître que vous\\nvous servez du pouvoir que sa passion vous donne sur lui? Oseriez-vous\\nrefuser de le voir, si vous ne saviez bien qu'il distingue vos rigueurs\\nde l'incivilité? Mais pourquoi faut-il que vous ayez des rigueurs pour\\nlui? D'une personne comme vous, Madame, tout est des faveurs hors\\nl'indifférence.\\n\\n--Je ne croyais pas, reprit madame de Clèves, quelque soupçon que vous\\nayez sur monsieur de Nemours, que vous pussiez me faire des reproches de\\nne l'avoir pas vu.\\n\\n--Je vous en fais pourtant, Madame, répliqua-t-il, et ils sont bien\\nfondés: Pourquoi ne le pas voir s'il ne vous a rien dit? Mais, Madame,\\nil vous a parlé; si son silence seul vous avait témoigné sa passion,\\nelle n'aurait pas fait en vous une si grande impression. Vous n'avez pu\\nme dire la vérité tout entière; vous m'en avez caché la plus grande\\npartie; vous vous êtes repentie même du peu que vous m'avez avoué et\\nvous n'avez pas eu la force de continuer. Je suis plus malheureux que je\\nne l'ai cru, et je suis le plus malheureux de tous les hommes. Vous êtes\\nma femme, je vous aime comme ma maîtresse, et je vous en vois aimer un\\nautre. Cet autre est le plus aimable de la cour, et il vous voit tous\\nles jours, il sait que vous l'aimez. Eh! j'ai pu croire, s'écria-t-il,\\nque vous surmonteriez la passion que vous avez pour lui. Il faut que\\nj'aie perdu la raison pour avoir cru qu'il fût possible.\\n\\n--Je ne sais, reprit tristement madame de Clèves, si vous avez eu tort\\nde juger favorablement d'un procédé aussi extraordinaire que le mien;\\nmais je ne sais si je ne me suis trompée d'avoir cru que vous me feriez\\njustice?\\n\\n--N'en doutez pas, Madame, répliqua monsieur de Clèves, vous vous êtes\\ntrompée; vous avez attendu de moi des choses aussi impossibles que\\ncelles que j'attendais de vous. Comment pouviez-vous espérer que je\\nconservasse de la raison? Vous aviez donc oublié que je vous aimais\\néperdument et que j'étais votre mari? L'un des deux peut porter aux\\nextrémités: que ne peuvent point les deux ensemble? Eh! que ne font-ils\\npoint aussi! continua-t-il, je n'ai que des sentiments violents et\\nincertains dont je ne suis pas le maître. Je ne me trouve plus digne de\\nvous; vous ne me paraissez plus digne de moi. Je vous adore, je vous\\nhais; je vous offense, je vous demande pardon; je vous admire, j'ai\\nhonte de vous admirer. Enfin il n'y a plus en moi ni de calme ni de\\nraison. Je ne sais comment j'ai pu vivre depuis que vous me parlâtes à\\nCoulommiers, et depuis le jour que vous apprîtes de madame la dauphine\\nque l'on savait votre aventure. Je ne saurais démêler par où elle a été\\nsue, ni ce qui se passa entre monsieur de Nemours et vous sur ce sujet:\\nvous ne me l'expliquerez jamais, et je ne vous demande point de me\\nl'expliquer. Je vous demande seulement de vous souvenir que vous m'avez\\nrendu le plus malheureux homme du monde.\\n\\nMonsieur de Clèves sortit de chez sa femme après ces paroles et partit\\nle lendemain sans la voir; mais il lui écrivit une lettre pleine\\nd'affliction, d'honnêteté et de douceur. Elle y fit une réponse si\\ntouchante et si remplie d'assurances de sa conduite passée et de celle\\nqu'elle aurait à l'avenir, que, comme ses assurances étaient fondées sur\\nla vérité et que c'était en effet ses sentiments, cette lettre fit de\\nl'impression sur monsieur de Clèves, et lui donna quelque calme; joint\\nque monsieur de Nemours allant trouver le roi aussi bien que lui, il\\navait le repos de savoir qu'il ne serait pas au même lieu que madame de\\nClèves. Toutes les fois que cette princesse parlait à son mari, la\\npassion qu'il lui témoignait, l'honnêteté de son procédé, l'amitié\\nqu'elle avait pour lui, et ce qu'elle lui devait, faisaient des\\nimpressions dans son coeur qui affaiblissaient l'idée de monsieur de\\nNemours; mais ce n'était que pour quelque temps; et cette idée revenait\\nbientôt plus vive et plus présente qu'auparavant.\\n\\nLes premiers jours du départ de ce prince, elle ne sentit quasi pas son\\nabsence; ensuite elle lui parut cruelle. Depuis qu'elle l'aimait, il ne\\ns'était point passé de jour qu'elle n'eût craint ou espéré de le\\nrencontrer et elle trouva une grande peine à penser qu'il n'était plus\\nau pouvoir du hasard de faire qu'elle le rencontrât.\\n\\nElle s'en alla à Coulommiers; et en y allant, elle eut soin d'y faire\\nporter de grands tableaux qu'elle avait fait copier sur des originaux\\nqu'avait fait faire madame de Valentinois pour sa belle maison d'Anet.\\nToutes les actions remarquables qui s'étaient passées du règne du roi\\nétaient dans ces tableaux. Il y avait entre autres le siège de Metz, et\\ntous ceux qui s'y étaient distingués étaient peints fort ressemblants.\\nMonsieur de Nemours était de ce nombre, et c'était peut-être ce qui\\navait donné envie à madame de Clèves d'avoir ces tableaux.\\n\\nMadame de Martigues, qui n'avait pu partir avec la cour, lui promit\\nd'aller passer quelques jours à Coulommiers. La faveur de la reine\\nqu'elles partageaient ne leur avait point donné d'envie ni d'éloignement\\nl'une de l'autre; elles étaient amies, sans néanmoins se confier leurs\\nsentiments. Madame de Clèves savait que madame de Martigues aimait le\\nvidame; mais madame de Martigues ne savait pas que madame de Clèves\\naimât monsieur de Nemours, ni qu'elle en fût aimée. La qualité de nièce\\ndu vidame rendait madame de Clèves plus chère à madame de Martigues; et\\nmadame de Clèves l'aimait aussi comme une personne qui avait une\\npassion aussi bien qu'elle, et qui l'avait pour l'ami intime de son\\namant.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"Madame de Nevers and Madame de Martigues, on leaving her house, went to the Dauphin Queen’s apartments; Monsieur de Clèves was there. This princess asked them where they had come from; they told her that they had come from Monsieur de Clèves’s house, where they had spent part of the afternoon with a great many people, and that they had left only Monsieur de Nemours there. These words, which they thought so inconsequential, were not so to Monsieur de Clèves. Although he must well have imagined that Monsieur de Nemours could often find opportunities to speak to his wife, nevertheless the thought that he was at her house, that he was there alone, and that he could speak to her of his love, appeared to him at that moment so novel and so unbearable that jealousy flared up in his heart with greater violence than it had ever done before. It was impossible for him to remain with the Queen; he returned home, not even knowing why he was returning or whether he intended to go and interrupt Monsieur de Nemours. As soon as he drew near his house, he looked to see whether he could discern anything that might enable him to judge whether that prince was still there: he felt relief on seeing that he was no longer there, and found comfort in thinking that he could not have remained there long. He imagined that perhaps it was not Monsieur de Nemours of whom he ought to be jealous; and although he had no doubt of it, he sought to doubt it; but so many things would have convinced him of it that he did not remain long in the uncertainty he desired. He went at once to his wife’s chamber, and after speaking to her for some time about indifferent matters, he could not keep himself from asking her what she had done and whom she had seen; she gave him an account of it. When he saw that she did not name Monsieur de Nemours, he asked her, trembling, whether that was everyone she had seen, in order to give her an opportunity to name that prince and to avoid the pain of having her dissemble the matter with him. Since she had not seen him, she did not name him; and Monsieur de Clèves resumed, in a tone that revealed his distress:\\n\\n“And Monsieur de Nemours,” he said to her, “did you not see him, or have you forgotten him?”\\n\\n“I did not see him, in fact,” she replied; “I was feeling unwell, and I sent one of my women to make my apologies to him.”\\n\\n“Then you were feeling unwell only for him,” Monsieur de Clèves replied. “Since you saw everyone else, why make distinctions for Monsieur de Nemours? Why is he not like any other man to you? Why must you fear the sight of him? Why do you let him see that you fear it? Why do you make him aware that you are making use of the power his passion gives you over him? Would you dare refuse to see him if you did not know full well that he distinguishes your severity from discourtesy? But why must you show severity toward him? From a person such as you, Madame, everything except indifference is a favor.”\\n\\n“I did not think,” Madame de Clèves replied, “whatever suspicions you may have concerning Monsieur de Nemours, that you could reproach me for not having seen him.”\\n\\n“Yet I do reproach you for it, Madame,” he answered, “and my reproaches are well founded. Why not see him if he has said nothing to you? But, Madame, he has spoken to you; if his silence alone had revealed his passion to you, it would not have made so great an impression upon you. You could not tell me the whole truth; you concealed the greater part of it from me; you even repented of the little you confessed to me, and you did not have the strength to continue. I am more unhappy than I believed, and I am the unhappiest of all men. You are my wife, I love you as my mistress, and I see you love another. That other man is the most lovable man at court, and he sees you every day; he knows that you love him. Ah! I was able to believe,” he cried, “that you would overcome the passion you have for him. I must have lost my reason to have believed it possible.”\\n\\n“I do not know,” Madame de Clèves replied sadly, “whether you were wrong to judge so favorably of conduct as extraordinary as mine; but I do not know whether I was not mistaken in believing that you would do me justice.”\\n\\n“Do not doubt it, Madame,” Monsieur de Clèves replied, “you were mistaken; you expected from me things as impossible as those I expected from you. How could you hope that I would retain my reason? Had you then forgotten that I loved you desperately and that I was your husband? Either one of the two can drive a man to extremes: what can the two together not do? Ah! And what are they not doing!” he continued. “I have nothing but violent and uncertain feelings over which I have no control. I no longer find myself worthy of you; you no longer appear worthy of me. I adore you, I hate you; I offend you, I ask your forgiveness; I admire you, I am ashamed to admire you. In short, there is no longer either calm or reason in me. I do not know how I have been able to live since you spoke to me at Coulommiers, and since the day you learned from Madame the Dauphin that your affair was known. I cannot unravel how it came to be known, or what passed between Monsieur de Nemours and you on that subject: you will never explain it to me, and I do not ask you to explain it to me. I ask you only to remember that you have made me the unhappiest man in the world.”\\n\\nMonsieur de Clèves left his wife after these words and departed the following day without seeing her; but he wrote her a letter full of sorrow, honor, and tenderness. She made so moving a reply, so filled with assurances concerning both her past conduct and the conduct she would maintain in the future, that, as her assurances were founded on truth and these were indeed her feelings, the letter made an impression on Monsieur de Clèves and gave him some peace; added to which, since Monsieur de Nemours was going to join the King just as he was, he had the comfort of knowing that Monsieur de Nemours would not be in the same place as Madame de Clèves. Whenever this princess spoke to her husband, the passion he showed her, the honorable nature of his conduct, the affection she had for him, and what she owed him made impressions upon her heart that weakened the image of Monsieur de Nemours; but this was only for a time, and that image soon returned, more vivid and more present than before.\\n\\nDuring the first days after that prince’s departure, she scarcely felt his absence; afterward it seemed cruel to her. Since she had loved him, not a day had passed on which she had not feared or hoped to encounter him, and she found it very painful to think that it was no longer within the power of chance to cause her to meet him.\\n\\nShe went to Coulommiers; and before going there, she took care to have brought there some large paintings she had had copied from originals that Madame de Valentinois had commissioned for her beautiful house at Anet. All the notable events that had occurred during the King’s reign were depicted in these paintings. Among them was the siege of Metz, and all those who had distinguished themselves there were painted with a strong likeness. Monsieur de Nemours was among them, and this was perhaps what had made Madame de Clèves wish to possess these paintings.\\n\\nMadame de Martigues, who had been unable to depart with the court, promised to spend a few days with her at Coulommiers. The Queen’s favor, which they shared, had caused neither envy nor estrangement between them; they were friends, though without confiding their feelings to one another. Madame de Clèves knew that Madame de Martigues loved the Vidame; but Madame de Martigues did not know that Madame de Clèves loved Monsieur de Nemours, nor that she was loved by him. Madame de Clèves’s status as the Vidame’s niece made her dearer to Madame de Martigues; and Madame de Clèves also loved her as a person who, like herself, was in love, and whose passion was for her lover’s intimate friend.\", \"source_occurrence_id\": \"lafayette-la-princesse-de-cleves-676df60b4dfe3de4\", \"source_language\": \"fr\", \"source_language_text_sha256\": \"ca21b8d256fc9668435f10fce06913392a7da27a59a9bb1d9b807d527b9d6904\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T10:59:19.512271+00:00\", \"model_usage\": {\"input_tokens\": 2363, \"cached_input_tokens\": 0, \"output_tokens\": 2017}, \"estimated_cost_usd\": 0.049792, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"lafayette-la-princesse-de-cleves\", \"title\": \"La Princesse de Clèves\", \"author\": \"Madame de La Fayette\", \"language\": \"fr\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.78925, \"source_start\": 266337, \"source_end\": 266351, \"source_length\": 337456}, \"form\": {\"form_family\": \"present_or_imperfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": \"optional\", \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"fr_present_past\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

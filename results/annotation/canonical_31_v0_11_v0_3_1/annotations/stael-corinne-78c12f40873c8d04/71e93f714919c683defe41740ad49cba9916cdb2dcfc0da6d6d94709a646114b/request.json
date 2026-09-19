@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"stael-corinne-78c12f40873c8d04\", \"SOURCE_TEXT\": {\"exact_match\": \"je t'aime\", \"local_text\": {\"context_start\": 758801, \"context_end\": 760227, \"text\": \"rrivera quelque grand malheur?» Comme\\nelle prononçait ces mots, elle entendit partir trois coups de canon\\nd'une des îles de la lagune. Corinne tressaillit à ce bruit, et demanda\\nà ses gondoliers quelle en était la cause. _C'est une religieuse qui\\nprend le voile_, répondirent-ils, _dans un de ces couvents au milieu de\\nla mer. L'usage est chez nous qu'à l'instant où les femmes prononcent\\nles voeux religieux, elles jettent derrière elles un bouquet de fleurs\\nqu'elles portaient pendant la cérémonie. C'est le signe du renoncement\\nau monde; et les coups de canon que vous venez d'entendre annonçaient ce\\nmoment comme nous sommes entrés dans Venise._ Ces paroles firent\\nfrissonner Corinne. Oswald sentit ses mains froides dans les siennes, et\\nune pâleur mortelle couvrait son visage. «Chère amie, lui dit-il,\\ncomment recevez-vous une si vive impression du hasard le plus\\nsimple?--Non, dit Corinne, cela n'est pas simple; croyez-moi, les fleurs\\nde la vie sont pour toujours jetées derrière moi.--Quand je t'aime plus\\nque jamais, interrompit Oswald, quand toute mon âme est à toi...--Ces\\nfoudres de la guerre, continua Corinne, dont le bruit annonce ailleurs\\nou la victoire ou la mort, sont ici consacrées à célébrer l'obscur\\nsacrifice d'une jeune fille. C'est un innocent emploi de ces armes\\nterribles qui bouleversent le monde. C'est un avis solennel qu'une femme\\nrésignée donne aux femmes qui luttent encore contre le destin.»\"}, \"wider_canonical_context\": {\"context_start\": 755752, \"context_end\": 763710, \"text\": \"On s'embarque sur la Brenta pour arriver à Venise, et des deux côtés du\\ncanal on voit les palais des Vénitiens, grands et un peu délabrés, comme\\nla magnificence italienne. Ils sont ornés d'une manière bizarre, et qui\\nne rappelle en rien le goût antique. L'architecture vénitienne se\\nressent du commerce avec l'Orient; c'est un mélange de moresque et de\\ngothique qui attire la curiosité sans plaire à l'imagination. Le\\npeuplier, cet arbre régulier comme l'architecture, borde le canal\\npresque partout. Le ciel est d'un bleu vif qui contraste avec le vert\\néclatant de la campagne; ce vert est entretenu par l'abondance excessive\\ndes eaux: le ciel et la terre sont ainsi de deux couleurs si fortement\\ntranchées, que cette nature elle-même a l'air d'être arrangée avec une\\nsorte d'apprêt, et l'on n'y trouve point le vague mystérieux qui fait\\naimer le midi de l'Italie. L'aspect de Venise est plus étonnant\\nqu'agréable; on croit d'abord voir une ville submergée, et la réflexion\\nest nécessaire pour admirer le génie des mortels qui ont conquis cette\\ndemeure sur les eaux. Naples est bâtie en amphithéâtre au bord de la\\nmer, mais Venise étant sur un terrain tout à fait plat, les clochers\\nressemblent au mât d'un vaisseau qui resterait immobile au milieu des\\nondes. Un sentiment de tristesse s'empare de l'imagination en entrant\\ndans Venise. On prend congé de la végétation; on ne voit pas même une\\nmouche dans ce séjour; tous les animaux en sont bannis; et l'homme seul\\nest là pour lutter contre la mer.\\n\\nLe silence est profond dans cette ville, dont les rues sont des canaux,\\net le bruit des rames est l'unique interruption à ce silence. Ce n'est\\npas la campagne, puisqu'on n'y voit pas un arbre; ce n'est pas la ville,\\npuisqu'on n'y entend pas le moindre mouvement; ce n'est pas même un\\nvaisseau, puisqu'on n'avance pas: c'est une demeure dont l'orage fait\\nune prison; car il y a des moments où l'on ne peut sortir ni de la\\nville, ni de chez soi. On trouve des hommes du peuple à Venise qui n'ont\\njamais été d'un quartier à l'autre, qui n'ont pas vu la place\\nSaint-Marc, et pour qui la vue d'un cheval ou d'un arbre serait une\\nvéritable merveille. Ces gondoles noires qui glissent sur les canaux\\nressemblent à des cercueils ou à des berceaux, à la dernière et à la\\npremière demeure de l'homme. Le soir on ne voit passer que le reflet des\\nlanternes qui éclairent les gondoles; car, alors, leur couleur noire\\nempêche de les distinguer. On dirait que ce sont des ombres qui glissent\\nsur l'eau, guidées par une petite étoile. Dans ce séjour tout est\\nmystère, le gouvernement, les coutumes et l'amour. Sans doute il y a\\nbeaucoup de jouissances pour le coeur et la raison quand on parvient à\\npénétrer dans tous ces secrets; mais les étrangers doivent trouver\\nl'impression du premier moment singulièrement triste.\\n\\nCorinne, qui croyait aux pressentiments, et dont l'imagination ébranlée\\nfaisait de tout des présages, dit à lord Nelvil: «D'où vient la\\nmélancolie profonde dont je me sens saisie en entrant dans cette ville?\\nn'est-ce pas une preuve qu'il m'y arrivera quelque grand malheur?» Comme\\nelle prononçait ces mots, elle entendit partir trois coups de canon\\nd'une des îles de la lagune. Corinne tressaillit à ce bruit, et demanda\\nà ses gondoliers quelle en était la cause. _C'est une religieuse qui\\nprend le voile_, répondirent-ils, _dans un de ces couvents au milieu de\\nla mer. L'usage est chez nous qu'à l'instant où les femmes prononcent\\nles voeux religieux, elles jettent derrière elles un bouquet de fleurs\\nqu'elles portaient pendant la cérémonie. C'est le signe du renoncement\\nau monde; et les coups de canon que vous venez d'entendre annonçaient ce\\nmoment comme nous sommes entrés dans Venise._ Ces paroles firent\\nfrissonner Corinne. Oswald sentit ses mains froides dans les siennes, et\\nune pâleur mortelle couvrait son visage. «Chère amie, lui dit-il,\\ncomment recevez-vous une si vive impression du hasard le plus\\nsimple?--Non, dit Corinne, cela n'est pas simple; croyez-moi, les fleurs\\nde la vie sont pour toujours jetées derrière moi.--Quand je t'aime plus\\nque jamais, interrompit Oswald, quand toute mon âme est à toi...--Ces\\nfoudres de la guerre, continua Corinne, dont le bruit annonce ailleurs\\nou la victoire ou la mort, sont ici consacrées à célébrer l'obscur\\nsacrifice d'une jeune fille. C'est un innocent emploi de ces armes\\nterribles qui bouleversent le monde. C'est un avis solennel qu'une femme\\nrésignée donne aux femmes qui luttent encore contre le destin.»\\n\\n\\nCHAPITRE VIII\\n\\nLa puissance du gouvernement de Venise, pendant les dernières années de\\nson existence, consistait presque en entier dans l'empire de l'habitude\\net de l'imagination. Il avait été terrible, il était devenu très-doux;\\nil avait été courageux, il était devenu timide. La haine contre lui\\ns'est facilement réveillée parce qu'il avait été redoutable; on l'a\\nfacilement renversé, parce qu'il ne l'était plus. C'était une\\naristocratie qui cherchait beaucoup la faveur populaire, mais qui la\\ncherchait à la manière du despotisme, en amusant le peuple, mais non en\\nl'éclairant. Cependant c'est un état assez agréable pour un peuple que\\nd'être amusé, surtout dans les pays où les goûts de l'imagination sont\\ndéveloppés par le climat et les beaux-arts jusque dans la dernière\\nclasse de la société. On ne donnait point au peuple les grossiers\\nplaisirs qui l'abrutissent, mais de la musique, des tableaux, des\\nimprovisateurs, des fêtes; et le gouvernement soignait là ses sujets,\\ncomme un sultan son sérail. Il leur demandait seulement, comme à des\\nfemmes, de ne point se mêler de politique, de ne point juger l'autorité;\\nmais, à ce prix, il leur promettait beaucoup d'amusement, et même assez\\nd'éclat; car les dépouilles de Constantinople qui enrichissent les\\néglises, les étendards de Chypre et de Candie qui flottent sur la place\\npublique, les chevaux de Corinthe, réjouissent les regards du peuple, et\\nle lion ailé de Saint-Marc lui paraît l'emblème de sa gloire.\\n\\nLe système du gouvernement interdisant à ses sujets l'occupation des\\naffaires politiques, et la situation de la ville rendant impossibles\\nl'agriculture, la promenade et la chasse, il ne restait aux Vénitiens\\nd'autre intérêt que l'amusement: aussi cette ville était-elle une ville\\nde plaisirs. Le dialecte vénitien est doux et léger comme un souffle\\nagréable: on ne conçoit pas comment ceux qui ont résisté à la ligue de\\nCambrai parlaient une langue si flexible. Ce dialecte est charmant,\\nquand on le consacre à la grâce ou à la plaisanterie; mais quand on s'en\\nsert pour des objets plus graves, quand on entend des vers sur la mort,\\navec ces sons si délicats et presque enfantins, on croirait que cet\\névénement, ainsi chanté, n'est qu'une fiction poétique.\\n\\nLes hommes, en général, ont plus d'esprit encore à Venise que dans le\\nreste de l'Italie, parce que le gouvernement, tel qu'il était, leur a\\nplus souvent offert des occasions de penser; mais leur imagination n'est\\npas naturellement aussi ardente que dans le midi de l'Italie; et la\\nplupart des femmes, quoique très-aimables, ont pris, par l'habitude de\\nvivre dans le monde, un langage de _sentimentalité_ qui, ne gênant en\\nrien la liberté des moeurs, ne fait que mettre de l'affectation dans la\\ngalanterie. Le grand mérite des Italiennes, à travers tous leurs torts,\\nc'est de n'avoir aucune vanité: ce mérite est un peu perdu à Venise, où\\nil y a plus de société que dans aucune autre ville d'Italie; car la\\nvanité se développe surtout par la société. On y est applaudi si vite et\\nsi souvent, que tous les calculs y sont instantanés, et que, pour le\\nsuccès, _l'on n'y fait pas de crédit au temps_ d'une minute. Néanmoins\\non trouvait encore à Venise beaucoup de traces de l'originalité et de la\\nfacilité des manières italiennes. Les plus grandes dames recevaient\\ntoutes leurs visites dans les cafés de la place Saint-Marc, et cette\\nconfusion bizarre empêchait que les salons ne devinssent trop\\nsérieusement une arène pour les prétentions de l'amour-propre.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"One embarks on the Brenta to reach Venice, and on both sides of the canal one sees the palaces of the Venetians, large and somewhat dilapidated, like Italian magnificence. They are decorated in a bizarre manner that in no way recalls the taste of antiquity. Venetian architecture bears the mark of commerce with the East; it is a mixture of Moorish and Gothic that arouses curiosity without pleasing the imagination. The poplar, that tree as regular as architecture, borders the canal almost everywhere. The sky is a vivid blue that contrasts with the brilliant green of the countryside; this green is sustained by the excessive abundance of water: sky and earth are thus of two colors so sharply divided that this nature itself seems to have been arranged with a kind of artifice, and one does not find there the mysterious vagueness that makes one love southern Italy. The sight of Venice is more astonishing than pleasing; at first one thinks one sees a submerged city, and reflection is necessary in order to admire the genius of the mortals who conquered this dwelling-place from the waters. Naples is built in an amphitheater by the sea, but since Venice stands on entirely flat ground, the bell towers resemble the mast of a ship that remains motionless amid the waves. A feeling of sadness takes possession of the imagination upon entering Venice. One takes leave of vegetation; one does not see even a fly in this abode; all animals are banished from it, and man alone is there to struggle against the sea.\\n\\nThe silence is profound in this city, whose streets are canals, and the sound of oars is the sole interruption of that silence. It is not the countryside, since one does not see a tree there; it is not the city, since one does not hear the slightest movement there; it is not even a ship, since one does not advance: it is a dwelling-place that a storm turns into a prison, for there are times when one can leave neither the city nor one’s home. One finds common people in Venice who have never gone from one district to another, who have not seen Saint Mark’s Square, and for whom the sight of a horse or a tree would be a genuine marvel. Those black gondolas gliding over the canals resemble coffins or cradles, man’s last and first dwelling-places. In the evening one sees passing only the reflection of the lanterns that light the gondolas, for then their black color prevents one from distinguishing them. One would say they were shadows gliding over the water, guided by a little star. In this abode everything is mystery: the government, customs, and love. No doubt there are many delights for the heart and the reason when one succeeds in penetrating all these secrets; but foreigners must find the first impression singularly sad.\\n\\nCorinne, who believed in premonitions, and whose shaken imagination made omens of everything, said to Lord Nelvil: “Whence comes the profound melancholy by which I feel myself seized upon entering this city? Is it not proof that some great misfortune will befall me here?” As she spoke these words, she heard three cannon shots fired from one of the islands in the lagoon. Corinne started at the sound and asked her gondoliers what had caused it. “It is a nun taking the veil,” they replied, “in one of those convents in the middle of the sea. The custom among us is that, at the moment when women pronounce their religious vows, they cast behind them a bouquet of flowers that they carried during the ceremony. It is the sign of renunciation of the world; and the cannon shots you have just heard announced that moment just as we entered Venice.” These words made Corinne shudder. Oswald felt her cold hands in his, and a deathly pallor covered her face. “Dear friend,” he said to her, “how can the simplest chance make so strong an impression upon you?”—“No,” said Corinne, “it is not simple; believe me, the flowers of life have been cast behind me forever.”—“When I love you more than ever,” Oswald interrupted, “when my whole soul is yours...” —“Those thunderbolts of war,” Corinne continued, “whose sound elsewhere announces either victory or death, are here consecrated to celebrating the obscure sacrifice of a young girl. It is an innocent use of those terrible weapons that convulse the world. It is a solemn warning that a resigned woman gives to women who are still struggling against fate.”\\n\\nCHAPTER VIII\\n\\nThe power of the government of Venice, during the last years of its existence, consisted almost entirely in the sway of habit and imagination. It had been terrible; it had become very mild. It had been courageous; it had become timid. Hatred against it was easily reawakened because it had once been formidable; it was easily overthrown because it was so no longer. It was an aristocracy that greatly sought popular favor, but sought it in the manner of despotism, by entertaining the people but not by enlightening them. Nevertheless, being entertained is a fairly agreeable condition for a people, especially in countries where a taste for the things of the imagination is developed by the climate and the fine arts even in the lowest class of society. The people were not given the coarse pleasures that brutalize them, but music, paintings, improvisers, festivals; and the government tended its subjects there as a sultan does his seraglio. It asked them only, as it would women, not to concern themselves with politics and not to judge those in authority; but, at that price, it promised them much entertainment and even a fair amount of splendor; for the spoils of Constantinople that enrich the churches, the standards of Cyprus and Candia that fly over the public square, and the horses of Corinth delight the people’s eyes, and the winged lion of Saint Mark appears to them the emblem of their glory.\\n\\nSince the system of government forbade its subjects to occupy themselves with political affairs, and the situation of the city made agriculture, walking, and hunting impossible, the Venetians had no interest left but amusement; and so this city was a city of pleasures. The Venetian dialect is gentle and light as a pleasant breath: one cannot conceive how those who resisted the League of Cambrai spoke so supple a language. This dialect is charming when devoted to grace or jesting; but when it is used for graver subjects, when one hears verses about death in those sounds so delicate and almost childlike, one would think that the event, sung in this way, was merely a poetic fiction.\\n\\nMen in Venice generally have even more wit than in the rest of Italy, because the government, such as it was, more often afforded them opportunities to think; but their imagination is not naturally as ardent as in southern Italy; and most of the women, though very amiable, have acquired, through the habit of living in society, a language of “sentimentality” that, while in no way constraining freedom of morals, merely introduces affectation into gallantry. The great merit of Italian women, despite all their faults, is that they have no vanity: this merit is somewhat lost in Venice, where there is more society than in any other city in Italy, for vanity develops above all through society. One is applauded there so quickly and so often that every calculation is instantaneous, and, where success is concerned, “one does not extend time even a minute’s credit.” Nevertheless, one still found in Venice many traces of the originality and ease of Italian manners. The greatest ladies received all their visitors in the cafés of Saint Mark’s Square, and this bizarre mingling prevented drawing rooms from becoming too seriously an arena for the pretensions of self-love.\", \"source_occurrence_id\": \"stael-corinne-78c12f40873c8d04\", \"source_language\": \"fr\", \"source_language_text_sha256\": \"cc4a7913c5205d0b49a80061508ad141ab3193ac1115f9b5f14205af2f5b1afc\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T11:29:09.234811+00:00\", \"model_usage\": {\"input_tokens\": 2305, \"cached_input_tokens\": 0, \"output_tokens\": 1739}, \"estimated_cost_usd\": 0.044, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"stael-corinne\", \"title\": \"Corinne; ou, l'Italie\", \"author\": \"Madame de Staël\", \"language\": \"fr\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": \"CHAPITRE VII\", \"relative_position\": 0.710783, \"source_start\": 759801, \"source_end\": 759810, \"source_length\": 1068964}, \"form\": {\"form_family\": \"present_or_imperfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": \"optional\", \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"fr_present_past\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

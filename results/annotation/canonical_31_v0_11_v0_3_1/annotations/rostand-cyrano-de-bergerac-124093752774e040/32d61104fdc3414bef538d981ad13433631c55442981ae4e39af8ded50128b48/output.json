@@ -1,0 +1,65 @@
+{
+  "occurrence_id": "rostand-cyrano-de-bergerac-124093752774e040",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.97,
+    "analysis": "Roxane directly avows a present loving state and specifies its object or basis: she now loves Christian solely for what she takes to be his soul. The carefully reasoned contrast among loving his beauty, loving beauty and soul together, and loving the soul alone makes this dominantly truth-conditional. It does not independently undertake a commitment, and its emotional intensity does not make it an expressive/reflex-like discharge.",
+    "ambiguity": "The surrounding declaration conveys profound devotion, but the highlighted clause primarily describes and clarifies Roxane's love rather than enacting a distinct relational undertaking."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "Roxane directly says “ce n'est plus que pour ton âme que je t'aime” to Christian, although the dramatic context makes the identity behind the supposed ‘soul’ deeply mistaken."
+  },
+  "contextual_interpretation": "Roxane presents the utterance as the conclusion of a reflective progression: she first loved Christian's beauty, then his beauty and soul, and now his soul alone. She sincerely attributes the balcony eloquence and letters to Christian, while the supplied scene establishes that Cyrano supplied the words. Christian therefore interprets her avowal as evidence that she really loves Cyrano. This dramatic misattribution complicates whom her love effectively concerns but does not alter the utterance's core force as an avowal.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "“Et ce n'est plus que pour ton âme que je t'aime !”",
+      "supports": "A direct present-tense avowal of love, with the perceived soul specified as its sole basis, strongly supports T.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "Roxane contrasts having first loved Christian for beauty alone, then for beauty and soul together, before saying she now loves only his soul.",
+      "supports": "The explicit, reasoned comparison presents the utterance as a considered report and clarification of her emotional state rather than a reflex-like discharge.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "Roxane explains that the letters revealed what she understood as Christian's powerful and sincere love and caused her to hear again the soul disclosed beneath her window.",
+      "supports": "Explains why Roxane believes she loves Christian's inner self and establishes the sincere but mistaken attribution underlying her avowal.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "e4",
+      "source": "local_text",
+      "quotation_or_description": "Immediately afterward Christian tells Cyrano, “C'est toi qu'elle aime !” because “Elle n'aime plus que mon âme !”",
+      "supports": "Establishes the scene's dramatic irony: Christian recognizes that the ‘soul’ Roxane loves was expressed through Cyrano's words, without changing the core utterance from T to O.",
+      "confidence": 0.99
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the core as a sincere avowal of a present loving state. The mistaken attribution of the beloved ‘soul’ is contextual dramatic irony, not a missing kind of utterance force; neither P, E, nor O is independently needed.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

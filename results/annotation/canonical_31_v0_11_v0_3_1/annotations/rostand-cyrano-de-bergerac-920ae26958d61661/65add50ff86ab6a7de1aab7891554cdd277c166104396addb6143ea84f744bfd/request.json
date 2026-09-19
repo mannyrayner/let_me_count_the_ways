@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"rostand-cyrano-de-bergerac-920ae26958d61661\", \"SOURCE_TEXT\": {\"exact_match\": \"je vous aimais\", \"local_text\": {\"context_start\": 164730, \"context_end\": 164935, \"text\": \"DE GUICHE:\\n  Je ne prétendrai pas que si je vous aimais\\n  Je vous eusse choisis vous et les vôtres, mais,\\n  Comme à votre bravoure on n'en compare aucune,\\n  C'est mon Roi que je sers en servant ma rancune.\"}, \"wider_canonical_context\": {\"context_start\": 161651, \"context_end\": 167889, \"text\": \"CYRANO:\\n  C'est possible.\\n  Mais on n'abdique pas l'honneur d'être une cible.\\n  (Cartes, dés, fumées, s'abattent, tombent, s'envolent avec une\\n  satisfaction croissante):\\n  Si j'eusse été présent quand l'écharpe coula\\n  --Nos courages, monsieur, diffèrent en cela--\\n  Je l'aurais ramassée et me la serais mise.\\n\\nDE GUICHE:\\n  Oui, vantardise, encor, de gascon !\\n\\nCYRANO:\\n  Vantardise ?. . .\\n  Prêtez-la-moi. Je m'offre à monter, dès ce soir,\\n  A l'assaut, le premier, avec elle en sautoir.\\n\\nDE GUICHE:\\n  Offre encor de gascon ! Vous savez que l'écharpe\\n  Resta chez l'ennemi, sur les bords de la Scarpe,\\n  En un lieu que depuis la mitraille cribla,--\\n  Où nul ne peut aller la chercher !\\n\\nCYRANO (tirant de sa poche l'écharpe blanche et la lui tendant):\\n  La voilà.\\n  (Silence. Les cadets étouffent leurs rires dans les cartes et dans les\\n  cornets à dés. De Guiche se retourne, les regarde: immédiatement ils\\n  reprennent leur gravité, leurs jeux; l'un d'eux sifflote avec\\n  indifférence l'air montagnard joué par le fifre.)\\n\\nDE GUICHE (prenant l'écharpe):\\n  Merci. Je vais, avec ce bout d'étoffe claire,\\n  Pouvoir faire un signal,--que j'hésitais à faire.\\n  (Il va au talus, y grimpe, et agite plusieurs fois l'écharpe en l'air.)\\n\\nTOUS:\\n  Hein !\\n\\nLA SENTINELLE (en haut du talus):\\n  Cet homme, là-bas qui se sauve en courant !. . .\\n\\nDE GUICHE (redescendant):\\n  C'est un faux espion espagnol. Il nous rend\\n  De grands services. Les renseignements qu'il porte\\n  Aux ennemis sont ceux que je lui donne, en sorte\\n  Que l'on peut influer sur leurs décisions.\\n\\nCYRANO:\\n  C'est un gredin !\\n\\nDE GUICHE (se nouant nonchalamment son écharpe):\\n  C'est très commode. Nous disions ?. . .\\n  --Ah ! J'allais vous apprendre un fait. Cette nuit même,\\n  Pour nous ravitailler tentant un coup suprême,\\n  Le maréchal s'en fut vers Dourlens, sans tambours;\\n  Les vivandiers du Roi sont là; par les labours\\n  Il les joindra; mais pour revenir sans encombre,\\n  Il a pris avec lui des troupes en tel nombre\\n  Que l'on aurait beau jeu, certe, en nous attaquant:\\n  La moitié de l'armée est absente du camp !\\n\\nCARBON:\\n  Oui, si les Espagnols savaient, ce serait grave.\\n  Mais ils ne savent pas ce départ ?\\n\\nDE GUICHE:\\n  Ils le savent.\\n  Ils vont nous attaquer.\\n\\nCARBON:\\n  Ah !\\n\\nDE GUICHE:\\n  Mon faux espion\\n  M'est venu prévenir de leur agression.\\n  Il ajouta: \\\"J'en peux déterminer la place;\\n  Sur quel point voulez-vous que l'attaque se fasse ?\\n  Je dirai que de tous c'est le moins défendu,\\n  Et l'effort portera sur lui.\\\"--J'ai répondu:\\n  \\\"C'est bon. Sortez du camp. Suivez des yeux la ligne:\\n  Ce sera sur le point d'où je vous ferai signe.\\\"\\n\\nCARBON (aux cadets):\\n  Messieurs, préparez-vous !\\n  (Tous se lèvent. Bruit d'épées et de ceinturons qu'on boucle.)\\n\\nDE GUICHE:\\n  C'est dans une heure.\\n\\nPREMIER CADET:\\n  Ah !. . .bien !. . .\\n  (Ils se rasseyent tous. On reprend la partie interrompue.)\\n\\nDE GUICHE (à Carbon):\\n  Il faut gagner du temps. Le maréchal revient.\\n\\nCARBON:\\n  Et pour gagner du temps ?\\n\\nDE GUICHE:\\n  Vous aurez l'obligeance\\n  De vous faire tuer.\\n\\nCYRANO:\\n  Ah ! voilà la vengeance ?\\n\\nDE GUICHE:\\n  Je ne prétendrai pas que si je vous aimais\\n  Je vous eusse choisis vous et les vôtres, mais,\\n  Comme à votre bravoure on n'en compare aucune,\\n  C'est mon Roi que je sers en servant ma rancune.\\n\\nCYRANO (saluant):\\n  Souffrez que je vous sois, monsieur, reconnaissant.\\n\\nDE GUICHE (saluant):\\n  Je sais que vous aimez vous battre un contre cent.\\n  Vous ne vous plaindrez pas de manquer de besogne.\\n  (Il remonte, avec Carbon.)\\n\\nCYRANO (aux cadets):\\n  Eh bien donc ! nous allons au blason de Gascogne,\\n  Qui porte six chevrons, messieurs, d'azur et d'or,\\n  Joindre un chevron de sang qui lui manquait encor !\\n  (De Guiche cause bas avec Carbon de Castel-Jaloux, au fond. On donne\\n  des ordres. La résistance se prépare. Cyrano va vers Christian qui est\\n  resté immobile, les bras croisés.)\\n\\nCYRANO (lui mettant la main sur l'épaule):\\n  Christian ?\\n\\nCHRISTIAN (secouant la tête):\\n  Roxane !\\n\\nCYRANO:\\n  Hélas !\\n\\nCHRISTIAN:\\n  Au moins, je voudrais mettre\\n  Tout l'adieu de mon cœur dans une belle lettre !. . .\\n\\nCYRANO:\\n  Je me doutais que ce serait pour aujourd'hui.\\n  (Il tire un billet de son pourpoint):\\n  Et j'ai fait tes adieux.\\n\\nCHRISTIAN:\\n  Montre !. . .\\n\\nCYRANO:\\n  Tu veux ?. . .\\n\\nCHRISTIAN (lui prenant la lettre):\\n  Mais oui !\\n  (Il l'ouvre, lit et s'arrête):\\n  Tiens !\\n\\nCYRANO:\\n  Quoi ?\\n\\nCHRISTIAN:\\n  Ce petit rond ?. . .\\n\\nCYRANO (reprenant la lettre vivement, et regardant d'un air naïf):\\n  Un rond ?. . .\\n\\nCHRISTIAN:\\n  C'est une larme !\\n\\nCYRANO:\\n  Oui. . .Poète, on se prend à son jeu, c'est le charme !. . .\\n  Tu comprends. . .ce billet,--c'était très émouvant:\\n  Je me suis fait pleurer moi-même en l'écrivant.\\n\\nCHRISTIAN:\\n  Pleurer ?. . .\\n\\nCYRANO:\\n  Oui. . .parce que. . .mourir n'est pas terrible.\\n  Mais. . .ne plus la revoir jamais. . .voilà l'horrible !\\n  Car enfin je ne la. . .\\n  (Christian le regarde):\\n  nous ne la. . .\\n  (Vivement):\\n  tu ne la. . .\\n\\nCHRISTIAN (lui arrachant la lettre):\\n  Donne-moi ce billet !\\n  (On entend une rumeur, au loin, dans le camp.)\\n\\nLA VOIX D'UNE SENTINELLE:\\n  Ventrebieu, qui va là ?\\n  (Coups de feu. Bruits de voix. Grelots.)\\n\\nCARBON:\\n  Qu'est-ce ?. . .\\n\\nLA SENTINELLE (qui est sur le talus):\\n  Un carrosse !\\n  (On se précipite pour voir.)\\n\\nCRIS:\\n  Quoi ! Dans le camp ?--Il y entre !\\n  --Il a l'air de venir de chez l'ennemi !--Diantre !\\n  Tirez !--Non ! Le cocher a crié !--Crié quoi ?--\\n  Il a crié: Service du Roi !\\n  (Tout le monde est sur le talus et regarde au dehors. Les grelots se\\n  rapprochent.)\\n\\nDE GUICHE:\\n  Hein ? Du Roi !. . .\\n  (On redescend, on s'aligne.)\\n\\nCARBON:\\n  Chapeau bas, tous !\\n\\nDE GUICHE (à la cantonade):\\n  Du Roi !--Rangez-vous, vile tourbe,\\n  Pour qu'il puisse décrire avec pompe sa courbe !\\n  (Le carrosse entre au grand trot. Il est couvert de boue et de\\n  poussière. Les rideaux sont tirés. Deux laquais derrière. Il s'arrête\\n  net.)\\n\\nCARBON (criant):\\n  Battez aux champs !\\n  (Roulement de tambours. Tous les cadets se découvrent.)\\n\\nDE GUICHE:\\n  Baissez le marchepied !\\n  (Deux hommes se précipitent. La portière s'ouvre.)\\n\\nROXANE (sautant du carrosse):\\n  Bonjour !\\n  (Le son d'une voix de femme relève d'un seul coup tout ce monde\\n  profondément incliné.--Stupeur.)\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"CYRANO:\\n  That is possible.\\n  But one does not abdicate the honor of being a target.\\n  (Cards, dice, smoke subside, fall, fly away with increasing\\n  satisfaction):\\n  Had I been present when the sash slipped off\\n  —Our courage, sir, differs in this respect—\\n  I would have picked it up and put it on.\\n\\nDE GUICHE:\\n  Yes, more Gascon boasting!\\n\\nCYRANO:\\n  Boasting?...\\n  Lend it to me. I offer to go up, this very evening,\\n  First into the assault, with it across my chest.\\n\\nDE GUICHE:\\n  Another Gascon offer! You know that the sash\\n  Remained with the enemy, on the banks of the Scarpe,\\n  In a place that grapeshot has since riddled—\\n  Where no one can go to retrieve it!\\n\\nCYRANO (drawing the white sash from his pocket and holding it out to him):\\n  Here it is.\\n  (Silence. The cadets stifle their laughter in their cards and in their\\n  dice cups. De Guiche turns around and looks at them: they immediately\\n  resume their gravity, their games; one of them whistles with\\n  indifference the mountain tune played by the fife.)\\n\\nDE GUICHE (taking the sash):\\n  Thank you. With this scrap of light-colored cloth, I shall\\n  Be able to give a signal—which I was hesitating to give.\\n  (He goes to the embankment, climbs it, and waves the sash several times in the air.)\\n\\nALL:\\n  Eh!\\n\\nTHE SENTRY (at the top of the embankment):\\n  That man down there, running away!...\\n\\nDE GUICHE (coming back down):\\n  He is a sham Spanish spy. He renders us\\n  Great services. The information he carries\\n  To the enemy is what I give him, so\\n  That their decisions can be influenced.\\n\\nCYRANO:\\n  He is a scoundrel!\\n\\nDE GUICHE (nonchalantly tying on his sash):\\n  It is very convenient. What were we saying?...\\n  —Ah! I was about to tell you something. This very night,\\n  Attempting one supreme stroke to resupply us,\\n  The marshal went off toward Dourlens, without drums;\\n  The King's sutlers are there; across the plowed fields\\n  He will join them; but in order to return without mishap,\\n  He took so many troops with him\\n  That anyone attacking us would certainly have an easy time of it:\\n  Half the army is absent from the camp!\\n\\nCARBON:\\n  Yes, if the Spaniards knew, it would be serious.\\n  But they do not know of this departure?\\n\\nDE GUICHE:\\n  They know.\\n  They are going to attack us.\\n\\nCARBON:\\n  Ah!\\n\\nDE GUICHE:\\n  My sham spy\\n  Came to warn me of their assault.\\n  He added: “I can determine its location;\\n  At what point do you want the attack to take place?\\n  I shall say that it is the least defended of all,\\n  And the force of the attack will fall upon it.”—I answered:\\n  “Very well. Leave the camp. Keep your eyes on the line:\\n  It will be at the point from which I signal to you.”\\n\\nCARBON (to the cadets):\\n  Gentlemen, prepare yourselves!\\n  (They all rise. Sound of swords and sword belts being buckled.)\\n\\nDE GUICHE:\\n  It will be in an hour.\\n\\nFIRST CADET:\\n  Ah!... very well!...\\n  (They all sit down again. The interrupted game resumes.)\\n\\nDE GUICHE (to Carbon):\\n  We must gain time. The marshal is returning.\\n\\nCARBON:\\n  And to gain time?\\n\\nDE GUICHE:\\n  You will be so kind\\n  As to have yourselves killed.\\n\\nCYRANO:\\n  Ah! So that is the revenge?\\n\\nDE GUICHE:\\n  I shall not claim that, if I loved you,\\n  I would have chosen you and your men; but,\\n  Since no courage compares with yours,\\n  It is my King I serve by serving my rancor.\\n\\nCYRANO (saluting):\\n  Allow me to be grateful to you, sir.\\n\\nDE GUICHE (saluting):\\n  I know that you like to fight one against a hundred.\\n  You will not complain of lacking work.\\n  (He climbs back up, with Carbon.)\\n\\nCYRANO (to the cadets):\\n  Well then! To Gascony's coat of arms,\\n  Which bears six chevrons, gentlemen, azure and gold,\\n  We are going to add a chevron of blood that it still lacked!\\n  (De Guiche speaks in a low voice with Carbon de Castel-Jaloux, at the rear. Orders\\n  are given. The defense is prepared. Cyrano goes toward Christian, who has\\n  remained motionless, his arms folded.)\\n\\nCYRANO (putting his hand on Christian's shoulder):\\n  Christian?\\n\\nCHRISTIAN (shaking his head):\\n  Roxane!\\n\\nCYRANO:\\n  Alas!\\n\\nCHRISTIAN:\\n  At least, I would like to put\\n  All my heart's farewell into a beautiful letter!...\\n\\nCYRANO:\\n  I suspected that it would be today.\\n  (He draws a note from his doublet):\\n  And I have written your farewells.\\n\\nCHRISTIAN:\\n  Show me!...\\n\\nCYRANO:\\n  You want to?...\\n\\nCHRISTIAN (taking the letter from him):\\n  Why, yes!\\n  (He opens it, reads, and stops):\\n  Look!\\n\\nCYRANO:\\n  What?\\n\\nCHRISTIAN:\\n  This little circle?...\\n\\nCYRANO (quickly taking back the letter and looking at it with an innocent air):\\n  A circle?...\\n\\nCHRISTIAN:\\n  It is a tear!\\n\\nCYRANO:\\n  Yes... A poet gets caught up in his own game—that is the charm!...\\n  You understand... this note—it was very moving:\\n  I made myself weep while writing it.\\n\\nCHRISTIAN:\\n  Weep?...\\n\\nCYRANO:\\n  Yes... because... dying is not terrible.\\n  But... never seeing her again... that is what is horrible!\\n  For after all I do not...\\n  (Christian looks at him):\\n  we do not...\\n  (Quickly):\\n  you do not...\\n\\nCHRISTIAN (snatching the letter from him):\\n  Give me that note!\\n  (A commotion is heard in the distance, in the camp.)\\n\\nA SENTRY'S VOICE:\\n  By God's belly, who goes there?\\n  (Gunshots. Sounds of voices. Jingle bells.)\\n\\nCARBON:\\n  What is it?...\\n\\nTHE SENTRY (who is on the embankment):\\n  A carriage!\\n  (They rush to look.)\\n\\nSHOUTS:\\n  What! In the camp?—It is coming in!\\n  —It looks as though it comes from the enemy!—The devil!\\n  Fire!—No! The coachman shouted!—Shouted what?—\\n  He shouted: On the King's service!\\n  (Everyone is on the embankment, looking outside. The jingle bells draw\\n  nearer.)\\n\\nDE GUICHE:\\n  Eh? The King!...\\n  (They come back down and form ranks.)\\n\\nCARBON:\\n  Hats off, everyone!\\n\\nDE GUICHE (offstage):\\n  The King!—Stand aside, vile rabble,\\n  So that it may describe its curve with pomp!\\n  (The carriage enters at a fast trot. It is covered with mud and\\n  dust. The curtains are drawn. Two lackeys stand behind. It stops dead.)\\n\\nCARBON (shouting):\\n  Beat the salute!\\n  (Roll of drums. All the cadets uncover their heads.)\\n\\nDE GUICHE:\\n  Lower the step!\\n  (Two men rush forward. The carriage door opens.)\\n\\nROXANE (jumping from the carriage):\\n  Good day!\\n  (The sound of a woman's voice makes all these deeply bowed men\\n  straighten up at once.—Astonishment.)\", \"source_occurrence_id\": \"rostand-cyrano-de-bergerac-920ae26958d61661\", \"source_language\": \"fr\", \"source_language_text_sha256\": \"387e29b8d5a77ff5e8b08a27072a244e316d0a9f463815fbde9b867d5c763544\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T11:15:18.641734+00:00\", \"model_usage\": {\"input_tokens\": 2437, \"cached_input_tokens\": 0, \"output_tokens\": 2214}, \"estimated_cost_usd\": 0.054028, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"rostand-cyrano-de-bergerac\", \"title\": \"Cyrano de Bergerac\", \"author\": \"Edmond Rostand\", \"language\": \"fr\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.679726, \"source_start\": 164771, \"source_end\": 164785, \"source_length\": 242408}, \"form\": {\"form_family\": \"present_or_imperfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": \"optional\", \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"fr_present_past\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

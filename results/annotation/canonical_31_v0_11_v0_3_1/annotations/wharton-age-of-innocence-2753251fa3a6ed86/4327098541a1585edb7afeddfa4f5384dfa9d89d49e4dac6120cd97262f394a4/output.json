@@ -1,0 +1,72 @@
+{
+  "occurrence_id": "wharton-age-of-innocence-2753251fa3a6ed86",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.96,
+    "analysis": "Archer’s “At least I loved you” is principally a retrospective avowal presented as true: whatever their misunderstandings and losses, his love for Ellen was real. It does not itself undertake a future commitment. His difficulty in bringing out the words conveys emotional strain, but there is no independent evidence that they function as a reflex-like expressive discharge rather than a deeply felt assertion.",
+    "ambiguity": "The past tense may frame the love as part of a seemingly lost possibility rather than imply that it has ended; the subsequent embrace indicates continuing feeling. The strained delivery could weakly suggest expressive force, but not enough to warrant E support under the narrow criterion."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "Newland Archer directly speaks the retrospective love avowal to Ellen Olenska during their private confrontation."
+  },
+  "contextual_interpretation": "Archer has just discovered that his own advice helped make a relationship with Ellen impossible. Under the perceived weight of something “final and irrevocable,” he offers the avowal as a minimal vindication or consolation: at least his love was genuine. Ellen’s crying, their embrace, and his immediate insistence that matters can still be undone reveal mutual and continuing affect, but the classified sentence itself remains an avowal rather than a commitment. Its ellipsis and “he brought out” mark painful delivery without establishing independent expressive/reflexive force.",
+  "evidence": [
+    {
+      "evidence_id": "ev1",
+      "source": "local_text",
+      "quotation_or_description": "“At least I loved you--” he brought out.",
+      "supports": "The explicit first-person love predication strongly supports truth-conditional avowal; “brought out” and the broken ending show emotional difficulty but not necessarily reflexive discharge.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "ev2",
+      "source": "local_text",
+      "quotation_or_description": "Immediately beforehand, the silence bears “the weight of things final and irrevocable,” and Archer imagines the burden crushing him like his gravestone.",
+      "supports": "The utterance is framed as a retrospective assertion preserving the reality of his love amid perceived irreversible loss, not as a new undertaking.",
+      "confidence": 0.97
+    },
+    {
+      "evidence_id": "ev3",
+      "source": "local_text",
+      "quotation_or_description": "Ellen responds with stifled crying; Archer then embraces her, and she returns his kiss.",
+      "supports": "The response and ensuing conduct corroborate the utterance’s serious affective meaning, while remaining contextual evidence rather than changing its core force into a performative commitment.",
+      "confidence": 0.95
+    },
+    {
+      "evidence_id": "ev4",
+      "source": "local_text",
+      "quotation_or_description": "After the avowal Archer separately says that nothing has been done that cannot be undone and later questions marrying May.",
+      "supports": "Commitment-oriented implications emerge in subsequent speech and action, showing why they should not be attributed to the core sentence itself.",
+      "confidence": 0.94
+    },
+    {
+      "evidence_id": "ev5",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is identified as affirmative past-tense “I loved you” in Edith Wharton’s The Age of Innocence.",
+      "supports": "Confirms the grammatical form and bibliographic identification used in classifying the event as a retrospective love avowal.",
+      "confidence": 1.0
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the core retrospective avowal. Emotional intensity and strained delivery are adequately represented as context, while later commitment-oriented speech is distinct from the classified utterance. No residual core force requires E or O.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"stendhal-le-rouge-et-le-noir-6670377ac73b1e36\", \"SOURCE_TEXT\": {\"exact_match\": \"je vous aime\", \"local_text\": {\"context_start\": 154386, \"context_end\": 154502, \"text\": \"--Il faut bien que je parte, car je vous aime avec passion; c'est une\\nfaute... et quelle faute pour un jeune prêtre!\"}, \"wider_canonical_context\": {\"context_start\": 151257, \"context_end\": 157489, \"text\": \"Certaine de l'affection de Julien, peut-être sa vertu eût trouvé des\\nforces contre lui. Tremblante de le perdre à jamais, sa passion l'égara\\njusqu'au point de reprendre la main de Julien que, dans sa distraction,\\nil avait laissée appuyée sur le dossier d'une chaise. Cette action\\nréveilla ce jeune ambitieux: il eût voulu qu'elle eût pour témoins tous\\nces nobles si fiers qui, à table, lorsqu'il était au bas bout avec les\\nenfants, le regardaient avec un sourire si protecteur. Cette femme ne\\npeut plus me mépriser: dans ce cas, se dit-il, je dois être sensible à\\nsa beauté; je me dois à moi-même d'être son amant! Une telle idée ne lui\\nfût pas venue avant les confidences naïves faites par son ami.\\n\\nLa détermination subite qu'il venait de prendre forma une distraction\\nagréable. Il se disait: il faut que j'aie une de ces deux femmes, il\\ns'aperçut qu'il aurait beaucoup mieux aimé faire la cour à Mme Derville;\\nce n'est pas qu'elle fût plus agréable, mais toujours elle l'avait vu\\nprécepteur honoré pour sa science, et non pas ouvrier charpentier, avec\\nune veste de ratine pliée sous le bras, comme il était apparu à Mme de\\nRênal.\\n\\nC'était précisément comme jeune ouvrier, rougissant jusqu'au blanc des\\nyeux, arrêté à la porte de la maison et n'osant sonner, que Mme de Rênal\\nse le figurait avec le plus de charme. Cette femme, que les bourgeois du\\npays disaient si hautaine, songeait rarement au rang et la moindre\\ncertitude l'emportait de beaucoup dans son esprit sur la promesse de\\ncaractère faite par le rang d'un homme. Un charretier qui eût montré de\\nla bravoure eût été plus brave dans son esprit qu'un terrible capitaine\\nde hussards garni de sa moustache et de sa pipe. Elle croyait l'âme de\\nJulien plus noble que celle de tous ses cousins, tous gentilshommes de\\nrace et plusieurs d'entre eux titrés.\\n\\nEn poursuivant la revue de sa position, Julien vit qu'il ne fallait pas\\nsonger à la conquête de Mme Derville, qui s'apercevait probablement du\\ngoût que Mme de Rênal montrait pour lui. Forcé de revenir à celle-ci:\\nQue connais-je du caractère de cette femme? se dit Julien. Seulement\\nceci: avant mon voyage, je lui prenais la main, elle la retirait;\\naujourd'hui je retire ma main, elle la saisit et la serre. Belle\\noccasion de lui rendre tous les mépris qu'elle a eus pour moi. Dieu sait\\ncombien elle a eu d'amants! elle ne se décide peut-être en ma faveur\\nqu'à cause de la facilité des entrevues.\\n\\nTel est, hélas! le malheur d'une excessive civilisation! A vingt ans,\\nl'éducation d'un jeune homme, s'il a quelque éducation, est à mille\\nlieues du laisser-aller, sans lequel l'amour n'est souvent que le plus\\nennuyeux des devoirs.\\n\\nJe me dois d'autant plus, continua la petite vanité de Julien, de\\nréussir auprès de cette femme, que si jamais je fais fortune et que\\nquelqu'un me reproche le bas emploi de précepteur, je pourrai faire\\nentendre que l'amour m'avait jeté à cette place. Julien éloigna de\\nnouveau sa main de celle de Mme de Rênal, puis il la reprit en la\\nserrant. Comme on rentrait au salon, vers minuit, Mme de Rênal lui dit à\\nmi-voix:\\n\\n--Vous nous quitterez, vous partirez?\\n\\nJulien répondit en soupirant:\\n\\n--Il faut bien que je parte, car je vous aime avec passion; c'est une\\nfaute... et quelle faute pour un jeune prêtre!\\n\\nMme de Rênal s'appuya sur son bras, et avec tant d'abandon que sa joue\\nsentit la chaleur de celle de Julien.\\n\\nLes nuits de ces deux êtres furent bien différentes. Mme de Rênal était\\nexaltée par les transports de la volupté morale la plus élevée. Une\\njeune fille coquette qui aime de bonne heure s'accoutume au trouble de\\nl'amour; quand elle arrive à l'âge de la vraie passion, le charme de la\\nnouveauté manque. Comme Mme de Rênal n'avait jamais lu de romans, toutes\\nles nuances de son bonheur étaient neuves pour elle. Aucune triste\\nvérité ne venait la glacer, pas même le spectre de l'avenir. Elle se vit\\naussi heureuse dans dix ans qu'elle l'était en ce moment. L'idée même de\\nla vertu et de la fidélité jurée à M. de Rênal, qui l'avait agitée\\nquelques jours auparavant, se présenta en vain, on la renvoya comme un\\nhôte importun. Jamais je n'accorderai rien à Julien se dit Mme de Rênal,\\nnous vivrons à l'avenir comme nous vivons depuis un mois. Ce sera un\\nami.\\n\\n\\n\\n\\nCHAPITRE XIV\\n\\nLES CISEAUX ANGLAIS\\n\\n    Une jeune fille de seize ans avait un teint de rose,\\n    et elle mettait du rouge.\\n\\n    POLIDORI\\n\\n\\nPour Julien, l'offre de Fouqué lui avait en effet enlevé tout bonheur;\\nil ne pouvait s'arrêter à aucun parti.\\n\\nHélas! peut-être manqué-je de caractère, j'eusse été un mauvais soldat\\nde Napoléon. Du moins, ajouta-t-il, ma petite intrigue avec la maîtresse\\ndu logis va me distraire un moment.\\n\\nHeureusement pour lui, même dans ce petit incident subalterne,\\nl'intérieur de son âme répondait mal à son langage cavalier. Il avait\\npeur de Mme de Rênal à cause de sa robe si jolie. Cette robe était à ses\\nyeux l'avant-garde de Paris. Son orgueil ne voulut rien laisser au\\nhasard et à l'inspiration du moment. D'après les confidences de Fouqué\\net le peu qu'il avait lu sur l'amour dans sa bible, il se fit un plan de\\ncampagne fort détaillé. Comme, sans se l'avouer, il était fort troublé,\\nil écrivit ce plan.\\n\\nLe lendemain matin au salon, Mme de Rênal fut un instant seule avec lui:\\n\\n--N'avez-vous point d'autre nom que Julien? lui dit-elle.\\n\\nA cette demande si flatteuse, notre héros ne sut que répondre. Cette\\ncirconstance n'était pas prévue dans son plan. Sans cette sottise de\\nfaire un plan, l'esprit vif de Julien l'eût bien servi, la surprise\\nn'eût fait qu'ajouter à la vivacité de ses aperçus.\\n\\nIl fut gauche et s'exagéra sa gaucherie. Mme de Rênal la lui pardonna\\nbien vite. Elle y vit l'effet d'une candeur charmante. Et ce qui\\nmanquait précisément à ses yeux à cet homme, auquel on trouvait tant de\\ngénie, c'était l'air de la candeur.\\n\\n--Ton petit précepteur m'inspire beaucoup de méfiance, lui disait\\nquelquefois Mme Derville. Je lui trouve l'air de penser toujours et de\\nn'agir qu'avec politique. C'est un sournois.\\n\\nJulien resta profondément humilié du malheur de n'avoir su que répondre\\nà Mme de Rênal.\\n\\nUn homme comme moi se doit de réparer cet échec, et saisissant le moment\\noù l'on passait d'une pièce à l'autre, il crut de son devoir de donner\\nun baiser à Mme de Rênal.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"Certain of Julien’s affection, perhaps her virtue would have found the strength to resist him. Trembling at the thought of losing him forever, her passion led her astray to the point of taking Julien’s hand again, which, in his distraction, he had left resting on the back of a chair. This action roused the young man’s ambition: he would have liked all those proud nobles to have witnessed it, those who, at table, when he sat at the lower end with the children, looked at him with such a patronizing smile. This woman can no longer despise me: in that case, he told himself, I must be sensitive to her beauty; I owe it to myself to become her lover! Such an idea would not have occurred to him before the guileless confidences his friend had shared with him.\\n\\nThe sudden resolution he had just made provided a pleasant distraction. He told himself: I must have one of these two women; he realized that he would have much preferred to court Mme Derville; not that she was more attractive, but she had always seen him as a tutor honored for his learning, and not as a carpenter’s workman, with a coarse woolen jacket folded under his arm, as he had appeared to Mme de Rênal.\\n\\nIt was precisely as a young workman, blushing up to the whites of his eyes, stopped at the door of the house and not daring to ring, that Mme de Rênal pictured him at his most charming. This woman, whom the local bourgeois called so haughty, rarely thought about rank, and the slightest certainty carried far more weight in her mind than the promise of character afforded by a man’s rank. A carter who had shown bravery would, in her mind, have been braver than a formidable captain of hussars adorned with his mustache and his pipe. She believed Julien’s soul nobler than those of all her cousins, all gentlemen of ancient lineage and several of them titled.\\n\\nAs he continued reviewing his position, Julien saw that he must not think of conquering Mme Derville, who was probably aware of the liking Mme de Rênal showed for him. Forced to return to the latter: What do I know of this woman’s character? Julien asked himself. Only this: before my journey, I took her hand and she withdrew it; today I withdraw my hand, and she seizes it and presses it. A fine opportunity to repay her for all the contempt she has shown me. God knows how many lovers she has had! Perhaps she decides in my favor only because of the ease with which we can meet.\\n\\nSuch, alas, is the misfortune of excessive civilization! At twenty, a young man’s education, if he has any education at all, is a thousand leagues removed from the freedom from constraint without which love is often merely the most tedious of duties.\\n\\nI owe it all the more to myself, Julien’s petty vanity continued, to succeed with this woman, because if I ever make my fortune and someone reproaches me for the lowly employment of tutor, I shall be able to hint that love had cast me into that position. Julien once again drew his hand away from Mme de Rênal’s, then took hers again, pressing it. As they were returning to the drawing room, around midnight, Mme de Rênal said to him in a low voice:\\n\\n“You will leave us, you will go away?”\\n\\nJulien replied with a sigh:\\n\\n“I really must go, for I love you passionately; it is a sin... and what a sin for a young priest!”\\n\\nMme de Rênal leaned upon his arm, and with such abandon that her cheek felt the warmth of Julien’s.\\n\\nThe nights of these two beings were very different. Mme de Rênal was exalted by the transports of the most elevated moral ecstasy. A coquettish young girl who begins loving early grows accustomed to the turmoil of love; when she reaches the age of true passion, the charm of novelty is lacking. As Mme de Rênal had never read novels, every nuance of her happiness was new to her. No sad truth came to chill her, not even the specter of the future. She saw herself as happy ten years hence as she was at that moment. Even the idea of virtue and of the fidelity she had sworn to M. de Rênal, which had troubled her a few days earlier, presented itself in vain; it was sent away like an unwelcome guest. I shall never grant Julien anything, Mme de Rênal told herself; from now on we shall live as we have lived for the past month. He will be a friend.\\n\\n\\n\\n\\nCHAPTER XIV\\n\\nTHE ENGLISH SCISSORS\\n\\n    A sixteen-year-old girl had a rosy complexion,\\n    and she put on rouge.\\n\\n    POLIDORI\\n\\n\\nFor Julien, Fouqué’s offer had indeed deprived him of all happiness; he could not settle upon any course.\\n\\nAlas! perhaps I lack character; I would have made a bad soldier of Napoleon. At least, he added, my little intrigue with the lady of the house will distract me for a while.\\n\\nFortunately for him, even in this minor, subordinate incident, the depths of his soul corresponded poorly to his cavalier language. He was afraid of Mme de Rênal because of her very pretty dress. In his eyes, that dress was the vanguard of Paris. His pride would leave nothing to chance or to the inspiration of the moment. On the basis of Fouqué’s confidences and the little he had read about love in his Bible, he devised a highly detailed plan of campaign. Since, without admitting it to himself, he was greatly troubled, he wrote this plan down.\\n\\nThe following morning in the drawing room, Mme de Rênal was alone with him for a moment:\\n\\n“Have you no other name but Julien?” she asked him.\\n\\nAt this most flattering question, our hero did not know how to reply. This circumstance had not been foreseen in his plan. But for the folly of making a plan, Julien’s lively mind would have served him well; surprise would merely have added to the quickness of his perceptions.\\n\\nHe was awkward and exaggerated his awkwardness to himself. Mme de Rênal quickly forgave him for it. She saw in it the effect of a charming innocence. And precisely what she thought lacking in this man, whom everyone considered so gifted, was an air of innocence.\\n\\n“Your little tutor inspires a great deal of mistrust in me,” Mme Derville sometimes told her. “I think he always has the air of thinking and of acting only with calculation. He is a sly one.”\\n\\nJulien remained deeply humiliated by the misfortune of not having known how to reply to Mme de Rênal.\\n\\nA man like me owes it to himself to make good this failure, and, seizing the moment when they were passing from one room to another, he believed it his duty to give Mme de Rênal a kiss.\", \"source_occurrence_id\": \"stendhal-le-rouge-et-le-noir-6670377ac73b1e36\", \"source_language\": \"fr\", \"source_language_text_sha256\": \"588689bdf3e31cadf6d8b394efeab17bd75841f1f3fd303317c7448da5aa67f7\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T11:41:08.444345+00:00\", \"model_usage\": {\"input_tokens\": 1935, \"cached_input_tokens\": 0, \"output_tokens\": 1591}, \"estimated_cost_usd\": 0.03956, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"stendhal-le-rouge-et-le-noir\", \"title\": \"Le Rouge et le Noir\", \"author\": \"Stendhal\", \"language\": \"fr\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": \"CHAPITRE XIII\", \"relative_position\": 0.153132, \"source_start\": 154419, \"source_end\": 154431, \"source_length\": 1008402}, \"form\": {\"form_family\": \"present_or_imperfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": \"optional\", \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"fr_present_past\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 1.0, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

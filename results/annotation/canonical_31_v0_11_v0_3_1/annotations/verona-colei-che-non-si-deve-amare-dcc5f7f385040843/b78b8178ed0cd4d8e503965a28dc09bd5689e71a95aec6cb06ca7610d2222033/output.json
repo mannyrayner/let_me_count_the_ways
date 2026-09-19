@@ -1,0 +1,72 @@
+{
+  "occurrence_id": "verona-colei-che-non-si-deve-amare-dcc5f7f385040843",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.97,
+    "analysis": "The embedded clause “io che ti amo” (“I who love you”) is a direct, present-tense avowal of the speaker’s enduring emotional state. Although it occurs within a forceful declaration that he will leave and renounce Loretta, that undertaking belongs to the surrounding speech rather than to the core love clause. The passionate delivery and imagery do not independently make the clause an expressive/reflex-like discharge.",
+    "ambiguity": "The love avowal helps justify and intensify his undertaking to leave, but it does not itself undertake or renew a relationship; any support for P is therefore negligible."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "A character directly addresses Loretta in represented dialogue; the target words are syntactically embedded as “io che ti amo” within his announcement of departure."
+  },
+  "contextual_interpretation": "The speaker avows love for his sister while announcing that he will flee and renounce her to prevent their incestuous relationship from ruining her life. His subsequent claims that he constantly thinks of her and will carry her memory everywhere reinforce the avowal’s truth-conditional force. The scene presents the love as desperate, consuming, and sacrificial, but those qualities concern its content and delivery; there is no positive indication that the words escape as a reflexive discharge. The surrounding speech strongly performs a commitment to separation, in tension with rather than encoded by the core love clause.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "“io che ti amo” (“I who love you”)",
+      "supports": "A direct first-person, present-tense avowal of love, strongly supporting T.",
+      "confidence": 1.0
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "“io che non vivo un momento senza pensare a te” (“I who do not live a single moment without thinking of you”)",
+      "supports": "Elaborates the professed enduring mental and emotional state, reinforcing T.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "“Parto, fuggo, non mi vedrai più… devo rinunziare a te perchè tu sia felice più tardi.”",
+      "supports": "Shows that the surrounding discourse undertakes departure and renunciation; this distinguishes its performative force from the core love avowal.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e4",
+      "source": "local_text",
+      "quotation_or_description": "The narration describes his love as his first and only love and says he must love her infinitely in order to tell her he is leaving.",
+      "supports": "Frames the target as a considered avowal motivating self-denial rather than as a reflex-like verbal discharge.",
+      "confidence": 0.96
+    },
+    {
+      "evidence_id": "e5",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is tagged as affirmative present Italian “ti amo,” with membership review KEEP: VALID_EXPLICIT_LOVE_I_YOU.",
+      "supports": "Confirms that the target is an explicit present-form love expression rather than an incidental lexical match.",
+      "confidence": 1.0
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the core clause as an avowal of a loving state. The surrounding renunciatory commitment and intense tragic framing can be described contextually without assigning P, E, or O to the core utterance.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

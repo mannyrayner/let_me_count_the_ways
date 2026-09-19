@@ -1,0 +1,65 @@
+{
+  "occurrence_id": "ibsen-et-dukkehjem-730c4a81efa614e1",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.97,
+    "analysis": "Nora directly avows as true that she has loved Torvald above everything in the world. The utterance retrospectively presents her enduring love as the motive or meaning behind her conduct; it does not undertake a new commitment, and there is no positive evidence that the words are a reflex-like expressive discharge.",
+    "ambiguity": "The perfect form and crisis setting give the avowal a valedictory, possibly relationship-ending force, but this remains naturally representable as truth-conditional avowal rather than P, E, or O."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "Nora directly addresses Torvald during their confrontation: “Jeg har elsket deg over alt i verdens rike.”"
+  },
+  "contextual_interpretation": "Nora says this immediately after confirming that Krogstad’s account is true. Her avowal frames her incriminating action as arising from profound love for Torvald and occurs while she expects him to assume the burden for her; moments later, his self-protective response exposes the mismatch between her understanding of their marriage and his. Helmer dismisses the statement as an evasion, but that reaction concerns its conversational relevance, not its core avowing force.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "“Det er sant. Jeg har elsket deg over alt i verdens rike.”",
+      "supports": "The explicit assertion “It is true” and the first-person perfect construction strongly support a truth-conditional avowal of love.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "Nora has just told Torvald, “Du skal ikke redde meg,” and then says, “Du skal ikke bære det for min skyld. Du skal ikke ta det på deg.”",
+      "supports": "The avowal belongs to her explanation of loving, self-sacrificial conduct rather than to a new promise or relational undertaking, weighing against P.",
+      "confidence": 0.96
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "Helmer replies, “Å kom ikke her med tåpelige utflukter” (“do not come to me with foolish evasions”).",
+      "supports": "The reply treats Nora’s words as a reason-giving claim that may be irrelevant or evasive, not as a reflexive vocal discharge; this supports dominant T and E=0.",
+      "confidence": 0.94
+    },
+    {
+      "evidence_id": "e4",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is tagged as affirmative perfect (“Jeg har elsket deg”).",
+      "supports": "The grammatical form reinforces the retrospective presentation of a loving state extending through prior time, rather than an explicit present commitment.",
+      "confidence": 0.98
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T alone naturally captures the core force as a retrospective avowal of love. The dramatic irony, sacrificial motive, conversational dismissal, and impending collapse of the marriage are contextual complexities rather than missing dimensions of core utterance force.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

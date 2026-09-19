@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"strindberg-froken-julie-1492b64f21186bd3\", \"SOURCE_TEXT\": {\"exact_match\": \"jag älskar dig\", \"local_text\": {\"context_start\": 54640, \"context_end\": 56034, \"text\": \"Tror ni inte att jag kan se blod! Tror ni att jag är så svag ---\\nåh - jag skulle vilja se ditt blod, din hjärna på en träkubbe - jag\\nskulle vilja se hela ditt kön simma i en sjö som den där --- jag tror\\njag skulle kunna dricka ur din huvudskål, jag skulle vilja bada mina\\nfötter i din bröstkorg och jag skulle kunna äta ditt hjärta helstekt!\\n-Du tror att jag är svag; du tror att jag älskar dig, därför att min\\nlivsfrukt åtrådde ditt frö; du tror att jag vill bära din avföda under\\nmitt hjärta och nära den med mitt blod - föda ditt barn och ta ditt\\nnamn -hör du, vad heter du? -jag har aldrig hört ditt tillnamn - du\\nhar väl inget kan jag tro. Jag skulle bli fru \\\"grindstugan\\\" - eller\\nmadam Bobacken - du hund som bär mitt halsband, du dräng som bär mitt\\nbomärke i dina knappar - jag dela med min köksa, rivalisera med min\\npiga - åh! åh! åh! - Du tror att jag är feg och vill fly! Nej, nu\\nstannar jag - och så må åskan gå! Min far kommer hem - finner sin\\nchiffonjé uppbruten - sina pengar borta - så ringer han - på den där\\nklockan - två tag efter betjänten - och så skickar han efter länsman -\\noch så talar jag om allt! Allt! åh det skall bli skönt att få ett slut\\n- bara det ville bli slut - och så får han slag och dör! - så bli vi\\nslut allihop - och så blir det lugn - ro - evig vila - och så krossas\\nvapnet mot likkistan - grevesläkten är slocknad och betjäntätten\\nfortsätter på ett barnh\"}, \"wider_canonical_context\": {\"context_start\": 51993, \"context_end\": 58649, \"text\": \"Hon går till handfatet och tvättar ansiktet och händer.\\n\\nSå! Ge mig en handduk! -åh - det är solen som går opp!\\n\\nJEAN\\n\\nOch då spricker trollet!\\n\\nFRöKEN\\n\\nJa det är trollen som varit ute i natt! - Men Jean, hör på! Följ\\nmed, för nu har jag medel!\\n\\nJEAN\\n\\ntvekande.\\n\\nTillräckligt?\\n\\nFRöKEN\\n\\nTillräckligt att börja med! Följ mig, för jag kan inte resa ensam\\ni dag. Tänk, midsommardagen, på ett kvalmigt tåg inpackad bland massor\\nav folk som ska gapa på en; stå stilla på stationerna när man ville\\nflyga - nej, jag kan inte, jag kan inte! Och så kommer minnena;\\nbarndomens minnen av midsommardagar med den lövade kyrkan - björklöven\\noch syrener; middagen meddet dukade bordet, släktingarna, vännerna;\\neftermiddagen i parken, dans, musik, blommor och lekar! åh man flyr,\\nflyr, men minnena följa på packvagnen, och ångern och samvetskvalen!\\n\\nJEAN\\n\\nJag ska följa er! Men nu genast innan det blir för sent! Nu på\\nögonblicket!\\n\\nFRöKEN\\n\\nSå! kläd på er då!\\n\\nTar fågelburen.\\n\\nJEAN\\n\\nMen intet bagage! Då äro vi röjda!\\n\\nFRöKEN\\n\\nNej, ingenting! Bara det man kan ha i kupén!\\n\\nJEAN\\n\\nhar tagit sin hatt.\\n\\nVad har ni där för slag? Vad är det!\\n\\nFRöKEN\\n\\nDet är bara min grönsiska! Den vill jag inte lämna!\\n\\nJEAN\\n\\nSe så där ja! Ska vi nu ha fågelbur med! Ni är ju rasande! Släpp buren!\\n\\nFRöKEN\\n\\nMitt enda jag tar med från hemmet; den enda levande varelse som\\nhåller av mig sedan Diana blev mig otrogen! Var inte grym! Låt mig få\\nta den med!\\n\\nJEAN\\n\\nSläpp buren säger jag, - och tala inte så högt - Kristin hör oss!\\n\\nFRöKEN\\n\\nNej jag lämnar den inte i främmande händer! Döda den då hellre!\\n\\nJEAN\\n\\nTa hit kräket då, så ska jag nacka den!\\n\\nFRöKEN\\n\\nJa, men inte göra den illa! Inte --- nej, jag kan inte!\\n\\nJEAN\\n\\nTag hit; jag kan jag!\\n\\nFRöKEN\\n\\ntar ut fågeln ur buren och kysser den.\\n\\nåh, min lilla Serine, ska du dö ifrån din matmor nu?\\n\\nJEAN\\n\\nVar så god och gör inga scener; det gäller ju ert liv, er välfärd!\\nSå, fort!\\n\\nRycker fågeln av henne; bär till huggkubben och tar köksyxan.\\n\\nFröken vänder sig bort.\\n\\nJEAN\\n\\nNi skulle ha lärt er slakta kycklingar i stället för att skjuta\\nmed revolver -\\n\\nhugger till\\n\\nSå skulle ni inte dånat för en blodsdroppe!\\n\\nFRöKEN\\n\\nskriker.\\n\\nDöda mig också! Döda mig! Ni som kan slakta ett oskyldigt djur\\nutan att darra på handen. O, jag hatar och avskyr er; det är blod\\nemellan oss! Jag förbannar den stund jag såg er, jag förbannar den\\nstund jag föddes i mig moders liv!\\n\\nJEAN\\n\\nJa vad hjälper det att ni bannar! Gå!\\n\\nFRöKEN\\n\\nnärmar sig huggkubben liksom dragen dit mot sin vilja.\\n\\nNej, jag vill inte gå ännu; jag kan inte --- jag måste se ---\\ntyst! det kör en vagn därute -\\n\\nLyss utåt allt under det hon håller ögonen fästade på kubben\\noch yxan.\\n\\nTror ni inte att jag kan se blod! Tror ni att jag är så svag ---\\nåh - jag skulle vilja se ditt blod, din hjärna på en träkubbe - jag\\nskulle vilja se hela ditt kön simma i en sjö som den där --- jag tror\\njag skulle kunna dricka ur din huvudskål, jag skulle vilja bada mina\\nfötter i din bröstkorg och jag skulle kunna äta ditt hjärta helstekt!\\n-Du tror att jag är svag; du tror att jag älskar dig, därför att min\\nlivsfrukt åtrådde ditt frö; du tror att jag vill bära din avföda under\\nmitt hjärta och nära den med mitt blod - föda ditt barn och ta ditt\\nnamn -hör du, vad heter du? -jag har aldrig hört ditt tillnamn - du\\nhar väl inget kan jag tro. Jag skulle bli fru \\\"grindstugan\\\" - eller\\nmadam Bobacken - du hund som bär mitt halsband, du dräng som bär mitt\\nbomärke i dina knappar - jag dela med min köksa, rivalisera med min\\npiga - åh! åh! åh! - Du tror att jag är feg och vill fly! Nej, nu\\nstannar jag - och så må åskan gå! Min far kommer hem - finner sin\\nchiffonjé uppbruten - sina pengar borta - så ringer han - på den där\\nklockan - två tag efter betjänten - och så skickar han efter länsman -\\noch så talar jag om allt! Allt! åh det skall bli skönt att få ett slut\\n- bara det ville bli slut - och så får han slag och dör! - så bli vi\\nslut allihop - och så blir det lugn - ro - evig vila - och så krossas\\nvapnet mot likkistan - grevesläkten är slocknad och betjäntätten\\nfortsätter på ett barnhus - vinner lagrarne i en rännsten och slutar i\\nett fängelse!\\n\\nJEAN\\n\\nNu är det kungablodet som talar! Bra, fröken Julie! Stoppa nu\\nmjölnarn i säcken bara!\\n\\nKristin in kyrkklädd med psalmbok i handen.\\n\\nFRöKEN\\n\\nSkyndar emot henne och faller i hennes armar liksom för att\\nsöka skydd.\\n\\nHjälp mig Kristin! Hjälp mig mot denne man!\\n\\nKRISTIN\\n\\norörlig och kall.\\n\\nVad är det nu för spektakel på helgdagsmorgon!\\n\\nSer på huggkubben.\\n\\nOch så ni svinat till här! -Vad vill det här betyda? Och så ni\\nskriker och väsnas!\\n\\nFRöKEN\\n\\nKristin! Du är en kvinna och du är min vän! Akta dig för denna\\nusling!\\n\\nJEAN\\n\\nsnopen.\\n\\nMedan damerna resonera så går jag in och rakar mig!\\n\\nGlider ut till höger.\\n\\nFRöKEN\\n\\nDu skall förstå mig; och du skall höra på mig!\\n\\nKRISTIN\\n\\nNej jag förstår mig verkligen inte på såna här slinkerier! Vart\\nska hon ta vägen så här resklädd - och han står med hatten på - va?\\n-va? -\\n\\nFRöKEN\\n\\nHör mig Kristin; hör på mig, så skall jag tala om allt ---\\n\\nKRISTIN\\n\\nJag vill inte veta någonting ---\\n\\nFRöKEN\\n\\nDu måste höra mig ---\\n\\nKRISTIN\\n\\nVad är det om? är det om dumheterna med Jean! Ja si det bryr jag\\nmig inte alls om! för det lägger jag mig inte i. Men tänker hon narra\\nhonom att schappa så ska vi sätta p för det!\\n\\nFRöKEN\\n\\nytterligt nervös.\\n\\nFörsök nu att vara lugn Kristin och hör på mig! Jag kan inte\\nstanna här och Jean kan inte stanna här - vi måste således resa...\\n\\nKRISTIN\\n\\nHm, hm!\\n\\nFRöKEN\\n\\nljusnar.\\n\\nMen ser du, nu fick jag en idé - om vi skulle resa alla tre -\\nutomlands - till Schweiz och sätta opp ett hotell tillsammans - jag\\nhar pengar ser du - och Jean och jag skulle stå för det hela - och du,\\nhade jag tänkt, skulle ta köket - blir det inte bra! -Säg ja nu! Och\\nkom med oss, så är allting arrangerat! -Säg ja! då\\n\\nOmfamnar Kristin och klappar henne.\\n\\nKRISTIN\\n\\nkall och eftertänksam.\\n\\nHm, hm!\\n\\nFRöKEN\\n\\npresto-tempo.\\n\\nDu har aldrig varit ute och rest, Kristin - du ska ut och se dig\\nom i världen - du kan aldrig tro så roligt det är att resa på tåg -\\nnya människor oupphörligt - nya länder - och så kommer vi till Hamburg\\noch ser på Zoologiska trägårn i förbifarten - det tycker du om - och\\nså gå vi i teatern och hör på opera. - och när vi kommer till\\nMünchen så ha vi museerna - du - och där är Rubens och Rafael de\\ndär stora målarne som du vet - du har ju hört talas om München\\ndär kung Ludvig bodde - kungen, vet jag - som blev vansinnig - och så\\nska vi se hans slott - han har slott ännu som äro inredda alldeles som\\ni sagorna - och därifrån är inte långt till Schweiz - med alperna du -\\ntänk alperna med snö på mitt i sommarn - och där växer det apelsiner\\noch lagrar som är gröna hela året om ---\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"She goes to the washbasin and washes her face and hands.\\n\\nThere! Give me a towel!—oh—the sun is rising!\\n\\nJEAN\\n\\nAnd then the troll bursts!\\n\\nMISS\\n\\nYes, it is the trolls who have been abroad tonight!—But Jean, listen! Come with me, for now I have the means!\\n\\nJEAN\\n\\nhesitating.\\n\\nEnough?\\n\\nMISS\\n\\nEnough to begin with! Come with me, for I cannot travel alone today. Just think, Midsummer Day, on a stifling train, packed in among crowds of people who will gape at one; standing still at the stations when one wanted to fly—no, I cannot, I cannot! And then the memories come; childhood memories of Midsummer Days, with the church decked in greenery—the birch leaves and lilacs; dinner with the table laid, the relatives, the friends; the afternoon in the park, dancing, music, flowers, and games! Oh, one flees, flees, but the memories follow in the baggage van, and remorse and pangs of conscience!\\n\\nJEAN\\n\\nI shall go with you! But now, at once, before it is too late! This very moment!\\n\\nMISS\\n\\nThere! Get dressed, then!\\n\\nTakes the birdcage.\\n\\nJEAN\\n\\nBut no luggage! Then we shall be discovered!\\n\\nMISS\\n\\nNo, nothing! Only what one can take in the compartment!\\n\\nJEAN\\n\\nhas taken his hat.\\n\\nWhat sort of thing have you there? What is it?\\n\\nMISS\\n\\nIt is only my greenfinch! I do not want to leave it!\\n\\nJEAN\\n\\nWell, there we are! Are we to bring a birdcage now too! You are out of your mind! Put down the cage!\\n\\nMISS\\n\\nThe only thing I am taking with me from home; the only living creature that is fond of me, since Diana was unfaithful to me! Do not be cruel! Let me take it with me!\\n\\nJEAN\\n\\nPut down the cage, I say—and do not speak so loudly—Kristin will hear us!\\n\\nMISS\\n\\nNo, I will not leave it in strangers’ hands! Kill it instead, then!\\n\\nJEAN\\n\\nBring the wretched creature here, then, and I shall wring its neck!\\n\\nMISS\\n\\nYes, but do not hurt it! Do not—no, I cannot!\\n\\nJEAN\\n\\nBring it here; I can!\\n\\nMISS\\n\\ntakes the bird out of the cage and kisses it.\\n\\nOh, my little Serine, are you to die and leave your mistress now?\\n\\nJEAN\\n\\nPlease do not make a scene; it is your life, your welfare, that is at stake! Come, quickly!\\n\\nSnatches the bird from her; carries it to the chopping block and takes the kitchen axe.\\n\\nMiss turns away.\\n\\nJEAN\\n\\nYou should have learned to slaughter chickens instead of shooting a revolver—\\n\\nstrikes\\n\\nThen you would not have fainted at a drop of blood!\\n\\nMISS\\n\\nscreams.\\n\\nKill me too! Kill me! You who can slaughter an innocent animal without your hand trembling. Oh, I hate and loathe you; there is blood between us! I curse the hour when I saw you, I curse the hour when I was born in my mother’s womb!\\n\\nJEAN\\n\\nYes, what good does it do for you to curse! Go!\\n\\nMISS\\n\\napproaches the chopping block as though drawn there against her will.\\n\\nNo, I do not want to go yet; I cannot—I must see—quiet! There is a carriage driving outside—\\n\\nListens toward the outside, all the while keeping her eyes fixed on the block and the axe.\\n\\nDo you think I cannot look at blood! Do you think I am so weak—oh—I should like to see your blood, your brain on a wooden block—I should like to see your whole sex swimming in a lake like that—I think I could drink from your skull, I should like to bathe my feet in your chest and I could eat your heart roasted whole!—You think I am weak; you think I love you because the fruit of my womb desired your seed; you think I want to carry your offspring beneath my heart and nourish it with my blood—bear your child and take your name—do you hear, what is your name?—I have never heard your surname—you probably have none, I suppose. I should become Mrs. “Gatehouse”—or Madam Dunghill—you dog who wears my collar, you farmhand who wears my owner’s mark on your buttons—I, share with my cook, rival my maid—oh! oh! oh!—You think I am cowardly and want to flee! No, now I shall stay—and let the thunder roll! My father comes home—finds his escritoire broken open—his money gone—then he rings—that bell—twice for the valet—and then he sends for the sheriff—and then I tell everything! Everything! Oh, it will be good to have an end—if only it would end—and then he has a stroke and dies!—then we shall all be finished—and then there will be calm—peace—eternal rest—and then the coat of arms is shattered against the coffin—the count’s line is extinguished and the valet’s line continues in a foundling home—wins its laurels in a gutter and ends in a prison!\\n\\nJEAN\\n\\nNow it is the royal blood speaking! Good, Miss Julie! Just put the miller in the sack too!\\n\\nKristin enters, dressed for church, with a hymnbook in her hand.\\n\\nMISS\\n\\nHurries toward her and falls into her arms as though seeking protection.\\n\\nHelp me, Kristin! Help me against this man!\\n\\nKRISTIN\\n\\nmotionless and cold.\\n\\nWhat sort of spectacle is this on a holy-day morning!\\n\\nLooks at the chopping block.\\n\\nAnd how you have fouled things up here!—What is the meaning of this? And all this screaming and noise!\\n\\nMISS\\n\\nKristin! You are a woman and you are my friend! Beware of this scoundrel!\\n\\nJEAN\\n\\nabashed.\\n\\nWhile the ladies discuss matters, I shall go in and shave!\\n\\nSlips out to the right.\\n\\nMISS\\n\\nYou must understand me; and you must listen to me!\\n\\nKRISTIN\\n\\nNo, I really do not understand this sort of sluttishness! Where is Miss going, dressed for travel like this—and he is standing there with his hat on—eh?—eh?—\\n\\nMISS\\n\\nHear me, Kristin; listen to me, and I shall tell you everything—\\n\\nKRISTIN\\n\\nI do not want to know anything—\\n\\nMISS\\n\\nYou must hear me—\\n\\nKRISTIN\\n\\nWhat is it about? Is it about the foolishness with Jean! Well, you see, I do not care about that at all! For I do not meddle in it. But if Miss means to trick him into running away, we shall put a stop to that!\\n\\nMISS\\n\\nextremely nervous.\\n\\nTry now to remain calm, Kristin, and listen to me! I cannot stay here and Jean cannot stay here—we must therefore leave...\\n\\nKRISTIN\\n\\nHm, hm!\\n\\nMISS\\n\\nbrightening.\\n\\nBut you see, I have just had an idea—what if all three of us were to go—abroad—to Switzerland and set up a hotel together—I have money, you see—and Jean and I would run the whole thing—and you, I had thought, would take care of the kitchen—would that not be good!—Say yes now! And come with us, and then everything is arranged!—Say yes! Do!\\n\\nEmbraces Kristin and pats her.\\n\\nKRISTIN\\n\\ncold and thoughtful.\\n\\nHm, hm!\\n\\nMISS\\n\\npresto tempo.\\n\\nYou have never been away traveling, Kristin—you must go out and see the world—you cannot imagine how amusing it is to travel by train—new people incessantly—new countries—and then we shall come to Hamburg and see the Zoological Garden in passing—you will like that—and then we shall go to the theater and listen to opera.—And when we come to Munich, we have the museums—you—and there are Rubens and Raphael, those great painters, as you know—you have heard of Munich, where King Ludwig lived—the king, I mean—who went mad—and then we shall see his castles—he still has castles that are furnished exactly as in fairy tales—and from there it is not far to Switzerland—with the Alps, you know—just think, the Alps with snow on them in the middle of summer—and there oranges and laurels grow and remain green all year round—\", \"source_occurrence_id\": \"strindberg-froken-julie-1492b64f21186bd3\", \"source_language\": \"sv\", \"source_language_text_sha256\": \"bcfcb4415a86532561c345c0cabadb36e88b926a11663346756c147c3830687a\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T11:43:36.005986+00:00\", \"model_usage\": {\"input_tokens\": 2485, \"cached_input_tokens\": 0, \"output_tokens\": 2362}, \"estimated_cost_usd\": 0.057179999999999995, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"strindberg-froken-julie\", \"title\": \"Fröken Julie\", \"author\": \"August Strindberg\", \"language\": \"sv\", \"source_type\": \"runeberg\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.808392, \"source_start\": 55020, \"source_end\": 55034, \"source_length\": 68061}, \"form\": {\"form_family\": \"present_or_past\", \"polarity\": \"surface_optional_negative\", \"tense_aspect\": \"present\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"sv_main\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

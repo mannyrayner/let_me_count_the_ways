@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"rostand-cyrano-de-bergerac-80fb00222eee79c5\", \"SOURCE_TEXT\": {\"exact_match\": \"Je t'aime\", \"local_text\": {\"context_start\": 118066, \"context_end\": 118094, \"text\": \"CHRISTIAN:\\n  Je t'aime tant.\"}, \"wider_canonical_context\": {\"context_start\": 115074, \"context_end\": 121122, \"text\": \"ROXANE (voyant qu'on ouvre):\\n  Entrons !. . .\\n  (Du seuil, à Cyrano):\\n  Si Christian vient, comme je le présume,\\n  Qu'il m'attende !\\n\\nCYRANO (vivement, comme elle va disparaître):\\n  Ah !. . .\\n  (Elle se retourne):\\n  Sur quoi, selon votre coutume,\\n  Comptez-vous aujourd'hui l'interroger !\\n\\nROXANE:\\n  Sur. . .\\n\\nCYRANO (vivement):\\n  Sur ?\\n\\nROXANE:\\n  Mais vous serez muet, là-dessus !\\n\\nCYRANO:\\n  Comme un mur.\\n\\nROXANE:\\n  Sur rien !. . .Je vais lui dire: Allez ! Partez sans bride !\\n  Improvisez. Parlez d'amour. Soyez splendide !\\n\\nCYRANO (souriant):\\n  Bon.\\n\\nROXANE:\\n  Chut !. . .\\n\\nCYRANO:\\n  Chut !. . .\\n\\nROXANE:\\n  Pas un mot !. . .\\n  (Elle rentre et referme la porte.)\\n\\nCYRANO (la saluant, la porte une fois fermée):\\n  En vous remerciant.\\n  (La porte se rouvre et Roxane passe la tête.)\\n\\nROXANE:\\n  Il se préparerait !. . .\\n\\nCYRANO:\\n  Diable, non !. . .\\n\\nTOUS LES DEUX (ensemble):\\n  Chut !. . .\\n  (La porte se ferme.)\\n\\nCYRANO (appelant):\\n  Christian !\\n\\n\\n\\nScène 3.IV.\\n\\nCyrano, Christian.\\n\\n\\nCYRANO:\\n  Je sais tout ce qu'il faut. Prépare ta mémoire.\\n  Voici l'occasion de se couvrir de gloire.\\n  Ne perdons pas de temps. Ne prends pas l'air grognon.\\n  Vite, rentrons chez toi, je vais t'apprendre. . .\\n\\nCHRISTIAN:\\n  Non !\\n\\nCYRANO:\\n  Hein ?\\n\\nCHRISTIAN:\\n  Non ! J'attends Roxane ici.\\n\\nCYRANO:\\n  De quel vertige\\n  Es-tu frappé ? Viens vite apprendre. . .\\n\\nCHRISTIAN:\\n  Non, te dis-je !\\n  Je suis las d'emprunter mes lettres, mes discours,\\n  Et de jouer ce rôle, et de trembler toujours !. . .\\n  C'était bon au début ! Mais je sens qu'elle m'aime !\\n  Merci. Je n'ai plus peur. Je vais parler moi-même.\\n\\nCYRANO:\\n  Ouais !\\n\\nCHRISTIAN:\\n  Et qui te dit que je ne saurais pas ?. . .\\n  Je ne suis pas si bête à la fin ! Tu verras !\\n  Mais, mon cher, tes leçons m'ont été profitables.\\n  Je saurai parler seul ! Et, de par tous les diables,\\n  Je saurai bien toujours la prendre dans mes bras !. . .\\n  (Apercevant Roxane, qui ressort de chez Clomire):\\n  --C'est elle ! Cyrano, non, ne me quitte pas !\\n\\nCYRANO (le saluant):\\n  Parlez tout seul, Monsieur.\\n  (Il disparaît derrière le mur du jardin.)\\n\\n\\n\\nScène 3.V.\\n\\nChristian, Roxane, quelques précieux et précieuses, et la duègne,\\nun instant.\\n\\n\\nROXANE (sortant de la maison de Clomire avec une compagnie qu'elle\\n  quitte: révérences et saluts):\\n  Barthénoïde !--Alcandre !--Grémione !. . .\\n\\nLA DUÈGNE (désespérée):\\n  On a manqué le discours sur le Tendre !\\n  (Elle rentre chez Roxane.)\\n\\nROXANE (saluant encore):\\n  Urimédonte !. . .Adieu !. . .\\n  (Tous saluent Roxane, se resaluent entre eux, se séparent et\\n  s'éloignent par différentes rues. Roxane voit Christian):\\n  C'est vous !. . .\\n  (Elle va à lui):\\n  Le soir descend.\\n  Attendez. Ils sont loin. L'air est doux. Nul passant.\\n  Asseyons-nous. Parlez. J'écoute.\\n\\nCHRISTIAN (s'assied près d'elle, sur le banc. Un silence):\\n  Je vous aime.\\n\\nROXANE (fermant les yeux):\\n  Oui, parlez-moi d'amour.\\n\\nCHRISTIAN:\\n  Je t'aime.\\n\\nROXANE:\\n  C'est le thème.\\n  Brodez, brodez.\\n\\nCHRISTIAN:\\n  Je vous. . .\\n\\nROXANE:\\n  Brodez !\\n\\nCHRISTIAN:\\n  Je t'aime tant.\\n\\nROXANE:\\n  Sans doute ! Et puis ?\\n\\nCHRISTIAN:\\n  Et puis. . .je serais si content\\n  Si vous m'aimiez !--Dis-moi, Roxane, que tu m'aimes !\\n\\nROXANE (avec une moue):\\n  Vous m'offrez du brouet quand j'espérais des crèmes !\\n  Dites un peu comment vous m'aimez ?. . .\\n\\nCHRISTIAN:\\n  Mais. . .beaucoup.\\n\\nROXANE:\\n  Oh !. . .Délabyrinthez vos sentiments !\\n\\nCHRISTIAN (qui s'est rapproché et dévore des yeux la nuque blonde):\\n  Ton cou !\\n  Je voudrais l'embrasser !. . .\\n\\nROXANE:\\n  Christian !\\n\\nCHRISTIAN:\\n  Je t'aime !\\n\\nROXANE (voulant se lever):\\n  Encore !\\n\\nCHRISTIAN (vivement, la retenant):\\n  Non ! je ne t'aime pas !\\n\\nROXANE (se rasseyant):\\n  C'est heureux !\\n\\nCHRISTIAN:\\n  Je t'adore !\\n\\nROXANE (se levant et s'éloignant):\\n  Oh !\\n\\nCHRISTIAN:\\n  Oui. . .je deviens sot !\\n\\nROXANE (sèchement):\\n  Et cela me déplaît !\\n  Comme il me déplairait que vous devinssiez laid.\\n\\nCHRISTIAN:\\n  Mais. . .\\n\\nROXANE:\\n  Allez rassembler votre éloquence en fuite !\\n\\nCHRISTIAN:\\n  Je. . .\\n\\nROXANE:\\n  Vous m'aimez, je sais. Adieu.\\n  (Elle va vers la maison.)\\n\\nCHRISTIAN:\\n  Pas tout de suite !\\n  Je vous dirai. . .\\n\\nROXANE (poussant la porte pour rentrer):\\n  Que vous m'adorez. . .oui, je sais.\\n  Non ! Non ! Allez-vous-en !\\n\\nCHRISTIAN:\\n  Mais je. . .\\n  (Elle lui ferme la porte au nez.)\\n\\nCYRANO (qui depuis un moment est rentré sans être vu):\\n  C'est un succès.\\n\\n\\n\\nScène 3.VI.\\n\\nChristian, Cyrano, les pages, un instant.\\n\\n\\nCHRISTIAN:\\n  Au secours !\\n\\nCYRANO:\\n  Non monsieur.\\n\\nCHRISTIAN:\\n  Je meurs si je ne rentre\\n  En grâce, à l'instant même. . .\\n\\nCYRANO:\\n  Et comment puis-je, diantre !\\n  Vous faire à l'instant même, apprendre ?. . .\\n\\nCHRISTIAN (lui saisissant le bras):\\n  Oh ! là, tiens, vois !\\n  (La fenêtre du balcon s'est éclairée):\\n\\nCYRANO (ému):\\n  Sa fenêtre !\\n\\nCHRISTIAN (criant):\\n  Je vais mourir !\\n\\nCYRANO:\\n  Baissez la voix !\\n\\nCHRISTIAN (tout bas):\\n  Mourir !. . .\\n\\nCYRANO:\\n  La nuit est noire. . .\\n\\nCHRISTIAN:\\n  Eh ! bien ?\\n\\nCYRANO:\\n  C'est réparable.\\n  Vous ne méritez pas. . .Mets-toi là, misérable !\\n  Là, devant le balcon ! Je me mettrai dessous. . .\\n  Et je te soufflerai tes mots.\\n\\nCHRISTIAN:\\n  Mais. . .\\n\\nCYRANO:\\n  Taisez-vous !\\n\\nLES PAGES (reparaissant au fond, à Cyrano):\\n  Hep !\\n\\nCYRANO:\\n  Chut !. . .\\n  (Il leur fait signe de parler bas.)\\n\\nPREMIER PAGE (à mi-voix):\\n  Nous venons de donner la sérénade\\n  A Montfleury !. . .\\n\\nCYRANO (bas, vite):\\n  Allez-vous mettre en embuscade\\n  L'un à ce coin de rue, et l'autre à celui-ci;\\n  Et si quelque passant gênant vient par ici,\\n  Jouez un air !\\n\\nDEUXIÈME PAGE:\\n  Quel air, monsieur le gassendiste ?\\n\\nCYRANO:\\n  Joyeux pour une femme, et pour un homme, triste !\\n  (Les pages disparaissent, un à chaque coin de rue.--A Christian):\\n  Appelle-la !\\n\\nCHRISTIAN:\\n  Roxane !\\n\\nCYRANO (ramassant des cailloux qu'il jette dans les vitres):\\n  Attends ! Quelques cailloux.\\n\\n\\n\\nScène VII.\\n\\nRoxane, Christian, Cyrano, d'abord caché sous le balcon.\\n\\n\\nROXANE (entr'ouvrant sa fenêtre):\\n  Qui donc m'appelle ?\\n\\nCHRISTIAN:\\n  Moi.\\n\\nROXANE:\\n  Qui, moi ?\\n\\nCHRISTIAN:\\n  Christian.\\n\\nROXANE (avec dédain):\\n  C'est vous ?\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"ROXANE (seeing that the door is being opened):\\n  Let us go in! . . .\\n  (From the threshold, to Cyrano):\\n  If Christian comes, as I presume he will,\\n  Tell him to wait for me!\\n\\nCYRANO (quickly, as she is about to disappear):\\n  Ah! . . .\\n  (She turns around):\\n  On what, as is your custom,\\n  Do you intend to question him today?\\n\\nROXANE:\\n  On. . .\\n\\nCYRANO (quickly):\\n  On?\\n\\nROXANE:\\n  But you will keep silent about it!\\n\\nCYRANO:\\n  Like a wall.\\n\\nROXANE:\\n  On nothing! . . .I shall tell him: Go on! Give yourself free rein!\\n  Improvise. Speak of love. Be splendid!\\n\\nCYRANO (smiling):\\n  Good.\\n\\nROXANE:\\n  Hush! . . .\\n\\nCYRANO:\\n  Hush! . . .\\n\\nROXANE:\\n  Not a word! . . .\\n  (She goes inside and closes the door again.)\\n\\nCYRANO (bowing to her once the door is closed):\\n  With my thanks.\\n  (The door opens again and Roxane puts her head out.)\\n\\nROXANE:\\n  He might prepare himself! . . .\\n\\nCYRANO:\\n  Good heavens, no! . . .\\n\\nBOTH (together):\\n  Hush! . . .\\n  (The door closes.)\\n\\nCYRANO (calling):\\n  Christian!\\n\\n\\n\\nScene 3.IV.\\n\\nCyrano, Christian.\\n\\n\\nCYRANO:\\n  I know everything that is needed. Prepare thy memory.\\n  Here is the opportunity to cover ourselves with glory.\\n  Let us waste no time. Do not look so sullen.\\n  Quickly, let us go back to thy place; I am going to teach thee. . .\\n\\nCHRISTIAN:\\n  No!\\n\\nCYRANO:\\n  What?\\n\\nCHRISTIAN:\\n  No! I am waiting for Roxane here.\\n\\nCYRANO:\\n  What madness\\n  Has seized thee? Come quickly and learn. . .\\n\\nCHRISTIAN:\\n  No, I tell thee!\\n  I am weary of borrowing my letters and my speeches,\\n  And of playing this part, and of always trembling! . . .\\n  It was fine at first! But I feel that she loves me!\\n  Thank thee. I am no longer afraid. I shall speak for myself.\\n\\nCYRANO:\\n  Indeed!\\n\\nCHRISTIAN:\\n  And who tells thee that I would not know how? . . .\\n  I am not so stupid, after all! Thou shalt see!\\n  But, my dear fellow, thy lessons have been useful to me.\\n  I shall know how to speak alone! And, by all the devils,\\n  I shall certainly always know how to take her in my arms! . . .\\n  (Catching sight of Roxane, who is coming out of Clomire's house):\\n  —There she is! Cyrano, no, do not leave me!\\n\\nCYRANO (bowing to him):\\n  Speak by yourself, sir.\\n  (He disappears behind the garden wall.)\\n\\n\\n\\nScene 3.V.\\n\\nChristian, Roxane, several male and female précieuses, and the duenna,\\nfor a moment.\\n\\n\\nROXANE (leaving Clomire's house with a company from whom she is taking\\n  her leave: curtsies and bows):\\n  Barthenoïde!—Alcandre!—Grémione! . . .\\n\\nTHE DUENNA (in despair):\\n  We missed the discourse on Tenderness!\\n  (She goes into Roxane's house.)\\n\\nROXANE (still taking leave):\\n  Urimédonte! . . .Farewell! . . .\\n  (They all bow to Roxane, bow again to one another, part, and\\n  go off along different streets. Roxane sees Christian):\\n  It is you! . . .\\n  (She goes to him):\\n  Evening is falling.\\n  Wait. They are far away. The air is mild. No passersby.\\n  Let us sit down. Speak. I am listening.\\n\\nCHRISTIAN (sits down near her on the bench. A silence):\\n  I love you.\\n\\nROXANE (closing her eyes):\\n  Yes, speak to me of love.\\n\\nCHRISTIAN:\\n  I love thee.\\n\\nROXANE:\\n  That is the theme.\\n  Embroider, embroider.\\n\\nCHRISTIAN:\\n  I. . .you. . .\\n\\nROXANE:\\n  Embroider!\\n\\nCHRISTIAN:\\n  I love thee so much.\\n\\nROXANE:\\n  No doubt! And then?\\n\\nCHRISTIAN:\\n  And then. . .I would be so happy\\n  If you loved me!—Tell me, Roxane, that thou lovest me!\\n\\nROXANE (pouting):\\n  You offer me gruel when I had hoped for creams!\\n  Tell me how you love me. . .\\n\\nCHRISTIAN:\\n  Why. . .very much.\\n\\nROXANE:\\n  Oh! . . .Unlabyrinth your feelings!\\n\\nCHRISTIAN (having moved closer and devouring the fair nape of her neck with his eyes):\\n  Thy neck!\\n  I would like to kiss it! . . .\\n\\nROXANE:\\n  Christian!\\n\\nCHRISTIAN:\\n  I love thee!\\n\\nROXANE (trying to rise):\\n  Again!\\n\\nCHRISTIAN (quickly, holding her back):\\n  No! I do not love thee!\\n\\nROXANE (sitting down again):\\n  That is fortunate!\\n\\nCHRISTIAN:\\n  I adore thee!\\n\\nROXANE (rising and moving away):\\n  Oh!\\n\\nCHRISTIAN:\\n  Yes. . .I am becoming a fool!\\n\\nROXANE (dryly):\\n  And that displeases me!\\n  As it would displease me if you were to become ugly.\\n\\nCHRISTIAN:\\n  But. . .\\n\\nROXANE:\\n  Go and gather up your fleeing eloquence!\\n\\nCHRISTIAN:\\n  I. . .\\n\\nROXANE:\\n  You love me, I know. Farewell.\\n  (She goes toward the house.)\\n\\nCHRISTIAN:\\n  Not yet!\\n  I shall tell you. . .\\n\\nROXANE (pushing the door open to go inside):\\n  That you adore me. . .yes, I know.\\n  No! No! Go away!\\n\\nCHRISTIAN:\\n  But I. . .\\n  (She shuts the door in his face.)\\n\\nCYRANO (who came back in some time ago without being seen):\\n  It is a success.\\n\\n\\n\\nScene 3.VI.\\n\\nChristian, Cyrano, the pages, for a moment.\\n\\n\\nCHRISTIAN:\\n  Help!\\n\\nCYRANO:\\n  No, sir.\\n\\nCHRISTIAN:\\n  I shall die if I do not regain\\n  Her favor this very instant. . .\\n\\nCYRANO:\\n  And how the devil can I\\n  Make you learn this very instant? . . .\\n\\nCHRISTIAN (seizing his arm):\\n  Oh! There, look, see!\\n  (The balcony window has lit up.)\\n\\nCYRANO (moved):\\n  Her window!\\n\\nCHRISTIAN (shouting):\\n  I am going to die!\\n\\nCYRANO:\\n  Lower your voice!\\n\\nCHRISTIAN (very softly):\\n  Die! . . .\\n\\nCYRANO:\\n  The night is dark. . .\\n\\nCHRISTIAN:\\n  Well?\\n\\nCYRANO:\\n  It can be repaired.\\n  You do not deserve it. . .Stand there, wretch!\\n  There, in front of the balcony! I shall stand underneath. . .\\n  And prompt thee with thy words.\\n\\nCHRISTIAN:\\n  But. . .\\n\\nCYRANO:\\n  Be silent!\\n\\nTHE PAGES (reappearing at the back, to Cyrano):\\n  Hey!\\n\\nCYRANO:\\n  Hush! . . .\\n  (He motions to them to speak quietly.)\\n\\nFIRST PAGE (in a low voice):\\n  We have just serenaded\\n  Montfleury! . . .\\n\\nCYRANO (quietly, quickly):\\n  Go and lie in ambush,\\n  One at that street corner and the other at this one;\\n  And if some troublesome passerby comes this way,\\n  Play a tune!\\n\\nSECOND PAGE:\\n  What tune, Mr. Gassendist?\\n\\nCYRANO:\\n  A merry one for a woman, and for a man, a sad one!\\n  (The pages disappear, one at each street corner.—To Christian):\\n  Call her!\\n\\nCHRISTIAN:\\n  Roxane!\\n\\nCYRANO (picking up pebbles, which he throws at the windowpanes):\\n  Wait! A few pebbles.\\n\\n\\n\\nScene VII.\\n\\nRoxane, Christian, Cyrano, at first hidden beneath the balcony.\\n\\n\\nROXANE (partly opening her window):\\n  Who is calling me?\\n\\nCHRISTIAN:\\n  I am.\\n\\nROXANE:\\n  Who is “I”?\\n\\nCHRISTIAN:\\n  Christian.\\n\\nROXANE (with disdain):\\n  It is you?\", \"source_occurrence_id\": \"rostand-cyrano-de-bergerac-80fb00222eee79c5\", \"source_language\": \"fr\", \"source_language_text_sha256\": \"95509dd9bc7e159c24ef21b7a47171bb7fe026a15df8a3b035878a9f710fb11c\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T11:13:09.489617+00:00\", \"model_usage\": {\"input_tokens\": 2614, \"cached_input_tokens\": 0, \"output_tokens\": 2984}, \"estimated_cost_usd\": 0.070136, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"rostand-cyrano-de-bergerac\", \"title\": \"Cyrano de Bergerac\", \"author\": \"Edmond Rostand\", \"language\": \"fr\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.487109, \"source_start\": 118079, \"source_end\": 118088, \"source_length\": 242408}, \"form\": {\"form_family\": \"present_or_imperfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": \"optional\", \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"fr_present_past\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 1.0, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

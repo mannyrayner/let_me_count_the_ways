@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"stendhal-le-rouge-et-le-noir-18c467d378bda03b\", \"SOURCE_TEXT\": {\"exact_match\": \"je t'aime\", \"local_text\": {\"context_start\": 225260, \"context_end\": 225930, \"text\": \"--Je ne me fais plus aucune illusion, lui disait-elle, même dans les\\nmoments où elle osait se livrer à tout son amour: je suis damnée,\\nirrésistiblement damnée. Tu es jeune, tu as cédé à mes séductions, le\\nciel peut te pardonner mais moi je suis damnée. Je le connais à un signe\\ncertain. J'ai peur: qui n'aurait pas peur devant la vue de l'enfer? Mais\\nau fond, je ne me repens point. Je commettrais de nouveau ma faute si\\nelle était à commettre. Que le ciel seulement ne me punisse pas dès ce\\nmonde, et dans mes enfants, et j'aurai plus que je ne mérite. Mais toi,\\ndu moins, mon Julien, s'écriait-elle dans d'autres moments, es-tu\\nheureux? Trouves-tu que je t'aime assez?\"}, \"wider_canonical_context\": {\"context_start\": 222889, \"context_end\": 229035, \"text\": \"--Laisse-moi me punir. Moi aussi, je suis coupable. Veux-tu que je me\\nretire à la Trappe? L'austérité de cette vie peut apaiser ton Dieu...\\nAh! ciel! que ne puis-je prendre pour moi la maladie de Stanislas...\\n\\n--Ah! tu l'aimes, toi, dit Mme de Rênal, en se relevant et se jetant\\ndans ses bras.\\n\\nAu même instant, elle le repoussa avec horreur.\\n\\n--Je te crois! je te crois! continua-t-elle, après s'être remise à\\ngenoux; ô mon unique ami! ô pourquoi n'es-tu pas le père de Stanislas?\\nAlors ce ne serait pas un horrible péché de t'aimer mieux que ton fils.\\n\\n--Veux-tu me permettre de rester, et que désormais je ne t'aime que\\ncomme un frère? C'est la seule expiation raisonnable; elle peut apaiser\\nla colère du Très-Haut.\\n\\n--Et moi, s'écria-t-elle, en se levant et prenant la tête de Julien\\nentre ses deux mains, et la tenant devant ses yeux à distance, et moi,\\nt'aimerai-je comme un frère? Est-il en mon pouvoir de t'aimer comme un\\nfrère?\\n\\nJulien fondait en larmes.\\n\\n--Je t'obéirai, dit-il, en tombant à ses pieds, je t'obéirai quoi que tu\\nm'ordonnes c'est tout ce qui me reste à faire. Mon esprit est frappé\\nd'aveuglement; je ne vois aucun parti à prendre. Si je te quitte, tu dis\\ntout à ton mari, tu te perds et lui avec. Jamais, après ce ridicule, il\\nne sera nommé député. Si je reste, tu me crois la cause de la mort de\\nton fils, et tu meurs de douleur. Veux-tu essayer de l'effet de mon\\ndépart? Si tu veux, je vais me punir de notre faute, en te quittant pour\\nhuit jours. J'irai les passer dans la retraite où tu voudras. A l'abbaye\\nde Bray-le-Haut, par exemple: mais jure-moi pendant mon absence de ne\\nrien avouer à ton mari. Songe que je ne pourrai plus revenir si tu\\nparles.\\n\\nElle promit, il partit, mais fut rappelé au bout de deux jours.\\n\\n--Il m'est impossible sans toi de tenir mon serment. Je parlerai à mon\\nmari, si tu n'es pas là constamment pour m'ordonner par tes regards de\\nme taire. Chaque heure de cette vie abominable me semble durer une\\njournée.\\n\\nEnfin le ciel eut pitié de cette mère malheureuse. Peu à peu Stanislas\\nne fut plus en danger. Mais la glace était brisée, sa raison avait connu\\nl'étendue de son péché: elle ne put plus reprendre l'équilibre. Les\\nremords restèrent et ils furent ce qu'ils devaient être dans un coeur si\\nsincère. Sa vie fut le ciel et l'enfer: l'enfer quand elle ne voyait pas\\nJulien, le ciel quand elle était à ses pieds.\\n\\n--Je ne me fais plus aucune illusion, lui disait-elle, même dans les\\nmoments où elle osait se livrer à tout son amour: je suis damnée,\\nirrésistiblement damnée. Tu es jeune, tu as cédé à mes séductions, le\\nciel peut te pardonner mais moi je suis damnée. Je le connais à un signe\\ncertain. J'ai peur: qui n'aurait pas peur devant la vue de l'enfer? Mais\\nau fond, je ne me repens point. Je commettrais de nouveau ma faute si\\nelle était à commettre. Que le ciel seulement ne me punisse pas dès ce\\nmonde, et dans mes enfants, et j'aurai plus que je ne mérite. Mais toi,\\ndu moins, mon Julien, s'écriait-elle dans d'autres moments, es-tu\\nheureux? Trouves-tu que je t'aime assez?\\n\\nLa méfiance et l'orgueil souffrant de Julien qui avait surtout besoin\\nd'un amour à sacrifices, ne tinrent pas devant la vue d'un sacrifice si\\ngrand, si indubitable et fait à chaque instant. Il adorait Mme de Rênal.\\nElle a beau être noble, et moi le fils d'un ouvrier, elle m'aime... Je\\nne suis pas auprès d'elle un valet de chambre chargé des fonctions\\nd'amant. Cette crainte éloignée, Julien tomba dans toutes les folies de\\nl'amour, dans ses incertitudes mortelles.\\n\\n--Au moins, s'écriait-elle en voyant ses doutes sur son amour, que je te\\nrende bien heureux pendant le peu de jours que nous avons à passer\\nensemble! Hâtons-nous; demain peut-être, je ne serai plus à toi. Si le\\nciel me frappe dans mes enfants, c'est en vain que je chercherai à ne\\nvivre que pour t'aimer, à ne pas voir que c'est mon crime qui les tue.\\nJe ne pourrai survivre à ce coup. Quand je le voudrais, je ne pourrais;\\nje deviendrais folle.\\n\\n--Ah! si je pouvais prendre sur moi ton péché, comme tu m'offrais si\\ngénéreusement de prendre la fièvre ardente de Stanislas!\\n\\nCette grande crise morale changea la nature du sentiment qui unissait\\nJulien à sa maîtresse. Son amour ne fut plus seulement de l'admiration\\npour la beauté, l'orgueil de la posséder.\\n\\nLeur bonheur était désormais d'une nature bien supérieure, la flamme qui\\nles dévorait fut plus intense. Ils avaient des transports pleins de\\nfolie. Leur bonheur eût paru plus grand aux yeux du monde. Mais ils ne\\nretrouvèrent plus la sérénité délicieuse, la félicité sans nuages le\\nbonheur facile des premières époques de leurs amours, quand la seule\\ncrainte de Mme de Rênal était de n'être pas assez aimée de Julien. Leur\\nbonheur avait quelquefois la physionomie du crime.\\n\\nDans les moments les plus heureux et en apparence les plus tranquilles:\\n\\n--Ah! grand Dieu! je vois l'enfer, s'écriait tout à coup Mme de Rênal,\\nen serrant la main de Julien d'un mouvement convulsif. Quels supplices\\nhorribles! je les ai bien mérités.\\n\\nElle le serrait, s'attachant à lui comme le lierre à la muraille.\\n\\nJulien essayait en vain de calmer cette âme agitée. Elle lui prenait la\\nmain, qu'elle couvrait de baisers. Puis, retombée dans une rêverie\\nsombre:\\n\\n--L'enfer, disait-elle, l'enfer serait une grâce pour moi; j'aurais\\nencore sur la terre quelques jours à passer avec lui, mais l'enfer dès\\nce monde, la mort de mes enfants... Cependant à ce prix, peut-être mon\\ncrime me serait pardonné... Ah! grand Dieu! ne m'accordez point ma grâce\\nà ce prix. Ces pauvres enfants ne vous ont point offensé; moi, moi. Je\\nsuis la seule coupable! J'aime un homme qui n'est point mon mari.\\n\\nJulien voyait ensuite Mme de Rênal arriver à des moments tranquilles en\\napparence. Elle cherchait à prendre sur elle, elle voulait ne pas\\nempoisonner la vie de ce qu'elle aimait.\\n\\nAu milieu de ces alternatives d'amour, de remords et de plaisir les\\njournées passaient pour eux avec la rapidité de l'éclair. Julien perdit\\nl'habitude de réfléchir.\\n\\nMlle Élisa alla suivre un petit procès qu'elle avait à Verrières. Elle\\ntrouva M. Valenod fort piqué contre Julien. Elle haïssait le précepteur,\\net lui en parlait souvent.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"“Let me punish myself. I too am guilty. Do you want me to withdraw to La Trappe? The austerity of that life may appease your God...\\nAh, heavens! If only I could take Stanislas’s illness upon myself...\\n\\n“Ah! You do love him,” said Madame de Rênal, rising and throwing herself into his arms.\\n\\nAt that very moment, she pushed him away in horror.\\n\\n“I believe you! I believe you!” she continued, after sinking to her knees again; “oh, my only friend! Oh, why are you not Stanislas’s father? Then it would not be a horrible sin to love you more than your son.\\n\\n“Will you allow me to stay, and from now on to love you only as a brother? It is the only reasonable atonement; it may appease the wrath of the Most High.”\\n\\n“And I,” she cried, rising and taking Julien’s head between her two hands, and holding it before her eyes at arm’s length, “shall I love you as a brother? Is it within my power to love you as a brother?”\\n\\nJulien dissolved into tears.\\n\\n“I shall obey you,” he said, falling at her feet, “I shall obey you whatever you command me; that is all that remains for me to do. My mind has been struck blind; I can see no course to take. If I leave you, you tell your husband everything, you ruin yourself and him along with you. After this ridicule, he will never be appointed a deputy. If I stay, you believe me to be the cause of your son’s death, and you die of grief. Do you want to try the effect of my departure? If you wish, I shall go and punish myself for our transgression by leaving you for a week. I shall spend it in whatever retreat you choose. At the abbey of Bray-le-Haut, for example: but swear to me that during my absence you will confess nothing to your husband. Bear in mind that I shall no longer be able to return if you speak.”\\n\\nShe promised; he left, but was called back after two days.\\n\\n“It is impossible for me to keep my oath without you. I shall speak to my husband unless you are constantly here to command me with your eyes to remain silent. Every hour of this abominable life seems to me to last a whole day.”\\n\\nAt last heaven took pity on this unhappy mother. Little by little, Stanislas was no longer in danger. But the ice had been broken; her reason had become aware of the full extent of her sin: she could no longer regain her equilibrium. Remorse remained, and it was what it had to be in so sincere a heart. Her life was heaven and hell: hell when she did not see Julien, heaven when she was at his feet.\\n\\n“I no longer harbor any illusions,” she would tell him, even at moments when she dared surrender herself to all her love; “I am damned, irresistibly damned. You are young; you yielded to my enticements; heaven may forgive you, but I am damned. I know it by a sure sign. I am afraid: who would not be afraid at the sight of hell? But deep down, I do not repent at all. I would commit my transgression again if it were there to be committed. If only heaven does not punish me in this world, and through my children, I shall have more than I deserve. But you, at least, my Julien,” she would cry at other moments, “are you happy? Do you find that I love you enough?”\\n\\nJulien’s mistrust and wounded pride, which above all needed a love that made sacrifices, could not hold out before the sight of so great, so unquestionable a sacrifice, made at every instant. He adored Madame de Rênal. She may be noble, and I the son of a workman, but she loves me... With her, I am not a valet charged with performing the duties of a lover. Once this fear had been dispelled, Julien fell into all the follies of love, into its deadly uncertainties.\\n\\n“At least,” she would cry when she saw his doubts about her love, “let me make you truly happy during the few days we have to spend together! Let us hurry; tomorrow, perhaps, I shall no longer be yours. If heaven strikes me through my children, it will be in vain that I try to live only to love you, not to see that it is my crime that is killing them. I shall not be able to survive that blow. Even if I wished to, I could not; I would go mad.\\n\\n“Ah! If only I could take your sin upon myself, as you so generously offered to take Stanislas’s raging fever upon yourself!”\\n\\nThis great moral crisis changed the nature of the feeling that united Julien with his mistress. His love was no longer merely admiration for her beauty, the pride of possessing her.\\n\\nTheir happiness was henceforth of a far higher nature; the flame that consumed them became more intense. They had transports filled with madness. Their happiness would have appeared greater in the eyes of the world. But they never again found the delightful serenity, the cloudless felicity, the easy happiness of the first stages of their love, when Madame de Rênal’s only fear was that Julien did not love her enough. Their happiness sometimes bore the countenance of crime.\\n\\nAt the happiest and apparently calmest moments:\\n\\n“Ah! Great God! I see hell,” Madame de Rênal would suddenly cry, gripping Julien’s hand with a convulsive movement. “What horrible torments! I have well deserved them.”\\n\\nShe would clasp him tightly, clinging to him like ivy to a wall.\\n\\nJulien tried in vain to calm that agitated soul. She would take his hand and cover it with kisses. Then, falling back into a dark reverie:\\n\\n“Hell,” she would say, “hell would be a mercy to me; I would still have a few days on earth to spend with him, but hell in this world itself, the death of my children... And yet, at that price, perhaps my crime would be forgiven... Ah! Great God! Do not grant me mercy at that price. These poor children have not offended You; I, I have. I alone am guilty! I love a man who is not my husband.”\\n\\nJulien would then see Madame de Rênal reach moments of apparent calm. She tried to master herself; she did not want to poison the life of the one she loved.\\n\\nAmid these alternations of love, remorse, and pleasure, the days passed for them with the speed of lightning. Julien lost the habit of thinking.\\n\\nMademoiselle Élisa went to attend to a minor lawsuit she had in Verrières. She found Monsieur Valenod deeply incensed against Julien. She hated the tutor and often spoke to him about Julien.\", \"source_occurrence_id\": \"stendhal-le-rouge-et-le-noir-18c467d378bda03b\", \"source_language\": \"fr\", \"source_language_text_sha256\": \"44f3c4abfc95f3b82816ddb9f55bce10256a915b6159ad4c5342d532e7ff0f2f\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T11:34:57.607799+00:00\", \"model_usage\": {\"input_tokens\": 1940, \"cached_input_tokens\": 0, \"output_tokens\": 1800}, \"estimated_cost_usd\": 0.04376, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"stendhal-le-rouge-et-le-noir\", \"title\": \"Le Rouge et le Noir\", \"author\": \"Stendhal\", \"language\": \"fr\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": \"CHAPITRE XIX\", \"relative_position\": 0.224032, \"source_start\": 225914, \"source_end\": 225923, \"source_length\": 1008402}, \"form\": {\"form_family\": \"present_or_imperfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": \"optional\", \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"fr_present_past\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

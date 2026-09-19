@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"hamsun-victoria-9c9ba178c9955a44\", \"SOURCE_TEXT\": {\"exact_match\": \"jeg har elsket Dem\", \"local_text\": {\"context_start\": 152456, \"context_end\": 153507, \"text\": \"Du gode Gud, De skulde vite hvor jeg har elsket Dem,\\nJohannes. Jeg har ikke fåt vise Dem det, det har lagt sig\\nså meget iveien for mig, og først og fremst min egen natur.\\nPapa var også således ond mot sig selv og jeg er hans datter.\\nMen nu når jeg skal dø og altsammen er forsent da skriver\\njeg til Dem endnu en gang og sier Dem det. Jeg spør mig\\nselv hvorfor jeg gjør det da det dog er likegyldig for Dem, især\\nnår jeg ikke engang skal være ilive mere; men jeg vilde gjærne\\nvære nær hos Dem til det siste så jeg ikke følte mig mere\\nforlatt end før ialfald. Når De læser dette da er det likesom\\njeg ser Deres aksler og hænder og ser alle Deres bevægelser\\nmed brevet når De holder det foran Dem og læser det. Så er\\nvi ikke så langt fra hverandre, tænker jeg. Jeg kan ikke sende\\nbud efter Dem, dertil har jeg ingen ret. Mama vilde sende bud\\nefter Dem allerede for to dager siden, men jeg vilde heller\\nskrive. Jeg vilde også helst at De skulde huske mig således som\\njeg engang var da jeg endnu ikke hadde været syk. Jeg husker\\nat De .... (Her er nogen or\"}, \"wider_canonical_context\": {\"context_start\": 149403, \"context_end\": 155884, \"text\": \"Johannes stod tilbake med brevet i sin hånd. Victoria var\\ndød. Han nævnte gang på gang hendes navn høit og han\\nhadde en følesløs, næsten forhærdet stemme. Han så ned på\\nbrevet og kjendte skriften; der var store og små bokstaver,\\nlinjerne rette, og hun som hadde skrevet dem var død!\\n\\nSå begir han sig ind gjennem sin port, op trappen, finder\\nden rigtige nøkkel å stikke i dørlåset og åpner. Hans værelse\\nvar koldt og mørkt. Han sætter sig bort til vinduet og læser i\\nden siste rest av dagslys Victorias brev.\\n\\nKjære Johannes! skrev hun. Når De læser dette brev da er\\njeg død! Alting er så underlig for mig nu, jeg skammer mig ikke\\nfor Dem mere og skriver til Dem igjen, likesom det ikke var\\nnogen ting iveien herfor. Før, mens jeg var fuldstændig i le-\\nvende live, vilde jeg heller ha lidt nat og dag end skrevet til\\nDem igjen; men nu er jeg begyndt å avsjæles og jeg tænker\\nikke således længer. Fremmede har set mig blø, doktoren har\\nundersøkt mig og set at jeg har bare en rest av en lunge til-\\nbake, hvad skal jeg da undse mig for mere?\\n\\nJeg har ligget her på sengen og tænkt over de siste ord\\njeg sa til Dem. Det var i skogen den kvæld. Dengang tænkte\\njeg ikke at det skulde være mine siste ord, for så vilde jeg ha\\nsagt farvel til Dem med det samme og takket Dem. Nu får\\njeg ikke se Dem mere, så jeg angrer nu på at jeg ikke fik kastet\\nmig ned for Dem og kysset Deres sko og jorden som De gik\\npå, og fik vist Dem hvor usigelig jeg har elsket Dem. Jeg har\\nligget her og ønsket både igår og idag at jeg ikke var sykere\\nend at jeg kunde komme mig hjem igjen og gå i skogen og\\nfinde den plass vi sat på da De holdt begge mine hænder;\\nfor så kunde jeg lægge mig ned der og se om jeg ikke fandt\\nsporet efter Dem og kysse al lyngen deromkring. Men jeg kan\\nikke komme hjem nu hvis jeg ikke muligens blir litt bedre\\nsom mama tror.\\n\\nKjære Johannes! Det er mærkelig å tænke på at jeg ikke\\nhar fåt nogen anden ting gjort end å komme på jorden og\\nelske Dem og nu si farvel til livet. De kan tro det er underlig\\nå ligge her og vente på dagen og timen. Jeg fjærner mig skridt\\nfor skridt fra livet og menneskene på gaten og vognramme-\\nlen; våren kommer jeg vel heller aldrig til å se mere og disse\\nhuser og gaterne og trærne i parken vil være tilbake efter mig.\\nJeg fik sitte i sengen idag og se litt ut av vinduet. Nede på\\nhjørnet var det to som traf hverandre, de hilste og grep hver-\\nandres hænder og lo av det de sa; men da var det så underlig\\nfor mig at jeg som lå og så på dette skulde dø. Jeg kom\\ntil å tænke: de to dernede vet ikke at jeg ligger her og venter\\npå min time; men om de visste det så vilde de vel allikevel hilse\\npå hverandre og tale med hverandre likesom nu. Igår nat da\\ndet var mørkt tænkte jeg at det skulde være min siste stund,\\nmit hjærte begyndte å stå stille og det var likesom jeg allerede\\nhørte evigheten bruse imot mig langt ute. Men i næste øieblik\\nvendte jeg tilbake langt borte fra og begyndte å puste igjen.\\nDet var en aldeles ubeskrivelig følelse. Men mama tror at det\\nkanske bare var elven og fossen derhjemme som jeg husket.\\n\\nDu gode Gud, De skulde vite hvor jeg har elsket Dem,\\nJohannes. Jeg har ikke fåt vise Dem det, det har lagt sig\\nså meget iveien for mig, og først og fremst min egen natur.\\nPapa var også således ond mot sig selv og jeg er hans datter.\\nMen nu når jeg skal dø og altsammen er forsent da skriver\\njeg til Dem endnu en gang og sier Dem det. Jeg spør mig\\nselv hvorfor jeg gjør det da det dog er likegyldig for Dem, især\\nnår jeg ikke engang skal være ilive mere; men jeg vilde gjærne\\nvære nær hos Dem til det siste så jeg ikke følte mig mere\\nforlatt end før ialfald. Når De læser dette da er det likesom\\njeg ser Deres aksler og hænder og ser alle Deres bevægelser\\nmed brevet når De holder det foran Dem og læser det. Så er\\nvi ikke så langt fra hverandre, tænker jeg. Jeg kan ikke sende\\nbud efter Dem, dertil har jeg ingen ret. Mama vilde sende bud\\nefter Dem allerede for to dager siden, men jeg vilde heller\\nskrive. Jeg vilde også helst at De skulde huske mig således som\\njeg engang var da jeg endnu ikke hadde været syk. Jeg husker\\nat De .... (Her er nogen ord uteglemt) .... mine øine og\\nøienbryn; men heller ikke de er mere som før. Også av den\\ngrund vilde jeg ikke at De skulde komme. Og jeg vil også be\\nDem om ikke å se mig i kisten. Jeg er vistnok omtrent som\\nda jeg levet, bare noget blekere, og jeg ligger i gul kjole; men\\nallikevel vilde De angre på det hvis De kom og så mig.\\n\\nNu har jeg skrevet mange ganger på dette brev idag og\\nallikevel har jeg ikke fåt sagt Dem en tusendel av det jeg\\nvilde si. Det er så forfærdelig for mig å dø, jeg vil det ikke,\\njeg håper endnu så inderlig til Gud at jeg kanske kunde\\nbli litt bedre, om ikke længer end til våren. Da er dagene\\nlyse og det er løv på trærne. Hvis jeg blev frisk igjen nu så\\nskulde jeg nok aldrig være ond mot Dem mere, Johannes.\\nHvor jeg har grått og tænkt på det! Å jeg vilde gå ut og klappe\\nalle gatestenene og stanse og takke hvert trin i trapperne som\\njeg kom forbi og være god mot alle. Det var det samme hvor\\nondt jeg fik det hvis jeg bare fik leve. Jeg skulde aldrig klage\\nmere over nogen ting, nei jeg skulde smile til den som over-\\nfaldt og slog mig og takke og love Gud hvis jeg fik leve. Mit\\nliv er så ulevet, intet har jeg fåt gjort for nogen og dette feil-\\nslagne liv skal ende nu. Hvis De visste hvor nødig jeg vilde dø\\nså kanske De vilde gjøre noget, gjøre alt som stod i Deres magt.\\nDe kan vistnok ikke gjøre noget; men jeg tænkte at hvis De og\\nhele verden bad for mig og ikke vilde slippe mig så vilde Gud\\nskjænke mig livet. Å hvor jeg vilde være taknemmelig da og\\naldrig gjøre ondt mot nogen mere, men smile til alt som ble\\nmig beskikket bare jeg fik lov til å leve.\\n\\nMama sitter her og gråter. Hun sat også her i hele nat og\\ngråt for mig. Dette gjør mig litt godt, det mildner min avskeds\\nbitterhet. Idag tænkte jeg også: hvordan mon De vilde synes\\nom at jeg kom like til Dem på gaten en dag når jeg var pent\\nklædt og ikke sa noget sårende mere, men gav Dem en rose\\nsom jeg kunde ha kjøpt på forhånd. Så tænkte jeg straks efter\\nat jeg kan aldrig mere gjøre det jeg vil; for jeg kan vel aldrig\\nbli frisk igjen før jeg dør. Jeg gråter så ofte, jeg ligger stille og\\ngråter ustanselig og trøstesløs; det gjør ikke ondt i mit bryst når\\njeg ikke hulker. Johannes, kjære, kjære ven, min eneste elskede\\npå jorden, kom til mig nu og vær her litt når det begynder\\nå mørkne. Jeg skal ikke gråte da, men smile så godt som jeg\\nformår, bare av glæde over at De kom.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"Johannes remained standing with the letter in his hand. Victoria was\\ndead. Again and again he spoke her name aloud, and his\\nvoice was numb, almost hardened. He looked down at\\nthe letter and recognized the handwriting; there were capital and lowercase letters,\\nthe lines straight, and she who had written them was dead!\\n\\nThen he makes his way in through his gate, up the stairs, finds\\nthe right key to put into the lock, and opens the door. His room\\nwas cold and dark. He sits down by the window and, in\\nthe last remnant of daylight, reads Victoria’s letter.\\n\\nDear Johannes! she wrote. When you read this letter, I am\\ndead! Everything is so strange to me now; I am no longer ashamed\\nbefore you and am writing to you again, as though there were\\nnothing to prevent it. Before, while I was fully\\nalive, I would rather have suffered night and day than have written to\\nyou again; but now my soul has begun to leave me, and I no longer\\nthink that way. Strangers have seen me bleed, the doctor has\\nexamined me and seen that I have only a remnant of one lung\\nleft; what more have I to be ashamed of?\\n\\nI have lain here on the bed and thought about the last words\\nI said to you. It was in the woods that evening. At the time I did\\nnot think they would be my last words, for then I would have\\nsaid farewell to you at once and thanked you. Now I shall\\nnever see you again, so now I regret that I did not throw\\nmyself down before you and kiss your shoes and the ground you walked\\non, and show you how inexpressibly I have loved you. I have\\nlain here both yesterday and today wishing that I were no sicker\\nthan to be able to make my way home again and walk into the woods and\\nfind the place where we sat when you held both my hands;\\nfor then I could lie down there and see whether I could find\\nyour traces and kiss all the heather around it. But I cannot\\ncome home now unless perhaps I get a little better,\\nas Mama believes.\\n\\nDear Johannes! It is strange to think that I have\\ndone nothing other than come into the world and\\nlove you, and now say farewell to life. You may believe it is strange\\nto lie here and wait for the day and the hour. Step by step\\nI am moving away from life and the people in the street and the clatter\\nof carriages; I shall probably never see spring again either, and these\\nhouses and the streets and the trees in the park will remain after me.\\nToday I was able to sit up in bed and look out of the window for a while. Down\\non the corner there were two people who met; they greeted each other and clasped\\neach other’s hands and laughed at what they said; but then it was so strange\\nto me that I, who lay there watching this, was going to die. I found\\nmyself thinking: those two down there do not know that I am lying here waiting\\nfor my hour; but if they knew, they would probably still greet\\neach other and talk to each other just as they do now. Last night, when\\nit was dark, I thought it was going to be my final moment;\\nmy heart began to stop, and it was as though I could already\\nhear eternity roaring toward me from far out. But in the next moment\\nI returned from far away and began to breathe again.\\nIt was an utterly indescribable sensation. But Mama thinks that\\nperhaps it was only the river and the waterfall back home that I remembered.\\n\\nDear God, if only you knew how I have loved you,\\nJohannes. I have not been able to show you; so much has\\nstood in my way, first and foremost my own nature.\\nPapa too was so cruel to himself, and I am his daughter.\\nBut now, when I am going to die and everything is too late, I am writing\\nto you once again and telling you so. I ask myself\\nwhy I am doing it, since it is nevertheless of no concern to you, especially\\nwhen I shall not even be alive anymore; but I should like\\nto be close to you until the end, so that at least I would not feel\\nmore forsaken than before. When you read this, it is as though\\nI can see your shoulders and hands and see all your movements\\nwith the letter as you hold it before you and read it. Then we\\nare not so far apart, I think. I cannot send for\\nyou; I have no right to do so. Mama wanted to send for\\nyou two days ago already, but I preferred to write. I also wanted most of all\\nfor you to remember me as I once was, when I had not yet\\nbeen ill. I remember that you .... (Here some words have been omitted) .... my eyes and\\neyebrows; but they too are no longer as they were before. For that\\nreason as well, I did not want you to come. And I shall also ask\\nyou not to see me in my coffin. I shall presumably look much as\\nI did when I was alive, only somewhat paler, and I shall be lying in a yellow dress; but\\nnevertheless you would regret it if you came and saw me.\\n\\nNow I have written on this letter many times today, and\\neven so I have not managed to tell you a thousandth of what I\\nwanted to say. It is so terrible for me to die; I do not want to;\\nI still hope so fervently in God that perhaps I might\\nget a little better, if only until spring. Then the days\\nare bright and there are leaves on the trees. If I were to recover now, I would\\ncertainly never be unkind to you again, Johannes.\\nHow I have wept and thought about it! Oh, I would go out and pat\\nall the paving stones and stop and thank every step in the stairways\\nI passed and be good to everyone. It would not matter how\\nmuch pain I suffered if only I were allowed to live. I would never complain\\nabout anything again; no, I would smile at anyone who attacked\\nand struck me, and thank and praise God if I were allowed to live. My\\nlife is so unlived; I have done nothing for anyone, and this\\nfailed life is to end now. If you knew how loath I am to die,\\nthen perhaps you would do something, do everything in your power.\\nYou presumably cannot do anything; but I thought that if you and\\nthe whole world prayed for me and would not let me go, then God\\nwould grant me life. Oh, how grateful I would be then, and\\nnever do wrong to anyone again, but smile at everything that was\\nordained for me, if only I were allowed to live.\\n\\nMama is sitting here and weeping. She also sat here all night and\\nwept for me. This does me a little good; it softens the bitterness of my\\nfarewell. Today I also thought: I wonder what you would think\\nif one day I came right up to you in the street, when I was nicely\\ndressed, and said nothing hurtful anymore, but gave you a rose\\nthat I could have bought beforehand. Then immediately afterward I thought\\nthat I can never again do what I want; for surely I can never\\nrecover before I die. I weep so often; I lie quietly and\\nweep incessantly and inconsolably; it does not hurt in my chest when\\nI do not sob. Johannes, dear, dear friend, my only beloved\\non earth, come to me now and stay here for a while when it begins\\nto grow dark. I shall not weep then, but smile as well as I\\ncan, merely from joy that you came.\", \"source_occurrence_id\": \"hamsun-victoria-9c9ba178c9955a44\", \"source_language\": \"no\", \"source_language_text_sha256\": \"8283da0980e5f7e83cbcce68951b439d92a88f3fcae474f90e1fb025ac7bda83\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T10:54:11.546825+00:00\", \"model_usage\": {\"input_tokens\": 2096, \"cached_input_tokens\": 0, \"output_tokens\": 2584}, \"estimated_cost_usd\": 0.060064, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"hamsun-victoria\", \"title\": \"Victoria\", \"author\": \"Knut Hamsun\", \"language\": \"no\", \"source_type\": \"runeberg\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.966969, \"source_start\": 152489, \"source_end\": 152507, \"source_length\": 157698}, \"form\": {\"form_family\": \"perfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"perfect\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"no_perfect\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

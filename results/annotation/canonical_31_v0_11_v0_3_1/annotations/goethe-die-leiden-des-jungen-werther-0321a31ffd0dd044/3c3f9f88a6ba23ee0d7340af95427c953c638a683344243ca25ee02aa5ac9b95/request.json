@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"goethe-die-leiden-des-jungen-werther-0321a31ffd0dd044\", \"SOURCE_TEXT\": {\"exact_match\": \"ich dich liebe\", \"local_text\": {\"context_start\": 225926, \"context_end\": 226565, \"text\": \"Und was ist das, daß Albert dein Mann ist?  Mann!  Das wäre denn für\\ndiese Welt—und für diese Welt Sünde, daß ich dich liebe, daß ich\\ndich aus seinen Armen in die meinigen reißen möchte?  Sünde?  Gut,\\nund ich strafe mich dafür; ich habe sie in ihrer ganzen Himmelswonne\\ngeschmeckt, diese Sünde, habe Lebensbalsam und Kraft in mein Herz\\ngesaugt.  Du bist von diesem Augenblicke mein!  Mein, o Lotte!  Ich\\ngehe voran!  Gehe zu meinem Vater, zu deinem Vater.  Dem will ich's\\nklagen, und er wird mich trösten, bis du kommst, und ich fliege dir\\nentgegen und fasse dich und bleibe bei dir vor dem Angesichte des\\nUnendlichen in ewigen Umarmungen.\"}, \"wider_canonical_context\": {\"context_start\": 222825, \"context_end\": 229598, \"text\": \"\\\"Zum letztenmale denn, zum letztenmale schlage ich diese Augen auf.\\nSie sollen, ach, die Sonne nicht mehr sehn, ein trüber, neblichter\\nTag hält sie bedeckt.  So traure denn, Natur!  Dein Sohn, dein Freund,\\ndein Geliebter naht sich seinem Ende.  Lotte, das ist ein Gefühl\\nohnegleichen, und doch kommt es dem dämmernden Traum am nächsten, zu\\nsich zu sagen: das ist der letzte Morgen.  Der letzte!  Lotte, ich\\nhabe keinen Sinn für das Wort: der letzte!  Stehe ich nicht da in\\nmeiner ganzen Kraft, und morgen liege ich ausgestreckt und schlaff am\\nBoden.  Sterben!  Was heißt das?  Siehe, wir träumen, wenn wir vom\\nTode reden.  Ich habe manchen sterben sehen; aber so eingeschränkt ist\\ndie Menschheit, daß sie für ihres Daseins Anfang und Ende keinen Sinn\\nhat.  Jetzt noch mein, dein!  Dein, o Geliebte!  Und einen\\nAugenblick—getrennt, geschieden—vielleicht auf ewig?—Nein, Lotte,\\nnein—wie kann ich vergehen?  Wie kannst du vergehen?  Wir sind ja!\\n—vergehen!—Was heißt das?  Das ist wieder ein Wort, ein leerer\\nSchall, ohne Gefühl für mein Herz.—Tot, Lotte!  Eingescharrt der\\nkalten Erde, so eng!  So finster!—Ich hatte eine Freundin, die mein\\nalles war meiner hülflosen Jugend; sie starb, und ich folgte ihrer\\nLeiche und stand an dem Grabe, wie sie den Sarg hinunterließen und\\ndie Seile schnurrend unter ihm weg und wieder herauf schnellten, dann\\ndie erste Schaufel hinunterschollerte, und die ängstliche Lade einen\\ndumpfen Ton wiedergab, und dumpfer und immer dumpfer, und endlich\\nbedeckt war!—Ich stürzte neben das Grab hin—ergriffen, erschüttert,\\ngeängstigt, zerrissen mein Innerstes, aber ich wußte nicht, wie mir\\ngeschah—wie mir geschehen wird—Sterben!  Grab!  Ich verstehe die\\nWorte nicht!\\n\\nO vergib mir!  Vergib mir!  Gestern!  Es hätte der letzte Augenblick\\nmeines Lebens sein sollen.  O du Engel!  Zum ersten Male, zum ersten\\nMale ganz ohne Zweifel durch mein innig Innerstes durchglühte mich\\ndas Wonnegefühl: sie liebt mich!  Sie liebt mich!  Es brennt noch auf\\nmeinen Lippen das heilige Feuer, das von den deinigen strömte, neue,\\nwarme Wonne ist in meinem Herzen.  Vergib mir!  Vergib mir!\\n\\nAch, ich wußte, daß du mich liebtest, wußte es an den ersten\\nseelenvollen Blicken, an dem ersten Händedruck, und doch, wenn ich\\nwieder weg war, wenn ich Alberten an deiner Seite sah, verzagte ich\\nwieder in fieberhaften Zweifeln.\\n\\nErinnerst du dich der Blumen, die du mir schicktest, als du in\\njener fatalen Gesellschaft mir kein Wort sagen, keine Hand reichen\\nkonntest?  O, ich habe die halbe Nacht davor gekniet, und sie\\nversiegelten mir deine Liebe.  Aber ach!  Diese Eindrücke gingen\\nvorüber, wie das Gefühl der Gnade seines Gottes allmählich wieder aus\\nder Seele des Gläubigen weicht, die ihm mit ganzer Himmelsfülle in\\nheiligen, sichtbaren Zeichen gereicht ward.\\n\\nAlles das ist vergänglich, aber keine Ewigkeit soll das glühende\\nLeben auslöschen, das ich gestern auf deinen Lippen genoß, das ich in\\nmir fühle!  Sie liebt mich!  Dieser Arm hat sie umfaßt, diese Lippen\\nhaben auf ihren Lippen gezittert, dieser Mund hat an dem ihrigen\\ngestammelt.  Sie ist mein!  Du bist mein!  Ja, Lotte, auf ewig.\\n\\nUnd was ist das, daß Albert dein Mann ist?  Mann!  Das wäre denn für\\ndiese Welt—und für diese Welt Sünde, daß ich dich liebe, daß ich\\ndich aus seinen Armen in die meinigen reißen möchte?  Sünde?  Gut,\\nund ich strafe mich dafür; ich habe sie in ihrer ganzen Himmelswonne\\ngeschmeckt, diese Sünde, habe Lebensbalsam und Kraft in mein Herz\\ngesaugt.  Du bist von diesem Augenblicke mein!  Mein, o Lotte!  Ich\\ngehe voran!  Gehe zu meinem Vater, zu deinem Vater.  Dem will ich's\\nklagen, und er wird mich trösten, bis du kommst, und ich fliege dir\\nentgegen und fasse dich und bleibe bei dir vor dem Angesichte des\\nUnendlichen in ewigen Umarmungen.\\n\\nIch träume nicht, ich wähne nicht!  Nahe am Grabe wird mir es heller.\\n\\nWir werden sein!  Wir werden uns wieder sehen!  Deine Mutter sehen!\\n\\nIch werde sie sehen, werde sie finden, ach, und vor ihr mein ganzes\\n\\nHerz ausschütten!  Deine Mutter, dein Ebenbild.\\\"\\n\\nGegen eilfe fragte Werther seinen Bedienten, ob wohl Albert\\nzurückgekommen sei?  Der Bediente sagte: ja, er habe dessen Pferd\\ndahinführen sehen.  Darauf gibt ihm der Herr ein offenes Zettelchen\\ndes Inhalts: \\\"Wollten Sie mir wohl zu einer vorhabenden Reise Ihre\\nPistolen leihen?  Leben Sie recht wohl!\\\"\\n\\nDie liebe Frau hatte die letzte Nacht wenig geschlafen; was sie\\ngefürchtet hatte, war entschieden, auf eine Weise entschieden, die\\nsie weder ahnen noch fürchten konnte.  Ihr sonst so rein und leicht\\nfließendes Blut war in einer fieberhaften Empörung, tausenderlei\\nMepfindungen zerrütteten das schöne Herz.  War es das Feuer von\\nWerthers Umarmungen, das sie in ihrem Busen fühlte?  War es Unwille\\nüber seine Verwegenheit?  War es eine unmutige Vergleichung ihres\\ngegenwärtigen Zustandes mit jenen Tagen ganz unbefangener, freier\\nUnschuld und sorglosen Zutrauens an sich selbst?  Wie sollte sie\\nihrem Manne entgegengehen, wie ihm eine Szene bekennen, die sie so\\ngut gestehen durfte, und die sie sich doch zu gestehen nicht\\ngetraute?  Sie hatten so lange gegen einander geschwiegen, und sollte\\nsie die erste sein, die das Stillschweigen bräche und eben zur\\nunrechten Zeit ihrem Gatten eine so unerwartete Entdeckung machte?\\nSchon fürchtete sie, die bloße Nachricht von Werthers Besuch werde\\nihm einen unangenehmen Eindruck machen, und nun gar diese unerwartete\\nKatastrophe!  Konnte sie wohl hoffen, daß ihr Mann sie ganz im rechten\\nLichte sehen, ganz ohne Vorurteil aufnehmen würde?  Und konnte sie\\nwünschen, daß er in ihrer Seele lesen möchte?  Und doch wieder, konnte\\nsie sich verstellen gegen den Mann, vor dem sie immer wie ein\\nkristallhelles Glas offen und frei gestanden und dem sie keine ihrer\\nEmpfindungen jemals verheimlicht noch verheimlichen können?  Eins und\\ndas andre machte ihr Sorgen und setzte sie in Verlegenheit; und immer\\nkehrten ihre Gedanken wieder zu Werthern, der für sie verloren war,\\nden sie nicht lassen konnte, den sie—leider!—sich selbst\\nüberlassen mußte, und dem, wenn er sie verloren hatte, nichts mehr\\nübrig blieb.\\n\\nWie schwer lag jetzt, was sie sich in dem Augenblick nicht deutlich\\nmachen konnte, die Stockung auf ihr, die sich unter ihnen festgesetzt\\nhatte!  So verständige, so gute Menschen fingen wegen gewisser\\nheimlicher Verschiedenheiten unter einander zu schweigen an, jedes\\ndachte seinem Recht und dem Unrechte des andern nach, und die\\nVerhältnisse verwickelten und verhetzten sich dergestalt, daß es\\nunmöglich ward, den Knoten eben in dem kritischen Momente, von dem\\nalles abhing, zu lösen.  Hätte eine glückliche Vertraulichkeit sie\\nfrüher wieder einander näher gebracht, wäre Liebe und Nachsicht\\nwechselsweise unter ihnen lebendig worden und hätte ihre Herzen\\naufgeschlossen, vielleicht wäre unser Freund noch zu retten gewesen.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"“For the last time, then, for the last time I open these eyes.\\nThey shall, alas, see the sun no more; a gloomy, misty day keeps it veiled from them. Mourn, then, Nature! Your son, your friend, your beloved draws near his end. Lotte, it is a feeling beyond compare, and yet it comes closest to a dawning dream, to say to oneself: this is the last morning. The last! Lotte, I have no sense of the word: the last! Do I not stand here in all my strength, and tomorrow I shall lie stretched out and limp upon the ground. To die! What does that mean? See, we dream when we speak of death. I have seen many a person die; but humanity is so limited that it has no sense of the beginning and end of its existence. Now still mine, yours! Yours, O beloved! And in an instant—separated, parted—perhaps forever?—No, Lotte, no—how can I cease to be? How can you cease to be? We are!—cease to be!—What does that mean? It is yet another word, an empty sound, without feeling for my heart.—Dead, Lotte! Buried in the cold earth, so confined! So dark!—I had a female friend who was my all in my helpless youth; she died, and I followed her corpse and stood at the grave as they lowered the coffin and the ropes, whirring, slipped out from beneath it and darted back up, then the first shovelful rattled down, and the fearful chest gave back a dull sound, and duller and ever duller, and at last was covered!—I fell down beside the grave—seized, shaken, terrified, my innermost being torn apart, but I did not know what was happening to me—what will happen to me—To die! Grave! I do not understand the words!\\n\\nO forgive me! Forgive me! Yesterday! It should have been the last moment of my life. O you angel! For the first time, for the first time wholly without doubt, the blissful feeling glowed through my inmost being: she loves me! She loves me! The holy fire that streamed from your lips still burns upon mine; new, warm bliss is in my heart. Forgive me! Forgive me!\\n\\nAh, I knew that you loved me, knew it from the first soulful glances, from the first pressure of the hand, and yet, whenever I was away again, whenever I saw Albert at your side, I despaired again amid feverish doubts.\\n\\nDo you remember the flowers you sent me when, in that fatal company, you could not say a word to me or offer me your hand? O, I knelt before them half the night, and they sealed your love to me. But alas! These impressions passed away, just as the feeling of his God’s grace gradually withdraws again from the believer’s soul, though it was bestowed upon him in sacred, visible signs with all the fullness of heaven.\\n\\nAll that is transitory, but no eternity shall extinguish the glowing life that I savored yesterday upon your lips, that I feel within me! She loves me! This arm embraced her, these lips trembled upon her lips, this mouth stammered against hers. She is mine! You are mine! Yes, Lotte, forever.\\n\\nAnd what does it matter that Albert is your husband? Husband! That would be for this world, then—and for this world it would be a sin that I love you, that I would like to tear you from his arms into mine? Sin? Good, and I punish myself for it; I have tasted that sin in all its heavenly bliss, have drawn the balm and strength of life into my heart. From this moment you are mine! Mine, O Lotte! I go before you! I go to my Father, to your Father. To Him I shall lament it, and He will comfort me until you come, and I shall fly to meet you and clasp you and remain with you before the countenance of the Infinite in eternal embraces.\\n\\nI am not dreaming, I am not deluding myself! Near the grave, things grow clearer to me.\\n\\nWe shall be! We shall see each other again! See your mother!\\n\\nI shall see her, shall find her, ah, and pour out my whole\\n\\nheart before her! Your mother, your very image.”\\n\\nToward eleven Werther asked his servant whether Albert had returned. The servant said: yes, he had seen Albert’s horse being led there. Thereupon his master gives him an open note containing the following: “Would you be so kind as to lend me your pistols for a journey I intend to make? Fare you very well!”\\n\\nThe dear woman had slept little the previous night; what she had feared was decided, decided in a manner she could neither have foreseen nor feared. Her blood, otherwise so pure and flowing so easily, was in a feverish tumult; a thousand different sensations distracted her beautiful heart. Was it the fire of Werther’s embraces that she felt in her breast? Was it resentment at his audacity? Was it a vexed comparison of her present state with those days of wholly ingenuous, free innocence and carefree confidence in herself? How was she to face her husband, how confess to him a scene that she might so properly acknowledge, and that she nevertheless did not dare acknowledge to herself? They had remained silent toward each other for so long, and was she to be the first to break the silence and, at precisely the wrong time, make so unexpected a disclosure to her husband? She already feared that the mere news of Werther’s visit would make an unpleasant impression upon him, and now this unexpected catastrophe besides! Could she hope that her husband would see it entirely in the proper light, would receive it wholly without prejudice? And could she wish him to read her soul? And yet again, could she dissemble before the man to whom she had always stood open and free like a crystal-clear glass, and from whom she had never concealed, nor had ever been able to conceal, any of her feelings? The one and the other caused her anxiety and placed her in a quandary; and again and again her thoughts returned to Werther, who was lost to her, whom she could not let go, whom—alas!—she had to leave to himself, and who, once he had lost her, had nothing left.\\n\\nHow heavily now the estrangement that had taken root between them weighed upon her, though in that moment she could not clearly account for it to herself! Such sensible, such good people began, because of certain secret differences, to remain silent with each other; each reflected upon his own right and the other’s wrong, and their relations became so entangled and embittered that it became impossible to untie the knot at the very critical moment upon which everything depended. Had a fortunate intimacy brought them closer to each other again sooner, had love and forbearance come alive between them in mutual exchange and opened their hearts, perhaps our friend might still have been saved.”\", \"source_occurrence_id\": \"goethe-die-leiden-des-jungen-werther-0321a31ffd0dd044\", \"source_language\": \"de\", \"source_language_text_sha256\": \"a8eab6bb6a1a1542cc798f4477df96a216d8290ad257c55517e86451ae42e6f3\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T10:44:05.623217+00:00\", \"model_usage\": {\"input_tokens\": 2093, \"cached_input_tokens\": 0, \"output_tokens\": 1805}, \"estimated_cost_usd\": 0.044472, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"goethe-die-leiden-des-jungen-werther\", \"title\": \"Die Leiden des jungen Werther\", \"author\": \"Johann Wolfgang von Goethe\", \"language\": \"de\", \"source_type\": \"gutenberg_multi\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.936591, \"source_start\": 226036, \"source_end\": 226050, \"source_length\": 241339}, \"form\": {\"form_family\": \"embedded\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": null, \"syntactic_family\": \"subordinate\"}, \"pattern\": {\"pattern_id\": \"de_subordinate\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 1.0, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

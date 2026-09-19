@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"fontane-effi-briest-c7ff9203e5f845d0\", \"SOURCE_TEXT\": {\"exact_match\": \"Ich liebe dich\", \"local_text\": {\"context_start\": 154447, \"context_end\": 155169, \"text\": \"Effi nahm seine Hand. »Wie gut du bist, Geert, und wie nachsichtig.\\nDenn ich muß dir ja kindisch oder doch wenigstens sehr kindlich\\nvorgekommen sein; erst das mit meiner Angst und dann hinterher, daß\\nich dir einen Hausverkauf, und was noch schlimmer ist, das mit dem\\nFürsten ansinne. Du sollst ihm den Stuhl vor die Tür setzen - es\\nist zum Lachen. Denn schließlich ist er doch der Mann, der über uns\\nentscheidet. Auch über mich. Du glaubst gar nicht, wie ehrgeizig ich\\nbin. Ich habe dich eigentlich bloß aus Ehrgeiz geheiratet. Aber du\\nmußt nicht solch ernstes Gesicht dabei machen. Ich liebe dich ja ...\\nwie heißt es doch, wenn man einen Zweig abbricht und die Blätter\\nabreißt? Von Herzen mit Schmerzen, über alle Maßen.«\"}, \"wider_canonical_context\": {\"context_start\": 151769, \"context_end\": 158051, \"text\": \"Und nun löste Effi die Oblate und las: »Hochverehrteste Frau,\\ngnädigste Frau Baronin! Gestatten Sie mir, meinem respektvollsten\\nVormittagsgruß eine ganz gehorsamste Bitte hinzufügen zu dürfen. Mit\\ndem Mittagszug wird eine vieljährige liebe Freundin von mir, eine\\nTochter unserer Guten Stadt Kessin, Fräulein Marietta Trippelli, hier\\neintreffen und bis morgen früh unter uns weilen. Am 17. will sie in\\nPetersburg sein, um daselbst bis Mitte Januar zu konzertieren. Fürst\\nKotschukoff öffnet ihr auch diesmal wieder sein gastliches Haus. In\\nihrer immer gleichen Güte gegen mich hat die Trippelli mir zugesagt,\\nden heutigen Abend bei mir zubringen und einige Lieder ganz nach\\nmeiner Wahl (denn sie kennt keine Schwierigkeiten) vortragen zu\\nwollen. Könnten sich Frau Baronin dazu verstehen, diesem Musikabend\\nbeizuwohnen? Sieben Uhr. Ihr Herr Gemahl, auf dessen Erscheinen ich\\nmit Sicherheit rechne, wird meine gehorsamste Bitte unterstützen.\\nAnwesend nur Pastor Lindequist (der begleitet) und natürlich die\\nverwitwete Frau Pastorin Trippel. In vorzüglicher Ergebenheit A.\\nGieshübler.«\\n\\n»Nun -«, sagte Innstetten, »ja oder nein?«\\n\\n»Natürlich ja. Das wird mich herausreißen. Und dann kann ich doch\\nmeinem lieben Gieshübler nicht gleich bei seiner ersten Einladung\\neinen Korb geben.«\\n\\n»Einverstanden. Also Friedrich, sagen Sie Mirambo, der doch wohl das\\nBillett gebracht haben wird, wir würden die Ehre haben.« Friedrich\\nging.\\n\\nAls er fort war, fragte Effi: »Wer ist Mirambo?«\\n\\n»Der echte Mirambo ist Räuberhauptmann in Afrika -Tanganjika-See, wenn\\ndeine Geographie so weit reicht -, unserer aber ist bloß Gieshüblers\\nKohlenprovisor und Faktotum und wird heute abend in Frack und\\nbaumwollenen Handschuhen sehr wahrscheinlich aufwarten.«\\n\\nEs war ganz ersichtlich, daß der kleine Zwischenfall auf Effi günstig\\neingewirkt und ihr ein gut Teil ihrer Leichtlebigkeit zurückgegeben\\nhatte, Innstetten aber wollte das Seine tun, diese Rekonvaleszens zu\\nsteigern. »Ich freue mich, daß du ja gesagt hast und so rasch und ohne\\nBesinnen, und nun möcht ich dir noch einen Vorschlag machen, um dich\\nganz wieder in Ordnung zu bringen. Ich sehe wohl, es schleicht dir von\\nder Nacht her etwas nach, das zu meiner Effi nicht paßt, das durchaus\\nwieder fort muß, und dazu gibt es nichts Besseres als frische Luft.\\nDas Wetter ist prachtvoll, frisch und milde zugleich, kaum daß ein\\nLüftchen geht; was meinst du, wenn wir eine Spazierfahrt machten, aber\\neine lange, nicht bloß so durch die Plantage hin, und natürlich im\\nSchlitten und das Geläut auf und die weißen Schneedecken, und wenn wir\\ndann um vier zurück sind, dann ruhst du dich aus, und um sieben sind\\nwir bei Gieshübler und hören die Trippelli.«\\n\\nEffi nahm seine Hand. »Wie gut du bist, Geert, und wie nachsichtig.\\nDenn ich muß dir ja kindisch oder doch wenigstens sehr kindlich\\nvorgekommen sein; erst das mit meiner Angst und dann hinterher, daß\\nich dir einen Hausverkauf, und was noch schlimmer ist, das mit dem\\nFürsten ansinne. Du sollst ihm den Stuhl vor die Tür setzen - es\\nist zum Lachen. Denn schließlich ist er doch der Mann, der über uns\\nentscheidet. Auch über mich. Du glaubst gar nicht, wie ehrgeizig ich\\nbin. Ich habe dich eigentlich bloß aus Ehrgeiz geheiratet. Aber du\\nmußt nicht solch ernstes Gesicht dabei machen. Ich liebe dich ja ...\\nwie heißt es doch, wenn man einen Zweig abbricht und die Blätter\\nabreißt? Von Herzen mit Schmerzen, über alle Maßen.«\\n\\nUnd sie lachte hell auf. »Und nun sage mir«, fuhr sie fort, als\\nInnstetten noch immer schwieg, wo soll es hingehen?« »Ich habe mir\\ngedacht, nach der Bahnstation, aber auf einem Umweg, und dann auf der\\nChaussee zurück. Und auf der Station essen wir oder noch besser bei\\nGolchowski, in dem Gasthof 'Zum Fürsten Bismarck', dran wir, wenn du\\ndich vielleicht erinnerst, am Tag unserer Ankunft vorüberkamen. Solch\\nVorsprechen wirkt immer gut, und ich habe dann mit dem Starosten von\\nEffis Gnaden ein Wahlgespräch, und wenn er auch persönlich nicht\\nviel taugt, seine Wirtschaft hält er in Ordnung und seine Küche noch\\nbesser. Auf Essen und Trinken verstehen sich die Leute hier.«\\n\\nEs war gegen elf, daß sie dies Gespräch führten. Um zwölf hielt Kruse\\nmit dem Schlitten vor der Tür, und Effi stieg ein. Johanna wollte\\nFußsack und Pelze bringen, aber Effi hatte nach allem, was noch auf\\nihr lag, so sehr das Bedürfnis nach frischer Luft, daß sie alles\\nzurückwies und nur eine doppelte Decke nahm. Innstetten aber sagte zu\\nKruse: »Kruse, wir wollen nun also nach dem Bahnhof, wo wir zwei beide\\nheute früh schon mal waren. Die Leute werden sich wundern, aber es\\nschadet nichts. Ich denke, wir fahren hier an der Plantage entlang und\\ndann links auf den Kroschentiner Kirchturm zu. Lassen Sie die Pferde\\nlaufen. Um eins müssen wir am Bahnhof sein.«\\n\\nUnd so ging die Fahrt. Über den weißen Dächern der Stadt stand der\\nRauch, denn die Luftbewegung war gering. Auch Utpatels Mühle drehte\\nsich nur langsam, und im Fluge fuhren sie daran vorüber, dicht\\nam Kirchhofe hin, dessen Berberitzensträucher über das Gitter\\nhinauswuchsen und mit ihren Spitzen Effi streiften, so daß der Schnee\\nauf ihre Reisedecke fiel. Auf der anderen Seite des Weges war ein\\neingefriedeter Platz, nicht viel größer als ein Gartenbeet, und\\ninnerhalb nichts sichtbar als eine junge Kiefer, die mitten daraus\\nhervorragte.\\n\\n»Liegt da auch wer begraben?« fragte Effi. »Ja, der Chinese.«\\n\\nEffi fuhr zusammen; es war ihr wie ein Stich. Aber sie hatte doch\\nKraft genug, sich zu beherrschen, und fragte mit anscheinender Ruhe:\\n\\n»Unserer?«\\n\\n»Ja, unserer. Auf dem Gemeindekirchhof war er natürlich nicht\\nunterzubringen, und da hat denn Kapitän Thomsen, der so was wie sein\\nFreund war, diese Stelle gekauft und ihn hier begraben lassen. Es ist\\nauch ein Stein da mit Inschrift. Alles natürlich vor meiner Zeit. Aber\\nes wird noch immer davon gesprochen.«\\n\\n»Also ist es doch was damit. Eine Geschichte. Du sagtest schon heute\\nfrüh so was. Und es wird am Ende das beste sein, ich höre, was es ist.\\nSolange ich es nicht weiß, bin ich, trotz aller guten Vorsätze, noch\\nimmer ein Opfer meiner Vorstellungen. Erzähle mir das Wirkliche. Die\\nWirklichkeit kann mich nicht so quälen wie meine Phantasie.«\\n\\n»Bravo, Effi Ich wollte nicht davon sprechen. Aber nun macht es\\nsich so von selbst, und das ist gut. Übrigens ist es eigentlich gar\\nnichts.«\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"And now Effi detached the wafer seal and read: “Most highly honored madam,\\nmost gracious Baroness! Permit me to add a most humble request to my most respectful morning greetings. A dear friend of mine of many years’ standing, a daughter of our Good Town of Kessin, Miss Marietta Trippelli, will arrive here on the midday train and remain among us until tomorrow morning. She intends to be in Petersburg on the seventeenth, to give concerts there until the middle of January. Prince Kotschukoff is once again opening his hospitable house to her. In her unfailing kindness toward me, Trippelli has promised to spend this evening at my home and to perform several songs entirely of my choosing (for she knows no difficulties). Might the Baroness be prevailed upon to attend this musical evening? Seven o’clock. Your husband, on whose appearance I confidently rely, will support my most humble request. Present will be only Pastor Lindequist (who will accompany her) and, of course, the widowed Pastor’s wife Trippel. With the most distinguished devotion, A. Gieshübler.”\\n\\n“Well—,” said Innstetten, “yes or no?”\\n\\n“Of course yes. That will take me out of myself. And besides, I cannot turn down my dear Gieshübler at his very first invitation.”\\n\\n“Agreed. So, Friedrich, tell Mirambo, who presumably brought the note, that we would have the honor.” Friedrich left.\\n\\nWhen he had gone, Effi asked: “Who is Mirambo?”\\n\\n“The real Mirambo is a robber chieftain in Africa—Lake Tanganyika, if your geography extends that far—but ours is merely Gieshübler’s coal-yard manager and factotum, and will very probably wait upon us this evening in tails and cotton gloves.”\\n\\nIt was quite evident that the little incident had had a favorable effect on Effi and restored a good deal of her lightheartedness, but Innstetten wished to do his part to advance this convalescence. “I am glad that you said yes, and so quickly and without hesitation, and now I should like to make you another suggestion, to set you entirely to rights again. I can see that something from last night is still haunting you, something that does not suit my Effi, something that simply must go away again, and there is nothing better for that than fresh air. The weather is magnificent, fresh and mild at the same time, with scarcely a breath of wind; what do you say to our taking a drive, but a long one, not merely through the plantation, and in the sleigh, of course, with the bells on and the white snow blankets, and then, when we are back at four, you can rest, and at seven we shall be at Gieshübler’s and hear Trippelli.”\\n\\nEffi took his hand. “How good you are, Geert, and how forbearing. For I must have seemed childish to you, or at least very childlike; first with my fear, and then afterward, asking you to sell the house and, what is worse still, that business with the Prince. You are to put his chair outside the door—it is laughable. For after all, he is the man who decides our fate. Mine too. You cannot imagine how ambitious I am. I really married you solely out of ambition. But you must not look so serious at that. I do love you . . . what is it called again, when one breaks off a twig and plucks off the leaves? With all my heart, with all its smart, beyond all measure.”\\n\\nAnd she laughed brightly. “And now tell me,” she continued, when Innstetten still remained silent, “where are we to go?” “I had thought to the railway station, but by a roundabout route, and then back along the highway. And we shall eat at the station, or better still at Golchowski’s, at the ‘Prince Bismarck’ inn, which we passed on the day of our arrival, if you perhaps remember. Making such an appearance always has a good effect, and then I shall have an election talk with the starosta by Effi’s grace, and though he is not worth much personally, he keeps his establishment in order and his kitchen in even better order. The people here know about eating and drinking.”\\n\\nIt was close to eleven when they had this conversation. At twelve Kruse drew up before the door with the sleigh, and Effi got in. Johanna wanted to bring the foot muff and furs, but after everything that still weighed upon her, Effi felt such a need for fresh air that she refused them all and took only a double blanket. Innstetten, however, said to Kruse: “Kruse, we are now going to the railway station, where the two of us have already been once this morning. People will be surprised, but that does no harm. I think we shall drive along the plantation here and then turn left toward the Kroschentin church tower. Let the horses run. We must be at the station by one.”\\n\\nAnd so the drive began. Smoke hung above the town’s white roofs, for there was little movement in the air. Utpatel’s mill too was turning only slowly, and they sped past it, close beside the churchyard, whose barberry bushes grew out over the railings and brushed Effi with their tips, so that snow fell onto her carriage rug. On the other side of the road was an enclosed plot, not much larger than a garden bed, and within it nothing was visible but a young pine rising from its center.\\n\\n“Is someone buried there too?” Effi asked. “Yes, the Chinaman.”\\n\\nEffi started; it felt like a stab. But she still had enough strength to control herself and asked with apparent calm:\\n\\n“Ours?”\\n\\n“Yes, ours. Naturally, he could not be accommodated in the municipal churchyard, and so Captain Thomsen, who was something like a friend of his, bought this plot and had him buried here. There is also a stone with an inscription. All before my time, of course. But people still talk about it.”\\n\\n“So there is something to it after all. A story. You said something like that earlier this morning. And in the end it will be best if I hear what it is. As long as I do not know, despite all my good intentions, I am still a victim of my imaginings. Tell me what really happened. Reality cannot torment me as much as my imagination.”\\n\\n“Bravo, Effi. I did not want to speak of it. But now it has come about of its own accord, and that is good. Besides, it is really nothing at all.”\", \"source_occurrence_id\": \"fontane-effi-briest-c7ff9203e5f845d0\", \"source_language\": \"de\", \"source_language_text_sha256\": \"6e3a155ffa8ddf5357ae6d83ac76a7a5eba86e7b0a8d9f9914fc330d0fe962d3\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T10:42:49.272838+00:00\", \"model_usage\": {\"input_tokens\": 1926, \"cached_input_tokens\": 0, \"output_tokens\": 1728}, \"estimated_cost_usd\": 0.042264, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"fontane-effi-briest\", \"title\": \"Effi Briest\", \"author\": \"Theodor Fontane\", \"language\": \"de\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.262742, \"source_start\": 155030, \"source_end\": 155044, \"source_length\": 590047}, \"form\": {\"form_family\": \"present_or_past\", \"polarity\": \"surface_optional_negative\", \"tense_aspect\": \"present\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"de_main\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

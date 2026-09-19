@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"verona-colei-che-non-si-deve-amare-739102cf42485872\", \"SOURCE_TEXT\": {\"exact_match\": \"Amo te\", \"local_text\": {\"context_start\": 384492, \"context_end\": 385039, \"text\": \"— Per salvarmi? Per salvarmi, dici? Ma io non voglio essere salvata!\\nA che scopo? Perchè un giorno magari mi prenda Rafa, od un altro\\ncome Rafa? Io sono libera, capisci? padrona di fare con me quello che\\nvoglio. E son io che ti cerco, non tu. Se hai paura del rimorso, io\\nlo voglio portare tutto su me stessa. Guarda: ragiono freddamente, so\\nquel che dico. Amo te, voglio esser tua; solo questo mi piace. Voglio\\ncarezzarti, farmi carezzare, viverti vicino, essere innamorata di te,\\ngelosa di te... E son io che voglio, non tu; io sola... ti basta?\"}, \"wider_canonical_context\": {\"context_start\": 381825, \"context_end\": 388140, \"text\": \"— Sei tanto bella! — diss’egli ancora; — tanto, che mi fai male...\\n\\nElla non aveva pudore; sollevò la faccia, la sua bocca rise, viva,\\ninvermigliata, piena di colpa. Le splendevan gli occhi: non aveva\\npudore.\\n\\n— Ed allora perchè?... — fece con esitazione.\\n\\n— Cosa dici?\\n\\n— ... perchè non mi vuoi?\\n\\nLa domanda era tanto grave, ch’ella stessa tornò a nascondersi. L’altro\\nnulla rispose; accese una sigaretta, quasi volesse ubbriacarsi di fumo.\\n\\nPoi, quand’ella non si aspettava più nessuna risposta:\\n\\n— Perchè sei mia sorella, — disse.\\n\\nElla si strinse nelle spalle, meditò.\\n\\n— Questo nome ti pare così terribile?\\n\\n— Sei una bambina, — egli osservò gravemente.\\n\\n— Una bambina?... — E sorrise crollando il capo. — No, piuttosto\\nun’altra cosa, molto semplice: soffro e non voglio più soffrire. Voglio\\nbene a te, a te solo, e chiunque tu sia, voglio bene a te! Infine, di\\ncosa mi rimproveri? Perchè sento questo amore? Ma non è mia colpa.\\nForse perchè ne parlo? Ma che servirebbe il tacere, se tu, che pure\\ntaci, non fai che pensare continuamente alla stessa cosa?\\n\\nE le sue piccole mani si allacciarono strettamente alle mani di lui,\\nche non sapeva rispondere, che non osava più guardarla. Poi divenne\\nmansueta, persuadente, insistente:\\n\\n— Ascóltami, Rigo, ascóltami! Quel coraggio che dovresti avere tu,\\nl’ho avuto io per la prima. Ora non condannarmi: aiutami! V’è una certa\\npaura in tutto questo, è vero, ma bisognerà pur vincerla...\\n\\nEgli la guardò stupefatto.\\n\\n— Non bisogna vincerla, — disse oscuramente. — Anzi bisogna guarirne.\\n\\n— È dunque un male così grande?\\n\\n— Sì, un orribile male. Anche il parlarne, anche il pensarvi è male.\\n\\n— No, — ella disse con fermezza. — No!\\n\\n— Vedi, se tu potessi avere un altro nome che il nome di sorella... Non\\nsenti come suona male su la mia bocca?\\n\\n— Un nome!... cos’è un nome? — ella fece.\\n\\n— Ma è tutto, poichè vuol dire qualcosa, poichè racchiude il peccato\\npiù grande che vi sia nell’amore.\\n\\nElla ebbe un gesto vago, ed un sorriso.\\n\\n— Non importa, — rispose. — Io non ti considero per tale; non sento\\naffatto che tu sia mio fratello. Paolo è mio fratello, tu no. È una\\ncosa del tutto diversa. Non mi ricordo nemmeno più com’eri, quand’eri\\nmio fratello, cioè quand’eravamo bambini. Ora tu sei un altro.\\n\\nFece una pausa, indi ricominciò:\\n\\n— Del resto è naturale che fra noi ci sia una differenza. Tu hai avute\\ntante altre amanti, sei stato carezzato, baciato, adorato da tante...\\nQuello che puoi avere per me somiglia tutt’al più al desiderio che\\npotresti avere d’un’altra. Invece io...\\n\\n— No, Lora, questo non lo dire! non lo dire! È assurdo! Ma dunque non\\nvedi che faccio sopra me stesso uno sforzo terribile per salvarti?\\n\\n— Per salvarmi? Per salvarmi, dici? Ma io non voglio essere salvata!\\nA che scopo? Perchè un giorno magari mi prenda Rafa, od un altro\\ncome Rafa? Io sono libera, capisci? padrona di fare con me quello che\\nvoglio. E son io che ti cerco, non tu. Se hai paura del rimorso, io\\nlo voglio portare tutto su me stessa. Guarda: ragiono freddamente, so\\nquel che dico. Amo te, voglio esser tua; solo questo mi piace. Voglio\\ncarezzarti, farmi carezzare, viverti vicino, essere innamorata di te,\\ngelosa di te... E son io che voglio, non tu; io sola... ti basta?\\n\\nEgli guardò quella fanciulla di vent’anni, quel fiore semplice, che\\naveva un cálice così profondo e maturo, così odoroso e perverso. Una\\nspecie di ammirazione tacita nacque in lui, come se ne avesse paura.\\n\\n— Loretta, — egli disse, — alla tua età non si può saper ancora cosa è\\nbene e cosa è male, o per lo meno qual è il male troppo grande.\\n\\n— Il male troppo grande è non avere il coraggio d’essere felici, — ella\\ndisse, inconsapevole forse delle sue parole.\\n\\nEntraron due giovini bellimbusti, allegri e chiassosi, che\\nimbaldoriavano quella sera in compagnia di due cortigianelle, così\\nrosse di belletto e così eccentricamente vestite, che molti, fra que’\\nsatolli borghesi, ebber l’aria di scandolezzarsene. Le due ragazze\\nciarliere, tenendosi al braccio dei lor galanti, camminavan sui tacchi\\nalti con un passo dinoccolato ed uno sconcio dimenìo dell’anche, ogni\\ntratto scoppiando in certe risate stridule che ferivano i timpani\\naltrui come la nota falsa d’una chitarra scordata. Eran gaudenti o\\nnottambuli di basso ceto e donne di bassa galanteria; adocchiaron\\npassando la tavola d’Arrigo; un d’essi lo salutò. Conoscenze antiche,\\nforse del tempo ch’egli tavernava con una cricca di fannulloni equivoci\\nper le bottiglierie malfamate. I sopraggiunti sedettero ad una tavola\\nvicina e si misero manifestamente a parlar di lui. Arrigo, intuendo i\\nloro discorsi, per la prima volta si doleva che lo avessero sorpreso in\\nquella trattoria campestre, quasi clandestina per un giovine signore, e\\nsorpresi lor due soli, che parevano amanti, che dovevano a tutti parer\\namanti, e forse portavano impressa nel viso l’incancellabile ombra del\\nloro peccato.\\n\\nLoretta capì che qualcosa lo molestava e domandò:\\n\\n— Chi è quel tale che t’ha salutato?\\n\\n— Un avvocatello senza clienti, — rispose Arrigo; — un brutto tipo.\\n\\n— E quelle due ragazze?\\n\\n— Oh, non saprei!\\n\\n— Discorrono di noi\\n\\n— Me ne sono accorto.\\n\\n— Cosa posson dire?\\n\\n— Nulla di buono, certo. Mi spiace molto che ci vedano insieme, perchè\\nil mondo certe cose le indovina, e Dio sa come.\\n\\n— Credi?\\n\\n— Non costoro, forse; ma quando ci saremo fatti vedere troppe volte\\ninsieme, qualche altro, chissà mai...\\n\\n— Bene, in séguito vi penseremo.\\n\\nEntrambi tacquero. Nel giardino le risate squillavano; chi aveva troppo\\nmangiato lasciava che il proprio stomaco operasse in pace la fatica\\ndella digestione; frattanto, nel calor del vino, si tenevan propositi\\ngai. Ai bimbi s’era lasciata la briglia sul collo e scarrieravano\\ncon alti gridi sotto i pergolati; uomini e donne, con quella vampa\\ndi ardore nel viso che vien dal cibo soverchio e dal generoso vino,\\nriversavan su le tavole ancor ingombre il sale dell’aneddoto, il\\npepe della barzelletta grassa. I mariti, gli amanti, gli innamorati\\npensavano alla notte vicina.\\n\\nSu in alto si danzava. Quel flutto di musica un po’ tempestosa\\ntraboccava sul terrazzo dalle finestre aperte; ogni tanto una ragazza\\nvi si affacciava, tutta accaldata, i capelli in disordine, con un\\namator mellifluo che le stava intorno. Respiravan una boccata d’aria, e\\nvia di nuovo, strettamente, accanitamente, nel tramestìo della danza.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"“You are so beautiful!” he said again; “so beautiful that you hurt me...”\\n\\nShe felt no shame; she raised her face, and her mouth laughed, vivid, crimson, full of guilt. Her eyes shone: she felt no shame.\\n\\n“And then why?...” she asked hesitantly.\\n\\n“What are you saying?”\\n\\n“...why don’t you want me?”\\n\\nThe question was so grave that she herself hid again. The other made no reply; he lit a cigarette, as though he wished to intoxicate himself with smoke.\\n\\nThen, when she no longer expected any answer:\\n\\n“Because you are my sister,” he said.\\n\\nShe shrugged her shoulders and reflected.\\n\\n“Does that name seem so terrible to you?”\\n\\n“You are a child,” he observed gravely.\\n\\n“A child?...” And she smiled, shaking her head. “No, rather, it is something else, something very simple: I suffer, and I no longer want to suffer. I love you, you alone, and whoever you may be, I love you! After all, what do you reproach me for? For feeling this love? But it is not my fault. Perhaps for speaking of it? But what good would silence do, if you, though you too are silent, do nothing but think continually of the same thing?”\\n\\nAnd her little hands clasped his tightly, while he did not know how to answer and no longer dared look at her. Then she became gentle, persuasive, insistent:\\n\\n“Listen to me, Rigo, listen to me! I was the first to have the courage that you ought to have. Now do not condemn me: help me! There is a certain fear in all this, it is true, but we shall have to overcome it...”\\n\\nHe looked at her in astonishment.\\n\\n“We must not overcome it,” he said darkly. “On the contrary, we must be cured of it.”\\n\\n“Is it, then, so great an evil?”\\n\\n“Yes, a horrible evil. Even speaking of it, even thinking about it, is wrong.”\\n\\n“No,” she said firmly. “No!”\\n\\n“You see, if you could have some name other than sister... Do you not hear how wrong it sounds on my lips?”\\n\\n“A name!... what is a name?” she said.\\n\\n“But it is everything, since it means something, since it contains the greatest sin there is in love.”\\n\\nShe made a vague gesture and smiled.\\n\\n“It does not matter,” she replied. “I do not regard you as such; I do not feel at all that you are my brother. Paolo is my brother; you are not. It is something entirely different. I no longer even remember what you were like when you were my brother, that is, when we were children. Now you are someone else.”\\n\\nShe paused, then began again:\\n\\n“Besides, it is natural that there should be a difference between us. You have had so many other lovers; you have been caressed, kissed, adored by so many... What you may feel for me resembles, at most, the desire you might feel for another woman. Whereas I...”\\n\\n“No, Lora, do not say that! Do not say it! It is absurd! Can you not see, then, that I am making a terrible effort against myself to save you?”\\n\\n“To save me? To save me, you say? But I do not want to be saved! To what end? So that perhaps one day Rafa, or someone else like Rafa, may take me? I am free, do you understand? Free to do with myself what I please. And it is I who seek you, not you who seek me. If you are afraid of remorse, I want to take it all upon myself. Look: I am reasoning calmly; I know what I am saying. I love you; I want to be yours; that alone pleases me. I want to caress you, to have you caress me, to live close to you, to be in love with you, jealous over you... And it is I who want it, not you; I alone... is that enough for you?”\\n\\nHe looked at that twenty-year-old girl, that simple flower whose calyx was so deep and mature, so fragrant and perverse. A kind of silent admiration arose within him, as though he were afraid of it.\\n\\n“Loretta,” he said, “at your age one cannot yet know what is good and what is evil, or at least which evil is too great.”\\n\\n“The too-great evil is not having the courage to be happy,” she said, perhaps unaware of her own words.\\n\\nTwo young dandies came in, merry and boisterous, out carousing that evening in the company of two little courtesans, so red with rouge and so eccentrically dressed that many among those sated bourgeois appeared scandalized by them. The two talkative girls, holding the arms of their escorts, walked on high heels with a loose-jointed gait and an indecent swaying of their hips, every so often bursting into shrill laughter that struck other people’s eardrums like a false note from an out-of-tune guitar. They were low-class pleasure-seekers or night revelers and women of low gallantry; as they passed, they glanced at Arrigo’s table, and one of the men greeted him. Old acquaintances, perhaps from the days when he used to frequent taverns with a band of dubious idlers in disreputable drinking shops. The newcomers sat down at a nearby table and plainly began talking about him. Arrigo, guessing the tenor of their conversation, regretted for the first time that they had caught him in that country tavern, a place almost clandestine for a young gentleman, and had caught the two of them alone, looking like lovers, bound to look like lovers to everyone, perhaps bearing on their faces the indelible shadow of their sin.\\n\\nLoretta understood that something was troubling him and asked:\\n\\n“Who is that fellow who greeted you?”\\n\\n“A little lawyer with no clients,” Arrigo replied; “an unsavory character.”\\n\\n“And those two girls?”\\n\\n“Oh, I wouldn’t know!”\\n\\n“They are talking about us.”\\n\\n“I noticed.”\\n\\n“What can they be saying?”\\n\\n“Nothing good, certainly. I am very sorry they have seen us together, because the world guesses certain things, God knows how.”\\n\\n“Do you think so?”\\n\\n“Perhaps not these people; but once we have been seen together too many times, someone else—who knows...”\\n\\n“Very well, we shall think about it later.”\\n\\nThey both fell silent. Laughter rang through the garden; those who had eaten too much allowed their stomachs to perform the labor of digestion in peace; meanwhile, warmed by wine, they exchanged cheerful remarks. The children had been given free rein and went racing beneath the arbors with loud cries; men and women, their faces flushed with that heat which comes from excessive food and generous wine, poured over the still-cluttered tables the salt of anecdotes and the pepper of bawdy jokes. Husbands, lovers, and sweethearts thought of the approaching night.\\n\\nUpstairs they were dancing. That surge of somewhat tempestuous music spilled onto the terrace through the open windows; from time to time a girl appeared there, all overheated, her hair disheveled, with a honey-tongued admirer hovering around her. They drew a breath of air, then off they went again, tightly, fiercely, into the commotion of the dance.\", \"source_occurrence_id\": \"verona-colei-che-non-si-deve-amare-739102cf42485872\", \"source_language\": \"it\", \"source_language_text_sha256\": \"4517f134194c8eab341f5570fc851e186bff971f6c0a4bd56ff764df5b0b761f\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T12:24:45.068506+00:00\", \"model_usage\": {\"input_tokens\": 2177, \"cached_input_tokens\": 0, \"output_tokens\": 1843}, \"estimated_cost_usd\": 0.045568, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"verona-colei-che-non-si-deve-amare\", \"title\": \"Colei che non si deve amare\", \"author\": \"Guido da Verona\", \"language\": \"it\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.528519, \"source_start\": 384849, \"source_end\": 384855, \"source_length\": 728165}, \"form\": {\"form_family\": \"present\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"it_emphatic_present\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 1.0, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

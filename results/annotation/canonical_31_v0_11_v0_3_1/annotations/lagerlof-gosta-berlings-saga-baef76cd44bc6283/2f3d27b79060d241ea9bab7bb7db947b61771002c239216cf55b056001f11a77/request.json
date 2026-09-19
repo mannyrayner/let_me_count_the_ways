@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"lagerlof-gosta-berlings-saga-baef76cd44bc6283\", \"SOURCE_TEXT\": {\"exact_match\": \"jag har aldrig kunnat älska någon annan än dig\", \"local_text\": {\"context_start\": 215453, \"context_end\": 215589, \"text\": \"»Gösta, jag har aldrig kunnat älska någon annan än dig. Förlåt\\nmig! Överge mig inte! Du är den ende, som kan frälsa mig från mig\\nsjälv.»\"}, \"wider_canonical_context\": {\"context_start\": 212362, \"context_end\": 218570, \"text\": \"Och nu började hon tala, ivrig att återvinna honom. Hon sade, att\\ndet inte hade varit hennes mening att för alltid övergiva honom, men\\nför en tid måste de för syns skull bryta sin förbindelse. Han hade ju\\nsjälv kunnat se, att hennes far stod på vansinnets tröskel, att hennes\\nmor gick i ständig livsfara. Han måste ju förstå, att hon hade varit\\ntvungen att fara hem.\\n\\nDå bröt hans vrede ut i ord. Hon behövde inte göra sig till. Han\\nville inte längre vara hennes lekboll. Hon hade övergivit honom, så\\nsnart hon hade fått fara hem, och han kunde inte älska henne mer. Då\\nhan i förrgår kom hem från jakten och fann henne borta utan en\\nhälsning, utan ett ord, då hade hans blod stelnat i ådrorna; han hade\\nvarit nära att dö av sorg. Han kunde inte älska den, som hade gjort\\nhonom så stor smärta. Hon hade för resten aldrig älskat honom. Hon\\nvar en kokett, som ville ha någon, som kysste och smekte henne också\\nhär i hemtrakten, det var allt.\\n\\nTrodde han då, att hon brukade låta ungherrar smeka sig?\\n\\nÅ ja, det trodde han nog. Kvinnorna voro inte så heliga, som de\\nsågo ut. Själviskhet och koketteri från början till slut! Nej, om\\nhon hade vetat hur han kände det, då han kom hem från jakten! Det\\nvar, som om han hade vadat i isvatten. Han skulle aldrig övervinna\\nden smärtan. Den skulle följa honom genom hela livet. Han kunde\\naldrig bli människa mer.\\n\\nHon försökte förklara för honom hur allt hade gått till. Hon\\nsökte påminna honom om att hon alltjämt var trogen.\\n\\nJa, det var detsamma, ty nu älskade han henne inte mer. Nu hade\\nhan genomskådat henne. Hon var självisk. Hon älskade honom inte.\\nHon hade rest utan att ge honom en hälsning.\\n\\nOupphörligt kom han tillbaka till detta. Hon nära nog njöt av\\nuppträdet. Ond kunde hon inte bli. Hon förstod hans vrede så väl.\\nNågon verklig brytning fruktade hon inte heller. Till sist blev hon\\ndock orolig. Hade det verkligen inträtt ett sådant omslag hos honom,\\natt han inte mer kunde tycka om henne?\\n\\n»Gösta!» sade hon. »Var jag självisk, när jag gick till Sjö efter\\nmajoren? Jag mindes nog, att de hade kopporna där. Inte heller är\\ndet gott att gå ute i tunna skor i köld och snö.»\\n\\n»Kärleken lever av kärlek och inte av tjänster och välgärningar»,\\nsade Gösta.\\n\\n»Du vill då, att vi skola vara främlingar hädanefter, Gösta?»\\n\\n»Det vill jag.»\\n\\n»Gösta Berling är mycket ombytlig.»\\n\\n»Man brukar beskylla mig för dylikt.»\\n\\nHan var kall, omöjlig att värma, och egentligen var hon själv ännu\\nkallare. Själviakttagelsen satt och hånlog åt hennes försök att spela\\nförälskad.\\n\\n»Gösta!» sade hon, i det hon gjorde ännu ett bemödande. »Jag har\\naldrig med min vilja förorättat dig, om det än kan se så ut. Jag ber\\ndig: förlåt mig!»\\n\\n»Jag kan inte förlåta dig.»\\n\\nHon visste, att om hon hade ägt en hel känsla, skulle hon ha\\nvunnit honom åter. Och hon försökte spela passionerad. Isögonen\\nhånade henne, men hon försökte i alla fall. Hon ville inte förlora\\nhonom.\\n\\n»Gå inte, Gösta! Gå inte i vrede! Tänk på hur ful jag har\\nblivit! Ingen kan älska mig mer.»\\n\\n»Jag gör det inte heller», sade han. »Du får finna dig i att se\\nditt hjärta förtrampas, du som andra.»\\n\\n»Gösta, jag har aldrig kunnat älska någon annan än dig. Förlåt\\nmig! Överge mig inte! Du är den ende, som kan frälsa mig från mig\\nsjälv.»\\n\\nHan sköt henne ifrån sig.\\n\\n»Du talar inte sanning», sade han med isande lugn. »Jag vet inte\\nvad du vill mig, men jag ser, att du ljuger. Varför vill du hålla\\nkvar mig? Du är så rik, att friare aldrig skola saknas dig.»\\n\\nDärmed gick han.\\n\\nOch inte förr hade han stängt dörren, än saknaden och smärtan i\\nhela sitt majestät höllo sitt intåg i Mariannes hjärta.\\n\\nDet var kärleken, hennes eget hjärtas barn, som kom fram ur den\\nvrå, dit isögonen hade förvisat honom. Han kom, den efterlängtade,\\nnu, när det var för sent. Nu trädde han fram, allvarlig och\\nallsmäktig, och saknad och smärta uppburo hans konungamantel.\\n\\nDå Marianne kunde med verklig visshet säga till sig själv, att\\nGösta Berling hade övergivit henne, erfor hon en rent kroppslig\\nsmärta, så förfärlig, att hon nästan bedövades. Hon tryckte sina\\nhänder mot hjärtat och satt i timtal på samma ställe, kämpande med\\ntårlös sorg.\\n\\nOch det var hon själv, som led, inte en främling, inte en\\nskådespelerska. Hon själv var det.\\n\\nVarför hade hennes far kommit och skilt dem åt? Hennes kärlek\\nhade ju inte varit död. Det var blott i sitt svaghetstillstånd efter\\nsjukdomen, som hon inte hade kunnat erfara hans makt.\\n\\nO Gud, o Gud, att hon hade förlorat honom! O Gud, att hon hade\\nvaknat så sent!\\n\\nAh, han var den ende, han var hennes hjärtas behärskare! Av honom\\nkunde hon tåla allt. Hårdhet och onda ord från honom böjde henne\\nblott till ödmjuk kärlek. Om han hade slagit henne, skulle hon som en\\nhund krupit fram till honom och kysst hans hand.\\n\\nHon ryckte till sig penna och papper och skrev med förfärlig iver.\\nFörst skrev hon om sin kärlek och saknad. Sedan bad hon, inte om hans\\nkärlek, endast om hans förbarmande. Det var något slags vers hon\\nskrev.\\n\\nHon visste inte vad hon skulle göra för att skaffa sig lindring i\\ndenna dova smärta.\\n\\nDå hon hade slutat, tänkte hon, att om han finge se detta, så\\nskulle han dock tro, att hon älskade honom. Nå, varför skulle hon\\ninte sända det skrivna till honom? Nästa dag skulle hon sända av det,\\noch hon trodde nog, att det skulle föra honom åter till henne.\\n\\nNästa dag gick hon i ångest och strid med sig själv. Vad hon\\nskrivit, föreföll henne så ömkligt och dumt. Det hade varken rim\\neller meter. Det var bara prosa. Han skulle väl bara skratta åt\\nsådana verser.\\n\\nHennes stolthet vaknade också. Om han inte älskade henne mer, då\\nvar det en så förskräcklig förnedring att tigga om hans kärlek.\\n\\nStundom kom klokheten och sade henne, att hon borde vara glad, att\\nhon hade sluppit ut ur förbindelsen med Gösta och alla de bedrövliga\\nförhållanden, som den skulle draga med sig.\\n\\nHennes hjärtas kval voro dock så förskräckliga, att känslorna till\\nsist fingo råda. Tre dagar efter den, då hon blivit medveten om sin\\nkärlek, hade hon fått verserna inlagda och Gösta Berlings namn skrivet\\npå omslaget. De blevo dock inte avsända. Innan hon hade funnit en\\nlämplig budbärare, hade hon fått höra sådana ting om Gösta Berling,\\natt hon insåg, att det redan var för sent att vinna honom tillbaka.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"And now she began to speak, eager to win him back. She said that it had not been her intention to abandon him forever, but that for a time they had to break off their relationship for appearance’s sake. He had surely seen for himself that her father stood on the threshold of madness, that her mother was in constant danger of her life. He must surely understand that she had been compelled to go home.\\n\\nThen his anger burst forth in words. She need not pretend. He no longer wished to be her plaything. She had abandoned him as soon as she had been able to go home, and he could no longer love her. When he had come home from the hunt the day before yesterday and found her gone without a greeting, without a word, his blood had frozen in his veins; he had come close to dying of grief. He could not love the woman who had caused him such great pain. Besides, she had never loved him. She was a coquette who wanted someone to kiss and caress her here in her home district as well; that was all.\\n\\nDid he think, then, that she was in the habit of letting young gentlemen caress her?\\n\\nOh yes, he certainly did think so. Women were not as holy as they looked. Selfishness and coquetry from beginning to end! No, if only she had known how he had felt when he came home from the hunt! It was as though he had been wading through ice water. He would never overcome that pain. It would follow him throughout his life. He could never be a human being again.\\n\\nShe tried to explain to him how everything had happened. She sought to remind him that she was still faithful.\\n\\nYes, it was all the same, for now he no longer loved her. Now he had seen through her. She was selfish. She did not love him. She had left without giving him a greeting.\\n\\nHe returned to this incessantly. She almost enjoyed the scene. She could not become angry. She understood his anger so well. Nor did she fear any real breach. Yet at last she grew uneasy. Had such a change really taken place in him that he could no longer care for her?\\n\\n“Gösta!” she said. “Was I selfish when I went to Sjö to fetch the Major? I did remember that they had smallpox there. Nor is it pleasant to walk outdoors in thin shoes in cold and snow.”\\n\\n“Love lives on love, not on services and good deeds,” said Gösta.\\n\\n“Then you want us to be strangers from now on, Gösta?”\\n\\n“I do.”\\n\\n“Gösta Berling is very changeable.”\\n\\n“I am commonly accused of such things.”\\n\\nHe was cold, impossible to warm, and in truth she herself was colder still. Self-observation sat there, sneering at her attempts to play the woman in love.\\n\\n“Gösta!” she said, making one more effort. “I have never intentionally wronged you, though it may look that way. I beg you: forgive me!”\\n\\n“I cannot forgive you.”\\n\\nShe knew that if she had possessed one wholehearted feeling, she would have won him back. And she tried to act passionate. The eyes of ice mocked her, but she tried all the same. She did not want to lose him.\\n\\n“Do not go, Gösta! Do not go in anger! Think how ugly I have become! No one can love me anymore.”\\n\\n“Nor do I,” he said. “You must resign yourself to seeing your heart trampled underfoot, as others do.”\\n\\n“Gösta, I have never been able to love anyone but you. Forgive me! Do not abandon me! You are the only one who can save me from myself.”\\n\\nHe pushed her away.\\n\\n“You are not telling the truth,” he said with icy calm. “I do not know what you want with me, but I can see that you are lying. Why do you want to hold on to me? You are so rich that you will never lack suitors.”\\n\\nWith that, he left.\\n\\nAnd no sooner had he closed the door than longing and pain, in all their majesty, made their entrance into Marianne’s heart.\\n\\nIt was love, the child of her own heart, emerging from the corner to which the eyes of ice had banished him. He came, the long-awaited one, now, when it was too late. Now he stepped forth, solemn and almighty, and longing and pain bore up his royal mantle.\\n\\nWhen Marianne could say to herself with true certainty that Gösta Berling had abandoned her, she experienced a purely physical pain, so terrible that she was almost numbed. She pressed her hands against her heart and sat for hours in the same place, struggling with tearless grief.\\n\\nAnd it was she herself who suffered, not a stranger, not an actress. It was she herself.\\n\\nWhy had her father come and separated them? Her love had surely not been dead. It was only in her weakened state after the illness that she had been unable to feel its power.\\n\\nO God, O God, that she had lost him! O God, that she had awakened so late!\\n\\nAh, he was the only one, he was the ruler of her heart! From him she could endure anything. Harshness and cruel words from him merely bowed her down into humble love. If he had struck her, she would have crawled to him like a dog and kissed his hand.\\n\\nShe snatched up pen and paper and wrote with terrible eagerness. First she wrote of her love and longing. Then she begged, not for his love, only for his mercy. It was some kind of verse that she wrote.\\n\\nShe did not know what to do to gain relief from this dull pain.\\n\\nWhen she had finished, she thought that if he were to see this, he would surely believe that she loved him. Well, why should she not send what she had written to him? The next day she would send it off, and she felt sure that it would bring him back to her.\\n\\nThe next day she went about in anguish and at war with herself. What she had written seemed so pitiful and foolish to her. It had neither rhyme nor meter. It was only prose. Surely he would only laugh at such verses.\\n\\nHer pride awakened as well. If he no longer loved her, then it was such a terrible humiliation to beg for his love.\\n\\nAt times prudence came and told her that she ought to be glad that she had escaped from the relationship with Gösta and all the miserable circumstances it would bring with it.\\n\\nYet the torments of her heart were so terrible that in the end her feelings were allowed to prevail. Three days after the day on which she had become conscious of her love, she had had the verses placed in an envelope and Gösta Berling’s name written on the wrapper. But they were not sent. Before she had found a suitable messenger, she had heard such things about Gösta Berling that she realized it was already too late to win him back.\", \"source_occurrence_id\": \"lagerlof-gosta-berlings-saga-baef76cd44bc6283\", \"source_language\": \"sv\", \"source_language_text_sha256\": \"d2613b95ff7040b9865c05d3e5d307d34c38714fb059d904de3495d7f7699311\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T11:03:24.978007+00:00\", \"model_usage\": {\"input_tokens\": 2156, \"cached_input_tokens\": 0, \"output_tokens\": 1705}, \"estimated_cost_usd\": 0.042724, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"lagerlof-gosta-berlings-saga\", \"title\": \"Gösta Berlings saga\", \"author\": \"Selma Lagerlöf\", \"language\": \"sv\", \"source_type\": \"runeberg\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.30308, \"source_start\": 215461, \"source_end\": 215507, \"source_length\": 710905}, \"form\": {\"form_family\": \"exclusive_target\", \"polarity\": \"affirmative\", \"tense_aspect\": \"perfect\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"sv_exclusive_modal_perfect\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

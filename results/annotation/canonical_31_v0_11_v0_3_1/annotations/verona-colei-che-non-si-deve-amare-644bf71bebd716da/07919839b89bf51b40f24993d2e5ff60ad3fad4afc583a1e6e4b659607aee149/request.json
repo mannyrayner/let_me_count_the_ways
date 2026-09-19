@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"verona-colei-che-non-si-deve-amare-644bf71bebd716da\", \"SOURCE_TEXT\": {\"exact_match\": \"ti amo\", \"local_text\": {\"context_start\": 347719, \"context_end\": 347806, \"text\": \"— Come ti amo, Loretta! — egli esclamò ingenuamente, serrandole con un\\nbraccio la vita.\"}, \"wider_canonical_context\": {\"context_start\": 344588, \"context_end\": 351393, \"text\": \"— Non faccio scene, ma vi dico solo che non posso rimanere senza\\nvedervi, senza parlarvi qualchevolta. Insomma sentite, Loretta: mi sono\\ninnamorato di voi, scioccamente innamorato, perchè tutto questo non\\nserve che a farvi ridere... Tuttavia comprenderete che non si rinunzia\\nin un giorno alla cosa che ci è più cara.\\n\\n— Non ho mai riso di voi, Rafa, — ella disse con soavità.\\n\\n— Sì, riso, riso, e non volete far altro che ridere!... Ma non importa.\\nVi dico solamente questo, Loretta: non pensate a ritogliermi quel\\npochissimo che m’avete concesso finora, perchè in tal caso non so cosa\\npotrebbe accadere.\\n\\nQuell’uomo timido aveva trovato un accento così pieno d’energia, che\\nLoretta ne fu meravigliata.\\n\\n— Via, Rafa, calmátevi, — disse. — Non prendete le cose a questo modo e\\nnon guardatemi così, perchè mi fate quasi paura. Vorrei che ragionaste\\ninvece, che pensaste ad una cosa, ad una solamente: Se mio fratello\\nvenisse a saperlo?...\\n\\n— Non lo saprà.\\n\\n— Oh, è presto detto! Voi non lo conoscete; quello è capace... so io di\\ncosa è capace! Insomma, sarei una ragazza rovinata, e ciò vi basti.\\n\\nRafa si calmò un poco dinanzi a tali ragioni.\\n\\n— Ebbene, aumenteremo le precauzioni; farò tutto quello che vorrete.\\n\\n— Al mondo, mio caro, si viene a sapere ogni cosa, e quando supponiamo\\nd’essere ben nascosti, mille occhi ci spiano.\\n\\n— Ma insomma questo pericolo c’era anche prima, eppure...\\n\\n— Appunto, appunto; è una cosa che non può più durare. Sono stata\\nleggera, molto leggera con voi, ma non posso andar oltre.\\n\\n— Loretta, — egli disse dolcemente, con una voce persuasiva, — pensa\\nche ti voglio bene, pensa che tutto il giorno mi stai nella mente, mi\\nstai così forte nell’anima che non posso rinunziare a te... Non essere\\ncosì crudele, te ne supplico!\\n\\nEgli le prese un braccio ed ella non cercò di allontanarlo.\\n\\n— Silenzio, Rafa... — mormorò, — silenzio!\\n\\nMa egli riprese:\\n\\n— Ho tutto lasciato, per godere solo di questi pochi momenti che mi\\ndài. Vedi, non sono esigente, non insisto più; mi accontento per ora di\\nvederti, di parlarti qualchevolta... Se dovevi un giorno interrompere\\ncosì bruscamente la dolcezza dell’amore che ho per te, meglio era non\\npermettere che t’avvicinassi mai. Ora è tardi.\\n\\n— Ma no, Rafa, tu... voi non capite!\\n\\n— Capisco benissimo; ti sono indifferente, ti ho divertita un poco,\\nadesso ne hai abbastanza; hai paura, e nulla osi rischiare per me.\\n\\n— Non capite, vi dico. Se non avessi una famiglia, se non avessi tante\\napparenze da salvaguardare, se insomma fossi libera, sola... allora,\\nforse... Ma invece, ripeto, guai, guai se mio fratello avesse di ciò il\\nminimo sospetto!\\n\\n— Si farà in modo che non sappia nulla.\\n\\n— No, Rafa. E poi c’è un altro pericolo...\\n\\n— Quale?\\n\\n— Oh Dio! c’è un altro pericolo, vi dico; non insistete.\\n\\n— Su, via, dimmelo! sii sincera una buona volta!\\n\\nCamminavano; ella si fermò; prese un’aria birichina:\\n\\n— Perchè mi date del tu, per esempio? Sapete bene che non voglio.\\n\\n— Non fa nulla, continua: qual’è il pericolo?...\\n\\n— Insomma voi dite che rido, che rido... È facile dirlo! Invece\\npotrebbe darsi che, in fin dei conti, avessi anch’io paura di non\\nridere più...\\n\\n— Come ti amo, Loretta! — egli esclamò ingenuamente, serrandole con un\\nbraccio la vita.\\n\\n— State fermo... state fermo, via! — E riprese: — Naturalmente\\nanch’io non sono di cera n’è di stoppa... Un giorno o l’altro, che\\nso? trovandoci soli, per esempio, con i discorsi che sempre mi fate...\\no per caso, o per isbaglio, o per un’altra ragione qualsiasi, potrei\\nmagari perdere... Insomma, si fa presto a commettere una sciocchezza!\\n\\nRoteò di nuovo l’ombrellino, lo ficcò profondo in una siepe, soggiunse:\\n— E poi?...\\n\\nRafa volle rispondere, ma ella non gliene dette il tempo:\\n\\n— Già, voi uomini fate presto: buon giorno, buona sera, e chi s’è\\nvisto s’è visto! Noi ragazze paghiamo per tutt’e due. La leggerezza, il\\nvapore d’un momento, può costarci chissà qual prezzo, e voi dite che si\\nride? Naturalmente si ride, si ride... fin chè si può...\\n\\n— Ma io sono un galantuomo, Loretta! — egli proclamò sonoramente.\\n\\n— Benissimo. E perchè siete un galantuomo dovrei darmi a voi? Non è una\\nbuona ragione, vi pare? Ma io, carissimo Rafa, ho tutta la mia vita\\nda vivere, e ci sono, vi ripeto, certe ragioni mie proprie le quali\\nmi vietano il lusso di fare quello che forse piacerebbe anche a me.\\nNon sono certo una ragazza da strada e non ho, come qualche altra, uno\\nstemma e parecchi milioni che mi assicurino l’impunità. Se mi trovassi\\nin uno di questi due casi, ebbene sì, io sarei forse tipo da dire ad\\nuno, a voi per esempio: «Mio caro Rafa, tu mi piaci; fa di me quello\\nche vuoi.» Ma nel mio caso questo vorrebbe dire offrirvi l’intera mia\\nvita, giocarmi tutto l’avvenire, materiale e morale, per la sventatezza\\nd’un momento... E questo è un po’ troppo, non vi pare?\\n\\nAvendogli fatto questo bel discorso, ella pensò involontariamente ad\\nArrigo, rammaricandosi ch’egli non potesse udirla. Ebbe voglia di dirsi\\nqueste due parole, anzi se le disse mentalmente: «Sei fina!»\\n\\nRafa impiegava un certo tempo a cavarsi d’impaccio; in quell’intervallo\\nripassarono entrambi davanti al vecchio che monosillabava il giornale,\\ne videro, traverso il verde, per un altro viale, tornare il soldato di\\nfanteria con la sua domestica rubiconda.\\n\\n— Loretta, — egli disse, al termine di quel silenzio, — ti ho già\\nparlato una volta con molta chiarezza; ma tu, certi discorsi, non li\\nvuoi nemmeno udire.\\n\\n— So bene a che alludete!... — ella fece con sarcasmo. — Ormai che\\nse n’è parlato una volta si può anche riparlarne. Ed io preferisco le\\nsituazioni chiare, le parole nette. Mi avete offerto denaro... molto\\ndenaro!...\\n\\n— Non così, Loretta... — egli esclamò arrossendo.\\n\\n— Così, così! Che valgono le perifrasi? Questa è la verità nuda e cruda.\\n\\nElla fece una pausa, ch’egli non osò interrompere.\\n\\n— Ora, sentite, Rafa. Non so quale opinione abbiate di me, anzi non me\\nne curo. Tutto può farvi credere ch’io sia capace anche di vendermi...\\ne questo non mi offende, perchè una volta di più confesso che la colpa\\nè stata mia. Vedete che parlo apertamente, come non ho fatto ancora.\\nPerò, se credete questo, v’ingannate. Non ho bisogno di nulla: da\\ncasa mia ricevo tutto quanto m’occorre, potrei ricevere molto più se\\nvolessi sottostare a certe discipline familiari che son contrarie al\\nmio carattere. Non siamo ricchissimi, però vedete che mio fratello, per\\nesempio, fa una vita invidiabile. Se domani volessi maritarmi, potrei\\nscegliere, e scegliere bene, come ha fatto mia sorella, perchè ho pure\\nuna sorella. Ma tutto questo non mi piace. Vi ho già detto che sono\\nuna ragazza diversa dalle altre. Appunto per le mie idee singolari, mi\\nsono già messa in urto con la mia famiglia; ho preteso ad una specie\\nd’indipendenza, ed avrei fatto anche di più, se non avessi paura\\nprecisamente di mio fratello.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"— I am not making a scene; I am only telling you that I cannot go on without seeing you, without speaking to you now and then. In short, listen, Loretta: I have fallen in love with you, foolishly in love, because all this serves only to make you laugh... Yet you will understand that one does not give up in a single day the thing dearest to one.\\n\\n— I have never laughed at you, Rafa, — she said gently.\\n\\n— Yes, laughed, laughed, and you want to do nothing but laugh!... But it does not matter. I am only telling you this, Loretta: do not think of taking away from me that very little which you have granted me until now, because in that case I do not know what might happen.\\n\\nThat timid man had found a tone so full of energy that Loretta was astonished by it.\\n\\n— Come now, Rafa, calm yourself, — she said. — Do not take things this way, and do not look at me like that, because you almost frighten me. I should like you to reason instead, to think of one thing, of one thing only: What if my brother were to find out?...\\n\\n— He will not find out.\\n\\n— Oh, that is easily said! You do not know him; he is capable of... I know what he is capable of! In short, I should be a ruined girl, and let that suffice for you.\\n\\nRafa calmed down a little in the face of such arguments.\\n\\n— Very well, we shall increase our precautions; I shall do whatever you wish.\\n\\n— In this world, my dear, everything comes to be known, and when we suppose ourselves well hidden, a thousand eyes are watching us.\\n\\n— But in short, this danger existed before as well, and yet...\\n\\n— Precisely, precisely; it is something that cannot go on any longer. I have been imprudent, very imprudent with you, but I cannot go any further.\\n\\n— Loretta, — he said softly, in a persuasive voice, — think that I love thee, think that thou art in my thoughts all day long, that thou art so deeply in my soul that I cannot give thee up... Do not be so cruel, I beg thee!\\n\\nHe took hold of her arm, and she did not try to draw it away.\\n\\n— Be quiet, Rafa... — she murmured, — be quiet!\\n\\nBut he went on:\\n\\n— I have left everything behind, solely to enjoy these few moments thou givest me. Thou seest, I am not demanding, I shall insist no more; for now I am content to see thee, to speak to thee now and then... If one day thou wert to break off so abruptly the sweetness of the love I bear thee, it would have been better never to allow me to draw near thee. Now it is too late.\\n\\n— But no, Rafa, thou... you do not understand!\\n\\n— I understand perfectly; I am a matter of indifference to thee, I amused thee for a little while, and now thou hast had enough; thou art afraid, and darest risk nothing for me.\\n\\n— You do not understand, I tell you. If I had no family, if I did not have so many appearances to preserve, if, in short, I were free, alone... then, perhaps... But as things are, I repeat, woe, woe if my brother were to have the slightest suspicion of this!\\n\\n— We shall make sure he knows nothing.\\n\\n— No, Rafa. And then there is another danger...\\n\\n— What danger?\\n\\n— Oh God! There is another danger, I tell you; do not insist.\\n\\n— Come, out with it, tell me! Be honest for once!\\n\\nThey were walking; she stopped and assumed a mischievous air:\\n\\n— Why dost thou address me as “thou,” for example? Thou knowest very well that I do not want thee to.\\n\\n— That does not matter; go on: what is the danger?...\\n\\n— In short, you say that I laugh, that I laugh... It is easy to say! Yet it might be that, when all is said and done, I too was afraid that I might cease to laugh...\\n\\n— How I love thee, Loretta! — he exclaimed ingenuously, encircling her waist with one arm.\\n\\n— Keep still... keep still, come now! — And she continued: — Naturally, I too am made neither of wax nor of tow... One day or another, what do I know? finding ourselves alone, for example, with the things you are always saying to me... or by chance, or by mistake, or for any other reason at all, I might perhaps lose... In short, it takes no time at all to commit a foolish act!\\n\\nShe twirled her parasol again, thrust it deep into a hedge, and added:\\n\\n— And then?...\\n\\nRafa tried to answer, but she gave him no time:\\n\\n— Of course, you men are quick about it: good day, good evening, and that is the last one sees of you! We girls pay for both. The thoughtlessness, the intoxication of a moment, may cost us who knows what price, and you say that one laughs? Naturally one laughs, one laughs... as long as one can...\\n\\n— But I am an honorable man, Loretta! — he proclaimed resoundingly.\\n\\n— Very well. And because you are an honorable man, I ought to give myself to you? That is not a good reason, do you think? But I, dearest Rafa, have my whole life to live, and there are, I repeat, certain reasons of my own which forbid me the luxury of doing what perhaps I too would enjoy. I am certainly not a street girl, nor do I have, like some other woman, a coat of arms and several millions to assure me of impunity. If I found myself in either of those two situations, well then, yes, I might perhaps be the sort to say to a man—to you, for example: “My dear Rafa, I like thee; do with me what thou wilt.” But in my case this would mean offering you my entire life, gambling my whole future, material and moral, on the recklessness of a moment... And that is a little too much, do you not think?\\n\\nHaving delivered this fine speech to him, she involuntarily thought of Arrigo, regretting that he could not hear her. She felt like saying these two words to herself; indeed, she said them inwardly: “How clever you are!”\\n\\nRafa took some time to extricate himself from his difficulty; during that interval they both passed once more in front of the old man who was reading the newspaper one syllable at a time, and through the greenery, along another path, they saw the infantry soldier returning with his ruddy maidservant.\\n\\n— Loretta, — he said at the end of that silence, — I have already spoken to thee once with great clarity; but thou wilt not even hear certain things discussed.\\n\\n— I know very well what you are alluding to!... — she said sarcastically. — Since we have spoken of it once, we may speak of it again. And I prefer clear situations and plain words. You offered me money... a great deal of money!...\\n\\n— Not like that, Loretta... — he exclaimed, blushing.\\n\\n— Just like that, just like that! What is the use of circumlocutions? That is the naked truth.\\n\\nShe paused, and he did not dare interrupt her.\\n\\n— Now listen, Rafa. I do not know what opinion you have of me; indeed, I do not care. Everything may lead you to believe that I am capable even of selling myself... and that does not offend me, because once again I admit that the fault was mine. You see that I am speaking openly, as I have not done before. Nevertheless, if you believe that, you are mistaken. I need nothing: from my family I receive everything I require, and I could receive much more if I were willing to submit to certain family disciplines that are contrary to my character. We are not extremely rich, yet you can see that my brother, for example, leads an enviable life. If I wished to marry tomorrow, I could choose, and choose well, as my sister did, for I have a sister too. But none of this pleases me. I have already told you that I am a girl unlike the others. Precisely because of my singular ideas, I have already come into conflict with my family; I have laid claim to a kind of independence, and I would have done even more if I were not afraid of my brother in particular.\", \"source_occurrence_id\": \"verona-colei-che-non-si-deve-amare-644bf71bebd716da\", \"source_language\": \"it\", \"source_language_text_sha256\": \"ef5d7699a50798bb06074a65b622ab122e4d098c91e5ef1030ec5214155de0c9\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T12:23:09.173358+00:00\", \"model_usage\": {\"input_tokens\": 2310, \"cached_input_tokens\": 0, \"output_tokens\": 2194}, \"estimated_cost_usd\": 0.05312, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"verona-colei-che-non-si-deve-amare\", \"title\": \"Colei che non si deve amare\", \"author\": \"Guido da Verona\", \"language\": \"it\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.477537, \"source_start\": 347726, \"source_end\": 347732, \"source_length\": 728165}, \"form\": {\"form_family\": \"present\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"it_present\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

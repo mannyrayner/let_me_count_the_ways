@@ -1,0 +1,72 @@
+{
+  "occurrence_id": "flaubert-madame-bovary-c1cc44972185af75",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 2,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.91,
+    "analysis": "Rodolphe’s “Je t’aime” primarily presents his present love as true. In conjunction with his request for forgiveness and “je t’aimerai toujours,” it also helps enact a renewed relational commitment, although the highlighted clause alone is principally an avowal. His emotional exclamation and kneeling intensify its delivery but do not establish an independently reflexive or discharge-like force.",
+    "ambiguity": "Rodolphe may be carried away by temporary tenderness rather than expressing durable love, but sincerity and durability do not alter the utterance’s predominantly truth-conditional mode. The adjacent future declaration gives P moderate rather than dominant support."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "Rodolphe directly says “Je t’aime” to Emma during their face-to-face reunion, as part of a longer apologetic declaration ending with “je t’aimerai toujours.”"
+  },
+  "contextual_interpretation": "Rodolphe responds after misreading Emma’s sobs as an outpouring of love and her silence as modesty. His declaration occurs amid renewed physical intimacy and momentary tenderness, but the scene immediately exposes a major mismatch: Emma has returned in financial desperation, and her request for three thousand francs rapidly cools the reunion. His earlier vague, partly invented excuses and the later collapse of his assurances complicate sincerity, yet the core utterance still functions as an avowal with some commitment-invoking force rather than as mere manipulation or expressive discharge.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "“Ah! pardonne-moi! tu es la seule qui me plaise. J’ai été imbécile et méchant! Je t’aime, je t’aimerai toujours!”",
+      "supports": "The present-tense avowal strongly supports T; the apology and adjacent promise of enduring love provide additional support for relational renewal under P.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "Before speaking, Rodolphe struggles against his tenderness, draws Emma onto his knees, caresses her, and kisses her eyelids.",
+      "supports": "The declaration arises in a moment of genuine-seeming tenderness and intimacy, while still being adequately represented as an emotionally intense avowal rather than an independently reflexive verbal discharge.",
+      "confidence": 0.92
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "“Rodolphe crut que c’était l’explosion de son amour; comme elle se taisait, il prit ce silence pour une dernière pudeur, et alors il s’écria...”",
+      "supports": "He speaks in response to a mistaken interpretation of Emma’s tears and silence. “S’écria” indicates emphatic delivery but, without stronger evidence of involuntary blurting, does not independently establish E.",
+      "confidence": 0.95
+    },
+    {
+      "evidence_id": "e4",
+      "source": "local_text",
+      "quotation_or_description": "Emma immediately reveals that she is ruined and asks him for three thousand francs; his affectionate posture then changes as he rises and becomes grave.",
+      "supports": "The abrupt contextual reversal casts doubt on the durability and depth of his avowed love but does not change the core utterance from a T/P event into O.",
+      "confidence": 0.97
+    },
+    {
+      "evidence_id": "e5",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The supplied occurrence marks the affirmative present-tense French expression “Je t’aime” in Gustave Flaubert’s Madame Bovary.",
+      "supports": "Confirms the highlighted core clause and its grammatical form as a direct present avowal.",
+      "confidence": 1.0
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the central avowal, while P captures the limited commitment-invoking contribution of the surrounding apology and promise. Emotional delivery and narrative irony are contextual complications rather than missing dimensions of core force.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

@@ -1,0 +1,65 @@
+{
+  "occurrence_id": "rostand-cyrano-de-bergerac-21458fa202306065",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.98,
+    "analysis": "Cyrano directly presents as true the negative proposition that he did not love Roxane. Although the denial is transparently insincere in context, it remains fully truth-conditional in force: T classifies the avowal or report, not its truthfulness. The line neither undertakes a relational commitment nor independently functions as an affect-driven verbal discharge.",
+    "ambiguity": "The dramatic context reverses the denial's credibility, but not its core assertive force."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "Cyrano directly tells Roxane, “Je ne vous aimais pas” (“I did not love you”), while denying her recognition that he was the loving soul behind the letters and balcony speech."
+  },
+  "contextual_interpretation": "The denial is a deliberate, self-effacing falsehood meant to preserve Cyrano's long-standing sacrifice and continue assigning the love to Christian. Roxane immediately rejects it, and Cyrano's subsequent weakening denials—including the revealing address “mon cher amour”—make his love unmistakable. This deception affects sincerity and dramatic meaning but does not require a category beyond T/P/E.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "Cyrano says directly: “Je ne vous aimais pas.”",
+      "supports": "The grammatical form presents the absence of past love as true, strongly supporting truth-conditional force.",
+      "confidence": 1.0
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "Roxane identifies the letters, the nighttime voice, and especially “L'âme” as Cyrano's; he repeatedly answers “Non” before making the highlighted denial.",
+      "supports": "The line functions as a deliberate denial of Roxane's inference rather than as an undertaking or expressive discharge.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "Roxane counters “Vous m'aimiez !”; Cyrano's voice weakens, and he later says, “Non, non, mon cher amour, je ne vous aimais pas !”",
+      "supports": "The contradiction between his endearment and denial makes the assertion dramatically incredible while confirming its protective, self-effacing purpose.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e4",
+      "source": "local_text",
+      "quotation_or_description": "Roxane calls the concealed authorship a “généreuse imposture” and asks why Cyrano remained silent for fourteen years.",
+      "supports": "The surrounding exchange frames the denial as continuation of a long, generous deception, not as evidence of nonsemantic or ontologically residual force.",
+      "confidence": 0.98
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally represents the core denial even though the audience and Roxane understand it to be false. Its deception and self-sacrificial motivation are contextual features rather than missing dimensions of core force.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": "The highlighted occurrence is the first standalone denial, not the later expanded repetition containing “mon cher amour.”"
+}

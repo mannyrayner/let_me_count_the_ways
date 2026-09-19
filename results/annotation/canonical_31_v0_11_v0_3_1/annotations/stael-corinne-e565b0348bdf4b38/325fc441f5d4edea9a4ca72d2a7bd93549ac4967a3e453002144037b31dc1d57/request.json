@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"stael-corinne-e565b0348bdf4b38\", \"SOURCE_TEXT\": {\"exact_match\": \"je vous aime\", \"local_text\": {\"context_start\": 356033, \"context_end\": 357047, \"text\": \"e informée\\nde son état, qui s'était amélioré: «Vous vous trompez, milord; je ne\\nfais rien, en venant vous voir, que la plupart des femmes de Rome\\nn'eussent fait à ma place. Je vous ai su malade, vous êtes étranger ici,\\nvous n'y connaissez que moi, c'est à moi de vous soigner. Les\\nconvenances établies sont très-respectables quand il ne faut leur\\nsacrifier que soi; mais ne doivent-elles pas céder aux sentiments vrais\\net profonds que fait naître le danger ou la douleur d'un ami? Quel\\nserait donc le sort d'une femme si ces mêmes convenances sociales, en\\npermettant d'aimer, défendaient seulement le mouvement irrésistible qui\\nfait voler au secours de ce qu'on aime? Mais, je vous le répète, milord,\\nne craignez point qu'en venant ici je me sois compromise. J'ai, par mon\\nâge et mes talents, à Rome, la liberté d'une femme mariée. Je ne cache\\npoint à mes amis que je suis venue chez vous, je ne sais s'ils me\\nblâment de vous aimer, mais sûrement ils ne me blâmeront pas d'être\\ndévouée à vous, quand je vous aime.»\"}, \"wider_canonical_context\": {\"context_start\": 352842, \"context_end\": 361219, \"text\": \"De tout ce qu'il avait dit, un seul mot avait frappé au coeur Oswald:\\nc'était le souvenir de sa mère et de l'attachement profond que son père\\navait eu pour elle. Il l'avait perdue lorsqu'il n'avait encore que\\nquatorze ans, mais il se rappelait avec un profond respect et ses vertus\\net le caractère timide et réservé de ses vertus. «Insensé que je suis!\\ns'écria-t-il quand il fut seul, je veux savoir quelle est l'épouse que\\nmon père me destinait: et ne le sais-je pas, puisque je puis me retracer\\nl'image de ma mère, qu'il a tant aimée? Que veux-je donc de plus? et\\npourquoi me tromper moi-même en faisant semblant d'ignorer ce qu'il\\npenserait à présent si je pouvais le consulter encore?» Il était\\ncependant affreux pour Oswald de retourner chez Corinne, après ce qui\\ns'était passé la veille, sans lui rien dire qui confirmât les sentiments\\nqu'il lui avait témoignés. Son agitation, sa peine devint si forte,\\nqu'elle lui rendit un accident dont il se croyait guéri: le vaisseau\\ncicatrisé dans sa poitrine se rouvrit. Pendant que ses gens effrayés\\nappelaient du secours de toutes parts, il souhaitait en secret que la\\nfin de sa vie terminât ses chagrins. «Si je pouvais mourir, se\\ndisait-il, après avoir revu Corinne, après qu'elle m'aurait appelé son\\nRoméo!» Et des larmes s'échappèrent de ses yeux: c'étaient les\\npremières, depuis la mort de son père, qu'une autre douleur lui\\narrachât.\\n\\nIl écrivit à Corinne l'accident qui le retenait chez lui, et quelques\\nmots mélancoliques terminaient sa lettre. Corinne avait commencé ce jour\\nmême avec des pressentiments bien trompeurs: elle jouissait de\\nl'impression qu'elle avait produite sur Oswald; et, se croyant aimée,\\nelle était heureuse, car elle ne savait pas bien clairement d'ailleurs\\nce qu'elle désirait. Mille circonstances faisaient que l'idée d'épouser\\nlord Nelvil était pour elle mêlée de beaucoup de crainte; et comme\\nc'était une personne plus passionnée que prévoyante, dominée par le\\nprésent, mais s'occupant peu de l'avenir, ce jour qui devait lui coûter\\ntant de peines s'était levé pour elle comme le jour le plus pur et le\\nplus serein de sa vie.\\n\\nEu recevant le billet d'Oswald, un trouble cruel s'empara de son âme:\\nelle le crut dans un grand danger, et partit à l'instant à pied,\\ntraversant le _Corso_ à l'heure où toute la ville s'y promène, et\\nentrant dans la maison d'Oswald à la vue de presque toute la société de\\nRome. Elle ne s'était pas donné le temps de réfléchir; et sa course\\navait été si rapide, qu'en arrivant dans la chambre d'Oswald, elle ne\\npouvait plus respirer ni prononcer un seul mot. Lord Nelvil comprit tout\\nce qu'elle venait de hasarder pour le voir; et, s'exagérant les\\nconséquences de cette action, qui, en Angleterre, aurait entièrement\\nperdu de réputation une femme, et à plus forte raison une femme non\\nmariée, il se sentit saisi par la générosité, l'amour et la\\nreconnaissance; et, se levant, tout faible qu'il était, il serra Corinne\\ncontre son coeur, et s'écria: «Chère amie, non, je ne t'abandonnerai\\npas, quand ton sentiment pour moi te compromet! quand je dois\\nréparer...» Corinne comprit sa pensée; et, l'interrompant aussitôt, en\\nse dégageant doucement de ses bras, elle lui dit, après s'être informée\\nde son état, qui s'était amélioré: «Vous vous trompez, milord; je ne\\nfais rien, en venant vous voir, que la plupart des femmes de Rome\\nn'eussent fait à ma place. Je vous ai su malade, vous êtes étranger ici,\\nvous n'y connaissez que moi, c'est à moi de vous soigner. Les\\nconvenances établies sont très-respectables quand il ne faut leur\\nsacrifier que soi; mais ne doivent-elles pas céder aux sentiments vrais\\net profonds que fait naître le danger ou la douleur d'un ami? Quel\\nserait donc le sort d'une femme si ces mêmes convenances sociales, en\\npermettant d'aimer, défendaient seulement le mouvement irrésistible qui\\nfait voler au secours de ce qu'on aime? Mais, je vous le répète, milord,\\nne craignez point qu'en venant ici je me sois compromise. J'ai, par mon\\nâge et mes talents, à Rome, la liberté d'une femme mariée. Je ne cache\\npoint à mes amis que je suis venue chez vous, je ne sais s'ils me\\nblâment de vous aimer, mais sûrement ils ne me blâmeront pas d'être\\ndévouée à vous, quand je vous aime.»\\n\\nEn entendant ces paroles si naturelles et si sincères, Oswald éprouva un\\nmélange confus d'impressions diverses; il était touché par la\\ndélicatesse de la réponse de Corinne, mais il était presque fâché que ce\\nqu'il avait pensé d'abord ne fût pas vrai; il aurait souhaité qu'elle\\neût commis pour lui une grande faute selon le monde, afin que cette\\nfaute même, lui faisant un devoir de l'épouser, terminât ses\\nincertitudes. Il pensait avec humeur à cette liberté des moeurs\\nd'Italie, qui prolongeait son anxiété, en lui laissant beaucoup de\\nbonheur, sans lui imposer aucun lien. Il eût voulu que l'honneur lui\\ncommandât ce qu'il désirait. Ces pensées pénibles lui causèrent de\\nnouveau des accidents dangereux. Corinne, dans la plus affreuse\\ninquiétude, sut lui prodiguer des soins pleins de douceur et de charme.\\n\\nVers le soir, Oswald paraissait plus oppressé; et Corinne, à genoux\\nauprès de son lit, soutenait sa tête entre ses bras, quoiqu'elle fût\\nelle-même bien plus émue que lui. Il la regardait souvent avec une\\nimpression de bonheur à travers ses souffrances. «Corinne, lui dit-il à\\nvoix basse, lisez-moi dans ce recueil, où sont écrites les pensées de\\nmon père, ses réflexions sur la mort. Ne pensez pas, dit-il en voyant\\nl'effroi de Corinne, que je m'en croie menacé; mais jamais je ne suis\\nmalade sans relire ses consolations, qu'il me semble encore entendre de\\nsa bouche; et puis je veux, chère amie, vous faire ainsi connaître quel\\nhomme était mon père; vous comprendrez mieux et ma douleur et son empire\\nsur moi, et tout ce que je veux vous confier un jour.» Corinne prit ce\\nrecueil, dont Oswald ne se séparait jamais, et d'une voix tremblante\\nelle en lut quelques pages:\\n\\n  «Justes, aimés du Seigneur, vous parlerez de la mort sans crainte, car\\n  elle ne sera pour vous qu'un changement d'habitation; et celle que\\n  vous quitterez est peut-être la moindre de toutes. O mondes\\n  innombrables, qui remplissez à nos yeux l'infini de l'espace!\\n  communautés inconnues des créatures de Dieu, communautés de ses\\n  enfants, éparses dans le firmament et rangées sous ses voûtes! que nos\\n  louanges se joignent aux vôtres: nous ignorons votre condition; nous\\n  ignorons votre première, votre seconde, votre dernière part aux\\n  générosités de l'Être suprême; mais en parlant de la mort et de la\\n  vie, du temps passé, du temps à venir, nous atteignons, nous touchons\\n  aux intérêts de tous les êtres intelligents et sensibles, n'importent\\n  les lieux et les distances qui les séparent. Familles des peuples,\\n  familles des nations, assemblages des mondes, vous dites avec nous:\\n  Gloire au maître des cieux, au roi de la nature, au Dieu de l'univers!\\n  gloire, hommage à celui qui peut, à sa volonté, transformer la\\n  stérilité en abondance, l'ombre en réalité, et la mort elle-même en\\n  éternelle vie!\\n\\n  «Ah! sans doute, la fin du juste est la mort désirable; mais peu\\n  d'entre nous, peu d'entre nos anciens en ont été les témoins. Où\\n  est-il cet homme qui se présenterait sans crainte aux regards de\\n  l'Éternel? Où est-il cet homme qui a aimé Dieu sans distraction, qui\\n  l'a servi dès sa jeunesse, et qui, atteignant un âge avancé, ne trouve\\n  dans ses souvenirs aucun sujet d'inquiétude? Où est-il cet homme moral\\n  en toutes ses actions, sans jamais songer à la louange et aux\\n  récompenses de l'opinion? Où est-il cet homme si rare parmi les\\n  hommes, cet être si digne de nous servir à tous de modèle? Où est-il?\\n  où est-il? Ah! s'il existe au milieu de nous, que nos respects\\n  l'environnent; et demandez, vous ferez bien, demandez d'assister à sa\\n  mort, comme au plus beau des spectacles: armez-vous seulement de\\n  courage, afin de le suivre attentivement sur le lit d'épouvante dont\\n  il ne se relèvera point. Il le prévoit, il en est certain, et la\\n  sérénité règne dans ses regards, et son front semble environné d'une\\n  auréole céleste: il dit avec l'Apôtre: _Je sais à qui j'ai cru_; et\\n  cette confiance, lorsque ses forces s'éteignent, anime encore ses\\n  traits. Il contemple déjà sa nouvelle patrie; mais, sans oublier celle\\n  qu'il va quitter, il est à son Créateur et à son Dieu, sans rejeter\\n  loin de lui les sentiments qui ont charmé sa vie.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"Of all that he had said, a single word had struck Oswald to the heart: it was the memory of his mother and of the deep attachment his father had had for her. He had lost her when he was only fourteen years old, but he recalled with profound respect both her virtues and the timid and reserved character of those virtues. “Madman that I am!” he exclaimed when he was alone. “I want to know what sort of wife my father intended for me: and do I not know, since I can summon up the image of my mother, whom he loved so much? What more, then, do I want? And why deceive myself by pretending not to know what he would think now if I could still consult him?” Yet it was dreadful for Oswald to return to Corinne’s home, after what had happened the day before, without saying anything to her that would confirm the feelings he had shown her. His agitation and his distress became so intense that they brought back an attack from which he believed himself cured: the healed blood vessel in his chest reopened. While his frightened servants called for help from every quarter, he secretly wished that the end of his life might put an end to his sorrows. “If only I could die,” he said to himself, “after seeing Corinne again, after she had called me her Romeo!” And tears escaped from his eyes: they were the first that any grief other than his father’s death had wrung from him.\\n\\nHe wrote to Corinne of the attack that was keeping him at home, and a few melancholy words concluded his letter. Corinne had begun that very day with very deceptive presentiments: she delighted in the impression she had made on Oswald; and, believing herself loved, she was happy, for apart from that she did not know very clearly what she desired. A thousand circumstances caused the idea of marrying Lord Nelvil to be mingled for her with much fear; and as she was a person more passionate than provident, ruled by the present but little concerned with the future, that day which was to cost her so much suffering had dawned for her as the purest and most serene day of her life.\\n\\nOn receiving Oswald’s note, a cruel agitation took possession of her soul: she believed him to be in great danger and set out at once on foot, crossing the Corso at the hour when the entire city promenades there, and entering Oswald’s house in the sight of almost all Roman society. She had not given herself time to reflect; and she had hastened there so quickly that, upon arriving in Oswald’s room, she could no longer breathe or utter a single word. Lord Nelvil understood all that she had just risked in order to see him; and, exaggerating to himself the consequences of this action, which in England would have entirely ruined a woman’s reputation, and all the more so that of an unmarried woman, he felt himself overcome by generosity, love, and gratitude; and, rising, weak though he was, he clasped Corinne to his heart and exclaimed: “Dear friend, no, I will not abandon you, when your feeling for me compromises you! when I must make amends...” Corinne understood his thought; and, interrupting him at once as she gently freed herself from his arms, she said to him, after inquiring about his condition, which had improved: “You are mistaken, my lord; in coming to see you, I am doing nothing that most women in Rome would not have done in my place. I learned that you were ill; you are a stranger here, you know no one here but me; it is for me to care for you. Established conventions are highly respectable when one need sacrifice only oneself to them; but must they not yield to the true and profound feelings aroused by a friend’s danger or suffering? What, then, would a woman’s fate be if those same social conventions, while permitting her to love, forbade only the irresistible impulse that sends one flying to the aid of the person one loves? But, I repeat, my lord, do not fear that by coming here I have compromised myself. By virtue of my age and my talents, I have in Rome the freedom of a married woman. I do not conceal from my friends that I have come to your home; I do not know whether they blame me for loving you, but surely they will not blame me for being devoted to you, when I love you.”\\n\\nOn hearing these words, so natural and so sincere, Oswald experienced a confused mixture of different impressions; he was touched by the delicacy of Corinne’s reply, but he was almost vexed that what he had first thought was not true; he would have wished her to have committed for his sake a great fault in the eyes of society, so that this very fault, making it his duty to marry her, might put an end to his uncertainties. He thought resentfully of that freedom of Italian manners, which prolonged his anxiety by leaving him much happiness without imposing any bond upon him. He would have liked honor to command him to do what he desired. These painful thoughts once again caused him dangerous attacks. Corinne, in the most dreadful anxiety, knew how to lavish upon him care full of gentleness and charm.\\n\\nToward evening, Oswald seemed to have greater difficulty breathing; and Corinne, kneeling beside his bed, supported his head in her arms, although she herself was far more deeply moved than he. He often looked at her with an impression of happiness through his suffering. “Corinne,” he said to her in a low voice, “read to me from this collection, in which my father’s thoughts are written, his reflections on death. Do not think,” he said, seeing Corinne’s terror, “that I believe myself threatened by it; but I am never ill without rereading his consolations, which I seem still to hear from his own lips; and besides, dear friend, in this way I want to let you know what sort of man my father was; you will better understand both my grief and his hold over me, and all that I want to confide to you one day.” Corinne took the collection, from which Oswald never parted, and in a trembling voice she read several pages from it:\\n\\n  “You who are righteous, beloved of the Lord, you will speak of death without fear, for it will be for you only a change of dwelling; and the one you leave is perhaps the least of all. O innumerable worlds, which to our eyes fill the infinity of space! unknown communities of God’s creatures, communities of his children, scattered across the firmament and arrayed beneath its vaults! May our praises join with yours: we know nothing of your condition; we know nothing of your first, your second, your last share in the bounties of the Supreme Being; but in speaking of death and life, of time past and time to come, we reach, we touch upon the interests of all intelligent and sentient beings, regardless of the places and distances that separate them. Families of peoples, families of nations, assemblages of worlds, you say with us: Glory to the master of the heavens, to the king of nature, to the God of the universe! Glory and homage to him who can, at his will, transform barrenness into abundance, shadow into reality, and death itself into eternal life!\\n\\n  “Ah! Without doubt, the end of the righteous man is the death to be desired; but few among us, few among our forebears, have witnessed it. Where is that man who would present himself without fear before the gaze of the Eternal? Where is that man who has loved God without distraction, who has served him from his youth, and who, upon reaching an advanced age, finds in his memories no cause for anxiety? Where is that man who is moral in all his actions, without ever thinking of praise or of the rewards of public opinion? Where is that man so rare among men, that being so worthy of serving as a model for us all? Where is he? Where is he? Ah! If he exists among us, let our reverence surround him; and ask—you will do well—ask to be present at his death as at the most beautiful of spectacles: only arm yourself with courage, so that you may follow him attentively upon the bed of terror from which he will never rise. He foresees it, he is certain of it, and serenity reigns in his gaze, and his brow seems surrounded by a heavenly aureole: he says with the Apostle: ‘I know in whom I have believed’; and this confidence, as his strength dies away, still animates his features. He already beholds his new homeland; but, without forgetting the one he is about to leave, he belongs to his Creator and his God, without casting far from him the feelings that have charmed his life.”\", \"source_occurrence_id\": \"stael-corinne-e565b0348bdf4b38\", \"source_language\": \"fr\", \"source_language_text_sha256\": \"7cc57e8e42b1cc3a6096bb7387fd11dde395035b8d25395234718672ca11c8ee\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T11:30:57.747030+00:00\", \"model_usage\": {\"input_tokens\": 2480, \"cached_input_tokens\": 0, \"output_tokens\": 2199}, \"estimated_cost_usd\": 0.053899999999999997, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"stael-corinne\", \"title\": \"Corinne; ou, l'Italie\", \"author\": \"Madame de Staël\", \"language\": \"fr\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": \"CHAPITRE PREMIER\", \"relative_position\": 0.333999, \"source_start\": 357033, \"source_end\": 357045, \"source_length\": 1068964}, \"form\": {\"form_family\": \"present_or_imperfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": \"optional\", \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"fr_present_past\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

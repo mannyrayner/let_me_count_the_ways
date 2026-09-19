@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"flaubert-madame-bovary-fad5eca3365af663\", \"SOURCE_TEXT\": {\"exact_match\": \"Je t’aime\", \"local_text\": {\"context_start\": 328455, \"context_end\": 328520, \"text\": \"— Je t’aime! répondit-elle en lui passant les bras autour du cou.\"}, \"wider_canonical_context\": {\"context_start\": 325449, \"context_end\": 331687, \"text\": \"Elle se répétait: «J’ai un amant! un amant!» se délectant à cette idée\\ncomme à celle d’une autre puberté qui lui serait survenue. Elle allait\\ndonc posséder enfin ces joies de l’amour, cette fièvre du bonheur dont\\nelle avait désespéré. Elle entrait dans quelque chose de merveilleux\\noù tout serait passion, extase, délire; une immensité bleuâtre\\nl’entourait, les sommets du sentiment étincelaient sous sa pensée, et\\nl’existence ordinaire n’apparaissait qu’au loin, tout en bas, dans\\nl’ombre, entre les intervalles de ces hauteurs.\\n\\nAlors elle se rappela les héroïnes des livres qu’elle avait lus, et la\\nlégion lyrique de ces femmes adultères se mit à chanter dans sa mémoire\\navec des voix de sœurs qui la charmaient. Elle devenait elle-même\\ncomme une partie véritable de ces imaginations et réalisait la longue\\nrêverie de sa jeunesse, en se considérant dans ce type d’amoureuse\\nqu’elle avait tant envié. D’ailleurs, Emma éprouvait une satisfaction\\nde vengeance. N’avait-elle pas assez souffert! Mais elle triomphait\\nmaintenant, et l’amour, si longtemps contenu, jaillissait tout entier\\navec des bouillonnements joyeux. Elle le savourait sans remords, sans\\ninquiétude, sans trouble.\\n\\nLa journée du lendemain se passa dans une douceur nouvelle. Ils\\nse firent des serments. Elle lui raconta ses tristesses. Rodolphe\\nl’interrompait par ses baisers; et elle lui demandait, en le\\ncontemplant les paupières à demi closes, de l’appeler encore par son\\nnom et de répéter qu’il l’aimait. C’était dans la forêt, comme la\\nveille, sous une hutte de sabotiers. Les murs en étaient de paille et\\nle toit descendait si bas, qu’il fallait se tenir courbé. Ils étaient\\nassis l’un contre l’autre, sur un lit de feuilles sèches.\\n\\nÀ partir de ce jour-là, ils s’écrivirent régulièrement tous les soirs.\\nEmma portait sa lettre au bout du jardin, près de la rivière, dans une\\nfissure de la terrasse. Rodolphe venait l’y chercher et en plaçait une\\nautre, qu’elle accusait toujours d’être trop courte.\\n\\nUn matin, que Charles était sorti dès avant l’aube, elle fut prise\\npar la fantaisie de voir Rodolphe à l’instant. On pouvait arriver\\npromptement à la Huchette, y rester une heure et être rentré dans\\nYonville que tout le monde encore serait endormi. Cette idée la fit\\nhaleter de convoitise, et elle se trouva bientôt au milieu de la\\nprairie, où elle marchait à pas rapides, sans regarder derrière elle.\\n\\nLe jour commençait à paraître. Emma, de loin, reconnut la maison de son\\namant, dont les deux girouettes à queue-d’aronde se découpaient en noir\\nsur le crépuscule pâle.\\n\\nAprès la cour de la ferme, il y avait un corps de logis qui devait être\\nle château. Elle y entra, comme si les murs, à son approche, se fussent\\nécartés d’eux-mêmes. Un grand escalier droit montait vers un corridor.\\nEmma tourna la clenche d’une porte, et tout à coup, au fond de la\\nchambre, elle aperçut un homme qui dormait. C’était Rodolphe. Elle\\npoussa un cri.\\n\\n— Te voilà! te voilà! répétait-il. Comment as-tu fait pour venir?...\\nAh! ta robe est mouillée!\\n\\n— Je t’aime! répondit-elle en lui passant les bras autour du cou.\\n\\nCette première audace lui ayant réussi, chaque fois maintenant que\\nCharles sortait de bonne heure, Emma s’habillait vite et descendait à\\npas de loup le perron qui conduisait au bord de l’eau.\\n\\nMais, quand la planche aux vaches était levée, il fallait suivre\\nles murs qui longeaient la rivière; la berge était glissante; elle\\ns’accrochait de la main, pour ne pas tomber, aux bouquets de ravenelles\\nflétries. Puis elle prenait à travers des champs en labour, où elle\\nenfonçait, trébuchait et empêtrait ses bottines minces. Son foulard,\\nnoué sur sa tête, s’agitait au vent dans les herbages; elle avait peur\\ndes bœufs, elle se mettait à courir; elle arrivait essoufflée, les\\njoues roses, et exhalant de toute sa personne un frais parfum de sève,\\nde verdure et de grand air. Rodolphe, à cette heure-là, dormait encore.\\nC’était comme une matinée de printemps qui entrait dans sa chambre.\\n\\nLes rideaux jaunes, le long des fenêtres laissaient passer doucement\\nune lourde lumière blonde. Emma tâtonnait en clignant des yeux, tandis\\nque les gouttes de rosée suspendues à ses bandeaux faisaient comme\\nune auréole de topazes tout autour de sa figure. Rodolphe, en riant,\\nl’attirait à lui et il la prenait sur son cœur.\\n\\nEnsuite, elle examinait l’appartement, elle ouvrait les tiroirs des\\nmeubles, elle se peignait avec son peigne et se regardait dans le\\nmiroir à barbe. Souvent même, elle mettait entre ses dents le tuyau\\nd’une grosse pipe qui était sur la table de nuit, parmi des citrons et\\ndes morceaux de sucre, près d’une carafe d’eau.\\n\\nIl leur fallait un bon quart d’heure pour les adieux. Alors Emma\\npleurait; elle aurait voulu ne jamais abandonner Rodolphe. Quelque\\nchose de plus fort qu’elle la poussait vers lui, si bien qu’un jour, la\\nvoyant survenir à l’improviste, il fronça le visage comme quelqu’un de\\ncontrarié.\\n\\n— Qu’as-tu donc? dit-elle. Souffres-tu? Parle-moi!\\n\\nEnfin il déclara, d’un air sérieux, que ses visites devenaient\\nimprudentes et qu’elle se compromettait.\\n\\n\\n\\n\\nX\\n\\n\\nPeu à peu, ces craintes de Rodolphe la gagnèrent. L’amour l’avait\\nenivrée d’abord, et elle n’avait songé à rien au delà. Mais, à présent\\nqu’il était indispensable à sa vie, elle craignait d’en perdre quelque\\nchose, ou même qu’il ne fût troublé. Quand elle s’en revenait de chez\\nlui, elle jetait tout alentour des regards inquiets, épiant chaque\\nforme qui passait à l’horizon et chaque lucarne du village d’où l’on\\npouvait l’apercevoir. Elle écoutait les pas, les cris, le bruit des\\ncharrues; et elle s’arrêtait plus blême et plus tremblante que les\\nfeuilles des peupliers qui se balançaient sur sa tête.\\n\\nUn matin, qu’elle s’en retournait ainsi, elle crut distinguer tout\\nà coup le long canon d’une carabine qui semblait la tenir en joue.\\nIl dépassait obliquement le bord d’un petit tonneau, à demi enfoui\\nentre les herbes, sur la marge d’un fossé. Emma, prête à défaillir\\nde terreur, avança cependant, et un homme sortit du tonneau, comme\\nces diables à boudin qui se dressent du fond des boîtes. Il avait des\\nguêtres bouclées jusqu’aux genoux, sa casquette enfoncée jusqu’aux\\nyeux, les lèvres grelottantes et le nez rouge. C’était le capitaine\\nBinet, à l’affût des canards sauvages.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"She kept repeating to herself: “I have a lover! a lover!” delighting in the idea as though in that of another puberty that had come upon her. So at last she was going to possess those joys of love, that fever of happiness of which she had despaired. She was entering into something marvelous where everything would be passion, ecstasy, delirium; a bluish immensity surrounded her, the summits of feeling sparkled beneath her thoughts, and ordinary existence appeared only far away, down below, in the shadows, between those heights.\\n\\nThen she remembered the heroines of the books she had read, and the lyrical legion of those adulterous women began singing in her memory with the voices of sisters that enchanted her. She herself was becoming like a real part of those imaginings and fulfilling the long daydream of her youth, seeing herself as that type of woman in love whom she had envied so much. Besides, Emma felt the satisfaction of revenge. Had she not suffered enough! But now she was triumphant, and love, so long held back, burst forth in its entirety with joyful seethings. She savored it without remorse, without anxiety, without uneasiness.\\n\\nThe following day passed in a new sweetness. They made vows to each other. She told him of her sorrows. Rodolphe interrupted her with his kisses; and, gazing at him through half-closed eyelids, she asked him to call her by her name again and to repeat that he loved her. It was in the forest, as on the previous day, beneath a clog-makers’ hut. Its walls were of straw and the roof came down so low that they had to remain bent over. They were sitting close against each other on a bed of dry leaves.\\n\\nFrom that day on, they wrote to each other regularly every evening. Emma took her letter to the end of the garden, near the river, and placed it in a crack in the terrace. Rodolphe came to fetch it and put another there, which she always complained was too short.\\n\\nOne morning, when Charles had gone out before dawn, she was seized by the fancy to see Rodolphe that very instant. She could reach La Huchette quickly, stay there for an hour, and be back in Yonville while everyone was still asleep. The idea made her pant with longing, and she soon found herself in the middle of the meadow, where she walked with rapid steps without looking behind her.\\n\\nDay was beginning to break. From a distance, Emma recognized her lover’s house, its two swallow-tailed weather vanes standing out black against the pale twilight.\\n\\nBeyond the farmyard stood a main building that must be the château. She entered it as though the walls had parted of their own accord at her approach. A broad, straight staircase led up to a corridor. Emma turned the latch of a door, and suddenly, at the back of the room, she saw a man sleeping. It was Rodolphe. She gave a cry.\\n\\n“There you are! There you are!” he kept saying. “How did you manage to come?... Ah! Your dress is wet!”\\n\\n“I love you!” she replied, putting her arms around his neck.\\n\\nThis first act of daring having succeeded, now, whenever Charles went out early, Emma dressed quickly and crept down the steps leading to the water’s edge.\\n\\nBut when the cattle plank had been raised, she had to follow the walls running alongside the river; the bank was slippery, and to keep from falling she clung with one hand to clumps of withered wallflowers. Then she cut across plowed fields, where she sank in, stumbled, and entangled her thin boots. Her scarf, tied over her head, fluttered in the wind above the grasslands; she was afraid of the oxen and began to run; she arrived breathless, her cheeks rosy, her whole person giving off a fresh scent of sap, greenery, and open air. At that hour, Rodolphe was still asleep. It was like a spring morning entering his room.\\n\\nThe yellow curtains along the windows softly let through a heavy golden light. Emma groped her way, blinking, while the dewdrops hanging from the bands of her hair formed what looked like a halo of topazes all around her face. Laughing, Rodolphe drew her to him and clasped her to his heart.\\n\\nThen she examined the room, opened the drawers of the furniture, combed her hair with his comb, and looked at herself in the shaving mirror. Often she even put between her teeth the stem of a large pipe that lay on the bedside table among some lemons and lumps of sugar, beside a carafe of water.\\n\\nThey needed a good quarter of an hour to say goodbye. Then Emma wept; she wished she never had to leave Rodolphe. Something stronger than herself drove her toward him, so much so that one day, seeing her arrive unexpectedly, he frowned like someone annoyed.\\n\\n“What is the matter with you?” she said. “Are you suffering? Talk to me!”\\n\\nAt last, with a serious air, he declared that her visits were becoming reckless and that she was compromising herself.\\n\\n\\n\\n\\nX\\n\\n\\nLittle by little, Rodolphe’s fears took hold of her. At first, love had intoxicated her, and she had thought of nothing beyond it. But now that he was indispensable to her life, she feared losing some part of it, or even that it might be disturbed. When she returned from his house, she cast anxious glances all around, watching every shape that passed along the horizon and every village dormer from which she might be seen. She listened to the footsteps, the shouts, the sound of the plows; and she stopped, paler and more trembling than the leaves of the poplars swaying above her head.\\n\\nOne morning, as she was returning in this way, she suddenly thought she could make out the long barrel of a rifle that seemed to be aimed at her. It protruded obliquely over the rim of a small barrel, half buried among the grass at the edge of a ditch. Emma, on the verge of fainting with terror, nevertheless went forward, and a man emerged from the barrel like those spring-loaded devils that leap up from the bottoms of boxes. He wore gaiters buckled up to his knees, his cap pulled down over his eyes; his lips were chattering and his nose was red. It was Captain Binet, lying in wait for wild ducks.\", \"source_occurrence_id\": \"flaubert-madame-bovary-fad5eca3365af663\", \"source_language\": \"fr\", \"source_language_text_sha256\": \"e1cd0517d3f454c031b759fb82143f574b6f15b6625e0e5043913cc9b115bfce\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T10:41:00.741369+00:00\", \"model_usage\": {\"input_tokens\": 1949, \"cached_input_tokens\": 0, \"output_tokens\": 1589}, \"estimated_cost_usd\": 0.039576, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"flaubert-madame-bovary\", \"title\": \"Madame Bovary\", \"author\": \"Gustave Flaubert\", \"language\": \"fr\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.46717, \"source_start\": 328457, \"source_end\": 328466, \"source_length\": 703078}, \"form\": {\"form_family\": \"present_or_imperfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": \"optional\", \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"fr_present_past\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 1.0, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

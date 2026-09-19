@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"dumas-fils-la-dame-aux-camelias-2f8802c0eee447aa\", \"SOURCE_TEXT\": {\"exact_match\": \"je t'aime\", \"local_text\": {\"context_start\": 272727, \"context_end\": 273335, \"text\": \"--Ah! mon dieu! je m'en doutais, dit-elle. Quand Joseph est venu nous\\nannoncer l'arrivée de ton père, j'ai tressailli comme à la nouvelle d'un\\nmalheur. Pauvre ami! et c'est moi qui te cause tous ces chagrins. Tu\\nferais peut-être mieux de me quitter que de te brouiller avec ton père.\\nCependant je ne lui ai rien fait. Nous vivons bien tranquilles, nous\\nallons vivre plus tranquilles encore. Il sait bien qu'il faut que tu\\naies une maîtresse, et il devrait être heureux que ce fût moi, puisque\\nje t'aime et n'ambitionne pas plus que ta position ne le permet. Lui\\nas-tu dit comment nous avons arrangé l'avenir?\"}, \"wider_canonical_context\": {\"context_start\": 269652, \"context_end\": 276294, \"text\": \"--Eh bien, mon père, je ne puis rien vous promettre, dis-je enfin; ce\\nque vous me demandez est au-dessus de mes forces. Croyez-moi,\\ncontinuai-je en le voyant faire un mouvement d'impatience, vous vous\\nexagérez les résultats de cette liaison. Marguerite n'est pas la fille\\nque vous croyez. Cet amour, loin de me jeter dans une mauvaise voie, est\\ncapable, au contraire, de développer en moi les plus honorables\\nsentiments. L'amour vrai rend toujours meilleur, quelle que soit la\\nfemme qui l'inspire. Si vous connaissiez Marguerite, vous comprendriez\\nque je ne m'expose à rien. Elle est noble comme les plus nobles femmes.\\nAutant il y a de cupidité chez les autres, autant il y a de\\ndésintéressement chez elle.\\n\\n--Ce qui ne l'empêche pas d'accepter toute votre fortune, car les\\nsoixante mille francs qui vous viennent de votre mère, et que vous lui\\ndonnez, sont, rappelez-vous bien ce que je vous dis, votre unique\\nfortune.\\n\\nMon père avait probablement gardé cette péroraison et cette menace pour\\nme porter le dernier coup.\\n\\nJ'étais plus fort devant ses menaces que devant ses prières.\\n\\n--Qui vous a dit que je dusse lui abandonner cette somme? Repris-je.\\n\\n--Mon notaire. Un honnête homme eût-il fait un acte semblable sans me\\nprévenir? Eh bien, c'est pour empêcher votre ruine en faveur d'une fille\\nque je suis venu à Paris. Votre mère vous a laissé en mourant de quoi\\nvivre honorablement et non pas de quoi faire des générosités à vos\\nmaîtresses.\\n\\n--Je vous le jure, mon père, Marguerite ignorait cette donation.\\n\\n--Et pourquoi la faisiez-vous alors?\\n\\n--Parce que Marguerite, cette femme que vous calomniez et que vous\\nvoulez que j'abandonne, fait le sacrifice de tout ce qu'elle possède\\npour vivre avec moi.\\n\\n--Et vous acceptez ce sacrifice? Quel homme êtes-vous donc, monsieur,\\npour permettre à une mademoiselle Marguerite de vous sacrifier quelque\\nchose? Allons, en voilà assez. Vous quitterez cette femme. Tout à\\nl'heure je vous en priais, maintenant je vous l'ordonne; je ne veux pas\\nde pareilles saletés dans ma famille. Faites vos malles, et\\napprêtez-vous à me suivre.\\n\\n--Pardonnez-moi, mon père, dis-je alors, mais je ne partirai pas.\\n\\n--Parce que?...\\n\\n--Parce que j'ai déjà l'âge où l'on n'obéit plus à un ordre.\\n\\nMon père pâlit à cette réponse.\\n\\n--C'est bien, monsieur, reprit-il; je sais ce qu'il me reste à faire.\\n\\nIl sonna.\\n\\nJoseph parut.\\n\\n--Faites transporter mes malles à l'hôtel de Paris, dit-il à mon\\ndomestique. Et en même temps il passa dans sa chambre, où il acheva de\\ns'habiller.\\n\\nQuand il reparut, j'allai au-devant de lui.\\n\\n--Vous me promettez, mon père, lui dis-je, de ne rien faire qui puisse\\ncauser de la peine à Marguerite?\\n\\nMon père s'arrêta, me regarda avec dédain, et se contenta de me\\nrépondre:\\n\\n--Vous êtes fou, je crois.\\n\\nAprès quoi, il sortit en fermant violemment la porte derrière lui.\\n\\nJe descendis à mon tour, je pris un cabriolet et je partis pour\\nBougival.\\n\\nMarguerite m'attendait à la fenêtre.\\n\\n\\n\\n\\nChapitre XXI\\n\\n\\n--Enfin! s'écria-t-elle en me sautant au cou. Te voilà! Comme tu es\\npâle!\\n\\nAlors je lui racontai ma scène avec mon père.\\n\\n--Ah! mon dieu! je m'en doutais, dit-elle. Quand Joseph est venu nous\\nannoncer l'arrivée de ton père, j'ai tressailli comme à la nouvelle d'un\\nmalheur. Pauvre ami! et c'est moi qui te cause tous ces chagrins. Tu\\nferais peut-être mieux de me quitter que de te brouiller avec ton père.\\nCependant je ne lui ai rien fait. Nous vivons bien tranquilles, nous\\nallons vivre plus tranquilles encore. Il sait bien qu'il faut que tu\\naies une maîtresse, et il devrait être heureux que ce fût moi, puisque\\nje t'aime et n'ambitionne pas plus que ta position ne le permet. Lui\\nas-tu dit comment nous avons arrangé l'avenir?\\n\\n--Oui, et c'est ce qui l'a le plus irrité, car il a vu dans cette\\ndétermination la preuve de notre amour mutuel.\\n\\n--Que faire alors?\\n\\n--Rester ensemble, ma bonne Marguerite, et laisser passer cet orage.\\n\\n--Passera-t-il?\\n\\n--Il le faudra bien.\\n\\n--Mais ton père ne s'en tiendra pas là.\\n\\n--Que veux-tu qu'il fasse?\\n\\n--Que sais-je, moi? tout ce qu'un père peut faire pour que son fils lui\\nobéisse. Il te rappellera ma vie passée et me fera peut-être l'honneur\\nd'inventer quelques nouvelles histoires pour que tu m'abandonnes.\\n\\n--Tu sais bien que je t'aime.\\n\\n--Oui, mais ce que je sais aussi, c'est qu'il faut tôt ou tard obéir à\\nson père, et tu finiras peut-être par te laisser convaincre.\\n\\n--Non, Marguerite, c'est moi qui le convaincrai. Ce sont les cancans de\\nquelques-uns de ses amis qui causent cette grande colère; mais il est\\nbon, il est juste, et il reviendra sur sa première impression. Puis,\\naprès tout, que m'importe!\\n\\n--Ne dis pas cela, Armand; j'aimerais mieux tout que de laisser croire\\nque je te brouille avec ta famille; laisse passer cette journée, et\\ndemain retourne à Paris. Ton père aura réfléchi de son côté comme toi du\\ntien, et peut-être vous entendrez-vous mieux. Ne heurte pas ses\\nprincipes, aie l'air de faire quelques concessions à ses désirs; parais\\nne pas tenir autant à moi, et il laissera les choses comme elles sont.\\nEspère, mon ami, et sois bien certain d'une chose, c'est que, quoi qu'il\\narrive, ta Marguerite te restera.\\n\\n--Tu me le jures?\\n\\n--Ai-je besoin de te le jurer?\\n\\nQu'il est doux de se laisser persuader par une voix que l'on aime!\\nMarguerite et moi, nous passâmes toute la journée à nous redire nos\\nprojets comme si nous avions compris le besoin de les réaliser plus\\nvite. Nous nous attendions à chaque minute à quelque événement, mais\\nheureusement le jour se passa sans amener rien de nouveau.\\n\\nLe lendemain, je partis à dix heures, et j'arrivai vers midi à l'hôtel.\\n\\nMon père était déjà sorti.\\n\\nJe me rendis chez moi, où j'espérais que peut-être il était allé.\\nPersonne n'était venu. J'allai chez mon notaire. Personne!\\n\\nJe retournai à l'hôtel, et j'attendis jusqu'à six heures. M. Duval ne\\nrentra pas.\\n\\nJe repris la route de Bougival.\\n\\nJe trouvai Marguerite, non plus m'attendant comme la veille, mais assise\\nau coin du feu qu'exigeait déjà la saison.\\n\\nElle était assez plongée dans ses réflexions pour me laisser approcher\\nde son fauteuil sans m'entendre et sans se retourner. Quand je posai mes\\nlèvres sur son front, elle tressaillit comme si ce baiser l'eût\\nréveillée en sursaut.\\n\\n--Tu m'as fait peur, me dit-elle. Et ton père?\\n\\n--Je ne l'ai pas vu. Je ne sais ce que cela veut dire. Je ne l'ai trouvé\\nni chez lui, ni dans aucun des endroits où il y avait possibilité qu'il\\nfût.\\n\\n--Allons, ce sera à recommencer demain.\\n\\n--J'ai bien envie d'attendre qu'il me fasse demander. J'ai fait, je\\ncrois, tout ce que je devais faire.\\n\\n--Non, mon ami, ce n'est point assez, il faut retourner chez ton père,\\ndemain surtout.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"“Well, Father, I cannot promise you anything,” I said at last; “what you are asking of me is beyond my strength. Believe me,” I continued, seeing him make an impatient movement, “you exaggerate the consequences of this liaison. Marguerite is not the sort of girl you believe her to be. This love, far from leading me down a bad path, is capable, on the contrary, of developing the most honorable feelings in me. True love always makes one better, whoever the woman who inspires it may be. If you knew Marguerite, you would understand that I am exposing myself to no danger. She is as noble as the noblest women. As much greed as there is in others, there is just as much selflessness in her.”\\n\\n“Which does not prevent her from accepting your entire fortune, for the sixty thousand francs that come to you from your mother, and that you are giving her, are—remember well what I am telling you—your only fortune.”\\n\\nMy father had probably saved this peroration and this threat to deal me the final blow.\\n\\nI was stronger in the face of his threats than in the face of his entreaties.\\n\\n“Who told you that I was going to hand that sum over to her?” I replied.\\n\\n“My notary. Would an honest man have drawn up such a deed without warning me? Well, I have come to Paris to prevent you from ruining yourself for the sake of a girl. When your mother died, she left you enough to live honorably, not enough to lavish gifts upon your mistresses.”\\n\\n“I swear to you, Father, Marguerite knew nothing of this gift.”\\n\\n“Then why were you making it?”\\n\\n“Because Marguerite, this woman whom you slander and whom you want me to abandon, is sacrificing everything she possesses in order to live with me.”\\n\\n“And you accept that sacrifice? What sort of man are you, sir, to allow a Mademoiselle Marguerite to sacrifice anything for you? Come, that is enough. You will leave this woman. A moment ago I was asking you; now I order you. I will not have such filth in my family. Pack your trunks and prepare to follow me.”\\n\\n“Forgive me, Father,” I then said, “but I will not leave.”\\n\\n“Because?…”\\n\\n“Because I have already reached the age when one no longer obeys an order.”\\n\\nMy father turned pale at this reply.\\n\\n“Very well, sir,” he resumed; “I know what remains for me to do.”\\n\\nHe rang.\\n\\nJoseph appeared.\\n\\n“Have my trunks taken to the Hôtel de Paris,” he said to my servant. At the same time, he went into his room, where he finished dressing.\\n\\nWhen he reappeared, I went to meet him.\\n\\n“Will you promise me, Father,” I said to him, “not to do anything that might cause Marguerite pain?”\\n\\nMy father stopped, looked at me disdainfully, and contented himself with replying:\\n\\n“You are mad, I believe.”\\n\\nAfter which he went out, violently closing the door behind him.\\n\\nI went downstairs in my turn, took a cabriolet, and left for Bougival.\\n\\nMarguerite was waiting for me at the window.\\n\\n\\n\\n\\nChapter XXI\\n\\n\\n“At last!” she cried, throwing her arms around my neck. “Here you are! How pale you are!”\\n\\nThen I told her about my scene with my father.\\n\\n“Oh, my God! I suspected as much,” she said. “When Joseph came to tell us that your father had arrived, I shuddered as though at the news of some misfortune. Poor darling! And it is I who am causing you all this sorrow. Perhaps you would do better to leave me than to fall out with your father. Yet I have done nothing to him. We live very quietly, and we are going to live more quietly still. He knows very well that you must have a mistress, and he ought to be glad that it is I, since I love you and aspire to no more than your means allow. Did you tell him how we have arranged our future?”\\n\\n“Yes, and that is what irritated him most, for he saw in that decision proof of our mutual love.”\\n\\n“What are we to do, then?”\\n\\n“Remain together, my dear Marguerite, and let this storm pass.”\\n\\n“Will it pass?”\\n\\n“It will have to.”\\n\\n“But your father will not leave it at that.”\\n\\n“What do you expect him to do?”\\n\\n“How should I know? Everything a father can do to make his son obey him. He will remind you of my past life and will perhaps do me the honor of inventing a few new stories to make you abandon me.”\\n\\n“You know very well that I love you.”\\n\\n“Yes, but what I also know is that sooner or later one must obey one’s father, and perhaps you will end by allowing yourself to be persuaded.”\\n\\n“No, Marguerite, it is I who will persuade him. It is the gossip of some of his friends that is causing this great anger; but he is good, he is just, and he will reconsider his first impression. Besides, after all, what do I care!”\\n\\n“Do not say that, Armand; I would rather endure anything than let it be thought that I am setting you against your family. Let today pass, and tomorrow return to Paris. Your father will have reflected on his side, as you have on yours, and perhaps you will understand one another better. Do not clash with his principles; appear to make a few concessions to his wishes; seem not to care quite so much for me, and he will leave things as they are. Hope, my darling, and be quite certain of one thing: whatever happens, your Marguerite will remain yours.”\\n\\n“Do you swear it to me?”\\n\\n“Do I need to swear it to you?”\\n\\nHow sweet it is to let oneself be persuaded by a voice one loves! Marguerite and I spent the whole day repeating our plans to each other, as though we had understood the need to carry them out more quickly. At every moment we expected some event, but fortunately the day passed without bringing anything new.\\n\\nThe next day, I left at ten o’clock and reached the hotel around noon.\\n\\nMy father had already gone out.\\n\\nI went to my rooms, where I hoped he might perhaps have gone. No one had come. I went to my notary’s. No one!\\n\\nI returned to the hotel and waited until six o’clock. Monsieur Duval did not return.\\n\\nI set off again for Bougival.\\n\\nI found Marguerite no longer waiting for me as on the previous day, but seated by the fire, which the season already made necessary.\\n\\nShe was sufficiently absorbed in her thoughts to let me approach her armchair without hearing me and without turning around. When I placed my lips on her forehead, she started as though that kiss had awakened her with a jolt.\\n\\n“You frightened me,” she said to me. “And your father?”\\n\\n“I did not see him. I do not know what this means. I found him neither at his hotel nor in any of the places where there was a possibility that he might be.”\\n\\n“Well, it will have to be done again tomorrow.”\\n\\n“I am strongly inclined to wait until he sends for me. I believe I have done everything I ought to do.”\\n\\n“No, my darling, that is not enough; you must go back to your father, especially tomorrow.”\", \"source_occurrence_id\": \"dumas-fils-la-dame-aux-camelias-2f8802c0eee447aa\", \"source_language\": \"fr\", \"source_language_text_sha256\": \"cdc51236770b8a9e357a17e00940da9e84d750faaafed62066aa0b49b1605322\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T10:25:04.882262+00:00\", \"model_usage\": {\"input_tokens\": 2104, \"cached_input_tokens\": 0, \"output_tokens\": 1746}, \"estimated_cost_usd\": 0.043336, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"dumas-fils-la-dame-aux-camelias\", \"title\": \"La Dame aux camélias\", \"author\": \"Alexandre Dumas fils\", \"language\": \"fr\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": \"CHAPITRE XXI\", \"relative_position\": 0.734595, \"source_start\": 273220, \"source_end\": 273229, \"source_length\": 371933}, \"form\": {\"form_family\": \"present_or_imperfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": \"optional\", \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"fr_present_past\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"balzac-illusions-perdues-4694dece9a911c92\", \"SOURCE_TEXT\": {\"exact_match\": \"je vous aime\", \"local_text\": {\"context_start\": 284727, \"context_end\": 285632, \"text\": \"Lucien inclina mollement et tristement la tête en ajoutant un moment\\naprès:—Ne me jugez pas mal, mes anges aimés. Il prit Ève et David,\\nles embrassa, les rapprocha de lui, les serra en disant:—Attendez\\nles résultats, et vous saurez combien je vous aime. David, à quoi\\nservirait notre hauteur de pensée, si elle ne nous permettait pas de\\nfaire abstraction des petites cérémonies dans lesquelles les lois\\nentortillent les sentiments? Malgré la distance, mon âme ne sera-t-elle\\npas ici? la pensée ne nous réunira-t-elle pas? N'ai-je pas une destinée\\nà accomplir? Les libraires viendront-ils chercher ici mon Archer de\\nCharles IX, et les Marguerites? Un peu plus tôt, un peu plus tard, ne\\nfaut-il pas toujours faire ce que je fais aujourd'hui, puis-je jamais\\nrencontrer des circonstances plus favorables? N'est-ce pas toute\\nma fortune que d'entrer pour mon début à Paris dans le salon de la\\nmarquise d'Espard?\"}, \"wider_canonical_context\": {\"context_start\": 281651, \"context_end\": 288079, \"text\": \"Ève et sa mère entendirent, sous la promesse d'un profond secret, les\\nconfidences de Lucien. Toutes deux pleurèrent en écoutant l'ambitieux;\\net, quand il voulut savoir la cause de ce chagrin, elles lui apprirent\\nque tout ce qu'elles possédaient avait été absorbé par le linge\\nde table et de maison, par le trousseau d'Ève, par une multitude\\nd'acquisitions auxquelles n'avait pas pensé David, et qu'elles étaient\\nheureuses d'avoir faites, car l'imprimeur reconnaissait à Ève une dot\\nde dix mille francs. Lucien leur fit part alors de son idée d'emprunt,\\net madame Chardon se chargea d'aller demander à monsieur Postel mille\\nfrancs pour un an.\\n\\n—Mais, Lucien, dit Ève avec un serrement de cœur, tu n'assisteras donc\\npas à mon mariage? Oh! reviens, j'attendrai quelques jours! Elle te\\nlaissera bien revenir ici dans une quinzaine, une fois que tu l'auras\\naccompagnée! Elle nous accordera bien huit jours, à nous qui t'avons\\nélevé pour elle! Notre union tournera mal si tu n'y es pas... Mais\\nauras-tu assez de mille francs? dit-elle en s'interrompant tout à coup.\\nQuoique ton habit t'aille divinement, tu n'en as qu'un! Tu n'as que\\ndeux chemises fines, et les six autres sont en grosse toile. Tu n'as\\nque trois cravates de batiste, les trois autres sont en jaconas commun;\\net puis tes mouchoirs ne sont pas beaux. Trouveras-tu dans Paris une\\nsœur pour te blanchir ton linge dans la journée où tu en auras besoin?\\nil t'en faut bien davantage. Tu n'as qu'un pantalon de nankin fait\\ncette année, ceux de l'année dernière te sont justes, il faudra donc te\\nfaire habiller à Paris, les prix de Paris ne sont pas ceux d'Angoulême.\\nTu n'as que deux gilets blancs de mettables, j'ai déjà raccommodé les\\nautres. Tiens, je te conseille d'emporter deux mille francs.\\n\\nEn ce moment David, qui entrait, parut avoir entendu ces deux derniers\\nmots, car il examina le frère et la sœur en gardant le silence.\\n\\n—Ne me cachez rien, dit-il.\\n\\n—Eh! bien, s'écria Ève, il part avec elle.\\n\\n—Postel, dit madame Chardon en entrant sans voir David, consent à\\nprêter les mille francs, mais pour six mois seulement, et il veut une\\nlettre de change de toi acceptée par ton beau-frère, car il dit que tu\\nn'offres aucune garantie.\\n\\nLa mère se retourna, vit son gendre, et ces quatre personnes gardèrent\\nun profond silence. La famille Chardon sentait combien elle avait\\nabusé de David. Tous étaient honteux. Une larme roula dans les yeux de\\nl'imprimeur.\\n\\n—Tu ne seras donc pas à mon mariage? dit-il, tu ne resteras donc pas\\navec nous? Et moi qui ai dissipé tout ce que j'avais! Ah, Lucien, moi\\nqui apportais à Ève ses pauvres petits bijoux de mariée, je ne savais\\npas, dit-il en essuyant ses yeux et tirant des écrins de sa poche,\\navoir à regretter de les avoir achetés.\\n\\nIl posa plusieurs boîtes couvertes en maroquin sur la table, devant sa\\nbelle-mère.\\n\\n—Pourquoi pensez-vous tant à moi? dit Ève avec un sourire d'ange qui\\ncorrigeait sa parole.\\n\\n—Chère maman, dit l'imprimeur, allez dire à monsieur Postel que je\\nconsens à donner ma signature, car je vois sur ta figure, Lucien, que\\ntu es bien décidé à partir.\\n\\nLucien inclina mollement et tristement la tête en ajoutant un moment\\naprès:—Ne me jugez pas mal, mes anges aimés. Il prit Ève et David,\\nles embrassa, les rapprocha de lui, les serra en disant:—Attendez\\nles résultats, et vous saurez combien je vous aime. David, à quoi\\nservirait notre hauteur de pensée, si elle ne nous permettait pas de\\nfaire abstraction des petites cérémonies dans lesquelles les lois\\nentortillent les sentiments? Malgré la distance, mon âme ne sera-t-elle\\npas ici? la pensée ne nous réunira-t-elle pas? N'ai-je pas une destinée\\nà accomplir? Les libraires viendront-ils chercher ici mon Archer de\\nCharles IX, et les Marguerites? Un peu plus tôt, un peu plus tard, ne\\nfaut-il pas toujours faire ce que je fais aujourd'hui, puis-je jamais\\nrencontrer des circonstances plus favorables? N'est-ce pas toute\\nma fortune que d'entrer pour mon début à Paris dans le salon de la\\nmarquise d'Espard?\\n\\n—Il a raison, dit Ève. Vous-même ne me disiez-vous pas qu'il devait\\naller promptement à Paris?\\n\\nDavid prit Ève par la main, l'emmena dans cet étroit cabinet où elle\\ndormait depuis sept années, et lui dit à l'oreille:—Il a besoin de deux\\nmille francs, disais-tu, mon amour? Postel n'en prête que mille.\\n\\nÈve regarda son prétendu par un regard affreux qui disait toutes ses\\nsouffrances.\\n\\n—Écoute, mon Ève adorée, nous allons mal commencer la vie. Oui, mes\\ndépenses ont absorbé tout ce que je possédais. Il ne me reste que\\ndeux mille francs, et la moitié est indispensable pour faire aller\\nl'imprimerie. Donner mille francs à ton frère, c'est donner notre pain,\\ncompromettre notre tranquillité. Si j'étais seul, je sais ce que je\\nferais; mais nous sommes deux. Décide.\\n\\nÈve éperdue se jeta dans les bras de son amant, le baisa tendrement et\\nlui dit à l'oreille, tout en pleurs:—Fais comme si tu étais seul, je\\ntravaillerai pour regagner cette somme!\\n\\nMalgré le plus ardent baiser que deux fiancés aient jamais échangé,\\nDavid laissa Ève abattue, et revint trouver Lucien.\\n\\n—Ne te chagrine pas, lui dit-il, tu auras tes deux mille francs.\\n\\n—Allez voir Postel, dit madame Chardon, car vous devez signer tous deux\\nle papier.\\n\\nQuand les deux amis remontèrent, ils surprirent Ève et sa mère à\\ngenoux, qui priaient Dieu. Si elles savaient combien d'espérances le\\nretour devait réaliser, elles sentaient en ce moment tout ce qu'elles\\nperdaient dans cet adieu; car elles trouvaient le bonheur à venir payé\\ntrop cher par une absence qui allait briser leur vie, et les jeter dans\\nmille craintes sur les destinées de Lucien.\\n\\n—Si jamais tu oubliais cette scène, dit David à l'oreille de Lucien, tu\\nserais le dernier des hommes.\\n\\nL'imprimeur jugea sans doute ces graves paroles nécessaires,\\nl'influence de madame de Bargeton ne l'épouvantait pas moins que la\\nfuneste mobilité de caractère qui pouvait tout aussi bien jeter Lucien\\ndans une mauvaise comme dans une bonne voie. Ève eut bientôt fait le\\npaquet de Lucien. Ce Fernand Cortès littéraire emportait peu de chose.\\nIl garda sur lui sa meilleure redingote, son meilleur gilet et l'une\\nde ses deux chemises fines. Tout son linge, son fameux habit, ses\\neffets et ses manuscrits formèrent un si mince paquet, que, pour le\\ncacher aux regards de madame de Bargeton, David proposa de l'envoyer\\npar la diligence à son correspondant, un marchand de papier, auquel il\\nécrirait de le tenir à la disposition de Lucien.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"Under a promise of profound secrecy, Ève and her mother listened to Lucien’s confidences. Both wept as they listened to the ambitious young man; and when he wished to know the cause of their sorrow, they told him that everything they possessed had been absorbed by table and household linen, by Ève’s trousseau, and by a multitude of purchases that David had not thought of and that they were glad to have made, for the printer acknowledged that Ève brought a dowry of ten thousand francs. Lucien then told them of his idea of taking out a loan, and Madame Chardon undertook to go and ask Monsieur Postel for a thousand francs for one year.\\n\\n“But, Lucien,” said Ève with a pang at her heart, “then you will not be at my wedding? Oh! Come back; I shall wait a few days! Surely she will let you come back here in a fortnight, once you have accompanied her! Surely she will grant us eight days—to us who raised you for her! Our marriage will turn out badly if you are not there... But will a thousand francs be enough for you?” she said, suddenly interrupting herself. “Although your coat suits you divinely, you have only one! You have only two fine shirts, and the other six are of coarse linen. You have only three batiste cravats; the other three are of ordinary jaconet; and besides, your handkerchiefs are not handsome. Will you find a sister in Paris to wash and whiten your linen the very day you need it? You need much more of it. You have only one pair of nankeen trousers made this year; last year’s are tight on you, so you will have to have clothes made in Paris, and Paris prices are not Angoulême prices. You have only two white waistcoats fit to wear; I have already mended the others. Listen, I advise you to take two thousand francs with you.”\\n\\nAt that moment David, who was coming in, appeared to have heard those last two words, for he looked at the brother and sister and remained silent.\\n\\n“Do not hide anything from me,” he said.\\n\\n“Well!” cried Ève, “he is leaving with her.”\\n\\n“Postel,” said Madame Chardon, entering without seeing David, “agrees to lend the thousand francs, but for six months only, and he wants a bill of exchange from you accepted by your brother-in-law, for he says that you offer no security.”\\n\\nThe mother turned, saw her son-in-law, and the four of them remained in profound silence. The Chardon family felt how greatly they had taken advantage of David. They were all ashamed. A tear welled in the printer’s eyes.\\n\\n“Then you will not be at my wedding?” he said. “Then you will not stay with us? And I, who have spent everything I had! Ah, Lucien, as I was bringing Ève her poor little bridal jewels, I did not know,” he said, wiping his eyes and drawing jewel cases from his pocket, “that I would have cause to regret having bought them.”\\n\\nHe placed several morocco-covered boxes on the table before his mother-in-law.\\n\\n“Why do you think so much of me?” said Ève with an angelic smile that softened her words.\\n\\n“Dear mother,” said the printer, “go and tell Monsieur Postel that I consent to give my signature, for I can see from your face, Lucien, that you are quite determined to leave.”\\n\\nLucien bowed his head listlessly and sadly, adding a moment later, “Do not judge me harshly, my beloved angels.” He took hold of Ève and David, kissed them, drew them close to him, and clasped them as he said, “Wait for the results, and you will know how much I love you. David, what use would our loftiness of thought be if it did not allow us to disregard the petty ceremonies in which laws entangle feelings? Despite the distance, will my soul not be here? Will thought not unite us? Have I not a destiny to fulfill? Will the booksellers come here in search of my Archer of Charles IX and the Daisies? A little sooner or a little later, must I not in any event do what I am doing today? Could I ever encounter more favorable circumstances? Is it not my entire fortune to make my Paris debut in the Marquise d’Espard’s salon?”\\n\\n“He is right,” said Ève. “Did you not tell me yourself that he had to go to Paris promptly?”\\n\\nDavid took Ève by the hand, led her into the narrow room where she had slept for seven years, and whispered in her ear, “He needs two thousand francs, you said, my love? Postel is lending only a thousand.”\\n\\nÈve looked at her betrothed with a terrible gaze that expressed all her suffering.\\n\\n“Listen, my adored Ève, we are going to begin life badly. Yes, my expenses have absorbed everything I possessed. I have only two thousand francs left, and half of that is indispensable to keep the printing house going. To give your brother a thousand francs is to give away our bread, to jeopardize our peace of mind. If I were alone, I know what I would do; but there are two of us. You decide.”\\n\\nDistraught, Ève threw herself into her lover’s arms, kissed him tenderly, and whispered in his ear, all in tears, “Act as though you were alone; I shall work to earn that sum back!”\\n\\nDespite the most ardent kiss ever exchanged by two betrothed lovers, David left Ève dejected and returned to Lucien.\\n\\n“Do not grieve,” he told him. “You shall have your two thousand francs.”\\n\\n“Go and see Postel,” said Madame Chardon, “for you must both sign the paper.”\\n\\nWhen the two friends came back upstairs, they surprised Ève and her mother on their knees, praying to God. Although they knew how many hopes his return was to fulfill, at that moment they felt all that they were losing in this farewell; for they found the happiness to come too dearly purchased by an absence that was about to shatter their lives and plunge them into a thousand fears concerning Lucien’s fate.\\n\\n“If you ever forgot this scene,” David whispered in Lucien’s ear, “you would be the lowest of men.”\\n\\nThe printer doubtless judged these grave words necessary: Madame de Bargeton’s influence alarmed him no less than the disastrous fickleness of character that might just as readily cast Lucien onto a bad path as onto a good one. Ève soon finished packing Lucien’s bundle. This literary Hernán Cortés was taking little with him. He kept on his best frock coat, his best waistcoat, and one of his two fine shirts. All his linen, his famous coat, his belongings, and his manuscripts formed so slight a bundle that, in order to conceal it from Madame de Bargeton’s eyes, David proposed sending it by stagecoach to his correspondent, a paper merchant, to whom he would write instructing him to hold it at Lucien’s disposal.\", \"source_occurrence_id\": \"balzac-illusions-perdues-4694dece9a911c92\", \"source_language\": \"fr\", \"source_language_text_sha256\": \"daad63e763356674540510e9488f0fecf0bc9b0a2903aa2466886f688621218c\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T10:14:06.815273+00:00\", \"model_usage\": {\"input_tokens\": 2001, \"cached_input_tokens\": 0, \"output_tokens\": 2236}, \"estimated_cost_usd\": 0.05272400000000001, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"balzac-illusions-perdues\", \"title\": \"Illusions perdues\", \"author\": \"Honoré de Balzac\", \"language\": \"fr\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.21062, \"source_start\": 284967, \"source_end\": 284979, \"source_length\": 1352994}, \"form\": {\"form_family\": \"present_or_imperfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": \"optional\", \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"fr_present_past\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

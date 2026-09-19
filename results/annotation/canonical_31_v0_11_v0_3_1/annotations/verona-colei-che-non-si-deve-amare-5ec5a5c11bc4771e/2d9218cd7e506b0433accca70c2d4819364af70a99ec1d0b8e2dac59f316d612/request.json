@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"verona-colei-che-non-si-deve-amare-5ec5a5c11bc4771e\", \"SOURCE_TEXT\": {\"exact_match\": \"ti\\namo\", \"local_text\": {\"context_start\": 569554, \"context_end\": 570057, \"text\": \"— Un’altra? Ma cosa dici? Non hai compreso ancora che ti amo, che ti\\namo da lunghi mesi, ogni giorno più forte? che mi puoi far ubbidire\\ncome un bambino, e tu sola, tu sola, devi ridarmi la pace che non ho\\npiù?... Un’altra? Questa parola non ha senso! Ma, ragiona un momento.\\nCredi che non sappia a quali rischi vado incontro facendoti questa\\nproposta? Ebbene, che m’importa? Non voglio, non posso più riflettere!\\nNessun pericolo mi fa paura. Solo dimmi di sì! Domándami quello che\\nvuoi, ma dimmi di sì!\"}, \"wider_canonical_context\": {\"context_start\": 566609, \"context_end\": 572774, \"text\": \"Fuori divampava l’estate, con le sue fiumane di luce, co’ suoi roghi di\\nsplendore; lì nella profonda sala, dietro le persiane chiuse, dietro le\\nstuoie calate, alitava una freschezza riposante.\\n\\nAllora egli prese una sua mano, e lentamente, con una specie d’insidia,\\nla carezzò.\\n\\n— È strano, — disse, — ma tu m’intimidisci. Ho sempre avuta una\\ncerta paura di te. Su la tua bocca vedo così spesso una specie di\\nderisione...\\n\\n— Davvero? Che bizzarrìa!\\n\\n— Del resto hai ragione: mi devi trovare quasi grottesco. Gli uomini\\ninnamorati sono molto spesso ridicoli.\\n\\n— E le donne? — ella fece.\\n\\n— Le donne, io credo, non lo sono quasi mai.\\n\\n— Che? grottesche?\\n\\n— No, innamorate.\\n\\n— Ah, non saprei... Ma certo lo confessano più raramente.\\n\\n— Dimmi, — egli riprese con calore, — dimmi che verrai spesso, che\\nverrai ogni giorno... Io ti voglio vedere ogni giorno! Siamo talmente\\nal sicuro qui...\\n\\n— Ho sete, — ella rispose.\\n\\nRafa le portò a bere un’aranciata così fresca, che appannava il\\ncristallo della caraffa; poi bevve a sua volta, nel medesimo bicchiere.\\n\\n— Gli altri anni, a quest’ora, sono già in campagna, — disse Rafa. — Il\\ncaldo mi fa male. Però quest’anno mi è impossibile partire; l’idea di\\nnon vederti più mi riesce insopportabile. Ma tu cosa pensi fare durante\\nl’estate?\\n\\n— Ancora non so nulla; non dipende da me.\\n\\n— E da chi dipende?\\n\\n— Forse da’ miei genitori, forse... — aggiunse con esitazione, — da mio\\nfratello.\\n\\n— E non da me in ogni modo?\\n\\n— Da voi? come da voi?\\n\\n— M’hai detto una volta, nel parlarmi d’altre cose: «La mia famiglia\\nm’annoia; verrà forse un giorno nel quale sarò libera, interamente\\nlibera, perchè voglio cantare.» Ti ricordi d’avermi detto questo?\\n\\n— Si, me ne ricordo, e ripeto: Verrà un giorno, forse prossimo, nel\\nquale sarò libera.\\n\\n— Ecco, e pensando a quel giorno, io pure ho fatto un sogno... ma così\\nbello che non oso dirtelo.\\n\\n— I sogni... — ella scherzò, — i sogni han questo di buono, che servono\\na raccontare le cose troppo difficili a dirsi.\\n\\n— Hai ragione, Loretta, — egli ammise. — Dunque, un sogno. Ch’io ti\\nprendessi una villetta, non troppo lontana da Villa Giuliani, piccola,\\nper te sola. Una villetta nascosta, con un bel giardino, un frutteto,\\nuna scuderia. Saresti libera, nessuno saprebbe chi sei. Qualche volta,\\nper non rimaner sola, mi apriresti il cancello.\\n\\n— Ah... ed è questo il sogno?\\n\\n— Sì, è questo.\\n\\nElla riflettè un momento, poi disse:\\n\\n— Continua.\\n\\n— Che vuol dire?\\n\\n— Dopo l’estate...\\n\\n— Ebbene, dopo l’estate potrai scegliere come ti piacerà. Nell’autunno,\\nper esempio, un bel viaggio, una piccola fuga, in automobile, se vuoi,\\nanche all’estero, se vuoi... E d’inverno la tua casa in città, una dama\\ndi compagnia per salvare le apparenze, una maestra che t’insegni il\\ncanto.\\n\\n— E di primavera, — ella esclamò, tuttavia tentata, — siccome l’anno\\nrifiorisce, al posto di Lora se ne mette un’altra, e tutto ricomincia:\\nla stessa villa, il viaggio, la casa di città... No, grazie!\\n\\n— Un’altra? Ma cosa dici? Non hai compreso ancora che ti amo, che ti\\namo da lunghi mesi, ogni giorno più forte? che mi puoi far ubbidire\\ncome un bambino, e tu sola, tu sola, devi ridarmi la pace che non ho\\npiù?... Un’altra? Questa parola non ha senso! Ma, ragiona un momento.\\nCredi che non sappia a quali rischi vado incontro facendoti questa\\nproposta? Ebbene, che m’importa? Non voglio, non posso più riflettere!\\nNessun pericolo mi fa paura. Solo dimmi di sì! Domándami quello che\\nvuoi, ma dimmi di sì!\\n\\n— Non domando nulla, — ella fece, pentita di lasciarsi vedere così\\nprevidente.\\n\\n— Allora senti, ascóltami... — E s’inginocchiò davanti alla sua\\npoltrona, la ricinse con le braccia.\\n\\n— Che fai? che fai?\\n\\n— Nulla; ti prego in ginocchio. Vóglimi un poco di bene, sii una volta\\nbuona con me!\\n\\nCosì a ginocchi, proteso verso lei nell’ardore del suo desiderio, con\\ngli occhi appassionati, la voce supplichevole, Rafa era quasi bello, ed\\nella lo guardò.\\n\\n— Via, lasciami stare... — ella fece, con una certa molestia.\\n\\nEgli la teneva stretta per la cintura, e pesandole un poco addosso, le\\ncopriva l’abito, i polsi, di baci minuti.\\n\\n— Quante amanti hai fatto sedere su questa poltrona? — ella domandò\\nsubitamente.\\n\\n— Quante? Nessuna.\\n\\n— Eh, via! Te lo domando per curiosità.\\n\\n— Forse — diss’egli — qualcuna è venuta qui, ma non ricordo. Non erano\\namanti, non erano te. Se non ti piace, cambieremo casa. Non ho avuto\\nnessun amore, prima di conoscere te. Ora tu mi sembri la prima. Ti amo,\\nti amo in tutti i modi; mi perséguiti e mi piaci. Sei bella. Hai una\\ntal grazia indefinibile, che soffro nello starti vicino. Sii buona con\\nme, non ridere!...\\n\\nElla rideva infatti, ma d’un riso un po’ nervoso, e la sua bocca, i\\nsuoi occhi, le sue mani, non erano più così tranquille.\\n\\n— No, lásciami stare... — supplicò. — Lásciami, ti prego... mi fai\\nterribilmente male...\\n\\nNella penombra egli la vide impallidire; le nascose la faccia nel\\ngrembo, e con le braccia le serrava le ginocchia.\\n\\nElla cercò di sollevargli la fronte, che bruciava, cercò di respingere\\nquella bocca molesta, ma non potendo vincere la sua forza, con súbita\\nira gli cacciò le dita convulse fra i capelli.\\n\\nPoi la lotta fu breve: perdutamente la fanciulla chiuse gli occhi e si\\nlasciò portare...\\n\\nMa vide un’altra camera, di notte, con le finestre aperte sopra un lago\\nbianco di luna, e le stelle vicine, infinite; un altr’uomo curvo su\\nlei, che la copriva di carezze e di baci. E si rivide in quel letto,\\ne rivisse lo spasimo di quell’ora dispersa, e le parve, un attimo,\\nch’egli fosse tornato, ch’egli fosse lì, a ginocchi, e terribilmente\\ncome allora la baciasse, e le sue mani corressero febbrili, ardenti,\\nper tutto il suo corpo irritato, e una bocca salisse, salisse fino alle\\nsue labbra, piena d’angoscia, di febbre, di voluttà e di spavento...\\n\\nDi lì a poco, nella camera vicina faceva buio, e di stanza in stanza,\\nper la casa taciturna, subitamente s’intese il grido della sua perduta\\nverginità.\\n\\n\\n\\n\\nII\\n\\n\\nVerso le cinque del pomeriggio Beppe Cianella entrò al Circolo, e\\ncomandata una bibita in ghiaccio, si sdraiò con indolenza sopra un\\ndivano di cuoio presso il tavolino dove Gigi Saletta, di soprannome\\nSaponetta, ed alcuni altri giocavano al poker.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"Outside, summer blazed with its torrents of light, with its pyres of\\nsplendor; there in the deep room, behind the closed shutters, behind the\\nlowered mats, a restful coolness breathed.\\n\\nThen he took one of her hands and slowly, with a kind of stealth, caressed\\nit.\\n\\n“It is strange,” he said, “but you intimidate me. I have always been\\nsomewhat afraid of you. So often I see a kind of mockery on your lips...”\\n\\n“Really? How odd!”\\n\\n“Besides, you are right: you must find me almost grotesque. Men in love\\nare very often ridiculous.”\\n\\n“And women?” she said.\\n\\n“Women, I believe, almost never are.”\\n\\n“What? Grotesque?”\\n\\n“No, in love.”\\n\\n“Ah, I could not say... But they certainly confess it less often.”\\n\\n“Tell me,” he resumed warmly, “tell me that you will come often, that you\\nwill come every day... I want to see you every day! We are so safe here...”\\n\\n“I am thirsty,” she replied.\\n\\nRafa brought her an orangeade so cold that it misted the crystal of the\\ncarafe; then he drank in turn, from the same glass.\\n\\n“In other years, by this time, I am already in the country,” Rafa said.\\n“The heat is bad for me. But this year it is impossible for me to leave;\\nthe thought of no longer seeing you is unbearable to me. But what do you\\nplan to do during the summer?”\\n\\n“I do not know yet; it does not depend on me.”\\n\\n“And on whom does it depend?”\\n\\n“Perhaps on my parents, perhaps...” she added hesitantly, “on my brother.”\\n\\n“And not on me, in any event?”\\n\\n“On you? How on you?”\\n\\n“You once told me, while speaking to me of other things: ‘My family bores\\nme; perhaps a day will come when I shall be free, entirely free, because\\nI want to sing.’ Do you remember telling me that?”\\n\\n“Yes, I remember, and I repeat: A day will come, perhaps soon, when I shall\\nbe free.”\\n\\n“There, and thinking of that day, I too have had a dream... but one so\\nbeautiful that I do not dare tell it to you.”\\n\\n“Dreams...” she joked, “dreams have this good thing about them: they serve\\nto tell things that are too difficult to say.”\\n\\n“You are right, Loretta,” he admitted. “Then, a dream. That I should get\\nyou a little villa, not too far from Villa Giuliani, small, for you alone.\\nA secluded little villa, with a lovely garden, an orchard, a stable. You\\nwould be free; no one would know who you were. Sometimes, so as not to\\nremain alone, you would open the gate for me.”\\n\\n“Ah... and that is the dream?”\\n\\n“Yes, that is it.”\\n\\nShe reflected for a moment, then said:\\n\\n“Go on.”\\n\\n“What do you mean?”\\n\\n“After the summer...”\\n\\n“Well, after the summer you may choose whatever you like. In autumn, for\\nexample, a lovely journey, a little escape, by motorcar, if you wish, even\\nabroad, if you wish... And in winter, your house in the city, a lady\\ncompanion to preserve appearances, a teacher to teach you singing.”\\n\\n“And in spring,” she exclaimed, still tempted, “as the year blossoms\\nagain, another is put in Lora’s place, and everything begins again: the\\nsame villa, the journey, the house in the city... No, thank you!”\\n\\n“Another? What are you saying? Have you still not understood that I love\\nyou, that I have loved you for many months, more strongly every day? That\\nyou can make me obey like a child, and that you alone, you alone, must\\ngive me back the peace I no longer have?... Another? That word has no\\nmeaning! Come, reason for a moment. Do you think I do not know what risks\\nI am running by making you this proposal? Well, what do I care? I do not\\nwant to, I can no longer reflect! No danger frightens me. Only tell me\\nyes! Ask me for whatever you want, but tell me yes!”\\n\\n“I am asking for nothing,” she said, regretting that she had allowed\\nherself to appear so concerned with the future.\\n\\n“Then listen, hear me...” And he knelt before her armchair and encircled\\nher with his arms.\\n\\n“What are you doing? What are you doing?”\\n\\n“Nothing; I am begging you on my knees. Love me a little, be kind to me\\nfor once!”\\n\\nThus on his knees, leaning toward her in the ardor of his desire, with\\npassionate eyes and a pleading voice, Rafa was almost handsome, and she\\nlooked at him.\\n\\n“Come, leave me alone...” she said, with a certain annoyance.\\n\\nHe held her tightly around the waist and, bearing down a little against\\nher, covered her dress and her wrists with tiny kisses.\\n\\n“How many mistresses have you had sit in this armchair?” she suddenly\\nasked.\\n\\n“How many? None.”\\n\\n“Oh, come now! I am asking you out of curiosity.”\\n\\n“Perhaps,” he said, “someone has come here, but I do not remember. They\\nwere not mistresses; they were not you. If you do not like it, we shall\\nchange houses. I had no love before knowing you. Now you seem the first\\nto me. I love you, I love you in every way; you haunt me and I like you.\\nYou are beautiful. You have such an indefinable grace that I suffer when\\nI am near you. Be kind to me, do not laugh!...”\\n\\nShe was indeed laughing, but with a somewhat nervous laugh, and her mouth,\\nher eyes, her hands were no longer so calm.\\n\\n“No, leave me alone...” she pleaded. “Let me go, please... you are hurting\\nme terribly...”\\n\\nIn the half-light he saw her turn pale; he hid his face in her lap, and\\nwith his arms clasped her knees.\\n\\nShe tried to lift his burning forehead, tried to push away that importunate\\nmouth, but, unable to overcome his strength, in sudden anger she thrust\\nher convulsed fingers into his hair.\\n\\nThen the struggle was brief: in utter abandon, the girl closed her eyes\\nand let herself be carried away...\\n\\nBut she saw another room, at night, with its windows open above a lake\\nwhite with moonlight, and the stars close and infinite; another man bent\\nover her, covering her with caresses and kisses. And she saw herself\\nagain in that bed, and relived the agony of that lost hour, and for an\\ninstant it seemed to her that he had returned, that he was there, on his\\nknees, and was kissing her terribly as he had then, and that his hands\\nwere running feverishly, ardently, over all her inflamed body, and that a\\nmouth was rising, rising to her lips, full of anguish, fever, voluptuousness,\\nand terror...\\n\\nA little later, it was dark in the adjoining room, and from room to room,\\nthrough the silent house, the cry of her lost virginity was suddenly heard.\\n\\n\\n\\n\\nII\\n\\n\\nAt about five in the afternoon, Beppe Cianella entered the Club and,\\nhaving ordered an iced drink, sprawled indolently on a leather sofa near\\nthe small table where Gigi Saletta, nicknamed Saponetta, and several\\nothers were playing poker.\", \"source_occurrence_id\": \"verona-colei-che-non-si-deve-amare-5ec5a5c11bc4771e\", \"source_language\": \"it\", \"source_language_text_sha256\": \"9dbac466b526faabdad6c11384e564dad959c5ff9c105706a7b3c73af2ff854d\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T12:20:47.042278+00:00\", \"model_usage\": {\"input_tokens\": 2203, \"cached_input_tokens\": 0, \"output_tokens\": 2679}, \"estimated_cost_usd\": 0.062392, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"verona-colei-che-non-si-deve-amare\", \"title\": \"Colei che non si deve amare\", \"author\": \"Guido da Verona\", \"language\": \"it\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.782268, \"source_start\": 569620, \"source_end\": 569626, \"source_length\": 728165}, \"form\": {\"form_family\": \"present\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"it_present\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

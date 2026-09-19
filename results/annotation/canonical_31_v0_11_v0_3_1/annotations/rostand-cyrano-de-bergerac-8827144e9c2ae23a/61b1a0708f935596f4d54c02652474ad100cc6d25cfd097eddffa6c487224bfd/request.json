@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"rostand-cyrano-de-bergerac-8827144e9c2ae23a\", \"SOURCE_TEXT\": {\"exact_match\": \"Je t'aime\", \"local_text\": {\"context_start\": 219657, \"context_end\": 219854, \"text\": \"CYRANO:\\n  Non ! car c'est dans le conte\\n  Que lorsqu'on dit: Je t'aime ! au prince plein de honte,\\n  Il sent sa laideur fondre à ces mots de soleil. . .\\n  Mais tu t'apercevrais que je reste pareil.\"}, \"wider_canonical_context\": {\"context_start\": 216659, \"context_end\": 223794, \"text\": \"ROXANE:\\n  Ah ! que de choses qui sont mortes. . .qui sont nées !\\n  --Pourquoi vous être tu pendant quatorze années,\\n  Puisque sur cette lettre où, lui, n'était pour rien,\\n  Ces pleurs étaient de vous ?\\n\\nCYRANO (lui tendant la lettre):\\n  Ce sang était le sien.\\n\\nROXANE:\\n  Alors pourquoi laisser ce sublime silence\\n  Se briser aujourd'hui ?\\n\\nCYRANO:\\n  Pourquoi ?. . .\\n  (Le Bret et Ragueneau entrent en courant.)\\n\\n\\n\\nScène 5.VI.\\n\\nLes mêmes, Le Bret et Ragueneau.\\n\\n\\nLE BRET:\\n  Quelle imprudence !\\n  Ah ! j'en étais bien sûr ! il est là !\\n\\nCYRANO (souriant et se redressant):\\n  Tiens, parbleu !\\n\\nLE BRET:\\n  Il s'est tué, Madame, en se levant !\\n\\nROXANE:\\n  Grand Dieu !\\n  Mais tout à l'heure alors. . .cette faiblesse ?. . .cette ?. . .\\n\\nCYRANO:\\n  C'est vrai ! je n'avais pas terminé ma gazette:\\n  . . .Et samedi, vingt-six, une heure avant dîné,\\n  Monsieur de Bergerac est mort assassiné.\\n  (Il se découvre; on voit sa tête entourée de linges.)\\n\\nROXANE:\\n  Que dit-il ?--Cyrano !--Sa tête enveloppée !. . .\\n  Ah, que vous a-t-on fait ? Pourquoi ?\\n\\nCYRANO:\\n  \\\"D'un coup d'épée,\\n  Frappé par un héros, tomber la pointe au cœur !\\\". . .\\n  --Oui, je disais cela !. . .Le destin est railleur !. . .\\n  Et voilà que je suis tué dans une embûche,\\n  Par derrière, par un laquais, d'un coup de bûche !\\n  C'est très bien. J'aurai tout manqué, même ma mort.\\n\\nRAGUENEAU:\\n  Ah, Monsieur !. . .\\n\\nCYRANO:\\n  Ragueneau ne pleure pas si fort !. . .\\n  (Il lui tend la main):\\n  Qu'est-ce que tu deviens, maintenant, mon confrère ?\\n\\nRAGUENEAU (à travers ses larmes):\\n  Je suis moucheur de. . .de. . .chandelles, chez Molière.\\n\\nCYRANO:\\n  Molière !\\n\\nRAGUENEAU:\\n  Mais je veux le quitter, dès demain:\\n  Oui, je suis indigné !. . .Hier, on jouer Scapin,\\n  Et j'ai vu qu'il vous a pris une scène !\\n\\nLE BRET:\\n  Entière !\\n\\nRAGUENEAU:\\n  Oui, Monsieur, le fameux: \\\"Que Diable allait-il faire ?. . .\\\"\\n\\nLE BRET (furieux):\\n  Molière te l'a pris !\\n\\nCYRANO:\\n  Chut ! chut ! Il a bien fait !. . .\\n  (A Ragueneau):\\n  La scène, n'est-ce pas, produit beaucoup d'effet ?\\n\\nRAGUENEAU (sanglotant):\\n  Ah ! Monsieur, on riait ! on riait !\\n\\nCYRANO:\\n  Oui, ma vie\\n  Ce fut d'être celui qui souffle--et qu'on oublie !\\n  (A Roxane):\\n  Vous souvient-il du soir où Christian vous parla\\n  Sous le balcon ? Eh bien ! toute ma vie est là:\\n  Pendant que je restais en bas, dans l'ombre noire,\\n  D'autres montaient cueillir le baiser de la gloire !\\n  C'est justice, et j'approuve au seuil de mon tombeau:\\n  Molière a du génie et Christian était beau !\\n  (A ce moment, la cloche de la chapelle ayant tinté, on voit passer au\\n  fond, dans l'allée, les religieuses se rendant à l'office):\\n  Qu'elles aillent prier puisque leur cloche sonne !\\n\\nROXANE (se relevant pour appeler):\\n  Ma sœur ! ma sœur !\\n\\nCYRANO (la retenant):\\n  Non ! non ! n'allez chercher personne:\\n  Quand vous reviendriez, je ne serais plus là.\\n  (Les religieuses sont entrées dans la chapelle, on entend l'orgue):\\n  Il me manquait un peu d'harmonie. . .en voilà.\\n\\nROXANE:\\n  Je vous aime, vivez !\\n\\nCYRANO:\\n  Non ! car c'est dans le conte\\n  Que lorsqu'on dit: Je t'aime ! au prince plein de honte,\\n  Il sent sa laideur fondre à ces mots de soleil. . .\\n  Mais tu t'apercevrais que je reste pareil.\\n\\nROXANE:\\n  J'ai fait votre malheur ! moi ! moi !\\n\\nCYRANO:\\n  Vous ?. . .au contraire !\\n  J'ignorais la douceur féminine. Ma mère\\n  Ne m'a pas trouvé beau. Je n'ai pas eu de sœur.\\n  Plus tard, j'ai redouté l'amante à l'œil moqueur.\\n  Je vous dois d'avoir eu, tout au moins, une amie.\\n  Grâce à vous une robe a passé dans ma vie.\\n\\nLE BRET (lui montrant le clair de lune qui descend à travers les branches):\\n  Ton autre amie est là, qui vient te voir !\\n\\nCYRANO (souriant à la lune):\\n  Je vois.\\n\\nROXANE:\\n  Je n'aimais qu'un seul être et je le perds deux fois !\\n\\nCYRANO:\\n  Le Bret, je vais monter dans la lune opaline,\\n  Sans qu'il faille inventer, aujourd'hui, de machine. . .\\n\\nLE BRET:\\n  Que dites-vous ?\\n\\nCYRANO:\\n  Mais oui, c'est là, je vous le dis,\\n  Que l'on va m'envoyer faire mon paradis\\n  Plus d'une âme que j'aime y doit être exilée,\\n  Et je retrouverai Socrate et Galilée !\\n\\nLE BRET (se révoltant):\\n  Non, non ! C'est trop stupide à la fin, et c'est trop\\n  Injuste ! Un tel poète ! Un cœur si grand, si haut !\\n  Mourir ainsi !. . .Mourir !. . .\\n\\nCYRANO:\\n  Voilà Le Bret qui grogne !\\n\\nLE BRET (fondant en larmes):\\n  Mon cher ami. . .\\n\\nCYRANO (se soulevant, l'œil égaré):\\n  Ce sont les cadets de Gascogne. . .\\n  --La masse élémentaire. . .Eh oui !. . .voilà le hic. . .\\n\\nLE BRET:\\n  Sa science. . .dans son délire !\\n\\nCYRANO:\\n  Copernic\\n  A dit. . .\\n\\nROXANE:\\n  Oh !\\n\\nCYRANO:\\n  Mais aussi que diable allait-il faire,\\n  Mais que diable allait-il faire en cette galère ?. . .\\n  Philosophe, physicien,\\n  Rimeur, bretteur, musicien,\\n  Et voyageur aérien,\\n  Grand riposteur du tac au tac,\\n  Amant aussi--pas pour son bien !--\\n  Ci-gît Hercule-Savinien\\n  De Cyrano de Bergerac,\\n  Qui fut tout, et qui ne fut rien,\\n  . . .Mais je m'en vais, pardon, je ne peux faire attendre:\\n  Vous voyez, le rayon de lune vient me prendre !\\n  (Il se retombé assis, les pleurs de Roxane le rappellent à la réalité,\\n  il la regarde, et caressant ses voiles):\\n  Je ne veux pas que vous pleuriez moins ce charmant,\\n  Ce bon, ce beau Christian; mais je veux seulement\\n  Que lorsque le grand froid aura pris mes vertèbres,\\n  Vous donniez un sens double à ces voiles funèbres,\\n  Et que son deuil sur vous devienne un peu mon deuil.\\n\\nROXANE:\\n  Je vous jure !. . .\\n\\nCYRANO (est secoué d'un grand frisson et se lève brusquement):\\n  Pas là ! non ! pas dans ce fauteuil !\\n  (On veut s'élancer vers lui):\\n  --Ne me soutenez pas !--Personne !\\n  (Il va s'adosser à l'arbre):\\n  Rien que l'arbre !\\n  (Silence):\\n  Elle vient. Je me sens déjà botté de marbre,\\n  --Ganté de plomb !\\n  (Il se raidit):\\n  Oh ! mais !. . .puisqu'elle est en chemin,\\n  Je l'attendrai debout,\\n  (Il tire l'épée):\\n  et l'épée à la main !\\n\\nLE BRET:\\n  Cyrano !\\n\\nROXANE (défaillante):\\n  Cyrano !\\n  (Tous reculent épouvantés.)\\n\\nCYRANO:\\n  Je crois qu'elle regarde. . .\\n  Qu'elle ose regarder mon nez, cette Camarde\\n  (Il lève son épée):\\n  Que dites-vous ?. . .C'est inutile ?. . .Je le sais !\\n  Mais on ne se bat pas dans l'espoir du succès !\\n  Non ! non ! c'est bien plus beau lorsque c'est inutile !\\n  --Qu'est-ce que c'est tous ceux-là ?--Vous êtes mille ?\\n  Ah ! je vous reconnais, tous mes vieux ennemis !\\n  Le Mensonge ?\\n  (Il frappe de son épée le vide):\\n  Tiens, tiens !--Ha ! ha ! les Compromis !\\n  Les Préjugés, les Lâchetés !. . .\\n  (Il frappe):\\n  Que je pactise ?\\n  Jamais, jamais !--Ah ! te voilà, toi, la Sottise !\\n  --Je sais bien qu'à la fin vous me mettrez à bas;\\n  N'importe: je me bats ! je me bats ! je me bats !\\n  (Il fait des moulinets immenses et s'arrête haletant):\\n  Oui, vous m'arrachez tout, le laurier et la rose !\\n  Arrachez ! Il y a malgré vous quelque chose\\n  Que j'emporte, et ce soir, quand j'entrerai chez Dieu,\\n  Mon salut balaiera largement le seuil bleu,\\n  Quelque chose que sans un pli, sans une tache,\\n  J'emporte malgré vous,\\n  (Il s'élance l'épée haute):\\n  et c'est. . .\\n  (L'épée s'échappe de ses mains, il chancelle, tombe dans les bras de\\n  Le Bret et de Ragueneau.)\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"ROXANE:\\n  Ah! How many things that were dead . . . have been born!\\n  —Why did you remain silent for fourteen years,\\n  Since, on this letter in which he had no part,\\n  Those tears were yours?\\n\\nCYRANO (holding out the letter to her):\\n  That blood was his.\\n\\nROXANE:\\n  Then why let this sublime silence\\n  Be broken today?\\n\\nCYRANO:\\n  Why? . . .\\n  (Le Bret and Ragueneau run in.)\\n\\n\\n\\nScene 5.VI.\\n\\nThe same, Le Bret and Ragueneau.\\n\\n\\nLE BRET:\\n  What recklessness!\\n  Ah! I was sure of it! He is here!\\n\\nCYRANO (smiling and straightening up):\\n  Well, by God!\\n\\nLE BRET:\\n  He has killed himself, Madame, by getting up!\\n\\nROXANE:\\n  Great God!\\n  But just now, then . . . that weakness? . . . that? . . .\\n\\nCYRANO:\\n  It is true! I had not finished my gazette:\\n  . . . And on Saturday the twenty-sixth, one hour before dinner,\\n  Monsieur de Bergerac was murdered.\\n  (He bares his head; it is seen to be wrapped in bandages.)\\n\\nROXANE:\\n  What is he saying?—Cyrano!—His head all wrapped up! . . .\\n  Ah, what have they done to you? Why?\\n\\nCYRANO:\\n  “Struck by a hero with a sword-thrust,\\n  To fall with its point in my heart!” . . .\\n  —Yes, that is what I used to say! . . . Fate is a mocker! . . .\\n  And now I am killed in an ambush,\\n  From behind, by a lackey, with a blow from a log!\\n  Very well. I shall have failed at everything, even my death.\\n\\nRAGUENEAU:\\n  Ah, Monsieur! . . .\\n\\nCYRANO:\\n  Ragueneau, do not weep so loudly! . . .\\n  (He holds out his hand to him):\\n  What has become of you now, my fellow craftsman?\\n\\nRAGUENEAU (through his tears):\\n  I am a snuffer of . . . of . . . candles, in Molière’s company.\\n\\nCYRANO:\\n  Molière!\\n\\nRAGUENEAU:\\n  But I mean to leave him tomorrow:\\n  Yes, I am indignant! . . . Yesterday they were performing Scapin,\\n  And I saw that he had taken a scene from you!\\n\\nLE BRET:\\n  An entire scene!\\n\\nRAGUENEAU:\\n  Yes, Monsieur, the famous: “What the devil was he doing? . . .”\\n\\nLE BRET (furiously):\\n  Molière took it from you!\\n\\nCYRANO:\\n  Hush! Hush! He did well! . . .\\n  (To Ragueneau):\\n  The scene has quite an effect, does it not?\\n\\nRAGUENEAU (sobbing):\\n  Ah! Monsieur, they laughed! They laughed!\\n\\nCYRANO:\\n  Yes, my life\\n  Was to be the one who prompts—and is forgotten!\\n  (To Roxane):\\n  Do you remember the evening when Christian spoke to you\\n  Beneath the balcony? Well! My whole life is there:\\n  While I remained below, in the black shadow,\\n  Others climbed up to pluck the kiss of glory!\\n  It is just, and I approve upon the threshold of my grave:\\n  Molière has genius, and Christian was handsome!\\n  (At that moment, the chapel bell having chimed, the nuns can be seen\\n  passing at the back, along the path, on their way to the service):\\n  Let them go and pray, since their bell is ringing!\\n\\nROXANE (rising to call out):\\n  Sister! Sister!\\n\\nCYRANO (restraining her):\\n  No! No! Do not go and fetch anyone:\\n  By the time you returned, I would no longer be here.\\n  (The nuns have entered the chapel; the organ is heard):\\n  I was lacking a little harmony . . . there it is.\\n\\nROXANE:\\n  I love you; live!\\n\\nCYRANO:\\n  No! For it is in the fairy tale\\n  That when one says, “I love thee!” to the shame-filled prince,\\n  He feels his ugliness melt at those words of sunlight . . .\\n  But you would realize that I remain the same.\\n\\nROXANE:\\n  I have caused your unhappiness! I! I!\\n\\nCYRANO:\\n  You? . . . On the contrary!\\n  I knew nothing of feminine tenderness. My mother\\n  Did not find me handsome. I had no sister.\\n  Later, I dreaded the sweetheart with the mocking eye.\\n  To you I owe having had, at least, a woman friend.\\n  Thanks to you, a dress has passed through my life.\\n\\nLE BRET (showing him the moonlight descending through the branches):\\n  Your other friend is there, coming to see you!\\n\\nCYRANO (smiling at the moon):\\n  I see.\\n\\nROXANE:\\n  I loved only one being, and I lose him twice!\\n\\nCYRANO:\\n  Le Bret, I am going to ascend into the opaline moon,\\n  Without any need to invent a machine today . . .\\n\\nLE BRET:\\n  What are you saying?\\n\\nCYRANO:\\n  Why yes, it is there, I tell you,\\n  That they are going to send me to make my paradise.\\n  More than one soul I love must be exiled there,\\n  And I shall find Socrates and Galileo again!\\n\\nLE BRET (rebelling):\\n  No, no! It is too stupid in the end, and it is too\\n  Unjust! Such a poet! So great, so lofty a heart!\\n  To die like this! . . . To die! . . .\\n\\nCYRANO:\\n  There is Le Bret growling!\\n\\nLE BRET (bursting into tears):\\n  My dear friend . . .\\n\\nCYRANO (raising himself, his eyes wandering):\\n  They are the Gascon Cadets . . .\\n  —The elementary mass . . . Why yes! . . . there is the rub . . .\\n\\nLE BRET:\\n  His science . . . in his delirium!\\n\\nCYRANO:\\n  Copernicus\\n  Said . . .\\n\\nROXANE:\\n  Oh!\\n\\nCYRANO:\\n  But then, what the devil was he doing,\\n  What the devil was he doing in that galley? . . .\\n  Philosopher, physicist,\\n  Rhymer, swordsman, musician,\\n  And aerial voyager,\\n  Great master of the swift retort,\\n  A lover too—not for his own good!—\\n  Here lies Hercule-Savinien\\n  De Cyrano de Bergerac,\\n  Who was everything, and who was nothing,\\n  . . . But I must go; forgive me, I cannot keep them waiting:\\n  You see, the moonbeam is coming to take me!\\n  (He falls back into a sitting position; Roxane’s tears recall him to reality;\\n  he looks at her and caresses her veils):\\n  I do not want you to mourn any less for that charming,\\n  That good, that handsome Christian; but I want only\\n  That when the great cold has seized my vertebrae,\\n  You should give a double meaning to those funeral veils,\\n  And that your mourning for him should become a little mourning for me.\\n\\nROXANE:\\n  I swear it to you! . . .\\n\\nCYRANO (is shaken by a great shudder and rises abruptly):\\n  Not there! No! Not in that armchair!\\n  (They try to rush toward him):\\n  —Do not support me!—No one!\\n  (He goes and braces himself against the tree):\\n  Nothing but the tree!\\n  (Silence):\\n  She is coming. I already feel myself shod in marble,\\n  —Gloved in lead!\\n  (He stiffens):\\n  Oh! But . . . since she is on her way,\\n  I shall await her standing,\\n  (He draws his sword):\\n  And sword in hand!\\n\\nLE BRET:\\n  Cyrano!\\n\\nROXANE (fainting):\\n  Cyrano!\\n  (They all recoil in terror.)\\n\\nCYRANO:\\n  I think she is looking . . .\\n  That she dares to look at my nose, that noseless crone!\\n  (He raises his sword):\\n  What do you say? . . . It is useless? . . . I know!\\n  But one does not fight in the hope of success!\\n  No! No! It is far finer when it is useless!\\n  —Who are all those?—Are there a thousand of you?\\n  Ah! I recognize you, all my old enemies!\\n  Falsehood?\\n  (He strikes the empty air with his sword):\\n  Take that, take that!—Ha! Ha! Compromises!\\n  Prejudices, Cowardices! . . .\\n  (He strikes):\\n  You want me to come to terms?\\n  Never, never!—Ah! There you are, Folly!\\n  —I know very well that in the end you will bring me down;\\n  No matter: I fight! I fight! I fight!\\n  (He makes immense sweeping passes and stops, panting):\\n  Yes, you tear everything from me, the laurel and the rose!\\n  Tear them away! Despite you, there is something\\n  That I carry with me, and tonight, when I enter God’s house,\\n  My salute will sweep broadly across the blue threshold,\\n  Something that, without a crease, without a stain,\\n  I carry away despite you,\\n  (He springs forward, sword raised):\\n  And that is . . .\\n  (The sword slips from his hands; he staggers and falls into the arms of\\n  Le Bret and Ragueneau.)\", \"source_occurrence_id\": \"rostand-cyrano-de-bergerac-8827144e9c2ae23a\", \"source_language\": \"fr\", \"source_language_text_sha256\": \"d28fd8e78954bc7b5fe9999680711a907f9e8c3a51eccde68b38f4207cf4a267\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T11:13:45.371728+00:00\", \"model_usage\": {\"input_tokens\": 2844, \"cached_input_tokens\": 0, \"output_tokens\": 2923}, \"estimated_cost_usd\": 0.069836, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"rostand-cyrano-de-bergerac\", \"title\": \"Cyrano de Bergerac\", \"author\": \"Edmond Rostand\", \"language\": \"fr\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.906397, \"source_start\": 219718, \"source_end\": 219727, \"source_length\": 242408}, \"form\": {\"form_family\": \"present_or_imperfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": \"optional\", \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"fr_present_past\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

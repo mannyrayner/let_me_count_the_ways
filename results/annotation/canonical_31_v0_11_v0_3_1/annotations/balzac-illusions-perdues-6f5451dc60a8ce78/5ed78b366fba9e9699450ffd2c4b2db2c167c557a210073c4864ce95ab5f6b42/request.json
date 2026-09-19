@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"balzac-illusions-perdues-6f5451dc60a8ce78\", \"SOURCE_TEXT\": {\"exact_match\": \"je vous\\naime\", \"local_text\": {\"context_start\": 446660, \"context_end\": 446735, \"text\": \"—Oh! mon Dieu, s'écria Lucien, vous ne savez donc pas combien je vous\\naime.\"}, \"wider_canonical_context\": {\"context_start\": 441925, \"context_end\": 449878, \"text\": \"  «Mon ami, ta lettre nous a fait pleurer tous. Que ces nobles cœurs\\n  vers lesquels ton bon ange te guide le sachent: une mère, une pauvre\\n  jeune femme prieront Dieu soir et matin pour eux; et si les prières\\n  les plus ferventes montent jusqu'à son trône, elles obtiendront\\n  quelques faveurs pour vous tous. Oui, mon frère, leurs noms sont\\n  gravés dans mon cœur. Ah! je les verrai quelque jour. J'irai,\\n  dussé-je faire la route à pied, les remercier de leur amitié pour\\n  toi, car elle a répandu comme un baume sur mes plaies vives. Ici,\\n  mon ami, nous travaillons comme de pauvres ouvriers. Mon mari, ce\\n  grand homme inconnu que j'aime chaque jour davantage en découvrant\\n  de moments en moments de nouvelles richesses dans son cœur, délaisse\\n  son imprimerie, et je devine pourquoi: ta misère, la nôtre, celle\\n  de notre mère l'assassinent. Notre adoré David est comme Prométhée\\n  dévoré par un vautour, un chagrin jaune à bec aigu. Quant à lui, le\\n  noble homme, il n'y pense guère, il a l'espoir d'une fortune. Il\\n  passe toutes ses journées à faire des expériences sur la fabrication\\n  du papier; il m'a priée de m'occuper à sa place des affaires, dans\\n  lesquelles il m'aide autant que lui permet sa préoccupation. Hélas!\\n  je suis grosse. Cet événement, qui m'eût comblée de joie, m'attriste\\n  dans la situation où nous sommes tous. Ma pauvre mère est redevenue\\n  jeune, elle a retrouvé des forces pour son fatigant métier de\\n  garde-malade. Aux soucis de fortune près, nous serions heureux. Le\\n  vieux père Séchard ne veut pas donner un liard à son fils; David est\\n  allé le voir pour lui emprunter quelques deniers afin de te secourir,\\n  car ta lettre l'avait mis au désespoir. «Je connais Lucien, il perdra\\n  la tête, et fera des sottises,» disait-il. Je l'ai bien grondé. Mon\\n  frère, manquer à quoi que ce soit?... lui ai-je répondu, Lucien sait\\n  que j'en mourrais de douleur. Ma mère et moi, sans que David s'en\\n  doute, nous avons engagé quelques objets; ma mère les retirera dès\\n  qu'elle rentrera dans quelque argent. Nous avons pu faire ainsi cent\\n  francs que je t'envoie par les messageries. Si je n'ai pas répondu à\\n  ta première lettre, ne m'en veux pas, mon ami. Nous étions dans une\\n  situation à passer les nuits, je travaillais comme un homme. Ah! je\\n  ne me savais pas autant de force. Madame de Bargeton est une femme\\n  sans âme ni cœur; elle se devait, même en ne t'aimant plus, de te\\n  protéger et de t'aider après t'avoir arraché de nos bras pour te\\n  jeter dans cette affreuse mer parisienne où il faut une bénédiction\\n  de Dieu pour rencontrer des amitiés vraies parmi ces flots d'hommes\\n  et d'intérêts. Elle n'est pas à regretter. Je te voulais auprès de\\n  toi quelque femme dévouée, une seconde moi-même; mais maintenant\\n  que je te sais des amis qui continuent nos sentiments, me voilà\\n  tranquille. Déploie tes ailes, mon beau génie aimé! Tu seras notre\\n  gloire, comme tu es déjà notre amour.\\n\\n  »ÈVE.»\\n\\n\\n  «Mon enfant chéri, je ne puis que te bénir après ce que te dit ta\\n  sœur, et t'assurer que mes prières et mes pensées ne sont, hélas!\\n  pleines que de toi, au détriment de ceux que je vois; car il est des\\n  cœurs où les absents ont raison, et il en est ainsi dans le cœur de\\n\\n  »TA MÈRE.»\\n\\nAinsi, deux jours après, Lucien put rendre à ses amis leur prêt si\\ngracieusement offert. Jamais peut-être la vie ne lui sembla plus belle,\\nmais le mouvement de son amour-propre n'échappa point aux regards\\nprofonds de ses amis et à leur délicate sensibilité.\\n\\n—On dirait que tu as peur de nous devoir quelque chose, s'écria\\nFulgence.\\n\\n—Oh! le plaisir qu'il manifeste est bien grave à mes yeux, dit Michel\\nChrestien, il confirme les observations que j'ai faites: Lucien a de la\\nvanité.\\n\\n—Il est poète, dit d'Arthez.\\n\\n—M'en voulez-vous d'un sentiment aussi naturel que le mien?\\n\\n—Il faut lui tenir compte de ce qu'il ne nous l'a pas caché, dit Léon\\nGiraud, il est encore franc; mais j'ai peur que plus tard il ne nous\\nredoute.\\n\\n—Eh pourquoi? demanda Lucien.\\n\\n—Nous lisons dans ton cœur, répondit Joseph Bridau.\\n\\n—Il y a chez toi, lui dit Michel Chrestien, un esprit diabolique avec\\nlequel tu justifieras à tes propres yeux les choses les plus contraires\\nà nos principes: au lieu d'être un sophiste d'idées, tu seras un\\nsophiste d'action.\\n\\n—Ah! j'en ai peur, dit d'Arthez. Lucien, tu feras en toi-même des\\ndiscussions admirables où tu seras grand, et qui aboutiront à des faits\\nblâmables... Tu ne seras jamais d'accord avec toi-même.\\n\\n—Sur quoi donc appuyez-vous votre réquisitoire? demanda Lucien.\\n\\n—Ta vanité, mon cher poète, est si grande, que tu en mets jusque dans\\nton amitié! s'écria Fulgence. Toute vanité de ce genre accuse un\\neffroyable égoïsme, et l'égoïsme est le poison de l'amitié.\\n\\n—Oh! mon Dieu, s'écria Lucien, vous ne savez donc pas combien je vous\\naime.\\n\\n—Si tu nous aimais comme nous nous aimons, aurais-tu mis tant\\nd'empressement et tant d'emphase à nous rendre ce que nous avions tant\\nde plaisir à te donner?\\n\\n—On ne se prête rien ici, on se donne, lui dit brutalement Joseph\\nBridau.\\n\\n—Ne nous crois pas rudes, mon cher enfant, lui dit Michel Chrestien,\\nnous sommes prévoyants. Nous avons peur de te voir un jour préférant\\nles joies d'une petite vengeance aux joies de notre pure amitié. Lis\\nle Tasse de Gœthe, la plus grande œuvre de ce beau génie, et tu y\\nverras que le poète aime les brillantes étoffes, les festins, les\\ntriomphes, l'éclat: eh! bien, sois le Tasse sans sa folie. Le monde et\\nses plaisirs t'appelleront? reste ici... Transporte dans la région des\\nidées tout ce que tu demandes à tes vanités. Folie pour folie, mets la\\nvertu dans tes actions et le vice dans tes idées; au lieu, comme te le\\ndisait d'Arthez, de bien penser et de te mal conduire.\\n\\nLucien baissa la tête: ses amis avaient raison.\\n\\n—J'avoue que je ne suis pas aussi fort que vous l'êtes, dit-il en\\nleur jetant un adorable regard. Je n'ai pas des reins et des épaules\\nà soutenir Paris, à lutter avec courage. La nature nous a donné des\\ntempéraments et des facultés différents, et vous connaissez mieux que\\npersonne l'envers des vices et des vertus. Je suis déjà fatigué, je\\nvous le confie.\\n\\n—Nous te soutiendrons, dit d'Arthez, voilà précisément à quoi servent\\nles amitiés fidèles.\\n\\n—Le secours que je viens de recevoir est précaire, et nous sommes\\ntous aussi pauvres les uns que les autres; le besoin me poursuivra\\nbientôt. Chrestien, aux gages du premier venu, ne peut rien en\\nlibrairie. Bianchon est en dehors de ce cercle d'affaires. D'Arthez\\nne connaît que les libraires de science ou de spécialités, qui n'ont\\naucune prise sur les éditeurs de nouveautés. Horace, Fulgence Ridal et\\nBridau travaillent dans un ordre d'idées qui les met à cent lieues des\\nlibraires. Je dois prendre un parti.\\n\\n—Tiens-toi donc au nôtre, souffrir! dit Bianchon, souffrir\\ncourageusement et se fier au Travail!\\n\\n—Mais ce qui n'est que souffrance pour vous est la mort pour moi, dit\\nvivement Lucien.\\n\\n—Avant que le coq ait chanté trois fois, dit Léon Giraud en souriant,\\ncet homme aura trahi la cause du Travail pour celle de la Paresse et\\ndes vices de Paris.\\n\\n—Où le travail vous a-t-il menés? dit Lucien en riant.\\n\\n—Quand on part de Paris pour l'Italie, on ne trouve pas Rome à moitié\\nchemin, dit Joseph Bridau. Pour toi, les petits pois devraient pousser\\ntout accommodés au beurre.\\n\\n—Ils ne poussent ainsi que pour les fils aînés des pairs de France, dit\\nMichel Chrestien. Mais, nous autres, nous les semons, les arrosons et\\nles trouvons meilleurs.\\n\\nLa conversation devint plaisante, et changea de sujet. Ces esprits\\nperspicaces, ces cœurs délicats cherchèrent à faire oublier cette\\npetite querelle à Lucien, qui comprit dès lors combien il était\\ndifficile de les tromper. Il arriva bientôt à un désespoir intérieur\\nqu'il cacha soigneusement à ses amis, en les croyant des mentors\\nimplacables. Son esprit méridional, qui parcourait si facilement le\\nclavier des sentiments, lui faisait prendre les résolutions les plus\\ncontraires.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"“My friend, your letter made us all weep. Let those noble hearts toward whom your good angel is guiding you know this: a mother and a poor young woman will pray to God for them morning and evening; and if the most fervent prayers rise to His throne, they will obtain some favors for all of you. Yes, my brother, their names are engraved upon my heart. Ah! I shall see them someday. I shall go, even if I have to make the journey on foot, to thank them for their friendship toward you, for it has poured balm, as it were, upon my raw wounds. Here, my friend, we are working like poor laborers. My husband, that great unknown man whom I love more with each passing day as, from moment to moment, I discover new riches in his heart, is neglecting his printing house, and I can guess why: your poverty, ours, and our mother’s are killing him. Our adored David is like Prometheus devoured by a vulture, a sallow grief with a sharp beak. As for him, the noble man, he scarcely thinks of it; he has hopes of a fortune. He spends all his days conducting experiments on the manufacture of paper; he has asked me to attend to the business in his stead, in which he helps me as much as his preoccupation allows. Alas! I am with child. This event, which would have filled me with joy, saddens me in the situation in which we all find ourselves. My poor mother has grown young again; she has recovered the strength needed for her exhausting work as a nurse. Were it not for our financial worries, we should be happy. Old Father Séchard will not give his son a farthing; David went to see him to borrow a little money from him so as to help you, for your letter had driven him to despair. ‘I know Lucien; he will lose his head and do foolish things,’ he said. I scolded him thoroughly. My brother, fail in any way whatsoever?... I replied to him, Lucien knows that I should die of grief. Without David’s suspecting it, my mother and I have pawned a few things; my mother will redeem them as soon as she comes into some money. In this way we have managed to raise one hundred francs, which I am sending you by the coach service. If I did not answer your first letter, do not be angry with me, my friend. We were in a situation that kept us up at night; I was working like a man. Ah! I did not know I had so much strength. Madame de Bargeton is a woman without soul or heart; even if she no longer loved you, she owed it to herself to protect and help you after tearing you from our arms only to cast you into that dreadful Parisian sea, where one needs a blessing from God to encounter true friendships amid those waves of men and interests. She is not to be regretted. I wanted some devoted woman beside you, a second self of mine; but now that I know you have friends who carry on our feelings, I am at peace. Spread your wings, my beloved, beautiful genius! You will be our glory, as you are already our love.\\n\\n“EVE.”\\n\\n\\n“My darling child, after what your sister has told you, I can only bless you and assure you that, alas! my prayers and thoughts are filled with you alone, to the detriment of those whom I see; for there are hearts in which the absent are in the right, and so it is in the heart of\\n\\n“YOUR MOTHER.”\\n\\nThus, two days later, Lucien was able to repay his friends the loan they had so graciously offered him. Perhaps life had never seemed more beautiful to him, but the stirring of his self-esteem did not escape his friends’ penetrating eyes and delicate sensibility.\\n\\n“You would think you were afraid of owing us anything,” exclaimed Fulgence.\\n\\n“Oh! the pleasure he displays is very serious in my eyes,” said Michel Chrestien; “it confirms the observations I have made: Lucien is vain.”\\n\\n“He is a poet,” said d’Arthez.\\n\\n“Do you hold it against me that I feel something as natural as this?”\\n\\n“We must give him credit for not having concealed it from us,” said Léon Giraud. “He is still candid; but I am afraid that later he may come to fear us.”\\n\\n“And why?” asked Lucien.\\n\\n“We read your heart,” replied Joseph Bridau.\\n\\n“There is in you,” Michel Chrestien told him, “a diabolical mind with which you will justify in your own eyes the things most contrary to our principles: instead of being a sophist of ideas, you will be a sophist of action.”\\n\\n“Ah! I am afraid so,” said d’Arthez. “Lucien, within yourself you will conduct admirable debates in which you will be noble, and which will end in blameworthy deeds... You will never be in agreement with yourself.”\\n\\n“And on what, then, do you base your indictment?” asked Lucien.\\n\\n“Your vanity, my dear poet, is so great that you even put it into your friendship!” exclaimed Fulgence. “All vanity of that kind betrays a dreadful selfishness, and selfishness is the poison of friendship.”\\n\\n“Oh! my God,” exclaimed Lucien, “you cannot know how much I love you.”\\n\\n“If you loved us as we love one another, would you have shown such eagerness and made such a show of returning what it gave us so much pleasure to give you?”\\n\\n“Here we do not lend anything to one another; we give,” Joseph Bridau told him bluntly.\\n\\n“Do not think us harsh, my dear child,” Michel Chrestien told him; “we are being farsighted. We are afraid that one day we shall see you preferring the joys of some petty revenge to the joys of our pure friendship. Read Goethe’s Tasso, the greatest work of that splendid genius, and you will see in it that the poet loves brilliant fabrics, feasts, triumphs, splendor: well then, be Tasso without his madness. Will the world and its pleasures call to you? Stay here... Transfer to the realm of ideas everything your vanities demand. If there must be folly, put virtue into your actions and vice into your ideas, instead of thinking well and behaving badly, as d’Arthez was telling you.”\\n\\nLucien lowered his head: his friends were right.\\n\\n“I confess that I am not as strong as you are,” he said, casting an adorable glance at them. “I do not have the back and shoulders to bear up under Paris, to struggle courageously. Nature has given us different temperaments and faculties, and you know better than anyone the reverse side of vices and virtues. I am already weary, I confess it to you.”\\n\\n“We shall support you,” said d’Arthez. “That is precisely what faithful friendships are for.”\\n\\n“The help I have just received is precarious, and we are all as poor as one another; need will soon pursue me again. Chrestien, in the pay of the first comer, can do nothing in the book trade. Bianchon stands outside that circle of business. D’Arthez knows only publishers of scientific or specialized works, who have no influence over publishers of new literature. Horace, Fulgence Ridal, and Bridau work in a realm of ideas that places them a hundred leagues away from publishers. I must decide on a course.”\\n\\n“Then adhere to ours: suffer!” said Bianchon. “Suffer courageously and put your trust in Work!”\\n\\n“But what is only suffering for you is death to me,” Lucien said sharply.\\n\\n“Before the cock has crowed three times,” said Léon Giraud with a smile, “this man will have betrayed the cause of Work for that of Idleness and the vices of Paris.”\\n\\n“Where has work brought you?” said Lucien, laughing.\\n\\n“When one leaves Paris for Italy, one does not find Rome halfway there,” said Joseph Bridau. “For you, green peas ought to grow already dressed with butter.”\\n\\n“They grow that way only for the eldest sons of peers of France,” said Michel Chrestien. “But we sow and water them ourselves, and find them better.”\\n\\nThe conversation became jocular and moved to another subject. Those discerning minds, those sensitive hearts sought to make Lucien forget this little quarrel, and from then on he understood how difficult it was to deceive them. He soon fell into an inward despair that he carefully concealed from his friends, believing them to be implacable mentors. His southern temperament, which ran so easily over the keyboard of feelings, led him to make the most contradictory resolutions.\", \"source_occurrence_id\": \"balzac-illusions-perdues-6f5451dc60a8ce78\", \"source_language\": \"fr\", \"source_language_text_sha256\": \"a900bdb7b9ab4bc3579c442622658cb3e91b19bcbe8fcbc0cba210f3648ec289\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T10:15:53.874787+00:00\", \"model_usage\": {\"input_tokens\": 2465, \"cached_input_tokens\": 0, \"output_tokens\": 1965}, \"estimated_cost_usd\": 0.04916, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"balzac-illusions-perdues\", \"title\": \"Illusions perdues\", \"author\": \"Honoré de Balzac\", \"language\": \"fr\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.330173, \"source_start\": 446722, \"source_end\": 446734, \"source_length\": 1352994}, \"form\": {\"form_family\": \"present_or_imperfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": \"optional\", \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"fr_present_past\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

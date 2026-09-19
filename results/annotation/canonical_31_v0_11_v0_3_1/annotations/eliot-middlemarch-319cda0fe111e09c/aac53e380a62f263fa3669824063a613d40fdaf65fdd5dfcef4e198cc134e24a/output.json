@@ -1,0 +1,65 @@
+{
+  "occurrence_id": "eliot-middlemarch-319cda0fe111e09c",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 1,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.97,
+    "analysis": "Mary directly avows that she loves Fred best. The wording primarily presents her loving state as true. In the context of their engagement it also weakly confirms their relationship, but it does not independently formulate a promise or undertaking. The explicitly described “tone of obedient recitation” weighs strongly against expressive/reflexive force.",
+    "ambiguity": "The engagement and marriage context gives slight performative pressure, but the core utterance is better understood as the serious reassurance Fred explicitly requested."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "Mary directly addresses Fred, repeating the serious assurance he has just asked her to give."
+  },
+  "contextual_interpretation": "Fred asks Mary to stop joking and seriously confirm both the favorable news and her happiness because she loves him best. Mary complies almost word for word. Her “obedient recitation” is playfully controlled rather than reflexive, but the surrounding exchange and the finale’s account of their marriage and lasting happiness support the avowal’s sincerity.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "“It is all true, Fred, and I am happy because of it—because I love you best,” said Mary.",
+      "supports": "A direct, affirmative avowal of Mary’s loving preference, strongly supporting T.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "Fred asks her to “Tell me seriously” that she is happy “because you love me best.”",
+      "supports": "Mary’s response functions as requested reassurance and confirmation rather than an unprompted expressive discharge.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "Mary speaks “in a tone of obedient recitation.”",
+      "supports": "The deliberate repetition strongly disfavors E, while remaining compatible with a sincere truth-conditional avowal.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "e4",
+      "source": "local_text",
+      "quotation_or_description": "The pair discuss being married, and the finale states that they later married and “achieved a solid mutual happiness.”",
+      "supports": "The relational context gives weak support to P and corroborates sincerity, though sincerity is not required for T.",
+      "confidence": 0.96
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T captures the central avowal, with slight P support from its engagement-confirming context. No important core force remains outside T/P/E.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

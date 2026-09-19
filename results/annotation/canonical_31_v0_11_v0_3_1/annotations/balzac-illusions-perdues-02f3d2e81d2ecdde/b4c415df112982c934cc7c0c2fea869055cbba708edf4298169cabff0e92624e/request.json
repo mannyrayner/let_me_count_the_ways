@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"balzac-illusions-perdues-02f3d2e81d2ecdde\", \"SOURCE_TEXT\": {\"exact_match\": \"Je\\nt'aimerai\", \"local_text\": {\"context_start\": 674651, \"context_end\": 674757, \"text\": \"—Viens, mon pauvre Musot, viens tant que tu voudras, dit-elle. Je\\nt'aimerai mieux en ne te trompant point.\"}, \"wider_canonical_context\": {\"context_start\": 671678, \"context_end\": 677733, \"text\": \"—Je ne pourrais la remettre sans crochets, dit Lucien en rougissant.\\n\\n—Bérénice en ira chercher, ils ne seront pas de trop ici, dit le\\nmarchand d'un air horriblement goguenard.\\n\\n—Papa Camusot, dit Coralie en lui jetant un regard empreint d'un\\natroce mépris, ayez le courage de votre lâcheté! Allons, dites toute\\nvotre pensée. Vous trouvez que les bottes de monsieur ressemblent aux\\nmiennes? Je vous défends d'ôter vos bottes, dit-elle à Lucien. Oui,\\nmonsieur Camusot, oui, ces bottes sont absolument les mêmes que celles\\nqui se croisaient les bras devant mon foyer l'autre jour, et monsieur\\ncaché dans mon cabinet de toilette les attendait, il avait passé la\\nnuit ici. Voilà ce que vous pensez, hein? Pensez-le, je le veux. C'est\\nla vérité pure. Je vous trompe. Après? Cela me plaît, à moi!\\n\\nElle s'assit sans colère et de l'air le plus dégagé du monde en\\nregardant Camusot et Lucien, qui n'osaient se regarder.\\n\\n—Je ne croirai que ce que vous voudrez que je croie, dit Camusot. Ne\\nplaisantez pas, j'ai tort.\\n\\n—Ou je suis une infâme dévergondée qui dans un moment s'est amourachée\\nde monsieur, ou je suis une pauvre misérable créature qui a senti pour\\nla première fois le véritable amour après lequel courent toutes les\\nfemmes. Dans les deux cas, il faut me quitter ou me prendre comme je\\nsuis, dit-elle en faisant un geste de souveraine par lequel elle écrasa\\nle négociant.\\n\\n—Serait-ce vrai? dit Camusot qui vit à la contenance de Lucien que\\nCoralie ne riait pas et qui mendiait une tromperie.\\n\\n—J'aime mademoiselle, dit Lucien.\\n\\nEn entendant ce mot dit d'une voix émue, Coralie sauta au cou de son\\npoète, le pressa dans ses bras et tourna la tête vers le marchand de\\nsoieries en lui montrant l'admirable groupe d'amour qu'elle faisait\\navec Lucien.\\n\\n—Pauvre Musot, reprends tout ce que tu m'as donné, je ne veux rien de\\ntoi, j'aime comme une folle cet enfant-là, non pour son esprit, mais\\npour sa beauté. Je préfère la misère avec lui, à des millions avec toi.\\n\\nCamusot tomba sur un fauteuil, se mit la tête dans les mains, et\\ndemeura silencieux.\\n\\n—Voulez-vous que nous nous en allions? lui dit-elle avec une incroyable\\nférocité.\\n\\nLucien eut froid dans le dos en se voyant chargé d'une femme, d'une\\nactrice et d'un ménage.\\n\\n—Reste ici, garde tout, Coralie, dit le marchand d'une voix faible\\net douloureuse qui partait de l'âme, je ne veux rien reprendre. Il y\\na pourtant là soixante mille francs de mobilier, mais je ne saurais\\nme faire à l'idée de ma Coralie dans la misère. Et tu seras cependant\\navant peu dans la misère. Quelque grands que soient les talents de\\nmonsieur, ils ne peuvent pas te donner une existence. Voilà ce qui nous\\nattend tous, nous autres vieillards! Laisse-moi, Coralie, le droit\\nde venir te voir quelquefois: je puis t'être utile. D'ailleurs, je\\nl'avoue, il me serait impossible de vivre sans toi.\\n\\nLa douceur de ce pauvre homme, dépossédé de tout son bonheur au moment\\noù il se croyait le plus heureux, toucha vivement Lucien, mais non\\nCoralie.\\n\\n—Viens, mon pauvre Musot, viens tant que tu voudras, dit-elle. Je\\nt'aimerai mieux en ne te trompant point.\\n\\nCamusot parut content de n'être pas chassé de son paradis terrestre\\noù sans doute il devait souffrir, mais où il espéra rentrer plus tard\\ndans tous ses droits en se fiant sur les hasards de la vie parisienne\\net sur les séductions qui allaient entourer Lucien. Le vieux marchand\\nmatois pensa que tôt ou tard ce beau jeune homme se permettrait des\\ninfidélités, et pour l'espionner, pour le perdre dans l'esprit de\\nCoralie, il voulait rester leur ami. Cette lâcheté de la passion vraie\\neffraya Lucien. Camusot offrit à dîner au Palais-Royal, chez Véry, ce\\nqui fut accepté.\\n\\n—Quel bonheur, cria Coralie quand Camusot fut parti, plus de mansarde\\nau quartier latin, tu demeureras ici, nous ne nous quitterons pas,\\ntu prendras pour conserver les apparences un petit appartement, rue\\nCharlot, et vogue la galère!\\n\\nElle se mit à danser son pas espagnol avec un entrain qui peignit une\\nindomptable passion.\\n\\n—Je puis gagner cinq cents francs par mois en travaillant beaucoup, dit\\nLucien.\\n\\n—J'en ai tout autant au théâtre, sans compter les feux. Camusot\\nm'habillera toujours, il m'aime! Avec quinze cents francs par mois,\\nnous vivrons comme des Crésus.\\n\\n—Et les chevaux, et le cocher, et le domestique? dit Bérénice.\\n\\n—Je ferai des dettes, s'écria Coralie.\\n\\nElle se remit à danser une gigue avec Lucien.\\n\\n—Il faut dès lors accepter les propositions de Finot, s'écria Lucien.\\n\\n—Allons, dit Coralie, je m'habille et te mène à ton journal, je\\nt'attendrai en voiture, sur le boulevard.\\n\\nLucien s'assit sur un sofa, regarda l'actrice faisant sa toilette et\\nse livra aux plus graves réflexions. Il eût mieux aimé laisser Coralie\\nlibre que d'être jeté dans les obligations d'un pareil mariage; mais\\nil la vit si belle, si bien faite, si attrayante, qu'il fut saisi par\\nles pittoresques aspects de cette vie de Bohême, et jeta le gant à la\\nface de la Fortune. Bérénice eut ordre de veiller au déménagement et à\\nl'installation de Lucien. Puis, la triomphante, la belle, l'heureuse\\nCoralie entraîna son amant aimé, son poète, et traversa tout Paris\\npour aller rue Saint-Fiacre. Lucien grimpa lestement l'escalier, et\\nse produisit en maître dans les bureaux du journal. Coloquinte ayant\\ntoujours son papier timbré sur la tête et le vieux Giroudeau lui dirent\\nencore assez hypocritement que personne n'était venu.\\n\\n—Mais les rédacteurs doivent se voir quelque part pour convenir du\\njournal, dit-il.\\n\\n—Probablement, mais la rédaction ne me regarde pas, dit le capitaine de\\nla Garde Impériale qui se remit à vérifier ses bandes en faisant son\\néternel broum! broum!\\n\\nEn ce moment, par un hasard, doit-on dire heureux ou malheureux? Finot\\nvint pour annoncer à Giroudeau sa fausse abdication, et lui recommander\\nde veiller à ses intérêts.\\n\\n—Pas de diplomatie avec monsieur, il est du journal, dit Finot à son\\noncle en prenant la main de Lucien et la lui serrant.\\n\\n—Ah! monsieur est du journal, s'écria Giroudeau surpris du geste de son\\nneveu. Eh! bien, monsieur, vous n'avez pas eu de peine à y entrer.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"“I could not put it back on without hooks,” said Lucien, blushing.\\n\\n“Bérénice will go and fetch some; they will not be superfluous here,” said the tradesman with a horribly mocking air.\\n\\n“Papa Camusot,” said Coralie, casting him a look filled with atrocious contempt, “have the courage of your cowardice! Come, say everything you are thinking. You think monsieur’s boots look like mine? I forbid you to take off your boots,” she said to Lucien. “Yes, Monsieur Camusot, yes, those boots are exactly the same as the ones that stood with their arms crossed before my hearth the other day, while monsieur, hidden in my dressing room, was waiting for them; he had spent the night here. That is what you think, eh? Think it; I want you to. It is the plain truth. I am deceiving you. And then? It pleases me!”\\n\\nShe sat down without anger and with the most unconstrained air in the world, looking at Camusot and Lucien, who did not dare look at each other.\\n\\n“I shall believe only what you wish me to believe,” said Camusot. “Do not jest; I am in the wrong.”\\n\\n“Either I am a shameless wanton who, in a single moment, has become infatuated with monsieur, or I am a poor, wretched creature who has felt for the first time the true love after which all women run. In either case, you must leave me or take me as I am,” she said, making a sovereign gesture by which she crushed the merchant.\\n\\n“Can it be true?” said Camusot, who saw from Lucien’s bearing that Coralie was not joking and who was begging to be deceived.\\n\\n“I love mademoiselle,” said Lucien.\\n\\nOn hearing those words spoken in an emotional voice, Coralie flung herself upon her poet’s neck, clasped him in her arms, and turned her head toward the silk merchant, showing him the admirable tableau of love that she formed with Lucien.\\n\\n“Poor Musot, take back everything you have given me; I want nothing from you. I love this boy madly, not for his wit, but for his beauty. I prefer poverty with him to millions with you.”\\n\\nCamusot sank into an armchair, put his head in his hands, and remained silent.\\n\\n“Would you like us to go away?” she asked him with incredible ferocity.\\n\\nA chill ran down Lucien’s back when he saw himself burdened with a woman, an actress, and a household.\\n\\n“Stay here, keep everything, Coralie,” said the tradesman in a faint, sorrowful voice that came from his soul. “I do not want to take anything back. There are, however, sixty thousand francs’ worth of furnishings here, but I could not reconcile myself to the thought of my Coralie in poverty. And yet, before long, you will be in poverty. However great monsieur’s talents may be, they cannot provide you with a living. That is what awaits all of us old men! Leave me, Coralie, the right to come and see you sometimes: I can be useful to you. Besides, I confess it, it would be impossible for me to live without you.”\\n\\nThe gentleness of this poor man, dispossessed of all his happiness at the moment when he believed himself happiest, deeply touched Lucien, but not Coralie.\\n\\n“Come, my poor Musot, come as often as you like,” she said. “I shall love you better when I am no longer deceiving you.”\\n\\nCamusot appeared content not to be driven from his earthly paradise, where he would doubtless suffer, but where he hoped later to regain all his rights, trusting to the hazards of Parisian life and to the temptations that were going to surround Lucien. The crafty old merchant thought that sooner or later this handsome young man would permit himself some infidelities, and in order to spy on him, to ruin him in Coralie’s estimation, he wished to remain their friend. This cowardice of true passion frightened Lucien. Camusot offered to give them dinner at Véry’s in the Palais-Royal, and the offer was accepted.\\n\\n“What happiness!” cried Coralie when Camusot had gone. “No more garret in the Latin Quarter; you will live here, we shall never part, and, to keep up appearances, you will take a small apartment in the rue Charlot—and let the ship sail where it may!”\\n\\nShe began to dance her Spanish step with a vigor that expressed an indomitable passion.\\n\\n“I can earn five hundred francs a month by working hard,” said Lucien.\\n\\n“I have just as much at the theater, not counting the performance fees. Camusot will always provide my clothes; he loves me! With fifteen hundred francs a month, we shall live like Croesuses.”\\n\\n“And the horses, and the coachman, and the servant?” said Bérénice.\\n\\n“I shall run into debt,” cried Coralie.\\n\\nShe began dancing a jig with Lucien.\\n\\n“Then I must accept Finot’s proposals,” cried Lucien.\\n\\n“Come,” said Coralie, “I shall dress and take you to your newspaper; I shall wait for you in the carriage on the boulevard.”\\n\\nLucien sat down on a sofa, watched the actress dress, and gave himself up to the gravest reflections. He would have preferred to leave Coralie free rather than be thrust into the obligations of such a marriage; but he saw her so beautiful, so well formed, so alluring, that he was seized by the picturesque aspects of this Bohemian life and threw down the gauntlet in Fortune’s face. Bérénice was ordered to oversee Lucien’s move and installation. Then Coralie—triumphant, beautiful, happy—carried off her beloved lover, her poet, and crossed all Paris to go to the rue Saint-Fiacre. Lucien ran lightly up the stairs and presented himself as a master in the newspaper’s offices. Coloquinte, still with his stamped paper on his head, and old Giroudeau again told him, with a fair degree of hypocrisy, that no one had come.\\n\\n“But the editors must meet somewhere to agree on the contents of the newspaper,” he said.\\n\\n“Probably, but the editorial staff is no concern of mine,” said the captain of the Imperial Guard, who went back to checking his wrappers while making his eternal “Brrum! Brrum!”\\n\\nAt that moment, by a chance that one must call fortunate or unfortunate, Finot came to tell Giroudeau of his sham abdication and to commend his interests to his care.\\n\\n“No diplomacy with monsieur; he is on the newspaper,” Finot said to his uncle, taking Lucien’s hand and shaking it.\\n\\n“Ah! Monsieur is on the newspaper,” cried Giroudeau, surprised by his nephew’s gesture. “Well, monsieur, you did not have much trouble getting onto it.”\", \"source_occurrence_id\": \"balzac-illusions-perdues-02f3d2e81d2ecdde\", \"source_language\": \"fr\", \"source_language_text_sha256\": \"e86df71ebdcb2792a2a70b5b0a0219148e954753941c7b30c5a76fc0a6372694\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T10:11:21.547483+00:00\", \"model_usage\": {\"input_tokens\": 1918, \"cached_input_tokens\": 0, \"output_tokens\": 1801}, \"estimated_cost_usd\": 0.043692, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"balzac-illusions-perdues\", \"title\": \"Illusions perdues\", \"author\": \"Honoré de Balzac\", \"language\": \"fr\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.498682, \"source_start\": 674714, \"source_end\": 674726, \"source_length\": 1352994}, \"form\": {\"form_family\": \"future\", \"polarity\": \"affirmative\", \"tense_aspect\": \"future\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"fr_future\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.98, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

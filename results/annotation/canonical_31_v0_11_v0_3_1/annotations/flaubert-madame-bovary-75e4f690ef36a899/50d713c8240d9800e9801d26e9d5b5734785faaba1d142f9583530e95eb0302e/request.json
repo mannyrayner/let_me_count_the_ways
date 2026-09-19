@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"flaubert-madame-bovary-75e4f690ef36a899\", \"SOURCE_TEXT\": {\"exact_match\": \"je vous aime\", \"local_text\": {\"context_start\": 313765, \"context_end\": 313854, \"text\": \"— Non, je vous aime, voilà tout! Vous n’en doutez pas! Dites-le-moi; un\\nmot! un seul mot!\"}, \"wider_canonical_context\": {\"context_start\": 310765, \"context_end\": 316793, \"text\": \"Et il ajoutait: «On y a seulement remarqué l’absence du clergé. Sans\\ndoute les sacristies entendent le progrès d’une autre manière. Libre à\\nvous, messieurs de Loyola!»\\n\\n\\n\\n\\nIX\\n\\n\\nSix semaines s’écoulèrent. Rodolphe ne revint pas. Un soir, enfin, il\\nparut.\\n\\nIl s’était dit, le lendemain des comices:\\n\\n— N’y retournons pas de sitôt, ce serait une faute.\\n\\nEt, au bout de la semaine, il était parti pour la chasse. Après\\nla chasse, il avait songé qu’il était trop tard, puis il fit ce\\nraisonnement:\\n\\n— Mais, si du premier jour elle m’a aimé, elle doit, par l’impatience\\nde me revoir, m’aimer davantage. Continuons donc!\\n\\nEt il comprit que son calcul avait été bon lorsque, en entrant dans la\\nsalle, il aperçut Emma pâlir.\\n\\nElle était seule. Le jour tombait. Les petits rideaux de mousseline,\\nle long des vitres, épaississaient le crépuscule, et la dorure du\\nbaromètre, sur qui frappait un rayon de soleil, étalait des feux dans\\nla glace, entre les découpures du polypier.\\n\\nRodolphe resta debout; et à peine si Emma répondit à ses premières\\nphrases de politesse.\\n\\n— Moi, dit-il, j’ai eu des affaires. J’ai été malade.\\n\\n— Gravement? s’écria-t-elle.\\n\\n— Eh bien, fit Rodolphe en s’asseyant à ses côtés sur un tabouret,\\nnon!... C’est que je n’ai pas voulu revenir.\\n\\n— Pourquoi?\\n\\n— Vous ne devinez pas?\\n\\nIl la regarda encore une fois, mais d’une façon si violente qu’elle\\nbaissa la tête en rougissant. Il reprit:\\n\\n— Emma...\\n\\n— Monsieur! fit-elle en s’écartant un peu.\\n\\n— Ah! vous voyez bien, répliqua-t-il d’une voix mélancolique, que\\nj’avais raison de vouloir ne pas revenir; car ce nom, ce nom qui\\nremplit mon âme et qui m’est échappé, vous me l’interdisez! Madame\\nBovary!... Eh! tout le monde vous appelle comme cela!... Ce n’est pas\\nvotre nom, d’ailleurs; c’est le nom d’un autre!\\n\\nIl répéta:\\n\\n— D’un autre!\\n\\nEt il se cacha la figure entre les mains.\\n\\n— Oui, je pense à vous continuellement!... Votre souvenir me désespère!\\nAh! pardon!... Je vous quitte... Adieu!... J’irai loin..., si\\nloin, que vous n’entendrez plus parler de moi!... Et cependant...,\\naujourd’hui..., je ne sais quelle force encore m’a poussé vers vous!\\nCar on ne lutte pas contre le ciel, on ne résiste point au sourire des\\nanges! On se laisse entraîner par ce qui est beau, charmant, adorable!\\n\\nC’était la première fois qu’Emma s’entendait dire ces choses; et son\\norgueil, comme quelqu’un qui se délasse dans une étuve, s’étirait\\nmollement et tout entier à la chaleur de ce langage.\\n\\n— Mais, si je ne suis pas venu, continua-t-il, si je n’ai pu vous voir,\\nah! du moins j’ai bien contemplé ce qui vous entoure. La nuit, toutes\\nles nuits, je me relevais, j’arrivais jusqu’ici, je regardais votre\\nmaison, le toit qui brillait sous la lune, les arbres du jardin qui\\nse balançaient à votre fenêtre, et une petite lampe, une lueur, qui\\nbrillait à travers les carreaux, dans l’ombre. Ah! vous ne saviez guère\\nqu’il y avait là, si près et si loin, un pauvre misérable...\\n\\nElle se tourna vers lui avec un sanglot.\\n\\n— Oh! vous êtes bon! dit-elle.\\n\\n— Non, je vous aime, voilà tout! Vous n’en doutez pas! Dites-le-moi; un\\nmot! un seul mot!\\n\\nEt Rodolphe, insensiblement, se laissa glisser du tabouret jusqu’à\\nterre; mais on entendit un bruit de sabots dans la cuisine, et la porte\\nde la salle, il s’en aperçut, n’était pas fermée.\\n\\n— Que vous seriez charitable, poursuivit-il en se relevant, de\\nsatisfaire une fantaisie!\\n\\nC’était de visiter sa maison; il désirait la connaître; et, madame\\nBovary n’y voyant point d’inconvénient, ils se levaient tous les deux,\\nquand Charles entra.\\n\\n— Bonjour, docteur, lui dit Rodolphe.\\n\\nLe médecin, flatté de ce titre inattendu, se répandit en obséquiosités,\\net l’autre en profita pour se remettre un peu.\\n\\n— Madame m’entretenait, fit-il donc, de sa santé...\\n\\nCharles l’interrompit: il avait mille inquiétudes, en effet; les\\noppressions de sa femme recommençaient. Alors Rodolphe demanda si\\nl’exercice du cheval ne serait pas bon.\\n\\n— Certes! excellent, parfait!... Voilà une idée! Tu devrais la suivre.\\n\\nEt, comme elle objectait qu’elle n’avait point de cheval, M. Rodolphe\\nen offrit un; elle refusa ses offres; il n’insista pas; puis, afin de\\nmotiver sa visite, il conta que son charretier, l’homme à la saignée,\\néprouvait toujours des étourdissements.\\n\\n— J’y passerai, dit Bovary.\\n\\n— Non, non, je vous l’enverrai; nous viendrons, ce sera plus commode\\npour vous.\\n\\n— Ah! fort bien. Je vous remercie.\\n\\nEt, dès qu’ils furent seuls:\\n\\n— Pourquoi n’acceptes-tu pas les propositions de M. Boulanger, qui sont\\nsi gracieuses?\\n\\nElle prit un air boudeur, chercha mille excuses, et déclara finalement\\nque cela peut-être semblerait drôle.\\n\\n— Ah! je m’en moque pas mal! dit Charles en faisant une pirouette. La\\nsanté avant tout! Tu as tort!\\n\\n— Eh! comment veux-tu que je monte à cheval, puisque je n’ai pas\\nd’amazone?\\n\\n— Il faut t’en commander une! répondit-il.\\n\\nL’amazone la décida.\\n\\nQuand le costume fut prêt, Charles écrivit à M. Boulanger que sa femme\\nétait à sa disposition, et qu’ils comptaient sur sa complaisance.\\n\\nLe lendemain, à midi, Rodolphe arriva devant la porte de Charles avec\\ndeux chevaux de maître. L’un portait des pompons roses aux oreilles et\\nune selle de femme en peau de daim.\\n\\nRodolphe avait mis de longues bottes molles, se disant que sans doute\\nelle n’en avait jamais vu de pareilles; en effet, Emma fut charmée\\nde sa tournure, lorsqu’il apparut sur le palier avec son grand habit\\nde velours et sa culotte de tricot blanc. Elle était prête, elle\\nl’attendait.\\n\\nJustin s’échappa de la pharmacie pour la voir, et l’apothicaire aussi\\nse dérangea. Il faisait à M. Boulanger des recommandations:\\n\\n— Un malheur arrive si vite! Prenez garde! Vos chevaux peut-être sont\\nfougueux!\\n\\nElle entendit du bruit au-dessus de sa tête: c’était Félicité qui\\ntambourinait contre les carreaux pour divertir la petite Berthe.\\nL’enfant envoya de loin un baiser; sa mère lui répondit d’un signe avec\\nle pommeau de sa cravache.\\n\\n— Bonne promenade! cria M. Homais. De la prudence, surtout! de la\\nprudence!\\n\\nEt il agita son journal en les regardant s’éloigner.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"And he added: “The only thing remarked there was the absence of the clergy. No doubt the sacristies understand progress in a different way. As you please, gentlemen of Loyola!”\\n\\nIX\\n\\nSix weeks passed. Rodolphe did not return. One evening, at last, he appeared.\\n\\nThe day after the agricultural show, he had said to himself:\\n\\n“Let us not go back too soon; that would be a mistake.”\\n\\nAnd, at the end of the week, he had gone hunting. After the hunt, he had thought that it was too late; then he reasoned as follows:\\n\\n“But if she loved me from the very first day, her impatience to see me again must make her love me more. So let us keep it up!”\\n\\nAnd he realized that his calculation had been correct when, upon entering the room, he saw Emma turn pale.\\n\\nShe was alone. Daylight was fading. The little muslin curtains along the windowpanes deepened the twilight, and the gilding of the barometer, struck by a ray of sunlight, spread gleams in the mirror between the jagged outlines of the coral.\\n\\nRodolphe remained standing, and Emma barely answered his first polite remarks.\\n\\n“As for me,” he said, “I had business to attend to. I was ill.”\\n\\n“Seriously?” she cried.\\n\\n“Well, no!” said Rodolphe, sitting down beside her on a stool. “The truth is, I did not want to come back.”\\n\\n“Why?”\\n\\n“Can’t you guess?”\\n\\nHe looked at her once more, but with such intensity that she lowered her head, blushing. He continued:\\n\\n“Emma...”\\n\\n“Sir!” she said, drawing slightly away.\\n\\n“Ah! You see,” he replied in a melancholy voice, “that I was right to wish not to return; for that name, that name which fills my soul and which escaped my lips, you forbid me to use! Madame Bovary!... Why, everyone calls you that!... Besides, it is not your name; it is another man’s name!”\\n\\nHe repeated:\\n\\n“Another man’s!”\\n\\nAnd he hid his face in his hands.\\n\\n“Yes, I think of you continually!... The memory of you drives me to despair! Ah, forgive me!... I shall leave you... Farewell!... I shall go far away..., so far that you will never hear of me again!... And yet..., today..., I do not know what force drove me toward you once more! For one does not struggle against heaven, one cannot resist the smile of angels! One lets oneself be carried away by what is beautiful, charming, adorable!”\\n\\nIt was the first time Emma had heard such things said to her; and her pride, like someone relaxing in a steam bath, stretched languidly and fully in the warmth of this language.\\n\\n“But if I did not come,” he continued, “if I could not see you, ah! at least I gazed long upon everything around you. At night, every night, I would rise again, come as far as here, look at your house, the roof shining beneath the moon, the trees in the garden swaying by your window, and a little lamp, a gleam, shining through the panes in the darkness. Ah! Little did you know that there, so near and so far away, was a poor wretch...”\\n\\nShe turned toward him with a sob.\\n\\n“Oh! You are kind!” she said.\\n\\n“No, I love you, that is all! You do not doubt it! Tell me so; one word! Just one word!”\\n\\nAnd Rodolphe, imperceptibly, let himself slide from the stool to the floor; but the clatter of wooden shoes was heard in the kitchen, and he noticed that the door to the room was not closed.\\n\\n“How charitable it would be of you,” he continued, rising again, “to gratify a whim of mine!”\\n\\nIt was to visit her house; he wanted to become acquainted with it; and, Madame Bovary seeing no objection, they were both getting up when Charles came in.\\n\\n“Good day, doctor,” Rodolphe said to him.\\n\\nThe physician, flattered by this unexpected title, poured forth obsequious courtesies, and the other man took advantage of them to recover his composure a little.\\n\\n“Madame was speaking to me,” he then said, “about her health...”\\n\\nCharles interrupted him: he did indeed have a thousand worries; his wife’s shortness of breath was returning. Rodolphe then asked whether horseback exercise might not be good for her.\\n\\n“Certainly! Excellent, perfect!... There’s an idea! You ought to follow it.”\\n\\nAnd when she objected that she had no horse, Monsieur Rodolphe offered her one; she declined his offer; he did not insist. Then, to provide a reason for his visit, he related that his carter, the man who had been bled, was still suffering from dizzy spells.\\n\\n“I’ll stop by,” said Bovary.\\n\\n“No, no, I’ll send him to you; we’ll come; that will be more convenient for you.”\\n\\n“Ah! Very good. Thank you.”\\n\\nAnd as soon as they were alone:\\n\\n“Why don’t you accept Monsieur Boulanger’s proposals, which are so gracious?”\\n\\nShe put on a sulky expression, found a thousand excuses, and finally declared that perhaps it would look odd.\\n\\n“Oh, I don’t care in the least!” said Charles, executing a pirouette. “Health before everything! You are wrong!”\\n\\n“Oh! How do you expect me to ride when I have no riding habit?”\\n\\n“You must order one!” he replied.\\n\\nThe riding habit decided her.\\n\\nWhen the outfit was ready, Charles wrote to Monsieur Boulanger that his wife was at his disposal and that they were counting on his obligingness.\\n\\nThe next day at noon, Rodolphe arrived before Charles’s door with two saddle horses. One wore pink pom-poms on its ears and a ladies’ doeskin saddle.\\n\\nRodolphe had put on long, soft boots, telling himself that she had probably never seen any like them; and indeed Emma was delighted by his appearance when he came onto the landing in his long velvet coat and white knitted breeches. She was ready; she was waiting for him.\\n\\nJustin slipped out of the pharmacy to see her, and the apothecary also left his work. He gave Monsieur Boulanger recommendations:\\n\\n“An accident happens so quickly! Take care! Perhaps your horses are spirited!”\\n\\nShe heard a noise above her head: it was Félicité drumming on the windowpanes to amuse little Berthe. The child blew her a kiss from afar; her mother answered with a gesture made with the knob of her riding crop.\\n\\n“Have a pleasant ride!” Monsieur Homais cried. “Be careful, above all! Be careful!”\\n\\nAnd he waved his newspaper as he watched them ride away.\", \"source_occurrence_id\": \"flaubert-madame-bovary-75e4f690ef36a899\", \"source_language\": \"fr\", \"source_language_text_sha256\": \"4f78c8954cbe43a4a49141da86277d66718230fa19368f8c19bbe32ea04c24a5\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T10:36:19.071369+00:00\", \"model_usage\": {\"input_tokens\": 1992, \"cached_input_tokens\": 0, \"output_tokens\": 1856}, \"estimated_cost_usd\": 0.045088, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"flaubert-madame-bovary\", \"title\": \"Madame Bovary\", \"author\": \"Gustave Flaubert\", \"language\": \"fr\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.446283, \"source_start\": 313772, \"source_end\": 313784, \"source_length\": 703078}, \"form\": {\"form_family\": \"present_or_imperfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": \"optional\", \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"fr_present_past\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 1.0, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"stendhal-le-rouge-et-le-noir-0d87fb630a2ab1a5\", \"SOURCE_TEXT\": {\"exact_match\": \"je t'aime\", \"local_text\": {\"context_start\": 232453, \"context_end\": 233005, \"text\": \"Ne m'aimes-tu pas, es-tu las de mes folies, de mes remords, impie?\\nVeux-tu me perdre? je t'en donne un moyen facile. Va, montre cette lettre\\ndans tout Verrières ou plutôt montre-la au seul M. Valenod. Dis-lui que\\nje t'aime; mais non, ne prononce pas un tel blasphème; dis-lui que je\\nt'adore, que la vie n'a commencé pour moi que le jour où je t'ai vu; que\\ndans les moments les plus fous de ma jeunesse, je n'avais jamais même\\nrêvé le bonheur que je te dois; que je t'ai sacrifié ma vie, que je te\\nsacrifie mon âme. Tu sais que je te sacrifie bien plus.\"}, \"wider_canonical_context\": {\"context_start\": 229424, \"context_end\": 235880, \"text\": \"Cette femme la plus distinguée du pays, que pendant six ans il avait\\nenvironnée de tant de soins, et malheureusement au vu et au su de tout\\nle monde; cette femme si fière, dont les dédains l'avaient tant de fois\\nfait rougir, elle venait de prendre pour amant un petit ouvrier déguisé\\nen précepteur. Et afin que rien ne manquât au dépit de M. le directeur\\ndu dépôt, Mme de Rênal adorait cet amant.\\n\\n--Et ajoutait la femme de chambre avec un soupir, M. Julien ne s'est\\npoint donné de peine pour faire cette conquête, il n'est point sorti\\npour madame de sa froideur habituelle.\\n\\nÉlisa n'avait eu des certitudes qu'à la campagne, mais elle croyait que\\ncette intrigue datait de bien plus loin.\\n\\n--C'est sans doute pour cela, ajouta-t-elle avec dépit, que dans le\\ntemps il a refusé de m'épouser. Et moi imbécile, qui allais consulter\\nMme de Rênal! qui là priais de parler au précepteur!\\n\\nDès le même soir, M. de Rênal reçut de la ville, avec son journal, une\\nlongue lettre anonyme qui lui apprenait dans le plus grand détail ce qui\\nse passait chez lui. Julien le vit pâlir en lisant cette lettre écrite\\nsur du papier bleuâtre, et jeter sur lui des regards méchants. De toute\\nla soirée, le maire ne se remit point de son trouble; ce fut en vain que\\nJulien lui fit la cour en lui demandant des explications sur la\\ngénéalogie des meilleures familles de la Bourgogne.\\n\\n\\n\\n\\nCHAPITRE XX\\n\\nLES LETTRES ANONYMES\\n\\n    Do not give dalliance\\n    Too much the rein; the strongest oaths are straw\\n    To the fire i' the blood.\\n\\n    TEMPEST.\\n\\n\\nComme on quittait le salon sur le minuit, Julien eut le temps de dire à\\nson amie:\\n\\n--Ne nous voyons pas ce soir, votre mari a des soupçons; je jurerais que\\ncette grande lettre qu'il lisait en soupirant est une lettre anonyme.\\n\\nPar bonheur Julien se fermait à clef dans sa chambre. Mme de Rênal eut\\nla folle idée que cet avertissement n'était qu'un prétexte pour ne pas\\nla voir. Elle perdit la tête absolument, et à l'heure ordinaire vint à\\nsa porte. Julien qui entendit du bruit dans le corridor souffla sa lampe\\nà l'instant. On faisait des efforts pour ouvrir sa porte était-ce Mme de\\nRênal était-ce un mari jaloux?\\n\\nLe lendemain de fort bonne heure, la cuisinière qui protégeait Julien\\nlui apporta un livre sur la couverture duquel il lut ces mots écrits en\\nitalien: _Guardate alla pagina 130_.\\n\\nJulien frémit de l'imprudence, chercha la page cent trente et y trouva\\nattachée, avec une épingle, la lettre suivante écrite à la hâte, baignée\\nde larmes et sans la moindre orthographe. Ordinairement Mme de Rênal la\\nmettait fort bien il fut touché de ce détail et oublia un peu\\nl'imprudence effroyable.\\n\\nTu n'as pas voulu me recevoir cette nuit? Il est des moments où je crois\\nn'avoir jamais lu jusqu'au fond de ton âme. Tes regards m'effrayent.\\nJ'ai peur de toi. Grand Dieu! ne m'aurais-tu jamais aimée? En ce cas,\\nque mon mari découvre nos amours, et qu'il m'enferme dans une éternelle\\nprison, à la campagne, loin de mes enfants. Peut-être Dieu le veut\\nainsi. Je mourrai bientôt. Mais tu seras un monstre.\\n\\nNe m'aimes-tu pas, es-tu las de mes folies, de mes remords, impie?\\nVeux-tu me perdre? je t'en donne un moyen facile. Va, montre cette lettre\\ndans tout Verrières ou plutôt montre-la au seul M. Valenod. Dis-lui que\\nje t'aime; mais non, ne prononce pas un tel blasphème; dis-lui que je\\nt'adore, que la vie n'a commencé pour moi que le jour où je t'ai vu; que\\ndans les moments les plus fous de ma jeunesse, je n'avais jamais même\\nrêvé le bonheur que je te dois; que je t'ai sacrifié ma vie, que je te\\nsacrifie mon âme. Tu sais que je te sacrifie bien plus.\\n\\nMais se connaît-il en sacrifices, cet homme? Dis-lui, dis-lui pour\\nl'irriter, que je brave tous les méchants, et qu'il n'est plus au monde\\nqu'un malheur pour moi, celui de voir changer le seul homme qui me\\nretienne à la vie. Quel bonheur pour moi de la perdre, de l'offrir en\\nsacrifice, et de ne plus craindre pour mes enfants!\\n\\nN'en doute pas cher ami, s'il y a une lettre anonyme, elle vient de cet\\nêtre odieux qui, pendant six ans, m'a poursuivie de sa grosse voix, du\\nrécit de ses sauts à cheval, de sa fatuité, et de l'énumération\\néternelle de tous ses avantages.\\n\\nY a-t-il une lettre anonyme? méchant, voilà ce que je voulais discuter\\navec toi; mais non, tu as bien fait. Te serrant dans mes bras, peut-être\\npour la dernière fois jamais je n'aurais pu discuter froidement, comme\\nje fais étant seule. De ce moment, notre bonheur ne sera plus aussi\\nfacile. Sera-ce une contrariété pour vous? Oui les jours où vous n'aurez\\npas reçu de M. Fouqué quelque livre amusant. Le sacrifice est fait;\\ndemain, qu'il y ait ou qu'il n'y ait pas de lettre anonyme, moi aussi je\\ndirai à mon mari que j'ai reçu une lettre anonyme et qu'il faut à\\nl'instant te faire un pont d'or, trouver quelque prétexte honnête, et\\nsans délai te renvoyer à tes parents.\\n\\nHélas, cher ami, nous allons être séparés quinze jours, un mois\\npeut-être! Va, je te rends justice, tu souffriras autant que moi. Mais\\nenfin voilà le seul moyen de parer l'effet de cette lettre anonyme; ce\\nn'est pas la première que mon mari ait reçue, et sur mon compte encore.\\nHélas! combien j'en riais!\\n\\nTout le but de ma conduite, c'est de faire penser à mon mari que la\\nlettre vient de M. Valenod; je ne doute pas qu'il n'en soit l'auteur. Si\\ntu quittes la maison, ne manque pas d'aller t'établir à Verrières. Je\\nferai en sorte que mon mari ait l'idée d'y passer quinze jours, pour\\nprouver aux sots qu'il n'y a pas de froid entre lui et moi. Une fois à\\nVerrières, lie-toi d'amitié avec tout le monde, même avec les libéraux.\\nJe sais que toutes ces dames te rechercheront.\\n\\nNe va pas te fâcher avec M. Valenod, ni lui couper les oreilles, comme\\ntu disais un jour; fais-lui au contraire toutes tes bonnes grâces.\\nL'essentiel est que l'on croie à Verrières que tu vas entrer chez le\\nValenod, ou chez tout autre, pour l'éducation des enfants.\\n\\nVoilà ce que mon mari ne souffrira jamais. Dût-il s'y résoudre, eh bien!\\nau moins tu habiteras Verrières, et je te verrai quelquefois. Mes\\nenfants qui t'aiment tant iront te voir. Grand Dieu! je sens que j'aime\\nmieux mes enfants, parce qu'ils t'aiment. Quel remords! comment tout\\nceci finira-t-il?... Je m'égare... Enfin tu comprends ta conduite; sois\\ndoux, poli, point méprisant avec ces grossiers personnages, je te le\\ndemande à genoux: ils vont être les arbitres de notre sort. Ne doute pas\\nun instant que mon mari ne se conforme à ton égard à ce que lui\\nprescrira l'opinion publique.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"This woman, the most distinguished in the region, whom for six years he had surrounded with so many attentions, and unfortunately in full view and with the full knowledge of everyone; this proud woman, whose disdain had so often made him blush, had just taken as her lover a little workman disguised as a tutor. And so that nothing might be lacking to the vexation of the director of the poorhouse, Madame de Rênal adored this lover.\\n\\n“And,” the chambermaid added with a sigh, “Monsieur Julien took no trouble at all to make this conquest; for Madame he did not depart from his customary coldness.”\\n\\nÉlisa had obtained certainty only in the country, but she believed that this intrigue dated from much further back.\\n\\n“That is no doubt why,” she added spitefully, “he refused at the time to marry me. And I, fool that I was, went to consult Madame de Rênal! went to beg her to speak to the tutor!”\\n\\nThat very evening, Monsieur de Rênal received from town, along with his newspaper, a long anonymous letter informing him in the greatest detail of what was going on in his own house. Julien saw him turn pale as he read this letter, written on bluish paper, and cast malicious glances at him. Throughout the evening, the mayor did not recover from his agitation; in vain did Julien court his favor by asking him for explanations concerning the genealogy of the finest families of Burgundy.\\n\\n\\n\\n\\nCHAPTER XX\\n\\nTHE ANONYMOUS LETTERS\\n\\n    Do not give dalliance\\n    Too much the rein; the strongest oaths are straw\\n    To the fire i’ the blood.\\n\\n    TEMPEST.\\n\\n\\nAs they were leaving the drawing room around midnight, Julien had time to say to his beloved:\\n\\n“Let us not see each other tonight; your husband has suspicions. I would swear that the large letter he was reading with sighs is an anonymous letter.”\\n\\nFortunately, Julien locked himself into his room. Madame de Rênal conceived the mad idea that this warning was merely a pretext for not seeing her. She lost her head completely and came to his door at the usual hour. Julien, who heard a noise in the corridor, instantly blew out his lamp. Someone was trying to open his door: was it Madame de Rênal, was it a jealous husband?\\n\\nVery early the next morning, the cook, who protected Julien, brought him a book on the cover of which he read these words written in Italian: Look at page 130.\\n\\nJulien shuddered at the imprudence, looked for page one hundred and thirty, and found pinned to it the following letter, written in haste, bathed in tears, and without the slightest regard for spelling. Ordinarily Madame de Rênal spelled very well; he was touched by this detail and partly forgot the appalling imprudence.\\n\\nThou wouldst not receive me last night? There are moments when I believe that I have never read to the depths of thy soul. Thy looks frighten me. I am afraid of thee. Great God! can it be that thou hast never loved me? In that case, let my husband discover our love, and let him shut me up in an eternal prison, in the country, far from my children. Perhaps God wills it so. I shall soon die. But thou wilt be a monster.\\n\\nDost thou not love me, art thou weary of my follies, of my remorse, impious man? Dost thou wish to ruin me? I give thee an easy means of doing so. Go, show this letter throughout Verrières, or rather show it to Monsieur Valenod alone. Tell him that I love thee; but no, do not utter such blasphemy; tell him that I adore thee, that life began for me only on the day when I saw thee; that in the maddest moments of my youth, I had never even dreamed of the happiness I owe thee; that I have sacrificed my life to thee, that I sacrifice my soul to thee. Thou knowest that I sacrifice far more to thee.\\n\\nBut does that man know anything of sacrifices? Tell him, tell him, to enrage him, that I defy all wicked men, and that there is now only one misfortune in the world for me: to see the only man who keeps me alive change. What happiness it would be for me to lose my life, to offer it in sacrifice, and no longer to fear for my children!\\n\\nDo not doubt it, dear friend: if there is an anonymous letter, it comes from that odious creature who, for six years, has pursued me with his booming voice, the account of his feats on horseback, his conceit, and the endless enumeration of all his advantages.\\n\\nIs there an anonymous letter? Wretch, that is what I wished to discuss with thee; but no, thou didst well. Holding thee in my arms, perhaps for the last time ever, I could never have discussed matters coldly, as I do when alone. From this moment on, our happiness will no longer be so easy. Will that be an annoyance to you? Yes, on the days when you have not received some amusing book from Monsieur Fouqué. The sacrifice is made; tomorrow, whether or not there is an anonymous letter, I too shall tell my husband that I have received an anonymous letter and that he must at once build thee a golden bridge, find some honorable pretext, and send thee back to thy parents without delay.\\n\\nAlas, dear friend, we are going to be separated for a fortnight, perhaps a month! Come, I do thee justice, thou wilt suffer as much as I. But after all, this is the only way to counteract the effect of that anonymous letter; it is not the first my husband has received, and about me, too. Alas! how I used to laugh at them!\\n\\nThe entire purpose of my conduct is to make my husband think that the letter comes from Monsieur Valenod; I do not doubt that he is its author. If thou leavest the house, do not fail to settle in Verrières. I shall arrange matters so that my husband conceives the idea of spending a fortnight there, to prove to the fools that there is no coolness between him and me. Once in Verrières, make friends with everyone, even with the liberals. I know that all those ladies will seek thy company.\\n\\nDo not go and quarrel with Monsieur Valenod, nor cut off his ears, as thou saidst one day; on the contrary, show him all thy charm. The essential thing is that people in Verrières should believe that thou art going to enter the Valenod household, or some other, to educate the children.\\n\\nThat is something my husband will never tolerate. Even if he should resign himself to it, well! at least thou wilt live in Verrières, and I shall see thee sometimes. My children, who love thee so much, will go to see thee. Great God! I feel that I love my children more because they love thee. What remorse! How will all this end?… I am wandering… At any rate, thou understandest how thou must conduct thyself; be gentle, polite, not disdainful with those coarse people, I beg it of thee on my knees: they are going to be the arbiters of our fate. Do not doubt for an instant that my husband will act toward thee as public opinion dictates to him.\", \"source_occurrence_id\": \"stendhal-le-rouge-et-le-noir-0d87fb630a2ab1a5\", \"source_language\": \"fr\", \"source_language_text_sha256\": \"3fb88c399d6b53b2470c4ab08519d5110df2d67b0e0dacaa07306832793d5d27\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T11:34:13.735664+00:00\", \"model_usage\": {\"input_tokens\": 2044, \"cached_input_tokens\": 0, \"output_tokens\": 2302}, \"estimated_cost_usd\": 0.054216, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"stendhal-le-rouge-et-le-noir\", \"title\": \"Le Rouge et le Noir\", \"author\": \"Stendhal\", \"language\": \"fr\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": \"CHAPITRE XX\", \"relative_position\": 0.230727, \"source_start\": 232666, \"source_end\": 232675, \"source_length\": 1008402}, \"form\": {\"form_family\": \"present_or_imperfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": \"optional\", \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"fr_present_past\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 1.0, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

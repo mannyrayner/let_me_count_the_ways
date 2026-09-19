@@ -1,0 +1,72 @@
+{
+  "occurrence_id": "bronte-jane-eyre-47ba1ddeb48659a8",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 3,
+      "performative": 4,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.96,
+    "analysis": "The imagined words avow Jane’s enduring love and, especially through “will” and the coordinated promise to live with Rochester “till death,” formulate a lifelong relational undertaking. They are consciously contemplated rather than produced as an expressive or reflex-like discharge.",
+    "ambiguity": "The future form combines prediction or avowal of continuing emotion with a promise-like commitment, so the relative weight of T and P is somewhat open; P is nevertheless dominant."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "imagined",
+    "description": "Jane silently imagines going into Rochester’s room and saying these words, but deliberately refrains from doing so."
+  },
+  "contextual_interpretation": "Jane imagines declaring enduring love and committing to lifelong cohabitation with Rochester as the tempting alternative to leaving Thornfield. The anticipated “fount of rapture” indicates intense emotional consequences, but not independent expressive/reflexive force: she explicitly considers the speech as a possible deliberate action and then rejects it on principle.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "“Mr. Rochester, I will love you and live with you through life till death”",
+      "supports": "The future-oriented avowal supports T, while the promise of lifelong shared life strongly supports P.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "“I had but to go in and to say—” followed by “I thought of this.”",
+      "supports": "Establishes that the utterance is imagined and consciously contemplated, not actually spoken or reflexively blurted.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "“a fount of rapture would spring to my lips”",
+      "supports": "Shows anticipated emotional intensity but describes what would follow the deliberate declaration; it does not independently establish E.",
+      "confidence": 0.95
+    },
+    {
+      "evidence_id": "e4",
+      "source": "local_text",
+      "quotation_or_description": "“My hand moved towards the lock: I caught it back, and glided on.”",
+      "supports": "Confirms that Jane resists enacting the contemplated relational undertaking.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e5",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The form is identified as affirmative future (“en_future”).",
+      "supports": "Corroborates the future-oriented, commitment-compatible grammatical form.",
+      "confidence": 0.98
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T and P naturally capture the imagined avowal and lifelong undertaking; emotional intensity and temptation are contextual features, with no residual core force requiring E or O.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

@@ -1,0 +1,65 @@
+{
+  "occurrence_id": "stendhal-le-rouge-et-le-noir-18c467d378bda03b",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.96,
+    "analysis": "The embedded clause “je t’aime” presents Madame de Rênal’s love for Julien as true; her question concerns whether she loves him enough, not whether she loves him at all. The question makes no distinct commitment or relational undertaking. Although emotionally exclaimed, it is an intense request for reassurance about an avowed state, with no independent evidence that the words are a reflex-like expressive discharge.",
+    "ambiguity": "The interrogative form somewhat indirectly conveys the avowal, but its presupposition of love is strong. The exclamatory reporting verb indicates intensity without independently supporting E."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "Narratively represented recurring direct speech by Madame de Rênal; the equivalent of “I love you” is embedded in her question “Trouves-tu que je t’aime assez?”"
+  },
+  "contextual_interpretation": "Madame de Rênal asks Julien whether he finds that she loves him enough amid an adulterous relationship marked by devotion, sacrifice, remorse, and fear of damnation. Julien’s wounded pride requires visible sacrificial proof of her love, so the question seeks reassurance that her love is sufficiently demonstrated. The surrounding passion and the verb “s’écriait-elle” intensify the avowal but do not turn it into an independently reflexive expression or a commitment.",
+  "evidence": [
+    {
+      "evidence_id": "ev1",
+      "source": "local_text",
+      "quotation_or_description": "“Mais toi, du moins, mon Julien, s’écriait-elle dans d’autres moments, es-tu heureux? Trouves-tu que je t’aime assez?”",
+      "supports": "The embedded proposition presents her love as given while asking about its sufficiency, strongly supporting T; the iterative framing identifies a recurring direct utterance.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "ev2",
+      "source": "local_text",
+      "quotation_or_description": "“La méfiance et l’orgueil souffrant de Julien qui avait surtout besoin d’un amour à sacrifices, ne tinrent pas devant la vue d’un sacrifice si grand...”",
+      "supports": "Explains the pragmatic point of the question as reassurance and proof for Julien rather than a new relational undertaking.",
+      "confidence": 0.97
+    },
+    {
+      "evidence_id": "ev3",
+      "source": "local_text",
+      "quotation_or_description": "Madame de Rênal says she does not repent and would commit the fault again, despite believing herself damned.",
+      "supports": "Confirms that the avowed love is represented as enduring and sincere within the scene, though sincerity is contextual rather than constitutive of T.",
+      "confidence": 0.96
+    },
+    {
+      "evidence_id": "ev4",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is identified as affirmative present French “je t’aime” in Chapter XIX of Le Rouge et le Noir.",
+      "supports": "Confirms the target wording, grammatical form, and location.",
+      "confidence": 0.99
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the embedded avowal, while the emotional and sacrificial context can be described without assigning independent P, E, or O force.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

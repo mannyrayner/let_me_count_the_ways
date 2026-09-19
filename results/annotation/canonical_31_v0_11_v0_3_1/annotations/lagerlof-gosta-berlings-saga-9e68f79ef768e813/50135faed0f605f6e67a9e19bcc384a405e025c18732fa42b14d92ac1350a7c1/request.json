@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"lagerlof-gosta-berlings-saga-9e68f79ef768e813\", \"SOURCE_TEXT\": {\"exact_match\": \"jag älskade dig\", \"local_text\": {\"context_start\": 581355, \"context_end\": 582401, \"text\": \"- Det är mången, Gösta, som skulle ha velat bli din hustru för\\nkärleks skull, men det är inte så med mig. Om jag älskade dig, skulle\\njag inte våga tala så, som jag nu talar. För min egen del skulle jag\\ninte vilja be om sådant, Gösta, men, ser du, för barnets skull kan jag\\ngöra det. Du förstår säkert redan vad jag ämnar be dig om. Det är nog\\nen stor förnedring för dig, eftersom jag är en ogift kvinna, som har\\nett barn. Jag tänkte inte på att du skulle vilja göra det, därför att\\ndu är sämre än andra, fast jo! jag tänkte också på det. Men mest\\ntänkte jag på att du kunde vilja göra det, därför att du är god,\\nGösta, därför att du är en hjälte och kan uppoffra dig. Men det är\\nkanske för mycket begärt. Sådant är måhända omöjligt för en man. Om du\\nföraktar mig för mycket, om det är dig för motbjudande att nämnas som\\nfar för en annans barn, så säg det bara! Jag ska inte bli ond. Jag\\nförstår nog, att detta är för mycket begärt, men barnet är så sjukt,\\nGösta. Det är så grymt, att man vid hans dop inte ska kunna nämna\\nnamnet på hans mors man.\"}, \"wider_canonical_context\": {\"context_start\": 578458, \"context_end\": 584515, \"text\": \"Hela natten vek sömnen från hennes läger. \\\"Barnet måste ha en far\\\",\\ntänkte hon om och om igen.\\n\\nNästa morgon måste bonden för hennes räkning fara till Ekeby och\\nhämta Gösta Berling.\\n\\nGösta gjorde den tystlåtne mannen många frågor, men fick ingenting\\nveta. Ja, grevinnan hade varit i hans hus hela sommaren. Hon hade\\nvarit frisk och arbetat. Nu var ett barn fött. Barnet var klent, men\\nmodern skulle snart vara frisk igen.\\n\\nGösta frågade om grevinnan visste, att äktenskapet hade blivit\\nupplöst.\\n\\nJa, hon visste det nu. Hon hade fått veta det i går.\\n\\nOch så länge färden varade, hade Gösta ömsom feber och frossa.\\n\\nVad ville hon honom? Varför skickade hon efter honom?\\n\\nHan tänkte på sommarlivet där uppe vid Lövens strand. Med skämt\\noch lek och lustpartier hade de låtit dagarna gå, och under tiden hade\\nhon arbetat och lidit.\\n\\nAldrig hade han tänkt sig möjligheten att få återse henne. Ack, om\\nhan ända hade vågat hoppas! Han skulle då ha trätt fram inför henne\\nsom en bättre man. Vad hade han nu att skåda tillbaka på annat än de\\nvanliga dårskaperna?\\n\\nVid åttatiden på kvällen var han framme och fördes genast in till\\nbarnets mor. Det var skumt i rummet. Han kunde knappast se henne där\\nhon låg. Husmodern och husbonden kommo också in.\\n\\nNu må man veta, att hon, vars vita ansikte lyste emot honom ur\\nskymningen, alltjämt var det högsta och renaste han visste, den\\nskönaste själ, som hade iklätt sig jordiskt stoft. När han nu åter\\nerfor välsignelsen av hennes närvaro, hade han velat kasta sig ner på\\nknä och tacka henne för att hon ånyo uppenbarade sig för honom, men\\nhan var så överväldigad av rörelse, att han ingenting kunde säga eller\\ngöra.\\n\\n- Kära grevinna Elisabet! utropade han blott.\\n\\n- God afton, Gösta!\\n\\nHon räckte honom sin hand, som åter tycktes ha blivit mjuk och\\ngenomskinlig. Hon låg tyst, medan han kämpade med sin rörelse.\\n\\nBarnets mor skakades inte av några häftigt uppstormande känslor,\\nnär hon såg Gösta. Det förvånade henne bara, att han tycktes fästa\\nmesta vikten vid henne, när han väl borde begripa, att det nu endast\\ngällde barnet.\\n\\n- Gösta, sade hon milt, du måste nu hjälpa mig, såsom du en gång\\nlovade. Du vet, att min man har övergivit mig, så att mitt barn inte\\nhar någon far.\\n\\n- Ja, grevinna, men detta måste ju kunna ändras. Nu, när det finns\\nett barn, kan man helt visst tvinga greven att legalisera\\näktenskapet. Var viss på att jag ska hjälpa grevinnan!\\n\\nGrevinnan smålog.\\n\\n- Tror du, att jag vill tvinga mig på greve Dohna?\\n\\nBlodet rusade upp i Göstas huvud. Vad önskade hon då? Vad begärde\\nhon av honom?\\n\\n- Kom hit, Gösta! sade hon och räckte åter ut handen. Du får inte\\nbli ond på mig för vad jag nu säger, men jag tänkte, att du, som är,\\nsom är...\\n\\n- En avsatt präst, en dryckeskämpe, en kavaljer, Ebba Dohnas\\nmördare, jag kan hela meritlistan...\\n\\n- Är du redan ond, Gösta?\\n\\n- Jag ville helst, att grevinnan inte sa något\\nmer.\\n\\nMen barnets mor fortsatte:\\n\\n- Det är mången, Gösta, som skulle ha velat bli din hustru för\\nkärleks skull, men det är inte så med mig. Om jag älskade dig, skulle\\njag inte våga tala så, som jag nu talar. För min egen del skulle jag\\ninte vilja be om sådant, Gösta, men, ser du, för barnets skull kan jag\\ngöra det. Du förstår säkert redan vad jag ämnar be dig om. Det är nog\\nen stor förnedring för dig, eftersom jag är en ogift kvinna, som har\\nett barn. Jag tänkte inte på att du skulle vilja göra det, därför att\\ndu är sämre än andra, fast jo! jag tänkte också på det. Men mest\\ntänkte jag på att du kunde vilja göra det, därför att du är god,\\nGösta, därför att du är en hjälte och kan uppoffra dig. Men det är\\nkanske för mycket begärt. Sådant är måhända omöjligt för en man. Om du\\nföraktar mig för mycket, om det är dig för motbjudande att nämnas som\\nfar för en annans barn, så säg det bara! Jag ska inte bli ond. Jag\\nförstår nog, att detta är för mycket begärt, men barnet är så sjukt,\\nGösta. Det är så grymt, att man vid hans dop inte ska kunna nämna\\nnamnet på hans mors man.\\n\\nHan, som hörde på henne, erfor samma känsla, som när han den där\\nvårdagen måste sätta henne i land och överlämna henne åt sitt öde. Nu\\nmåste han hjälpa henne att förstöra hennes framtid, hela hennes\\nframtid. Han, som älskade henne, måste göra det.\\n\\n- Jag gör allt, vad grevinnan vill, sade han.\\n\\nNästa dag talade han med prosten i Bro, ty Bro är moderförsamling\\ntill Svartsjö, och där måste lysningar uttagas.\\n\\nDen gode gamle prosten blev rörd över hans historia och lovade att\\nta allt ansvaret för giftoman och dylikt på sig.\\n\\nJa, sade han, du måste hjälpa henne, Gösta, det måste du. Hon kunde\\nbli vansinnig eljest. Hon tror sig ha skadat barnet därmed, att hon\\nhar berövat det dess ställning i livet. Hon har ett ytterst ömtåligt\\nsamvete, den kvinnan.\\n\\n- Men jag vet, att jag ska göra henne olycklig, utbrast Gösta.\\n\\n- Det får du sannerligen inte göra, Gösta. Du får bli en sansad man\\nnu, med hustru och barn att sörja för.\\n\\nEmellertid skulle prosten fara ner till Svartsjö och tala med både\\nkomministern och lagmannen. Slutet på allt blev, att nästa söndag, den\\nförsta septemher, lysning avkunnades i Svartsjö mellan Gösta Berling\\noch Elisabet von Thurn.\\n\\nSedan blev barnets mor med den största försiktighet förd till\\nEkeby, och där döptes barnet.\\n\\nProsten talade då med henne och sade henne, att hon ännu kunde\\nåterta sitt beslut att gifta sig med en sådan man som Gösta\\nBerling. Hon borde ju skriva till sin far först.\\n\\n- Jag kan inte ångra mig, sade hon. Tänk, om mitt barn skulle dö,\\ninnan det har fått en far!\\n\\nNär tredje lysningsdagen kom, hade barnets mor redan flera dagar\\nvarit frisk och uppe. På eftermiddagen kom prosten till Ekeby och\\nvigde henne vid Gösta Berling. Men det var ingen, som tänkte på att\\ndetta var ett bröllop. Inga gäster voro bjudna. Man skaffade blott\\nbarnet en far, ingenting annat.\\n\\nBarnets mor strålade i en stilla glädje, som om hon hade nått ett\\nstort mål i livet. Brudgummen var bedrövad. Han tänkte på hur hon\\nkastade bort sin framtid i ett äktenskap med honom. Han märkte med\\nförfäran hur han egentligen knappast fanns till för henne. Alla hennes\\ntankar voro hos barnet.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"All night, sleep fled from her bed. “The child must have a father,” she thought over and over again.\\n\\nThe next morning, the farmer had to go to Ekeby on her behalf and fetch Gösta Berling.\\n\\nGösta asked the taciturn man many questions, but learned nothing. Yes, the Countess had been in his house all summer. She had been well and had worked. Now a child had been born. The child was frail, but the mother would soon be well again.\\n\\nGösta asked whether the Countess knew that the marriage had been dissolved.\\n\\nYes, she knew now. She had learned of it yesterday.\\n\\nAnd for as long as the journey lasted, Gösta alternated between fever and chills.\\n\\nWhat did she want with him? Why had she sent for him?\\n\\nHe thought of their summer life up there on the shore of Löven. With jokes and games and pleasure outings, they had let the days pass, and meanwhile she had worked and suffered.\\n\\nNever had he imagined the possibility of seeing her again. Ah, if only he had dared to hope! Then he would have appeared before her as a better man. What did he now have to look back upon but the usual follies?\\n\\nAt about eight in the evening, he arrived and was taken at once to the child’s mother. It was dim in the room. He could scarcely see her where she lay. The mistress and master of the house also came in.\\n\\nNow it should be known that she, whose white face shone toward him out of the twilight, was still the highest and purest being he knew, the most beautiful soul ever to clothe itself in earthly dust. Now that he once more experienced the blessing of her presence, he would have liked to cast himself down on his knees and thank her for revealing herself to him again, but he was so overwhelmed with emotion that he could neither say nor do anything.\\n\\n“Dear Countess Elisabet!” was all he exclaimed.\\n\\n“Good evening, Gösta!”\\n\\nShe held out her hand to him, which once more seemed to have become soft and translucent. She lay silent while he struggled with his emotion.\\n\\nThe child’s mother was not shaken by any violently surging feelings when she saw Gösta. It merely surprised her that he seemed to attach the greatest importance to her, when he surely ought to understand that now only the child mattered.\\n\\n“Gösta,” she said gently, “you must help me now, as you once promised. You know that my husband has abandoned me, so that my child has no father.”\\n\\n“Yes, Countess, but surely this can be changed. Now that there is a child, the Count can certainly be forced to legalize the marriage. Be assured that I shall help the Countess!”\\n\\nThe Countess smiled faintly.\\n\\n“Do you think I wish to force myself upon Count Dohna?”\\n\\nThe blood rushed to Gösta’s head. Then what did she want? What was she asking of him?\\n\\n“Come here, Gösta!” she said, again holding out her hand. “You must not be angry with me for what I am about to say, but I thought that you, who are, who are…”\\n\\n“A defrocked priest, a hard drinker, a Cavalier, Ebba Dohna’s murderer—I know the whole list of merits…”\\n\\n“Are you angry already, Gösta?”\\n\\n“I would rather the Countess did not say anything more.”\\n\\nBut the child’s mother continued:\\n\\n“There are many women, Gösta, who would have wished to become your wife for love’s sake, but that is not how it is with me. If I loved you, I would not dare speak as I am speaking now. For my own sake, I would not wish to ask such a thing, Gösta, but, you see, for the child’s sake I can do it. You surely understand already what I intend to ask of you. It is no doubt a great humiliation for you, since I am an unmarried woman who has a child. I did not think that you might be willing to do it because you are worse than others—though yes! I thought of that too. But chiefly I thought that you might be willing to do it because you are good, Gösta, because you are a hero and can sacrifice yourself. But perhaps it is asking too much. Such a thing may be impossible for a man. If you despise me too much, if it is too repugnant to you to be named as the father of another man’s child, then just say so! I shall not be angry. I understand that this is asking too much, but the child is so ill, Gösta. It is so cruel that at his baptism the name of his mother’s husband cannot be given.”\\n\\nHe, who listened to her, felt the same as he had on that spring day when he had been compelled to put her ashore and abandon her to her fate. Now he had to help her destroy her future, her entire future. He, who loved her, had to do it.\\n\\n“I will do whatever the Countess wishes,” he said.\\n\\nThe next day, he spoke with the dean in Bro, for Bro is the mother parish of Svartsjö, and the banns had to be taken out there.\\n\\nThe good old dean was moved by his story and promised to take upon himself all responsibility regarding the marriage guardian and the like.\\n\\n“Yes,” he said, “you must help her, Gösta, you must. Otherwise she might go mad. She believes she has harmed the child by depriving him of his position in life. That woman has an exceedingly sensitive conscience.”\\n\\n“But I know that I shall make her unhappy,” Gösta burst out.\\n\\n“You most certainly must not do that, Gösta. You must become a sober-minded man now, with a wife and child to provide for.”\\n\\nMeanwhile, the dean was to go down to Svartsjö and speak with both the curate and the judge. The outcome of it all was that on the following Sunday, the first of September, the banns of marriage between Gösta Berling and Elisabet von Thurn were proclaimed in Svartsjö.\\n\\nThen the child’s mother was conveyed with the greatest care to Ekeby, and there the child was baptized.\\n\\nThe dean then spoke with her and told her that she could still reverse her decision to marry a man such as Gösta Berling. Surely she ought to write to her father first.\\n\\n“I cannot change my mind,” she said. “Suppose my child were to die before he had been given a father!”\\n\\nBy the time the third day of the banns came, the child’s mother had already been well and out of bed for several days. In the afternoon, the dean came to Ekeby and married her to Gösta Berling. But no one thought of this as a wedding. No guests had been invited. They were merely providing the child with a father, nothing else.\\n\\nThe child’s mother shone with a quiet joy, as though she had attained a great goal in life. The bridegroom was sorrowful. He thought of how she was throwing away her future in a marriage to him. With horror, he realized that he scarcely existed for her at all. All her thoughts were with the child.\", \"source_occurrence_id\": \"lagerlof-gosta-berlings-saga-9e68f79ef768e813\", \"source_language\": \"sv\", \"source_language_text_sha256\": \"a40be537f911d228424892be0e04a9adb0524a6ec0463cf9771f5563a929cc60\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T11:02:57.429114+00:00\", \"model_usage\": {\"input_tokens\": 2078, \"cached_input_tokens\": 0, \"output_tokens\": 2338}, \"estimated_cost_usd\": 0.055072, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"lagerlof-gosta-berlings-saga\", \"title\": \"Gösta Berlings saga\", \"author\": \"Selma Lagerlöf\", \"language\": \"sv\", \"source_type\": \"runeberg\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.817921, \"source_start\": 581464, \"source_end\": 581479, \"source_length\": 710905}, \"form\": {\"form_family\": \"present_or_past\", \"polarity\": \"surface_optional_negative\", \"tense_aspect\": \"present\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"sv_main\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

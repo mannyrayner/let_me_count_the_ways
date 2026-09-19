@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"ibsen-et-dukkehjem-730c4a81efa614e1\", \"SOURCE_TEXT\": {\"exact_match\": \"Jeg har elsket deg\", \"local_text\": {\"context_start\": 116521, \"context_end\": 116583, \"text\": \"NORA. Det er sant. Jeg har elsket deg over alt i verdens\\nrike.\"}, \"wider_canonical_context\": {\"context_start\": 113513, \"context_end\": 119597, \"text\": \"HELMER (med brevene i hånden). Se her. Vil du se hvorledes\\ndet har opphopet seg. (blar imellem.) Hva er det for noe?\\n\\nNORA (ved vinduet). Brevet! Å nei, nei, Torvald!\\n\\nHELMER. To visittkort - fra Rank.\\n\\nNORA. Fra doktor Rank?\\n\\nHELMER (ser på dem). Doktor medicinæ Rank. De lå øverst; han\\nmå ha stukket dem inn da han gikk.\\n\\nNORA. Står der noe på den?\\n\\nHELMER. Der står et sort kors over navnet. Se her. Det er\\ndog et uhyggelig påfunn. Det er jo nettopp som han meldte sitt eget\\ndødsfall.\\n\\nNORA. Det gjør han også.\\n\\nHELMER. Hva? Vet du noe? Har han sagt deg noe?\\n\\nNORA. Ja. Når de kort kommer, så har han tatt avskjed med\\noss. Han vil lukke seg inne og dø.\\n\\nHELMER. Min stakkars venn. Jeg visste jo at jeg ikke skulle\\nfå beholde ham lenge. Men så snart -. Og så gjemmer han seg bort som\\net såret dyr.\\n\\nNORA. Når det skal skje, så er det best at det skjer uten\\nord. Ikke sant, Torvald?\\n\\nHELMER (går opp og ned). Han var så sammenvokset med\\noss. Jeg synes ikke jeg kan tenke meg ham borte. Han, med sine\\nlidelser og med sin ensomhet, ga liksom en skyet bakgrunn for vår\\nsollyse lykke. - Nå, det er kanskje best således. For ham\\niallfall. (stanser.) Og måskje også for oss, Nora. Nu er vi to ganske\\nhenvist til hinannen alene. (slår armene om henne.) Å, du min elskede\\nhustru; jeg synes ikke jeg kan holde deg fast nok. Vet du vel, Nora, -\\nmangen gang ønsker jeg at en overhengende fare måtte true deg, for at\\njeg kunne vove liv og blod og alt, for din skyld.\\n\\nNORA (river seg løs og sier sterkt og besluttet). Nu skal du\\nlese dine breve, Torvald.\\n\\nHELMER. Nei, nei, ikke i natt. Jeg vil være hos deg, min\\nelskede hustru.\\n\\nNORA. Med dødstanken på din venn -?\\n\\nHELMER. Du har rett. Dette har rystet oss begge; der er\\nkommet uskjønnhet inn imellem oss; tanker om død og oppløsning. Dette\\nmå vi søke frigjørelse for. Inntil da -. Vil vi gå hver til sitt.\\n\\nNORA (om hans hals). Torvald, - god natt! God natt!\\n\\nHELMER (kysser henne på pannen). God natt, du min lille\\nsangfugl. Sov godt, Nora. Nu leser jeg brevene igjennem. (han går med\\npakken inn i sitt værelse og lukker døren efter seg.)\\n\\nNORA (med forvillede øyne, famler omkring, griper Helmers\\ndomino, slår den omkring seg og hvisker hurtig, hest og avbrutt:)\\nAldri se ham mer. Aldri. Aldri. (kaster sitt sjal over hodet.) Aldri\\nse børnene mer heller. Ikke dem heller. Aldri; aldri. - Å, det iskolde\\nsorte vann. Å, det bunnløse-; dette -. Å, når det bare var over. - Nu\\nhar han det; nu leser han det. Å nei, nei; ikke ennu. Torvald, farvel\\ndu og børnene -\\n\\n(Hun vil styrte ut gjennem forstuen; i det samme river\\nHelmer sin dør opp og står der med et åpnet brev i\\nhånden.)\\n\\nHELMER. Nora!\\n\\nNORA (skriker høyt). Ah -!\\n\\nHELMER. Hva er det? Vet du hva der står i dette brev?\\n\\nNORA. Ja, jeg vet det. La meg gå! La meg komme ut!\\n\\nHELMER (holder henne tilbake). Hvor vil du hen?\\n\\nNORA (prøver å rive seg løs). Du skal ikke redde meg, Torvald!\\n\\nHELMER (tumler tilbake). Sant! Er det sant hva han skriver?\\nForferdelig! Nei, nei; det er jo umulig at dette kan være sant.\\n\\nNORA. Det er sant. Jeg har elsket deg over alt i verdens\\nrike.\\n\\nHELMER. Å kom ikke her med tåpelige utflukter.\\n\\nNORA (et skritt imot ham). Torvald -!\\n\\nHELMER. Du ulykksalige, - hva er det du har foretatt deg!\\n\\nNORA. La meg komme bort. Du skal ikke bære det for min\\nskyld. Du skal ikke ta det på deg.\\n\\nHELMER. Ikke noe komediespill. (låser forstuedøren av.) Her\\nblir du og står meg til regnskap. Forstår du hva du har gjort? Svar\\nmeg! Forstår du det?\\n\\nNORA (ser ufravendt på ham og sier med et stivnende\\nuttrykk:) Ja, nu begynner jeg å forstå det til bunns.\\n\\nHELMER (går omkring på gulvet). Å hvor forferdelig jeg er\\nvåknet opp. I alle disse åtte år, - hun som var min lyst og stolthet,\\n- en hyklerske, en løgnerske, - verre, verre, -en forbryterske! - Å,\\ndenne bunnløse heslighet, som ligger i alt dette! Fy, fy!\\n\\nNORA (tier og ser fremdeles ufravendt på ham).\\n\\nHELMER (stanser foran henne). Jeg burde ha anet at noe slikt\\nville skje. Jeg burde ha forutsett det. Alle din fars lettsindige\\ngrunnsetninger. - Ti! Alle din fars lettsindige grunnsetninger har du\\ntatt i arv. Ingen religion, ingen moral, ingen pliktfølelse -. Å, hvor\\njeg er blitt straffet for at jeg så igjennem fingrene med ham. For din\\nskyld gjorde jeg det; og således lønner du meg.\\n\\nNORA. Ja, således.\\n\\nHELMER. Nu har du ødelagt hele min lykke. Hele min fremtid\\nhar du forspilt for meg. Å, det er forferdelig å tenke på. Jeg er i et\\nsamvittighetsløst menneskes vold; han kan gjøre med meg hva han vil,\\nforlange av meg hva det skal være, byde og befale over meg som det\\nlyster ham; - jeg tør ikke kny. Og så jammerlig må jeg synke ned og gå\\ntil grunne for en lettsindig kvinnes skyld!\\n\\nNORA. Når jeg er ute av verden, så er du fri.\\n\\nHELMER. Å ingen fakter. Slike talemåter hadde din far også\\npå rede hånd. Hva ville det nytte meg at du var ute av verden, som du\\nsier? Ikke det ringeste ville det nytte meg. Han kan gjøre saken\\nbekjent allikevel; og gjør han det, så blir jeg kanskje mistenkt for å\\nha vært vitende om din forbryterske handling. Man vil kanskje tro at\\njeg har stått bakved, - at det er meg som har tilskyndet deg! Og alt\\ndette kan jeg takke deg for, deg, som jeg har båret på hendene gjennem\\nhele vårt ekteskap. Forstår du nu hva du har gjort imot meg?\\n\\nNORA (med kold ro). Ja.\\n\\nHELMER. Dette er så utrolig at jeg ikke kan fastholde\\ndet. Men vi må se å komme til rette. Ta sjalet av. Ta det av, sier\\njeg! Jeg må se å tilfredsstille ham på en eller annen måte. Saken må\\ndysses ned for enhver pris. - Og hva deg og meg angår, så må det se ut\\nsom om alt var imellem oss liksom før. Men naturligvis kun for verdens\\nøyne. Du blir altså fremdeles her i huset; det er en selvfølge. Men\\nbørnene får du ikke lov til å oppdra; dem tør jeg ikke betro deg -. Å,\\nå måtte si dette til henne som jeg har elsket så høyt, og som jeg ennu\\n-! Nå, det må være forbi. Her efter dags gjelder det ikke lenger\\nlykken; det gjelder bare å redde restene, stumpene, skinnet. (det\\nringer på entréklokken.)\\n\\nHELMER (farer sammen). Hva er det? Så sent. Skulle det\\nforferdeligste -! Skulle han -! Skjul deg, Nora! Si du er syk.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"HELMER (with the letters in his hand). Look here. See how they have piled up. (leafing through them.) What is this?\\n\\nNORA (at the window). The letter! Oh no, no, Torvald!\\n\\nHELMER. Two calling cards—from Rank.\\n\\nNORA. From Doctor Rank?\\n\\nHELMER (looking at them). Doctor of Medicine Rank. They were on top; he must have slipped them in when he left.\\n\\nNORA. Is there anything written on them?\\n\\nHELMER. There is a black cross above the name. Look here. It is a rather uncanny idea. It is exactly as though he were announcing his own death.\\n\\nNORA. That is what he is doing.\\n\\nHELMER. What? Do you know something? Has he told you anything?\\n\\nNORA. Yes. When those cards arrive, he has taken leave of us. He intends to shut himself in and die.\\n\\nHELMER. My poor friend. I knew, of course, that I would not be allowed to keep him for long. But so soon—. And then he hides himself away like a wounded animal.\\n\\nNORA. When it has to happen, it is best that it happen without words. Is that not so, Torvald?\\n\\nHELMER (paces up and down). He was so closely bound up with us. I do not think I can imagine him gone. He, with his sufferings and his loneliness, gave, as it were, a clouded background to our sunlit happiness.—Well, perhaps it is best this way. For him, at any rate. (stops.) And perhaps for us too, Nora. Now the two of us are left entirely to each other alone. (puts his arms around her.) Oh, my beloved wife; I do not think I can hold you tightly enough. Do you know, Nora—many a time I wish that some imminent danger might threaten you, so that I could risk life and blood and everything for your sake.\\n\\nNORA (tears herself free and says loudly and resolutely). Now you shall read your letters, Torvald.\\n\\nHELMER. No, no, not tonight. I want to be with you, my beloved wife.\\n\\nNORA. With the thought of your friend’s death—?\\n\\nHELMER. You are right. This has shaken us both; something ugly has come between us; thoughts of death and dissolution. We must seek release from this. Until then—. We will each go our own way.\\n\\nNORA (with her arms around his neck). Torvald—good night! Good night!\\n\\nHELMER (kisses her on the forehead). Good night, my little songbird. Sleep well, Nora. Now I shall read through the letters. (he takes the bundle into his room and closes the door behind him.)\\n\\nNORA (with wild eyes, gropes about, seizes Helmer’s domino, wraps it around herself, and whispers rapidly, hoarsely, and brokenly:) Never see him again. Never. Never. (throws her shawl over her head.) Never see the children again either. Not them either. Never; never.—Oh, the ice-cold black water. Oh, the bottomless—; this—. Oh, if only it were over.—Now he has it; now he is reading it. Oh no, no; not yet. Torvald, farewell, you and the children—\\n\\n(She is about to rush out through the hall; at that same moment Helmer tears open his door and stands there with an opened letter in his hand.)\\n\\nHELMER. Nora!\\n\\nNORA (screams loudly). Ah—!\\n\\nHELMER. What is this? Do you know what is written in this letter?\\n\\nNORA. Yes, I know. Let me go! Let me get out!\\n\\nHELMER (holds her back). Where are you going?\\n\\nNORA (tries to tear herself free). You must not save me, Torvald!\\n\\nHELMER (reels backward). True! Is what he writes true? Terrible! No, no; it is impossible that this can be true.\\n\\nNORA. It is true. I have loved you above everything in the whole world.\\n\\nHELMER. Oh, do not come to me with foolish evasions.\\n\\nNORA (takes a step toward him). Torvald—!\\n\\nHELMER. You wretched woman—what have you done!\\n\\nNORA. Let me go away. You must not bear it for my sake. You must not take it upon yourself.\\n\\nHELMER. No playacting. (locks the hall door.) You will remain here and answer to me. Do you understand what you have done? Answer me! Do you understand it?\\n\\nNORA (looks steadily at him and says with an expression that is growing rigid:) Yes, now I am beginning to understand it to the very bottom.\\n\\nHELMER (paces about the floor). Oh, what a terrible awakening this is. During all these eight years—she who was my joy and pride—a hypocrite, a liar—worse, worse—a criminal!—Oh, the bottomless ugliness that lies in all this! Shame, shame!\\n\\nNORA (remains silent and continues to look steadily at him).\\n\\nHELMER (stops in front of her). I should have suspected that something like this would happen. I should have foreseen it. All your father’s frivolous principles.—Be silent! You have inherited all your father’s frivolous principles. No religion, no morality, no sense of duty—. Oh, how I have been punished for turning a blind eye to him. I did it for your sake; and this is how you repay me.\\n\\nNORA. Yes, this is how.\\n\\nHELMER. Now you have destroyed all my happiness. You have ruined my entire future for me. Oh, it is terrible to think of. I am in the power of an unscrupulous man; he can do with me whatever he pleases, demand anything at all of me, order and command me as he sees fit—and I dare not make a sound. And I must sink so miserably and be ruined because of a frivolous woman!\\n\\nNORA. When I am no longer in this world, then you will be free.\\n\\nHELMER. Oh, no theatrics. Your father always had such phrases ready to hand too. What good would it do me if you were no longer in this world, as you say? It would not do me the slightest good. He could still make the matter public; and if he does, I may perhaps be suspected of having known about your criminal act. People may perhaps think that I was behind it—that it was I who urged you on! And I have you to thank for all this—you, whom I have borne upon my hands throughout our entire marriage. Do you understand now what you have done to me?\\n\\nNORA (with cold calm). Yes.\\n\\nHELMER. This is so incredible that I cannot grasp it. But we must try to settle matters. Take off the shawl. Take it off, I tell you! I must try to satisfy him in one way or another. The matter must be hushed up at any cost.—And as for you and me, it must appear as though everything between us were just as before. But naturally only in the eyes of the world. You will therefore continue to remain here in the house; that goes without saying. But you will not be allowed to bring up the children; I dare not entrust them to you—. Oh, to have to say this to her whom I have loved so deeply, and whom I still—! Well, it must be over. From this day forward, it is no longer a question of happiness; it is only a question of saving the remains, the fragments, the appearance. (the entrance bell rings.)\\n\\nHELMER (starts). What is that? So late. Could the most terrible thing—! Could he—! Hide yourself, Nora! Say you are ill.\", \"source_occurrence_id\": \"ibsen-et-dukkehjem-730c4a81efa614e1\", \"source_language\": \"no\", \"source_language_text_sha256\": \"33ba7d3e876c32c6798d72485f165d73086dc77e6a46e51924de5617216ade4c\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T10:57:00.249859+00:00\", \"model_usage\": {\"input_tokens\": 2225, \"cached_input_tokens\": 0, \"output_tokens\": 2157}, \"estimated_cost_usd\": 0.052039999999999996, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"ibsen-et-dukkehjem\", \"title\": \"Et dukkehjem\", \"author\": \"Henrik Ibsen\", \"language\": \"no\", \"source_type\": \"runeberg\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.851334, \"source_start\": 116540, \"source_end\": 116558, \"source_length\": 136891}, \"form\": {\"form_family\": \"perfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"perfect\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"no_perfect\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 1.0, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

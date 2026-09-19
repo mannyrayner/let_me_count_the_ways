@@ -1,0 +1,72 @@
+{
+  "occurrence_id": "rostand-cyrano-de-bergerac-91f387f6909ed7e5",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.96,
+    "analysis": "De Guiche’s written “Je t’aime” is a direct avowal presenting his love or desire for Roxane as true. Although the letter announces that he is staying and intends to visit her, the love clause itself does not undertake a relational commitment. Nothing indicates that the words function as a reflex-like expressive discharge rather than as a deliberate written assertion.",
+    "ambiguity": "De Guiche’s feeling may be possessive, self-serving, or primarily erotic, but those possibilities concern the nature or sincerity of the avowed state rather than its truth-conditional mode."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "written",
+    "description": "De Guiche’s written declaration in a letter, briefly voiced by Roxane as she opens and reads it."
+  },
+  "contextual_interpretation": "Roxane identifies the letter as De Guiche’s and regards his attention as persistent harassment. Its continuation says that he has disobeyed her, remained behind, and intends to come see her after interpreting her earlier smile as encouragement. This frames “Je t’aime” as a calculated courtship or pursuit-oriented avowal, not as a commitment. Roxane then fabricates a different public reading of the letter to persuade the Capuchin to marry her to Christian; that deception does not alter the force of De Guiche’s original written words.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "The letter begins: “Je t’aime, et si...”",
+      "supports": "The first-person present-tense clause explicitly presents De Guiche’s loving state as true, strongly supporting T.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "Roxane identifies the sender—“C’est De Guiche !”—before breaking the seal and reading the highlighted words.",
+      "supports": "Identifies the core event as De Guiche’s written utterance revoiced by Roxane.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "The actual letter says De Guiche is staying behind, has disobeyed Roxane, wants to see her lips again, and asks her to dismiss everyone and receive him.",
+      "supports": "Frames the declaration as deliberate pursuit and desire; it supplies no independent relational undertaking and no reflex-like expressive force.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "e4",
+      "source": "local_text",
+      "quotation_or_description": "Roxane subsequently tells the Capuchin “Voici ce que me dit cette lettre” and invents a public version ordering her immediate marriage to Christian.",
+      "supports": "Distinguishes the highlighted genuine letter text from Roxane’s later strategic misquotation.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e5",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is marked as affirmative present-tense French and reviewed as “VALID_EXPLICIT_LOVE_I_YOU.”",
+      "supports": "Corroborates that the highlighted expression is an explicit present-tense love declaration.",
+      "confidence": 0.99
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the deliberate written avowal. The surrounding calculation, unwanted pursuit, and Roxane’s later forged reading are contextual complications rather than missing dimensions of the core utterance.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

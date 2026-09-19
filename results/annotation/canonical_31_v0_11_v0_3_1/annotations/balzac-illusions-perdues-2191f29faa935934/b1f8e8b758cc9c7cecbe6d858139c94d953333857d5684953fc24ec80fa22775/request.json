@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"balzac-illusions-perdues-2191f29faa935934\", \"SOURCE_TEXT\": {\"exact_match\": \"je t'aimais\", \"local_text\": {\"context_start\": 1232439, \"context_end\": 1232610, \"text\": \"—Ah! Louise, comme je t'aimais! lui dit-il à l'oreille sans se soucier\\ndu prélat ni de la conversation au moment où il vit que ses larmes\\navaient été vues par la comtesse.\"}, \"wider_canonical_context\": {\"context_start\": 1229446, \"context_end\": 1235554, \"text\": \"—Votre Grandeur a été presque prophète, dit-il d'une voix charmante,\\net je tâcherai qu'elle le soit tout à fait. Je m'estime heureux d'être\\nvenu ce soir ici, puisque je puis vous présenter mes respects.\\n\\nLucien entraîna Monseigneur dans une conversation qui dura dix\\nminutes. Toutes les femmes regardaient Lucien comme un phénomène.\\nSon impertinence inattendue avait laissé madame du Châtelet sans\\nvoix ni réponse. En voyant Lucien l'objet de l'admiration de toutes\\nles femmes; en suivant, de groupe en groupe, le récit que chacune se\\nfaisait à l'oreille des phrases échangées où Lucien l'avait comme\\naplatie en ayant l'air de la dédaigner, elle fut pincée au cœur par une\\ncontraction d'amour-propre.\\n\\n—S'il ne venait pas demain, après cette phrase, quel scandale?\\npensa-t-elle. D'où lui vient cette fierté? Mademoiselle des Touches\\nserait-elle éprise de lui?...\\n\\n—Il est si beau!—On dit qu'elle a couru chez lui, à Paris, le\\nlendemain de la mort de l'actrice!... Peut-être est-il venu sauver son\\nbeau-frère, et s'est-il trouvé derrière notre calèche à Mansle, par un\\naccident de voyage. Ce matin-là, Lucien nous a singulièrement toisés,\\nSixte et moi. Ce fut une myriade de pensées, et, malheureusement pour\\nLouise, elle s'y laissait aller en regardant Lucien qui causait avec\\nl'évêque comme s'il eût été le roi du salon: il ne saluait personne\\net attendait qu'on vînt à lui, promenant son regard avec une variété\\nd'expression, avec une aisance digne de de Marsay, son modèle. Il ne\\nquitta pas le prélat pour aller saluer monsieur de Sénonches, qui se\\nfit voir à peu de distance.\\n\\nAu bout de dix minutes, Louise n'y tint plus. Elle se leva, marcha\\njusqu'à l'évêque et lui dit:—Que vous dit-on donc, Monseigneur, pour\\nvous faire si souvent sourire?\\n\\nLucien se recula de quelques pas pour laisser discrètement madame de\\nChâtelet avec le prélat.\\n\\n—Ah! madame la comtesse, ce jeune homme a bien de l'esprit!... il\\nm'expliquait comment il vous devait toute sa force...\\n\\n—Je ne suis pas ingrat, moi, madame!... dit Lucien en lançant un regard\\nde reproche qui charma la comtesse.\\n\\n—Entendons-nous, dit-elle en ramenant à elle Lucien par un geste\\nd'éventail, venez avec Monseigneur, par ici!... Sa Grandeur sera notre\\njuge.\\n\\nEt elle montra le boudoir en y entraînant l'évêque.\\n\\n—Elle fait faire un drôle de métier à Monseigneur, dit une femme du\\ncamp Chandour assez haut pour être entendue.\\n\\n—Notre juge!... dit Lucien en regardant tour à tour le prélat et la\\npréfète, il y aura donc un coupable?\\n\\nLouise de Nègrepelisse s'assit sur le canapé de son ancien boudoir.\\nAprès y avoir fait asseoir Lucien à côté d'elle et Monseigneur de\\nl'autre côté, elle se mit à parler.\\n\\nLucien fit à son ancienne amie l'honneur, la surprise et le bonheur\\nde ne pas écouter. Il eut l'attitude, les gestes de la Pasta dans\\n_Tancredi_ quand elle va dire: _O patria!_... Il chanta sur sa\\nphysionomie le fameuse cavatine _del Rizzo_. Enfin, l'élève de Coralie\\ntrouva moyen de se faire venir un peu de larmes dans les yeux.\\n\\n—Ah! Louise, comme je t'aimais! lui dit-il à l'oreille sans se soucier\\ndu prélat ni de la conversation au moment où il vit que ses larmes\\navaient été vues par la comtesse.\\n\\n—Essuyez vos yeux, ou vous me perdriez, ici, encore une fois, dit-elle\\nen se retournant vers lui par un aparté qui choqua l'évêque.\\n\\n—Et c'est assez d'une, reprit vivement Lucien. Ce mot de la cousine\\nde madame d'Espard sécherait toutes les larmes d'une Madeleine. Mon\\nDieu!... j'ai retrouvé pour un moment mes souvenirs, mes illusions, mes\\nvingt ans, et vous me les...\\n\\nMonseigneur rentra brusquement au salon, en comprenant que sa dignité\\npouvait être compromise entre ces deux anciens amants. Chacun affecta\\nde laisser la préfète et Lucien seuls dans le boudoir. Mais un quart\\nd'heure après, Sixte, à qui les discours, les rires et les promenades\\nau seuil du boudoir déplurent, y vint d'un air plus que soucieux et\\ntrouva Lucien et Louise très-animés.\\n\\n—Madame, dit Sixte à l'oreille de sa femme, vous qui connaissez mieux\\nque moi Angoulême, ne devriez-vous pas songer à madame la préfète et au\\ngouvernement.\\n\\n—Mon cher, dit Louise en toisant son éditeur responsable d'un air de\\nhauteur qui le fit trembler, je cause avec monsieur de Rubembré de\\nchoses importantes pour vous. Il s'agit de sauver un inventeur sur le\\npoint d'être victime des manœuvres les plus basses, et vous nous y\\naiderez... Quant à ce que ces dames peuvent penser de moi, vous allez\\nvoir comment je vais me conduire pour glacer le venin sur leurs langues.\\n\\nElle sortit du boudoir appuyée sur le bras de Lucien, et le mena signer\\nle contrat en s'affichant avec une audace de grande dame.\\n\\n—Signons ensemble?... dit-elle en tendant la plume à Lucien.\\n\\nLucien se laissa montrer par elle la place où elle venait de signer,\\nafin que leurs signatures fussent l'une auprès de l'autre.\\n\\n—Monsieur de Sénonches, auriez-vous reconnu monsieur de Rubempré? dit\\nla comtesse en forçant l'impertinent chasseur à saluer Lucien.\\n\\nElle ramena Lucien au salon, elle le mit entre elle et Zéphirine sur\\nle redoutable canapé du milieu. Puis, comme une reine sur son trône,\\nelle commença, d'abord à voix basse, une conversation évidemment\\népigrammatique à laquelle se joignirent quelques-uns de ses anciens\\namis et plusieurs femmes qui lui faisaient la cour. Bientôt Lucien,\\ndevenu le héros d'un cercle, fut mis par la comtesse sur la vie de\\nParis dont la satire fut improvisée avec une verve incroyable et\\nsemée d'anecdotes sur les gens célèbres, véritables friandises de\\nconversation dont sont excessivement avides les provinciaux. On admira\\nl'esprit comme on avait admiré l'homme. Madame la comtesse Sixte\\ntriomphait si patiemment de Lucien, elle en jouait si bien en femme\\nenchantée de son choix, elle lui fournissait la réplique avec tant\\nd'à-propos, elle quêtait pour lui des approbations par des regards\\nsi compromettants, que plusieurs femmes commencèrent à voir dans\\nla coïncidence du retour de Louise et de Lucien un profond amour\\nvictime de quelque double méprise. Un dépit avait peut-être amené le\\nmalencontreux mariage de Châtelet, contre lequel il se faisait alors\\nune réaction.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"“Your Grace was almost a prophet,” he said in a charming voice, “and I shall endeavor to make you one altogether. I count myself fortunate to have come here this evening, since I am able to pay you my respects.”\\n\\nLucien drew His Lordship into a conversation that lasted ten minutes. All the women looked upon Lucien as a phenomenon. His unexpected impertinence had left Madame du Châtelet without voice or answer. Seeing Lucien the object of every woman’s admiration; following, from group to group, the whispered account each gave the others of the exchanged remarks in which Lucien had as good as crushed her while appearing to disdain her, she felt a pang at her heart from wounded pride.\\n\\n“If he did not come tomorrow, after that remark, what a scandal!” she thought. “Where does this pride of his come from? Could Mademoiselle des Touches be in love with him?…”\\n\\n“He is so handsome!—They say she rushed to his home in Paris the day after the actress’s death!… Perhaps he came to save his brother-in-law and happened to find himself behind our carriage at Mansle through an accident of travel. That morning, Lucien looked Sixte and me over in a most singular fashion.” A myriad thoughts arose, and, unfortunately for Louise, she yielded to them as she watched Lucien conversing with the bishop as though he were the king of the drawing room: he bowed to no one and waited for people to come to him, sweeping his gaze about with varied expressions and with an ease worthy of de Marsay, his model. He did not leave the prelate to go and greet Monsieur de Sénonches, who appeared a short distance away.\\n\\nAt the end of ten minutes, Louise could bear it no longer. She rose, walked over to the bishop, and said to him, “What are they saying to you, then, Your Grace, to make you smile so often?”\\n\\nLucien stepped back a few paces, discreetly leaving Madame de Châtelet with the prelate.\\n\\n“Ah! Madame la Comtesse, this young man is very witty!… He was explaining to me how he owed all his strength to you…”\\n\\n“I, madame, am not ungrateful!…” said Lucien, casting her a reproachful glance that delighted the countess.\\n\\n“Let us come to an understanding,” she said, drawing Lucien back toward her with a gesture of her fan. “Come with His Lordship, this way!… His Grace shall be our judge.”\\n\\nAnd she indicated the boudoir, drawing the bishop into it.\\n\\n“She is putting His Lordship to a strange use,” said a woman from the Chandour camp, loudly enough to be heard.\\n\\n“Our judge!…” said Lucien, looking in turn at the prelate and the prefect’s wife. “Then there is to be a guilty party?”\\n\\nLouise de Nègrepelisse sat down on the sofa in her former boudoir. After seating Lucien beside her and His Lordship on her other side, she began to speak.\\n\\nLucien did his former friend the honor, the surprise, and the kindness of not listening. He assumed the attitude and gestures of Pasta in _Tancredi_ when she is about to say, _O patria!_… With his countenance he performed the famous _del Rizzo_ cavatina. Finally, Coralie’s pupil managed to bring a few tears to his eyes.\\n\\n“Ah! Louise, how I loved you!” he whispered in her ear, heedless of the prelate and of the conversation, the moment he saw that the countess had noticed his tears.\\n\\n“Dry your eyes, or you would ruin me here once again,” she said, turning toward him in an aside that shocked the bishop.\\n\\n“And once is enough,” Lucien promptly replied. “That remark from Madame d’Espard’s cousin would dry all the tears of a Magdalen. My God!… For a moment I had recovered my memories, my illusions, my twenty years, and you…”\\n\\nHis Lordship abruptly returned to the drawing room, realizing that his dignity might be compromised between these two former lovers. Everyone made a show of leaving the prefect’s wife and Lucien alone in the boudoir. But a quarter of an hour later, Sixte, displeased by the talk, the laughter, and the pacing about at the threshold of the boudoir, entered it with a more than anxious air and found Lucien and Louise in a state of great animation.\\n\\n“Madame,” Sixte whispered in his wife’s ear, “you, who know Angoulême better than I do, should you not be giving some thought to the prefect’s wife and to the government?”\\n\\n“My dear,” said Louise, looking her responsible publisher up and down with a haughty air that made him tremble, “I am discussing with Monsieur de Rubempré matters of importance to you. We are concerned with saving an inventor who is on the point of becoming the victim of the basest maneuvers, and you will help us do so… As for what these ladies may think of me, you shall see how I am going to conduct myself so as to freeze the venom on their tongues.”\\n\\nShe left the boudoir leaning on Lucien’s arm and led him to sign the contract, openly parading their association with the audacity of a great lady.\\n\\n“Shall we sign together?…” she said, handing Lucien the pen.\\n\\nLucien allowed her to show him the place where she had just signed, so that their signatures would be side by side.\\n\\n“Monsieur de Sénonches, would you have recognized Monsieur de Rubempré?” said the countess, forcing the insolent huntsman to bow to Lucien.\\n\\nShe led Lucien back into the drawing room and placed him between herself and Zéphirine on the formidable sofa in the center. Then, like a queen upon her throne, she began, at first in a low voice, an obviously epigrammatic conversation in which several of her former friends and several women who were paying court to her joined. Soon Lucien, now the hero of a circle, was prompted by the countess to speak of Parisian life, upon which he improvised a satire with incredible verve, interspersed with anecdotes about famous people, true conversational delicacies for which provincials are exceedingly greedy. His wit was admired as the man himself had been admired. Madame la Comtesse Sixte triumphed so patiently in Lucien, handled him so skillfully like a woman enchanted with her choice, supplied him with rejoinders with such aptness, and solicited approval for him with such compromising glances, that several women began to see in the coincidence of Louise’s and Lucien’s return a deep love that had fallen victim to some mutual misunderstanding. Resentment had perhaps brought about the ill-fated Châtelet marriage, against which a reaction was now setting in.\", \"source_occurrence_id\": \"balzac-illusions-perdues-2191f29faa935934\", \"source_language\": \"fr\", \"source_language_text_sha256\": \"8f199949623f844af8c293f65c8236c8aab3e87e58a1f4e4487aa12205fc7d57\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T10:11:57.059694+00:00\", \"model_usage\": {\"input_tokens\": 1900, \"cached_input_tokens\": 0, \"output_tokens\": 1860}, \"estimated_cost_usd\": 0.0448, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"balzac-illusions-perdues\", \"title\": \"Illusions perdues\", \"author\": \"Honoré de Balzac\", \"language\": \"fr\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.910912, \"source_start\": 1232458, \"source_end\": 1232469, \"source_length\": 1352994}, \"form\": {\"form_family\": \"present_or_imperfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": \"optional\", \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"fr_present_past\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

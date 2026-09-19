@@ -1,0 +1,72 @@
+{
+  "occurrence_id": "ibsen-et-dukkehjem-22aa549e55c520e4",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.98,
+    "analysis": "Nora’s “Jeg elsker deg ikke mer” (“I no longer love you”) is a direct, explicit avowal that her loving emotional state has ceased. Its core force is strongly truth-conditional. Although it helps explain and communicate the end of the marriage, the utterance itself does not undertake that separation; Nora expresses that decision separately. Her controlled insistence that the conviction is clear and certain supplies no independent expressive/reflexive force.",
+    "ambiguity": "The statement has the interpersonal effect of confirming a rupture, but that effect does not clearly make the core love utterance performative; the actual undertaking to leave is expressed elsewhere."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "Nora directly tells Torvald that she no longer loves him, after first confirming his formulation of the same conclusion."
+  },
+  "contextual_interpretation": "Nora presents the loss of love as a settled realization produced by Torvald’s conduct during the crisis and as her reason for leaving. Her sorrow about hurting him does not weaken the avowal: she says she cannot help how she feels and subsequently calls the conviction perfectly clear and certain. The surrounding breakup gives the statement grave relational consequences, but the core utterance primarily reports the cessation of love rather than itself constituting a commitment or reflexive emotional discharge.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "Nora says: “Men jeg kan ikke gjøre ved det. Jeg elsker deg ikke mer.”",
+      "supports": "The explicit negative-cessative love construction presents as true that Nora’s love for Torvald has ended, strongly supporting T.",
+      "confidence": 1.0
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "Asked whether this is a “klar og sikker overbevisning,” Nora answers: “Ja, fullkommen klar og sikker.”",
+      "supports": "Nora characterizes the claim as a fully clear and certain conviction, reinforcing deliberative avowal and weighing against an expressive/reflexive reading.",
+      "confidence": 1.0
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "Nora adds: “Det er derfor jeg ikke vil være her lenger.”",
+      "supports": "Her loss of love is given as the reason for the separately expressed decision to leave; this distinguishes the core T avowal from the surrounding relational undertaking.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "e4",
+      "source": "local_text",
+      "quotation_or_description": "Nora explains that Torvald’s response to Krogstad’s letter showed her he was not the man she had imagined and that she had lived with a stranger for eight years.",
+      "supports": "The wider dialogue frames the cessation of love as a reasoned realization arising from her reassessment of Torvald and their marriage.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "e5",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is marked as negative, present-tense, cessative, with the temporal modifier “no_longer.”",
+      "supports": "The supplied linguistic metadata confirms that the target is an assertion of ceased love rather than a positive declaration or hypothetical formulation.",
+      "confidence": 1.0
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the core avowal of a ceased emotional state. The breakup, sorrow, and explanatory narrative are contextual features, while the separate decision to leave need not be imported into the core utterance as P or E.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

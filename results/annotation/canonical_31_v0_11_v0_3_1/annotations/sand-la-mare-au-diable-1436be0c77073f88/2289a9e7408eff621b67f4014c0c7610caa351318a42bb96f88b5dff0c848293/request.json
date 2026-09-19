@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"sand-la-mare-au-diable-1436be0c77073f88\", \"SOURCE_TEXT\": {\"exact_match\": \"je vous aime\", \"local_text\": {\"context_start\": 154530, \"context_end\": 154617, \"text\": \"—Ah! Germain, lui dit-elle en sanglotant, vous n’avez donc\\npas deviné que je vous aime?\"}, \"wider_canonical_context\": {\"context_start\": 151391, \"context_end\": 157837, \"text\": \"—Petite Marie, lui dit-il en s’asseyant auprès d’elle, je\\nviens te faire de la peine et t’ennuyer, je le sais bien: mais\\n_l’homme et la femme de chez nous_ (désignant ainsi, selon\\nl’usage, les chefs de famille) veulent que je te parle et que\\nje te demande de m’épouser. Tu ne le veux pas, toi, je m’y\\nattends.\\n\\n—Germain, répondit la petite Marie, c’est donc décidé que\\nvous m’aimez?\\n\\n—Ça te fâche, je le sais, mais ce n’est pas ma faute: si tu\\npouvais changer d’avis, je serais trop content, et sans doute\\nje ne mérite pas que cela soit. Voyons, regarde-moi, Marie, je\\nsuis donc bien affreux?\\n\\n—Non, Germain, répondit-elle en souriant, vous êtes plus beau\\nque moi.\\n\\n—Ne te moque pas; regarde-moi avec indulgence; il ne me\\nmanque encore ni un cheveu ni une dent. Mes yeux te disent que\\nje t’aime. Regarde-moi donc dans les yeux, ça y est écrit, et\\ntoute fille sait lire dans cette écriture-là.\\n\\nMarie regarda dans les yeux de Germain avec son assurance\\nenjouée; puis, tout à coup, elle détourna la tête et se mit à\\ntrembler.\\n\\n—Ah! mon Dieu! je te fais peur, dit Germain, tu me regardes\\ncomme si j’étais le fermier des Ormeaux. Ne me crains pas, je\\nt’en prie, cela me fait trop de mal. Je ne te dirai pas de\\nmauvaises paroles, moi; je ne t’embrasserai pas malgré toi, et\\nquand tu voudras que je m’en aille, tu n’auras qu’à me montrer\\nla porte. Voyons, faut-il que je sorte pour que tu finisses de\\ntrembler?\\n\\nMarie tendit la main au laboureur, mais sans détourner sa tête\\npenchée vers le foyer, et sans dire un mot.\\n\\n—Je comprends, dit Germain; tu me plains, car tu es bonne; tu\\nes fâchée de me rendre malheureux: mais tu ne peux pourtant\\npas m’aimer?\\n\\n—Pourquoi me dites-vous de ces choses-là, Germain? répondit\\nenfin la petite Marie, vous voulez donc me faire pleurer?\\n\\n—Pauvre petite fille, tu as bon cœur, je le sais; mais tu ne\\nm’aimes pas, et tu me caches ta figure parce que tu crains de\\nme laisser voir ton déplaisir et ta répugnance. Et moi, je\\nn’ose pas seulement te serrer la main! Dans le bois, quand mon\\nfils dormait, et que tu dormais aussi, j’ai failli t’embrasser\\ntout doucement. Mais je serais mort de honte plutôt que de te\\nle demander, et j’ai autant souffert dans cette nuit-là qu’un\\nhomme qui brûlerait à petit feu. Depuis ce temps-là j’ai rêvé\\nà toi toutes les nuits. Ah! comme je t’embrassais, Marie! Mais\\ntoi, pendant ce temps-là, tu dormais sans rêver. Et, à\\nprésent, sais-tu ce que je pense? c’est que si tu te\\nretournais pour me regarder avec les yeux que j’ai pour toi,\\net si tu approchais ton visage du mien, je crois que j’en\\ntomberais mort de joie. Et toi, tu penses que si pareille\\nchose t’arrivait tu en mourrais de colère et de honte!\\n\\nGermain parlait comme dans un rêve sans entendre ce qu’il\\ndisait. La petite Marie tremblait toujours; mais comme il\\ntremblait encore davantage, il ne s’en apercevait plus. Tout à\\ncoup elle se retourna; elle était toute en larmes et le\\nregardait d’un air de reproche. Le pauvre laboureur crut que\\nc’était le dernier coup, et, sans attendre son arrêt, il se\\nleva pour partir; mais la jeune fille l’arrêta en l’entourant\\nde ses deux bras, et, cachant sa tête dans son sein:\\n\\n—Ah! Germain, lui dit-elle en sanglotant, vous n’avez donc\\npas deviné que je vous aime?\\n\\nGermain serait devenu fou, si son fils, qui le cherchait et\\nqui entra dans la chaumière au grand galop sur un bâton, avec\\nsa petite sœur en croupe qui fouettait avec une branche\\nd’osier ce coursier imaginaire, ne l’eût rappelé à lui-même.\\nIl le souleva dans ses bras, et le mettant dans ceux de sa\\nfiancée:\\n\\n—Tiens, lui dit-il, tu as fait plus d’un heureux en m’aimant!\\n\\n\\n\\n\\n\\n\\nAPPENDICE\\n\\n\\nI\\n\\n\\nLES NOCES DE CAMPAGNE\\n\\n\\nIci finit l’histoire du mariage de Germain, telle qu’il me l’a\\nracontée lui-même, le fin laboureur qu’il est! Je te demande\\npardon, lecteur ami, de n’avoir pas su te la traduire mieux;\\ncar c’est une véritable traduction qu’il faut au langage\\nantique et naïf des paysans de la contrée que je _chante_ (comme\\non disait jadis). Ces gens-là parlent trop français pour nous,\\net, depuis Rabelais et Montaigne, les progrès de la langue\\nnous ont fait perdre bien des vieilles richesses. Il en est\\nainsi de tous les progrès, il faut en prendre son parti. Mais\\nc’est encore un plaisir d’entendre ces idiotismes pittoresques\\nrégner sur le vieux terroir du centre de la France; d’autant\\nplus que c’est la véritable expression du caractère\\nmoqueusement tranquille et plaisamment disert des gens qui\\ns’en servent. La Touraine a conservé un certain nombre\\nprécieux de locutions patriarcales. Mais la Touraine s’est\\ngrandement civilisée avec et depuis la Renaissance. Elle s’est\\ncouverte de châteaux, de routes, d’étrangers et de mouvement.\\nLe Berry est resté stationnaire, et je crois qu’après la\\nBretagne et quelques provinces de l’extrême midi de la France,\\nc’est le pays le plus _conservé_ qui se puisse trouver à l’heure\\nqu’il est. Certaines coutumes sont si étranges, si curieuses,\\nque j’espère t’amuser encore un instant, cher lecteur, si tu\\npermets que je te raconte en détail une noce de campagne,\\ncelle de Germain, par exemple, à laquelle j’eus le plaisir\\nd’assister il y a quelques années.\\n\\nCar hélas! tout s’en va. Depuis seulement que j’existe il\\ns’est fait plus de mouvement dans les idées et dans les\\ncoutumes de mon village, qu’il ne s’en était vu durant des\\nsiècles avant la révolution. Déjà la moitié des cérémonies\\nceltiques, païennes ou moyen âge, que j’ai vues encore en\\npleine vigueur dans mon enfance, se sont effacées. Encore un\\nou deux ans peut-être, et les chemins de fer passeront leur\\nniveau sur nos vallées profondes, emportant, avec la rapidité\\nde la foudre, nos antiques traditions et nos merveilleuses\\nlégendes.\\n\\nC’était en hiver, aux environs du carnaval, époque de l’année\\noù il est séant et convenable chez nous de faire les noces.\\nDans l’été on n’a guère le temps, et les travaux d’une ferme\\nne peuvent souffrir trois jours de retard, sans parler des\\njours complémentaires affectés à la digestion plus ou moins\\nlaborieuse de l’ivresse morale et physique que laisse une\\nfête. —J’étais assis sous le vaste manteau d’une antique\\ncheminée de cuisine, lorsque des coups de pistolet, des\\nhurlements de chiens, et les sons aigus de la cornemuse\\nm’annoncèrent l’approche des fiancés. Bientôt le père et la\\nmère Maurice, Germain et la petite Marie, suivis de Jacques et\\nde sa femme, des principaux parents respectifs et des parrains\\net marraines des fiancés, firent leur entrée dans la cour.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"“Little Marie,” he said to her as he sat down beside her, “I have come to cause thee pain and annoy thee, I know it well; but _the man and the woman of our house_ (thus designating, according to custom, the heads of the family) want me to speak to thee and ask thee to marry me. Thou dost not want to, I expect as much.”\\n\\n“Germain,” little Marie replied, “is it settled, then, that you love me?”\\n\\n“It angers thee, I know, but it is not my fault. If thou couldst change thy mind, I should be only too happy, and no doubt I do not deserve that it should be so. Come, look at me, Marie; am I really so frightful?”\\n\\n“No, Germain,” she replied with a smile, “you are handsomer than I am.”\\n\\n“Do not mock me; look at me indulgently. I have not yet lost either a hair or a tooth. My eyes tell thee that I love thee. Look into my eyes, then; it is written there, and every girl knows how to read that kind of writing.”\\n\\nMarie looked into Germain’s eyes with her playful assurance; then, all at once, she turned her head away and began to tremble.\\n\\n“Ah, my God! I frighten thee,” said Germain. “Thou lookest at me as though I were the farmer of Les Ormeaux. Do not fear me, I beg thee; it hurts me too much. I shall not say wicked things to thee, not I; I shall not kiss thee against thy will, and when thou wantest me to go away, thou needst only show me the door. Come, must I go out so that thou wilt stop trembling?”\\n\\nMarie held out her hand to the plowman, but without turning her head away from where it was bowed toward the hearth, and without saying a word.\\n\\n“I understand,” said Germain. “Thou pitiest me, for thou art good; thou art sorry to make me unhappy. But still, thou canst not love me?”\\n\\n“Why do you say such things to me, Germain?” little Marie replied at last. “Do you mean to make me cry?”\\n\\n“Poor little girl, thou hast a good heart, I know; but thou dost not love me, and thou hidest thy face from me because thou art afraid to let me see thy displeasure and thy repugnance. And I do not even dare to clasp thy hand! In the woods, when my son was asleep and thou wert asleep too, I nearly kissed thee very softly. But I would have died of shame rather than ask it of thee, and I suffered as much that night as a man who was being burned over a slow fire. Since then, I have dreamed of thee every night. Ah, how I kissed thee, Marie! But thou, all that time, wert sleeping without dreaming. And now, dost thou know what I think? It is that if thou wert to turn around and look at me with eyes like those I have for thee, and if thou wert to bring thy face close to mine, I believe I should fall down dead with joy. And thou, thou thinkest that if such a thing happened to thee, thou wouldst die of anger and shame!”\\n\\nGermain spoke as though in a dream, without hearing what he was saying. Little Marie was still trembling; but as he was trembling even more, he no longer noticed it. All at once she turned around; she was in tears and looked at him reproachfully. The poor plowman thought this was the final blow, and, without waiting for her judgment, he rose to leave; but the young girl stopped him by putting both arms around him and, hiding her head against his breast, said to him between sobs:\\n\\n“Ah, Germain, have you really not guessed that I love you?”\\n\\nGermain would have gone mad if his son, who was looking for him and who came galloping into the cottage astride a stick, with his little sister riding behind him and whipping this imaginary steed with a willow switch, had not brought him back to himself. He lifted him in his arms and, placing him in those of his betrothed, said to her:\\n\\n“Here, thou hast made more than one person happy by loving me!”\\n\\n\\n\\n\\n\\n\\nAPPENDIX\\n\\n\\nI\\n\\n\\nTHE COUNTRY WEDDING\\n\\n\\nHere ends the story of Germain’s marriage, just as he told it to me himself—the fine plowman that he is! I beg thy pardon, friendly reader, for not having known how to translate it better for thee; for the ancient and artless speech of the peasants of the region that I _sing_ (as they used to say in former times) truly requires translation. Those people speak too much French for us, and since Rabelais and Montaigne, the progress of the language has caused us to lose many old riches. So it is with all progress; one must resign oneself to it. Yet it is still a pleasure to hear these picturesque idioms prevailing upon the old soil of central France, all the more because they are the true expression of the mockingly placid and pleasantly fluent character of those who use them. Touraine has preserved a certain precious number of patriarchal turns of phrase. But Touraine became greatly civilized during and after the Renaissance. It became covered with châteaux, roads, foreigners, and activity. Berry has remained stationary, and I believe that, after Brittany and a few provinces in the extreme south of France, it is the most _preserved_ region to be found at the present time. Certain customs are so strange, so curious, that I hope to amuse thee for another moment, dear reader, if thou wilt allow me to recount in detail a country wedding—for example, Germain’s, which I had the pleasure of attending some years ago.\\n\\nFor alas! everything is passing away. Merely in the time that I have been alive, more change has taken place in the ideas and customs of my village than had been seen during the centuries before the Revolution. Already half of the Celtic, pagan, or medieval ceremonies that I still saw in full vigor in my childhood have vanished. Another year or two, perhaps, and the railways will carry their level across our deep valleys, bearing away, with the speed of lightning, our ancient traditions and our marvelous legends.\\n\\nIt was winter, around carnival time, the season of the year when it is fitting and proper among us to hold weddings. In summer there is scarcely time for them, and the work of a farm cannot suffer a delay of three days, not to mention the additional days devoted to the more or less laborious digestion of the moral and physical intoxication left behind by a celebration.—I was sitting beneath the vast hood of an ancient kitchen fireplace when pistol shots, the howling of dogs, and the shrill sounds of the bagpipe announced to me the approach of the betrothed couple. Soon Father and Mother Maurice, Germain and little Marie, followed by Jacques and his wife, their principal respective relatives, and the godfathers and godmothers of the betrothed couple, entered the courtyard.\", \"source_occurrence_id\": \"sand-la-mare-au-diable-1436be0c77073f88\", \"source_language\": \"fr\", \"source_language_text_sha256\": \"6a2bf518e29323f5078a8d152f5347c0d3a6da936ef62da443b2637096e83f04\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T11:24:02.707019+00:00\", \"model_usage\": {\"input_tokens\": 2047, \"cached_input_tokens\": 0, \"output_tokens\": 2053}, \"estimated_cost_usd\": 0.049248, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"sand-la-mare-au-diable\", \"title\": \"La Mare au Diable\", \"author\": \"George Sand\", \"language\": \"fr\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.726447, \"source_start\": 154604, \"source_end\": 154616, \"source_length\": 212822}, \"form\": {\"form_family\": \"present_or_imperfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": \"optional\", \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"fr_present_past\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 1.0, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

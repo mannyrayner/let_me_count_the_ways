@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"lafayette-la-princesse-de-cleves-cf641c31155fddef\", \"SOURCE_TEXT\": {\"exact_match\": \"je vous aimais\", \"local_text\": {\"context_start\": 148878, \"context_end\": 150892, \"text\": \"re, j'appris que vous me\\ntrompiez, que vous en aimiez une autre, et que, selon toutes les\\napparences, vous me sacrifiez à cette nouvelle maîtresse. Je le sus le\\njour de la course de bague; c'est ce qui fit que je n'y allais point. Je\\nfeignis d'être malade pour cacher le désordre de mon esprit; mais je le\\ndevins en effet, et mon corps ne put supporter une si violente\\nagitation. Quand je commençai à me porter mieux, je feignis encore\\nd'être fort mal, afin d'avoir un prétexte de ne vous point voir et de ne\\nvous point écrire. Je voulus avoir du temps pour résoudre de quelle\\nsorte j'en devais user avec vous; je pris et je quittai vingt fois les\\nmêmes résolutions; mais enfin je vous trouvai indigne de voir ma\\ndouleur, et je résolus de ne vous la point faire paraître. Je voulus\\nblesser votre orgueil, en vous faisant voir que ma passion\\ns'affaiblissait d'elle-même. Je crus diminuer par là le prix du\\nsacrifice que vous en faisiez; je ne voulus pas que vous eussiez le\\nplaisir de montrer combien je vous aimais pour en paraître plus aimable.\\nJe résolus de vous écrire des lettres tièdes et languissantes, pour\\njeter dans l'esprit de celle à qui vous les donniez, que l'on cessait de\\nvous aimer. Je ne voulus pas qu'elle eut le plaisir d'apprendre que je\\nsavais qu'elle triomphait de moi, ni augmenter son triomphe par mon\\ndésespoir et par mes reproches. Je pensais que je ne vous punirais pas\\nassez en rompant avec vous, et que je ne vous donnerais qu'une légère\\ndouleur si je cessais de vous aimer lorsque vous ne m'aimiez plus. Je\\ntrouvai qu'il fallait que vous m'aimassiez pour sentir le mal de n'être\\npoint aimé, que j'éprouvais si cruellement. Je crus que si quelque chose\\npouvait rallumer les sentiments que vous aviez eus pour moi, c'était de\\nvous faire voir que les miens étaient changés; mais de vous le faire\\nvoir en feignant de vous le cacher, et comme si je n'eusse pas eu la\\nforce de vous l'avouer. Je m'arrêtai à cette résolution; mais qu'elle me\\nfut difficile à prendre, et qu'en vous revoyant e\"}, \"wider_canonical_context\": {\"context_start\": 146517, \"context_end\": 155256, \"text\": \"Madame de Clèves s'était bien doutée que ce prince s'était aperçu de la\\nsensibilité qu'elle avait eue pour lui, et ses paroles lui firent voir\\nqu'elle ne s'était pas trompée. Ce lui était une grande douleur, de voir\\nqu'elle n'était plus maîtresse de cacher ses sentiments, et de les avoir\\nlaissé paraître au chevalier de Guise. Elle en avait aussi beaucoup que\\nmonsieur de Nemours les connût; mais cette dernière douleur n'était pas\\nsi entière, et elle était mêlée de quelque sorte de douceur.\\n\\nLa reine dauphine, qui avait une extrême impatience de savoir ce qu'il y\\navait dans la lettre que Châtelart lui avait donnée, s'approcha de\\nmadame de Clèves:\\n\\n--Allez lire cette lettre, lui dit-elle; elle s'adresse à monsieur de\\nNemours, et, selon les apparences, elle est de cette maîtresse pour qui\\nil a quitté toutes les autres. Si vous ne la pouvez lire présentement,\\ngardez-la; venez ce soir à mon coucher pour me la rendre, et pour me\\ndire si vous en connaissez l'écriture.\\n\\nMadame la dauphine quitta madame de Clèves après ces paroles, et la\\nlaissa si étonnée et dans un si grand saisissement, qu'elle fut quelque\\ntemps sans pouvoir sortir de sa place. L'impatience et le trouble où\\nelle était ne lui permirent pas de demeurer chez la reine; elle s'en\\nalla chez elle; quoiqu'il ne fût pas l'heure où elle avait accoutumé de\\nse retirer. Elle tenait cette lettre avec une main tremblante; ses\\npensées étaient si confuses, qu'elle n'en avait aucune distincte, et\\nelle se trouvait dans une sorte de douleur insupportable, qu'elle ne\\nconnaissait point, et qu'elle n'avait jamais sentie. Sitôt qu'elle fut\\ndans son cabinet, elle ouvrit cette lettre, et la trouva telle:\\n\\nLETTRE\\n\\n«Je vous ai trop aimé pour vous laisser croire que le changement qui\\nvous paraît en moi soit un effet de ma légèreté; je veux vous apprendre\\nque votre infidélité en est la cause. Vous êtes bien surpris que je vous\\nparle de votre infidélité; vous me l'aviez cachée avec tant d'adresse,\\net j'ai pris tant de soin de vous cacher que je la savais, que vous avez\\nraison d'être étonné qu'elle me soit connue. Je suis surprise moi-même,\\nque j'aie pu ne vous en rien faire paraître. Jamais douleur n'a été\\npareille à la mienne. Je croyais que vous aviez pour moi une passion\\nviolente; je ne vous cachais plus celle que j'avais pour vous, et dans\\nle temps que je vous la laissais voir tout entière, j'appris que vous me\\ntrompiez, que vous en aimiez une autre, et que, selon toutes les\\napparences, vous me sacrifiez à cette nouvelle maîtresse. Je le sus le\\njour de la course de bague; c'est ce qui fit que je n'y allais point. Je\\nfeignis d'être malade pour cacher le désordre de mon esprit; mais je le\\ndevins en effet, et mon corps ne put supporter une si violente\\nagitation. Quand je commençai à me porter mieux, je feignis encore\\nd'être fort mal, afin d'avoir un prétexte de ne vous point voir et de ne\\nvous point écrire. Je voulus avoir du temps pour résoudre de quelle\\nsorte j'en devais user avec vous; je pris et je quittai vingt fois les\\nmêmes résolutions; mais enfin je vous trouvai indigne de voir ma\\ndouleur, et je résolus de ne vous la point faire paraître. Je voulus\\nblesser votre orgueil, en vous faisant voir que ma passion\\ns'affaiblissait d'elle-même. Je crus diminuer par là le prix du\\nsacrifice que vous en faisiez; je ne voulus pas que vous eussiez le\\nplaisir de montrer combien je vous aimais pour en paraître plus aimable.\\nJe résolus de vous écrire des lettres tièdes et languissantes, pour\\njeter dans l'esprit de celle à qui vous les donniez, que l'on cessait de\\nvous aimer. Je ne voulus pas qu'elle eut le plaisir d'apprendre que je\\nsavais qu'elle triomphait de moi, ni augmenter son triomphe par mon\\ndésespoir et par mes reproches. Je pensais que je ne vous punirais pas\\nassez en rompant avec vous, et que je ne vous donnerais qu'une légère\\ndouleur si je cessais de vous aimer lorsque vous ne m'aimiez plus. Je\\ntrouvai qu'il fallait que vous m'aimassiez pour sentir le mal de n'être\\npoint aimé, que j'éprouvais si cruellement. Je crus que si quelque chose\\npouvait rallumer les sentiments que vous aviez eus pour moi, c'était de\\nvous faire voir que les miens étaient changés; mais de vous le faire\\nvoir en feignant de vous le cacher, et comme si je n'eusse pas eu la\\nforce de vous l'avouer. Je m'arrêtai à cette résolution; mais qu'elle me\\nfut difficile à prendre, et qu'en vous revoyant elle me parut impossible\\nà exécuter! Je fus prête cent fois à éclater par mes reproches et par\\nmes pleurs; l'état où j'étais encore par ma santé me servit à vous\\ndéguiser mon trouble et mon affliction. Je fus soutenue ensuite par le\\nplaisir de dissimuler avec vous, comme vous dissimuliez avec moi;\\nnéanmoins, je me faisais une si grande violence pour vous dire et pour\\nvous écrire que je vous aimais, que vous vîtes plus tôt que je n'avais\\neu dessein de vous laisser voir, que mes sentiments étaient changés.\\nVous en fûtes blessé; vous vous en plaignîtes. Je tâchais de vous\\nrassurer; mais c'était d'une manière si forcée, que vous en étiez encore\\nmieux persuadé que je ne vous aimais plus. Enfin, je fis tout ce que\\nj'avais eu intention de faire. La bizarrerie de votre coeur vous fit\\nrevenir vers moi, à mesure que vous voyiez que je m'éloignais de vous.\\nJ'ai joui de tout le plaisir que peut donner la vengeance; il m'a paru\\nque vous m'aimiez mieux que vous n'aviez jamais fait, et je vous ai fait\\nvoir que je ne vous aimais plus. J'ai eu lieu de croire que vous aviez\\nentièrement abandonné celle pour qui vous m'aviez quittée. J'ai eu aussi\\ndes raisons pour être persuadée que vous ne lui aviez jamais parlé de\\nmoi; mais votre retour et votre discrétion n'ont pu réparer votre\\nlégèreté. Votre coeur a été partagé entre moi et une autre, vous m'avez\\ntrompée; cela suffit pour m'ôter le plaisir d'être aimée de vous, comme\\nje croyais mériter de l'être, et pour me laisser dans cette résolution\\nque j'ai prise de ne vous voir jamais, et dont vous êtes si surpris.\\n\\nMadame de Clèves lut cette lettre et la relut plusieurs fois, sans\\nsavoir néanmoins ce qu'elle avait lu. Elle voyait seulement que monsieur\\nde Nemours ne l'aimait pas comme elle l'avait pensé, et qu'il en aimait\\nd'autres qu'il trompait comme elle. Quelle vue et quelle connaissance\\npour une personne de son humeur, qui avait une passion violente, qui\\nvenait d'en donner des marques à un homme qu'elle en jugeait indigne, et\\nà un autre qu'elle maltraitait pour l'amour de lui! Jamais affliction\\nn'a été si piquante et si vive: il lui semblait que ce qui faisait\\nl'aigreur de cette affliction était ce qui s'était passé dans cette\\njournée, et que, si monsieur de Nemours n'eût point eu lieu de croire\\nqu'elle l'aimait, elle ne se fût pas souciée qu'il en eût aimé une\\nautre. Mais elle se trompait elle-même; et ce mal qu'elle trouvait si\\ninsupportable était la jalousie avec toutes les horreurs dont elle peut\\nêtre accompagnée. Elle voyait par cette lettre que monsieur de Nemours\\navait une galanterie depuis longtemps. Elle trouvait que celle qui avait\\nécrit la lettre avait de l'esprit et du mérite; elle lui paraissait\\ndigne d'être aimée; elle lui trouvait plus de courage qu'elle ne s'en\\ntrouvait à elle-même, et elle enviait la force qu'elle avait eue de\\ncacher ses sentiments à monsieur de Nemours. Elle voyait, par la fin de\\nla lettre, que cette personne se croyait aimée; elle pensait que la\\ndiscrétion que ce prince lui avait fait paraître, et dont elle avait été\\nsi touchée, n'était peut-être que l'effet de la passion qu'il avait pour\\ncette autre personne, à qui il craignait de déplaire. Enfin elle\\npensait tout ce qui pouvait augmenter son affliction et son désespoir.\\nQuels retours ne fit-elle point sur elle-même! quelles réflexions sur\\nles conseils que sa mère lui avait donnés! Combien se repentit-elle de\\nne s'être pas opiniâtrée à se séparer du commerce du monde, malgré\\nmonsieur de Clèves, ou de n'avoir pas suivi la pensée qu'elle avait eue\\nde lui avouer l'inclination qu'elle avait pour monsieur de Nemours! Elle\\ntrouvait qu'elle aurait mieux fait de la découvrir à un mari dont elle\\nconnaissait la bonté, et qui aurait eu intérêt à la cacher, que de la\\nlaisser voir à un homme qui en était indigne, qui la trompait, qui la\\nsacrifiait peut-être, et qui ne pensait à être aimé d'elle que par un\\nsentiment d'orgueil et de vanité. Enfin, elle trouva que tous les maux\\nqui lui pouvaient arriver, et toutes les extrémités où elle se pouvait\\nporter, étaient moindres que d'avoir laissé voir à monsieur de Nemours\\nqu'elle l'aimait, et de connaître qu'il en aimait une autre. Tout ce qui\\nla consolait était de penser au moins, qu'après cette connaissance, elle\\nn'avait plus rien à craindre d'elle-même, et qu'elle serait entièrement\\nguérie de l'inclination qu'elle avait pour ce prince.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"Madame de Clèves had indeed suspected that this prince had noticed the feeling she had shown for him, and his words made her see that she had not been mistaken. It caused her great pain to see that she was no longer mistress of concealing her feelings, and that she had allowed them to appear to the Chevalier de Guise. It also caused her much pain that Monsieur de Nemours should know them; but this latter pain was not so complete, and it was mingled with a certain sweetness.\\n\\nThe Dauphine, who was extremely impatient to know what was in the letter Châtelart had given her, approached Madame de Clèves:\\n\\n“Go and read this letter,” she said to her; “it is addressed to Monsieur de Nemours and, to all appearances, it is from that mistress for whom he has forsaken all the others. If you cannot read it now, keep it; come to my coucher this evening to return it to me and to tell me whether you recognize the handwriting.”\\n\\nThe Dauphine left Madame de Clèves after these words, and left her so astonished and in such great consternation that for some time she was unable to leave the spot. Her impatience and agitation did not allow her to remain with the queen; she went home, although it was not the hour at which she was accustomed to retire. She held the letter in a trembling hand; her thoughts were so confused that she had no distinct one, and she found herself suffering a kind of unbearable pain which she did not know and had never felt before. As soon as she was in her private chamber, she opened the letter and found it to read as follows:\\n\\nLETTER\\n\\n“I have loved you too much to allow you to believe that the change you perceive in me is an effect of my inconstancy; I want you to know that your infidelity is its cause. You are greatly surprised that I speak to you of your infidelity; you had concealed it from me with such skill, and I took such care to conceal from you that I knew of it, that you have good reason to be astonished that it is known to me. I myself am surprised that I was able to keep any sign of it from appearing to you. No pain has ever equaled mine. I believed that you had a violent passion for me; I no longer concealed from you the passion I had for you, and at the very time when I allowed you to see it in its entirety, I learned that you were deceiving me, that you loved another, and that, to all appearances, you were sacrificing me to this new mistress. I learned it on the day of the ring-tilting tournament; that was why I did not go. I pretended to be ill in order to conceal the disorder of my mind; but I did in fact become ill, and my body could not withstand so violent an agitation. When I began to recover, I continued to pretend that I was very ill, so as to have a pretext for neither seeing you nor writing to you. I wanted time to decide how I should conduct myself toward you; twenty times I made and abandoned the same resolutions; but at last I found you unworthy of seeing my pain, and I resolved not to let it appear to you. I wanted to wound your pride by making you see that my passion was weakening of its own accord. I believed that in this way I would diminish the value of the sacrifice you were making of it; I did not want you to have the pleasure of showing how much I loved you in order to appear more lovable because of it. I resolved to write you cold and languishing letters, so as to plant in the mind of the woman to whom you gave them the thought that you were ceasing to be loved. I did not want her to have the pleasure of learning that I knew she was triumphing over me, nor to increase her triumph by my despair and my reproaches. I thought that I would not punish you enough by breaking with you, and that I would cause you only slight pain if I ceased to love you when you no longer loved me. I found that you had to love me in order to feel the pain of not being loved, which I was experiencing so cruelly. I believed that if anything could rekindle the feelings you had had for me, it was to make you see that mine had changed; but to make you see it while pretending to conceal it from you, and as though I had not had the strength to admit it to you. I settled upon this resolution; but how difficult it was for me to make, and how impossible it seemed to carry out when I saw you again! A hundred times I was on the point of bursting out with reproaches and tears; the state in which my health still left me helped me to disguise my agitation and affliction from you. I was then sustained by the pleasure of dissembling with you as you dissembled with me; nevertheless, I did myself such great violence in order to tell you and write to you that I loved you that you saw sooner than I had intended to let you see that my feelings had changed. You were wounded by it; you complained of it. I tried to reassure you; but it was in so forced a manner that you were even more thoroughly convinced that I no longer loved you. At last, I did everything I had intended to do. The capriciousness of your heart made you return to me as you saw me drawing away from you. I have enjoyed all the pleasure vengeance can give; it seemed to me that you loved me more than you had ever done, and I made you see that I no longer loved you. I had reason to believe that you had entirely abandoned the woman for whom you had forsaken me. I also had reasons to be convinced that you had never spoken to her of me; but your return and your discretion have not been able to make amends for your inconstancy. Your heart was divided between me and another; you deceived me; that is enough to deprive me of the pleasure of being loved by you as I believed I deserved to be, and to leave me in the resolution I have made never to see you again, and by which you are so surprised.\\n\\nMadame de Clèves read this letter and reread it several times, without nevertheless knowing what she had read. She saw only that Monsieur de Nemours did not love her as she had thought, and that he loved other women whom he deceived as he did her. What a sight and what knowledge for a person of her disposition, who had a violent passion, who had just given signs of it to a man whom she judged unworthy of it, and to another whom she was treating badly for love of him! Never had affliction been so piercing and so acute: it seemed to her that what gave this affliction its bitterness was what had taken place that day, and that if Monsieur de Nemours had had no reason to believe that she loved him, she would not have cared that he had loved another woman. But she was deceiving herself; and this pain she found so unbearable was jealousy, with all the horrors that can accompany it. She saw from this letter that Monsieur de Nemours had long been engaged in a love affair. She found that the woman who had written the letter had wit and merit; she seemed to her worthy of being loved; she found in her more courage than she found in herself, and she envied the strength she had had to conceal her feelings from Monsieur de Nemours. She saw from the end of the letter that this person believed herself loved; she thought that the discretion this prince had shown her, and by which she had been so deeply touched, was perhaps only the effect of the passion he had for this other person, whom he feared to displease. In short, she thought of everything that could increase her affliction and her despair. How often did she turn her thoughts back upon herself! What reflections did she make upon the advice her mother had given her! How greatly she repented not having persisted in withdrawing from society despite Monsieur de Clèves, or not having followed the thought she had had of confessing to him the inclination she felt for Monsieur de Nemours! She found that she would have done better to reveal it to a husband whose goodness she knew, and who would have had an interest in concealing it, than to allow it to be seen by a man who was unworthy of it, who deceived her, who was perhaps sacrificing her, and who thought of being loved by her only out of pride and vanity. In short, she found that all the misfortunes that could befall her, and all the extremities to which she might be driven, were less than having allowed Monsieur de Nemours to see that she loved him and knowing that he loved another woman. All that consoled her was the thought that, at least after learning this, she no longer had anything to fear from herself and that she would be entirely cured of the inclination she had for this prince.\", \"source_occurrence_id\": \"lafayette-la-princesse-de-cleves-cf641c31155fddef\", \"source_language\": \"fr\", \"source_language_text_sha256\": \"8f16a54785dc238000d885802b518930642a00ed7c0f240f28e8ef7a2149828d\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T11:00:50.933059+00:00\", \"model_usage\": {\"input_tokens\": 2544, \"cached_input_tokens\": 0, \"output_tokens\": 1954}, \"estimated_cost_usd\": 0.049255999999999994, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"lafayette-la-princesse-de-cleves\", \"title\": \"La Princesse de Clèves\", \"author\": \"Madame de La Fayette\", \"language\": \"fr\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.444141, \"source_start\": 149878, \"source_end\": 149892, \"source_length\": 337456}, \"form\": {\"form_family\": \"present_or_imperfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": \"optional\", \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"fr_present_past\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

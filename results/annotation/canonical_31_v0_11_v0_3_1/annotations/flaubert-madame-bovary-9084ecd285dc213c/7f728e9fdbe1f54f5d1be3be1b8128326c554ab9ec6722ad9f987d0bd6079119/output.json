@@ -1,0 +1,72 @@
+{
+  "occurrence_id": "flaubert-madame-bovary-9084ecd285dc213c",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 3,
+      "performative": 4,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.94,
+    "analysis": "Rodolphe’s “je t’aimerai toujours” presents his future, continuing love as true while also functioning strongly as a vow of enduring attachment in a scene of apparent reconciliation. Its future tense, “toujours,” plea for forgiveness, and kneeling posture give it substantial undertaking force. Although he cries the words out in an emotional moment, the passage supplies no independent evidence that they are a reflex-like expressive discharge rather than an impassioned avowal and promise.",
+    "ambiguity": "The relative weight of T and P is somewhat ambiguous: grammatically the clause predicts a lasting emotional state, but pragmatically it closely resembles a pledge of eternal love. Rodolphe’s eventual sincerity and durability are doubtful, without changing its T/P mode."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "Rodolphe directly addresses Emma with the highlighted future clause “je t’aimerai toujours,” immediately after “Je t’aime.”"
+  },
+  "contextual_interpretation": "Rodolphe utters the line after mistaking Emma’s sobbing for an outpouring of love and interpreting her silence as modest reserve. His tenderness and apparent contrition support a momentary avowal and vow, while his earlier vague, partly invented excuses and the later collapse of the reconciliation under Emma’s request for money cast narrative doubt on its sincerity or permanence. Emma subsequently characterizes the scene as his swearing “une éternité d’amour,” reinforcing its promise-like reception. These complications concern sincerity, misunderstanding, and narrative irony rather than requiring O or E.",
+  "evidence": [
+    {
+      "evidence_id": "ev1",
+      "source": "local_text",
+      "quotation_or_description": "“Je t’aime, je t’aimerai toujours!”",
+      "supports": "The pairing of present love with future enduring love supports T, while the future form and “toujours” strongly support P.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "ev2",
+      "source": "local_text",
+      "quotation_or_description": "“Ah! pardonne-moi!” followed by “Il s’agenouillait.”",
+      "supports": "The request for forgiveness and kneeling frame the future declaration as a reconciliation vow or relational undertaking.",
+      "confidence": 0.95
+    },
+    {
+      "evidence_id": "ev3",
+      "source": "local_text",
+      "quotation_or_description": "“Rodolphe crut que c’était l’explosion de son amour” and then “il s’écria.”",
+      "supports": "The line is emotionally prompted and emphatically delivered, but these delivery facts alone do not establish independent expressive/reflexive force, supporting E=0.",
+      "confidence": 0.96
+    },
+    {
+      "evidence_id": "ev4",
+      "source": "local_text",
+      "quotation_or_description": "Emma later refers to the same moment as one where he “jurais à mes genoux une éternité d’amour.”",
+      "supports": "Emma’s retrospective description confirms that the utterance was received as a sworn promise of enduring love, strengthening P.",
+      "confidence": 0.94
+    },
+    {
+      "evidence_id": "ev5",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is tagged as affirmative future tense, with exact match “je t’aimerai.”",
+      "supports": "Confirms the grammatical future form underlying both the prediction of continued feeling and its promise-like force.",
+      "confidence": 0.99
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T and P naturally capture the clause’s joint avowal/prediction and vow-like undertaking. Emotional delivery, questionable sincerity, and narrative irony are adequately treated as context and create no residual core-force pressure.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

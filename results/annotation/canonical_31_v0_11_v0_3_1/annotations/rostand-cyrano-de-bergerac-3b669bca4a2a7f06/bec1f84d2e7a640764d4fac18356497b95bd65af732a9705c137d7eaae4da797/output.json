@@ -1,0 +1,79 @@
+{
+  "occurrence_id": "rostand-cyrano-de-bergerac-3b669bca4a2a7f06",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 3,
+      "other": 0
+    },
+    "confidence": 0.94,
+    "analysis": "Cyrano’s “je vous aime” is foremost a sincere avowal presenting his love for Roxane as true. It also has independently supported expressive/reflexive force: he announces that he will cast out whatever words come to him without arranging them, and the declaration emerges amid suffocation, agitation, and loss of verbal control. No relational undertaking is enacted by the core words themselves.",
+    "ambiguity": "The degree of E is somewhat interpretive: the highly wrought verse remains a lucid avowal, but the explicit framing as an unarranged outpouring supplies more than mere passionate delivery. Cyrano’s concealed identity complicates attribution for Roxane but not the T/P/E force of his own utterance."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "Cyrano directly speaks the declaration to Roxane, but under cover of darkness in a courtship exchange that Roxane understands as Christian’s; it is therefore a direct utterance with concealed and misattributed speaker identity."
+  },
+  "contextual_interpretation": "Cyrano contrasts this speech with his former artificial wit and says that he is finally speaking sincerely from his “true heart.” The declaration expresses his own love, although Roxane takes the hidden speaker to be Christian. Her response—“that is indeed love”—confirms its received force as an avowal, while the subsequent claim that he would sacrifice his happiness for hers elaborates the character of the feeling rather than turning the highlighted words into a commitment.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "“Mon langage jamais jusqu’ici n’est sorti / De mon vrai cœur” and “j’ose être enfin moi-même.”",
+      "supports": "Cyrano explicitly frames the coming speech as a sincere disclosure of his own inner state, strongly supporting T.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "“Tous ceux… / Qui me viendront, je vais vous les jeter, en touffe, / Sans les mettre en bouquet: je vous aime, j’étouffe.”",
+      "supports": "The words are presented as arriving and being cast out without arrangement, providing positive evidence that the declaration partly functions as affect-driven expressive discharge rather than only an emphatic assertion.",
+      "confidence": 0.95
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "Stage directions and speech describe Cyrano as increasingly overcome, feverish, distracted, and overwhelmed: “que l’émotion gagne de plus en plus,” “avec égarement,” and “bouleversé.”",
+      "supports": "Corroborates the affective-loss-of-control framing relevant to E, though intensity by itself would not establish E.",
+      "confidence": 0.92
+    },
+    {
+      "evidence_id": "e4",
+      "source": "local_text",
+      "quotation_or_description": "Roxane answers, “Oui, c’est bien de l’amour,” and Cyrano identifies the feeling overwhelming him as truly love.",
+      "supports": "Confirms that the declaration is understood and elaborated as an avowal of an existing loving state, supporting T.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "e5",
+      "source": "local_text",
+      "quotation_or_description": "Christian is separately shown beneath the balcony and later interjects “Un baiser!”, while Cyrano addresses him aside.",
+      "supports": "Establishes the concealed-speaker complication: Cyrano is the direct producer of the declaration even though Roxane attributes the courtship voice to Christian.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e6",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is identified as an affirmative present-tense form in Edmond Rostand’s French play Cyrano de Bergerac.",
+      "supports": "Supports treating the highlighted phrase as a current direct declaration rather than a past report or hypothetical formulation.",
+      "confidence": 0.99
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T and E naturally capture the core event as both an avowal of love and an explicitly unfiltered, affect-driven outpouring. The mistaken attribution to Christian is an important contextual deception but does not expose a missing dimension in the core-force ontology.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": "P is scored zero because neither courtship, emotional effect, nor Cyrano’s surrounding description of possible self-sacrifice makes the highlighted declaration itself an undertaking."
+}

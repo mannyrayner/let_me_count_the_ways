@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"balzac-illusions-perdues-61fbb32d86fa426a\", \"SOURCE_TEXT\": {\"exact_match\": \"je vous aime\", \"local_text\": {\"context_start\": 257942, \"context_end\": 259600, \"text\": \"écédait de quelques pas, lorsqu'en arrivant là, dit-il en montrant la\\nporte du boudoir, il prétend vous avoir vue avec monsieur de Rubempré\\ndans une situation qui ne lui permettait pas d'entrer; il est revenu\\nsur moi tout effaré en m'entraînant, sans me laisser le temps de me\\nreconnaître; et nous étions à Beaulieu, quand il me dit la raison de\\nsa retraite. Si je l'avais connue, je n'aurais pas bougé de chez vous,\\nafin d'éclaircir cette affaire à votre avantage; mais revenir chez vous\\naprès en être sorti ne prouvait plus rien. Maintenant, que Stanislas\\nait vu de travers, ou qu'il ait raison, _il doit avoir tort_. Chère\\nNaïs, ne laissez pas jouer votre vie, votre honneur, votre avenir par\\nun sot; imposez-lui silence à l'instant. Vous connaissez ma situation\\nici? Quoique j'y aie besoin de tout le monde, je vous suis entièrement\\ndévoué. Disposez d'une vie qui vous appartient. Quoique vous ayez\\nrepoussé mes vœux, mon cœur sera toujours à vous, et en toute occasion\\nje vous prouverai combien je vous aime. Oui, je veillerai sur vous\\ncomme un fidèle serviteur, sans espoir de récompense, uniquement pour\\nle plaisir que je trouve à vous servir, même à votre insu. Ce matin,\\nj'ai partout dit que j'étais à la porte du salon, et que je n'avais\\nrien vu. Si l'on vous demande qui vous a instruite des propos tenus\\nsur vous, servez-vous de moi. Je serais bien glorieux d'être votre\\ndéfenseur avoué; mais, entre nous, monsieur de Bargeton est le seul qui\\npuisse demander raison à Stanislas... Quand ce petit Rubempré aurait\\nfait quelque folie, l'honneur d'une femme ne saurait être à la merci\\ndu premier étourdi qui se met à ses pieds. Voilà ce que j'ai dit.\"}, \"wider_canonical_context\": {\"context_start\": 255748, \"context_end\": 262306, \"text\": \"—Eh! bien, disait l'une, cette pauvre Naïs, vous savez? Moi, je ne\\nle crois pas, elle a devant elle toute une vie irréprochable; elle\\nest beaucoup trop fière pour être autre chose que la protectrice de\\nmonsieur Chardon. Mais si cela est, je la plains de tout mon cœur.\\n\\n—Elle est d'autant plus à plaindre, qu'elle se donne un ridicule\\naffreux; car elle pourrait être la mère de monsieur Lulu, comme\\nl'appelait Jacques. Ce poétriau a tout au plus vingt-deux ans, et Naïs,\\nentre nous soit dit, a bien quarante ans.\\n\\n—Moi, disait Châtelet, je trouve que la situation même dans laquelle\\nétait monsieur de Rubempré prouve l'innocence de Naïs. On ne se met pas\\nà genoux pour redemander ce qu'on a déjà eu.\\n\\n—C'est selon! dit Francis d'un air égrillard qui lui valut de Zéphirine\\nune œillade improbative.\\n\\n—Mais dites-nous donc bien ce qui en est? demandait-on à Stanislas en\\nse formant en comité secret dans un coin du salon.\\n\\nStanislas avait fini par composer un petit conte plein de gravelures,\\net l'accompagnait de gestes et de poses qui incriminaient\\nprodigieusement la chose.\\n\\n—C'est incroyable, répétait-on.\\n\\n—A midi, disait l'une.\\n\\n—Naïs aurait été la dernière que j'eusse soupçonnée.\\n\\n—Que va-t-elle faire?\\n\\nPuis des commentaires, des suppositions infinies!... Du Châtelet\\ndéfendait madame de Bargeton; mais il la défendait si maladroitement\\nqu'il attisait le feu du commérage au lieu de l'éteindre. Lili, désolée\\nde la chute du plus bel ange de l'olympe angoumoisin, alla tout en\\npleurs colporter la nouvelle à l'Évêché. Quand la ville entière fut\\nbien certainement en rumeur, l'heureux du Châtelet alla chez madame\\nde Bargeton, où il n'y avait, hélas! qu'une seule table de whist; il\\ndemanda diplomatiquement à Naïs d'aller causer avec elle dans son\\nboudoir. Tous deux s'assirent sur le petit canapé.\\n\\n—Vous savez sans doute, dit du Châtelet à voix basse, ce dont tout\\nAngoulême s'occupe?...\\n\\n—Non, dit-elle.\\n\\n—Eh! bien, reprit-il, je suis trop votre ami pour vous le laisser\\nignorer. Je dois vous mettre à même de faire cesser des calomnies sans\\ndoute inventées par Amélie, qui a l'outrecuidance de se croire votre\\nrivale. Je venais ce matin vous voir avec ce singe de Stanislas, qui me\\nprécédait de quelques pas, lorsqu'en arrivant là, dit-il en montrant la\\nporte du boudoir, il prétend vous avoir vue avec monsieur de Rubempré\\ndans une situation qui ne lui permettait pas d'entrer; il est revenu\\nsur moi tout effaré en m'entraînant, sans me laisser le temps de me\\nreconnaître; et nous étions à Beaulieu, quand il me dit la raison de\\nsa retraite. Si je l'avais connue, je n'aurais pas bougé de chez vous,\\nafin d'éclaircir cette affaire à votre avantage; mais revenir chez vous\\naprès en être sorti ne prouvait plus rien. Maintenant, que Stanislas\\nait vu de travers, ou qu'il ait raison, _il doit avoir tort_. Chère\\nNaïs, ne laissez pas jouer votre vie, votre honneur, votre avenir par\\nun sot; imposez-lui silence à l'instant. Vous connaissez ma situation\\nici? Quoique j'y aie besoin de tout le monde, je vous suis entièrement\\ndévoué. Disposez d'une vie qui vous appartient. Quoique vous ayez\\nrepoussé mes vœux, mon cœur sera toujours à vous, et en toute occasion\\nje vous prouverai combien je vous aime. Oui, je veillerai sur vous\\ncomme un fidèle serviteur, sans espoir de récompense, uniquement pour\\nle plaisir que je trouve à vous servir, même à votre insu. Ce matin,\\nj'ai partout dit que j'étais à la porte du salon, et que je n'avais\\nrien vu. Si l'on vous demande qui vous a instruite des propos tenus\\nsur vous, servez-vous de moi. Je serais bien glorieux d'être votre\\ndéfenseur avoué; mais, entre nous, monsieur de Bargeton est le seul qui\\npuisse demander raison à Stanislas... Quand ce petit Rubempré aurait\\nfait quelque folie, l'honneur d'une femme ne saurait être à la merci\\ndu premier étourdi qui se met à ses pieds. Voilà ce que j'ai dit.\\n\\nNaïs remercia du Châtelet par une inclination de tête, et demeura\\npensive. Elle était fatiguée, jusqu'au dégoût, de la vie de province.\\nAu premier mot de du Châtelet, elle avait jeté les yeux sur Paris. Le\\nsilence de madame de Bargeton mettait son savant adorateur dans une\\nsituation gênante.\\n\\n—Disposez de moi, dit-il, je vous le répète.\\n\\n—Merci, répondit-elle.\\n\\n—Que comptez-vous faire?\\n\\n—Je verrai.\\n\\nLong silence.\\n\\n—Aimez-vous donc tant ce petit Rubempré?\\n\\nElle laissa échapper un superbe sourire, et se croisa les bras en\\nregardant les rideaux de son boudoir. Du Châtelet sortit sans avoir pu\\ndéchiffrer ce cœur de femme altière. Quand Lucien et les quatre fidèles\\nvieillards qui étaient venus faire leur partie sans s'émouvoir de ces\\ncancans problématiques furent partis, madame de Bargeton arrêta son\\nmari, qui se disposait à s'aller coucher, en ouvrant la bouche pour\\nsouhaiter une bonne nuit à sa femme.\\n\\n—Venez par ici, mon cher, j'ai à vous parler, dit-elle avec une sorte\\nde solennité.\\n\\nMonsieur de Bargeton suivit sa femme dans le boudoir.\\n\\n—Monsieur, lui dit-elle, j'ai peut-être eu tort de mettre dans mes\\nsoins protecteurs envers monsieur de Rubempré une chaleur aussi mal\\ncomprise par les sottes gens de cette ville que par lui-même. Ce matin,\\nLucien s'est jeté à mes pieds, là, en me faisant une déclaration\\nd'amour. Stanislas est entré dans le moment où je relevais cet enfant.\\nAu mépris des devoirs que la courtoisie impose à un gentilhomme\\nenvers une femme en toute espèce de circonstance, il a prétendu\\nm'avoir surprise dans une situation équivoque avec ce garçon, que je\\ntraitais alors comme il le mérite. Si ce jeune écervelé savait les\\ncalomnies auxquelles sa folie donne lieu, je le connais, il irait\\ninsulter Stanislas et le forcerait à se battre. Cette action serait\\ncomme un aveu public de son amour. Je n'ai pas besoin de vous dire que\\nvotre femme est pure; mais vous penserez qu'il y a quelque chose de\\ndéshonorant pour vous et pour moi à ce que ce soit monsieur de Rubempré\\nqui la défende. Allez à l'instant chez Stanislas, et demandez-lui\\nsérieusement raison des insultants propos qu'il a tenus sur moi; songez\\nque vous ne devez pas souffrir que l'affaire s'arrange, à moins\\nqu'il ne se rétracte en présence de témoins nombreux et importants.\\nVous conquerrez ainsi l'estime de tous les honnêtes gens; vous vous\\nconduirez en homme d'esprit, en galant homme, et vous aurez des droits\\nà mon estime. Je vais faire partir Gentil à cheval pour l'Escarbas, mon\\npère doit être votre témoin; malgré son âge, je le sais homme à fouler\\naux pieds cette poupée qui noircit la réputation d'une Nègrepelisse.\\nVous avez le choix des armes, battez-vous au pistolet, vous tirez à\\nmerveille.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"“Well!” one of them was saying, “that poor Naïs, you know? I do not believe it myself; she has a whole blameless life behind her; she is far too proud to be anything other than Monsieur Chardon’s protectress. But if it is true, I pity her with all my heart.”\\n\\n“She is all the more to be pitied because she is making herself dreadfully ridiculous; for she could be Monsieur Lulu’s mother, as Jacques called him. That little would-be poet is twenty-two at most, and Naïs, between ourselves, is a good forty.”\\n\\n“For my part,” Châtelet was saying, “I find that the very position in which Monsieur de Rubempré was proves Naïs’s innocence. One does not go down on one’s knees to ask again for what one has already had.”\\n\\n“That depends!” said Francis with a roguish air that earned him a disapproving glance from Zéphirine.\\n\\n“But do tell us exactly what happened?” people asked Stanislas as they formed a secret committee in a corner of the drawing room.\\n\\nStanislas had ended by concocting a little tale full of obscenities, accompanying it with gestures and poses that made the affair look exceedingly incriminating.\\n\\n“It is unbelievable,” they kept repeating.\\n\\n“At noon,” said one of them.\\n\\n“Naïs would have been the last person I should have suspected.”\\n\\n“What is she going to do?”\\n\\nThen came endless comments and suppositions!... Du Châtelet defended Madame de Bargeton; but he defended her so clumsily that he fanned the flames of gossip instead of extinguishing them. Lili, devastated by the fall of the most beautiful angel on the Olympus of Angoulême, went in tears to spread the news at the Bishop’s Palace. When the whole town was most certainly in an uproar, the delighted du Châtelet went to Madame de Bargeton’s, where, alas, there was only a single whist table; he diplomatically asked Naïs to go and talk with him in her boudoir. They both sat down on the little sofa.\\n\\n“You doubtless know,” du Châtelet said to her in a low voice, “what all Angoulême is talking about?...”\\n\\n“No,” she said.\\n\\n“Well,” he resumed, “I am too much your friend to leave you unaware of it. I must enable you to put a stop to slanders doubtless invented by Amélie, who has the effrontery to consider herself your rival. I was coming to see you this morning with that ape Stanislas, who was a few paces ahead of me, when, on reaching there,” he said, pointing to the boudoir door, “he claims to have seen you with Monsieur de Rubempré in a situation that did not permit him to enter; he rushed back to me in utter dismay and dragged me away without giving me time to collect myself; and we were at Beaulieu when he told me the reason for his retreat. Had I known it, I would not have budged from your house, so as to clear up this affair to your advantage; but returning to your house after having left it would no longer have proved anything. Now, whether Stanislas saw wrongly or whether he is right, *he must be wrong*. Dear Naïs, do not let a fool gamble with your life, your honor, your future; silence him at once. You know my position here? Although I need everyone here, I am entirely devoted to you. Dispose of a life that belongs to you. Although you have rejected my suit, my heart will always be yours, and on every occasion I shall prove to you how much I love you. Yes, I shall watch over you like a faithful servant, without hope of reward, solely for the pleasure I find in serving you, even without your knowledge. This morning I told everyone that I had been at the drawing-room door and had seen nothing. If you are asked who informed you of the things being said about you, make use of me. I should be very proud to be your acknowledged defender; but, between ourselves, Monsieur de Bargeton is the only man who can demand satisfaction from Stanislas... Even if that little Rubempré had committed some folly, a woman’s honor cannot be left at the mercy of the first scatterbrain who throws himself at her feet. That is what I said.”\\n\\nNaïs thanked du Châtelet with an inclination of her head and remained thoughtful. She was weary, to the point of disgust, of provincial life. At du Châtelet’s first words, her thoughts had turned to Paris. Madame de Bargeton’s silence placed her learned admirer in an awkward position.\\n\\n“Dispose of me,” he said. “I repeat it.”\\n\\n“Thank you,” she replied.\\n\\n“What do you intend to do?”\\n\\n“I shall see.”\\n\\nA long silence.\\n\\n“Do you love that little Rubempré so much, then?”\\n\\nShe let a superb smile escape her and folded her arms as she looked at the curtains of her boudoir. Du Châtelet left without having been able to decipher that proud woman’s heart. When Lucien and the four faithful old gentlemen who had come to play their game, unmoved by this dubious gossip, had departed, Madame de Bargeton detained her husband, who was preparing to go to bed and was opening his mouth to wish his wife good night.\\n\\n“Come over here, my dear, I have something to say to you,” she said with a kind of solemnity.\\n\\nMonsieur de Bargeton followed his wife into the boudoir.\\n\\n“Monsieur,” she said to him, “perhaps I was wrong to put into my protective attentions toward Monsieur de Rubempré an ardor as badly misunderstood by the foolish people of this town as by the young man himself. This morning, Lucien threw himself at my feet, there, and declared his love for me. Stanislas entered at the very moment when I was raising the child to his feet. In contempt of the duties that courtesy imposes upon a gentleman toward a woman in every kind of circumstance, he has claimed to have surprised me in a compromising situation with this boy, whom I was then treating as he deserves. If that thoughtless young man knew the slanders to which his folly has given rise, I know him: he would go and insult Stanislas and force him to fight. That action would be tantamount to a public avowal of his love. I do not need to tell you that your wife is pure; but you will understand that there would be something dishonorable for both you and me if Monsieur de Rubempré were the one to defend her. Go to Stanislas’s at once and formally demand satisfaction for the insulting remarks he has made about me; bear in mind that you must not allow the matter to be settled unless he retracts them in the presence of numerous and important witnesses. In that way you will win the esteem of all decent people; you will conduct yourself as a man of intelligence, as a gentleman, and you will earn a claim to my esteem. I am going to send Gentil on horseback to l’Escarbas; my father must be your second. Despite his age, I know he is a man capable of trampling underfoot that little puppet who is blackening the reputation of a Nègrepelisse. You have the choice of weapons; fight with pistols—you are a marvelous shot.”\", \"source_occurrence_id\": \"balzac-illusions-perdues-61fbb32d86fa426a\", \"source_language\": \"fr\", \"source_language_text_sha256\": \"1c54a385b91c1329a853610a99e20ea15fb511a03c97acf8965ed8a6a6cbb9eb\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T10:15:19.365193+00:00\", \"model_usage\": {\"input_tokens\": 2061, \"cached_input_tokens\": 0, \"output_tokens\": 1912}, \"estimated_cost_usd\": 0.046484000000000004, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"balzac-illusions-perdues\", \"title\": \"Illusions perdues\", \"author\": \"Honoré de Balzac\", \"language\": \"fr\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.191384, \"source_start\": 258942, \"source_end\": 258954, \"source_length\": 1352994}, \"form\": {\"form_family\": \"present_or_imperfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": \"optional\", \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"fr_present_past\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

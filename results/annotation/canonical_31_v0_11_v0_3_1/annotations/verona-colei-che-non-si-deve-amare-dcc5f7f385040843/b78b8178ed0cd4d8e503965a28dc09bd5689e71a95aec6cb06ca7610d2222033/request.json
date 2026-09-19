@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"verona-colei-che-non-si-deve-amare-dcc5f7f385040843\", \"SOURCE_TEXT\": {\"exact_match\": \"ti amo\", \"local_text\": {\"context_start\": 552250, \"context_end\": 553145, \"text\": \"— «Parto, fuggo, non mi vedrai più. Devo starti lontano a costo di\\nmorirne, devo rinunziare a te perchè tu sia felice più tardi. Devo\\ntrovare nelle mie forze umane la forza spietata di non prenderti, e\\nandarmene, solo, a rifugiarmi chissà dove, io che ti amo, io che non\\nvivo un momento senza pensare a te, io, che dovunque vada, porterò nei\\nsensi e nell’anima la tua memoria, più viva e più terribile di te...\\nPoi, non è tutto. Sei difesa, vigilata; c’è tuo padre, nostro padre,\\nche ti difende. Ogni volta che le mie labbra volessero baciarti, ora\\nlo vedrei. Stanotte, quand’eravamo insieme, quand’eri quasi mia, d’un\\ntratto egli è venuto, l’ho visto. Era lì, fra me e te, che mi guardava\\ncon i suoi occhi fermi. La sua faccia si è confusa nella tua faccia.\\nHo inteso che nostro padre ci malediva. Ed ora il suo fantasma non mi\\nabbandona più. Comprendi, Loretta, comprendi che ne impazzirei?...\"}, \"wider_canonical_context\": {\"context_start\": 548389, \"context_end\": 555922, \"text\": \"Disse d’aver pensato a sè stesso ed a lei, a lei sopra tutto, e d’aver\\ncompreso che stavano per prepararsi entrambi, con le lor proprie mani,\\nuna irremediabile rovina. Ch’ella era giovine, e doveva pur vivere,\\nmentr’egli non avrebbe mai consentito a dividerla con chicchessia. E\\nnessuna illusione le facesse velo. Oggi, forse, la sua gioia più grande\\nconsisteva per lei nel sacrificio di sè stessa, ma inevitabilmente\\nverrebbe un giorno, e forse non lontano, in cui se ne sarebbe troppo\\ntardi pentita. Infatti, quante aspirazioni, quante impazienze già non\\ntormentavano la sua fervida giovinezza! Poich’ella era una bambina di\\nvent’anni, ed a vent’anni l’amore, anche un’amore così torbido, non può\\nessere che una ventata sentimentale, un soffio di perverso ardore, che\\nsfuma e passa e non lascia memoria di sè... Poi, a lungo andare, nulla\\nsi può nascondere. La gente, prima o poi, se ne sarebbe avveduta. E\\nallora?... Si sentiva ella il coraggio di subire apertamente una tale\\nvergogna? Li avrebbero tutti esecrati, fuggiti come due cani lebbrosi,\\ncome due stregati, e non sarebbe rimasta per loro nè famiglia, nè\\namici, nè avvenire, nè pace, nè alcuno di que’ conforti umani che pur\\nson necessari ad ogni creatura. Inoltre non eran ricchi, e bisognava\\nquindi che, ognuno per la propria strada, provvedessero all’avvenire,\\nvisto ch’entrambi s’eran scelta una via diversa da quella ch’era\\nsegnata nel lor destino. Ricchi forse, molto ricchi, avrebbero potuto\\nfuggire in un paese dove nessuno li conoscesse nè potesse conoscerli\\nmai, e là dimenticare ch’eran nati dalla stessa madre, dallo stesso\\npadre, per solo ricordarsi che si amavano.\\n\\nMa se pure questo fosse, avrebbero mai trovato pace nella lor propria\\ncoscienza? «Ricórdati! — egli le diceva; — tutto si può far tacere,\\ntranne la voce inesorabile che si alza dall’intimo del nostro cuore.\\nEd il rimorso, vedi, è il nemico più terribile fra quanti ci riserba la\\nvita.»\\n\\nNon solo; ma se un figlio nascesse dal lor peccato? se mai dessero\\nal mondo una creatura così maledetta fin dall’origine? se di lor\\ndue, fratello e sorella, si generasse una creatura infamata, esclusa\\nda tutte le leggi umane, che li avrebbe fatti tremare ogniqualvolta\\npronunziasse con la sua bocca infantile quelle prime parole che si\\nbalbettano: «mamma, papà...»\\n\\nAveva mai pensato a tutto questo, lei? No certamente; perch’era\\ngiovine ancora, inesperta d’ogni pericolo, e si lasciava prendere senza\\nriflessione dalla follìa del suo amore, ch’era solamente «il suo primo\\namore...»\\n\\nAnche per lui era il primo, il solo, veramente l’unico. Ed ella ne\\nsarebbe certo guarita; egli no. Egli avrebbe fatto il possibile per\\ndimenticare, ma tutto questo non avrebbe servito che a mescergli\\nnelle vene più profondamente il suo velenoso male. Per lei, senza\\ndubbio, non era che un capriccio lieve, una folata di vento, un’ondata\\nimpetuosa di calore ne’ suoi freschi vent’anni... Oh, non dicesse di\\nno! Egli lo sapeva bene, e questa era forse la sua tortura più grande.\\nMa egli era invece un uomo già maturo, ed anzi, un uomo rimasto fino\\nallora insensibile a tutte le passioni; cosicchè gli si era scatenata\\nnell’anima una buia tempesta, una di quelle tempeste che travolgono\\ne distruggono intera una vita. Per quanto lottasse con ogni sua\\nforza, ormai non v’era più scampo; in lui era entrato subitamente un\\naltr’uomo, ben diverso da quello ch’egli era stato fino allora; la sua\\nmente, il suo cuore, i suoi sensi, tutto era mutato. La sua libera\\ngioventù si era incatenata il giorno ch’egli aveva cominciato ad\\namarla, ed ormai viveva come sotto la magìa d’un sortilegio, non sapeva\\npiù dominarsi, era uscito di sè.\\n\\nBisognava che s’armasse di tutta la sua forza per non trascinare anche\\nlei nella propria rovina, bisognava che le volesse un bene infinito,\\npiù che amore, un’adorazione senza limiti, per venire a dirle quel che\\nle diceva:\\n\\n— «Parto, fuggo, non mi vedrai più. Devo starti lontano a costo di\\nmorirne, devo rinunziare a te perchè tu sia felice più tardi. Devo\\ntrovare nelle mie forze umane la forza spietata di non prenderti, e\\nandarmene, solo, a rifugiarmi chissà dove, io che ti amo, io che non\\nvivo un momento senza pensare a te, io, che dovunque vada, porterò nei\\nsensi e nell’anima la tua memoria, più viva e più terribile di te...\\nPoi, non è tutto. Sei difesa, vigilata; c’è tuo padre, nostro padre,\\nche ti difende. Ogni volta che le mie labbra volessero baciarti, ora\\nlo vedrei. Stanotte, quand’eravamo insieme, quand’eri quasi mia, d’un\\ntratto egli è venuto, l’ho visto. Era lì, fra me e te, che mi guardava\\ncon i suoi occhi fermi. La sua faccia si è confusa nella tua faccia.\\nHo inteso che nostro padre ci malediva. Ed ora il suo fantasma non mi\\nabbandona più. Comprendi, Loretta, comprendi che ne impazzirei?...\\n\\n«Solo ti domando una cosa: abbi pietà di me. Non far nulla per\\ntrattenermi, non piangere, non ripetere che avresti voluto esser mia.\\nInvece tu devi odiarmi, perchè questo amore che ho per te, ricórdati!\\nè una cosa orrenda. Fa quello che vuoi: tornatene a casa, o rimani, o\\nva dove sarai felice. Ma non dimenticare che un uomo fugge, butta fuori\\ndalla vita il suo cuore morto, per salvare te, unicamente per salvare\\ndalla rovina la sua sorella che amava...\\n\\n«Più tardi, quando sarai donna, pensa che se la mia colpa fu grande ho\\nanche lottato quanto un uomo può lottare per ribellarmi a questa colpa.\\nE tu non dirmi niente, Lora... non mi cercare mai più. Parto súbito,\\nstamane, fra un’ora...»\\n\\n\\nE partì.\\n\\n\\n\\n\\n                   *       *       *       *       *\\n\\n\\n\\n\\nI\\n\\n\\nElla rimase in quell’albergo due giorni, sperduta, nell’inerzia, nello\\nstupore, nello smarrimento. Quello che succedeva era nuovo, inatteso,\\nper lei. La rivelazione di questo amor disperato, l’apparenza tragica\\ndi questa passione, da prima le dette un senso di dolorosa maraviglia.\\n\\nElla non intendeva l’amore a questo modo; per lei l’amore non poteva\\nessere che un viluppo romantico di sensazioni tristi e gaie, di parole\\nche vengono alle labbra per tramutarsi in un bacio, di curiosità\\ninsoddisfatte, d’aspirazioni veementi verso una contentezza fisica\\nda lei non conosciuta. Per lei dunque l’amore doveva essere una cosa\\ngioconda.\\n\\nElla non era che una piccola vespa, leggera, volubile, pungente:\\nprovava un senso di malessere davanti a questo amore così tragico.\\nS’era invaghita del fratello, ma senza trovarvi un benchè minimo sapor\\nd’incesto; lo aveva infatti amato per istinto, senza pensare al suo\\nnome, senza nemmeno accorgersi di violare un sacro divieto. L’aveva\\nincontrato, quando, nel suo grembo d’amante voluttuoso ed ancor\\nsuggellato, ella provava un bisogno di dedizione invincibile, avvolto\\nnelle oscure lascivie che tormentano il fuoco della verginità. Aveva\\nda lui subíta la prima tentazione, per lui s’era sentita nascere nel\\nsangue la prima ed oscura inquietudine dell’amore; il suo grembo di\\nvergine, così, non altrimenti, lo amava.\\n\\nElla era tanto semplice e tanto perversa insieme, che poteva sentire\\npuramente un amore incestuoso; il male stava così nascosto in lei\\nch’ella non sapeva d’esserne contaminata.\\n\\nL’uomo, che ne’ suoi atti è sovente un impulsivo, ama nondimeno\\ninterrogarsi, discutere le sue proprie passioni; la donna, che invece\\nha per natura uno spirito riflessivo, quando una forte passione\\nl’avvince non discute più e lascia che il proprio desiderio vi si\\nabbandoni senza ombra di paura. Nessuna cosa è per lei tanto piacevole\\nquanto il sottrarsi al dominio della propria volontà, mentre è sempre\\ncon un grande rammarico che noi rinunziamo al potere di noi stessi.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"He said that he had thought about himself and about her—about her above all—and had understood that they were both preparing, with their own hands, an irreparable ruin. That she was young and had to live, while he would never have consented to share her with anyone. And she must let no illusion blind her. Today, perhaps, her greatest joy lay in sacrificing herself, but inevitably a day would come, and perhaps not a distant one, when she would repent of it too late. Indeed, how many aspirations, how many impatient longings were already tormenting her ardent youth! For she was a child of twenty, and at twenty love, even so troubled a love, can be nothing but a gust of sentiment, a breath of perverse ardor, which fades and passes and leaves no memory of itself... Then, in the long run, nothing can be hidden. People, sooner or later, would notice. And then?... Did she feel she had the courage to endure such shame openly? Everyone would execrate them, shun them like two leprous dogs, like two creatures possessed, and for them there would remain neither family, nor friends, nor future, nor peace, nor any of those human comforts that are, after all, necessary to every creature. Moreover, they were not rich, and it was therefore necessary that each, along a separate path, provide for the future, since both had chosen a road different from the one marked out in their destiny. If they had been rich, perhaps, very rich, they could have fled to a country where no one knew them or could ever come to know them, and there forget that they had been born of the same mother, the same father, remembering only that they loved one another.\\n\\nBut even if that were so, would they ever have found peace in their own consciences? “Remember!—he said to her—everything can be silenced except the inexorable voice that rises from the depths of our heart. And remorse, you see, is the most terrible enemy of all those life holds in store for us.”\\n\\nAnd not only that: but what if a child were born of their sin? What if they should ever give the world a creature so accursed from its very origin? What if from the two of them, brother and sister, there should be born an infamous creature, excluded from all human laws, who would make them tremble whenever its childish mouth uttered those first words that are babbled: “mamma, papa...”\\n\\nHad she ever thought of all this? Certainly not; because she was still young, inexperienced in every danger, and let herself be seized unthinkingly by the madness of her love, which was only “her first love...”\\n\\nFor him too it was the first, the only, truly the one and only. And she would certainly recover from it; he would not. He would do everything possible to forget, but all this would serve only to mingle his poisonous malady more deeply into his veins. For her, without a doubt, it was nothing but a slight caprice, a gust of wind, an impetuous wave of heat in the freshness of her twenty years... Oh, she must not say no! He knew it well, and this was perhaps his greatest torment. But he, on the other hand, was already a mature man and, indeed, a man who until then had remained insensible to every passion; and so a dark storm had been unleashed in his soul, one of those storms that overwhelm and destroy an entire life. However much he struggled with all his strength, there was now no escape; another man had suddenly entered into him, utterly different from the man he had been until then; his mind, his heart, his senses—everything had changed. His free youth had been chained on the day he had begun to love her, and now he lived as though under the magic of a spell; he no longer knew how to master himself; he was beside himself.\\n\\nHe had to arm himself with all his strength so as not to drag her too into his own ruin; he had to love her with an infinite love, more than love, with a boundless adoration, in order to come and tell her what he was telling her:\\n\\n—“I am leaving, I am fleeing; you will never see me again. I must stay far from you even if it kills me; I must renounce you so that you may be happy later. I must find within my human strength the pitiless strength not to take you, and to go away, alone, to seek refuge who knows where—I who love you, I who do not live a single moment without thinking of you, I who, wherever I go, shall carry in my senses and in my soul the memory of you, more vivid and more terrible than you yourself... And that is not all. You are defended, watched over; there is your father, our father, who defends you. Every time my lips wished to kiss you, I would see him now. Last night, when we were together, when you were almost mine, all at once he came; I saw him. He was there, between you and me, looking at me with his unwavering eyes. His face merged with your face. I heard our father cursing us. And now his specter no longer leaves me. Do you understand, Loretta, do you understand that it would drive me mad?...\\n\\n“I ask only one thing of you: have pity on me. Do nothing to keep me here; do not weep; do not repeat that you would have wished to be mine. Instead you must hate me, because this love I have for you—remember!—is a horrible thing. Do as you wish: go back home, or stay, or go wherever you will be happy. But do not forget that a man is fleeing, casting his dead heart out of life, to save you, solely to save from ruin the sister whom he loved...\\n\\n“Later, when you are a woman, remember that if my guilt was great, I also struggled as much as a man can struggle to rebel against this guilt. And do not say anything to me, Lora... never seek me again. I am leaving at once, this morning, in an hour...”\\n\\n\\nAnd he left.\\n\\n\\n\\n\\n                   *       *       *       *       *\\n\\n\\n\\n\\nI\\n\\n\\nShe remained in that hotel for two days, lost, inert, astonished, bewildered. What was happening was new, unexpected, to her. The revelation of this desperate love, the tragic aspect of this passion, at first gave her a sense of painful wonder.\\n\\nShe did not understand love in this way; for her, love could be nothing but a romantic tangle of sad and joyful sensations, of words that come to the lips to be transformed into a kiss, of unsatisfied curiosities, of vehement aspirations toward a physical contentment unknown to her. For her, then, love was meant to be a joyous thing.\\n\\nShe was nothing but a little wasp, light, fickle, stinging: she felt a sense of unease before this love so tragic. She had become enamored of her brother, but without finding in it the slightest savor of incest; indeed, she had loved him by instinct, without thinking of his name, without even realizing that she was violating a sacred prohibition. She had met him when, in her voluptuous lover’s womb, still sealed, she felt an invincible need for self-surrender, wrapped in the obscure lusts that torment the fire of virginity. From him she had undergone her first temptation; for him she had felt the first dark unrest of love arise in her blood; her virgin womb, thus and in no other way, loved him.\\n\\nShe was at once so simple and so perverse that she could feel an incestuous love purely; the evil lay so well hidden within her that she did not know she was contaminated by it.\\n\\nMan, who in his actions is often impulsive, nevertheless loves to question himself, to debate his own passions; woman, who by nature instead has a reflective spirit, when a strong passion binds her, debates no longer and allows her desire to surrender itself to it without a shadow of fear. Nothing is so pleasing to her as escaping the dominion of her own will, whereas it is always with great regret that we relinquish power over ourselves.\", \"source_occurrence_id\": \"verona-colei-che-non-si-deve-amare-dcc5f7f385040843\", \"source_language\": \"it\", \"source_language_text_sha256\": \"0397de000000a4730a6c667eca7d0006200c327c4ee503d0ad7a53a3afc6b7be\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T12:27:30.681472+00:00\", \"model_usage\": {\"input_tokens\": 2465, \"cached_input_tokens\": 0, \"output_tokens\": 2303}, \"estimated_cost_usd\": 0.05592, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"verona-colei-che-non-si-deve-amare\", \"title\": \"Colei che non si deve amare\", \"author\": \"Guido da Verona\", \"language\": \"it\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.758759, \"source_start\": 552502, \"source_end\": 552508, \"source_length\": 728165}, \"form\": {\"form_family\": \"present\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"it_present\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 1.0, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

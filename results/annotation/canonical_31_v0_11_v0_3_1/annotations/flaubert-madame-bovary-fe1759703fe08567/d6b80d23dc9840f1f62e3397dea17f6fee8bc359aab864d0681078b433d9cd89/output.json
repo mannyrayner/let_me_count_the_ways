@@ -1,0 +1,72 @@
+{
+  "occurrence_id": "flaubert-madame-bovary-fe1759703fe08567",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 2,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.92,
+    "analysis": "Rodolphe’s reply directly and emphatically presents his love—or stronger adoration—as true. Because Emma has explicitly demanded that he swear his love, the reply also has moderate oath-like, relationally reassuring force, though it contains no explicit promise and is primarily an avowal. The repetition and exclamation convey intensity but do not independently establish expressive/reflexive discharge.",
+    "ambiguity": "The main uncertainty is the degree of P: the preceding demand “Jure-le donc!” gives the answer some undertaking force, but its literal form remains an assertion of feeling rather than an explicit commitment."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "Rodolphe directly addresses Emma in response to her question and demand that he swear he loves her."
+  },
+  "contextual_interpretation": "The avowal reassures Emma on the eve of their supposed elopement and answers her request for sworn confirmation. Rodolphe’s delays, peculiar manner, and later abandonment make the declaration dramatically deceptive or unreliable as evidence of durable commitment, but deception does not alter its high truth-conditional mode score. The narration also attributes renewed tenderness to both lovers, allowing some immediate affection without making the words a reflex-like discharge.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "Emma asks, “M’aimes-tu? Jure-le donc!”",
+      "supports": "The utterance is elicited as confirmation of love and as an oath-like reassurance, supporting strong T and moderate P.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "Rodolphe replies, “Si je t’aime! si je t’aime! mais je t’adore, mon amour!”",
+      "supports": "The explicit first-person avowal and stronger verb “adore” provide maximal support for truth-conditional presentation; repetition marks emphasis but not independently E.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "Before the exchange, Rodolphe has repeatedly delayed the planned flight and looks at Emma “singulièrement, d’une façon tendre.”",
+      "supports": "His conduct makes the reassurance contextually suspect while the described tenderness permits some contemporaneous affection; neither point changes the utterance’s core T/P mode.",
+      "confidence": 0.96
+    },
+    {
+      "evidence_id": "e4",
+      "source": "local_text",
+      "quotation_or_description": "Afterward, the narration says, “La tendresse des anciens jours leur revenait au cœur, abondante et silencieuse.”",
+      "supports": "The scene presents genuine renewed tenderness, but as silent surrounding affect rather than evidence that the spoken formula itself is an expressive/reflexive discharge.",
+      "confidence": 0.95
+    },
+    {
+      "evidence_id": "e5",
+      "source": "background_knowledge",
+      "quotation_or_description": "In the subsequent plot of Madame Bovary, Rodolphe abandons the planned elopement and sends Emma a farewell letter.",
+      "supports": "This confirms dramatic irony and the unreliability of the avowal as assurance of enduring love or commitment, while remaining orthogonal to its T/P/E force.",
+      "confidence": 0.98
+    }
+  ],
+  "background_knowledge": {
+    "used": true,
+    "familiarity": "extensive",
+    "confidence": 0.98,
+    "contribution": "Knowledge of Rodolphe’s ensuing abandonment clarifies the declaration’s deceptive dramatic context and limits any inference from its oath-like force to sincere commitment."
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the avowal, while P captures its limited oath-like force under Emma’s demand. Emotional repetition and romantic atmosphere can remain contextual delivery evidence, so neither E nor O is needed.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

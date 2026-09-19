@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"hamsun-pan-79ee30c8ab8040e4\", \"SOURCE_TEXT\": {\"exact_match\": \"jeg elsker dig\", \"local_text\": {\"context_start\": 113038, \"context_end\": 113270, \"text\": \"Du gode, gode sjæl! utbryter jeg og trykker hende hæftig ind\\ntil mig. Jeg er sikker på at jeg forgår av kjærlighet til dig,\\njeg elsker dig mere og mere, tilslut blir du med mig når jeg\\nreiser. Du skal bare se. Kunde du følge med mig\"}, \"wider_canonical_context\": {\"context_start\": 109936, \"context_end\": 116507, \"text\": \"Jeg rodde ut til min fiskegrund. Veiret var blit trykkende,\\nmyggene samlet sig i sværmer og jeg måtte røke tobak hele tiden\\nfor å berge mig. Hyserne bet, jeg trak tvehaket, jeg gjorde en\\ngod fangst. På hjemveien skjøt jeg to alker.\\n\\nDa jeg kom til bryggen stod smeden der. Han stod i arbeide.\\nDet farer en tanke gjennem mig, jeg spør ham:\\n\\nFår jeg følge hjem?\\nNei, svarer han, hr. Mack har git mig arbeide like til midnat.\\n\\nJeg nikket og tænkte ved mig selv at det var godt.\\n\\nJeg tok min fangst med og gik, jeg la veien om smedens hus.\\nEva var alene hjemme.\\n\\nJeg længtet så hjærtelig efter dig, sa jeg til hende. Og jeg\\nblev bevæget ved synet av hende, hun kunde knapt se på mig\\nfor forundring. Jeg elsker din ungdom og dine gode øine, sa\\njeg. Straf mig nu idag fordi jeg har tænkt mere på en anden\\nend på dig. Hør, jeg kommer til dig hare for å se på dig, du\\ngjør mig vel, jeg er kjær i dig. Hørte du at jeg ropte på dig inat?\\n\\nNei, svarte hun forfærdet.\\n\\nJeg ropte på Edvarda, jomfru Edvarda, men jeg mente dig.\\nJeg vaknet av det. Jo jeg mente dig, jeg var undskyldt, jeg for-\\nsnakket mig da jeg sa Edvarda. Men lat os ikke tale mere om\\nhende. Gud hvor du er min kjæreste pike, Eva! Du har så rød\\nmund idag. Du har smukkere føtter end Edvarda, se bare selv.\\n— Jeg løftet op hendes kjole og viste hende hendes egne ben.\\n\\nEn glæde som jeg endnu aldrig har set hos hende fløi over\\nhendes ansigt; hun vil vende sig bort, men betænker sig og slår\\nden ene arm om min hals.\\n\\nEn tid går. Vi taler sammen, sitter hele tiden på en lang\\nbænk og taler til hverandre om mange ting. Jeg sa:\\n\\nVil du tro det, jomfru Edvarda har ikke lært å tale endnu,\\nhun taler som et barn, hun sier «mere lykkeligere», jeg har selv\\nhørt det. Synes du at hun har en vakker pande? Det synes ikke\\njeg. Hun har en djævelsk pande. Hun vasker heller ikke sine\\nhænder.\\n\\nVi skulde jo ikke snakke mere om hende?\\n\\nRigtig. Jeg glemte det bare.\\n\\nEn tid går igjen. Jeg tænker på noget, jeg tier.\\n\\nHvorfor blir dine øine våte? spør Eva.\\n\\nHun har forresten en vakker pande, sier jeg, og hendes hæn-\\nder er altid rene. Det var bare en tilfældighet at de var skitne\\nengang. Jeg mente ikke å si andet. — Men nu fortsætter jeg\\nhidsig og med sammenbitte tænder: Jeg sitter uavlatelig og\\ntænker på dig, Eva; men det falder mig ind at du kanske ikke\\nhar hørt hvad jeg nu vil fortælle dig. Den første gang Edvarda\\nså Æsop sa hun: Æsop, det var jo en vismand, han var frygier.\\nEr det ikke naragtig? Hun hadde læst det i en bok den samme\\ndag, det er jeg sikker på.\\n\\nJa, sier Eva, men hvad så?\\n\\nSåvidt jeg mindes talte hun også om at Æsop hadde hat\\nXanthus til lærer. Hahaha.\\n\\nJaså.\\nHvad satan er nu det å fortælle en forsamling at Æsop har\\nhat Xanthus til lærer? Jeg spør bare. Ak du er ikke oplagt\\nidag, Eva, ellers vilde du le dig syk av det.\\n\\nJo jeg synes også at det er morsomt, sier Eva og begynder\\nå le anstrængt og forundret. Men jeg forstår det ikke så godt\\nsom du.\\n\\nJeg tier og tænker, tier og tænker.\\n\\nVil du at vi helst skal sitte stille og ikke si noget? spør Eva\\nsagte. Godheten lyste ut av hendes øine, hun tok mig over\\nhåret med sin hånd.\\n\\nDu gode, gode sjæl! utbryter jeg og trykker hende hæftig ind\\ntil mig. Jeg er sikker på at jeg forgår av kjærlighet til dig,\\njeg elsker dig mere og mere, tilslut blir du med mig når jeg\\nreiser. Du skal bare se. Kunde du følge med mig\\n\\nJa, svarer hun.\\n\\nJeg hører næsten ikke dette ja, men jeg føler det av hendes\\npust, jeg mærker det på hende, vi holder vildt om hverandre\\nog hun gir sig så sanseløst bort.\\n\\nEn times tid efter kysser jeg Eva til avsked og går. Jeg\\nmøter hr. Mack 1 døren.\\n\\nHr. Mack selv.\\n\\nHan rykker til og stirrer ind i stuen, blir stående der på dør-\\nstokken og stirre. Nå! sier han og kan ikke få sagt mere, han\\ner som slåt fortumlet.\\n\\nDe hadde ikke ventet å finde mig her? sier jeg og hilser.\\n\\nEva rører sig ikke.\\n\\nHr. Mack fatter sig, en mærkværdig sikkerhet lægger sig over\\nham, han svarer:\\n\\nDe tar feil, det er netop Dem jeg søker. Jeg vil gjøre Dem\\nopmærksom på at fra første april til femtende august er det\\nforbudt å løse skudd inden en ottendedels mil fra æg- og dun-\\nvær. De har idag skutt to fugler ved øen, der er folk som har\\nset Dem.\\n\\nJeg skjøt to alker, sa jeg slagen. Det gik op for mig på stedet\\nat manden var i sin ret.\\n\\nTo alker eller to edderfugler, det er like meget. De har været\\nindenfor fredlyst område.\\n\\nJeg erkjender det, sa jeg. Det har ikke faldt mig ind før nu.\\n\\nMen det burde ha faldt Dem ind før nu.\\n\\nJeg har også i mai måned skutt av begge mine løp omtrent\\npå samme sted. Det var på en øtur. Det skedde på Deres\\negen anmodning.\\n\\nDet er en anden sak, sa hr. Mack kort.\\nMen så for djævelen, så vet De vel hvad De har å gjøre?\\n\\nSåre vel, svarte han.\\n\\nEva holdt sig i beredskap; da jeg gik ut fulgte hun efter, hun\\nhadde tat et tørklæ på og gik bort fra huset, jeg så hende\\nta veien ned til bryggerne. Hr. Mack vandret hjem.\\n\\nJeg tænkte over det. For en smidighet i å finde på en utveil\\nhvor hans øine stak! Et skudd, to skudd, et par alker, en mulkt,\\nen utbetaling. Og så var alt, alt opgjort med hr. Mack og hans\\nhus. Alt gik i grunden så overmåte smukt og hurtig ....\\n\\nDet begyndte allerede å regne med store, bløte dråper.\\nSkjorene fløi langsmed jorden og da jeg kom hjem og slap Æsop\\nløs åt den græs. Vinden begyndte å suse.\\n\\nXXIII\\n\\nEn mil nedenunder mig ser jeg havet. Det regner og jeg er\\ntilfjælds, en berghammer beskytter mig mot regnet. Jeg røker\\npå min snadde, røker den ene pipe efter den andre, og hver\\ngang jeg tænder kravler tobakken op som glødende småormer\\nav asken. Således myldrer også tankerne i mit hode. Foran\\nmig på marken ligger en bundt tørre kvister av et ruineret\\nfuglerede. Og således som dette fuglerede er er også min sjæl.\\n\\nJeg husker hver minste bagatel av denne og den næste dags\\noplevelser. Hoho, hvor jeg blev ilde tilredt ....\\n\\nJeg sitter her tilfjælds og havet og luften suser, det koker\\nog klager grufuldt i mine ører av vind og veir. Jægter og\\njagter ses langt ute med revede seil, det er folk ombord, de\\nskal vel et sted hen, og Gud vet hvor alle disse liv skal hen,\\ntænker jeg. Havet reiser sig skummende tilveirs og tumler, tum-\\nler, det er som befolket av store, rasende skikkelser som slår\\nut med lemmerne og brøler til hverandre, nei det er en fest\\nblandt ti tusen pipende djævler som sætter hodet ned i akslerne\\nog kredser omkring, piskende havet hvitt med vingespidserne.\\nLangt, langt ute ligger et blindskjær, av dette blindskjær reiser\\nsig en hvit havmand op og ryster sit hode efter en læksprungen\\nråseiler som lænser tilhavs for vinden, hoho, tilhavs, ut i det\\nøde hav ....\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"I rowed out to my fishing ground. The weather had turned oppressive, the mosquitoes gathered in swarms, and I had to smoke tobacco the whole time to save myself. The haddock were biting; I hauled in the two-hook line; I made a good catch. On the way home I shot two auks.\\n\\nWhen I reached the pier, the smith was standing there. He was at work. A thought passes through me, and I ask him:\\n\\nMay I go home with you?\\nNo, he answers, Mr. Mack has given me work until midnight.\\n\\nI nodded and thought to myself that this was good.\\n\\nI took my catch with me and went, taking the road past the smith’s house. Eva was home alone.\\n\\nI have longed for you so dearly, I said to her. And I was moved at the sight of her; she could scarcely look at me for astonishment. I love your youth and your good eyes, I said. Punish me today because I have thought more of another than of you. Listen, I come to you only to look at you; you do me good, I am in love with you. Did you hear me calling for you last night?\\n\\nNo, she answered in alarm.\\n\\nI called for Edvarda, Miss Edvarda, but I meant you. It woke me. Yes, I meant you; I was excused—I misspoke when I said Edvarda. But let us speak no more of her. God, how you are my dearest girl, Eva! Your mouth is so red today. You have prettier feet than Edvarda; just look for yourself. — I lifted her dress and showed her her own legs.\\n\\nA joy I had never yet seen in her flew across her face; she is about to turn away, but thinks better of it and puts one arm around my neck.\\n\\nSome time passes. We talk together, sit all the while on a long bench, and talk to each other about many things. I said:\\n\\nWould you believe it, Miss Edvarda has not yet learned to speak; she talks like a child, she says “more happier”; I have heard it myself. Do you think she has a beautiful forehead? I do not. She has a devilish forehead. Nor does she wash her hands.\\n\\nWere we not supposed to speak no more of her?\\n\\nQuite right. I merely forgot.\\n\\nSome time passes again. I am thinking of something; I am silent.\\n\\nWhy are your eyes growing wet? Eva asks.\\n\\nShe has a beautiful forehead, by the way, I say, and her hands are always clean. It was only by chance that they were dirty once. I did not mean to say otherwise. — But now I continue heatedly and through clenched teeth: I sit constantly thinking of you, Eva; but it occurs to me that perhaps you have not heard what I am about to tell you. The first time Edvarda saw Aesop, she said: Aesop, why, he was a wise man; he was a Phrygian. Is that not ridiculous? She had read it in a book that same day, I am certain of it.\\n\\nYes, says Eva, but what of it?\\n\\nAs far as I remember, she also spoke of Aesop having had Xanthus as his teacher. Hahaha.\\n\\nI see.\\nWhat the devil is the point of telling a gathering that Aesop had Xanthus as his teacher? I am merely asking. Ah, you are not in the mood today, Eva, otherwise you would laugh yourself sick over it.\\n\\nYes, I think it is amusing too, says Eva, and begins to laugh with effort and astonishment. But I do not understand it as well as you do.\\n\\nI am silent and think, silent and thinking.\\n\\nWould you rather that we sit quietly and say nothing? Eva asks softly. Goodness shone from her eyes; she stroked my hair with her hand.\\n\\nYou good, good soul! I exclaim, pressing her fiercely to me. I am certain I shall perish from love for you; I love you more and more; in the end you will come with me when I leave. You will see. Could you come with me?\\n\\nYes, she answers.\\n\\nI scarcely hear this yes, but I feel it in her breath, I sense it in her; we hold each other wildly, and she gives herself to me so senselessly.\\n\\nAn hour later I kiss Eva farewell and leave. I meet Mr. Mack in the doorway.\\n\\nMr. Mack himself.\\n\\nHe starts and stares into the room, remains standing there on the threshold and staring. Well! he says, and cannot manage to say more; he is as though struck senseless.\\n\\nYou had not expected to find me here? I say, greeting him.\\n\\nEva does not move.\\n\\nMr. Mack collects himself; a remarkable assurance settles over him, and he answers:\\n\\nYou are mistaken; it is precisely you I am looking for. I wish to make you aware that from the first of April until the fifteenth of August, it is forbidden to fire shots within one eighth of a mile of an egg-and-down nesting ground. Today you shot two birds by the island; there are people who saw you.\\n\\nI shot two auks, I said, stricken. It dawned on me on the spot that the man was within his rights.\\n\\nTwo auks or two eider ducks, it is all the same. You were within the protected area.\\n\\nI acknowledge it, I said. It had not occurred to me until now.\\n\\nBut it ought to have occurred to you before now.\\n\\nI also fired both barrels in roughly the same place in the month of May. It was on an island excursion. It happened at your own request.\\n\\nThat is another matter, Mr. Mack said curtly.\\nBut then, for the devil’s sake, you surely know what you have to do?\\n\\nVery well indeed, he answered.\\n\\nEva had held herself in readiness; when I went out, she followed, having put on a kerchief, and walked away from the house; I saw her take the road down to the piers. Mr. Mack walked home.\\n\\nI thought it over. What agility in contriving a way out—how his eyes stabbed! One shot, two shots, a couple of auks, a fine, a payment. And then everything, everything was settled with Mr. Mack and his house. Fundamentally, it all went so exceedingly smoothly and quickly....\\n\\nIt had already begun to rain in large, soft drops. The magpies flew close to the ground, and when I came home and let Aesop loose, it ate grass. The wind began to sigh.\\n\\nXXIII\\n\\nA mile below me I see the sea. It is raining, and I am up in the mountains; a rock overhang shelters me from the rain. I smoke my short pipe, smoke one pipe after another, and each time I light it, the tobacco crawls upward like tiny glowing worms out of the ash. Thus, too, the thoughts swarm in my head. Before me on the ground lies a bundle of dry twigs from a ruined bird’s nest. And as this bird’s nest is, so too is my soul.\\n\\nI remember every smallest trifle of the experiences of this day and the next. Hoho, how badly I was mauled....\\n\\nI sit here up in the mountains, and the sea and the air roar; wind and weather seethe and lament horribly in my ears. Freighters and yachts can be seen far out with reefed sails; there are people aboard, they must be going somewhere, and God knows where all these lives are going, I think. The sea rises foaming into the air and tumbles, tumbles; it is as though peopled by great, raging figures that fling out their limbs and roar at one another—no, it is a revel among ten thousand shrieking devils who duck their heads between their shoulders and wheel around, whipping the sea white with the tips of their wings. Far, far out lies a submerged reef; from this reef a white merman rises and shakes his head after a leaking square-rigger running before the wind out to sea—hoho, out to sea, out into the desolate sea....\", \"source_occurrence_id\": \"hamsun-pan-79ee30c8ab8040e4\", \"source_language\": \"no\", \"source_language_text_sha256\": \"aa956343d885fc00871577888f9597732dae71953bc89a9201aad0d26304316c\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T10:45:42.101753+00:00\", \"model_usage\": {\"input_tokens\": 2324, \"cached_input_tokens\": 0, \"output_tokens\": 2325}, \"estimated_cost_usd\": 0.055796, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"hamsun-pan\", \"title\": \"Pan\", \"author\": \"Knut Hamsun\", \"language\": \"no\", \"source_type\": \"runeberg\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.654384, \"source_start\": 113162, \"source_end\": 113176, \"source_length\": 172929}, \"form\": {\"form_family\": \"present_or_past\", \"polarity\": \"surface_optional_negative\", \"tense_aspect\": \"present\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"no_main\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

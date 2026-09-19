@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"stael-corinne-5793a277d7a16c1b\", \"SOURCE_TEXT\": {\"exact_match\": \"je vous aime encore\", \"local_text\": {\"context_start\": 1037195, \"context_end\": 1037976, \"text\": \"  «S'il ne fallait pour vous voir que vous pardonner, je ne m'y serais\\n  pas un instant refusée. Je ne sais pourquoi je n'ai point de\\n  ressentiment contre vous, bien que la douleur que vous m'avez causée\\n  me fasse frissonner d'effroi. Il faut que je vous aime encore, pour\\n  n'avoir aucun mouvement de haine; la religion seule ne suffirait pas\\n  pour me désarmer ainsi. J'ai eu des moments où ma raison était\\n  altérée; d'autres, et c'étaient les plus doux, où j'ai cru mourir\\n  avant la fin du jour, par le serrement de coeur qui m'oppressait;\\n  d'autres enfin où j'ai douté de tout, même de la vertu: vous étiez\\n  pour moi son image ici-bas, et je n'avais plus de guide pour mes\\n  pensées comme pour mes sentiments, quand le même coup frappait en moi\\n  l'admiration et l'amour.\"}, \"wider_canonical_context\": {\"context_start\": 1033479, \"context_end\": 1040984, \"text\": \"  «Quand vous me rendîtes ma liberté, je fus irrité contre vous; je\\n  rentrai dans les idées que le commun des hommes doit prendre en vous\\n  voyant. Je me dis qu'une personne aussi supérieure se passerait\\n  facilement de moi. Corinne, j'ai déchiré votre coeur, je le sais; mais\\n  je croyais n'immoler que moi. Je pensais que j'étais plus que vous\\n  inconsolable, et que vous m'oublieriez, quand je vous regretterais\\n  toujours. Enfin les circonstances m'enlacèrent; et je ne veux point\\n  nier que Lucile ne soit digne et des sentiments qu'elle m'inspire, et\\n  de bien mieux encore. Mais, dès que je sus votre voyage en Angleterre\\n  et le malheur que je vous avais causé, il n'y eut plus dans ma vie\\n  qu'une peine continuelle. J'ai cherché la mort pendant quatre ans au\\n  milieu de la guerre, certain qu'en apprenant que je n'étais plus, vous\\n  me trouveriez justifié. Sans doute vous avez à m'opposer une vie de\\n  regrets et de douleurs, une fidélité profonde pour un ingrat qui ne la\\n  méritait pas; mais songez que la destinée des hommes se complique de\\n  mille rapports divers qui troublent la constance du coeur. Cependant,\\n  s'il est vrai que je n'ai pu ni trouver ni donner le bonheur; s'il est\\n  vrai que je vis seul depuis que je vous ai quittée, que jamais je ne\\n  parle du fond de mon coeur, que la mère de mon enfant, que celle que\\n  je dois aimer à tant de titres, reste étrangère à mes secrets comme à\\n  mes pensées; s'il est vrai qu'un état habituel de tristesse m'ait\\n  replongé dans cette maladie dont vos soins, Corinne, m'avaient\\n  autrefois tiré; si je suis venu en Italie, non pas pour me guérir,\\n  vous ne croyez pas que j'aime la vie, mais pour vous dire adieu,\\n  refuserez-vous de me voir une fois, une seule fois? Je le souhaite,\\n  parce que je crois que je vous ferais du bien. Ce n'est pas ma propre\\n  souffrance qui me détermine. Qu'importe que je sois bien misérable!\\n  qu'importe qu'un poids affreux pèse à jamais sur mon coeur, si je m'en\\n  vais d'ici sans vous avoir parlé, sans avoir obtenu de vous mon\\n  pardon! Il faut que je sois malheureux, et certainement je le serai.\\n  Mais il me semble que votre coeur serait soulagé si vous pouviez\\n  penser à moi comme à votre ami, si vous aviez vu combien vous m'êtes\\n  chère, si vous l'aviez senti par ces regards, par cet accent d'Oswald,\\n  de ce criminel dont le sort est plus changé que le coeur.\\n\\n  «Je respecte mes liens, j'aime votre soeur; mais le coeur humain,\\n  bizarre, inconséquent, tel qu'il l'est, peut renfermer et cette\\n  tendresse et celle que j'éprouve pour vous. Je n'ai rien à vous dire\\n  de moi qui puisse s'écrire; tout ce qu'il faut expliquer me condamne.\\n  Néanmoins, si vous me voyiez me prosterner devant vous, vous\\n  pénétreriez à travers tous mes torts et tous mes devoirs ce que vous\\n  êtes encore pour moi, et cet entretien vous laisserait un sentiment\\n  doux. Hélas! notre santé est bien faible à tous les deux, et je ne\\n  crois pas que le ciel nous destine une longue vie. Que celui de nous\\n  deux qui précédera l'autre se sente regretté, se sente aimé de l'ami\\n  qu'il laissera dans ce monde! L'innocent devrait seul avoir cette\\n  jouissance; mais qu'elle soit aussi accordée au coupable!\\n\\n  «Corinne, sublime amie, vous qui lisez dans les coeurs, devinez ce que\\n  je ne puis dire; entendez-moi comme vous m'entendiez. Laissez-moi vous\\n  voir; permettez que mes lèvres pâles pressent vos mains affaiblies:\\n  ah! ce n'est pas moi seul qui ai fait ce mal, c'est le même sentiment\\n  qui nous a consumés tous les deux: c'est la destinée qui a frappé deux\\n  êtres qui s'aimaient; mais elle a dévoué l'un d'eux au crime, et\\n  celui-là, Corinne, n'est peut-être pas le moins à plaindre!»\\n\\n\\n  RÉPONSE DE CORINNE.\\n\\n  «S'il ne fallait pour vous voir que vous pardonner, je ne m'y serais\\n  pas un instant refusée. Je ne sais pourquoi je n'ai point de\\n  ressentiment contre vous, bien que la douleur que vous m'avez causée\\n  me fasse frissonner d'effroi. Il faut que je vous aime encore, pour\\n  n'avoir aucun mouvement de haine; la religion seule ne suffirait pas\\n  pour me désarmer ainsi. J'ai eu des moments où ma raison était\\n  altérée; d'autres, et c'étaient les plus doux, où j'ai cru mourir\\n  avant la fin du jour, par le serrement de coeur qui m'oppressait;\\n  d'autres enfin où j'ai douté de tout, même de la vertu: vous étiez\\n  pour moi son image ici-bas, et je n'avais plus de guide pour mes\\n  pensées comme pour mes sentiments, quand le même coup frappait en moi\\n  l'admiration et l'amour.\\n\\n  «Que serais-je devenue sans le secours céleste? Il n'y a rien dans ce\\n  monde qui ne fût empoisonné par votre souvenir. Un seul asile me\\n  restait au fond de l'âme. Dieu m'y a reçue. Mes forces physiques vont\\n  en décroissant; mais il n'en est pas ainsi de l'enthousiasme qui me\\n  soutient. Se rendre digne de l'immortalité est, je me plais à le\\n  croire, le seul but de l'existence. Bonheur, souffrances, tout est\\n  moyen pour ce but; et vous avez été choisi pour déraciner ma vie de la\\n  terre: j'y tenais par un lien trop fort.\\n\\n  «Quand j'ai appris votre arrivée en Italie, quand j'ai revu votre\\n  écriture, quand je vous ai su là, de l'autre côté de la rivière, j'ai\\n  senti dans mon âme un tumulte effrayant. Il fallait me rappeler sans\\n  cesse que ma soeur était votre femme pour combattre ce que\\n  j'éprouvais. Je ne vous le cache point, vous revoir me semblait un\\n  bonheur, une émotion indéfinissable, que mon coeur enivré de nouveau\\n  préférait à des siècles de calme; mais la Providence ne m'a point\\n  abandonnée dans ce péril. N'êtes-vous pas l'époux d'une autre? Que\\n  pouvais-je donc avoir à vous dire? M'était-il même permis de mourir\\n  entre vos bras? Et que me restait-il pour ma conscience, si je ne\\n  faisais aucun sacrifice, si je voulais encore un dernier jour, une\\n  dernière heure! Maintenant je comparaîtrai devant Dieu peut-être avec\\n  plus de confiance, puisque j'ai su renoncer à vous voir. Cette grande\\n  résolution apaisera mon âme. Le bonheur, tel que je l'ai senti quand\\n  vous m'aimiez, n'est pas en harmonie avec notre nature: il agite, il\\n  inquiète, il est si prêt à passer! Mais une prière habituelle, une\\n  rêverie religieuse, qui a pour but de se perfectionner soi-même, de se\\n  décider dans tout par le sentiment du devoir, est un état doux, et je\\n  ne puis savoir quel ravage le seul son de votre voix pourrait produire\\n  dans cette vie de repos que je crois avoir obtenue. Vous m'avez fait\\n  beaucoup de mal en me disant que votre santé était altérée. Ah! ce\\n  n'est pas moi qui la soigne, mais c'est encore moi qui souffre avec\\n  vous. Que Dieu bénisse vos jours, milord; soyez heureux mais soyez-le\\n  par la piété. Une communication secrète avec la Divinité semble placer\\n  en nous-mêmes l'être qui se confie et la voix qui lui répond; elle\\n  fait deux amis d'une seule âme. Chercheriez-vous encore ce qu'on\\n  appelle le bonheur? Ah! trouverez-vous mieux que ma tendresse?\\n  Savez-vous que dans les déserts du nouveau monde j'aurais béni mon\\n  sort si vous m'aviez permis de vous y suivre? Savez-vous que je vous\\n  aurais servi comme une esclave? Savez-vous que je me serais prosternée\\n  devant vous comme devant un envoyé du ciel, si vous m'aviez fidèlement\\n  aimée? Eh bien, qu'avez-vous fait de tant d'amour? qu'avez-vous fait\\n  de cette affection unique en ce monde? un malheur unique comme elle.\\n  Ne prétendez donc plus au bonheur; ne m'offensez pas en croyant\\n  l'obtenir encore. Priez comme moi, priez, et que nos pensées se\\n  rencontrent dans le ciel.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"“When you gave me back my freedom, I was angry with you; I returned to the opinions that ordinary men are bound to form upon seeing you. I told myself that so superior a person would easily do without me. Corinne, I have torn your heart apart, I know it; but I believed I was sacrificing no one but myself. I thought that I was more inconsolable than you, and that you would forget me, while I would always mourn your loss. At last circumstances ensnared me; and I do not wish to deny that Lucile is worthy both of the feelings she inspires in me and of far better still. But as soon as I learned of your journey to England and of the misfortune I had caused you, there was nothing left in my life but continual anguish. For four years I sought death amid the war, certain that, upon learning that I was no more, you would find me justified. No doubt you have to set against me a life of regrets and sorrows, a profound fidelity to an ungrateful man who did not deserve it; but consider that men’s destinies are entangled in a thousand different ties that disturb the constancy of the heart. Yet if it is true that I have been able neither to find nor to give happiness; if it is true that I have lived alone since I left you, that I never speak from the depths of my heart, that the mother of my child, she whom for so many reasons I ought to love, remains a stranger to my secrets as to my thoughts; if it is true that a habitual state of sadness has plunged me back into that illness from which your care, Corinne, once rescued me; if I have come to Italy, not to be cured—you do not believe that I love life—but to bid you farewell, will you refuse to see me once, only once? I wish it because I believe I would do you good. It is not my own suffering that determines me. What does it matter if I am utterly miserable! What does it matter if a dreadful weight lies forever upon my heart, if I leave here without having spoken to you, without having obtained your forgiveness! I must be unhappy, and I certainly shall be. But it seems to me that your heart would be relieved if you could think of me as your friend, if you had seen how dear you are to me, if you had felt it in those looks, in that tone of Oswald’s, of that guilty man whose fate has changed more than his heart.\\n\\n“I respect my bonds, I love your sister; but the human heart, strange and inconsistent as it is, can contain both that tenderness and the tenderness I feel for you. I have nothing to tell you about myself that can be written; everything that must be explained condemns me. Nevertheless, if you saw me prostrate myself before you, you would perceive, through all my wrongs and all my duties, what you still are to me, and this conversation would leave you with a gentle feeling. Alas! the health of both of us is very frail, and I do not believe that heaven destines us for a long life. May whichever of us precedes the other feel mourned, feel loved by the friend left behind in this world! The innocent alone should have this joy; but let it be granted to the guilty as well!\\n\\n“Corinne, sublime friend, you who read hearts, divine what I cannot say; understand me as you used to understand me. Let me see you; allow my pale lips to press your weakened hands: ah! I alone did not cause this harm; it is the same feeling that has consumed us both: it is destiny that has struck two beings who loved each other; but it has condemned one of them to guilt, and that one, Corinne, is perhaps not the less to be pitied!”\\n\\n\\nCORINNE’S REPLY.\\n\\n“If all that were required for me to see you was to forgive you, I would not have refused for an instant. I do not know why I feel no resentment against you, although the pain you have caused me makes me shudder with terror. I must still love you, to feel no stirring of hatred; religion alone would not suffice to disarm me in this way. I have had moments when my reason was impaired; others—and they were the sweetest—when I thought I would die before the end of the day from the constriction of heart that oppressed me; and still others when I doubted everything, even virtue: you were its image for me here below, and I no longer had any guide for my thoughts or for my feelings when the same blow struck both admiration and love within me.\\n\\n“What would have become of me without heavenly aid? There was nothing in this world that was not poisoned by the memory of you. One refuge alone remained to me in the depths of my soul. God received me there. My physical strength is declining; but it is not so with the ardor that sustains me. To make oneself worthy of immortality is, I delight in believing, the sole purpose of existence. Happiness, suffering, everything is a means to that end; and you were chosen to uproot my life from the earth: I was bound to it by too strong a tie.\\n\\n“When I learned of your arrival in Italy, when I saw your handwriting again, when I knew that you were there, on the other side of the river, I felt a terrifying tumult in my soul. I had to remind myself constantly that my sister was your wife in order to combat what I felt. I do not conceal it from you: seeing you again seemed to me a happiness, an indefinable emotion, which my newly intoxicated heart preferred to centuries of calm; but Providence did not abandon me in this peril. Are you not another woman’s husband? What, then, could I have to say to you? Was I even permitted to die in your arms? And what would have remained for my conscience if I made no sacrifice, if I still desired one final day, one final hour! Now I shall perhaps appear before God with greater confidence, since I was able to renounce seeing you. This great resolution will bring peace to my soul. Happiness, such as I felt it when you loved me, is not in harmony with our nature: it agitates, it troubles, it is so ready to pass away! But habitual prayer, religious contemplation whose aim is to perfect oneself, to be guided in all things by the sense of duty, is a gentle state, and I cannot know what havoc the mere sound of your voice might wreak in this life of repose that I believe I have attained. You have caused me much pain by telling me that your health was impaired. Ah! I am not the one who tends it, but I am still the one who suffers with you. May God bless your days, my lord; be happy, but be so through piety. A secret communion with the Divinity seems to place within ourselves the being who confides and the voice that answers him; it makes two friends of a single soul. Would you still seek what is called happiness? Ah! will you find anything better than my tenderness? Do you know that in the deserts of the New World I would have blessed my fate if you had allowed me to follow you there? Do you know that I would have served you like a slave? Do you know that I would have prostrated myself before you as before a messenger from heaven, if you had loved me faithfully? Well then, what have you made of so much love? What have you made of this affection unique in the world? A misfortune as unique as itself. Aspire no longer, then, to happiness; do not offend me by believing that you may still attain it. Pray as I do, pray, and may our thoughts meet in heaven.”\", \"source_occurrence_id\": \"stael-corinne-5793a277d7a16c1b\", \"source_language\": \"fr\", \"source_language_text_sha256\": \"bc9bbb1372836376b67a9d22847d45a888745b32d6ab56f6a6fca4e5cf3469c3\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T11:28:35.176547+00:00\", \"model_usage\": {\"input_tokens\": 2247, \"cached_input_tokens\": 0, \"output_tokens\": 1715}, \"estimated_cost_usd\": 0.04328799999999999, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"stael-corinne\", \"title\": \"Corinne; ou, l'Italie\", \"author\": \"Madame de Staël\", \"language\": \"fr\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": \"CHAPITRE III\", \"relative_position\": 0.970514, \"source_start\": 1037444, \"source_end\": 1037463, \"source_length\": 1068964}, \"form\": {\"form_family\": \"present_or_imperfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": \"optional\", \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"fr_present_past\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

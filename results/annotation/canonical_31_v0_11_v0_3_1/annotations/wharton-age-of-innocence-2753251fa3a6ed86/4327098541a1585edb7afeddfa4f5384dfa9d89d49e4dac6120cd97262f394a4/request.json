@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"wharton-age-of-innocence-2753251fa3a6ed86\", \"SOURCE_TEXT\": {\"exact_match\": \"I loved you\", \"local_text\": {\"context_start\": 270836, \"context_end\": 270876, \"text\": \"\\\"At least I loved you--\\\" he brought out.\"}, \"wider_canonical_context\": {\"context_start\": 267777, \"context_end\": 274217, \"text\": \"\\\"Yes.\\\" She smiled and added: \\\"I must go where I am invited, or I should\\nbe too lonely. Why not come with me?\\\"\\n\\nArcher felt that at any cost he must keep her beside him, must make her\\ngive him the rest of her evening. Ignoring her question, he continued\\nto lean against the chimney-piece, his eyes fixed on the hand in which\\nshe held her gloves and fan, as if watching to see if he had the power\\nto make her drop them.\\n\\n\\\"May guessed the truth,\\\" he said. \\\"There is another woman--but not the\\none she thinks.\\\"\\n\\nEllen Olenska made no answer, and did not move. After a moment he sat\\ndown beside her, and, taking her hand, softly unclasped it, so that the\\ngloves and fan fell on the sofa between them.\\n\\nShe started up, and freeing herself from him moved away to the other\\nside of the hearth. \\\"Ah, don't make love to me! Too many people have\\ndone that,\\\" she said, frowning.\\n\\nArcher, changing colour, stood up also: it was the bitterest rebuke she\\ncould have given him. \\\"I have never made love to you,\\\" he said, \\\"and I\\nnever shall. But you are the woman I would have married if it had been\\npossible for either of us.\\\"\\n\\n\\\"Possible for either of us?\\\" She looked at him with unfeigned\\nastonishment. \\\"And you say that--when it's you who've made it\\nimpossible?\\\"\\n\\nHe stared at her, groping in a blackness through which a single arrow\\nof light tore its blinding way.\\n\\n\\\"_I've_ made it impossible--?\\\"\\n\\n\\\"You, you, _you_!\\\" she cried, her lip trembling like a child's on the\\nverge of tears. \\\"Isn't it you who made me give up divorcing--give it\\nup because you showed me how selfish and wicked it was, how one must\\nsacrifice one's self to preserve the dignity of marriage ... and to\\nspare one's family the publicity, the scandal? And because my family\\nwas going to be your family--for May's sake and for yours--I did what\\nyou told me, what you proved to me that I ought to do. Ah,\\\" she broke\\nout with a sudden laugh, \\\"I've made no secret of having done it for\\nyou!\\\"\\n\\nShe sank down on the sofa again, crouching among the festive ripples of\\nher dress like a stricken masquerader; and the young man stood by the\\nfireplace and continued to gaze at her without moving.\\n\\n\\\"Good God,\\\" he groaned. \\\"When I thought--\\\"\\n\\n\\\"You thought?\\\"\\n\\n\\\"Ah, don't ask me what I thought!\\\"\\n\\nStill looking at her, he saw the same burning flush creep up her neck\\nto her face. She sat upright, facing him with a rigid dignity.\\n\\n\\\"I do ask you.\\\"\\n\\n\\\"Well, then: there were things in that letter you asked me to read--\\\"\\n\\n\\\"My husband's letter?\\\"\\n\\n\\\"Yes.\\\"\\n\\n\\\"I had nothing to fear from that letter: absolutely nothing! All I\\nfeared was to bring notoriety, scandal, on the family--on you and May.\\\"\\n\\n\\\"Good God,\\\" he groaned again, bowing his face in his hands.\\n\\nThe silence that followed lay on them with the weight of things final\\nand irrevocable. It seemed to Archer to be crushing him down like his\\nown grave-stone; in all the wide future he saw nothing that would ever\\nlift that load from his heart. He did not move from his place, or raise\\nhis head from his hands; his hidden eyeballs went on staring into utter\\ndarkness.\\n\\n\\\"At least I loved you--\\\" he brought out.\\n\\nOn the other side of the hearth, from the sofa-corner where he supposed\\nthat she still crouched, he heard a faint stifled crying like a\\nchild's. He started up and came to her side.\\n\\n\\\"Ellen! What madness! Why are you crying? Nothing's done that can't\\nbe undone. I'm still free, and you're going to be.\\\" He had her in\\nhis arms, her face like a wet flower at his lips, and all their vain\\nterrors shrivelling up like ghosts at sunrise. The one thing that\\nastonished him now was that he should have stood for five minutes\\narguing with her across the width of the room, when just touching her\\nmade everything so simple.\\n\\nShe gave him back all his kiss, but after a moment he felt her\\nstiffening in his arms, and she put him aside and stood up.\\n\\n\\\"Ah, my poor Newland--I suppose this had to be. But it doesn't in the\\nleast alter things,\\\" she said, looking down at him in her turn from the\\nhearth.\\n\\n\\\"It alters the whole of life for me.\\\"\\n\\n\\\"No, no--it mustn't, it can't. You're engaged to May Welland; and I'm\\nmarried.\\\"\\n\\nHe stood up too, flushed and resolute. \\\"Nonsense! It's too late for\\nthat sort of thing. We've no right to lie to other people or to\\nourselves. We won't talk of your marriage; but do you see me marrying\\nMay after this?\\\"\\n\\nShe stood silent, resting her thin elbows on the mantelpiece, her\\nprofile reflected in the glass behind her. One of the locks of her\\nchignon had become loosened and hung on her neck; she looked haggard\\nand almost old.\\n\\n\\\"I don't see you,\\\" she said at length, \\\"putting that question to May.\\nDo you?\\\"\\n\\nHe gave a reckless shrug. \\\"It's too late to do anything else.\\\"\\n\\n\\\"You say that because it's the easiest thing to say at this moment--not\\nbecause it's true. In reality it's too late to do anything but what\\nwe'd both decided on.\\\"\\n\\n\\\"Ah, I don't understand you!\\\"\\n\\nShe forced a pitiful smile that pinched her face instead of smoothing\\nit. \\\"You don't understand because you haven't yet guessed how you've\\nchanged things for me: oh, from the first--long before I knew all you'd\\ndone.\\\"\\n\\n\\\"All I'd done?\\\"\\n\\n\\\"Yes. I was perfectly unconscious at first that people here were shy of\\nme--that they thought I was a dreadful sort of person. It seems they\\nhad even refused to meet me at dinner. I found that out afterward; and\\nhow you'd made your mother go with you to the van der Luydens'; and how\\nyou'd insisted on announcing your engagement at the Beaufort ball, so\\nthat I might have two families to stand by me instead of one--\\\"\\n\\nAt that he broke into a laugh.\\n\\n\\\"Just imagine,\\\" she said, \\\"how stupid and unobservant I was! I knew\\nnothing of all this till Granny blurted it out one day. New York simply\\nmeant peace and freedom to me: it was coming home. And I was so happy\\nat being among my own people that every one I met seemed kind and good,\\nand glad to see me. But from the very beginning,\\\" she continued, \\\"I\\nfelt there was no one as kind as you; no one who gave me reasons that\\nI understood for doing what at first seemed so hard and--unnecessary.\\nThe very good people didn't convince me; I felt they'd never been\\ntempted. But you knew; you understood; you had felt the world outside\\ntugging at one with all its golden hands--and yet you hated the things\\nit asks of one; you hated happiness bought by disloyalty and cruelty\\nand indifference. That was what I'd never known before--and it's better\\nthan anything I've known.\\\"\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": null, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"wharton-age-of-innocence\", \"title\": \"The Age of Innocence\", \"author\": \"Edith Wharton\", \"language\": \"en\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.468273, \"source_start\": 270846, \"source_end\": 270857, \"source_length\": 578393}, \"form\": {\"form_family\": \"past\", \"polarity\": \"affirmative\", \"tense_aspect\": \"past\", \"temporal_modifier\": \"optional_once\", \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"en_past\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 1.0, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

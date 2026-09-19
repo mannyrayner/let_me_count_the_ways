@@ -1,0 +1,65 @@
+{
+  "occurrence_id": "flaubert-madame-bovary-baeec739adc7a033",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 2,
+      "performative": 4,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.92,
+    "analysis": "Emma’s future-tense “je t’aimerai bien” presents loving affection as a promised reward for Léon’s obtaining money. It therefore has strong undertaking force and some truth-conditional force concerning her future feelings, but no independent evidence of expressive/reflexive discharge.",
+    "ambiguity": "The phrase may be heard partly as a conventional inducement meaning roughly “I’ll love you for it,” which weakens literal avowal without displacing its performative promise-like force."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "Emma directly addresses Léon while urging him to find the money: “je t’aimerai bien!”"
+  },
+  "contextual_interpretation": "The utterance is embedded in an urgent, instrumental appeal. Emma offers future affection as an incentive after pressuring Léon to secure or personally guarantee the funds. Her desperation and manipulation affect likely sincerity, but they do not remove the utterance’s promise-like force. The surrounding exclamations and repetition convey intensity, not independently expressive/reflexive force.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "“Va! essaye! il le faut! cours!... Oh! tâche! tâche! je t’aimerai bien!”",
+      "supports": "The imperative sequence makes the love utterance an incentive contingent on Léon’s efforts, strongly supporting P.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "Emma has just told Léon that she needs eight thousand francs and insists that he seek or guarantee the indispensable sum.",
+      "supports": "Her concrete financial demand establishes the transactional and pressuring context rather than an unprompted emotional avowal.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "e3",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is marked as affirmative future form and the exact match is “je t’aimerai.”",
+      "supports": "The future morphology supports a prospective promise or undertaking while allowing some truth-conditional presentation of future love.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e4",
+      "source": "local_text",
+      "quotation_or_description": "After Léon returns unsuccessful, Emma criticizes him and implicitly urges him toward taking money from his office.",
+      "supports": "Her subsequent conduct reinforces the interpretation of the love language as leverage in an instrumental appeal, though manipulation is contextual rather than an O-type core force.",
+      "confidence": 0.94
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T and especially P adequately capture the core utterance: a prospective representation of love functioning principally as a contingent relational reward. Manipulation and desperation belong in contextual interpretation, and emphatic delivery does not require E or O.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

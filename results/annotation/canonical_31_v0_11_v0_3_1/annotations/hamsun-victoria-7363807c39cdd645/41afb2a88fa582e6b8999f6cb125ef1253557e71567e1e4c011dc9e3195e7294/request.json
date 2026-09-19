@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"hamsun-victoria-7363807c39cdd645\", \"SOURCE_TEXT\": {\"exact_match\": \"jeg elsker dig\", \"local_text\": {\"context_start\": 142054, \"context_end\": 142461, \"text\": \"Jeg, jeg elsker dig mere, mere end mit liv, du kjære, elsker\\ndig som den første dag, den første stund da du gav mig rosen.\\nHusker du det? Du rakte mig rosen og så på mig med dine\\nskjønne øine; rosen duftet som du, du rødmet som den og jeg\\nblev beruset i alle mine sanser. Men endnu mere elsker jeg dig\\nnu, du er skjønnere end i din ungdom og mit hjærte takker og\\nvelsigner dig for hver dag du har været min.\"}, \"wider_canonical_context\": {\"context_start\": 139012, \"context_end\": 145220, \"text\": \"Nei jeg smiler. Dette skal være min måte å smile på. Jeg\\nvil at denne grimase skal være egen for mig.\\n\\nHun lytter til disse korte, hæse ord og begriper dem ikke,\\nfatter dem slet ikke. Hvad kan han mene?\\n\\nMen pludselig slår han sine armer om hende, jærnhårdt,\\nmed rædselsfulde kræfter, og hvisker tæt ind til hendes ansigt:\\n\\nHvad mener du om vi satte horn på ham .... på ham som\\ngik .... om vi satte horn på ham?\\nHun opløfter et skrik og kalder piken til. Han slipper hende\\nmed en stille, tør latter idet han spærrer munden op som et\\ngap og slår sig på begge lår.\\n\\nOm morgningen tar fruens gode hjærte igjen overhånd og\\nhun sier til sin mand:\\n\\nDu hadde et besynderlig anfald igåraftes; det er jo over nu;\\nmen du er blek også idag.\\n\\nJa, svarer han, det er anstrængende å være åndrik i min\\nalder. Det er jeg aldrig mere.\\n\\nMen efter å ha talt om mange slags kjærlighet fortæller\\nmunken Vendt om endnu en slags og sier:\\n\\nFor så berusende er en egen slags kjærlighet!\\n\\nDet unge herskap er just kommet hjem, deres lange bryllups-\\nreise er tilende og de begir sig til ro.\\n\\nEt stjærneskudd brændte av over deres tak.\\n\\nOm sommeren spaserte det unge herskap sammen og vek\\nikke fra hverandres side. De plukket gule, røde og blå blomster\\nsom de gav hverandre, de så græsset bevæge sig i vinden og\\nhørte fuglene synge i skogene og hvert ord de talte var som\\nkjærtegn. Om vinteren kjørte de med bjælder på hestene og\\nhimlen var blå og høit oppe suset stjærnerne avsted på de\\nevige sletter.\\n\\nSåledes gik mange, mange år. Det unge herskap fik tre børn\\nog deres hjærter elsket hverandre som den første dag under det\\nførste kyss.\\n\\nDa får den stolte herre sin sykdom, denne sykdom som læn-\\nket ham til sengen så længe og satte hans hustrus tålmodighet\\npå så hård prøve. Den dag han blev frisk og stod op av sengen\\nkjendte han ikke sig selv igjen; sykdommen hadde vansiret\\nham og tat hans hår.\\n\\nHan led og grublet. En morgen så sa han:\\n\\nNu elsker du mig vel ikke mere?\\n\\nMen hans hustru slog rødmende sine armer om ham og kys-\\nset ham så lidenskapelig som i ungdommens vår og svarte:\\n\\nJeg, jeg elsker, elsker dig bestandig. Jeg glemmer aldrig at det\\nvar mig og ingen anden som du tok og som blev så lyk-\\nkelig.\\n\\nOg hun gik ind i sit kammers og klippet alt sit gule hår av\\nhodet for å være lik sin mand som hun elsket.\\n\\nOg det gik atter mange, mange år, det unge herskap blev\\ngammelt og deres børn var voksne. Hver lykke delte de som\\nfør; om sommeren gik de endnu på markerne og så græsset\\nbølge og om vinteren hyllet de sig i sine pelser og kjørte under\\nstjærnehimlen. Og deres hjærter vedblev å være varme og\\nglade som av forunderlig vin.\\n\\nDa blev fruen lam. Den gamle frue kunde ikke gå på sine\\nføtter, hun måtte trækkes i en stol med hjul og herren selv\\ntrak hende. Men fruen led så usigelig ved sin ulykke og hendes\\nansigt fik dype furer av sorg.\\n\\nDa sa hun en dag:\\n\\nNu vilde jeg gjærne dø. Jeg er så lam og hæslig og dit ansigt\\ner så skjønt, du kan ikke kysse mig mere og du kan ikke elske\\nmig som før.\\n\\nMen herren omfavner hende rød av bevægelse og svarer:\\n\\nJeg, jeg elsker dig mere, mere end mit liv, du kjære, elsker\\ndig som den første dag, den første stund da du gav mig rosen.\\nHusker du det? Du rakte mig rosen og så på mig med dine\\nskjønne øine; rosen duftet som du, du rødmet som den og jeg\\nblev beruset i alle mine sanser. Men endnu mere elsker jeg dig\\nnu, du er skjønnere end i din ungdom og mit hjærte takker og\\nvelsigner dig for hver dag du har været min.\\n\\nHerren går ind i sit kammers, slår syre i sit ansigt for å\\nvanskape det og sier til sin hustru:\\n\\nJeg hadde det uheld å få syre i mit ansigt, mine kinder er\\nfulde av brandsår og du elsker mig vel ikke mere?\\n\\nO, du min brudgom, min elskede! stammer den gamle kvinde\\nog kysser hans hænder. Du er skjønnere end nogen mand på\\njorden, din røst gjør mig endnu den dag idag het i hjærtet\\nog jeg elsker dig til døden.\\n\\nXIII\\n\\nJohannes træffer Camilla på gaten; hun er sammen med sin\\nmor, sin far og ung Richmond; de stanser sin vogn og taler\\nvenlig med ham.\\n\\nCamilla griper hans arm og sier:\\n\\nDu kom ikke til os. Vi hadde stor fest, kan du tro; vi ventet\\npå dig til det siste, men du kom ikke.\\n\\nJeg var forhindret, svarte han.\\n\\nUndskyld at jeg ikke har været oppe hos dig siden, vedblev\\nhun. Nu kommer jeg en av dagene, ganske sikkert, når Rich-\\nmond er reist. Å for en fest vi hadde! Victoria blev syk, hun blev\\nkjørt hjem, har du hørt det? Nu går jeg snart op til hende.\\nHun er visst meget bedre, kanske aldeles frisk igjen. Jeg har\\nforæret Richmond en medaljon næsten maken til din. Hør, Jo-\\nhannes, du skal love mig å passe din ovn; når du skriver glem-\\nmer du alt og det blir iskoldt hos dig. Da skal du ringe på\\npiken.\\nJa jeg skal ringe på piken, svarte han.\\n\\nOgså fru Seier talte til ham, spurte om hans arbeide, om\\nstykket om Slægten; hvordan gik det? Hun ventet med længsel\\ndet næste fra ham.\\n\\nJohannes gav de nødvendige svar, hilste meget dypt og så\\nvognen kjøre. Hvor lite det hele vedkom ham, denne vogn,\\ndisse mennesker, denne snak! En tom og kold stemning drog\\nind i ham og fulgte ham på hele hjemveien. Ved hans port\\ngik en mand og drev frem og tilbake på gaten, en gammel\\nbekjendt, den forhenværende huslærer på Slottet.\\n\\nJohannes hilste til ham.\\n\\nHan var klædt i en lang, varm frak som var omhyggelig\\nbørstet og han hadde en kjæk og bestemt mine.\\n\\nDe ser her Deres ven og kollega, sa han. Ræk mig Deres\\nhånd, unge mand. Gud har ført mine veier vidunderlig siden\\nsist, jeg er gift, jeg har et hjem, en liten have, en hustru. Det\\nsker endnu mirakler i livet. Har De noget å bemærke til min\\nsiste ytring?\\n\\nohannes ser forundret på ham.\\n\\nAltså vedtat. Jo ser De, jeg læste med hendes søn. Hun har\\nen søn, poden er fra første ægteskap; hun har naturligvis været\\ngift før, hun var enke. Jeg giftet mig altså med en enke. De\\nkan indvende at dette ikke var sunget ved min vugge; men jeg\\ngiftet mig altså med en enke. Poden hadde hun fra før. Jeg\\ngår nemlig der og ser på haven og på enken og lever en tid-\\nlang med intense tanker desangående. Pludselig har jeg det\\nog jeg sier til mig selv: vel nok, det er ikke sunget ved din\\nvugge, og så videre; men jeg gjør det allikevel, jeg slår til, for\\ndet er rimeligvis skrevet i stjærnerne. Se, således gik det til.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"No, I am smiling. This is to be my way of smiling. I\\nwant this grimace to be my own.\\n\\nShe listens to these short, hoarse words and does not understand them,\\ndoes not comprehend them at all. What can he mean?\\n\\nBut suddenly he throws his arms around her, iron-hard,\\nwith terrifying strength, and whispers close to her face:\\n\\nWhat do you say to our putting horns on him .... on him who\\nleft .... to our putting horns on him?\\nShe utters a scream and calls the maid. He releases her\\nwith a quiet, dry laugh, opening his mouth wide like\\na maw and slapping both his thighs.\\n\\nIn the morning the lady’s good heart again prevails, and\\nshe says to her husband:\\n\\nYou had a peculiar fit last night; it is over now, of course;\\nbut you are pale today as well.\\n\\nYes, he replies, it is taxing to be witty at my\\nage. I shall never be so again.\\n\\nBut after speaking of many kinds of love, the\\nmonk Vendt tells of yet another kind and says:\\n\\nFor so intoxicating is a particular kind of love!\\n\\nThe young master and mistress have just come home, their long wedding\\njourney is at an end, and they retire for the night.\\n\\nA shooting star burned out above their roof.\\n\\nIn summer the young master and mistress walked together and did\\nnot leave each other’s side. They picked yellow, red, and blue flowers\\nwhich they gave to each other; they watched the grass move in the wind and\\nheard the birds singing in the forests, and every word they spoke was like\\na caress. In winter they drove with bells on the horses, and\\nthe sky was blue, and high above, the stars rushed away across the\\neternal plains.\\n\\nThus many, many years passed. The young master and mistress had three children,\\nand their hearts loved each other as on the first day beneath the\\nfirst kiss.\\n\\nThen the proud gentleman was stricken with his illness, the illness that\\nchained him to his bed for so long and put his wife’s patience\\nto so hard a test. On the day he recovered and rose from the bed,\\nhe did not recognize himself; the illness had disfigured\\nhim and taken his hair.\\n\\nHe suffered and brooded. Then one morning he said:\\n\\nNow you no longer love me, do you?\\n\\nBut his wife, blushing, threw her arms around him and kissed\\nhim as passionately as in the springtime of youth, and answered:\\n\\nI, I love, love you always. I never forget that it\\nwas I and no other whom you took, and who became so\\nhappy.\\n\\nAnd she went into her chamber and cut all the yellow hair from\\nher head so as to resemble her husband, whom she loved.\\n\\nAnd again many, many years passed; the young master and mistress grew\\nold, and their children were grown. They shared every happiness as\\nbefore; in summer they still walked in the fields and watched the grass\\nwave, and in winter they wrapped themselves in their furs and drove beneath\\nthe starry sky. And their hearts continued to be warm and\\nglad, as though from wondrous wine.\\n\\nThen the lady became paralyzed. The old lady could not walk on her\\nfeet; she had to be pulled in a wheeled chair, and the gentleman himself\\npulled her. But the lady suffered so unspeakably from her misfortune, and her\\nface acquired deep furrows of sorrow.\\n\\nThen one day she said:\\n\\nNow I should like to die. I am so paralyzed and ugly, and your face\\nis so beautiful; you cannot kiss me anymore, and you cannot love\\nme as before.\\n\\nBut the gentleman embraces her, red with emotion, and answers:\\n\\nI, I love you more, more than my life, my dear one; I love\\nyou as on the first day, the first moment when you gave me the rose.\\nDo you remember it? You held out the rose to me and looked at me with your\\nbeautiful eyes; the rose was fragrant like you, you blushed like it, and I\\nbecame intoxicated in all my senses. But I love you even more\\nnow; you are more beautiful than in your youth, and my heart thanks and\\nblesses you for every day you have been mine.\\n\\nThe gentleman goes into his chamber, dashes acid into his face to\\ndisfigure it, and says to his wife:\\n\\nI had the misfortune to get acid in my face; my cheeks are\\ncovered with burns, and you no longer love me, do you?\\n\\nOh, you my bridegroom, my beloved! stammers the old woman\\nand kisses his hands. You are more beautiful than any man on\\nearth; your voice makes my heart hot even to this very day,\\nand I love you unto death.\\n\\nXIII\\n\\nJohannes meets Camilla in the street; she is with her\\nmother, her father, and young Richmond; they stop their carriage and speak\\nkindly to him.\\n\\nCamilla takes his arm and says:\\n\\nYou did not come to see us. We had a grand celebration, you may be sure;\\nwe waited for you until the very end, but you did not come.\\n\\nI was prevented, he replied.\\n\\nForgive me for not having been up to see you since, she continued.\\nI shall come one of these days, quite certainly, when Richmond\\nhas left. Oh, what a celebration we had! Victoria became ill; she was\\ndriven home, have you heard? I shall be going up to see her soon.\\nShe is surely much better, perhaps entirely well again. I have\\ngiven Richmond a medallion almost identical to yours. Listen, Johannes,\\nyou must promise me to tend your stove; when you write, you forget\\neverything, and it becomes icy cold at your place. Then you must ring for\\nthe maid.\\nYes, I shall ring for the maid, he replied.\\n\\nMrs. Seier also spoke to him, asked about his work, about\\nthe play about The Family; how was it going? She awaited his next\\none with longing.\\n\\nJohannes gave the necessary answers, bowed very deeply, and watched\\nthe carriage drive away. How little the whole thing concerned him—this carriage,\\nthese people, this chatter! An empty and cold mood entered\\nhim and followed him all the way home. At his gate\\na man was loitering back and forth in the street, an old\\nacquaintance, the former tutor at the Castle.\\n\\nJohannes greeted him.\\n\\nHe was dressed in a long, warm coat that had been carefully\\nbrushed, and he wore a bold and resolute expression.\\n\\nHere You see Your friend and colleague, he said. Give me Your\\nhand, young man. God has guided my paths wondrously since\\nlast time; I am married, I have a home, a little garden, a wife. Miracles\\nstill happen in life. Have You anything to remark upon my last statement?\\n\\nJohannes looks at him in astonishment.\\n\\nThen it is settled. You see, I tutored her son. She has\\na son; the brat is from her first marriage; she had naturally been\\nmarried before, she was a widow. Thus I married a widow. You\\nmay object that this was not sung at my cradle; but I\\ndid, then, marry a widow. She had the brat already. I walk\\nabout there, you see, looking at the garden and the widow, and live for a while\\nwith intense thoughts on that subject. Suddenly I have it,\\nand I say to myself: very well, it was not sung at your\\ncradle, and so forth; but I do it all the same, I take the plunge, for\\nit is presumably written in the stars. There, that is how it happened.\", \"source_occurrence_id\": \"hamsun-victoria-7363807c39cdd645\", \"source_language\": \"no\", \"source_language_text_sha256\": \"d9298631fb52c1e060c5a37789902384e8baaee7a9935d8cb15aac148aca4916\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T10:52:47.033839+00:00\", \"model_usage\": {\"input_tokens\": 2136, \"cached_input_tokens\": 0, \"output_tokens\": 2906}, \"estimated_cost_usd\": 0.066664, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"hamsun-victoria\", \"title\": \"Victoria\", \"author\": \"Knut Hamsun\", \"language\": \"no\", \"source_type\": \"runeberg\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.900829, \"source_start\": 142059, \"source_end\": 142073, \"source_length\": 157698}, \"form\": {\"form_family\": \"present_or_past\", \"polarity\": \"surface_optional_negative\", \"tense_aspect\": \"present\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"no_main\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 1.0, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

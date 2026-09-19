@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"ibsen-et-dukkehjem-003dfd3f3df5ffc6\", \"SOURCE_TEXT\": {\"exact_match\": \"jeg har elsket Dem fullt så inderlig\", \"local_text\": {\"context_start\": 77581, \"context_end\": 77670, \"text\": \"RANK (reiser seg). At jeg har elsket Dem fullt så inderlig\\nsom noen annen? Var det stygt?\"}, \"wider_canonical_context\": {\"context_start\": 74434, \"context_end\": 80690, \"text\": \"NORA. Bare for å sy på min drakt. Herregud, hvor urimelig De\\ner. (setter seg på sofaen.) Vær nu snill, doktor Rank; i morgen skal\\nDe få se hvor smukt jeg skal danse; og da skal De forestille Dem at\\njeg gjør det bare for Deres skyld, - ja, og så naturligvis for\\nTorvalds; - det forstår seg. (tar forskjellige saker ut av esken.)\\nDoktor Rank; sett Dem her, så skal jeg vise Dem noe.\\n\\nRANK (setter seg). Hva er det?\\n\\nNORA. Se her. Se!\\n\\nRANK. Silkestrømper.\\n\\nNORA. Kjødfarvede. Er ikke de deilige? Ja, nu er her så\\nmørkt; men i morgen -. Nei, nei, nei; De får bare se fotbladet. Å jo,\\nDe kan så menn gjerne få se oventil også.\\n\\nRANK. Hm -\\n\\nNORA. Hvorfor ser De så kritisk ut? Tror De kanskje ikke de\\npasser?\\n\\nRANK. Det kan jeg umulig ha noen begrunnet formening om.\\n\\nNORA (ser et øyeblikk på ham). Fy skam Dem. (slår ham lett\\npå øret med strømpene.) Det skal De ha. (pakker dem atter sammen.)\\n\\nRANK. Og hva er det så for andre herligheter jeg skal få se?\\n\\nNORA. De får ikke se en smule mer; for De er uskikkelig.\\n\\n(hun nynner litt og leter mellem sakene.)\\n\\nRANK (efter en kort taushet). Når jeg sitter her således\\nganske fortrolig sammen med Dem, så begriper jeg ikke - nei, jeg fatter\\ndet ikke - hva der skulle blitt av meg hvis jeg aldri var kommet her i\\nhuset.\\n\\nNORA (smiler). Jo jeg tror nok at De i grunnen hygger Dem\\nganske godt hos oss.\\n\\nRANK (saktere, ser hen for seg). Og så å skulle gå fra det\\nalt sammen -\\n\\nNORA. Snikksnakk; De går ikke fra det.\\n\\nRANK (som før). - og ikke kunne efterlate seg et fattig\\ntakkens tegn en gang; knapt nok et flyktig savn, - ikke annet enn en\\nledig plass, som kan utfylles av den første den beste.\\n\\nNORA. Og hvis jeg nu ba Dem om -? Nei -\\n\\nRANK. Om hva?\\n\\nNORA. Om et stort bevis på Deres vennskap -\\n\\nRANK. Ja, ja?\\n\\nNORA. Nei jeg mener, - om en umåtelig stor tjeneste -\\n\\nRANK. Ville De virkelig for én gangs skyld gjøre meg så\\nlykkelig?\\n\\nNORA. Å, De vet jo slett ikke hva det er.\\n\\nRANK. Nu godt; så si det.\\n\\nNORA. Nei men jeg kan ikke, doktor Rank; det er noe så\\nurimelig meget, - både et råd og en hjelp og en tjeneste -\\n\\nRANK. Så meget desto bedre. Det er meg ufattelig hva De kan\\nmene. Men så tal dog. Har jeg da ikke Deres fortrolighet?\\n\\nNORA. Jo det har De som ingen annen. De er min troeste og\\nbeste venn, det vet De nok. Derfor vil jeg også si Dem det. Nu vel da,\\ndoktor Rank; der er noe som De må hjelpe meg å forhindre. De vet hvor\\ninderlig, hvor ubeskrivelig høyt Torvald elsker meg; aldri et øyeblikk\\nville han betenke seg på å gi sitt liv hen for min skyld.\\n\\nRANK (bøyet mot henne). Nora, - tror De da at han er den\\neneste -?\\n\\nNORA (med et lett rykk). Som -?\\n\\nRANK. Som gladelig ga sitt liv hen for Deres skyld.\\n\\nNORA (tungt). Ja så.\\n\\nRANK. Jeg har svoret ved meg selv at De skulle vite det før\\njeg gikk bort. En bedre leilighet ville jeg aldri finne. - Ja, Nora,\\nnu vet De det. Og nu vet De også at til meg kan De betro Dem som til\\ningen annen.\\n\\nNORA (reiser seg; jevnt og rolig). La meg slippe frem.\\n\\nRANK (gjør plass for henne, men blir sittende). Nora -\\n\\nNORA (i døren til forstuen). Helene, bring lampen inn. - (går\\nhen imot ovnen.) Akk, kjære doktor Rank, dette her var virkelig stygt\\nav Dem.\\n\\nRANK (reiser seg). At jeg har elsket Dem fullt så inderlig\\nsom noen annen? Var det stygt?\\n\\nNORA. Nei, men at De går hen og sier meg det. Det var jo\\nslett ikke nødvendig -\\n\\nRANK. Hva mener De? Har De da visst -?\\n\\n(Stuepiken kommer inn med lampen, setter den på\\nbordet og går ut igjen.)\\n\\nRANK. Nora, - fru Helmer -, jeg spør Dem, har De visst noe?\\n\\nNORA. Å hva vet jeg hva jeg har visst eller ikke visst? Jeg\\nkan virkelig ikke si Dem -. At De kunne være så klosset, doktor Rank!\\nNu var all ting så godt.\\n\\nRANK. Nå, De har iallfall nu visshet for at jeg står Dem til\\nrådighet med liv og sjel. Og vil De så tale ut.\\n\\nNORA (ser på ham). Efter dette?\\n\\nRANK. Jeg ber Dem, la meg få vite hva det er.\\n\\nNORA. Ingenting kan De få vite nu.\\n\\nRANK. Jo, jo. Således må De ikke straffe meg. La meg få lov\\ntil å gjøre for Dem hva der står i menneskelig makt.\\n\\nNORA. Nu kan De ingenting gjøre for meg. - Forresten behøver\\njeg visst ikke noen hjelp. De skal se det er bare innbilninger alt\\nsammen. Ja visst er det så. Naturligvis! (setter seg i gyngestolen,\\nser på ham, smiler.) Jo, De er riktignok en nett herre, doktor\\nRank. Synes De ikke De skammer Dem nu lampen er kommet inn?\\n\\nRANK. Nei; egentlig ikke. Men jeg skal kanskje gå - for\\nstetse?\\n\\nNORA. Nei, det skal De da riktignok ikke gjøre. De skal\\nnaturligvis komme her som før. De vet jo godt Torvald kan ikke unnvære\\nDem.\\n\\nRANK. Ja, men De?\\n\\nNORA. Å, jeg synes alltid her blir så uhyre fornøyelig når\\nDe kommer.\\n\\nRANK. Det er just det som lokket meg inn på et villspor. De\\ner meg en gåte. Mangen gang har det forekommet meg at De nesten likså\\ngjerne ville være sammen med meg som med Helmer.\\n\\nNORA. Ja, ser De, der er jo noen mennesker som man holder\\nmest av, og andre mennesker som man nesten helst vil være sammen med.\\n\\nRANK. Å ja, det er noe i det.\\n\\nNORA. Da jeg var hjemme, holdt jeg naturligvis mest av\\npappa. Men jeg syntes alltid det var så umåtelig morsomt når jeg kunne\\nstjele meg ned i pikekammeret; for de veiledet meg ikke en smule; og\\nså talte de alltid så meget fornøyelig seg imellem.\\n\\nRANK. Aha; det er altså dem jeg har avløst.\\n\\nNORA (springer opp og hen til ham). Å, kjære, snille doktor\\nRank, det mente jeg jo slett ikke. Men De kan vel skjønne at det er\\nmed Torvald liksom med pappa -\\n\\n(Stuepiken kommer fra forstuen.)\\n\\nSTUEPIKEN. Frue! (hvisker og rekker henne et kort.)\\n\\nNORA (kaster et øye på kortet). Ah! (stikker det i lommen.)\\n\\nRANK. Noe galt på ferde?\\n\\nNORA. Nei, nei, på ingen måte; det er bare noe -; det er min\\nnye drakt -\\n\\nRANK. Hvorledes? Der ligger jo Deres drakt.\\n\\nNORA. Å, ja den; men det er en annen; jeg har bestilt den -;\\nTorvald må ikke vite det -\\n\\nRANK. Aha, der har vi altså den store hemmelighet.\\n\\nNORA. Ja visst; gå bare inn til ham; han sitter i det indre\\nværelse; hold ham opp så lenge -\\n\\nRANK. Vær rolig; han skal ikke slippe fra meg. (han går inn\\ni Helmers værelse.)\\n\\nNORA (til piken). Og han står og venter i kjøkkenet?\\n\\nSTUEPIKEN. Ja, han kom opp baktrappen -\\n\\nNORA. Men sa du ikke at her var noen?\\n\\nSTUEPIKEN. Jo, men det hjalp ikke.\\n\\nNORA. Han vil ikke gå igjen?\\n\\nSTUEPIKEN. Nei, han går ikke før han får talt med fruen.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"NORA. Only to sew on my costume. Good heavens, how unreasonable you are. (sits down on the sofa.) Now be nice, Doctor Rank; tomorrow you shall see how beautifully I shall dance; and then you must imagine that I am doing it only for your sake—yes, and then, of course, for Torvald’s; that goes without saying. (takes various things out of the box.) Doctor Rank, sit here, and I shall show you something.\\n\\nRANK (sits down). What is it?\\n\\nNORA. Look here. Look!\\n\\nRANK. Silk stockings.\\n\\nNORA. Flesh-colored. Aren’t they lovely? Yes, it is so dark in here now; but tomorrow—. No, no, no; you may only see the foot. Oh yes, you may indeed see the upper part too, if you like.\\n\\nRANK. Hm—\\n\\nNORA. Why do you look so critical? Perhaps you don’t think they will fit?\\n\\nRANK. I cannot possibly have any well-founded opinion about that.\\n\\nNORA (looks at him for a moment). Shame on you. (strikes him lightly on the ear with the stockings.) There, you deserve that. (packs them up again.)\\n\\nRANK. And what other delights am I to be allowed to see?\\n\\nNORA. You shall not see another scrap, because you are naughty.\\n\\n(she hums a little and searches among the things.)\\n\\nRANK (after a short silence). When I sit here like this, quite intimately together with you, I cannot comprehend—no, I cannot grasp—what would have become of me if I had never come into this house.\\n\\nNORA (smiles). Oh, I think that, deep down, you enjoy yourself quite well with us.\\n\\nRANK (more softly, staring ahead). And then to have to leave it all—\\n\\nNORA. Nonsense; you are not leaving it.\\n\\nRANK (as before). —and not even be able to leave behind one poor token of gratitude; scarcely even a fleeting sense of loss—nothing but an empty place that can be filled by the first person who comes along.\\n\\nNORA. And if I were now to ask you to—? No—\\n\\nRANK. To what?\\n\\nNORA. To give me a great proof of your friendship—\\n\\nRANK. Yes, yes?\\n\\nNORA. No, I mean—to do me an immensely great service—\\n\\nRANK. Would you really, for once, make me so happy?\\n\\nNORA. Oh, you do not even know what it is.\\n\\nRANK. Very well, then; say it.\\n\\nNORA. No, but I cannot, Doctor Rank; it is something so unreasonably great—advice and help and a service as well—\\n\\nRANK. So much the better. I cannot imagine what you can mean. But do speak. Do I not have your confidence?\\n\\nNORA. Yes, you do, as no one else does. You are my most faithful and best friend; you know that. That is why I shall tell you. Very well, then, Doctor Rank; there is something you must help me prevent. You know how deeply, how indescribably dearly Torvald loves me; he would never hesitate for a moment to give his life for my sake.\\n\\nRANK (leaning toward her). Nora—do you think that he is the only one—?\\n\\nNORA (with a slight start). Who—?\\n\\nRANK. Who would gladly give his life for your sake.\\n\\nNORA (heavily). I see.\\n\\nRANK. I have sworn to myself that you should know it before I went away. I would never find a better opportunity.—Yes, Nora, now you know it. And now you also know that you can confide in me as in no one else.\\n\\nNORA (rises; evenly and calmly). Let me pass.\\n\\nRANK (makes way for her, but remains seated). Nora—\\n\\nNORA (in the doorway to the hall). Helene, bring in the lamp.—(goes over toward the stove.) Oh, dear Doctor Rank, that was really horrid of you.\\n\\nRANK (rises). That I have loved you just as deeply as anyone else has? Was that horrid?\\n\\nNORA. No, but that you should go and tell me so. There was no need at all—\\n\\nRANK. What do you mean? Did you know—?\\n\\n(The maid enters with the lamp, puts it on the table, and goes out again.)\\n\\nRANK. Nora—Mrs. Helmer—I ask you, did you know anything?\\n\\nNORA. Oh, how do I know what I knew or did not know? I truly cannot tell you—. How could you be so clumsy, Doctor Rank! Everything was so good as it was.\\n\\nRANK. Well, at any rate, you now know for certain that I am at your disposal, body and soul. And will you now speak openly?\\n\\nNORA (looks at him). After this?\\n\\nRANK. I beg you, let me know what it is.\\n\\nNORA. You cannot know anything now.\\n\\nRANK. Yes, yes. You must not punish me like this. Allow me to do for you whatever lies within human power.\\n\\nNORA. Now you can do nothing for me.—Besides, I am sure I do not need any help. You will see that it is all merely imagination. Yes, certainly it is. Of course! (sits down in the rocking chair, looks at him, smiles.) You really are a fine gentleman, Doctor Rank. Don’t you think you ought to be ashamed of yourself now that the lamp has been brought in?\\n\\nRANK. No; not really. But perhaps I should go—for good?\\n\\nNORA. No, you certainly must not do that. Of course you must come here as before. You know very well that Torvald cannot do without you.\\n\\nRANK. Yes, but you?\\n\\nNORA. Oh, I always think it becomes tremendously enjoyable here when you come.\\n\\nRANK. That is precisely what led me astray. You are a riddle to me. Many times it has seemed to me that you would almost as gladly be with me as with Helmer.\\n\\nNORA. Yes, you see, there are some people whom one loves most, and other people whom one would almost rather be with.\\n\\nRANK. Oh yes, there is something in that.\\n\\nNORA. When I was at home, naturally I loved Papa most. But I always thought it was so immensely amusing when I could steal downstairs to the maids’ room; for they did not guide me in the least, and they always talked about so many amusing things among themselves.\\n\\nRANK. Aha; so it is they whom I have replaced.\\n\\nNORA (springs up and goes over to him). Oh, dear, kind Doctor Rank, I did not mean that at all. But surely you can understand that with Torvald it is just as it was with Papa—\\n\\n(The maid comes in from the hall.)\\n\\nMAID. Madam! (whispers and hands her a card.)\\n\\nNORA (glances at the card). Ah! (puts it in her pocket.)\\n\\nRANK. Is something wrong?\\n\\nNORA. No, no, not at all; it is only something—it is my new costume—\\n\\nRANK. What? Your costume is lying right there.\\n\\nNORA. Oh yes, that one; but this is another; I have ordered it—Torvald must not know—\\n\\nRANK. Aha, so there we have the great secret.\\n\\nNORA. Yes, indeed; just go in to him; he is sitting in the inner room; keep him occupied for a while—\\n\\nRANK. Do not worry; he shall not get away from me. (he goes into Helmer’s room.)\\n\\nNORA (to the maid). And he is standing waiting in the kitchen?\\n\\nMAID. Yes, he came up the back stairs—\\n\\nNORA. But didn’t you tell him that someone was here?\\n\\nMAID. Yes, but it did no good.\\n\\nNORA. He will not go away again?\\n\\nMAID. No, he will not go until he has spoken with Madam.\", \"source_occurrence_id\": \"ibsen-et-dukkehjem-003dfd3f3df5ffc6\", \"source_language\": \"no\", \"source_language_text_sha256\": \"e6a5cc777d4f9d9d2e190d8ec732bf73a563da1521e12767799577bff17957ab\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T10:55:47.042763+00:00\", \"model_usage\": {\"input_tokens\": 2305, \"cached_input_tokens\": 0, \"output_tokens\": 2423}, \"estimated_cost_usd\": 0.05768, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"ibsen-et-dukkehjem\", \"title\": \"Et dukkehjem\", \"author\": \"Henrik Ibsen\", \"language\": \"no\", \"source_type\": \"runeberg\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.566896, \"source_start\": 77603, \"source_end\": 77639, \"source_length\": 136891}, \"form\": {\"form_family\": \"perfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"perfect\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"no_perfect\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

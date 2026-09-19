@@ -1,0 +1,72 @@
+{
+  "occurrence_id": "zuccoli-lamore-di-loredana-626f60c86f8478c2",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.95,
+    "analysis": "Berto directly and repeatedly avows that he loves Loredana, presenting his love as the overriding fact that explains his otherwise irrational conduct. The words do not themselves undertake a commitment, and their passion, repetition, and emotional compression do not establish an independently reflexive or expressive-discharge force.",
+    "ambiguity": "The surrounding plea that Loredana stay and Berto's stated willingness to leave with her create a weak commitment-related context, but the classified sentence itself functions as an avowal rather than an undertaking."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "Berto directly addresses Loredana with the repeated utterance “Io ti amo, Loredana”; the highlighted occurrence is the second avowal in the sequence."
+  },
+  "contextual_interpretation": "Berto offers the avowal after Loredana declares that she loves Filippo, hates Berto, and will never love him. It is framed as his sole answer to her devastating logic and as the explanation for his irrational persistence. Loredana herself judges that he is not lying, strongly supporting sincere avowal, although sincerity is not required for T. His later coercive behavior complicates the relationship morally but does not alter the core utterance's truth-conditional mode.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "“Ma io ti amo… Io ti amo, Loredana; e non so altro” (“But I love you… I love you, Loredana; and I know nothing else”).",
+      "supports": "The explicit present-tense first-person avowal and its presentation as Berto's sole answer strongly support T=4.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "The narrator introduces it as “la parola unica che spiegava qualunque follia” (“the single word/utterance that explained any madness”).",
+      "supports": "The love claim is offered as an explanation of Berto's conduct, reinforcing its assertive or avowal-like force rather than establishing a commitment or reflexive discharge.",
+      "confidence": 0.95
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "“La giovane lo guardò, sentendo ch'egli non mentiva” (“The young woman looked at him, feeling that he was not lying”).",
+      "supports": "Loredana interprets the utterance as a sincere statement of Berto's emotional state, strongly corroborating T.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "e4",
+      "source": "local_text",
+      "quotation_or_description": "Immediately beforehand, Loredana says that she loves Filippo, hates Berto, and will never love him; Berto initially finds no answer and then gives this repeated avowal.",
+      "supports": "The adversarial conversational setting makes the utterance an explanatory counter-avowal, while supplying no independent evidence that its core force is an undertaking or involuntary verbal discharge.",
+      "confidence": 0.96
+    },
+    {
+      "evidence_id": "e5",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is identified as an affirmative present-tense explicit Italian “I love you” form in direct discourse.",
+      "supports": "Confirms the identified core occurrence and its unhedged grammatical form.",
+      "confidence": 0.99
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T alone naturally captures the core force as a direct avowal of love. Passion, repetition, desperate circumstances, and later coercion are important contextual features but create no residual core-force pressure beyond T/P/E.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

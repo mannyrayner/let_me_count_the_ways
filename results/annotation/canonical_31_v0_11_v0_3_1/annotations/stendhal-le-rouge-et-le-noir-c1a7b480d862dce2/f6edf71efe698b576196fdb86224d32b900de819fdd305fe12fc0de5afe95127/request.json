@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"stendhal-le-rouge-et-le-noir-c1a7b480d862dce2\", \"SOURCE_TEXT\": {\"exact_match\": \"je vous aime\", \"local_text\": {\"context_start\": 421962, \"context_end\": 422294, \"text\": \"Je vous estime, et j'oserais ajouter, quoique vous voyant pour la\\npremière fois, je vous aime. Voulez-vous être mon secrétaire, avec huit\\nmille francs d'appointements ou bien avec le double? J'y gagnerai\\nencore, je vous jure; et je fais mon affaire de vous conserver votre\\nbelle cure, pour le jour où nous ne nous conviendrons plus.\"}, \"wider_canonical_context\": {\"context_start\": 418523, \"context_end\": 425213, \"text\": \"Le lendemain matin, on suivait presque l'abbé Pirard dans les rues, et\\nles marchands venaient sur la porte de leurs boutiques, lorsqu'il alla\\nsolliciter les juges du marquis. Pour la première fois, il en fut reçu\\navec politesse. Le sévère janséniste, indigné de tout ce qu'il voyait,\\nfit un long travail avec les avocats qu'il avait choisis pour le marquis\\nde La Mole et partit pour Paris. Il eut la faiblesse de dire à deux ou\\ntrois amis de collège, qui l'accompagnaient jusqu'à la calèche dont ils\\nadmirèrent les armoiries, qu'après avoir administré le séminaire pendant\\nquinze ans, il quittait Besançon avec cinq cent vingt francs d'économie.\\nCes amis l'embrassèrent en pleurant, et se dirent entre eux:\\n\\n--Le bon abbé eût pu s'épargner ce mensonge, il est aussi par trop\\nridicule.\\n\\nLe vulgaire, aveuglé par l'amour de l'argent, n'était pas fait pour\\ncomprendre que c'était dans sa sincérité que l'abbé Pirard avait trouvé\\nla force nécessaire pour lutter seul pendant six ans contre Marie\\nAlacoque, le Sacré-Coeur de Jésus, les jésuites et son évêque.\\n\\n\\n\\n\\nCHAPITRE XXX\\n\\nUN AMBITIEUX\\n\\n    Il n'y a plus qu'une seule noblesse, c'est le titre de duc,\\n    marquis est ridicule, au mot duc on tourne la tête.\\n\\n    EDINBURGH REVIEW.\\n\\n\\nL'abbé fut étonné de l'air noble et du ton presque gai du marquis.\\nCependant ce futur ministre le recevait sans aucune de ces petites\\nfaçons de grand seigneur, si polies, mais si impertinentes pour qui les\\ncomprend. C'eût été du temps perdu, et le marquis était assez avant dans\\nles grandes affaires pour n'avoir point de temps à perdre.\\n\\nDepuis six mois, il intriguait pour faire accepter à la fois au roi et à\\nla nation un certain ministère, qui, par reconnaissance, le ferait duc.\\n\\nLe marquis demandait en vain, depuis de longues années, à son avocat de\\nBesançon un travail clair et précis sur ses procès de Franche-Comté.\\nComment l'avocat célèbre les lui eût-il expliqués, s'il ne les\\ncomprenait pas lui-même?\\n\\nLe petit carré de papier, que lui remit l'abbé, expliquait tout.\\n\\n--Mon cher abbé, lui dit le marquis, après avoir expédié en moins de\\ncinq minutes toutes les formules de politesse et d'interrogation sur les\\nchoses personnelles, mon cher abbé, au milieu de ma prétendue\\nprospérité, il me manque du temps pour m'occuper sérieusement de deux\\npetites choses assez importantes pourtant: ma famille et mes affaires.\\nJe soigne en grand la fortune de ma maison, je puis la porter loin; je\\nsoigne mes plaisirs, et c'est ce qui doit passer avant tout, du moins à\\nmes yeux, ajouta-t-il en surprenant de l'étonnement dans ceux de l'abbé\\nPirard.\\n\\nQuoique homme de sens, l'abbé était émerveillé de voir un vieillard\\nparler si franchement de ses plaisirs.\\n\\n--Le travail existe sans doute à Paris, continua le grand seigneur, mais\\nperché au cinquième étage; et dès que je me rapproche d'un homme, il\\nprend un appartement au second, et la femme prend un jour, par\\nconséquent plus de travail, plus d'effort que pour être ou paraître un\\nhomme du monde. C'est là leur unique affaire dès qu'ils ont du pain.\\n\\nPour mes procès, exactement parlant, et encore pour chaque procès pris à\\npart, j'ai des avocats qui se tuent; il m'en est mort un de la poitrine,\\navant-hier. Mais, pour mes affaires en général, croiriez-vous, monsieur,\\nque, depuis trois ans, j'ai renoncé à trouver un homme qui, pendant\\nqu'il écrit pour moi, daigne songer un peu sérieusement à ce qu'il fait?\\nAu reste, tout ceci n'est qu'une préface.\\n\\nJe vous estime, et j'oserais ajouter, quoique vous voyant pour la\\npremière fois, je vous aime. Voulez-vous être mon secrétaire, avec huit\\nmille francs d'appointements ou bien avec le double? J'y gagnerai\\nencore, je vous jure; et je fais mon affaire de vous conserver votre\\nbelle cure, pour le jour où nous ne nous conviendrons plus.\\n\\nL'abbé refusa, mais vers la fin de la conversation le véritable embarras\\noù il voyait le marquis lui suggéra une idée.\\n\\n--J'ai laissé au fond de mon séminaire, dit-il au marquis, un pauvre\\njeune homme, qui, si je ne me trompe, va y être rudement persécuté. S'il\\nn'était qu'un simple religieux, il serait déjà _in pace_.\\n\\nJusqu'ici ce jeune homme ne sait que le latin et l'Écriture sainte; mais\\nil n'est pas impossible qu'un jour il déploie de grands talents soit\\npour la prédication, soit pour la direction des âmes. J'ignore ce qu'il\\nfera, mais il a le feu sacré, il peut aller loin. Je comptais le donner\\nà notre évêque, si jamais il nous en était venu un qui eût un peu de\\nvotre manière de voir les hommes et les affaires.\\n\\n--D'où sort votre jeune homme? dit le marquis.\\n\\n--On le dit fils d'un charpentier de nos montagnes, mais je le croirais\\nplutôt fils naturel de quelque homme riche. Je lui ai vu recevoir une\\nlettre anonyme ou pseudonyme avec une lettre de change de cinq cents\\nfrancs.\\n\\n--Ah! c'est Julien Sorel, dit le marquis.\\n\\n--D'où savez-vous son nom? dit l'abbé étonné; et comme il rougissait de\\nsa question:\\n\\n--C'est ce que je ne vous dirai pas, répondit le marquis.\\n\\n--Eh bien! reprit l'abbé, vous pourriez essayer d'en faire votre\\nsecrétaire; il a de l'énergie, de la raison; en un mot, c'est un essai à\\ntenter.\\n\\n--Pourquoi pas? dit le marquis; mais serait-ce un homme à se laisser\\ngraisser la patte par le préfet de police ou par tout autre pour faire\\nl'espion chez moi? Voilà toute mon objection.\\n\\nD'après les assurances favorables de l'abbé Pirard, le marquis prit un\\nbillet de mille francs:\\n\\n--Envoyez ce viatique à Julien Sorel; faites-le-moi venir.\\n\\n--L'habitude d'habiter Paris doit, en effet, M. le marquis, produire\\ncette illusion dans votre esprit; vous ne connaissez pas, parce que vous\\nêtes dans une position sociale élevée, la tyrannie qui pèse sur nous\\nautres pauvres provinciaux, et en particulier sur les prêtres non amis\\ndes jésuites. On ne voudra pas laisser partir Julien Sorel, on saura se\\ncouvrir des prétextes les plus habiles on me répondra qu'il est malade,\\nla poste aura perdu les lettres, etc., etc.\\n\\n--Je prendrai un de ces jours une lettre du ministre à l'évêque, dit le\\nmarquis.\\n\\n--J'oubliais une précaution, dit l'abbé: ce jeune homme quoique né bien\\nbas a le coeur haut, il ne sera d'aucune utilité dans vos affaires si\\nl'on effarouche son orgueil; vous le rendriez stupide.\\n\\n--Ceci me plaît, dit le marquis, j'en ferai le camarade de mon fils,\\ncela suffira-t-il?\\n\\nQuelque temps après, Julien reçut une lettre d'une écriture inconnue et\\nportant le timbre de Châlon, il y trouva un mandat sur un marchand de\\nBesançon, et l'avis de se rendre à Paris sans délai. La lettre était\\nsignée d'un nom supposé, mais en l'ouvrant Julien avait tressailli: une\\ngrosse tache d'encre était tombée au milieu du treizième mot. C'était le\\nsignal dont il était convenu avec l'abbé Pirard.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"The next morning, people almost followed Abbé Pirard through the streets, and shopkeepers came to the doors of their shops when he went to petition the judges on the marquis’s behalf. For the first time, he was received politely by them. The stern Jansenist, indignant at everything he saw, worked at length with the lawyers he had chosen for the Marquis de La Mole and left for Paris. He was weak enough to tell two or three friends from the seminary, who accompanied him as far as the carriage whose coat of arms they admired, that after administering the seminary for fifteen years, he was leaving Besançon with five hundred and twenty francs in savings. These friends embraced him in tears, and said among themselves:\\n\\n“The good abbé could have spared himself that lie; it really is far too ridiculous.”\\n\\nThe common people, blinded by the love of money, were incapable of understanding that it was in his sincerity that Abbé Pirard had found the strength necessary to struggle alone for six years against Marie Alacoque, the Sacred Heart of Jesus, the Jesuits, and his bishop.\\n\\n\\n\\n\\nCHAPTER XXX\\n\\nAN AMBITIOUS MAN\\n\\n    There is now only one true rank of nobility, and that is the title of duke;\\n    marquis is ridiculous; at the word duke, heads turn.\\n\\n    EDINBURGH REVIEW.\\n\\n\\nThe abbé was astonished by the marquis’s noble bearing and almost cheerful tone. Yet this future minister received him without any of those little grand-seigneur airs, so polite, but so impertinent to anyone who understands them. That would have been time wasted, and the marquis was sufficiently involved in great affairs to have no time to waste.\\n\\nFor six months, he had been intriguing to have a certain ministry accepted simultaneously by the king and the nation, a ministry that, out of gratitude, would make him a duke.\\n\\nFor many years, the marquis had vainly asked his lawyer in Besançon for a clear and precise report on his lawsuits in Franche-Comté. How could the celebrated lawyer have explained them to him when he did not understand them himself?\\n\\nThe little square sheet of paper the abbé handed him explained everything.\\n\\n“My dear abbé,” the marquis said to him, after disposing in less than five minutes of all the formulas of politeness and inquiries about personal matters, “my dear abbé, amid my supposed prosperity, I lack the time to attend seriously to two small matters that are nevertheless fairly important: my family and my affairs. I look after the fortune of my house on a grand scale; I can carry it far. I look after my pleasures, and that is what must come before everything else, at least in my eyes,” he added, catching the astonishment in Abbé Pirard’s eyes.\\n\\nThough a sensible man, the abbé was amazed to see an old man speak so frankly of his pleasures.\\n\\n“Work undoubtedly exists in Paris,” the great lord continued, “but perched on the fifth floor; and as soon as I draw closer to a man, he takes an apartment on the second floor, and his wife establishes a reception day; consequently, there is no more work, no more effort except to be, or to appear to be, a man of the world. That is their sole concern as soon as they have bread to eat.\\n\\n“For my lawsuits, strictly speaking, and even for each lawsuit considered separately, I have lawyers who work themselves to death; one of them died of consumption the day before yesterday. But for my affairs in general, would you believe, monsieur, that for three years I have given up trying to find a man who, while writing for me, deigns to think a little seriously about what he is doing? Besides, all this is merely a preface.\\n\\n“I esteem you, and I would venture to add, although I am seeing you for the first time, I love you. Will you be my secretary, at a salary of eight thousand francs, or even twice that? I shall still gain by it, I swear to you; and I shall make it my business to preserve your fine parish for you, for the day when we no longer suit one another.”\\n\\nThe abbé refused, but toward the end of the conversation, the genuine predicament in which he saw the marquis suggested an idea to him.\\n\\n“I left behind, in the depths of my seminary,” he told the marquis, “a poor young man who, unless I am mistaken, is going to be harshly persecuted there. If he were merely a simple religious, he would already be in pace.\\n\\n“So far, this young man knows only Latin and Holy Scripture; but it is not impossible that one day he may display great talents either for preaching or for the direction of souls. I do not know what he will do, but he has the sacred fire; he may go far. I had intended to give him to our bishop, if ever we had been sent one who shared something of your way of judging men and affairs.”\\n\\n“Where does your young man come from?” said the marquis.\\n\\n“He is said to be the son of a carpenter from our mountains, but I would sooner believe him the natural son of some rich man. I saw him receive an anonymous or pseudonymous letter with a bill of exchange for five hundred francs.”\\n\\n“Ah! That is Julien Sorel,” said the marquis.\\n\\n“How do you know his name?” said the astonished abbé; and when he blushed at his own question:\\n\\n“That is something I shall not tell you,” replied the marquis.\\n\\n“Well then,” the abbé resumed, “you might try making him your secretary; he has energy and judgment; in short, it is an experiment worth trying.”\\n\\n“Why not?” said the marquis. “But would he be the sort of man to let the prefect of police or anyone else grease his palm to act as a spy in my house? That is my only objection.”\\n\\nAfter Abbé Pirard’s favorable assurances, the marquis took out a thousand-franc note:\\n\\n“Send this traveling money to Julien Sorel; have him come to me.”\\n\\n“The habit of living in Paris must indeed, Monsieur le Marquis, produce this illusion in your mind; because you occupy a high social position, you do not know the tyranny that weighs upon us poor provincials, and particularly upon priests who are not friends of the Jesuits. They will not be willing to let Julien Sorel leave; they will know how to cloak themselves in the cleverest pretexts. I shall be told that he is ill, the post will have lost the letters, and so on and so forth.”\\n\\n“One of these days I shall obtain a letter from the minister to the bishop,” said the marquis.\\n\\n“I was forgetting a precaution,” said the abbé. “Although this young man was born very low, he has a proud spirit; he will be of no use whatsoever in your affairs if his pride is alarmed; you would make him stupid.”\\n\\n“I like that,” said the marquis. “I shall make him my son’s companion; will that suffice?”\\n\\nSome time later, Julien received a letter in an unfamiliar hand and bearing the Châlon postmark. In it he found a payment order upon a merchant in Besançon and instructions to go to Paris without delay. The letter was signed with an assumed name, but upon opening it Julien had started: a large blot of ink had fallen in the middle of the thirteenth word. It was the signal he had agreed upon with Abbé Pirard.\", \"source_occurrence_id\": \"stendhal-le-rouge-et-le-noir-c1a7b480d862dce2\", \"source_language\": \"fr\", \"source_language_text_sha256\": \"44fbe77b81b6a532597a37eb60cb0496f33d8c53c034c37a23332c27a644637c\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T11:42:10.298345+00:00\", \"model_usage\": {\"input_tokens\": 2088, \"cached_input_tokens\": 0, \"output_tokens\": 1968}, \"estimated_cost_usd\": 0.047712, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"stendhal-le-rouge-et-le-noir\", \"title\": \"Le Rouge et le Noir\", \"author\": \"Stendhal\", \"language\": \"fr\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": \"CHAPITRE XXX\", \"relative_position\": 0.418527, \"source_start\": 422043, \"source_end\": 422055, \"source_length\": 1008402}, \"form\": {\"form_family\": \"present_or_imperfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": \"optional\", \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"fr_present_past\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

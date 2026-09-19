@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"zuccoli-lamore-di-loredana-fc8a54e562ac9eac\", \"SOURCE_TEXT\": {\"exact_match\": \"ti\\namo\", \"local_text\": {\"context_start\": 39953, \"context_end\": 40508, \"text\": \"--Me ne sono accorto io,--proseguì Filippo.--So che ti amo, sento che ti\\namo, sento che noi possiamo essere felici. Io non posso sposarti;\\ncapiscimi bene, non posso sposarti perchè tutta la mia famiglia ci\\ndarebbe tali e tanti dispiaceri, che, in confronto, ciò che hai sofferto\\nfinora ti sembrerebbe una gioia. Sono ignoranti, caparbii e feroci....\\nMa ti offro lo stesso il mio amore e la mia vita.... Anch'io sono\\nstanco; anch'io non posso più trascinare questa esistenza tormentosa e\\ninutile. Dimmi che accetti, e saremo felici.... Partiremo subito....\"}, \"wider_canonical_context\": {\"context_start\": 36429, \"context_end\": 43487, \"text\": \"Ogni giorno si tornava daccapo; il carattere passionale d'Adolfo\\ns'accendeva e s'inveleniva; il giovane avrebbe voluto che la signora De\\nCarolis intervenisse a favore di lui, ma la mamma giudicava con la testa\\ndella figlia, e non ricordava nemmeno di averla rimproverata una volta\\nin diciotto anni. Anzi, vedendo che la figlia era triste, anche la\\nsignora De Carolis cominciava a pensare, senza avere il coraggio di\\ndirlo, che Adolfo era brutale; e si pentiva d'avere accolta e favorita\\nla proposta della famiglia Gianella, che voleva unire i due giovani. Non\\nsi poteva negarlo: la pace della casetta bianca era stata turbata da\\nAdolfo Gianella; Loredana, sempre allegra, aveva mutato carattere per\\ncolpa di lui; egli, geloso, inquieto, pieno di sospetto, guardava tutti\\nin cagnesco, non voleva che si andasse a teatro, s'irritava per la\\nspensieratezza di Loredana, l'offendeva con incessanti osservazioni,\\npretendeva ch'ella fosse già grave e prudente come una madre di\\nfamiglia, e infine, anche nei momenti buoni, era querulo e noioso,\\npedante e meschino.\\n\\nPer quel contrasto incessante, la fanciulla era accasciata; e più d'una\\nvolta Filippo la trovò con gli occhi rossi e gonfi.\\n\\n--Non bisogna sposarlo, sa?--egli diceva recisamente.--È un matrimonio\\nimpossibile. Che cosa farà quel ragazzo quando sarà suo marito e avrà i\\ndiritti più stupidi e più antipatici? Vuole che parli io con la mamma?\\n\\nLa fanciulla non aveva il coraggio di togliersi da quella situazione\\ntormentosa: tutta la famiglia Gianella, madre, padre, zii, cugini di\\nAdolfo, le stavano attorno, magnificando le virtù del giovane, facendo\\ndisegni per l'avvenire, dimostrandosi tanto sicuri, tanto lieti per quel\\nmatrimonio singolarmente felice, che Loredana soffocava e taceva. Ma non\\nsi sarebbe potuto trovare un uomo il quale fosse più di Adolfo incapace\\ndi comprenderla, tanto che essa, buona con tutti, era sempre con lui\\nirritata, nervosa, dolente.\\n\\nDa ultimo egli voleva anche legger le lettere ch'ella riceveva dalle\\namiche, delle quali non si fidava punto; una mattina, mentr'egli s'era\\nrecato a dare il buon giorno alla fidanzata, sopravvenne il\\nportalettere, e Adolfo s'impadronì della posta, aperse la lettera d'una\\nragazza che scriveva a Loredana da un paese della provincia, domandò\\nnotizie delle persone ch'eranvi ricordate, e finì col mettersi la\\nlettera in tasca.\\n\\nQuando giunse Filippo verso sera, la fanciulla vibrava ancora tutta di\\nsdegno e d'ira; raccontò ogni cosa all'amico, anche quel che aveva\\ntaciuto fino a quel giorno, le angherie, le taccagnerie, la diffidenza\\noltraggiosa, la gelosia irragionevole, la presunzione di Adolfo.\\n\\n--Non lo voglio, non lo voglio, non lo voglio!--esclamava con gli occhi\\nsfavillanti di rabbia.--Qualunque cosa piuttosto di questo matrimonio!\\nMai, mai, mai!\\n\\nFilippo aveva ascoltato in silenzio, guardando il pavimento a piastrelle\\nbianche e rosse e segnando col piede il ritmo d'una marcia.\\n\\nA un tratto sollevò il capo, afferrò le mani dell'amica, e chiese:\\n\\n--Vuole venire con me?\\n\\nLa fanciulla non capì subito.\\n\\n--Dove?--ella domandò.\\n\\n--Via, lontano, fuori di Venezia, per sempre!--incalzò Filippo.\\n\\n--Fuggire? Fuggire con lei?--ella disse sottovoce, già tremando senza\\nsaperne la ragione.\\n\\n--Mi ascolti,--mormorò Filippo.\\n\\nAndò fino al limitare della saletta, vide che la mamma leggeva\\nattentamente un libro mal rilegato, e continuò, tornando presso\\nLoredana:\\n\\n--Quella che noi chiamiamo amicizia, non è che amore. Se n'è accorta?\\n\\nEssa, ferma e fissa, con gli occhi spalancati, non rispose.\\n\\n--Me ne sono accorto io,--proseguì Filippo.--So che ti amo, sento che ti\\namo, sento che noi possiamo essere felici. Io non posso sposarti;\\ncapiscimi bene, non posso sposarti perchè tutta la mia famiglia ci\\ndarebbe tali e tanti dispiaceri, che, in confronto, ciò che hai sofferto\\nfinora ti sembrerebbe una gioia. Sono ignoranti, caparbii e feroci....\\nMa ti offro lo stesso il mio amore e la mia vita.... Anch'io sono\\nstanco; anch'io non posso più trascinare questa esistenza tormentosa e\\ninutile. Dimmi che accetti, e saremo felici.... Partiremo subito....\\n\\nLoredana tolse le mani dalle mani di Filippo e si alzò in piedi: fece\\nalcuni passi come per uscir dalla camera, ma si fermò e si addossò al\\nmuro; piangeva in silenzio e le lagrime le scendevan giù per le guance.\\n\\nFilippo le si avvicinò di nuovo. Era pallido e la sua voce tremava.\\nDisse:\\n\\n--Sei offesa?\\n\\nElla negò con un movimento del capo.\\n\\n--Allora non mi ami d'amore, come ti amo io?\\n\\nLa risposta non venne. Loredana guardava l'amico attraverso il velo\\ndelle lagrime. Egli fece un passo come per allontanarsi, ma la\\nfanciulla, rapidamente, istintivamente lo trattenne con un gesto.\\n\\n--Sì, l'amo anch'io,--ella mormorò sottovoce.\\n\\nFilippo l'afferrò per il busto e la baciò sulla bocca.\\n\\n--Pensaci,--disse.--Pensa che saremo tanto felici.... La mamma\\nperdonerà. Ti vuol troppo bene per condannarti. Capirà che tu avevi il\\ndiritto di vivere, di sottrarti a un avvenire spaventoso. Tu saprai\\nfarti perdonare, non è vero? poichè conosci la strada per giungere al\\ncuore della mamma! Dimmi che accetti, e partiremo subito....\\n\\nEssa, sempre addossata al muro, sempre immobile, con gli occhi pieni di\\nlagrime, non rispondeva. Ma una scampanellata fece sussultare lei e\\nFilippo.\\n\\nLa fanciulla s'asciugò prestamente gli occhi, e corse nella saletta.\\n\\n--Dev'essere Adolfo,--ella disse alla mamma.--Io ho l'emicrania, non\\nvoglio vederlo, mi chiudo nella mia camera!\\n\\nLa mamma sospirò e alzò lo sguardo al soffitto. Loredana tornò da\\nFilippo, gli strinse le mani, mentr'egli la baciava ancora sulla bocca.\\n\\n--Pensaci!--ripetè Filippo.\\n\\nElla fece un gesto vago e scomparve, per chiudersi nella sua cameretta.\\n\\nAdolfo Gianella saliva le scale, e Filippo udendone il passo, diceva con\\nla signora De Carolis:\\n\\n--Mi dispiace molto che la signorina sia indisposta; spero non sarà\\nnulla....\\n\\n--È malata?--chiese Adolfo sopraggiungendo e salutando Filippo con un\\nsaluto freddo e un'occhiata di sbieco.--Dov'è stata iersera? Avrà preso\\nfreddo, o avrà mangiato qualche cosa d'indigesto....\\n\\nFilippo se ne andò subito, e senza volerlo si disse, ridendo dentro:\\n\\n--Tu, dovrai mangiare fra poco qualche cosa d'indigesto!...\\n\\nRipensò, quella notte, all'idea della fuga, balenatagli così di repente;\\ne più vi pensava e più gli pareva buona. La signora De Carolis non\\navrebbe osato nulla contro la figlia adorata; Adolfo avrebbe trovato una\\nconsolazione nel pensiero che una fanciulla capace di scappar col conte\\nVagli non era degna di lui.... Infine, la cosa si sarebbe saputa da\\npochi, malamente, e si sarebbe sminuita, polverizzata per così dire, nel\\nclassico pettegolezzo veneziano. Filippo trovava l'onestà della sua\\ndisonestà; amava Loredana; sentiva che le sarebbe stato fedele, che\\nl'avrebbe fatta contenta, ch'ella non avrebbe sofferto, e poichè di\\nmatrimonio era assurdo parlare a causa dell'opposizione formidabile che\\navrebbe trovato in famiglia, la fuga, una fuga prudente, senza troppo\\nscandalo, senza chiasso, metteva termine a una situazione insopportabile\\nper lui e per la piccola amica.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"Every day they went back to the beginning; Adolfo’s passionate nature flared up and grew embittered; the young man would have liked Signora De Carolis to intervene on his behalf, but the mother judged with her daughter’s mind, and could not even remember having reprimanded her once in eighteen years. Indeed, seeing that her daughter was sad, Signora De Carolis too began to think, without having the courage to say so, that Adolfo was brutal; and she regretted having welcomed and encouraged the proposal of the Gianella family, who wanted to unite the two young people. It could not be denied: the peace of the little white house had been disturbed by Adolfo Gianella; Loredana, always cheerful, had changed in character because of him; he, jealous, uneasy, full of suspicion, glared at everyone, did not want them to go to the theater, became irritated by Loredana’s lightheartedness, offended her with incessant remarks, demanded that she already be as serious and prudent as a mother of a family, and finally, even in his good moments, was querulous and tiresome, pedantic and petty.\\n\\nBecause of that ceaseless conflict, the girl was dejected; and more than once Filippo found her with red, swollen eyes.\\n\\n“You must not marry him, you know,” he would say firmly. “It is an impossible marriage. What will that young man do when he is your husband and has the most foolish and obnoxious rights? Would you like me to speak to your mother?”\\n\\nThe girl did not have the courage to extricate herself from that tormenting situation: the entire Gianella family—Adolfo’s mother, father, uncles, aunts, and cousins—crowded around her, extolling the young man’s virtues, making plans for the future, showing themselves so certain, so delighted about that exceptionally happy marriage, that Loredana stifled herself and kept silent. But no man could have been found who was more incapable than Adolfo of understanding her, so much so that she, kind to everyone, was always irritated, nervous, and distressed with him.\\n\\nAt last he even wanted to read the letters she received from her female friends, whom he did not trust at all; one morning, while he had gone to bid his fiancée good morning, the postman arrived, and Adolfo seized the mail, opened the letter from a girl who was writing to Loredana from a town in the province, asked for information about the people mentioned in it, and ended by putting the letter into his pocket.\\n\\nWhen Filippo arrived toward evening, the girl was still trembling all over with indignation and anger; she told her friend everything, even what she had kept silent about until that day: Adolfo’s harassment, stinginess, insulting mistrust, unreasonable jealousy, and conceit.\\n\\n“I do not want him, I do not want him, I do not want him!” she exclaimed, her eyes blazing with rage. “Anything rather than this marriage! Never, never, never!”\\n\\nFilippo had listened in silence, looking at the floor of red and white tiles and marking out the rhythm of a march with his foot.\\n\\nAll at once he raised his head, grasped his friend’s hands, and asked:\\n\\n“Will you come with me?”\\n\\nThe girl did not understand at once.\\n\\n“Where?” she asked.\\n\\n“Away, far away, out of Venice, forever!” Filippo pressed.\\n\\n“Run away? Run away with you?” she said in a low voice, already trembling without knowing why.\\n\\n“Listen to me,” Filippo murmured.\\n\\nHe went as far as the threshold of the sitting room, saw that her mother was attentively reading a poorly bound book, and continued, returning to Loredana:\\n\\n“What we call friendship is nothing but love. Have you realized it?”\\n\\nShe, still and rigid, her eyes wide open, did not answer.\\n\\n“I have realized it,” Filippo went on. “I know that I love you, I feel that I love you, I feel that we can be happy. I cannot marry you; understand me well, I cannot marry you because my whole family would cause us so much grief that, by comparison, what you have suffered until now would seem a joy to you. They are ignorant, stubborn, and ferocious.... But I offer you my love and my life all the same.... I too am weary; I too can no longer drag out this tormented and useless existence. Tell me that you accept, and we shall be happy.... We shall leave at once....”\\n\\nLoredana withdrew her hands from Filippo’s and stood up: she took a few steps as though to leave the room, but stopped and leaned back against the wall; she was weeping silently, and the tears ran down her cheeks.\\n\\nFilippo approached her again. He was pale, and his voice trembled. He said:\\n\\n“Are you offended?”\\n\\nShe shook her head.\\n\\n“Then you do not love me with romantic love, as I love you?”\\n\\nNo answer came. Loredana looked at her friend through the veil of tears. He took a step as though to move away, but the girl quickly, instinctively detained him with a gesture.\\n\\n“Yes, I love you too,” she murmured in a low voice.\\n\\nFilippo seized her around the waist and kissed her on the mouth.\\n\\n“Think about it,” he said. “Think how happy we shall be.... Your mother will forgive you. She loves you too much to condemn you. She will understand that you had the right to live, to escape a dreadful future. You will know how to make her forgive you, will you not? For you know the road that leads to your mother’s heart! Tell me that you accept, and we shall leave at once....”\\n\\nShe, still leaning against the wall, still motionless, her eyes full of tears, did not answer. But the ringing of the doorbell made both her and Filippo start.\\n\\nThe girl quickly dried her eyes and ran into the sitting room.\\n\\n“It must be Adolfo,” she said to her mother. “I have a migraine, I do not want to see him, I am going to shut myself in my room!”\\n\\nHer mother sighed and raised her eyes to the ceiling. Loredana returned to Filippo and clasped his hands while he kissed her on the mouth again.\\n\\n“Think about it!” Filippo repeated.\\n\\nShe made a vague gesture and disappeared, to shut herself in her little room.\\n\\nAdolfo Gianella was coming up the stairs, and Filippo, hearing his footsteps, was saying to Signora De Carolis:\\n\\n“I am very sorry that the young lady is indisposed; I hope it is nothing....”\\n\\n“Is she ill?” Adolfo asked as he arrived, greeting Filippo with a cold salutation and a sidelong glance. “Where was she last night? She must have caught cold, or eaten something indigestible....”\\n\\nFilippo left at once, and involuntarily said to himself, laughing inwardly:\\n\\n“You will soon have to swallow something indigestible yourself!...”\\n\\nThat night he thought again about the idea of running away, which had flashed upon him so suddenly; and the more he thought about it, the better it seemed to him. Signora De Carolis would not have dared do anything against her adored daughter; Adolfo would have found consolation in the thought that a girl capable of running away with Count Vagli was not worthy of him.... Finally, few people would learn of the matter, and only imperfectly, and it would dwindle, be pulverized, so to speak, in the classic Venetian gossip. Filippo found the honesty within his dishonesty; he loved Loredana; he felt that he would be faithful to her, that he would make her happy, that she would not suffer, and since it was absurd to speak of marriage because of the formidable opposition he would encounter in his family, running away—a discreet flight, without too much scandal, without commotion—would put an end to a situation unbearable for him and for his little friend.\", \"source_occurrence_id\": \"zuccoli-lamore-di-loredana-fc8a54e562ac9eac\", \"source_language\": \"it\", \"source_language_text_sha256\": \"1f3112c6244f2f40f1a53676de0138b27f84316ae01870f7f431c0b81590af30\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T12:40:18.555090+00:00\", \"model_usage\": {\"input_tokens\": 2393, \"cached_input_tokens\": 0, \"output_tokens\": 1960}, \"estimated_cost_usd\": 0.048771999999999996, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"zuccoli-lamore-di-loredana\", \"title\": \"L'amore di Loredana\", \"author\": \"Luciano Zùccoli\", \"language\": \"it\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.090876, \"source_start\": 40023, \"source_end\": 40029, \"source_length\": 440413}, \"form\": {\"form_family\": \"present\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"it_present\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 1.0, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

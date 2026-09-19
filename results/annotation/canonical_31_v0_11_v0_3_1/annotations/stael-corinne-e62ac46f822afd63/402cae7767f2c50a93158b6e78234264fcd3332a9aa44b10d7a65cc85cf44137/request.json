@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"stael-corinne-e62ac46f822afd63\", \"SOURCE_TEXT\": {\"exact_match\": \"je\\nvous aime\", \"local_text\": {\"context_start\": 415879, \"context_end\": 417891, \"text\": \"ui s'était\\npassé dans le jardin, mais, à l'aspect de ce tableau, le tombeau de son\\npère et les montagnes d'Écosse se retracèrent à sa pensée, et ses yeux\\nse remplirent de larmes, Corinne prit sa harpe et, devant ce tableau,\\nelle se mit à chanter les romances écossaises dont les simples notes\\nsemblent accompagner le bruit du vent qui gémit dans les vallées. Elle\\nchanta les adieux d'un guerrier en quittant sa patrie et sa maîtresse,\\net ce mot jamais (_no more_), un des plus harmonieux et des plus\\nsensibles de la langue anglaise, Corinne le prononçait avec l'expression\\nla plus touchante. Oswald ne résista point à l'émotion qui l'oppressait,\\net l'un et l'autre s'abandonnèrent sans contrainte à leurs larmes. «Ah!\\ns'écria lord Nelvil, cette patrie, qui est la mienne, ne dit-elle rien à\\nton coeur? Me suivrais-tu dans ces retraites peuplées par mes souvenirs?\\nSerais-tu la digne compagne de ma vie, comme tu en es le charme et\\nl'enchantement?--Je le crois, répondit Corinne, je le crois, puisque je\\nvous aime.--Au nom de l'amour et de la pitié, ne me cachez plus rien,\\ndit Oswald.--Vous le voulez, interrompit Corinne; j'y souscris. Ma\\npromesse est donnée; je n'y mets qu'une condition, c'est que vous ne me\\ndemanderez pas de l'accomplir avant l'époque prochaine de nos solennités\\nreligieuses. Au moment où je vais décider de mon sort, l'appui du ciel\\nne m'est-il pas plus que jamais nécessaire?--Va, s'écria lord Nelvil, si\\nce sort dépend de moi, Corinne, il n'est plus douteux.--Vous le croyez,\\nreprit-elle; je n'ai pas la même confiance; mais enfin, je vous en\\nconjure, ayez pour ma faiblesse la condescendance que je désire.» Oswald\\nsoupira, sans accorder ni refuser le délai demandé. «Partons maintenant,\\ndit Corinne, et retournons à la ville. Comment vous rien taire dans\\ncette solitude! et si ce que j'ai à vous dire devait vous détacher de\\nmoi, faudrait-il que sitôt... Partons. Oswald, vous reviendrez ici, quoi\\nqu'il arrive, mes cendres y reposeront.» Oswald, attendri, troublé,\\nobéit à Corinne. Il\"}, \"wider_canonical_context\": {\"context_start\": 413171, \"context_end\": 420501, \"text\": \"Pendant que Corinne expliquait ainsi ses tableaux à lord Nelvil, elle\\ns'était arrêtée plusieurs fois, espérant qu'il lui parlerait; mais son\\nâme blessée ne se trahissait par aucun mot: seulement, chaque fois\\nqu'elle exprimait une idée sensible, il soupirait et détournait la tête,\\nafin qu'elle ne vît pas combien dans sa disposition actuelle il était\\nfacilement ému. Corinne, oppressée par ce silence, s'assit en couvrant\\nson visage de ses mains. Lord Nelvil se promena quelque temps avec\\nvivacité dans la chambre, puis il s'approcha de Corinne, et fut au\\nmoment de se plaindre et de se livrer à ce qu'il éprouvait; mais un\\nmouvement de fierté tout à fait invincible dans son caractère réprima\\nson attendrissement, et il retourna vers les tableaux comme s'il\\nattendait que Corinne achevât de les lui montrer. Elle espérait beaucoup\\nde l'effet du dernier de tous; et, faisant effort à son tour pour\\nparaître calme, elle se leva et dit: «Milord, il me reste encore trois\\npaysages à vous faire voir; deux font allusion à quelques idées\\nintéressantes: je n'aime pas beaucoup les scènes champêtres, qui sont\\nfades en peinture, comme des idylles, quand elles ne font aucune\\nallusion à la Fable ou à l'histoire. Ce qui vaut le mieux, ce me semble,\\nen ce genre, c'est la manière de Salvator Rosa, qui représente, comme\\nvous le voyez dans ce tableau, un rocher, des torrents et des arbres,\\nsans un seul être vivant, sans que seulement le vol d'un oiseau rappelle\\nl'idée de la vie. L'absence de l'homme au milieu de la nature excite des\\nréflexions profondes. Que serait cette terre ainsi délaissée? OEuvre\\nsans but, et cependant oeuvre encore si belle, dont la mystérieuse\\nimpression ne s'adresserait qu'à la Divinité!\\n\\n«Enfin voici les deux tableaux où, selon moi, l'histoire et la poésie\\nsont heureusement unies au paysage. L'un représente le moment où\\nCincinnatus est invité par les consuls à quitter sa charrue pour\\ncommander les armées romaines. C'est tout le luxe du Midi que vous\\nverrez dans ce paysage, son abondante végétation, son ciel brûlant, cet\\nair riant de toute la nature, qui se retrouve dans la physionomie même\\ndes plantes. Et cet autre tableau qui fait contraste avec celui-ci,\\nc'est le fils de Caïrbar endormi sur la tombe de son père. Il attend\\ndepuis trois jours et trois nuits le barde qui doit rendre les honneurs\\nà la mémoire des morts. Ce barde est aperçu dans le lointain, descendant\\nde la montagne; l'ombre du père plane sur les nuages; la campagne est\\ncouverte de frimas; les arbres, quoique dépouillés, sont agités par les\\nvents, et leurs branches mortes et leurs feuilles desséchées suivent\\nencore la direction de l'orage.»\\n\\nOswald jusqu'alors avait conservé du ressentiment contre ce qui s'était\\npassé dans le jardin, mais, à l'aspect de ce tableau, le tombeau de son\\npère et les montagnes d'Écosse se retracèrent à sa pensée, et ses yeux\\nse remplirent de larmes, Corinne prit sa harpe et, devant ce tableau,\\nelle se mit à chanter les romances écossaises dont les simples notes\\nsemblent accompagner le bruit du vent qui gémit dans les vallées. Elle\\nchanta les adieux d'un guerrier en quittant sa patrie et sa maîtresse,\\net ce mot jamais (_no more_), un des plus harmonieux et des plus\\nsensibles de la langue anglaise, Corinne le prononçait avec l'expression\\nla plus touchante. Oswald ne résista point à l'émotion qui l'oppressait,\\net l'un et l'autre s'abandonnèrent sans contrainte à leurs larmes. «Ah!\\ns'écria lord Nelvil, cette patrie, qui est la mienne, ne dit-elle rien à\\nton coeur? Me suivrais-tu dans ces retraites peuplées par mes souvenirs?\\nSerais-tu la digne compagne de ma vie, comme tu en es le charme et\\nl'enchantement?--Je le crois, répondit Corinne, je le crois, puisque je\\nvous aime.--Au nom de l'amour et de la pitié, ne me cachez plus rien,\\ndit Oswald.--Vous le voulez, interrompit Corinne; j'y souscris. Ma\\npromesse est donnée; je n'y mets qu'une condition, c'est que vous ne me\\ndemanderez pas de l'accomplir avant l'époque prochaine de nos solennités\\nreligieuses. Au moment où je vais décider de mon sort, l'appui du ciel\\nne m'est-il pas plus que jamais nécessaire?--Va, s'écria lord Nelvil, si\\nce sort dépend de moi, Corinne, il n'est plus douteux.--Vous le croyez,\\nreprit-elle; je n'ai pas la même confiance; mais enfin, je vous en\\nconjure, ayez pour ma faiblesse la condescendance que je désire.» Oswald\\nsoupira, sans accorder ni refuser le délai demandé. «Partons maintenant,\\ndit Corinne, et retournons à la ville. Comment vous rien taire dans\\ncette solitude! et si ce que j'ai à vous dire devait vous détacher de\\nmoi, faudrait-il que sitôt... Partons. Oswald, vous reviendrez ici, quoi\\nqu'il arrive, mes cendres y reposeront.» Oswald, attendri, troublé,\\nobéit à Corinne. Il revint avec elle, et pendant la route ils ne se\\nparlèrent presque pas. De temps en temps ils se regardaient avec une\\naffection qui disait tout; mais néanmoins un sentiment de mélancolie\\nrégnait au fond de leur âme quand ils arrivèrent au milieu de Rome.\\n\\n\\n\\n\\nLIVRE NEUVIÈME\\n\\nLA FÊTE POPULAIRE ET LA MUSIQUE\\n\\n\\nCHAPITRE PREMIER\\n\\nC'était le jour de la fête la plus bruyante de l'année, à la fin du\\ncarnaval, lorsqu'il prend au peuple romain comme une fièvre de joie,\\ncomme une fureur d'amusement dont on ne trouve point d'exemple ailleurs.\\nToute la ville se déguise; à peine reste-t-il aux fenêtres des\\nspectateurs sans masque, pour regarder ceux qui en ont; et cette gaieté\\ncommence tel jour à point nommé, sans que les événements publics ou\\nparticuliers de l'année empêchent presque jamais personne de se divertir\\nà cette époque.\\n\\nC'est là qu'on peut juger de toute l'imagination des gens du peuple.\\nL'italien est plein de charmes, même dans leur bouche. Alfieri disait\\nqu'il allait, à Florence, sur le marché public, pour apprendre le bon\\nitalien. Rome a le même avantage; et ces deux villes sont peut-être les\\nseules du monde où le peuple parle si bien, que l'amusement de l'esprit\\npeut se rencontrer à tous les coins des rues.\\n\\nLe genre de gaieté qui brille dans les auteurs des arlequinades et de\\nl'opéra-bouffe se trouve très-communément même parmi les hommes sans\\néducation. Dans ces jours de carnaval, où l'exagération et la caricature\\nsont admises, il se passe entre les masques les scènes les plus\\ncomiques.\\n\\nSouvent une gravité grotesque contraste avec la vivacité des Italiens,\\net l'on dirait que leurs vêtements bizarres leur inspirent une dignité\\nqui ne leur est pas naturelle. D'autres fois ils font voir une\\nconnaissance si singulière de la mythologie dans les déguisements qu'ils\\narrangent, qu'on croirait les anciennes fables encore populaires à Rome.\\nPlus souvent ils se moquent des divers états de la société avec une\\nplaisanterie pleine de force et d'originalité. La nation paraît mille\\nfois plus distinguée dans ses jeux que dans son histoire. La langue\\nitalienne se prête à toutes les nuances de la gaieté avec une facilité\\nqui ne demande qu'une légère inflexion de voix, une terminaison un peu\\ndifférente, pour accroître ou diminuer, ennoblir ou travestir le sens\\ndes paroles. Elle a surtout de la grâce dans la bouche des enfants.\\nL'innocence de cet âge et la malice naturelle de la langue font un\\ncontraste très-piquant. Enfin, on pourrait dire que c'est une langue qui\\nva d'elle-même, exprime sans qu'on s'en mêle, et paraît presque toujours\\navoir plus d'esprit que celui qui la parle.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"While Corinne was thus explaining her paintings to Lord Nelvil, she had stopped several times, hoping that he would speak to her; but his wounded soul betrayed itself in no words: only, whenever she expressed a tender idea, he sighed and turned his head away, so that she might not see how easily moved he was in his present state of mind. Corinne, oppressed by this silence, sat down, covering her face with her hands. Lord Nelvil paced briskly about the room for some time; then he approached Corinne and was on the point of voicing his grievance and yielding to what he felt; but a movement of pride, utterly invincible in his character, repressed his tenderness, and he returned to the paintings as though waiting for Corinne to finish showing them to him. She hoped for much from the effect of the last of all; and, making an effort in her turn to appear calm, she rose and said: “Milord, I still have three landscapes left to show you; two allude to certain interesting ideas: I do not much like rural scenes, which are insipid in painting, like idylls, when they make no allusion to Fable or history. What is best, it seems to me, in this genre, is the manner of Salvator Rosa, who represents, as you see in this painting, a rock, torrents, and trees, without a single living being, without even the flight of a bird to recall the idea of life. The absence of man amid nature arouses profound reflections. What would this earth be, thus forsaken? A work without a purpose, and yet a work still so beautiful, whose mysterious impression would be addressed only to the Divinity!\\n\\n“Finally, here are the two paintings in which, in my opinion, history and poetry are happily united with landscape. One represents the moment when Cincinnatus is invited by the consuls to leave his plough in order to command the Roman armies. It is all the luxuriance of the South that you will see in this landscape: its abundant vegetation, its burning sky, that cheerful air of all nature which is found even in the countenance of the plants. And this other painting, which contrasts with it, is the son of Cairbar asleep upon his father’s tomb. For three days and three nights he has been awaiting the bard who is to pay honors to the memory of the dead. That bard can be seen in the distance, descending the mountain; the father’s shade hovers over the clouds; the countryside is covered with frost; the trees, though stripped bare, are shaken by the winds, and their dead branches and withered leaves still follow the direction of the storm.”\\n\\nUntil then Oswald had continued to feel resentment over what had happened in the garden; but at the sight of this painting, his father’s tomb and the mountains of Scotland rose again in his thoughts, and his eyes filled with tears. Corinne took her harp and, before this painting, began to sing the Scottish ballads whose simple notes seem to accompany the sound of the wind moaning through the valleys. She sang the farewells of a warrior leaving his homeland and his beloved, and Corinne pronounced that word never (_no more_), one of the most harmonious and most affecting in the English language, with the most touching expression. Oswald did not resist the emotion that oppressed him, and both yielded freely to their tears. “Ah!” cried Lord Nelvil, “does that homeland, which is mine, say nothing to thy heart? Wouldst thou follow me into those retreats peopled by my memories? Wouldst thou be the worthy companion of my life, as thou art its charm and enchantment?”—“I believe so,” replied Corinne, “I believe so, since I love you.”—“In the name of love and pity, conceal nothing more from me,” said Oswald.—“You wish it,” Corinne interrupted; “I consent. My promise is given; I attach only one condition to it: that you will not ask me to fulfill it before the approaching time of our religious solemnities. At the moment when I am about to decide my fate, is the support of heaven not more necessary to me than ever?”—“Be assured,” cried Lord Nelvil, “if that fate depends upon me, Corinne, it is no longer in doubt.”—“You believe so,” she resumed; “I do not have the same confidence; but at last, I implore you, show my weakness the indulgence I desire.” Oswald sighed, neither granting nor refusing the requested delay. “Let us leave now,” said Corinne, “and return to the city. How could I conceal anything from you in this solitude! And if what I have to tell you were to estrange you from me, must it be so soon... Let us leave. Oswald, you will return here, whatever may happen; my ashes will rest here.” Oswald, moved and troubled, obeyed Corinne. He returned with her, and during the journey they scarcely spoke to each other. From time to time they looked at one another with an affection that said everything; but nevertheless a feeling of melancholy reigned in the depths of their souls when they reached the heart of Rome.\\n\\n\\n\\n\\nBOOK NINE\\n\\nTHE POPULAR FESTIVAL AND MUSIC\\n\\n\\nCHAPTER ONE\\n\\nIt was the day of the noisiest festival of the year, at the end of Carnival, when the Roman people are seized by something like a fever of joy, a frenzy of amusement of which no example is to be found elsewhere. The whole city puts on disguises; scarcely any spectators without masks remain at the windows to watch those who have them; and this gaiety begins on the appointed day at the appointed time, without the public or private events of the year almost ever preventing anyone from enjoying themselves at that season.\\n\\nIt is there that one may judge the full extent of the common people’s imagination. Italian is full of charms, even in their mouths. Alfieri used to say that in Florence he went to the public market to learn good Italian. Rome has the same advantage; and these two cities are perhaps the only ones in the world where the people speak so well that intellectual amusement may be encountered at every street corner.\\n\\nThe kind of gaiety that shines in the authors of harlequinades and comic opera is very commonly found even among uneducated men. During those Carnival days, when exaggeration and caricature are permitted, the most comical scenes take place between the masked revelers.\\n\\nOften a grotesque gravity contrasts with the Italians’ vivacity, and one would say that their bizarre garments inspire in them a dignity not natural to them. At other times, in the disguises they devise, they display so singular a knowledge of mythology that one would think the ancient fables still popular in Rome. More often, they mock the various ranks of society with a wit full of force and originality. The nation appears a thousand times more distinguished in its games than in its history. The Italian language lends itself to every shade of gaiety with an ease that requires only a slight inflection of the voice, a slightly different ending, to heighten or diminish, ennoble or travesty the meaning of words. It has grace above all in the mouths of children. The innocence of that age and the language’s natural mischievousness form a very piquant contrast. Finally, one might say that it is a language that goes by itself, expresses things without anyone’s intervention, and almost always appears to have more wit than the person who speaks it.\", \"source_occurrence_id\": \"stael-corinne-e62ac46f822afd63\", \"source_language\": \"fr\", \"source_language_text_sha256\": \"994df66307dc8b7ce6ed333c99a25b33df210293c339c8aa83284b6c0b33921c\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T11:31:38.594703+00:00\", \"model_usage\": {\"input_tokens\": 2152, \"cached_input_tokens\": 0, \"output_tokens\": 1834}, \"estimated_cost_usd\": 0.045287999999999995, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"stael-corinne\", \"title\": \"Corinne; ou, l'Italie\", \"author\": \"Madame de Staël\", \"language\": \"fr\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": \"CHAPITRE IV\", \"relative_position\": 0.389984, \"source_start\": 416879, \"source_end\": 416891, \"source_length\": 1068964}, \"form\": {\"form_family\": \"present_or_imperfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": \"optional\", \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"fr_present_past\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"bang-ved-vejen-7ac95aa4f5375b71\", \"SOURCE_TEXT\": {\"exact_match\": \"Jeg elsker dig\", \"local_text\": {\"context_start\": 121019, \"context_end\": 121066, \"text\": \"    Oh du--min Valdemar!\\n    Jeg elsker dig....\"}, \"wider_canonical_context\": {\"context_start\": 117983, \"context_end\": 124103, \"text\": \"-Ja, sagde Bai, en bevæget Dag--en godt anvendt Dag. Han blev ved at\\nsnakke op: om Dansen--saa det skær', de Landsbybørn--og\\n\\\"Damerne\\\"--\\\"Frøken Julie\\\", frisk Pige i Støvlerne, kæk Pige--og\\nMarie--naa--vi vil faa at se, hva' den har staaet paa ... jeg kender\\nhende....\\n\\nDe to andre talte ikke. Ingen af dem hørte efter heller. Der var saa\\ntyst, at de hørte deres egne Skridt paa Jorden. For Enden af Alléen\\nragede Kirkegaardens Jernport op med sit store Kors.\\n\\n-Men Bai, sagde Katinka.\\n\\n-Tror du, her er Spøgelser, sagde Bai. Han aabnede Sidelaagen.\\n\\nDe gik ind. Katinka tog Huus' Arm i Laagen. Kirkegaarden laa i\\nDæmringen som en stor Have. Roser og Buksbomhække og Jasminer og\\nLinde duftede tungt, og graa og hvide Sten ragede op mellem Hækkene.\\n\\nKatinka tog saa fast om Huus' Arm, mens de gik.\\n\\nBai gik i Forvejen. Han travede langs Busketterne og slog ud med\\nArmene, som om han vilde jage Høns op.\\n\\nKatinka stansede: Se dog.\\n\\nDer var hugget ud gennem Træerne, saa man saa' ned over Markerne til\\nFjorden. Dæmringen svævede som et Slør over det dunkelblanke\\nVandspejl, stille og drømmende.\\n\\nDet var tyst, som om Livet var døet ud under den duftfyldte Luft ...\\nUbevægelige stod de tæt ind til hinanden.\\n\\nLangsomt gik de videre. Katinka stansede af og til og læste\\nIndskrifterne paa Stenene, der lyste frem i Dæmringen. Hun læste dem,\\nNavne og Aar, med sagte og skælvende Stemme.\\n\\n-Elsket og savnet.\\n\\n-Elsket ud over Graven.\\n\\n-Kærlighed er Lovens Fylde.\\n\\nHun traadte nærmere og løftede Hængepilens Grene: Hun vilde læse\\nNavnet paa Stenen.\\n\\nSaa raslede det bag Pilen.\\n\\n-Huus, sagde hun og tog krampagtigtom hans Arm.\\n\\nNoget satte flygtende ud over Gærdet.\\n\\n-Det var et Par Mennesker, sagde Huus.\\n\\n-Hvor jeg blev bange, sagde Katinka, hun holdt Hænderne for Brystet.\\n\\nHun blev ved at gaa tæt ind til ham, mens hendes Hjerte bankede.\\n\\nDe talte ikke mer. Det raslede i Busketterne nu og da, og Katinka fór\\nsammen.\\n\\n-Min lille Ven, min lille Ven, hviskede Huus som til et Barn. Katinkas\\nHaand skælvede under hans.\\n\\nBai stod ved Enden af Gangen.\\n\\n-Er I der, sagde han.\\n\\nHan aabnede Laagen. Den klappede til i Jernhængslet efter dem.\\n\\nUde i Alléen tog Bai Huus til Side:\\n\\n-Det er s'gu dog en Skandale, sagde han ... at det skal\\n#eksistere#--en Vanhelligelse af det hellige Sted ... Kiær havde jo\\nsagt mig det ... hvordan det var--med de Røvere....\\n\\n-Men jeg troede s'gu ikke, at det var muligt....\\n\\n-Ikke en Gang at ha'e Følelse for Døden--Dødens Have--føj for\\nSatan....\\n\\n-Man ka', Fanden ta'e mig, ikke en Gang være i Fred paa Bænkene....\\n\\nHuus kunde have slaaet ham.\\n\\n       *       *       *       *       *\\n\\nDe kom ned gennem Gaderne. Teltene stod lukkede og øde. Hist og her\\nsankede en Handlende sine Varer sammen ved en ensom Lygte.\\n\\nVærtshuslarm trængte ud i Gaden. Søvnige og duknakkede drev man parvis\\nhjem.\\n\\nI Hotelporten kom Marie til Syne. Hun var søvndrukken og mat.\\n\\nKatinka ventede ved Vognen. Rundtom blev der spændt for og kørt\\nafsted. \\\"Nattergalene\\\" sang højt ud i Gaarden,\\n\\nDe kom til Sæde. Bai vilde køre og sad med Marie.\\n\\n    Oh du--min Valdemar!\\n    Jeg elsker dig....\\n\\n-De holder ud, sagde Bai.\\n\\nDe kørte gennem Natten; forbi Skoven; frem over de flade Marker.\\n\\nMarie hang, sovende, krumbøjet over Kurven i sit Skød. Huus og Katinka\\nsad tavse, stirrende ud i Egnen. Nu og da talte Bai.\\n\\n-Hoho--mine Dyr--\\n\\n-Naa--saa langsomt--\\n\\nOg der blev stille som før.\\n\\nBai vilde ha'e \\\"en Opmuntring\\\" og fik purret til Marie, til hun fandt\\nen Portvinsflaske.\\n\\n-Vil I ha'e? sagde han.\\n\\n-Nej--Tak, sagde Huus.\\n\\n-Det er s'gu Uret, Bai tog Flasken fra Munden. En Mave maa ha'e no'et\\nmod Nattekulden.\\n\\nBai tog en Slurk til. Det lærer man i Felten, sagde han.\\n\\nHan begyndte at tale om Preusserne og Krigen.\\n\\n-Godmodige Folk, sagde han, ta'et én for én--svære Ædere--svære\\nÆdedolke--men gode Hjerter--rigtig gode Hjerter--én for én--men i\\n#Korpset#--Satan staa i dem....\\n\\nIngen svarede. Marie nikkede igen.\\n\\nKatinka ønskede blot, at han dog vilde tie.\\n\\n-Men svære Ædere, sagde Bai igen.\\n\\nHan begyndte at blive patriotisk og talte om gamle Danmark og et\\nblodigt Banner. Saa faldt han hen i tavse Betragtninger, da ingen\\nsvarede.\\n\\nMan hørte kun Hestenes Larm i Seletøjet. Nu og da galede en Hane over\\nMarkerne.\\n\\n-Tag Sjalet paa, sagde Huus, det er koldt.\\n\\nVarsomt lagde han det blaa Sjal om Katinkas Skulder.\\n\\nLidt efter lidt gryede Dagen over Markerne.\\n\\n       *       *       *       *       *\\n\\n-Der gi'es vel Frokost, sagde Bai. De var hjemme og stod utidige paa\\nTrappen i den graa Morgen.\\n\\n-Ja, hvis du vil, sagde Katinka.\\n\\nMen Huus maatte hjem. Det var den høje Tid.\\n\\n-Naa--sagde Bai--som De vil, han gabede og gik ind. Marie var slæbt af\\nmed Kurvene.\\n\\nHuus og Katinka blev alene. Hun lænede sig til Dørstolpen. De tav\\nlidt.\\n\\n-Saa Tak for idag, sagde hun. Det kom sagte og usikkert.\\n\\n-Som om det ikke var mig, der skulde takke. Det kom som et Udbrud, og\\ni et Nu havde Huus grebet hendes Haand og kysset den to Gange, tre\\nGange med hede Læber.\\n\\nOg var tilvogns og borte.\\n\\n-Hva' Pokker tog ham, sagde Bai og kom ud. Er han væk?\\n\\nKatinka stod paa samme Plet: Ja, sagde hun, han kørte.\\n\\nHun støttede sig til Døren og gik stille ind.\\n\\n       *       *       *       *       *\\n\\nKatinka sad ved det aabne Vindu. Dagen var brudt frem. Lærker og alle\\nFugle jublede over den vide Eng. Der var fuldt af Sang og Sol og\\nKvidren over de sommerlige Marker.\\n\\n\\n\\n\\nIV\\n\\n\\nLænkehunden sov i den hede Gaard og lod sig ikke vække. Et Par skurede\\nBøtter var stillet til Tørring i Solen.\\n\\nKatinka aabnede Gangdøren; man hørte kun Fluernes Summen gennem de\\nlyse, kølige Stuer.\\n\\nHun gik ind gennem Havestuen ud i Haven. Der var ikke et Menneske og\\nganske tyst. Paa Krocketplænen laa Kugler og Køller forladte.\\nRosenbuskene hang i Heden.\\n\\n-Er det Dem, lille Fru Bai. Det kom halvsagte fra Lysthuset og Fru\\nLinde nikkede: Ja, Linde læser jo Præken.\\n\\n-De er ude i Baghaven allesammen--Kiærs kom jo, et helt Læs med deres\\nFremmede ... Og det er jo ubelejligt, naar Linde læser Præken....\\n\\n-Er Kiærs her? sagde Katinka.\\n\\n-Ja ... de kom her til Kaffe--de er i Baghaven--og den nye Doktor\\nogsaa ... Og De, som har været til Marked ... Huus fortalte om det.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"“Yes,” said Bai, “a stirring day—a day well spent.” He went on chattering animatedly: about the dancing—what a sight, those village children—and the “ladies”—“Miss Julie,” a fine girl in boots, a spirited girl—and Marie—well—we shall see what she has been up to ... I know her....\\n\\nThe other two did not speak. Neither of them was listening, either. It was so quiet that they could hear their own footsteps on the ground. At the end of the avenue, the cemetery’s iron gate rose up with its great cross.\\n\\n“But Bai,” said Katinka.\\n\\n“Do you think there are ghosts here?” said Bai. He opened the side gate.\\n\\nThey went in. At the gate, Katinka took Huus’s arm. The cemetery lay in the twilight like a large garden. Roses and box hedges and jasmines and lindens gave off a heavy fragrance, and gray and white stones rose between the hedges.\\n\\nKatinka held Huus’s arm very tightly as they walked.\\n\\nBai went ahead. He trotted along the shrubbery, flinging out his arms as if he meant to flush out chickens.\\n\\nKatinka stopped: “Just look.”\\n\\nA clearing had been cut through the trees, so that one could look down across the fields to the fjord. The twilight hovered like a veil over the darkly gleaming surface of the water, still and dreamlike.\\n\\nIt was silent, as though life had died away beneath the fragrant air ... Motionless, they stood close against one another.\\n\\nSlowly they walked on. Katinka stopped from time to time and read the inscriptions on the stones that shone out in the twilight. She read them, names and years, in a soft and trembling voice.\\n\\n“Loved and missed.”\\n\\n“Loved beyond the grave.”\\n\\n“Love is the fulfillment of the law.”\\n\\nShe stepped closer and lifted the branches of the weeping willow: she wanted to read the name on the stone.\\n\\nThen there was a rustling behind the willow.\\n\\n“Huus,” she said, clutching his arm convulsively.\\n\\nSomething fled away over the wall.\\n\\n“It was a couple of people,” said Huus.\\n\\n“How frightened I was,” said Katinka, holding her hands to her breast.\\n\\nShe continued to walk close against him while her heart pounded.\\n\\nThey spoke no more. Now and then there was a rustling in the shrubbery, and Katinka started.\\n\\n“My little friend, my little friend,” Huus whispered as if to a child. Katinka’s hand trembled beneath his.\\n\\nBai stood at the end of the path.\\n\\n“Are you there?” he said.\\n\\nHe opened the gate. It clapped shut in its iron hinge behind them.\\n\\nOut in the avenue, Bai took Huus aside:\\n\\n“It is a damned scandal,” he said ... “that such a thing should #exist#—a desecration of the holy place ... Kiær had told me ... what it was like—with those scoundrels....\\n\\n“But damn it, I didn’t think it was possible....\\n\\n“Not even to have any feeling for death—the Garden of Death—ugh, damn it....\\n\\n“Devil take me, one can’t even be left in peace on the benches....”\\n\\nHuus could have struck him.\\n\\n       *       *       *       *       *\\n\\nThey came down through the streets. The booths stood closed and deserted. Here and there, by a solitary streetlamp, a tradesman was gathering up his wares.\\n\\nThe din from taverns spilled into the street. Sleepy and with heads bowed, people drifted home in pairs.\\n\\nMarie appeared in the hotel gateway. She was heavy with sleep and weary.\\n\\nKatinka waited by the carriage. All around them horses were being harnessed and carriages driven away. The “Nightingales” sang loudly out into the courtyard,\\n\\nThey took their seats. Bai wanted to drive and sat with Marie.\\n\\n    Oh you—my Valdemar!\\n    I love you....\\n\\n“They keep at it,” said Bai.\\n\\nThey drove through the night; past the woods; out across the flat fields.\\n\\nMarie, asleep, hung bent over the basket in her lap. Huus and Katinka sat in silence, staring out at the countryside. Now and then Bai spoke.\\n\\n“Ho, ho—my beasts—\\n\\n“Come now—so slowly—”\\n\\nAnd it grew quiet as before.\\n\\nBai wanted “a little pick-me-up” and managed to rouse Marie until she found a bottle of port.\\n\\n“Will you have some?” he said.\\n\\n“No—thank you,” said Huus.\\n\\n“That’s damned wrong.” Bai took the bottle from his mouth. “A stomach has to have something against the cold of the night.”\\n\\nBai took another swig. “That is something one learns in the field,” he said.\\n\\nHe began to talk about the Prussians and the war.\\n\\n“Good-natured people,” he said, “taken one by one—great eaters—terrible gluttons—but good hearts—really good hearts—one by one—but in the #corps#—the devil take them....”\\n\\nNo one answered. Marie nodded off again.\\n\\nKatinka only wished that he would be quiet.\\n\\n“But terrible eaters,” Bai said again.\\n\\nHe began to grow patriotic and spoke of old Denmark and a bloody banner. Then he lapsed into silent reflections when no one answered.\\n\\nOnly the clatter of the horses in their harness could be heard. Now and then a cock crowed across the fields.\\n\\n“Put the shawl on,” said Huus. “It is cold.”\\n\\nGently he laid the blue shawl around Katinka’s shoulders.\\n\\nLittle by little, day dawned over the fields.\\n\\n       *       *       *       *       *\\n\\n“I suppose there’ll be breakfast,” said Bai. They were home and stood at an ungodly hour on the steps in the gray morning.\\n\\n“Yes, if you like,” said Katinka.\\n\\nBut Huus had to go home. It was high time.\\n\\n“Well,” said Bai, “as you wish.” He yawned and went inside. Marie had been dragged away with the baskets.\\n\\nHuus and Katinka were left alone. She leaned against the doorpost. They were silent for a moment.\\n\\n“Then thank you for today,” she said. It came softly and uncertainly.\\n\\n“As though it were not I who should be thanking you.” It came as an outburst, and in an instant Huus had seized her hand and kissed it twice, three times, with hot lips.\\n\\nAnd then he was in the carriage and gone.\\n\\n“What the devil came over him?” said Bai, coming outside. “Is he gone?”\\n\\nKatinka stood in the same spot. “Yes,” she said, “he drove away.”\\n\\nShe steadied herself against the door and quietly went inside.\\n\\n       *       *       *       *       *\\n\\nKatinka sat by the open window. Day had broken. Larks and all the birds exulted above the broad meadow. The summer fields were filled with song and sunshine and twittering.\\n\\n\\n\\n\\nIV\\n\\n\\nThe chained dog slept in the hot courtyard and would not be roused. A pair of scoured tubs had been set out to dry in the sun.\\n\\nKatinka opened the hall door; only the humming of the flies could be heard through the bright, cool rooms.\\n\\nShe went through the garden room and out into the garden. There was not a soul there, and it was utterly silent. On the croquet lawn, balls and mallets lay abandoned. The rosebushes drooped in the heat.\\n\\n“Is that you, dear Mrs. Bai?” It came in a half-whisper from the summerhouse, and Mrs. Linde nodded: “Yes, Linde is reading his sermon, you know.\\n\\n“They are all out in the back garden—the Kiærs came, you see, a whole wagonload of them with their guests ... And it is inconvenient, of course, when Linde is reading his sermon....”\\n\\n“Are the Kiærs here?” said Katinka.\\n\\n“Yes ... they came here for coffee—they are in the back garden—and the new doctor too ... And you, who have been to the fair ... Huus told us about it.”\", \"source_occurrence_id\": \"bang-ved-vejen-7ac95aa4f5375b71\", \"source_language\": \"da\", \"source_language_text_sha256\": \"3bdea6f5bfa293b8bb7b0fa3c20d7b404a9335f5e748ee4320a78e0d0be38909\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-18T10:19:55.233830+00:00\", \"model_usage\": {\"input_tokens\": 2384, \"cached_input_tokens\": 0, \"output_tokens\": 2185}, \"estimated_cost_usd\": 0.053236000000000006, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"bang-ved-vejen\", \"title\": \"Ved Vejen\", \"author\": \"Herman Bang\", \"language\": \"da\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.527169, \"source_start\": 121048, \"source_end\": 121062, \"source_length\": 229619}, \"form\": {\"form_family\": \"present\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"da_present\", \"pattern_version\": \"0.11\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 1.0, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

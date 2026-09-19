@@ -1,0 +1,65 @@
+{
+  "occurrence_id": "lagerlof-gosta-berlings-saga-9e68f79ef768e813",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 1,
+      "performative": 0,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.96,
+    "analysis": "The embedded clause “jag älskade dig” (“I loved you”) is the antecedent of a counterfactual conditional, not an avowal that love exists. It propositionally represents loving Gösta but presents that state as unreal, so it receives only minimal T support and no P or E support.",
+    "ambiguity": "The clause has truth-conditional semantic content, but its conditional embedding and the immediately preceding denial make it unclear whether that warrants T=1 rather than T=0 under an ontology focused on asserted or avowed love."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "hypothetical",
+    "description": "Elisabet directly speaks the love clause as the antecedent of “Om jag älskade dig” (“If I loved you”), in a context that indicates she does not love Gösta."
+  },
+  "contextual_interpretation": "Elisabet explicitly contrasts marriage for love with her own proposed marriage of sacrifice for her sick child: “det är inte så med mig” precedes the conditional, and she says that if she loved Gösta she would not dare make this request. The passage therefore uses the love proposition counterfactually to disclaim romantic motivation. The later narration attributes love to Gösta, not Elisabet, and should not be transferred to her utterance.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "“Det är mången, Gösta, som skulle ha velat bli din hustru för kärleks skull, men det är inte så med mig.”",
+      "supports": "Elisabet explicitly denies that her wish to marry Gösta is motivated by love.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "“Om jag älskade dig, skulle jag inte våga tala så, som jag nu talar.”",
+      "supports": "The highlighted clause occurs in an if-clause and presents loving Gösta as a counterfactual condition rather than an asserted state.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "Elisabet repeatedly explains that she asks for marriage “för barnets skull,” while the narration later says of Gösta, “Han, som älskade henne.”",
+      "supports": "Her proposal is child-directed and instrumental, while the passage distinctly assigns actual love to Gösta rather than to Elisabet.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "e4",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence metadata identifies the form as embedded and surface-optionally negative, and membership review retains it as an explicit love construction.",
+      "supports": "Confirms that the target is a grammatically embedded equivalent of “I love you,” while leaving its contextual force to the passage evidence.",
+      "confidence": 0.93
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T/P/E/O, combined with the separate hypothetical status, adequately represents the event: it is a counterfactual representation of love with no undertaking or expressive discharge. Hypothetical embedding does not create residual O pressure.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": "The highlighted wording is morphologically past/subjunctive-compatible Swedish within an “om” conditional; the supplied analytical translation renders it idiomatically as “If I loved you.”"
+}
