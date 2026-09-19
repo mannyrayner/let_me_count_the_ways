@@ -6,6 +6,13 @@ membership review, frozen KEEP selection, wide-context enrichment, and v0.3.1
 T/P/E/O annotation, then prepares a passage-specific publication-permission
 request. **Do not run any part of this workflow in a coding-agent environment.**
 
+EoU must remain analytically comparable with the other 30 works: use the same
+v0.11 extraction, membership-review prompt and schema, KEEP policy,
+approximately ±3000-character wide context expanded outward to paragraph
+boundaries, English no-translation treatment, v0.3.1 annotation prompt and
+schema, and review-flag criteria. The rights distinction affects publication,
+not analytical inclusion.
+
 Everything produced here is private: source text, candidates, review decisions,
 contexts, annotations and explanations, distributions, interpretive notes,
 proposed quotations, and permission documents. Do not paste them into issues,
@@ -318,16 +325,27 @@ Use the private enriched records and per-attempt annotation outputs where the
 source context or explanation is needed. Do not paste inspection output into a
 public transcript.
 
-## 8. Select only publication-worthy passages
+## 8. Review the complete EoU dataset and identify publication-candidate passages
 
-Do not request every occurrence. Select the smallest useful set whose members
-materially support a prospective paper point: a clear T/P/E contrast, strong
-performative case, expressive/reflexive case, ontology-stressing example,
-illuminating canonical-literature contrast, or meaningful contemporary-romance
-pattern. For each selection record its occurrence ID, chapter/section if
-available, source start/end offsets, exact minimally necessary quotation, word
-count, surrounding identifying description, analytical rationale, and why
-direct quotation is necessary. Do not default to the full wide context.
+The complete private EoU research dataset consists of every v0.11 KEEP passage,
+enriched and annotated using the same methodology as the other corpus works.
+All KEEP passages remain part of the research analysis, regardless of whether
+they are proposed for quotation. Inspect the complete private annotation set,
+including every priority-review case and a representative sample of ordinary
+cases, and use this complete dataset when comparing EoU with the other works.
+
+Separately, identify every passage that we might realistically want to quote
+directly in the eventual paper. This publication-candidate subset does not
+define or restrict the research dataset; it identifies only passages for which
+explicit quotation permission should be requested. The author may approve all,
+some, or none of them.
+
+For each publication-candidate passage record its occurrence ID,
+chapter/section if available, source start/end offsets, exact minimally
+necessary quotation, word count, surrounding identifying description,
+analytical rationale, and why direct quotation would be useful. Each requested
+quotation should be only as long as needed for its scholarly purpose; do not
+default to the full wide context.
 
 ## 9. Build the private permission package
 
@@ -335,12 +353,21 @@ Create
 `publication_permission/request_manifest.json` with the work ID, author
 publication name `Stella McMillan`, contact name `Beverly Bree`, research
 permission `GRANTED`, overall publication permission `PENDING`, null request
-and response dates, and the selected passages. Each passage entry must contain
-the fields listed above and begin with per-passage permission `PENDING`.
+and response dates, and the selected passages. The manifest must state that
+these passages are a publication-candidate subset of the complete private EoU
+research dataset and that unlisted passages remain in the research analysis
+but are not proposed for direct quotation. Each passage entry must contain the
+fields listed above and begin with per-passage permission `PENDING`.
 
 Create `publication_permission/request_passages.md` as an independent readable
-record. For every passage include passage ID, location, exact quotation, word
-count, analytical rationale, and why direct quotation matters.
+record. It must include the same publication-subset distinction stated for the
+manifest. For every passage include passage ID, location, exact quotation,
+word count, analytical rationale, and why direct quotation matters.
+
+The permission package concerns only direct publication quotation. The
+passages listed in it are a publication-candidate subset of the complete
+private EoU research dataset; passages not listed remain part of the research
+analysis but are not proposed for direct quotation.
 
 Finally create `publication_permission/draft_email.md` for Manny's review. Use
 the subject “Permission to quote passages from Error of Understanding in our
@@ -349,6 +376,9 @@ must:
 
 - thank her again for permitting private academic analysis;
 - say that the study is now considering an eventual paper;
+- explain, “We have analyzed the novel privately as part of the study. Of the
+  passages considered in that analysis, the following are the ones we may wish
+  to quote directly in the paper”;
 - request explicit permission for the exact, individually listed quotations;
 - briefly explain the research point for each passage;
 - invite approval of all, some, or none, and offer to shorten or omit any;
