@@ -1,12 +1,9 @@
-# Project papers
+# Paper drafts
 
-The humanities-facing manuscript is in [humanities](humanities/).
+The humanities-facing paper lives in [humanities/](humanities/). Its current working draft is **v0.4**.
 
-Keep stable source filenames. Use Git commits to preserve successive drafts.
-This first manuscript commit imports the supplied working draft v0.3, dated
-19 September 2026, and its existing optional research notes. The LaTeX and
-BibTeX files are byte-for-byte copies of the supplied attachments.
+Keep one current set of source files at stable paths. Git records previous versions; do not create folders of duplicate, differently numbered manuscripts. Each substantial revision should update the manuscript's version and date and the short changelog, then be committed.
 
-Compile in `docs/paper/humanities` with `pdflatex`, `bibtex`, then two further
-`pdflatex` passes on `let_me_count_the_ways`. The research notes are optional;
-set the manuscript's `includesupplement` switch to true to append them.
+The initial import preserves the supplied v0.3 LaTeX and bibliography exactly. The next commit introduces v0.4 and the five-work extension. No AI-methodology paper has been added here yet.
+
+See [the drafting and build instructions](humanities/README.md). Repository data and annotation runs keep their own versions; a new paper draft does not change historical annotation outputs.
