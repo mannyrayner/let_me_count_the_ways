@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"skram-constance-ring-51a22b8927b39e5a\", \"SOURCE_TEXT\": {\"exact_match\": \"jeg elsker Dem\", \"local_text\": {\"context_start\": 324980, \"context_end\": 325491, \"text\": \"Jeg har flere Gange været hos Dem, uden\\nat træffe Dem; saa faar jeg prøve paa at\\nskrive. Men jeg er saa bange for at støde\\neller skræmmæe dem, at jeg ikke véd, hvordan\\njeg skal belægge mine Ord. Det er dette, jeg\\nvil sige Dem, at jeg nu har grublet og grundet\\nover mig og Dem i lange Tider, og at jeg ved\\ntil Bunden af min Sjæl, at jeg elsker Dem\\nmed en Kjærlighed, som De kunde være tjent\\nmed. Hos Dem ligger for mig Lykken i Livet.\\nVil De ikke have noget med mig at skaffe,\\nfinder jeg den ikke paa denne Jord.\"}, \"wider_canonical_context\": {\"context_start\": 322296, \"context_end\": 328417, \"text\": \"Dagen efter var han kommen og havde\\nsiddet der en Timestid og talt stilfærdigt med\\nhende. Han stræbte at være saa underhold-\\n\\nende som muligt, fortalte om de svenske\\nSkuespillere og om en Koncert, som nogle\\npolske Kunstnere havde git. Han fore\\nslog hende at høre de franske Sangere paa\\nTivoli, men det havde hun ikke Lyst til. Han\\nvilde endelig tale om noget, som morede hende,\\nog det lod ogsaa virkelig til, at han havde\\nHeld med sig. Hun hørte venlig paa ham,\\nspurgte om et og andet og takkede ham ved\\nAfskeden for Besøget. Han forlod hende med\\nen Følelse af, at hans Nærværelse i det mindste\\nikke havde været hende nbehagelig, og paa\\nTrapperne overvejede han, hvor snart han\\nkunde komme igjen.\\n\\nHan ventede fjorten Dage. Hun var\\nhjemme og tog imod ham med et Par høflige\\nOrd, men det var ham umuligt af hendes Miner\\nat læse, om Synet af ham var hende kjært\\neller imod. Han havde haabet at komme\\nhende lidt nærmere denne Gang, men deri\\nblev han skuffet. Hans Forsøg paa at vække\\nhendes Interesse for, hvad der foregik, og for\\ndet, Folk for Tiden var optagen af, mødte hun\\nmed saa afmaalte Svar, at han fik Angst for\\nat kjede hende. Saa tang han stille, for at\\nhun skulde begynde paa noget; men saa kom\\nhun kun med nogle Bemærkninger om Vejret,\\nsom efterfulgtes af en pinlig Pause. Han\\nførte Talen hen paa Theatret, men da hun saa\\nsvarte, at hun aldrig kom der og derfor ikke\\n\\n20*\\n\\nhavde nogen Interesse for det, sank hans Mod.\\nHvad skulde han dog finde paa lige over for\\ndenne forborgne og tillukkede Kvinde. Han\\ngik fra hende med en melankolsk Fornemmelse\\naf, at han stod hende fjærnere end nogen\\nSinde. -\\n\\nDa han var borte, sad Constance og tænkte\\npaa, hvor pæn og tækkelig han var. Han gav\\net helt andet Indtryk nu end den Gang,\\ndet var sikkert. Hendes Modvilje var for\\nsvunden, og hun nærede i Grunden et Slags\\nGodhed for ham.\\n\\nMen alligevel, hvad skulde hun med hans\\nBesøg; hun vilde hellere være fri. Det var\\nfor brydsomt at sidde der opstrammet og\\nskulde svare og finde paa noget at spørge om.\\nOg i det hele tat at bli forstyrret, naar hun\\nsad og puslede med sine egne Tanker,  det\\nlikte hun ikke.  Hvorfor kunde de ikke Ia\\nhende i Fred.\\n\\nHun gik ud af Stuen og aabnede Kjøkken\\ndøren.:\\n\\n«Er De der, Johanne?* spurgte hun.\\n\\nJohanne beviste sin Nærværelse ved at\\nkomme tilsyne i Pigekammerdøren.\\n\\n«De kjender nok den Herre igjen, som\\nDe lukkede ind i Dag?»\\n\\nnDoktor Lorok? Jo, gubevars.*\\n\\nnHvis han kommer igjen, saa er jeg ikke\\nhjemme. Glem det nu ikke.*\\n\\nvNæj,  jeg skal nok huske det,* sa Jo\\nhanne.\\n\\n Der var gaaet en Maaned, og i Løbet\\naf denne havde Lorck tre Gange forgjæves\\nsøgt Constance. Saa kom der en Dag et Brev\\ntil hende af følgende Indhold:\\n\\nFru Constance Ring!\\n\\nJeg har flere Gange været hos Dem, uden\\nat træffe Dem; saa faar jeg prøve paa at\\nskrive. Men jeg er saa bange for at støde\\neller skræmmæe dem, at jeg ikke véd, hvordan\\njeg skal belægge mine Ord. Det er dette, jeg\\nvil sige Dem, at jeg nu har grublet og grundet\\nover mig og Dem i lange Tider, og at jeg ved\\ntil Bunden af min Sjæl, at jeg elsker Dem\\nmed en Kjærlighed, som De kunde være tjent\\nmed. Hos Dem ligger for mig Lykken i Livet.\\nVil De ikke have noget med mig at skaffe,\\nfinder jeg den ikke paa denne Jord.\\n\\nHvis De kunde fatte Tillid til mig, tror\\nDe saa ikke, det var muligt, jeg med Tiden\\nkunde vinde Deres Kjærlighed ?\\n\\nDeres meget hengivne\\nNils Lorck.\\n\\nHun blev umaadelig forbauset over hans\\nBrev, men da hun tænkte sig om, syntes hun\\ndet var saa dumt, at hun ikke før havde for\\nstaat, hvad han mente.\\n\\nHun svarte øjeblikkelig tilbage :\\n\\nKjære Dr. Lorek!\\n\\nDe maa ikke bli sint paa mig, men jeg\\ntror ikke, det er værdt, De spilder Deres Tid\\nmed Forsøg paa at vinde min Rjærlighed.\\nDet vilde være uværdigt, om jeg for at faa en\\nSmule Afveksling i mit ensformige Liv gav\\nmig til at eksperimentere med mig selv og\\ntog Dem i Brug dertil. Noget andet vilde det\\nnemlig ikke være, om jeg indbød Dem til at\\nanstille en Prøve. Dertil agter jeg Dem for\\nmeget, og jeg har heller ikke Spor af Lyst til\\ndet. Tro nu ikke, at jeg nærer nogen Urilje\\nmod Dem; det modsatte er Tilfældet. Det\\nmaa De være ganske overbevist om.\\n\\nDeres\\nConstance Ring.\\n\\nNIRKAEEt\\n\\nXXI.\\n\\nEn halvt Aars Tid var hengaat. Tidlig\\nom Vinteren var gamle Sorenskriver Blom død,\\nog saa havde Fruen tat Ophold hos sin yngste\\nDatter, der var gift med en Præst paa Nord\\nfjordejdet. Barndomshjemmet var saaledes op\\nløst; de to Brødre hver paa sin Kant og den\\nanden Søster i Huset hos sine tilkommende\\nSvigerforældre paa Molde.\\n\\nConstance var bleven smertelig grebet ved\\nBudskabet om Farens Død. Det var som\\nBilledet af hendes lykkelige Barndom og første\\nUngdom gik under i det samme. Nu laa den\\nkjære Far i Graven, og det elskede Hjems\\nøvrige Beboere var spredt for alle Vinde. Der\\nvar ikke længer noget fast Punkt, hvortil hun\\nkunde knytte sine Drømme og Længsler, ikke\\nnogen fredet Plet at søge hen med sine Tan\\nker i de mest nedtrykte Stunder. Alt var\\nfejet bort; hun var saa fattig og ribbet, hendes\\n\\nLiv saa øde og meningsløst, og hun syntes\\nofte, det var bedst at dø. –\\n\\nSomme Tider var hun ogsaa saa kjed og\\nled, at hun for Alvor overvejede, hvilken\\nMaade der vilde være den nemmeste, naar det\\ngjaldt at ta sig selv af Dage. Men saa blev\\ndet Aften og Sengetid, og saa var der det, at\\nhun kunde lægge sig til at sove. Det var en\\nLise at sove.\\n\\nNaar hun sad hjemme de lange, lange\\nEftermiddage og hjemme var hun altid ,\\nsyntes hun Timerne aldrig fik Ende. Hendes\\nEnsomhed plagede hende, og dog stod det for\\nhende som noget endnu skrækkeligere at søge\\nud blandt Menneskene. -\\n\\nDet var i Marts, en Ruskevejrsdag med\\nnordvestlige Stormbyger, gjennemblødte af is\\nnende Ufjælge. Resterne af Føret var graa\\nskiden i Bunden med brune Flækker her og der.\\n\\nConstance havde prøvet at sy en Stund\\npaa en broderet Strimmel, der altid laa i Sy\\nkurven. Hun havde for længe siden glemt,\\nhvad hun oprindelig havde tænkt at bruge\\nden til. Saa havde hun læst lidt, kastet Bogen,\\nspaseret paa Gulvet, og sad nu atter og syede\\nnogle Sting. Men pludselig slang hun Strim\\nmelen og drejede sig selv og Stolen, hun sad\\npaa, helt rundt. Hun støttede Albuerne i\\nVindusposten og Ansigtet i Hænderne, og\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"The next day he had come and had sat there for an hour, talking quietly with her. He strove to be as entertaining as possible, told her about the Swedish actors and about a concert that some Polish artists had given. He suggested that she hear the French singers at Tivoli, but she had no desire to. He was determined to speak about something that amused her, and it really did seem that he was having some success. She listened to him kindly, asked about one thing and another, and thanked him at parting for the visit. He left her with a feeling that his presence had at least not been unpleasant to her, and on the stairs he considered how soon he might come again.\\n\\nHe waited a fortnight. She was at home and received him with a couple of polite words, but it was impossible for him to read from her expression whether the sight of him was welcome or unwelcome to her. He had hoped to come a little closer to her this time, but in that he was disappointed. His attempts to awaken her interest in what was going on and in what people were occupied with at the time were met with such measured answers that he became afraid of boring her. Then he fell silent so that she might begin talking about something; but then she merely made a few remarks about the weather, which were followed by a painful pause. He turned the conversation to the theater, but when she replied that she never went there and therefore had no interest in it,\\n\\n20*\\n\\nhis courage sank. What could he possibly think of when faced with this hidden and closed-off woman? He left her with a melancholy feeling that he stood farther from her than ever before.—\\n\\nWhen he was gone, Constance sat thinking how nice and agreeable he was. He gave an entirely different impression now than he had then; that was certain. Her aversion had disappeared, and deep down she felt a sort of fondness for him.\\n\\nBut even so, what did she want with his visits? She would rather do without them. It was too bothersome to sit there stiffly and have to answer and think of something to ask. And in general she did not like being disturbed when she sat occupied with her own thoughts. Why could they not leave her in peace?\\n\\nShe went out of the room and opened the kitchen door.\\n\\n“Are you there, Johanne?” she asked.\\n\\nJohanne demonstrated her presence by appearing in the doorway of the maid’s room.\\n\\n“You recognize the gentleman you let in today, don’t you?”\\n\\n“Doctor Lorck? Yes, goodness, of course.”\\n\\n“If he comes again, I am not at home. Now do not forget that.”\\n\\n“No, I shall be sure to remember,” said Johanne.\\n\\nA month had passed, and in the course of it Lorck had tried in vain to see Constance three times. Then one day a letter came for her with the following contents:\\n\\nMrs. Constance Ring!\\n\\nI have called on you several times without finding you at home; so I must try writing. But I am so afraid of offending or frightening you that I do not know how to couch my words. What I wish to tell you is that I have now pondered deeply over myself and you for a long time, and that I know in the depths of my soul that I love you with a love that would be worthy of you. With you lies happiness in life for me. If you will have nothing to do with me, I shall not find it on this earth.\\n\\nIf you could come to trust me, do you not think it might be possible for me, in time, to win your love?\\n\\nYour most devoted,\\nNils Lorck.\\n\\nShe was immensely surprised by his letter, but when she thought it over, it seemed to her so foolish that she had not understood before what he meant.\\n\\nShe replied at once:\\n\\nDear Dr. Lorck!\\n\\nYou must not be angry with me, but I do not think it is worthwhile for you to waste your time trying to win my love. It would be unworthy if, in order to obtain a little variety in my monotonous life, I began experimenting with myself and made use of you for that purpose. For it would be nothing else if I invited you to make a trial. I esteem you too highly for that, and I have not the slightest desire for it either. Do not think that I bear you any ill will; the opposite is the case. Of that you must be entirely convinced.\\n\\nYours,\\nConstance Ring.\\n\\nNIRKAEEt\\n\\nXXI.\\n\\nAbout half a year had passed. Early in the winter, old District Judge Blom had died, and his wife had then gone to stay with her youngest daughter, who was married to a pastor at Nordfjordeidet. The childhood home had thus been broken up; the two brothers were each in his own place, and the other sister was living with her future parents-in-law in Molde.\\n\\nConstance had been painfully affected by the news of her father’s death. It was as though the image of her happy childhood and early youth had perished at the same time. Now her dear father lay in the grave, and the other inhabitants of the beloved home were scattered to the four winds. There was no longer any fixed point to which she could attach her dreams and longings, no sheltered spot to which she could turn in thought in her most dejected moments. Everything had been swept away; she was so poor and bereft, her life so desolate and meaningless, and she often thought it would be best to die.—\\n\\nAt times she was also so sick and weary of it all that she seriously considered which method would be easiest when it came to taking her own life. But then evening and bedtime came, and then there was this: that she could lie down and sleep. It was a relief to sleep.\\n\\nWhen she sat at home through the long, long afternoons—and she was always at home—it seemed to her that the hours would never end. Her loneliness tormented her, and yet the prospect of going out among people seemed to her even more dreadful.—\\n\\nIt was in March, a day of rough weather with northwesterly storm squalls, drenched in icy rawness. The remnants of the snow were dirty gray underneath, with brown patches here and there.\\n\\nConstance had tried sewing for a while on an embroidered strip that always lay in the sewing basket. She had long since forgotten what she had originally intended to use it for. Then she had read a little, thrown down the book, paced the floor, and was now once more sewing a few stitches. But suddenly she flung away the strip and turned herself and the chair on which she sat all the way around. She rested her elbows on the window frame and her face in her hands, and\", \"source_occurrence_id\": \"skram-constance-ring-51a22b8927b39e5a\", \"source_language\": \"no\", \"source_language_text_sha256\": \"954dc1ee007e84d0fc6e8d67cc626bfeefd47475d490644beacf713eb3ce025f\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-20T13:56:31.237903+00:00\", \"model_usage\": {\"input_tokens\": 2207, \"cached_input_tokens\": 0, \"output_tokens\": 3015}, \"estimated_cost_usd\": 0.069128, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"skram-constance-ring\", \"title\": \"Constance Ring\", \"author\": \"Amalie Skram\", \"language\": \"no\", \"source_type\": \"nb_public_domain_ocr\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.601905, \"source_start\": 325312, \"source_end\": 325326, \"source_length\": 540471}, \"form\": {\"form_family\": \"present_or_past\", \"polarity\": \"surface_optional_negative\", \"tense_aspect\": \"present\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"no_main\", \"pattern_version\": \"0.12\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

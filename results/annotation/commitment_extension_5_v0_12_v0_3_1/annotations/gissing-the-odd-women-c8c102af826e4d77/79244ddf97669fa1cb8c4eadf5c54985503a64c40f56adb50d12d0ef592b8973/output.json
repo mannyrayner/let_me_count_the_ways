@@ -1,0 +1,65 @@
+{
+  "occurrence_id": "gissing-the-odd-women-c8c102af826e4d77",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.96,
+    "analysis": "The highlighted “I loved you” is a direct retrospective avowal that presents Barfoot’s former love as true. “That’s all” pointedly limits the utterance to that emotional-state claim rather than undertaking any commitment. Nothing indicates that the words themselves are a reflex-like affective discharge.",
+    "ambiguity": "Barfoot’s sincerity and self-knowledge are questionable, but this affects the credibility of the avowal rather than its truth-conditional mode."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "Barfoot directly tells Rhoda, in face-to-face dialogue, “I loved you,” as part of “I loved you, that’s all. And I believe I still love you.”"
+  },
+  "contextual_interpretation": "Barfoot makes the avowal while defending the seriousness of his earlier conduct and immediately before renewing his marriage proposal. Rhoda doubts both his seriousness and the sincerity of his love, and his later decision to marry Agnes reinforces the possibility that this is self-serving, unstable, or partly self-deceived. Nevertheless, the highlighted words themselves remain a retrospective assertion of love, not a commitment; the adjacent proposal carries the undertaking force.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "“I loved you, that’s all. And I believe I still love you.”",
+      "supports": "The highlighted clause explicitly presents Barfoot’s past loving state as true; “that’s all” restricts rather than expands its force.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "Rhoda challenges whether he was “quite serious” in anything he said, after which Barfoot avows that he loved her.",
+      "supports": "The utterance functions as an answer concerning the sincerity of his former feelings, supporting T rather than expressive/reflexive force.",
+      "confidence": 0.97
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "Immediately afterward Barfoot separately asks, “Will you marry me?”",
+      "supports": "The relational undertaking is performed by the distinct proposal, not by the highlighted past-tense avowal, supporting P=0 for the core occurrence.",
+      "confidence": 0.97
+    },
+    {
+      "evidence_id": "e4",
+      "source": "local_text",
+      "quotation_or_description": "Rhoda later says, “You never loved me with entire sincerity,” and Barfoot soon writes that he is to marry Agnes Brissenden.",
+      "supports": "The narrative complicates the avowal’s sincerity and reliability without changing its truth-conditional semantic/pragmatic mode.",
+      "confidence": 0.94
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the retrospective avowal. The surrounding dispute over sincerity, proposal, and later conduct is contextual and creates no residual core force requiring P, E, or O.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": "The classification targets the occurrence in “I loved you, that’s all,” rather than the immediately preceding repeated “I loved you” in the wider context."
+}

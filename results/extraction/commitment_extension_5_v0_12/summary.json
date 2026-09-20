@@ -1,0 +1,128 @@
+{
+  "run_id": "commitment_extension_5_v0_12",
+  "pattern_version": "0.12",
+  "extraction_tool_version": "1.0",
+  "canonical_offset_unit": "Unicode code points in the unmodified decoded canonical text",
+  "occurrence_identity": "SHA-256 prefix of NUL-joined work_id, canonical_sha256, start, end, matched surface, pattern version",
+  "works_discovered": 36,
+  "works_requested": 5,
+  "works_attempted": 5,
+  "works_extracted": 5,
+  "works_unavailable": 0,
+  "total_candidates": 27,
+  "known_case_assertions": {
+    "nora_negative_cessation": "not_applicable",
+    "rank_perfect_formal": "not_applicable",
+    "lawrence_surface_formula": "not_applicable"
+  },
+  "works": [
+    {
+      "work_id": "benedictsson-pengar",
+      "language": "sv",
+      "canonical_sha256": "dd68c09f5a5787c1a6db1c042819dc3e1e638e0921513a1a663a621178b85378",
+      "public_render_policy": "PUBLIC_DOMAIN_FULL_CONTEXT_OK",
+      "analysis_allowed": true,
+      "canonical_storage": "repository",
+      "status": "extracted",
+      "candidate_count": 0,
+      "candidate_artifact": "public",
+      "private_output_available": false,
+      "counts_by_pattern": {},
+      "counts_by_form_family": {},
+      "historical_candidate_count": null
+    },
+    {
+      "work_id": "skram-constance-ring",
+      "language": "no",
+      "canonical_sha256": "49e81b7a6d20545c8c25c55267aa2deaad1f18f16b989b202a7d30a81a756aaa",
+      "public_render_policy": "PUBLIC_DOMAIN_FULL_CONTEXT_OK",
+      "analysis_allowed": true,
+      "canonical_storage": "repository",
+      "status": "extracted",
+      "candidate_count": 11,
+      "candidate_artifact": "public",
+      "private_output_available": false,
+      "counts_by_pattern": {
+        "no_historical_past": 3,
+        "no_main": 7,
+        "no_perfect": 1
+      },
+      "counts_by_form_family": {
+        "past": 3,
+        "perfect": 1,
+        "present_or_past": 7
+      },
+      "historical_candidate_count": null
+    },
+    {
+      "work_id": "gissing-the-odd-women",
+      "language": "en",
+      "canonical_sha256": "8b092fbf41dbb93d6282ff84fd73c0ef356dbe45291901fc5bfef56ea93a7a07",
+      "public_render_policy": "PUBLIC_DOMAIN_FULL_CONTEXT_OK",
+      "analysis_allowed": true,
+      "canonical_storage": "repository",
+      "status": "extracted",
+      "candidate_count": 12,
+      "candidate_artifact": "public",
+      "private_output_available": false,
+      "counts_by_pattern": {
+        "en_cessative": 1,
+        "en_negative_present": 1,
+        "en_past": 2,
+        "en_present": 8
+      },
+      "counts_by_form_family": {
+        "cessative": 1,
+        "negative_present": 1,
+        "past": 2,
+        "present": 8
+      },
+      "historical_candidate_count": null
+    },
+    {
+      "work_id": "von-arnim-vera",
+      "language": "en",
+      "canonical_sha256": "927e6bbe2ba5e1748c756f7662e68ff704675ac91f364b322c14fae4d22eb613",
+      "public_render_policy": "PUBLIC_DOMAIN_FULL_CONTEXT_OK",
+      "analysis_allowed": true,
+      "canonical_storage": "repository",
+      "status": "extracted",
+      "candidate_count": 2,
+      "candidate_artifact": "public",
+      "private_output_available": false,
+      "counts_by_pattern": {
+        "en_present": 2
+      },
+      "counts_by_form_family": {
+        "present": 2
+      },
+      "historical_candidate_count": null
+    },
+    {
+      "work_id": "skram-lucie",
+      "language": "no",
+      "canonical_sha256": "70f9f06f3e96df5ba0f7fb350f00fafee943bc8b48ab257bb6242f09cec7feee",
+      "public_render_policy": "PUBLIC_DOMAIN_FULL_CONTEXT_OK",
+      "analysis_allowed": true,
+      "canonical_storage": "repository",
+      "status": "extracted",
+      "candidate_count": 2,
+      "candidate_artifact": "public",
+      "private_output_available": false,
+      "counts_by_pattern": {
+        "no_also_main": 1,
+        "no_main": 1
+      },
+      "counts_by_form_family": {
+        "present_or_past": 2
+      },
+      "historical_candidate_count": null
+    }
+  ],
+  "diagnostics": {
+    "zero_yield_works": [
+      "benedictsson-pengar"
+    ],
+    "unusually_high_count_works": []
+  }
+}

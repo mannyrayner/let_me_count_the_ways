@@ -68,6 +68,7 @@ in-place because Git history already preserves them.
 | 41 | [Prepare full annotation inputs locally](41_prepare_full_annotation_inputs.md) | Validated full enrichment and a bounded annotation estimate, with no annotation API calls |
 | 42 | [Run the full canonical annotation locally](42_run_full_canonical_annotation_locally.md) | Complete resumable 225-case annotations, empty failures, and priority-review inventory |
 | 43 | [Complete the private EoU pipeline](43_complete_private_eou_pipeline.md) | Private v0.11 EoU extraction/review/annotation and a local publication-permission request package |
+| 44 | [Commitment extension](44_extend_commitment_corpus.md) | Acquire and annotate five additional works |
 
 ## Conventions
 

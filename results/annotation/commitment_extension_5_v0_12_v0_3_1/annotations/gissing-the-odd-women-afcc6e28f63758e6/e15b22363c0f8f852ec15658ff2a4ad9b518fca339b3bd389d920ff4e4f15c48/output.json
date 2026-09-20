@@ -1,0 +1,72 @@
+{
+  "occurrence_id": "gissing-the-odd-women-afcc6e28f63758e6",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.98,
+    "analysis": "Everard’s “I loved you” is a direct retrospective avowal that presents his former love as true, specifically answering Rhoda’s challenge to his seriousness. It does not itself undertake a commitment; the nearby marriage proposals are separate speech acts. Its curt delivery supplies no positive evidence that the words are an affect-driven expressive or reflex-like discharge.",
+    "ambiguity": "The sincerity and completeness of Everard’s former love are disputed, but possible self-justification or insincerity does not alter the utterance’s strongly truth-conditional mode."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "Everard directly addresses Rhoda with a past-tense avowal of love."
+  },
+  "contextual_interpretation": "The avowal occurs during a tense retrospective dispute about whether Everard had been serious and whether either party truly loved the other. It functions as his concise defense against Rhoda’s accusation. His subsequent “I loved you, that’s all” reinforces the avowal, while “I believe I still love you” and his renewed marriage proposal are distinct utterances. Rhoda later challenges the entire sincerity of his love, creating uncertainty about truthfulness but not about the core utterance’s assertive force.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "“I loved you,” he answered curtly, answering her steady look.",
+      "supports": "The utterance directly presents Everard’s former loving state as true; the narration frames it as a controlled answer rather than a reflex-like verbal discharge.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "Rhoda asks whether he was “quite serious in anything” he said immediately before the highlighted response.",
+      "supports": "The avowal answers a challenge about the sincerity of his earlier feelings and speech, strongly supporting truth-conditional force.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "Everard continues: “I loved you, that’s all. And I believe I still love you.”",
+      "supports": "The continuation explicitly treats love as a past and possibly continuing emotional state, corroborating T rather than independent expressive/reflexive force.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "e4",
+      "source": "local_text",
+      "quotation_or_description": "After the avowal, Everard separately asks, “Will you marry me?”",
+      "supports": "The relational undertaking is performed by a distinct proposal, so it should not be attributed to the core words “I loved you.”",
+      "confidence": 0.97
+    },
+    {
+      "evidence_id": "e5",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is identified as an affirmative past-tense form in Chapter XXX of George Gissing’s The Odd Women.",
+      "supports": "Confirms that the classified core is a retrospective, affirmative love statement rather than the later present-tense avowal or proposal.",
+      "confidence": 1.0
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the core retrospective avowal. The contested sincerity and surrounding courtship are contextual complications, while neither P, E, nor O is needed for the highlighted utterance itself.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

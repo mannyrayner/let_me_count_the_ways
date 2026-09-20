@@ -1,2 +1,8 @@
 # Canonical texts are byte-faithful and retain source line endings.
 corpus/works/*/canonical.txt -text whitespace=-trailing-space,-blank-at-eof,cr-at-eol
+# Preserve the extension's downloaded source bytes across Windows/Cygwin checkouts.
+data/raw/benedictsson-pengar/** -text whitespace=-trailing-space,-blank-at-eof,cr-at-eol
+data/raw/skram-constance-ring/** -text whitespace=-trailing-space,-blank-at-eof,cr-at-eol
+data/raw/gissing-the-odd-women/** -text whitespace=-trailing-space,-blank-at-eof,cr-at-eol
+data/raw/von-arnim-vera/** -text whitespace=-trailing-space,-blank-at-eof,cr-at-eol
+data/raw/skram-lucie/** -text whitespace=-trailing-space,-blank-at-eof,cr-at-eol

@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"skram-lucie-1843e92d8f2ba6e5\", \"SOURCE_TEXT\": {\"exact_match\": \"jeg elsker også Dig\", \"local_text\": {\"context_start\": 191654, \"context_end\": 191772, \"text\": \"«Ja, Knut, nu tror jeg på din kjærlighed. Og\\njeg elsker også Dig. Jeg tror på Dig og jeg er\\ndin. Siden Du vil ha mig.»\"}, \"wider_canonical_context\": {\"context_start\": 188645, \"context_end\": 194813, \"text\": \"Det gav et sæt i ham. «Di! Jeg forstår ikke,\\nhvad Di mener for noe,» han stammed og famled\\nefter ordene. «Å, Di spøger bare,» sa han så\\nmed et pludseligt ryk hen imod hende.\\n\\n«Nej, jeg spøger ikke. Det er sandt, hvad\\njeg siger, og nu får jeg se, om Di er villig til at\\ntro mig, når jeg forsikrer, at det ikke har det\\nringeste at bety, og at Di værsgod skal gifte Dem\\nmed mig alligevel.»\\n\\n«Di vil altså ha mig da?» udbrød han jublende\\nog för op. Men så sank han ned igjen på bænken\\nog blev siddende som forstenet.\\n\\n«Det er vel mig nu, som får spørre, om Di\\nvil?»\\n\\nHan svarte ikke, bare sad og stirred ned på\\nsine knæer, hvor hænderne la. I månelyset, som\\nnu flød helt ind til dem, så de endnu hvidere ud\\nend om dagen.\\n\\n«Fortid, sa han omsider, uden at røre sig.\\n«Hvad slags fortid ?»\\n\\n«Jeg har havt noen elskere, da jeg var i\\nParis.»\\n\\n«Noen,» han vred sig til siderne. «Det var\\nikke forlidet heller.»\\n\\n«Ja, nu ved Di det. Di ser jeg er ligeså\\noprigtig som Di.»\\n\\n«Ja tak, jeg vil ikke påstå, at det morer\\n\\nmig just.» Han talte så lavt, at Henny akkurat\\nkunde høre hvad han sa. «Elskere? — Som Di\\nhar  så'n levet med?»\\n\\n«Ja, som jeg har levet med.»\\n\\n«Franskmænd ?\\n\\n«Ja, nej . Jo, den ene var fransk.»\\n\\n«Og de andre?»\\n\\n«A, det kan jo være Dem det samme.\\n\\n«Det samme!» han sprang op med fægtende\\narme. «Kværke,  myrde,  sparke ihjel!» det\\nkom tænderskjærende. «Hugge istykker,  hive\\nlemmer på sjøen  Blo'! Blo'!  —  Å, at\\ntænke sig, at disse labaner har tat din rene\\nuskyldighed, Henny,» — stemmen slog om, den\\nskjalv og liksom smelted hen i jammer. Han\\ngled ned igjen på bænken og indtog den forrige\\nstilling. c\\n\\nHans voldsomme udbrud havde skræmt Henny.\\nHun havde rejst sig op og rakt armen frem som\\nfor at tysse på ham. Nu satte hun sig ned\\nigjen og sa: «På den måden er partiet mere lige,\\ntænker jeg. Lige børn leger bedst.»\\n\\nKnut var en stund ganske ubevægelig. Henny\\nså fra siden af hen på ham. Med ét la hun\\nmerke til, at hans hode sank ned på brystet og\\nstraks derpå hørte hun, at han græd stille.\\n\\nHun rejste sig og stilled sig op foran ham.\\n\\n«Di har ikke svart på mit spørsmål, om Di\\n\\nså allikevel vil ha mig,» sa hun og la sin hånd\\npå hans skulder.\\n\\n«Om jeg vil ha Dig, Henny,» han så op på\\nhende; hans øjne stod fulde af tårer, og der var\\nfugtige striber på kinderne. «Spørre om sligt –\\nå, men det gjør så ondt, så ondt.» Stemmen\\nkvaltes, og han måtte vente lidt, før han atter fik\\nmagt over den. «Sad Du her i byen som det\\nværste fruentimmer, Henny, så vilde jeg allikevel\\npå mine knæ tigge Dig om, at Du skulde ta mig\\ntil din mand.» Hans hode var tilbagebøjet, og\\nmånelyset faldt hen over hans blege ansigt, mens\\nhan så op i Hennys øjne med et hjælpeløst blik.\\n«Jeg ved godt, at Du aldrig har trod på min\\nkjærlighed — tror Du på den nu da?»\\n\\nDet arbeided voldsomt i Henny. Brystet steg\\nog sank, og hun snapped efter vejret, mens hun\\nstræved for at få ordene frem. Men hun kunde\\nikke. Så gav hun tabt, rakte armene ud, greb\\nKnut om halsen og sank ned til hans bryst med\\nansigtet gjemt ved hans hals.\\n\\n«Ja, Knut, nu tror jeg på din kjærlighed. Og\\njeg elsker også Dig. Jeg tror på Dig og jeg er\\ndin. Siden Du vil ha mig.»\\n\\n«Tak, min elskede,» hvisked han.\\n\\n«Og nu skal jeg sige Dig noget, Knut» –\\nHenny havde fåt bugt med sin bevægelse og sad\\nnu på bænken ved siden af Knut med sin hånd\\ni hans. eDet er bare opspind altsammen.»\\n\\n(\\n\\n«Hva' for noe er opspind?»\\n\\n«Det om elskerne, naturligvis, dit fæl Der\\nmerkes det straks hvor ung Du er. Jeg vilde\\nbare sætte Dig på prøve. Den har Du beståt som\\nen mand. Jeg er stolt af Dig, Knut.»\\n\\n«Er det sandt, Henny?» sa han hæst og knuged\\nhendes hånd mod sit hjærte.\\n\\n«Javist er det sandt,  desværre, havde jeg\\nnær sagt. Karen påstår jo, at bare de ægteskaber\\nblir lykkelige, hvor også hun har en fortid.»\\n\\nGanske stille gled Knut ned af bænken på\\nknæ, skjulte ansigtet i Hennys skjød og hulked\\nsom et barn.\\n\\nHenny strøg kjærtegnende sine fingre gjennem\\nhans tykke, bløde hår og tyssed på ham. «Min\\negen gut, min søde, snille Knut, min kjære,\\neneste elskede  Dnu skal være glad, skal Du.»\\n\\n«Det var glæden,» sa Knut med mat stemme\\nog rejste sig. «Du skulde ikke gjort det, Henny.\\nTænk om jeg nå havde fåt et slagtilfælde da».\\nHan gned sig hurtig med lommetørklædet over\\nansigtet.\\n\\n«Men hvor tror Du, Karen mener jeg blir\\naf? sa så Henny. «Kom, lad os gå ned efter\\nlampen,» hun sprang ud over verandatrappen,\\nfulgt af Knut.\\n\\nDa Henny var kommen ind i lysthuset, satte\\nhun sig på bænken og gned overgivent hånd\\nfladerne mod hinanden. «Nu er jeg altså en for\\n\\n12\\n\\nlovet pige, å hvor det er morsomt! Det var\\nikke for tidligt forresten. Men Du, å Du, hvor\\nKaren skal gjøre øjne.»\\n\\n«Ja, sa Knut. «Hun har vist ikke trod,\\nDu vilde ha mig.»\\n\\n«Som rimeligt varl Men hvordan er det,\\nDu ser ud, Knut! Rødflekket på kinderne —,\\nog hvor er øjnene dine blet af? Hør Du,» hun\\nfôr hen til ham og rysted ham i skuldrene –\\n«hvorfor har Du ikke kysset mig? På munden,\\nmener jeg»  hun spidsed læberne og rakte dem\\nop imod ham.\\n\\nHan trak hodet lidt bagover og tog hende\\nom håndledene. «Jeg vil ikke gjøre det iaften,\\nHenny, for jeg har kysset en anden før idag.»\\n\\n«Nej, ved Du hvad, Knut! Du er for ækkel!»\\nHenny trak øjenbrynene sammen og gjorde sine\\nhåndled frii «Hvem har Du kysset?»\\n\\n«Hende fru Gerner.»\\n\\n«Tivolifruen!l Her hos os! I aften? Så\\nstår Du altså i forhold til hende.»\\n\\n«Ikke Spor. Jeg har bare vært sammen med\\nhende én gang før og har ikke et øjeblik tænkt\\npå hende i mellemtiden.»\\n\\n«Da er det nu endnu tusen ganger værre.\\nDet er altså sådan Du er! Skammer Du Dig\\nikke ?»\\n\\n«Å jo. Lidt.»\\n\\n4\\n\\n«Kysset Tivolifruen! Hvad tid? Hvordan\\nkunde Du komme til med det, din ækling?»\\n\\n«Da vi gik i anlægget.»\\n\\n«Så nytted Du straks på. Jo, det ligner\\nDig. Og det med det samme Du netop vilde fri\\ntil mig?»\\n\\n«Du tog så hånsk imod mig. Det blir na\\nturligvis ikke til noe iaften heller, tænkte jeg, og\\nså gjorde jeg det i sinne.»\\n\\n«Men hun da, er hun slig endnu, at hun\\nlar sig kysse ?»\\n\\n«Ja, hvem gjør ikke det? Og desuden\\nhun!»\\n\\n«Den tasken! Det skulde Karen vide. Og\\nDu da, jo det blir en dejlig ægtemand at fa.»\\nHenny stak armene på ryggen og læned sig med den\\nene skulder skråt op mod lysthusvæggen tæt ved\\nindgangen. Hun så truende på Knut.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"He gave a start. “You! I do not understand what you mean by that,” he stammered, groping for words. “Oh, you are only joking,” he then said, with a sudden movement toward her.\\n\\n“No, I am not joking. What I am saying is true, and now I shall see whether you are willing to believe me when I assure you that it does not matter in the least, and that you must be so good as to marry me all the same.”\\n\\n“So you do want me, then?” he cried jubilantly and sprang up. But then he sank back onto the bench and remained sitting as if petrified.\\n\\n“I suppose it is my turn now to ask whether you will?”\\n\\nHe did not answer, but merely sat staring down at his knees, where his hands lay. In the moonlight, which now poured all the way in to them, they looked even whiter than by day.\\n\\n“A past,” he said at last, without moving.\\n\\n“What kind of past?”\\n\\n“I had some lovers when I was in Paris.”\\n\\n“Some,” he twisted from side to side. “That was not exactly too few, either.”\\n\\n“Yes, now you know. You see that I am just as candid as you are.”\\n\\n“Yes, thank you, I will not claim that it exactly pleases me.” He spoke so softly that Henny could barely hear what he said. “Lovers?—Whom you lived with like that?”\\n\\n“Yes, whom I lived with.”\\n\\n“Frenchmen?”\\n\\n“Yes, no. Well, one of them was French.”\\n\\n“And the others?”\\n\\n“Oh, surely it can be all the same to you.”\\n\\n“All the same!” He sprang up, flailing his arms. “Strangle them, murder them, kick them to death!” he ground out through his teeth. “Hack them to pieces, throw their limbs into the sea. Blood! Blood!—Oh, to think that those scoundrels have taken thy pure innocence, Henny”—his voice changed; it trembled and seemed to dissolve into lamentation. He slid back down onto the bench and resumed his former posture.\\n\\nHis violent outburst had frightened Henny. She had risen and held out her arm as if to hush him. Now she sat down again and said, “In that way the match is more equal, I should think. Equals play best together.”\\n\\nKnut remained completely motionless for a while. Henny looked at him from the side. Suddenly she noticed his head sinking onto his chest, and immediately afterward she heard him weeping quietly.\\n\\nShe rose and stood in front of him.\\n\\n“You have not answered my question as to whether you will still have me in spite of it,” she said, laying her hand on his shoulder.\\n\\n“Whether I will have thee, Henny?” He looked up at her; his eyes were full of tears, and there were wet streaks on his cheeks. “To ask such a thing—oh, but it hurts so much, so much.” His voice choked, and he had to wait a little before he regained control of it. “If thou wert living here in town as the vilest fallen woman, Henny, I would still beg thee on my knees to take me as thy husband.” His head was bent back, and the moonlight fell across his pale face as he looked up into Henny’s eyes with a helpless gaze. “I know well that thou hast never believed in my love—dost thou believe in it now?”\\n\\nHenny was violently agitated. Her breast rose and fell, and she gasped for breath as she struggled to get the words out. But she could not. Then she gave up, stretched out her arms, clasped Knut around the neck, and sank against his breast with her face hidden at his neck.\\n\\n“Yes, Knut, now I believe in thy love. And I love thee too. I believe in thee, and I am thine. Since thou wilt have me.”\\n\\n“Thank thee, my beloved,” he whispered.\\n\\n“And now I shall tell thee something, Knut”—Henny had mastered her emotion and now sat on the bench beside Knut with her hand in his. “It is all pure invention.”\\n\\n“What is invention?”\\n\\n“The business about the lovers, of course, thou fool. It shows at once how young thou art. I only wanted to put thee to the test. Thou hast passed it like a man. I am proud of thee, Knut.”\\n\\n“Is it true, Henny?” he said hoarsely, pressing her hand against his heart.\\n\\n“Of course it is true—unfortunately, I almost said. Karen claims, you know, that only those marriages are happy in which the woman too has a past.”\\n\\nVery quietly Knut slipped from the bench onto his knees, hid his face in Henny’s lap, and sobbed like a child.\\n\\nHenny caressingly ran her fingers through his thick, soft hair and soothed him. “My own boy, my sweet, good Knut, my dear, only beloved—now thou must be happy, thou must.”\\n\\n“It was the joy,” Knut said in a faint voice and rose. “Thou shouldst not have done it, Henny. Just think if I had suffered a stroke.” He quickly rubbed his face with his handkerchief.\\n\\n“But where dost thou think Karen imagines I have got to?” Henny then said. “Come, let us go down and fetch the lamp.” She sprang down the veranda steps, followed by Knut.\\n\\nWhen Henny had entered the summerhouse, she sat down on the bench and gleefully rubbed her palms together. “So now I am an engaged girl—oh, how delightful! It was not too soon, either. But thou—oh, how Karen’s eyes will pop.”\\n\\n“Yes,” Knut said. “She probably did not believe thou wouldst have me.”\\n\\n“As was only reasonable! But what dost thou look like, Knut! Red blotches on thy cheeks—and what has become of thine eyes? I say”—she rushed over to him and shook him by the shoulders—“why hast thou not kissed me? On the mouth, I mean.” She pursed her lips and held them up toward him.\\n\\nHe drew his head slightly back and took hold of her wrists. “I will not do it tonight, Henny, for I kissed another woman earlier today.”\\n\\n“No, really, Knut! Thou art too disgusting!” Henny knitted her brows and freed her wrists. “Whom didst thou kiss?”\\n\\n“That Mrs. Gerner.”\\n\\n“The Tivoli lady! Here at our house! Tonight? Then thou art having an affair with her.”\\n\\n“Not in the least. I have only been with her once before and have not thought of her for a moment in the meantime.”\\n\\n“Then it is a thousand times worse. So that is the sort thou art! Art thou not ashamed?”\\n\\n“Oh yes. A little.”\\n\\n“Kissed the Tivoli lady! When? How couldst thou get the chance to do it, thou disgusting creature?”\\n\\n“When we walked in the park.”\\n\\n“So thou took advantage at once. Yes, that is like thee. And that just when thou wert about to propose to me?”\\n\\n“Thou received me so scornfully. ‘Naturally nothing will come of it tonight either,’ I thought, and so I did it out of spite.”\\n\\n“But what about her—is she still the sort who lets herself be kissed?”\\n\\n“Yes, who does not? And she, especially!”\\n\\n“The hussy! Karen ought to know that. And thou—yes, what a splendid husband I shall be getting.” Henny put her arms behind her back and leaned with one shoulder at an angle against the wall of the summerhouse close to the entrance. She looked threateningly at Knut.\", \"source_occurrence_id\": \"skram-lucie-1843e92d8f2ba6e5\", \"source_language\": \"no\", \"source_language_text_sha256\": \"7c3db84ce0c2450c403be01d529275654acfb2a6f2831cfc5a6822ad030cf16b\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-20T14:02:02.892466+00:00\", \"model_usage\": {\"input_tokens\": 2392, \"cached_input_tokens\": 0, \"output_tokens\": 3997}, \"estimated_cost_usd\": 0.089508, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"skram-lucie\", \"title\": \"Lucie\", \"author\": \"Amalie Skram\", \"language\": \"no\", \"source_type\": \"nb_public_domain_ocr\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.771096, \"source_start\": 191699, \"source_end\": 191718, \"source_length\": 248606}, \"form\": {\"form_family\": \"present_or_past\", \"polarity\": \"surface_optional_negative\", \"tense_aspect\": \"present\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"no_also_main\", \"pattern_version\": \"0.12\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 1.0, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

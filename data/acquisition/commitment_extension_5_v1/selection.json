@@ -1,0 +1,101 @@
+{
+  "schema_version": "1.0",
+  "inventory_id": "commitment_extension_5_v1",
+  "selected_on": "2026-09-20",
+  "baseline_commit": "662f77a398e884f9bf30601c3bbf433a722c9619",
+  "research_role": "Targeted exploratory extension for relational commitment, duty, economic dependence, and avowal under pressure. Selection does not establish any T/P/E score or comparative genre frequency.",
+  "extraction_patterns": "data/development/search_patterns_v0_12.json",
+  "classification_prompt": "prompts/annotation/classify_passage_v0_3_1.md",
+  "works": [
+    {
+      "work_id": "benedictsson-pengar",
+      "title": "Pengar",
+      "author": "Victoria Benedictsson",
+      "author_death_year": 1888,
+      "first_publication_year": 1885,
+      "language": "sv",
+      "source_type": "runeberg",
+      "source_id": "runeberg-pengar",
+      "catalogue_url": "https://runeberg.org/pengar/",
+      "page_names": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09",
+        "10"
+      ],
+      "selection_reason": "Selma distinguishes marital vows from a declaration of felt love; chapters 5 and 6. The vow is a contextual lead, not automatically an eligible ILY occurrence.",
+      "source_note": "Runeberg's introductory web note incorrectly describes this text as a short story in Fran Skane; the ten-chapter text is the novel Pengar. Preserve the page texts without correcting OCR or spelling."
+    },
+    {
+      "work_id": "skram-constance-ring",
+      "title": "Constance Ring",
+      "author": "Amalie Skram",
+      "author_death_year": 1905,
+      "first_publication_year": 1885,
+      "language": "no",
+      "source_type": "nb_public_domain_ocr",
+      "source_id": "nb-constance-ring-1885",
+      "catalogue_url": "https://urn.nb.no/URN:NBN:no-nb_digibok_2013082608001",
+      "urn": "URN:NBN:no-nb_digibok_2013082608001",
+      "printed_page_range": [
+        5,
+        507
+      ],
+      "selection_reason": "Chapter XXIV: Constance answers Lorck's demand for ILY while deliberately recovering memories of marital happiness. Prior affection makes a low-T or absent-affection interpretation an open question.",
+      "source_note": "Use National Library of Norway public-domain first-edition scans and their OCR, independently of the Bokselskap digital edition. Historical Dano-Norwegian is coded no, consistently with Ibsen in the baseline.",
+      "ocr_corrections": "data/acquisition/commitment_extension_5_v1/ocr_corrections.json"
+    },
+    {
+      "work_id": "gissing-the-odd-women",
+      "title": "The Odd Women",
+      "author": "George Gissing",
+      "author_death_year": 1903,
+      "first_publication_year": 1893,
+      "language": "en",
+      "source_type": "gutenberg_single",
+      "source_id": "gutenberg-4313",
+      "catalogue_url": "https://www.gutenberg.org/ebooks/4313",
+      "download_url": "https://www.gutenberg.org/cache/epub/4313/pg4313.txt",
+      "selection_reason": "Economic dependence, courtship commitments, and demands for verbal reassurance. Chapter XVI's demand and evasion are contextual controls, not completed ILY utterances."
+    },
+    {
+      "work_id": "von-arnim-vera",
+      "title": "Vera",
+      "author": "Elizabeth von Arnim",
+      "author_death_year": 1941,
+      "first_publication_year": 1921,
+      "language": "en",
+      "source_type": "gutenberg_single",
+      "source_id": "gutenberg-34366",
+      "catalogue_url": "https://www.gutenberg.org/ebooks/34366",
+      "download_url": "https://www.gutenberg.org/cache/epub/34366/pg34366.txt",
+      "selection_reason": "Chapter XVII couples Lucy's repeated ILY with private vows about her future conduct. Felt love is also present; private resolve alone need not satisfy the classifier's interpersonal commitment criterion."
+    },
+    {
+      "work_id": "skram-lucie",
+      "title": "Lucie",
+      "author": "Amalie Skram",
+      "author_death_year": 1905,
+      "first_publication_year": 1888,
+      "language": "no",
+      "source_type": "nb_public_domain_ocr",
+      "source_id": "nb-lucie-1888",
+      "catalogue_url": "https://urn.nb.no/URN:NBN:no-nb_digibok_2012022824024",
+      "urn": "URN:NBN:no-nb_digibok_2012022824024",
+      "printed_page_range": [
+        1,
+        229
+      ],
+      "selection_reason": "The Henny/Knut courtship scene, chapter XVII in corrected numbering, couples a declaration of love with acceptance and belonging. This is a prospective P case, not evidence of absent affection.",
+      "source_note": "Use National Library of Norway public-domain first-edition scans and their OCR, independently of the Bokselskap digital edition. Preserve original chapter misnumbering and record it in the passage notes. Historical Dano-Norwegian is coded no, consistently with Ibsen in the baseline.",
+      "ocr_corrections": "data/acquisition/commitment_extension_5_v1/ocr_corrections.json"
+    }
+  ],
+  "comparison_patterns": "data/development/search_patterns_v0_11.json"
+}

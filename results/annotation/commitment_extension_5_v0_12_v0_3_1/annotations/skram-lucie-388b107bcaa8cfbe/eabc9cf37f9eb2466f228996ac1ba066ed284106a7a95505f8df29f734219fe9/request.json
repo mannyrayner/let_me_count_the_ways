@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"skram-lucie-388b107bcaa8cfbe\", \"SOURCE_TEXT\": {\"exact_match\": \"jeg elsker Dig\", \"local_text\": {\"context_start\": 26738, \"context_end\": 26919, \"text\": \"«Aa gud som jeg elsker Dig, Theodor», hvisked\\nhun. «Ja, Du ved det ikke Du, endda Du er så\\nlej og slem imod mig», hun kneb ham i øre\\nflippen. «Hvorfor skal Du være det da, styggen?»\"}, \"wider_canonical_context\": {\"context_start\": 23505, \"context_end\": 29899, \"text\": \"Han var kommen helt op i Vestre Aker, før\\nhan vendte om og gik nedover igjen. Han vilde\\nop til Lucie og forsone sig med hende, å som\\nhan brændte efter hende nu. Han tog lange\\nskridt, og det bar næsten løbende ned over bak\\nkerne. Godt, at ingen så ham.\\n\\nSådan havde han det altid, når han var borte\\nfra hende. Hver en blodsdråbe skreg efter hende,\\nisær når der havde vært en knude på tråden\\nimellem dem. Han kunde såmæn gjerne ha spart\\nsig for at være gåt sin vej iaften. Han måtte jo\\nha vidst, at han vilde komme til at rende som et\\ngalt menneske for at forkorte adskillelsens minutter.\\nHans hode brændte, så han et par ganger tog\\nhatten af for at svale sig, og han sukked som et\\nbeklemt menneske sukker. For selv nu, da det\\ngløded i ham af elskov og attrå, kjendte han\\nsamtidig dette dumpe nag, som altid lå og grov\\ninde i ham, denne sviende bitterhed mod sin\\nkjærlighed, dette smertefulde, skinsyge had til\\ndem, som havde havt hende før han, og så endelig\\nfortrydelse over, at han, advokat Theodor Gerner,\\nholdtes fangen i et forhold, som voldte ham pine,\\nog som han vidste, han ikke orked at bryde. Nu\\nvar han gåt derop i aften, bestemt på at sige\\nhende, at hun skulde bli hans hustru, men aldrig\\n\\nsåsnart så han hende, før han blev usikker og\\ntænkte, det kunde bero til en anden gang. Det\\nvar også bare når han var borte fra hende, at det\\nstod for ham som uundgåeligt at gifte sig. Var\\nhan hos hende, syntes han det var godt, som\\ndet var.\\n\\nJa, men just altså derfor, han stod stille og\\nla pegefingeren på næsen. Hos hende har Du\\ndet godt, borte fra hende er Du en fredløs mand.\\nHvad er da så at betænke sig på.\\n\\nFå minutter senere var han ved hendes gade\\ndør, hvortil han altid havde nøglen i lommen.\\nUh, denne væmmelige indgang med mellemporten\\naltid åben til den skidne gårdsplads, hvor den\\nlange række nummererte klosetdøre stod midt\\nimod og skildred. Og disse modbydelige trapper,\\nsom lugted af rendesten og petroleum, med de\\ntilstenkte, kirkeagtige vinduer og de grå vægge,\\nsom havde huller i kalken, og spindelvæv og støv\\nhængende ned som sørgeflor. Så lej som han var\\naf det altsammen! Disse døre for hver etage, én\\npå hver side og én midt imod, med sprukne por\\ncelainsplader og svarte visitkort og figurerte ruder\\ni mat glas, og de grønne klokkesnore med fillede\\nposementmagerhåndtag og hullede matter foran\\ndørene.\\n\\nHurtigt og stilfærdigt lukked han sig ind i\\nentréen, hang hatten fra sig og åbned døren til\\ndagligstuen. Gud ved, hvad hun brænder lampe\\n\\nfor, så lyst som det er, tænkte han og så sig om\\nefter Lucie. Aa, hvor det skulde være godt at få\\nslippe for at komme mere i disse stygge, aflange\\nstuer med de lyserøde vægger og det udstafferte\\ntag, og disse ækle ovnene med etager i.\\n\\nLucie lå på sofaen med armene foldet over\\nbrystet og stirred ret frem for sig med vidåbne\\nøjne, uden at gi nogetsomhelst tegn til, at hun\\nhørte ham komme.\\n\\n«Ja, Lucie», sa han kjærligt, idet han med\\nfoden trak en stol hen til sofaen og satte sig på.\\n«Jeg kan nok forstå, det må være ensomt for\\nDig, undertiden, men om Du ikke har andet, så\\ner der da altid mig at vente på.» Han bøjed sig\\nover hende og kyssed hende.\\n\\nHun slog sin ene arm om hans nakke, og\\nbed med sine læber om hans mund, så hun\\nkjendte hans kys på sine tænder.\\n\\n«Aa gud som jeg elsker Dig, Theodor», hvisked\\nhun. «Ja, Du ved det ikke Du, endda Du er så\\nlej og slem imod mig», hun kneb ham i øre\\nflippen. «Hvorfor skal Du være det da, styggen?»\\n\\n«Du passer forlidet på Dig selv, vennen min.\\nDu må jo vide, det er Dig, som altid opirrer mig.\\nMen Du er mig alligevel det kjæreste i verden.\\nKom nu, jeg vil i seng, så skal jeg betro Dig\\nnoget.» Han retted sig op med en ilfærdig bevæ\\ngelse og skjøv bordet tilside for at skaffe hende\\nplads. I det samme faldt hans øjne på Nilsens\\n\\nbrev, som Lucie havde lagt fra sig øverst i sy\\nkurven. .\\n\\n«Hvad er dette for noget?» Han tog brevet\\nog læste: Kjære, dyrebare frøken og pige!\\n\\n«Et kjærlighedsbrev, ser Du vel.» Lucie var\\nbegyndt at knappe sin kjole op og gik ind i\\nsoveværelset uden at lukke døren efter sig. «Skal\\nvi nå til med Nilsa igjen», tænkte hun.\\n\\nDa Theodor havde læst brevet, lod han det\\nfalde ned på bordet, tog frem sit fine, rødkantede\\nlommetørklæde og gned fingrene omhyggelig på\\ndet. Han blev stående lidt, hensunken i tanker\\nog så ud af sine halvlukte øjne med et mørkt og\\nuroligt blik. ;\\n\\n«Kommer Du ikke nå da, Theodor!» Han\\nhørte på den knirkende lyd af fjærmadratsen, at\\nLucie hopped op i sengen. «Det fillebreve! er\\nda vel ikke noe å falle i staver over, lel.»\\n\\nGerner strøg sig over ansigtet og gik ind i\\nsoveværelset.\\n\\n«Hvorfor har Du ikke fortalt mig, at Du har\\nen frier?» spurgte han og satte sig på stolen\\nforan sengen.\\n\\n«Nej, Du er altfor komisk, Theodor! Du\\nmener da vel aldrig», hun brast i latter.\\n\\n«Det er højst beklageligt, at Du ikke har\\nså pas fortrolighed til mig», vedblev Gerner. «Det\\nhavde jeg dog fortjent af Dig. La dem gå her\\nog frie til Dig. Hvad er det for en lømmel?>\\n\\nILucie var holdt op at le. Hendes hjærte\\nslog stærkt, og st lød lidt t, da\\nhun svarte: «Han går ærener for Tivolipersonale'\\nom ettermiddaen og om formiddaen er han bud i\\nen bank eller noe sånt noe.»\\n\\n«Har  Du havt  noget  med ham før\\ni tiden?» Det lød som om det pinte ham at få\\nordene frem.\\n\\n«Han har aldrig sat fingeren på mig engang.\\nAltid skal Du nå tro det, osså.»\\n\\n«Når begyndte han med sine erklæringer?»\\n\\n«Det er længe siden nå», svarte Lucie i en\\n\\nforlegen tone.\\n\\n«Og Du har ladt ham bli ved! Du behøved\\njo bare at ha sagt et ord til mig. Jeg skulde nok\\nlært ham at holde sine næser fra Dig. Hvorfor\\nhar Du tiet med det?»\\n\\n«Jeg vilde jo slets ikke vite af ham den\\ngangen. Det skjænner Du da vel. på breve',»\\n\\n«Dengangen, hvad mener Du med det?»\\n\\n«En får vel tænke på fremtiden osså, da»,\\nsa hun klynkende. «Hva' skal der vel bli af mig\\ni verden ?»\\n\\n«Kunde Du virkelig bekvemme Dig til at\\ngifte Dig med det menneske?»\\n\\n«Det vilde nå være det fornuftigste da.»\\n\\nGerner sad ganske stille, med ansigtet vendt\\nmod Lucie, og så i sommernatsskumringen hen\\n\\npå hende. Hun Ilå på ryg med blottet hals og\\narme og pilled på overlagnet.\\n\\n«Det hænder nok ikke så ofte med slike\\nsom jeg, at en retskaffen mand vil gifte sig med\\nen», vedblev Lucie med små ophold indimellem.\\n«Og er det da så rart, om jeg tænker som så:\\nDu får se til å finde Dig i det, for der blir nok\\nikke noe and't for Dig i verden, og med tiden\\nså glemmer Du vel Theodor, når Du stræver\\nsvært for det.»\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"He had come all the way up into Vestre Aker before he turned around and walked downhill again. He wanted to go up to Lucie and make peace with her—oh, how he burned for her now. He took long strides and went almost at a run down the hills. It was a good thing no one saw him.\\n\\nThis was how he always felt when he was away from her. Every drop of blood in him cried out for her, especially when there had been a tangle in the thread between them. He might just as well have spared himself the trouble of walking away that evening. He ought to have known that he would end up running like a madman to shorten the minutes of their separation. His head was burning, so that a couple of times he took off his hat to cool himself, and he sighed as an oppressed man sighs. For even now, when he was glowing with love and desire, he felt at the same time that dull rancor which always lay digging away inside him, that searing bitterness toward his love, that painful, jealous hatred of those who had had her before him, and finally the resentment that he, lawyer Theodor Gerner, was held captive in a relationship that caused him anguish and that he knew he did not have the strength to break off. He had gone up there that evening determined to tell her that she was to become his wife, but no sooner did he see her than he grew uncertain and thought it could wait until another time. It was also only when he was away from her that marrying seemed unavoidable to him. When he was with her, he thought things were good as they were.\\n\\nYes, but for that very reason, he stopped and placed his forefinger against his nose. With her you are content; away from her you are a man without peace. What is there to hesitate over, then?\\n\\nA few minutes later he was at the street door of her building, for which he always carried the key in his pocket. Ugh, that disgusting entrance, with the middle gate always open onto the filthy courtyard, where the long row of numbered privy doors stood directly opposite, on display. And those loathsome stairs, which smelled of gutters and kerosene, with their spattered, churchlike windows and their gray walls, which had holes in the whitewash, with cobwebs and dust hanging down like mourning crape. How tired he was of it all! Those doors on every floor, one on either side and one directly opposite, with cracked porcelain plates and black calling cards and patterned panes of frosted glass, and the green bell cords with frayed passementerie handles and mats full of holes in front of the doors.\\n\\nQuickly and quietly he let himself into the entrance hall, hung up his hat, and opened the door to the sitting room. God knows why she has the lamp burning when it is so light, he thought, looking around for Lucie. Oh, how good it would be never again to have to enter these ugly, oblong rooms with their pink walls and ornate ceilings, and these vile, tiered stoves.\\n\\nLucie was lying on the sofa with her arms folded across her breast, staring straight ahead with wide-open eyes, without giving any sign whatever that she heard him come in.\\n\\n“Well, Lucie,” he said tenderly, drawing a chair over to the sofa with his foot and sitting down on it. “I can well understand that it must sometimes be lonely for you, but if you have nothing else, there is always me to wait for.” He bent over her and kissed her.\\n\\nShe put one arm around his neck and pleaded with her lips for his mouth, until she felt his kiss against her teeth.\\n\\n“Oh God, how I love you, Theodor,” she whispered. “Yes, you don’t know it, even though you are so nasty and cruel to me.” She pinched his earlobe. “Why do you have to be like that, you horrid thing?”\\n\\n“You take too little care of yourself, my dear. You must know that it is you who always provokes me. But you are still the dearest thing in the world to me. Come now, I want to go to bed, and then I shall confide something to you.” He straightened up with a hurried movement and pushed the table aside to make room for her. At that moment his eyes fell on Nilsen’s letter, which Lucie had left at the top of the sewing basket.\\n\\n“What is this?” He picked up the letter and read: Dear, precious miss and maiden!\\n\\n“A love letter, as you can see.” Lucie had begun to unbutton her dress and went into the bedroom without closing the door behind her. “Are we going to start in about Nilsen again?” she thought.\\n\\nWhen Theodor had read the letter, he let it fall onto the table, took out his fine, red-edged handkerchief, and carefully rubbed his fingers on it. He remained standing for a while, lost in thought, looking out through half-closed eyes with a dark and troubled gaze.\\n\\n“Aren’t you coming now, Theodor?” From the creaking of the feather mattress, he could hear Lucie jumping into bed. “That wretched letter! It’s nothing to stand there lost in thought over, after all.”\\n\\nGerner ran a hand over his face and went into the bedroom.\\n\\n“Why haven’t you told me that you have a suitor?” he asked, sitting down on the chair in front of the bed.\\n\\n“No, you are much too comical, Theodor! Surely you don’t mean—” She burst out laughing.\\n\\n“It is most regrettable that you do not have that much confidence in me,” Gerner continued. “I had deserved that much from you. Letting them come here and court you. What kind of scoundrel is he?”\\n\\nLucie had stopped laughing. Her heart was beating hard, and her voice sounded a little hoarse when she answered: “He runs errands for the Tivoli performers in the afternoons, and in the mornings he is a messenger at a bank or something like that.”\\n\\n“Have you had anything to do with him in the past?” It sounded as though it pained him to force the words out.\\n\\n“He has never even laid a finger on me. You always have to think that, too.”\\n\\n“When did he begin making his declarations?”\\n\\n“It was a long time ago now,” Lucie answered in an embarrassed tone.\\n\\n“And you have let him go on! You only had to say one word to me. I would have taught him to keep his nose away from you. Why have you kept quiet about it?”\\n\\n“I wanted nothing whatever to do with him then. Surely you understand that. In letters.”\\n\\n“Then? What do you mean by that?”\\n\\n“One has to think about the future too,” she said plaintively. “What is to become of me in this world?”\\n\\n“Could you really bring yourself to marry that man?”\\n\\n“That would be the most sensible thing, after all.”\\n\\nGerner sat perfectly still, his face turned toward Lucie, looking at her in the twilight of the summer night. She lay on her back with her throat and arms bare, picking at the top sheet.\\n\\n“It does not happen very often to the likes of me that an honest man wants to marry one,” Lucie continued, with short pauses between her words. “And is it so strange if I think: You had better try to resign yourself to it, for there will probably be nothing else for you in this world, and in time you will surely forget Theodor, if you work very hard at it.”\", \"source_occurrence_id\": \"skram-lucie-388b107bcaa8cfbe\", \"source_language\": \"no\", \"source_language_text_sha256\": \"49edf852b7788d20d939cd325e8696205e953642a448831c9894b6944ef5dbca\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-20T14:02:52.472190+00:00\", \"model_usage\": {\"input_tokens\": 2311, \"cached_input_tokens\": 0, \"output_tokens\": 3539}, \"estimated_cost_usd\": 0.080024, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"skram-lucie\", \"title\": \"Lucie\", \"author\": \"Amalie Skram\", \"language\": \"no\", \"source_type\": \"nb_public_domain_ocr\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.1076, \"source_start\": 26750, \"source_end\": 26764, \"source_length\": 248606}, \"form\": {\"form_family\": \"present_or_past\", \"polarity\": \"surface_optional_negative\", \"tense_aspect\": \"present\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"no_main\", \"pattern_version\": \"0.12\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 1.0, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

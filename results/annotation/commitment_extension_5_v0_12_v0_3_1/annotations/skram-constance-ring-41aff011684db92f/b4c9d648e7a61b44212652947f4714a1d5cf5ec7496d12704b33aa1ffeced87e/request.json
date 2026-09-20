@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"skram-constance-ring-41aff011684db92f\", \"SOURCE_TEXT\": {\"exact_match\": \"Jeg elskede dig\", \"local_text\": {\"context_start\": 279057, \"context_end\": 279109, \"text\": \"«Jeg elskede dig saa højt, Constance,*\\nstønnede han.\"}, \"wider_canonical_context\": {\"context_start\": 276049, \"context_end\": 282263, \"text\": \"Hvor du er flittig, Constance,* sa han\\nbeundrende. «Altid i Virksomhed  du er\\nsaa sød at se paa, naar du sidder ved dit\\nArbejde. *\\n\\nHun svarte ikke.\\n\\npHvad er det nu igjen, du strikker paa?*\\nhans Tone var beskeden, men dog saa interes\\nseret,\\n\\nnStrømper.*\\n\\nnTil Fattigbørnene?*\\n\\nJa.*\\n\\nDer blev en Pausæ.\\n\\nnVéd du, hvad det er for en Dag i Dag,\\nConstance?» spurgte Ring efter at ha rømmet\\nsig et Par Gange; hans Stemme var frygtsom\\nog usikker.\\n\\n«Næj,» sa hun kort.\\n\\nnDet er jo den 26de Oktober, husked du\\nikke det?*\\n\\nNej,* var Svaret.\\n\\nnOg jeg, som trode * han havde nær\\nforsnakket sig og røbet, at han vidste, Tanten\\nhavde været der. ,Jasaa,* vedblev han og\\nsmilte anerkjendende til sin gode Hukommelse,\\n«saa det havde du glemt,  vor Forlovelses\\ndag, Constance,* føjede han sagtere til.\\n\\nnJeg synes ikke, der er nogen Glæde ved\\nat mindes den, for Resten,* sa hun tørt.\\n\\nRing sukkede dybt.\\n\\n,Aa nej, Constance, det kan du ha Ret i,\\nfor din egen Del.  Men jeg,  ja, jeg kan\\nikke la være at anse den som den lykkeligste\\nDag i mit Liv, ja, næst vor Bryllupsdag da.*\\n\\n,Tsjhel* sa hun og gjorde en Gebærde af\\nUvilje.\\n\\nJa, ja, Constance, jeg skal tie stille, naar\\ndu ønsker det, ikke sige et Muk, som du ikke\\ngir mig Lov til, jeg skal gjøre alt for at\\ntækkes dig,* han strakte sig hen imod hende\\nmed et bønfaldende Blik og talte lavt og\\nfrygtsomt.\\n\\nHun vendte sig bort med et Udtryk af\\nTræthed.\\n\\n,åa, Constance, kunde du bekvemme dig\\ntil paa denne Dag,* vedblev han, ,at gi mig\\net eneste lidet Kjærtegn  du gjorde en god\\nGjerning imod mig.* Stemmen brast, han\\nholdt Haanden for Øjnene og drog Vejret lang\\nsomt, næsten stønnende.\\n\\nConstance maalte ham med et opmærksomt\\nØjekast.\\n\\n,Nu har han vist drukket igjen,* tænkte hun.\\n\\nHan rejste sig, gik et Par Gange op og\\nned paa Gulvet og satte sig saa stilfærdig paa\\nsin forrige Plads.\\n\\n,Jeg har gaat med et forfængeligt Haab,*\\nbegyndte han igjen i en betrængt Tone. ,Jeg\\n\\ntænkte mig, at Erindringen om denne Dag\\nmaaske skulde stemme dig mildere. – Aa,\\nConstance, du er meget, meget haard imod\\nmig.» Han bøjede sig fremover, støttede Al\\nbuen paa Knæet og Panden i Haanden.\\n\\n»Sig mig én Ting,* sa Constance koldt,\\nnhvad mente du egentlig, da du saa bered\\nvillig gik ind paa at faa mig tilbage paa det\\nVilkaar, jeg satte?»\\n\\nnHvad jeg mente,* stammede han, ,jeg\\nmente  *\\n\\nHun saa' ham lige i Ansigtet. Han for\\nvirredes.\\n\\nnJeg forstaar dig ikke,» brød han af og\\nlod Hodet synke.\\n\\n»Du lod, som du fandt det saa rimeligt,\\nsom du slet ikke tænkte dig Muligheden af, at\\n\\ndet kunde være anderledes.  Husker du\\ndet ?*\\n\\nnDet var ogsaa oprigtigt fra min Side,\\nConstance.  Jeg kunde saa godt forstaa, at\\n\\ndu ikke saadan straks –. Men jeg haabede\\njo –» han holdt inde og sukkede.\\n\\nnDer var ikke Tale om straks eller senere\\neller om nogen Slags fremtidig Mulighed for\\nForandring. Du gik helt og uindskrænket ind\\nPaa mit Forlangende. Og naar jeg nu tænker\\npaa, hvordan du opfører dig * hun holdt\\npludselig inde. ,- Du store Gud, at du\\n\\nikke skammer dig,» tilføjede hun halvt bort\\nvendt.\\n\\n«Jeg elskede dig saa højt, Constance,*\\nstønnede han.\\n\\n«Ti stille med det Ord, det er mig veder\\nstyggeligt i din Mund,* sa hun med opblus\\nsende Vrede.\\n\\nnJeg kunde jo ikke la være at tro, at\\nTiden skulde mildne dit Sind!» ndbrød han og\\nrettede sig op i Sædet. ,Jeg havde jo et\\nHaab om, at det en Gang skulde lykkes mig\\nat vinde dig tilbage.  Hvis det ogsaa skal\\nregnes mig til en Forbrydelse  saa –» han\\nholdt inde.\\n\\n«Du stolte paa, at du skulde trætte mig\\nud, saa jeg tilsidst skulde gi mig,  derfor\\nbegyndte du saa godt som straks at overhænge\\nmig.  Du brød dit Ord fra Begyndelsen af\\n der er ikke Gnist af Karakter i dig.»\\n\\n,Det er ikke godt for en Mand at vise\\nKarakter, naar han er stillet som jeg.  Gaa\\nog se paa dig hver Dag, være dig saa nær og\\naldrig turde røre dig  —. Aa, Constance,\\n du maa la dette ha en Ende,  du maa\\nbli min igjen, du maa, du maa!»\\n\\nHan sank paa Knæ og skjulte Ansigtet i\\nhendes Kjole.\\n\\n«Ræjs dig op,* sa hun uvillig, ,hvad ligger\\ndu der for?*\\n\\nHan adlød straks og satte sig tilbage paa\\nStolen.\\n\\nnDin Beregning var ikke dum,» sa hun\\nog saa' paa ham med et næsten hadefuldt\\nBlik, ,du vidste, hvad du indlod dig paa; det\\nvar mere end jeg gjorde. Men jeg gir mig\\nover, det er mig, som har trukket det korteste\\nStraa.  Værsgod, du kan faa det, som\\ndu vil –.»\\n\\nHun havde rejst sig og stod nu med kors\\nlagte Arme og saa' hen for sig.\\n\\nHan fôr op med et Spring.\\n\\nnDu vil være min Haustra igjen som i\\ngamle Dage,* hviskede han og rakte Hænderne\\nud imod hende, «aa, Constance \\\" der kom\\nen smeltet Lyd i hans Stemme, ndette er for\\nmegen Glæde, den kommer for pludselig,* han\\ntog sig om Hodet, «du tilgir mig helt,\\nganske —\\\"*\\n\\nNoget, som lignede Latter, afbrød ham.\\n\\nrdeg tilgir dig ikke, - aldrig, forstaar\\ndu,* hun traadte et Skridt nærmere, «tig\\nLiget af en Person, du har myrdet, om\\nTilgivelse og se, om det svarer dig\\nJeg gjør det i Selvforagt, hører du  i Selv\\nforagt!  Det er Følgerne af mit Nederlag,\\ndet Nederlag, jeg led, da jeg opgav Skils\\nMissen, jeg nu tar paa mig.* Hun knyttede\\nHænderne og strøg forbi ham. nDet nytter\\n\\nikke at ville løbe fra sine Handlingers Kon\\nsekventser,* raabte hun jamrende, ,de følger\\nen i Hælene og overmander en.» Hun gik\\nfrem og tilbage i det hæftigste Oprør.\\n\\n,Nej, Constance, naar du først kom til\\nbage, saa maatte det ende saaledes,  et For\\nhold som det, du tænkte dig, er en Umulighed,\\nen Unaturlighed Men du skal se, det\\nkan endnu bli godt, jeg skal endnu komme til\\nat gjøre dig lykkelig.* Han gjorde et Skridt\\nhen imod hende.\\n\\n,Lykkelig * sa hun med ubeskrivelig\\nHaan. «Slige Betegnelser hører ikke hjemme\\ni et Forhold som mit. Lad os se Sagen som\\nden er.* Hun gik pludselig tæt hen til ham.\\n,Naar jeg nu samtykker i at være din Haustra,*\\nsa hun truende, ,betyr det ikke det, du\\ntror!  Nej, jeg skal sige dig noget  det\\nvilde være mig præcis det samme, om det var\\nen hvilkensomhelst anden Mand, jeg skulde\\ntvinges til, forstaar du, præcis det samme.»\\n\\nRing fôr uvilkaarlig sammen.\\n\\n,Uf nej, Constance, tal ikke saa stygt \\\"\\nbad han. ,Men det er det samme, naar du\\nblot vil bli min igjen,  dette er en Stem\\nning, som gaar over. Aa, Constance, jeg\\nkunde ligge paa mine Knæ og takke dig i\\nhele Nat, hvis jeg fik Lov, men du vil jo ikke\\nha det.*\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"“How industrious you are, Constance,” he said admiringly. “Always busy—you are so lovely to look at when you sit at your work.”\\n\\nShe did not answer.\\n\\n“What is it you are knitting now, again?” His tone was modest, yet so interested.\\n\\n“Stockings.”\\n\\n“For the poor children?”\\n\\n“Yes.”\\n\\nThere was a pause.\\n\\n“Do you know what day it is today, Constance?” Ring asked after clearing his throat a couple of times; his voice was timid and uncertain.\\n\\n“No,” she said curtly.\\n\\n“Why, it is the twenty-sixth of October; didn’t you remember?”\\n\\n“No,” was the answer.\\n\\n“And I, who thought—” He had almost let the words slip and revealed that he knew her aunt had been there. “I see,” he continued, and smiled in appreciation of his good memory, “so you had forgotten it—our engagement day, Constance,” he added more softly.\\n\\n“I do not think there is any pleasure in remembering it, for that matter,” she said drily.\\n\\nRing sighed deeply.\\n\\n“Oh no, Constance, you may be right about that, as far as you are concerned. But I—yes, I cannot help regarding it as the happiest day of my life—yes, next to our wedding day, that is.”\\n\\n“Tsh!” she said, making a gesture of displeasure.\\n\\n“Yes, yes, Constance, I shall be quiet if that is what you wish, not say a peep that you do not give me leave to say; I shall do everything to please you.” He leaned toward her with an imploring look and spoke softly and timidly.\\n\\nShe turned away with an expression of weariness.\\n\\n“Oh, Constance, if you could bring yourself, on this day,” he continued, “to give me just one little caress—you would be doing me a kindness.” His voice broke; he covered his eyes with his hand and breathed slowly, almost groaning.\\n\\nConstance measured him with an attentive glance.\\n\\n“Now he has surely been drinking again,” she thought.\\n\\nHe rose, walked up and down the floor a couple of times, and then quietly resumed his former seat.\\n\\n“I have been cherishing a vain hope,” he began again in a distressed tone. “I imagined that the memory of this day might make you more gently disposed. Oh, Constance, you are very, very hard toward me.” He bent forward, rested his elbow on his knee, and his forehead in his hand.\\n\\n“Tell me one thing,” Constance said coldly. “What did you really mean when you so readily agreed to take me back on the condition I laid down?”\\n\\n“What I meant,” he stammered, “I meant—”\\n\\nShe looked him straight in the face. He became confused.\\n\\n“I do not understand you,” he broke off, letting his head sink.\\n\\n“You acted as though you found it so reasonable, as though it had never even occurred to you that it could be otherwise. Do you remember that?”\\n\\n“That was sincere on my part too, Constance. I could understand so well that you could not, just at once—. But of course I hoped—” He stopped and sighed.\\n\\n“There was no question of at once or later, or of any kind of future possibility of change. You agreed fully and unreservedly to my demand. And when I think now of how you behave—” She suddenly broke off. “Good God, that you are not ashamed of yourself,” she added, half turned away.\\n\\n“I loved you so deeply, Constance,” he groaned.\\n\\n“Be quiet with that word; it is disgusting to me in your mouth,” she said with flaring anger.\\n\\n“I could not help believing that time would soften your feelings!” he exclaimed, straightening up in his seat. “I did have a hope that one day I might succeed in winning you back. If that too is to be counted as a crime against me, then—” He stopped.\\n\\n“You trusted that you would wear me out, so that in the end I would yield; that is why you began pestering me almost at once. You broke your word from the very beginning—there is not a spark of character in you.”\\n\\n“It is not easy for a man to show character when he is placed as I am. To go and look at you every day, to be so near you and never dare touch you—. Oh, Constance, you must put an end to this; you must become mine again, you must, you must!”\\n\\nHe sank to his knees and hid his face in her dress.\\n\\n“Get up,” she said with displeasure. “Why are you lying there?”\\n\\nHe obeyed at once and sat back down on the chair.\\n\\n“Your calculation was not foolish,” she said, looking at him with an almost hateful gaze. “You knew what you were undertaking; more than I did. But I surrender; it is I who have drawn the short straw. There you are, you may have it as you wish—.”\\n\\nShe had risen and now stood with folded arms, staring straight ahead.\\n\\nHe sprang up.\\n\\n“You will be my wife again as in the old days,” he whispered, holding out his hands toward her. “Oh, Constance”—a melting note entered his voice—“this is too much joy; it comes too suddenly.” He clutched his head. “You forgive me completely, wholly—”\\n\\nSomething resembling laughter interrupted him.\\n\\n“I do not forgive you—never, do you understand?” She stepped closer. “Beg the corpse of a person you have murdered for forgiveness and see whether it answers you. I am doing it out of self-contempt, do you hear—out of self-contempt! It is the consequence of my defeat, the defeat I suffered when I abandoned the divorce, that I am now taking upon myself.” She clenched her hands and swept past him. “It is no use trying to flee the consequences of one’s actions,” she cried piteously. “They follow at one’s heels and overpower one.” She paced back and forth in the most violent agitation.\\n\\n“No, Constance, once you came back, it had to end this way; a relationship such as the one you imagined is an impossibility, an unnatural thing. But you shall see, it can still turn out well; I shall yet come to make you happy.” He took a step toward her.\\n\\n“Happy,” she said with indescribable scorn. “Such terms have no place in a relationship like mine. Let us see the matter as it is.” She suddenly went right up to him. “When I now consent to be your wife,” she said threateningly, “it does not mean what you think! No, I shall tell you something—it would be precisely the same to me if it were any other man whatsoever whom I was to be forced to accept, do you understand, precisely the same.”\\n\\nRing involuntarily flinched.\\n\\n“Oh no, Constance, do not speak so horribly,” he pleaded. “But it does not matter, if only you will become mine again; this is a mood that will pass. Oh, Constance, I could lie on my knees and thank you all night long if I were allowed, but of course you will not have it.”\", \"source_occurrence_id\": \"skram-constance-ring-41aff011684db92f\", \"source_language\": \"no\", \"source_language_text_sha256\": \"351124ab441fab7470d7a8147c394d288ebe0d2f52b341de7db736f2fc768b93\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-20T13:55:41.572663+00:00\", \"model_usage\": {\"input_tokens\": 2355, \"cached_input_tokens\": 0, \"output_tokens\": 2311}, \"estimated_cost_usd\": 0.055639999999999995, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"skram-constance-ring\", \"title\": \"Constance Ring\", \"author\": \"Amalie Skram\", \"language\": \"no\", \"source_type\": \"nb_public_domain_ocr\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.516324, \"source_start\": 279058, \"source_end\": 279073, \"source_length\": 540471}, \"form\": {\"form_family\": \"past\", \"polarity\": \"affirmative\", \"tense_aspect\": \"past\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"no_historical_past\", \"pattern_version\": \"0.12\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 1.0, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

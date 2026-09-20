@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "reviewed_on": "2026-09-20",
+  "review_method": "Interactive assistant inspection of original page image. Limited errata, not full-book proofreading.",
+  "corrections": [
+    {
+      "correction_id": "constance-ring-p368-quotation",
+      "work_id": "skram-constance-ring",
+      "printed_page": 368,
+      "source_sha256": "35c0c3d52a83fdc1340e2946c7271a898021f9e8a62eaf081725f204805fe05a",
+      "image_url": "https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2013082608001_0372/full/full/0/native.jpg",
+      "before": "nJeg elskede dig, Conny.*",
+      "after": "„Jeg elskede dig, Conny.“",
+      "reason": "Original scan confirms the opening quotation mark was misread as n, which suppresses the first-person word boundary. Located by a broader lexical check across all pages, independently of P interpretation.",
+      "image_sha256": "8c314c7d12ad03efbb24a7a7468a145f71f8d8b42e9b495009977c9bd8fc2c3a"
+    },
+    {
+      "correction_id": "constance-ring-p370-quotation",
+      "work_id": "skram-constance-ring",
+      "printed_page": 370,
+      "source_sha256": "d35e76533dedb8793bff68842adcfd152d16967521e88607ceed2738898fb681",
+      "image_url": "https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2013082608001_0374/full/full/0/native.jpg",
+      "before": "pJeg elsker dig*  sa hun, ,elsker, elsker\ndig,*",
+      "after": "„Jeg elsker dig“ — sa hun, „elsker, elsker\ndig,“",
+      "reason": "The scan has opening and closing quotation marks and a dash. OCR substitutes p for the initial quotation mark, suppressing the extractor word boundary; accompanying punctuation in the same utterance is also restored from the scan.",
+      "image_sha256": "08c8e0e034c9ea544c2461f605eda21570cb3d470204c49793cf91299df1d44f"
+    },
+    {
+      "correction_id": "constance-ring-p429-quotation",
+      "work_id": "skram-constance-ring",
+      "printed_page": 429,
+      "source_sha256": "02d8b72f044be14bcf7b8ac61ee3306197be1bcf50111fa1763d04db2c6a4cbe",
+      "image_url": "https://www.nb.no/services/image/resolver/URN:NBN:no-nb_digibok_2013082608001_0433/full/full/0/native.jpg",
+      "before": "nJeg har elsket Dem hele mit Liv",
+      "after": "„Jeg har elsket Dem hele mit Liv",
+      "reason": "Original scan confirms the opening quotation mark was misread as n, which suppresses the first-person word boundary. Located by a broader lexical check across all pages, independently of P interpretation.",
+      "image_sha256": "eec587be4114a1f84601b0007c39fd1b41f188fe75623580133f91feeb0b44a8"
+    }
+  ]
+}

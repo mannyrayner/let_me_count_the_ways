@@ -227,8 +227,15 @@ def extract_runeberg_proofread(value: str) -> str:
     if navigation_end is None:
         raise ValueError("Runeberg proofread page has no navigation form boundary")
     rules = list(re.finditer(r"(?is)<hr\b[^>]*>", body_html[navigation_end.end():]))
-    if len(rules) < 2:
-        raise ValueError("Runeberg proofread page has fewer than two footer rules")
+    # Some proofread editions (e.g. Pengar) have no scan-links panel and only
+    # one rule. Accept that variant only when its rule introduces Runeberg's
+    # explicit terminal attribution, keeping ambiguous boundaries an error.
+    single_attribution_footer = len(rules) == 1 and re.match(
+        r"(?is)\s*<tt\b[^>]*>\s*Project Runeberg\b",
+        body_html[navigation_end.end() + rules[0].end():],
+    )
+    if len(rules) < 2 and not single_attribution_footer:
+        raise ValueError("Runeberg proofread page has fewer than two footer rules without a terminal attribution")
     # The old proofread template closes its navigation form immediately before
     # the chapter and places the first rule immediately after the literary text.
     # Scan links lie between the two footer rules and must not enter the output.

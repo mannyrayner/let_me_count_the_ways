@@ -76,7 +76,8 @@ class BroadenedPatternTests(unittest.TestCase):
             original_manifest = base / "original.json"
             original_manifest.write_text(json.dumps({"works": original_ids}))
             result = run(PATTERNS, base / "public", base / "private", 100, original_manifest)
-            self.assertEqual(16, result["works_attempted"])
+            self.assertEqual(len(original_ids), result["works_attempted"])
+            self.assertEqual(set(original_ids), {work["work_id"] for work in result["works"]})
             private = next(w for w in result["works"] if w["work_id"] == "mcmillan-error-of-understanding")
             self.assertNotEqual("public", private["candidate_artifact"])
             self.assertFalse((base / "public/works/mcmillan-error-of-understanding/candidates.jsonl").exists())

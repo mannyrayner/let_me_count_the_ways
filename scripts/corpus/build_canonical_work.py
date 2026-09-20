@@ -51,7 +51,7 @@ def main() -> int:
     parser.add_argument("--language", required=True)
     parser.add_argument(
         "--source-type", required=True,
-        choices=("gutenberg_single", "gutenberg_multi", "runeberg", "local_permissioned"),
+        choices=("gutenberg_single", "gutenberg_multi", "runeberg", "nb_public_domain_ocr", "local_permissioned"),
     )
     parser.add_argument("--source-reference", action="append", required=True)
     parser.add_argument("--public-render-policy", required=True)
