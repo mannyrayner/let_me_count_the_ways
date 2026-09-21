@@ -20,4 +20,3 @@ if(form){
  form.addEventListener("reset",()=>setTimeout(apply,0));
  form.addEventListener("submit",event=>event.preventDefault());apply();
 }
-

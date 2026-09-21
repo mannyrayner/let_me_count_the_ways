@@ -1,0 +1,191 @@
+{
+  "protocol_version": "context_pilot_v1",
+  "scope": "full_text",
+  "model_alias": "5.6",
+  "api_model": "gpt-5.6-sol",
+  "selection_sha256": "e79d257c73d63389483eb135961785ee8f276b0887a93751d96f0a4ec5e1a688",
+  "prompt_sha256": "64993f23a38f6ec1fb25664f30d7f374b8437f22b93c38e615860fbd10e507c1",
+  "schema_sha256": "65b284805defaf4b5fcf4e2a7223cdf0df33a29541025e9e321fa7bf70335dbe",
+  "conditions": {
+    "A": "extracted love expression alone, not the complete speech turn",
+    "B": "local scene or explicitly bounded exchange",
+    "C": "B plus prior narrative evidence",
+    "D": "C plus later narrative evidence"
+  },
+  "repetitions": 3,
+  "order_seed": 20260921,
+  "cases": [
+    {
+      "case_id": "C05",
+      "work_id": "shakespeare-king-lear",
+      "label": "Goneril addressing Lear",
+      "public_context": true,
+      "dossier_note": "Love-test exchange; preceding opening of I.1; later IV.7 and V.3 in full. Not the complete play.",
+      "input_characters": {
+        "A": 45,
+        "B": 3284,
+        "C": 6995,
+        "D": 161615
+      }
+    },
+    {
+      "case_id": "C06",
+      "work_id": "shakespeare-king-lear",
+      "label": "Cordelia addressing Lear",
+      "public_context": true,
+      "dossier_note": "Love-test exchange; preceding opening of I.1; later IV.7 and V.3 in full. Not the complete play.",
+      "input_characters": {
+        "A": 54,
+        "B": 3293,
+        "C": 7004,
+        "D": 161624
+      }
+    }
+  ],
+  "call_order": [
+    {
+      "case_id": "C06",
+      "condition": "D",
+      "repeat": 3,
+      "fingerprint": "4aef8db9074e252627442d3c5f87a3406c7b3733accb103fb7b66e361f97fbc4"
+    },
+    {
+      "case_id": "C05",
+      "condition": "B",
+      "repeat": 1,
+      "fingerprint": "93ffdcbc13b0246f76bf63df5fe7ab7811fc3624d2beaccbfb244d3fa59970ff"
+    },
+    {
+      "case_id": "C06",
+      "condition": "C",
+      "repeat": 3,
+      "fingerprint": "b324ddc37647930ff1da57b16d7f7c80d2d17a0a7a08a755f84c6a4011500731"
+    },
+    {
+      "case_id": "C05",
+      "condition": "D",
+      "repeat": 2,
+      "fingerprint": "1b85b28071614e15b7b243ece1f45044047d2049bfa9cdc8e71937b1bccd5c60"
+    },
+    {
+      "case_id": "C05",
+      "condition": "A",
+      "repeat": 1,
+      "fingerprint": "69b84665b65a8c4c71dd2ba117a52c76c446a6800b590e5baae7c41225c37452"
+    },
+    {
+      "case_id": "C05",
+      "condition": "C",
+      "repeat": 3,
+      "fingerprint": "5163cebd7e3d41802afa4f996dc1b29037941389b23fe016fe928463b828de51"
+    },
+    {
+      "case_id": "C05",
+      "condition": "D",
+      "repeat": 1,
+      "fingerprint": "d79946025879acd6909634c1a1e12f12efe40e9d4acdb9c619a858be96458b3c"
+    },
+    {
+      "case_id": "C06",
+      "condition": "B",
+      "repeat": 1,
+      "fingerprint": "953baa75188b90fe6a7748200a931e449f9c6026480642fd552cd92041824897"
+    },
+    {
+      "case_id": "C06",
+      "condition": "A",
+      "repeat": 3,
+      "fingerprint": "98b022d7293a8f8547bc4cc61ab1960a7b103b0f89bba49930712ebd35833f38"
+    },
+    {
+      "case_id": "C05",
+      "condition": "B",
+      "repeat": 2,
+      "fingerprint": "45102eba06028f983d3d8e9f6920d640c6f7d550d6a12d040a57e346f34e0bf9"
+    },
+    {
+      "case_id": "C06",
+      "condition": "B",
+      "repeat": 3,
+      "fingerprint": "929291bcbd119bd9864446da09e17ecf7eae04fa0dba740e98c1d07d0e7324c4"
+    },
+    {
+      "case_id": "C06",
+      "condition": "C",
+      "repeat": 2,
+      "fingerprint": "7b818d3759573bcd68b89802bc3a433910c850752fc239c0c55afe917892c006"
+    },
+    {
+      "case_id": "C06",
+      "condition": "A",
+      "repeat": 2,
+      "fingerprint": "60475f0e166487e013658adb576438349f0bb243f59e7a0e02f5e97f506264f0"
+    },
+    {
+      "case_id": "C06",
+      "condition": "C",
+      "repeat": 1,
+      "fingerprint": "e2fe54601539b6afacc89e35ccc79df7c1444ad1468e2c95187f8c54f629c0a3"
+    },
+    {
+      "case_id": "C06",
+      "condition": "B",
+      "repeat": 2,
+      "fingerprint": "756c689d5578e96a369975a5d0d86400d38c20baf1596facd654dc2b8b981936"
+    },
+    {
+      "case_id": "C06",
+      "condition": "D",
+      "repeat": 1,
+      "fingerprint": "dbfc640c5d012cfa1b23f2c5b665555111e20962f54b6d9b9364a250a23a3ad6"
+    },
+    {
+      "case_id": "C05",
+      "condition": "D",
+      "repeat": 3,
+      "fingerprint": "f46a6600d9a15627333c808be6efbe9d9a9cf63a0d836b431db5417a6afe2357"
+    },
+    {
+      "case_id": "C06",
+      "condition": "A",
+      "repeat": 1,
+      "fingerprint": "ec7d4c616761b09a69c26773a57336f084673702a103b4d435ca7f39621cf704"
+    },
+    {
+      "case_id": "C05",
+      "condition": "B",
+      "repeat": 3,
+      "fingerprint": "550180617fd0596812cf454e12d40d5e889f874ee8886db537deffd3d45c67e1"
+    },
+    {
+      "case_id": "C06",
+      "condition": "D",
+      "repeat": 2,
+      "fingerprint": "a48fdec601f79f1fb8453778df85e1bd2406f6890910afa2ecca555c9ecf07a5"
+    },
+    {
+      "case_id": "C05",
+      "condition": "A",
+      "repeat": 3,
+      "fingerprint": "f1c310f4fb923da45926d677043071faa441214559cd79373b7205434b1a3100"
+    },
+    {
+      "case_id": "C05",
+      "condition": "C",
+      "repeat": 1,
+      "fingerprint": "abd2d510cbbf2692ac8dadb444a24eadcdfc88ddd0573144213f9a5689edebcf"
+    },
+    {
+      "case_id": "C05",
+      "condition": "A",
+      "repeat": 2,
+      "fingerprint": "81b4d001d3f1d3fa4d6d92ee2d596640e851749b7863e8e53745fba2406e7773"
+    },
+    {
+      "case_id": "C05",
+      "condition": "C",
+      "repeat": 2,
+      "fingerprint": "74e21ed283b94cb15457dc14165e8adb161412c08730275b65e76db59aadb737"
+    }
+  ]
+}

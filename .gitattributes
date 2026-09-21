@@ -23,3 +23,7 @@ provenance/sources/*-context-v1.json text eol=lf
 corpus/works/tolstoy-war-and-peace/work.json text eol=lf
 corpus/works/shakespeare-king-lear/work.json text eol=lf
 corpus/works/saint-exupery-le-petit-prince/work.json text eol=lf
+
+# Quoted source whitespace is evidence, including in generated reading copies.
+docs/reader/** whitespace=-trailing-space,-blank-at-eof
+results/context_pilot/**/*.html whitespace=-trailing-space,-blank-at-eof

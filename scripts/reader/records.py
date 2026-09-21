@@ -92,4 +92,3 @@ def load_collection(root=ROOT, config=None):
     if set(works) - set(inventory):
         raise ValueError("Work inventory does not cover annotation set")
     return sorted(records,key=lambda r:(r["work"]["title"].casefold(),r["location"]["source_start"])), inventory, hashes
-

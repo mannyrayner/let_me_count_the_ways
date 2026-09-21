@@ -5,9 +5,15 @@ the phrase “I love you” across legally reusable text corpora.
 
 ## Status
 
-This project is in its initial design phase. The repository currently provides a
-scaffold for corpus acquisition, ontology development, annotation, analysis, and
-research reporting.
+The current completed public annotation set contains 252 occurrences from 35
+complete works searched in seven languages. Read the [human-readable case
+collection](docs/reader/README.md), including source context, translations,
+scores and saved explanations. The corpus has grown through successive revisions.
+
+A [controlled context pilot and three further source texts](docs/notes/context_study_v1.md)
+are prepared; their new annotations are pending. See [runbook 45](docs/howto/45_read_cases_and_run_context_pilot.md)
+for the offline reader and reproducible API workflows. [LaTeX/BibTeX paper drafts](docs/paper/humanities/README.md)
+are versioned in the repository.
 
 ## Repository layout
 

@@ -69,6 +69,7 @@ in-place because Git history already preserves them.
 | 42 | [Run the full canonical annotation locally](42_run_full_canonical_annotation_locally.md) | Complete resumable 225-case annotations, empty failures, and priority-review inventory |
 | 43 | [Complete the private EoU pipeline](43_complete_private_eou_pipeline.md) | Private v0.11 EoU extraction/review/annotation and a local publication-permission request package |
 | 44 | [Commitment extension](44_extend_commitment_corpus.md) | Acquire and annotate five additional works |
+| 45 | [Read cases and run the context pilot](45_read_cases_and_run_context_pilot.md) | Human-readable evidence, three new sources, and independent context judgments |
 
 ## Conventions
 

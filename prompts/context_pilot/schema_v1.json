@@ -1,0 +1,275 @@
+{
+  "type": "object",
+  "properties": {
+    "target_translation": {
+      "type": "string"
+    },
+    "dimensions": {
+      "type": "object",
+      "properties": {
+        "T": {
+          "type": "object",
+          "properties": {
+            "score": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "minimum": 0,
+              "maximum": 4
+            },
+            "evidence_status": {
+              "type": "string",
+              "enum": [
+                "assessable",
+                "insufficient"
+              ]
+            },
+            "confidence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "reason": {
+              "type": "string"
+            },
+            "evidence": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "block_id": {
+                    "type": "string"
+                  },
+                  "quotation": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "block_id",
+                  "quotation"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "score",
+            "evidence_status",
+            "confidence",
+            "reason",
+            "evidence"
+          ],
+          "additionalProperties": false
+        },
+        "P": {
+          "type": "object",
+          "properties": {
+            "score": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "minimum": 0,
+              "maximum": 4
+            },
+            "evidence_status": {
+              "type": "string",
+              "enum": [
+                "assessable",
+                "insufficient"
+              ]
+            },
+            "confidence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "reason": {
+              "type": "string"
+            },
+            "evidence": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "block_id": {
+                    "type": "string"
+                  },
+                  "quotation": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "block_id",
+                  "quotation"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "score",
+            "evidence_status",
+            "confidence",
+            "reason",
+            "evidence"
+          ],
+          "additionalProperties": false
+        },
+        "E": {
+          "type": "object",
+          "properties": {
+            "score": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "minimum": 0,
+              "maximum": 4
+            },
+            "evidence_status": {
+              "type": "string",
+              "enum": [
+                "assessable",
+                "insufficient"
+              ]
+            },
+            "confidence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "reason": {
+              "type": "string"
+            },
+            "evidence": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "block_id": {
+                    "type": "string"
+                  },
+                  "quotation": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "block_id",
+                  "quotation"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "score",
+            "evidence_status",
+            "confidence",
+            "reason",
+            "evidence"
+          ],
+          "additionalProperties": false
+        },
+        "O": {
+          "type": "object",
+          "properties": {
+            "score": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "minimum": 0,
+              "maximum": 4
+            },
+            "evidence_status": {
+              "type": "string",
+              "enum": [
+                "assessable",
+                "insufficient"
+              ]
+            },
+            "confidence": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "reason": {
+              "type": "string"
+            },
+            "evidence": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "block_id": {
+                    "type": "string"
+                  },
+                  "quotation": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "block_id",
+                  "quotation"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "score",
+            "evidence_status",
+            "confidence",
+            "reason",
+            "evidence"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "T",
+        "P",
+        "E",
+        "O"
+      ],
+      "additionalProperties": false
+    },
+    "original_speech_situation": {
+      "type": "string"
+    },
+    "affection_evidence": {
+      "type": "string",
+      "enum": [
+        "present",
+        "absent",
+        "mixed",
+        "unknown"
+      ]
+    },
+    "undertaking_and_uptake": {
+      "type": "string"
+    },
+    "recognised_work": {
+      "type": "boolean"
+    },
+    "recognition_note": {
+      "type": "string"
+    },
+    "limitations": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "target_translation",
+    "dimensions",
+    "original_speech_situation",
+    "affection_evidence",
+    "undertaking_and_uptake",
+    "recognised_work",
+    "recognition_note",
+    "limitations"
+  ],
+  "additionalProperties": false
+}

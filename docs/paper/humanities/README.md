@@ -2,6 +2,10 @@
 
 Current source: [let_me_count_the_ways.tex](let_me_count_the_ways.tex). References: [references.bib](references.bib). Revision notes: [CHANGELOG.md](CHANGELOG.md).
 
+The existing draft's cases can now be read in the [human-readable collection](../../reader/README.md).
+The [context-study protocol](../../notes/context_study_v1.md) records the next empirical questions;
+its pending results have not been inserted into this historical draft.
+
 ## Build the paper
 
 From this directory, with a TeX distribution containing pdfLaTeX, BibTeX, latexmk, Latin Modern, natbib, microtype, xurl and the usual LaTeX packages:

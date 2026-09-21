@@ -159,4 +159,3 @@ def main():
     print(json.dumps({"status":"verified" if args.check else "built","files":len(outputs),
         "occurrences":json.loads(outputs["manifest.json"])["occurrences"],"output":str(args.output)}))
 if __name__=="__main__":main()
-
