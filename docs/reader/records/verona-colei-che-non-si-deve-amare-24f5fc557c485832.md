@@ -1,0 +1,390 @@
+# Colei che non si deve amare
+
+Guido da Verona · Italian
+
+[All records](../README.md) · [HTML reading copy](../cases/verona-colei-che-non-si-deve-amare-24f5fc557c485832.html)
+
+## Target
+
+> io ti amo
+
+
+| T: report / avowal | P: undertaking | E: expressive/reflexive | O: other |
+|---:|---:|---:|---:|
+| 4 / 4 | 0 / 4 | 0 / 4 | 0 / 4 |
+
+Scores are independent support judgments. T is not a sincerity score.
+
+## Original passage
+
+> — No, Lora, — egli corresse con indulgenza, — tu non lo comprendi.
+> Verrebbe inevitabilmente un giorno, e forse non troppo lontano, nel
+> quale diresti a tuo fratello: «Réndimi ora la mia vita, perch’essa è
+> mia, e voglio viverla.» Ma pensi che allora io potrei cederti ad un
+> altro? Pensi che, dopo un delitto come questo, si possa tranquillamente
+> ricominciare la strada per la quale si andava prima? Tu sì, forse,
+> perchè hai vent’anni ed un cuore spensierato. Ma io? Dimmi, che
+> farei allora? Conosci la gelosia? Conosci quell’altro tormento, più
+> grande, che si chiama il rimorso? Vedi: c’è fra noi una differenza
+> fondamentale: tu mi ami perchè puoi dimenticare, perchè non conosci, e
+> quasi non sai che sono tuo fratello... invece io ti amo appunto, e più
+> disperatamente, perchè so, perchè so con profonda paura, che sei la mia
+> sorella....
+
+
+## Original AI explanation
+
+Arrigo’s “io ti amo” is a reflective avowal of his present love for Lora, embedded in an explicit comparison between their respective feelings and explanations of why they love. Although he describes his love as desperate and bound up with jealousy, fear, and incestuous guilt, the words themselves do not undertake a commitment and are not presented as a reflex-like affective discharge.
+
+## Ambiguity
+
+The surrounding discussion of sacrificing a whole life and Arrigo’s inability to yield Lora to another introduces relational and possessive stakes, but it does not give this core avowal independent performative force.
+
+## Narrative situation (AI interpretation)
+
+Arrigo contrasts Lora’s supposedly carefree, forgetful love with his own fully conscious and therefore more desperate love. He presents knowledge that Lora is his sister not as negating his love but as intensifying it through fear, jealousy, remorse, and awareness of their taboo relationship. The utterance is consequently a deliberate, reason-giving avowal rather than an impulsive exclamation, even though its emotional context is intense.
+
+## Original context supplied to the annotator
+
+> Quand’erano soli, quando faceva un po’ scuro, quando si toccavano,
+> l’interiore fantasma s’impossessava del loro turbamento. Era un male
+> che cominciava col desiderio d’un bacio, e passava dall’uno all’altra,
+> come una catena che stringesse le loro carni fraterne; poi girava,
+> s’attorcigliava in serratissimi nodi, fino a curvarli entrambi sotto
+> l’oppressione del suo peso. Ella sentiva il bisogno di abbandonarsi
+> nelle sue braccia, egli provava con iracondia la tentazione di
+> afferrarla e stringerla fino al dolore; ma in entrambi, anche in lei
+> che si offriva, era una invincibile paura. Una paura gelida, radicata
+> nell’essere, una paura che li attraeva diversamente e diversamente li
+> separava. Eran come due sitibondi, legati presso la medesima fontana,
+> così che potesser tender le labbra sino ad un pòllice dall’acqua, fin a
+> sentirne la chiara freschezza e respirarne l’umidità, ma senza riuscire
+> ad intingervi le labbra, mai. Tra la lor sete e la fontana c’era quel
+> póllice di spazio che non li lasciava bere.
+> 
+> — Vorrei che un uomo potesse dirmi perchè mai ti ho dovuto amare!
+> — esclamò Arrigo. — Vorrei me lo dicesse un uomo che conosca tutte
+> le anime e tutti i peccati, un prete per esempio. Ma io non oso
+> confessarmi di questo peccato. E poi, che serve? Anch’essi non san
+> nulla; nessuno sa nulla di tutto ciò.
+> 
+> Questo accenno religioso della confessione spaventò la fanciulla,
+> come se, d’improvviso, l’abito nero del sacerdote, l’ombra
+> dell’intercolunio, le mistiche nuvole dell’incenso, l’alito caldo
+> che passa per la grata con il bisbiglio delle parole colpevoli, e
+> la rampogna, e la condanna, e la minaccia di penitenze perpetue, le
+> componessero nel cuore sbigottito l’immagine del suo peccato mortale.
+> 
+> — Perchè dici queste parole così nere? — domandò. E si strinse a lui,
+> più vicina, quasi per trovare in lui un rifugio. La barca dei cantori
+> lontanava nella sera lunare, e fievole si udiva di tratto in tratto il
+> ritornello giocondo:
+> 
+>       «Tela lina molto fina
+>     che si mette ogni mattina...»
+> 
+> — Hai pensato, — egli riprese, — hai pensato a quello che avverrebbe
+> se avessi una volta il coraggio, il terribile coraggio che mi è mancato
+> finora?
+> 
+> — Due cose ho pensato: o che tu non mi ami veramente, o che il tuo
+> cervello è malato. Se la nostra felicità è in noi, perchè dobbiamo
+> spaventarla con tante riflessioni? Tu mi comúnichi a poco a poco il tuo
+> male. Quando, per la prima volta, mi agitò questo immenso desiderio,
+> súbito avrei voluto esser tua. Guardare più in là mi sembrava inutile,
+> mi sembra inutile ancora.
+> 
+> — Ma, dimmi, — egli fece; — tu che parli con tanta leggerezza, conosci
+> dunque il valore dell’offerta che mi fai? Comprendi cosa vuol dire
+> questa frase che ripeti senza sgomento: «Essere tua?» Comprendi che ciò
+> significa regalare, sacrificare a me tutta la tua vita?
+> 
+> Ella parve maravigliarsi di queste parole; ma tuttavia rispose a fior
+> di labbro, senza convincimento:
+> 
+> — Sì, certo, lo comprendo.
+> 
+> — No, Lora, — egli corresse con indulgenza, — tu non lo comprendi.
+> Verrebbe inevitabilmente un giorno, e forse non troppo lontano, nel
+> quale diresti a tuo fratello: «Réndimi ora la mia vita, perch’essa è
+> mia, e voglio viverla.» Ma pensi che allora io potrei cederti ad un
+> altro? Pensi che, dopo un delitto come questo, si possa tranquillamente
+> ricominciare la strada per la quale si andava prima? Tu sì, forse,
+> perchè hai vent’anni ed un cuore spensierato. Ma io? Dimmi, che
+> farei allora? Conosci la gelosia? Conosci quell’altro tormento, più
+> grande, che si chiama il rimorso? Vedi: c’è fra noi una differenza
+> fondamentale: tu mi ami perchè puoi dimenticare, perchè non conosci, e
+> quasi non sai che sono tuo fratello... invece io ti amo appunto, e più
+> disperatamente, perchè so, perchè so con profonda paura, che sei la mia
+> sorella....
+> 
+> A testa china, guardando l’acqua insidiosa, che scintillava come una
+> buia stoffa intessuta con fili d’argento e produceva un rumore appena
+> sensibile urtando contro il muro della darsena, ella parve meditasse
+> profondamente il senso di quelle parole.
+> 
+> — No, Rigo!... — esclamò d’un tratto, afferrandosi al suo braccio con
+> una forza convulsa, — no! tu non sei mio fratello. Non ho mai pensato
+> per un attimo che tu fossi mio fratello. Mi piaci, e nello stare con te
+> sento che mi desideri come un vero amante. Préndimi!... fa di me quello
+> che vuoi, per un’ora o per sempre, fin quando sarò bella e mi troverà
+> bella il tuo amore... Non senti? Sono tutta profumata come un fascio
+> di rose... Préndimi!... stríngimi fra le tue braccia, come se fossi un
+> gran fascio di rose... Ma ridi! ridi!... perchè non posso più vederti
+> così buio... Ridi ancora una volta... ridi!
+> 
+> La barca ripassava di lontano e si udiva cantare:
+> 
+>       «Tutto quanto le darei
+>     per far come fai con lei...»
+> 
+> 
+> 
+> 
+> XIV
+> 
+> 
+> — Sali e spógliati, Lora — egli le aveva detto a piè dell’ascensore,
+> forse perchè temeva di affrettare quella imminente ora notturna. —
+> Córicati presto e riposa bene.
+> 
+> — Ma tu non sali? — domandò ella indugiando.
+> 
+> — Sì, fra poco. Ancora non ho sonno; rimango a fumare un’altra
+> sigaretta.
+> 
+> — Io pure non ho sonno... — ella fece.
+> 
+> Ma egli la persuase con dolcezza:
+> 
+> — Domani faremo una gita, bisognerà levarci di buon’ora. Va e dormi.
+> 
+> Egli rimase a camminare nell’atrio lungamente, poi scese di nuovo nel
+> giardino, tornò verso il lago. Vide la camera illuminata sul terrazzo
+> del primo piano; quella intensa luce lo affascinava, distogliendolo da
+> ogni altro pensiero.
+> 
+> — Lora si spoglia, — pensò. E vide gli abiti che si toglieva, ne sentì
+> l’odore.
+> 
+> Le sue braccia lo tormentavano, il petto che le usciva dalla camicia di
+> batista gli sbocciò nel pensiero come un mazzo di fresche rose; i suoi
+> piedini ancor calzati, li vide che andavano qua e là, per la camera,
+> con quella irrequietezza or pigra or frettolosa della donna che si
+> spoglia. — E adesso Lora si péttina, — pensò. E intese il crepitìo del
+> pettine di tartaruga nella treccia disciolta. L’odore di quei capelli
+> empì l’aria per dov’egli passava.
+> 
+> La vide curva sul catino a rinfrescarsi la faccia; immaginò che per
+> una sua civetteria feminea s’incipriasse tutta, prima di coricarsi.
+> Quell’odor morbido della cipria e della sua pelle profumata, commisto
+> insieme, gli alitò sotto le narici come una cosa viva. Ed egli la vide
+> sedersi vicino al letto, stirarsi un poco nella pigrizia, nella delizia
+> dell’imminente riposo, accavallare una gamba su l’altra per togliersi
+> la scarpina, lasciarla cadere su lo scendiletto, poi farsi scorrere
+> lentamente, giù dal polpaccio, la finissima calza nera, ed il piccolo
+> piede uscirne, polito come un gioiello d’avorio, inquieto nella sua
+> forma sottile, nervoso come una mano. Indugiare un poco a togliersi
+> parimenti l’altra scarpina, l’altra calza, guardarsi intorno con quello
+> sguardo svogliato di colei che non vorrebbe dormir sola, poi levarsi,
+> prendere di su la coltre una bella camicia tutta pizzi e nastrini,
+> prepararla con qualche movimento carezzevole, slacciarsi quella che
+> portava indosso e lasciarla scivolare giù, come una guaina, con un
+> sorriso lento....
+
+
+## English translation supplied to the annotator
+
+> Whenever they were alone, whenever it was a little dark, whenever they touched,
+> the inner phantom took possession of their agitation. It was an affliction
+> that began with the desire for a kiss and passed from one to the other,
+> like a chain tightening around their sibling flesh; then it twisted,
+> coiling into the tightest of knots, until it bent them both beneath
+> the oppression of its weight. She felt the need to abandon herself
+> in his arms; he felt, with anger, the temptation to seize her and
+> squeeze her until it hurt; but in both of them, even in her
+> who offered herself, there was an invincible fear. An icy fear, rooted
+> in their very being, a fear that drew them together in different ways and in different ways
+> kept them apart. They were like two people dying of thirst, bound beside the same fountain,
+> so that they could stretch their lips to within an inch of the water, close enough
+> to feel its clear freshness and breathe its moisture, yet without ever
+> managing to dip their lips into it. Between their thirst and the fountain there was that
+> inch of space that did not let them drink.
+> 
+> “I wish a man could tell me why on earth I had to love you!”
+> Arrigo exclaimed. “I wish a man who knows all
+> souls and all sins would tell me, a priest, for example. But I do not dare
+> confess this sin. And besides, what use would it be? They too know
+> nothing; no one knows anything about all this.”
+> 
+> This religious allusion to confession frightened the girl,
+> as if, all at once, the priest’s black habit, the shadow
+> between the columns, the mystical clouds of incense, the warm breath
+> passing through the grille with the whisper of guilty words, and
+> the rebuke, and the condemnation, and the threat of perpetual penances,
+> were forming in her terrified heart the image of her mortal sin.
+> 
+> “Why do you say such dark things?” she asked. And she pressed herself against him,
+> closer, as though to find refuge in him. The singers’ boat
+> was receding into the moonlit evening, and faintly, from time to time, the merry
+> refrain could be heard:
+> 
+>       “Very fine linen cloth
+>     that is put on every morning...”
+> 
+> “Have you thought,” he resumed, “have you thought about what would happen
+> if I were, for once, to have the courage, the terrible courage I have lacked
+> until now?”
+> 
+> “I have thought two things: either that you do not truly love me, or that your
+> mind is sick. If our happiness lies within us, why must we
+> frighten it away with so much reflection? Little by little you are passing your
+> illness on to me. When this immense desire first stirred me,
+> I would have wanted to be yours at once. Looking any further seemed useless
+> to me; it still seems useless.”
+> 
+> “But tell me,” he said, “you who speak so lightly, do you then know
+> the value of the offering you are making me? Do you understand what
+> this phrase you repeat without dismay means: ‘To be yours’? Do you understand that it
+> means giving away, sacrificing your whole life to me?”
+> 
+> She seemed astonished by these words; nevertheless, she answered with her lips alone,
+> without conviction:
+> 
+> “Yes, of course, I understand.”
+> 
+> “No, Lora,” he corrected her indulgently, “you do not understand.
+> A day would inevitably come, and perhaps not a very distant one, when
+> you would say to your brother: ‘Give me back my life now, because it is
+> mine, and I want to live it.’ But do you think that then I could yield you to
+> another man? Do you think that, after a crime like this, one can calmly
+> start again along the road one was following before? You perhaps could,
+> because you are twenty and have a carefree heart. But I? Tell me, what
+> would I do then? Do you know jealousy? Do you know that other, greater
+> torment called remorse? You see: there is a fundamental difference
+> between us: you love me because you can forget, because you do not know, and
+> hardly even realize that I am your brother... whereas I love you precisely,
+> and more desperately, because I know, because I know with profound fear,
+> that you are my sister...”
+> 
+> With her head bowed, looking at the treacherous water, which glittered like a
+> dark fabric woven with silver threads and made a scarcely perceptible
+> sound as it struck the wall of the dock, she seemed to be pondering
+> deeply the meaning of those words.
+> 
+> “No, Rigo!” she suddenly exclaimed, clutching his arm with
+> convulsive force, “no! You are not my brother. I have never thought
+> for a moment that you were my brother. I like you, and when I am with you
+> I feel that you desire me like a true lover. Take me!... do with me what
+> you wish, for an hour or forever, as long as I am beautiful and your love
+> finds me beautiful... Can’t you smell it? I am fragrant all over like a sheaf
+> of roses... Take me!... hold me tightly in your arms, as if I were a
+> great sheaf of roses... But laugh! Laugh!... because I can no longer bear to see you
+> so gloomy... Laugh once more... laugh!”
+> 
+> The boat was passing again in the distance, and the singing could be heard:
+> 
+>       “Everything I would give her
+>     to do as you do with her...”
+> 
+> 
+> 
+> 
+> XIV
+> 
+> 
+> “Go up and undress, Lora,” he had said to her at the foot of the lift,
+> perhaps because he was afraid of hastening that imminent nocturnal hour.
+> “Go to bed early and rest well.”
+> 
+> “But aren’t you coming up?” she asked, lingering.
+> 
+> “Yes, in a little while. I’m not sleepy yet; I’ll stay and smoke another
+> cigarette.”
+> 
+> “I’m not sleepy either...” she said.
+> 
+> But he gently persuaded her:
+> 
+> “Tomorrow we will go on an outing; we shall have to get up early. Go and sleep.”
+> 
+> He remained walking in the entrance hall for a long time, then went down again into the
+> garden and returned toward the lake. He saw the illuminated room on the terrace
+> of the first floor; that intense light fascinated him, drawing him away from
+> every other thought.
+> 
+> “Lora is undressing,” he thought. And he saw the clothes she was taking off and smelled
+> their scent.
+> 
+> Her arms tormented him; the breast emerging from her batiste chemise
+> blossomed in his thoughts like a bouquet of fresh roses; he saw her little feet,
+> still shod, moving here and there about the room with that restlessness,
+> now languid, now hurried, of a woman undressing. “And now Lora is combing
+> her hair,” he thought. And he heard the crackling of the tortoiseshell comb
+> in her loosened braid. The scent of that hair filled the air wherever he passed.
+> 
+> He saw her bending over the washbasin to refresh her face; he imagined that,
+> out of feminine coquetry, she powdered herself all over before going to bed.
+> The soft scent of the powder mingled with that of her perfumed skin
+> breathed beneath his nostrils like a living thing. And he saw her
+> sit down beside the bed, stretch a little in the languor and delight
+> of the approaching rest, cross one leg over the other to remove
+> her little shoe, let it fall onto the bedside rug, then slowly roll
+> the exquisitely fine black stocking down her calf, and the little
+> foot emerge from it, polished like an ivory jewel, restless in its slender
+> shape, nervous as a hand. He saw her linger a little as she likewise removed
+> the other little shoe, the other stocking, look around with the listless
+> gaze of a woman who would rather not sleep alone, then rise,
+> take from the coverlet a beautiful nightgown all lace and ribbons,
+> arrange it with a few caressing movements, unfasten the one
+> she was wearing and let it slip down like a sheath, with a slow smile...”
+
+
+Translation, where present, is an AI-generated analytical aid, not an authoritative edition.
+
+## Evidence cited by the annotator
+
+### e1 — local text
+
+> “Vedi: c’è fra noi una differenza fondamentale: tu mi ami…”
+
+The utterance occurs in an explicit analytical contrast between Lora’s love and Arrigo’s, supporting a truth-conditional avowal.
+
+### e2 — local text
+
+> “invece io ti amo appunto, e più disperatamente, perchè so… che sei la mia sorella”
+
+Arrigo directly presents his love as a current emotional state and explains its desperate character through his conscious knowledge that Lora is his sister.
+
+### e3 — local text
+
+> Immediately beforehand Arrigo discusses jealousy, remorse, and whether he could ever yield Lora to another.
+
+This establishes the love’s possessive and morally tormented context, but does not itself turn “io ti amo” into an undertaking or commitment.
+
+### e4 — local text
+
+> The surrounding exchange is sustained reflection about the consequences and meaning of their relationship rather than an unpremeditated verbal outburst.
+
+Supports E=0: desperation and intensity accompany a reasoned avowal without positive evidence of reflex-like expressive discharge.
+
+## Background, status and source records
+
+Utterance status: **direct**. Arrigo directly addresses Lora within dialogue: “invece io ti amo appunto” (“whereas I love you precisely…”).
+
+Background knowledge reported as used: **False**. 
+
+Self-reported confidence: 0.97. Not a calibrated accuracy estimate.
+
+Ontology fit: natural. T naturally captures the core force as an avowal of a loving state. The passage’s taboo, fear, jealousy, possessiveness, and remorse are important contextual features but create no residual core force requiring P, E, or O.
+
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-24f5fc557c485832/5535723d98963eade0e5676e021a8856af2d0320b2e73bf438c03d4ea6f264c5/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-24f5fc557c485832/5535723d98963eade0e5676e021a8856af2d0320b2e73bf438c03d4ea6f264c5/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/verona-colei-che-non-si-deve-amare/canonical.txt)
+- Occurrence: verona-colei-che-non-si-deve-amare-24f5fc557c485832
+- Model: gpt-5.6-sol
+- Classification prompt: 0.3.1
+- Historical run: canonical_31_v0_11_v0_3_1
+- Canonical SHA-256: c4cde8dd15ed03df6e0bc9ebc18a23493ad3ed09a178274e76860d6394eaf141
+
+Rendered deterministically from the saved record. No rescoring or replacement explanation.

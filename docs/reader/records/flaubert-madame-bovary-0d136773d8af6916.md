@@ -1,0 +1,288 @@
+# Madame Bovary
+
+Gustave Flaubert · French
+
+[All records](../README.md) · [HTML reading copy](../cases/flaubert-madame-bovary-0d136773d8af6916.html)
+
+## Target
+
+> je t’aime
+
+
+| T: report / avowal | P: undertaking | E: expressive/reflexive | O: other |
+|---:|---:|---:|---:|
+| 4 / 4 | 0 / 4 | 0 / 4 | 0 / 4 |
+
+Scores are independent support judgments. T is not a sincerity score.
+
+## Original passage
+
+> — Mais oui, je t’aime! répondait-il.
+
+
+## Original AI explanation
+
+Rodolphe’s reply directly presents as true that he loves Emma, making T the clear core force. It is an elicited, habitual reassurance rather than an undertaking or commitment, and nothing indicates that the words emerge as a reflex-like affective discharge.
+
+## Ambiguity
+
+Rodolphe’s sincerity is doubtful, but possible insincerity does not reduce the utterance’s truth-conditional mode. Its reassuring function does not by itself establish P.
+
+## Narrative situation (AI interpretation)
+
+Emma repeatedly demands confirmation of Rodolphe’s love, and he answers with the conventional avowal “Mais oui, je t’aime!” The narration calls her question an “eternal” formula and depicts him consoling her with protestations embellished by puns. His emotional distance and later wish to exploit her attachment cast doubt on sincerity and suggest routine reassurance, but the utterance still semantically avows love rather than undertaking commitment or discharging affect reflexively.
+
+## Original context supplied to the annotator
+
+> C’était M. Lheureux, le marchand, qui s’était chargé de la commande;
+> cela lui fournit l’occasion de fréquenter Emma. Il causait avec elle
+> des nouveaux déballages de paris, de mille curiosités féminines, se
+> montrait fort complaisant, et jamais ne réclamait d’argent. Emma
+> s’abandonnait à cette facilité de satisfaire tous ses caprices. Ainsi,
+> elle voulut avoir, pour la donner à Rodolphe, une fort belle cravache
+> qui se trouvait à Rouen dans un magasin de parapluies. M. Lheureux, la
+> semaine d’après, la lui posa sur sa table.
+> 
+> Mais le lendemain il se présenta chez elle avec une facture de deux
+> cent soixante et dix francs, sans compter les centimes. Emma fut très
+> embarrassée: tous les tiroirs du secrétaire étaient vides; on devait
+> plus de quinze jours à Lestiboudois, deux trimestres à la servante,
+> quantité d’autres choses encore, et Bovary attendait impatiemment
+> l’envoi de M. Derozerays, qui avait coutume, chaque année, de le payer
+> vers la Saint-Pierre.
+> 
+> Elle réussit d’abord à éconduire Lheureux; enfin il perdit patience; on
+> le poursuivait, ses capitaux étaient absents, et, s’il ne rentrait dans
+> quelques-uns, il serait forcé de lui reprendre toutes les marchandises
+> qu’elle avait.
+> 
+> — Eh! reprenez-les! dit Emma.
+> 
+> — Oh! c’est pour rire! répliqua-t-il. Seulement, je ne regrette que la
+> cravache. Ma foi! je la redemanderai à Monsieur.
+> 
+> — Non! non! fit-elle.
+> 
+> — Ah! je te tiens! pensa Lheureux.
+> 
+> Et, sûr de sa découverte, il sortit en répétant à demi-voix et avec son
+> petit sifflement habituel:
+> 
+> — Soit! nous verrons! nous verrons!
+> 
+> Elle rêvait comment se tirer de là, quand la cuisinière entrant, déposa
+> sur la cheminée un petit rouleau de papier bleu, de la part de M.
+> Derozerays. Emma sauta dessus, l’ouvrit. Il y avait quinze napoléons.
+> C’était le compte. Elle entendit Charles dans l’escalier; elle jeta
+> l’or au fond de son tiroir et prit la clef.
+> 
+> Trois jours après, Lheureux reparut.
+> 
+> — J’ai un arrangement à vous proposer, dit-il; si, au lieu de la somme
+> convenue, vous vouliez prendre...
+> 
+> — La voilà, fit-elle en lui plaçant dans la main quatorze napoléons.
+> 
+> Le marchand fut stupéfait. Alors, pour dissimuler son désappointement,
+> il se répandit en excuses et en offres de service qu’Emma refusa
+> toutes; puis elle resta quelques minutes palpant dans la poche de son
+> tablier les deux pièces de cent sous qu’il lui avait rendues. Elle se
+> promettait d’économiser, afin de rendre plus tard...
+> 
+> — Ah bah! songea-t-elle, il n’y pensera plus.
+> 
+> Outre la cravache à pommeau de vermeil, Rodolphe avait reçu un cachet
+> avec cette devise: _Amor nel cor_; de plus, une écharpe pour se faire
+> un cache-nez, et enfin un porte-cigares tout pareil à celui du Vicomte,
+> que Charles avait autrefois ramassé sur la route et qu’Emma conservait.
+> Cependant ces cadeaux l’humiliaient. Il en refusa plusieurs; elle
+> insista, et Rodolphe finit par obéir, la trouvant tyrannique et trop
+> envahissante.
+> 
+> Puis elle avait d’étranges idées:
+> 
+> — Quand minuit sonnera, disait-elle, tu penseras à moi!
+> 
+> Et, s’il avouait n’y avoir point songé, c’étaient des reproches en
+> abondance, et qui se terminaient toujours par l’éternel mot:
+> 
+> — M’aimes-tu?
+> 
+> — Mais oui, je t’aime! répondait-il.
+> 
+> — Beaucoup?
+> 
+> — Certainement!
+> 
+> — Tu n’en as pas aimé d’autres, hein?
+> 
+> — Crois-tu m’avoir pris vierge? exclamait-il en riant.
+> 
+> Emma pleurait, et il s’efforçait de la consoler, enjolivant de
+> calembours ses protestations.
+> 
+> — Oh! c’est que je t’aime! reprenait-elle, je t’aime à ne pouvoir me
+> passer de toi, sais-tu bien? J’ai quelquefois des envies de te revoir
+> où toutes les colères de l’amour me déchirent. Je me demande: «Où
+> est-il? Peut-être il parle à d’autres femmes? Elles lui sourient, il
+> s’approche...» Oh! non, n’est-ce pas, aucune ne te plaît? Il y en a de
+> plus belles; mais, moi, je sais mieux aimer! Je suis ta servante et
+> ta concubine! Tu es mon roi, mon idole! tu es bon! tu es beau! tu es
+> intelligent! tu es fort!
+> 
+> Il s’était tant de fois entendu dire ces choses, qu’elles n’avaient
+> pour lui rien d’original. Emma ressemblait à toutes les maîtresses;
+> et le charme de la nouveauté, peu à peu tombant comme un vêtement,
+> laissait voir à nu l’éternelle monotonie de la passion, qui a toujours
+> les mêmes formes et le même langage. Il ne distinguait pas, cet homme
+> si plein de pratique, la dissemblance des sentiments sous la parité des
+> expressions. Parce que des lèvres libertines ou vénales lui avaient
+> murmuré des phrases pareilles, il ne croyait que faiblement à la
+> candeur de celles-là; on en devait rabattre, pensait-il, les discours
+> exagérés cachant les affections médiocres; comme si la plénitude de
+> l’âme ne débordait pas quelquefois par les métaphores les plus vides,
+> puisque personne, jamais, ne peut donner l’exacte mesure de ses
+> besoins, ni de ses conceptions, ni de ses douleurs, et que la parole
+> humaine est comme un chaudron fêlé où nous battons des mélodies à faire
+> danser les ours, quand on voudrait attendrir les étoiles.
+> 
+> Mais, avec cette supériorité de critique appartenant à celui qui,
+> dans n’importe quel engagement, se tient en arrière, Rodolphe aperçut
+> en cet amour d’autres jouissances à exploiter. Il jugea toute pudeur
+> incommode. Il la traita sans façon. Il en fit quelque chose de
+> souple et de corrompu. C’était une sorte d’attachement idiot plein
+> d’admiration pour lui, de voluptés pour elle, une béatitude qui
+> l’engourdissait; et son âme s’enfonçait en cette ivresse et s’y noyait,
+> ratatinée, comme le duc de Clarence dans son tonneau de malvoisie.
+> 
+> Par l’effet seul de ses habitudes amoureuses, madame Bovary changea
+> d’allures. Ses regards devinrent plus hardis, ses discours plus libres;
+> elle eut même l’inconvenance de se promener avec M. Rodolphe, une
+> cigarette à la bouche, comme pour narguer le monde; enfin, ceux qui
+> doutaient encore ne doutèrent plus quand on la vit, un jour, descendre
+> de l’Hirondelle, la taille serrée dans un gilet, à la façon d’un homme;
+> et madame Bovary mère, qui, après une épouvantable scène avec son mari,
+> était venue se réfugier chez son fils, ne fut pas la bourgeoise la
+> moins scandalisée. Bien d’autres choses lui déplurent: d’abord Charles
+> n’avait point écouté ses conseils pour l’interdiction des romans; puis,
+> le genre de la maison lui déplaisait; elle se permit des observations,
+> et l’on se fâcha, une fois surtout, à propos de Félicité.
+
+
+## English translation supplied to the annotator
+
+> It was Monsieur Lheureux, the merchant, who had undertaken the order; this gave him the opportunity to visit Emma frequently. He talked with her about the new arrivals from Paris, about a thousand feminine curiosities, showed himself most obliging, and never asked for any money. Emma yielded to this ease of satisfying all her whims. Thus, she wanted to have a very fine riding crop that was in an umbrella shop in Rouen, in order to give it to Rodolphe. The following week, Monsieur Lheureux placed it on her table.
+> 
+> But the next day he came to her house with a bill for two hundred and seventy francs, not counting the centimes. Emma was greatly embarrassed: all the drawers of the writing desk were empty; they owed Lestiboudois more than a fortnight’s wages, the maid two quarters’ wages, and many other things besides, and Bovary was impatiently awaiting the remittance from Monsieur Derozerays, who was accustomed to pay him each year around Saint Peter’s Day.
+> 
+> At first she succeeded in sending Lheureux away; finally he lost patience; people were pressing him, his capital was tied up, and if he did not recover some of it, he would be forced to take back from her all the merchandise she had.
+> 
+> “Why, take it back!” said Emma.
+> 
+> “Oh! You’re joking!” he replied. “The only thing I regret is the riding crop. Upon my word, I shall ask Monsieur for it back.”
+> 
+> “No! No!” she said.
+> 
+> “Ah! I have you now!” thought Lheureux.
+> 
+> And, sure of his discovery, he went out, repeating under his breath and with his customary little whistle:
+> 
+> “Very well! We shall see! We shall see!”
+> 
+> She was wondering how to get out of this predicament when the cook came in and placed on the mantelpiece a small roll of blue paper, from Monsieur Derozerays. Emma pounced on it and opened it. There were fifteen napoleons. It was the payment. She heard Charles on the stairs; she threw the gold into the back of her drawer and took the key.
+> 
+> Three days later, Lheureux reappeared.
+> 
+> “I have an arrangement to propose to you,” he said. “If, instead of the agreed sum, you would be willing to take...”
+> 
+> “Here it is,” she said, placing fourteen napoleons in his hand.
+> 
+> The merchant was dumbfounded. Then, to conceal his disappointment, he poured forth apologies and offers of service, all of which Emma refused; then she remained for several minutes fingering in the pocket of her apron the two five-franc pieces he had given her in change. She promised herself that she would economize, so as to repay them later...
+> 
+> “Bah!” she thought. “He will no longer think of it.”
+> 
+> Besides the riding crop with its silver-gilt knob, Rodolphe had received a seal bearing this motto: Amor nel cor; in addition, a scarf to use as a muffler, and finally a cigar case exactly like the Viscount’s, which Charles had once picked up on the road and which Emma had kept. Yet these gifts humiliated him. He refused several of them; she insisted, and Rodolphe ended by obeying, finding her tyrannical and too intrusive.
+> 
+> Then she had strange ideas:
+> 
+> “When midnight strikes,” she would say, “you will think of me!”
+> 
+> And if he admitted that he had not thought of her, there would be reproaches in abundance, always ending with the eternal words:
+> 
+> “Do you love me?”
+> 
+> “Why yes, I love you!” he would answer.
+> 
+> “Very much?”
+> 
+> “Certainly!”
+> 
+> “You haven’t loved any others, have you?”
+> 
+> “Do you think you took me a virgin?” he would exclaim, laughing.
+> 
+> Emma would weep, and he would strive to console her, embellishing his protestations with puns.
+> 
+> “Oh! But I love you!” she would resume. “I love you so much that I cannot do without you, do you understand? Sometimes I long to see you again so fiercely that all the furies of love tear me apart. I ask myself: ‘Where is he? Perhaps he is talking to other women? They smile at him, he draws near...’ Oh! No, isn’t that so, none of them pleases you? There are some who are more beautiful; but I know how to love better! I am your servant and your concubine! You are my king, my idol! You are good! You are handsome! You are intelligent! You are strong!”
+> 
+> He had heard these things said to him so many times that they held nothing original for him. Emma resembled all mistresses; and the charm of novelty, gradually falling away like a garment, laid bare the eternal monotony of passion, which always has the same forms and the same language. This man, so full of experience, did not distinguish the dissimilarity of feelings beneath the sameness of expressions. Because libertine or venal lips had murmured similar phrases to him, he had little faith in the candor of hers; one had to discount them, he thought, exaggerated speeches concealing mediocre affections; as though the fullness of the soul did not sometimes overflow in the emptiest metaphors, since no one can ever give the exact measure of his needs, or of his conceptions, or of his sufferings, and human speech is like a cracked cauldron on which we beat out tunes to make bears dance, when we would like to move the stars to tenderness.
+> 
+> But, with that superiority of judgment belonging to one who, in any commitment whatsoever, holds himself back, Rodolphe perceived in this love other pleasures to exploit. He deemed all modesty inconvenient. He treated her without ceremony. He made of her something pliant and corrupt. It was a sort of idiotic attachment, full of admiration for him and sensual pleasures for her, a bliss that numbed her; and her soul sank into this intoxication and drowned there, shriveled, like the Duke of Clarence in his barrel of Malmsey.
+> 
+> Through the effect of her amorous habits alone, Madame Bovary changed her ways. Her glances became bolder, her speech freer; she even had the impropriety to go walking with Monsieur Rodolphe, a cigarette in her mouth, as if to flout the world; finally, those who still doubted no longer doubted when, one day, she was seen alighting from the Hirondelle, her waist tightly fitted in a waistcoat, in the manner of a man; and Madame Bovary senior, who, after a dreadful scene with her husband, had come to take refuge with her son, was not the least scandalized of the respectable ladies. Many other things displeased her: first, Charles had not listened to her advice about banning novels; then, the ways of the household displeased her; she ventured some remarks, and they quarreled, especially once, over Félicité.
+
+
+Translation, where present, is an AI-generated analytical aid, not an authoritative edition.
+
+## Evidence cited by the annotator
+
+### e1 — local text
+
+> Emma’s recurrent question “M’aimes-tu?” is followed by Rodolphe’s answer: “Mais oui, je t’aime!”
+
+The reply explicitly avows a loving state and therefore strongly supports T.
+
+### e2 — local text
+
+> The exchange is described as recurring: Emma’s reproaches “se terminaient toujours par l’éternel mot,” and Rodolphe “répondait-il.”
+
+The iterative framing makes the utterance an elicited, habitual reassurance, providing no positive evidence for expressive/reflexive E.
+
+### e3 — local text
+
+> Rodolphe tries to console Emma while “enjolivant de calembours ses protestations.”
+
+His words function contextually as calculated or conventional reassurance; this bears on sincerity and delivery but remains compatible with a T-mode avowal.
+
+### e4 — local text
+
+> The narrator characterizes Rodolphe as one who “dans n’importe quel engagement, se tient en arrière” and says he sees pleasures to exploit in Emma’s love.
+
+This weighs strongly against construing the reply as a relational undertaking under P, while contextualizing its likely insincerity or emotional shallowness.
+
+### e5 — supplied metadata
+
+> The occurrence is identified in Gustave Flaubert’s Madame Bovary as an affirmative present-tense explicit love expression.
+
+Confirms the identified core expression and its grammatical presentation as a current-state avowal.
+
+## Background, status and source records
+
+Utterance status: **direct**. Directly represented speech by Rodolphe, presented iteratively as his habitual answer to Emma’s repeated question.
+
+Background knowledge reported as used: **False**. 
+
+Self-reported confidence: 0.97. Not a calibrated accuracy estimate.
+
+Ontology fit: natural. T naturally captures the avowal’s core force. Rodolphe’s routinization, reassurance, and doubtful sincerity are contextual features adequately described without adding P, E, or O.
+
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-0d136773d8af6916/f2c2e4ab8534546a8a6abd0bda7765ad629ec184b50be80178266a1bbefdbc0f/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-0d136773d8af6916/f2c2e4ab8534546a8a6abd0bda7765ad629ec184b50be80178266a1bbefdbc0f/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/flaubert-madame-bovary/canonical.txt)
+- Occurrence: flaubert-madame-bovary-0d136773d8af6916
+- Model: gpt-5.6-sol
+- Classification prompt: 0.3.1
+- Historical run: canonical_31_v0_11_v0_3_1
+- Canonical SHA-256: 93f0a2259dbaf5fde6e7b96adc22346d52f80eb1e9319336c8381a045efe40cd
+
+Rendered deterministically from the saved record. No rescoring or replacement explanation.

@@ -1,0 +1,297 @@
+# Colei che non si deve amare
+
+Guido da Verona · Italian
+
+[All records](../README.md) · [HTML reading copy](../cases/verona-colei-che-non-si-deve-amare-fc3a71407483b37d.html)
+
+## Target
+
+> ti amo
+
+
+| T: report / avowal | P: undertaking | E: expressive/reflexive | O: other |
+|---:|---:|---:|---:|
+| 4 / 4 | 0 / 4 | 0 / 4 | 0 / 4 |
+
+Scores are independent support judgments. T is not a sincerity score.
+
+## Original passage
+
+> — Guarda: chiudo gli occhi... dormo. Chínati un poco, báciami!... ho
+> tanto sonno... ti amo. Sii dolce con me... Ascolta: non c’è rumore,
+> nessuno ci guarda... báciami!
+
+
+## Original AI explanation
+
+The direct “ti amo” primarily avows the woman’s loving desire. Although embedded in an intensely sensual appeal for kisses and closeness, it does not itself undertake a commitment. The languorous, exhausted delivery supplies emotional intensity but no positive evidence that the words are a reflex-like discharge rather than an affectively charged avowal.
+
+## Ambiguity
+
+The flowing, semi-torpid delivery creates slight pressure toward an expressive reading, but the text does not depict involuntary blurting or loss of deliberative control.
+
+## Narrative situation (AI interpretation)
+
+The avowal forms part of a sustained erotic entreaty: she asks Rigo to kiss her, be gentle, and remain close, while the narration emphasizes languor, exhaustion, and mutual physical excitement. The later identification of Rigo as her brother makes the encounter transgressive and explains his conflicted withdrawal, but that narrative complication does not alter the utterance’s core force as an avowal of love and desire.
+
+## Original context supplied to the annotator
+
+> Ella era uscita sul terrazzo deserto, s’era stesa pigramente nella
+> poltrona a sdraio, ed or l’aspettava, guardando nel miracolo della
+> notte, ove tremava con una specie di furiosa intensità la magnificenza
+> delle stelle.
+> 
+> — Che fai lì fuori? Non ti sei dunque coricata?
+> 
+> Un po’ ebbra di stelle, di silenzio e d’amore, tese a lui le due
+> braccia senza rispondere.
+> 
+> — Perchè non ti spogli? — domandò egli ancora.
+> 
+> — Aspettavo te, — ella rispose con una voce lenta, un po’ velata.
+> 
+> Il lieve alito notturno era passato fra i suoi capelli; nel suo viso
+> batteva la bianchezza del raggio lunare. — Fa umido la sera, — egli
+> osservò; — non rimaner fuori troppo a lungo.
+> 
+> Poi, volgendosi con rapidità: — Ora è tardi, — le disse; — dormi bene.
+> Addio.
+> 
+> — Rigo... — ella profferì a bassa voce, quasi fosse ancora sperduta
+> nel sogno. E v’era un poco d’ebrietà nella sua femminile indolenza, ne’
+> suoi modi ambigui, nella voce con cui lo chiamava. — Rigo, vieni qui:
+> siéditi.
+> 
+> Gli fece un piccolo posto accanto a sè. Egli ubbidì silenziosamente.
+> Il calore di quel dolce corpo gli si propagò nelle vene come un piacere
+> avvelenato e lentissimo. Stava curvo sopra il suo volto; le mani della
+> fanciulla gli carezzavano i capelli, la fronte.
+> 
+> Allora ella si mise a parlargli piano, facendo lunghe pause, con
+> trepidazione.
+> 
+> — Non devi lasciarmi sola... Questa notte più che mai sento il bisogno
+> di esserti vicina, molto vicina, perchè sarebbe una vera malinconia
+> mettere una parete, chiudere un uscio, fra me e te... Non vedi che
+> notte magnifica? C’è un odore di gelsomini che vola per l’aria come una
+> polvere ubbriacante. Poi mi sento piena di torpore, questa notte...
+> Báciami!... Ho le mani calde, senti... Mi fanno male... Brúciano.
+> Voglio rimaner qui tutta la notte, a parlarti, a carezzarti, piuttosto
+> che rimaner sola.
+> 
+> Cacciava le dita ne’ suoi folti capelli, come alle volte si fa, nelle
+> pellicce tepide, l’inverno. E continuava:
+> 
+> — Là, nel giardino, m’hai dette cose talmente gravi, che ne sono
+> turbata; vorrei piangere, ma in fondo al mio cuore v’è una gioia che
+> ride, una specie di speranza inesprimibile... Non lasciarmi sola. Od
+> anche mi piacerebbe fare una cosa che non ho fatta mai: venire nel tuo
+> letto, addormentarmi vicino a te... Báciami! E poi dimmi qualcosa di
+> veramente pericoloso... Anche una parola innocente, se non vuoi dirmi
+> altro... Ti amo, e sola non potrò dormire... perchè ho voglia che tu
+> mi baci. Senti come la mia bocca è innamorata... Bàciami! Sono tua...
+> tua... préndimi! Non desidero altro che soffrire di te... per te...
+> Fammi un po’ male... dammi un bacio, uno solo, senza fine.. chínati...
+> 
+> Queste parole, dette vicino alla sua bocca, lo addormentavan come
+> la musica d’un soave malefizio, fasciavan i suoi sensi dolorosi
+> d’un ineffabile ristoro, e chiudendo gli occhi egli s’irrigidiva per
+> ascoltarla. Su la sua carne fredda passava un gran brivido di piacere;
+> una consumazione insensibile, uno struggimento senza fine si propagava
+> in lui, sotto la carezza di quella voce.
+> 
+> Ella disse ancora, snervata, spossata:
+> 
+> — Guarda: chiudo gli occhi... dormo. Chínati un poco, báciami!... ho
+> tanto sonno... ti amo. Sii dolce con me... Ascolta: non c’è rumore,
+> nessuno ci guarda... báciami!
+> 
+> Come un pazzo egli le baciò la bocca, la fronte, le tempie, il collo,
+> i polsi, le mani, con un roco ansito nella gola soffocata, e la baciò
+> per tutta la sua carne profumata finchè il respiro gli venne meno. Poi
+> si levò scapigliato, si sciolse da lei che lo teneva, la ricacciò con
+> violenza sui cuscini, corse nella sua propria camera, vi si chiuse.
+> 
+> Ella dette un piccolo grido, e vibrante com’era sotto il flagello
+> di quei baci, ruppe in un convulso di lacrime, poi restò per qualche
+> attimo quasi priva di vita.
+> 
+> La mezza luna saliva sopra le montagne, alta, limpida, lontana dalle
+> stelle.
+> 
+> Egli si buttò sul letto, mordendo i cuscini, aggrappandosi alle coltri,
+> per dominare il tumulto che dentro lo schiantava, e non udir quella
+> voce sommessa che dietro l’uscio lo supplicava, e non guardar più oltre
+> nella terribile possibilità di quell’ora.
+> 
+> La notte s’inoltrava, limpida, quasi tremante, verso i culmini del suo
+> glorioso fulgore, disseminando nella curva dell’infinito una più grande
+> magnificenza di stelle. Il lago, le rive, abitate dall’ombre notturne,
+> invase dall’ambiguità del silenzio, si vestivan di bianchi splendori
+> nell’incantesimo della notte.
+> 
+> Trascorse un tempo che a lui parve infinito, poi gli sembrò di
+> comprendere ch’ell’avesse cominciato a svestirsi. Non più intese per
+> il pavimento il rumore de’ suoi tacchi sottili, ma il camminar soffice
+> di due pianelle che andassero frettolose; allora ebbe la tentazione
+> d’accostarsi all’uscio interno, che li divideva, e mettersi ad
+> ascoltare. Ma subitamente invece la porta verso il corridoio s’aperse,
+> ed ella entrò.
+> 
+> Era in vestaglia, paurosa, pallida, e ristette sul limitare. Egli balzò
+> giù dal letto, rimase attonito a guardarla.
+> 
+> — Che vuoi?... — balbettò con voce soffocata.
+> 
+> — Nulla, — rispose. Lo guardò. Negli occhi alterati aveva una luce
+> insolita; l’espressione di quel viso era singolarmente mutata. Qualcosa
+> di aspro e di selvaggio era pure in lei, nella sua bocca per solito
+> così ridente.
+> 
+> — Non dormirai stanotte?
+> 
+> — No.
+> 
+> Allora il fratello si mise a camminare cupamente per la camera, senza
+> passarle vicino, come se meditasse contro lei qualche orribile cosa.
+> 
+> Ma rapidamente aperse la finestra ed uscì sul terrazzo.
+> 
+> Roteavano tutte le stelle, per l’immensità piena di tremito, come un
+> turbine di coriandoli d’oro.
+> 
+> Ella, furtiva, gli scivolò appresso, così leggera che non la udì, e
+> gli si appese al collo. Non aveva più busto, non aveva più che una
+> vestaglia quasi diafana, che mal nascondeva la camicia ricolma e la
+> gonnella corta; il suo corpo gli si fasciava intorno alla persona come
+> una morbida sciarpa di seta si fascia, nel vento, intorno al collo che
+> la porta. Le si disfecero anche i capelli, ch’eran tenuti da un pettine
+> solo, e, senza cadere del tutto, gonfi e morbidi le ingombrarono la
+> nuca.
+> 
+> Dolorosamente, amaramente, le loro bocche si congiunsero. Ella sentì
+> così vicino lo spasimo della dedizione che s’attorcigliò a lui come
+> un’edera, gli si avvinse intorno come un nodo.
+
+
+## English translation supplied to the annotator
+
+> She had gone out onto the deserted terrace, had stretched herself lazily in the reclining chair, and now she was waiting for him, gazing into the miracle of the night, where the magnificence of the stars trembled with a kind of furious intensity.
+> 
+> “What are you doing out there? Have you not gone to bed, then?”
+> 
+> A little intoxicated by the stars, by the silence, and by love, she held out both arms to him without answering.
+> 
+> “Why do you not undress?” he asked again.
+> 
+> “I was waiting for you,” she replied in a slow, slightly veiled voice.
+> 
+> The light breath of night had passed through her hair; the whiteness of the moonbeam shone upon her face. “It is damp in the evening,” he observed; “do not stay outside too long.”
+> 
+> Then, turning quickly, he said to her, “It is late now; sleep well. Goodbye.”
+> 
+> “Rigo...” she uttered softly, as though she were still lost in the dream. And there was a little intoxication in her feminine languor, in her ambiguous manner, in the voice with which she called him. “Rigo, come here: sit down.”
+> 
+> She made a little room for him beside her. He obeyed in silence. The warmth of that sweet body spread through his veins like a poisoned, very slow pleasure. He was bent over her face; the girl’s hands caressed his hair, his forehead.
+> 
+> Then she began speaking softly to him, with long pauses, in trepidation.
+> 
+> “You must not leave me alone... Tonight more than ever I feel the need to be close to you, very close, because it would be truly melancholy to put a wall, to close a door, between you and me... Do you not see what a magnificent night it is? There is a scent of jasmine flying through the air like intoxicating dust. And then I feel full of torpor tonight... Kiss me!... My hands are hot, feel... They hurt... They are burning. I want to stay here all night, talking to you, caressing you, rather than remain alone.
+> 
+> She plunged her fingers into his thick hair, as one sometimes does in warm furs in winter. And she continued:
+> 
+> “There, in the garden, you told me things so grave that I am troubled by them; I should like to weep, but in the depths of my heart there is a joy that laughs, a kind of inexpressible hope... Do not leave me alone. Or I should also like to do something I have never done: come into your bed, fall asleep beside you... Kiss me! And then tell me something truly dangerous... Even an innocent word, if you do not wish to tell me anything else... I love you, and I shall not be able to sleep alone... because I want you to kiss me. Feel how much in love my mouth is... Kiss me! I am yours... yours... take me! I desire nothing but to suffer from you... for you... Hurt me a little... give me a kiss, just one, without end... bend down...”
+> 
+> These words, spoken close to his mouth, lulled him like the music of a gentle spell, swathed his aching senses in an ineffable relief, and, closing his eyes, he stiffened in order to listen to her. A great shiver of pleasure passed over his cold flesh; an imperceptible wasting away, an endless languishing spread through him beneath the caress of that voice.
+> 
+> She spoke again, enervated, exhausted:
+> 
+> “Look: I am closing my eyes... I am asleep. Bend down a little, kiss me!... I am so sleepy... I love you. Be gentle with me... Listen: there is no sound, no one is watching us... kiss me!”
+> 
+> Like a madman he kissed her mouth, her forehead, her temples, her neck, her wrists, her hands, with a hoarse panting in his constricted throat, and he kissed her all over her fragrant flesh until his breath failed him. Then he rose, disheveled, tore himself away from her as she held him, thrust her violently back onto the cushions, ran into his own room, and locked himself in.
+> 
+> She gave a little cry and, trembling as she was beneath the lash of those kisses, broke into a convulsion of tears, then remained for a few moments almost lifeless.
+> 
+> The half-moon was rising above the mountains, high, clear, far from the stars.
+> 
+> He threw himself onto the bed, biting the pillows, clutching at the covers, to master the tumult that was rending him within, and not to hear that subdued voice pleading with him behind the door, and not to look any further into the terrible possibility of that hour.
+> 
+> The night advanced, clear, almost trembling, toward the heights of its glorious radiance, scattering a still greater magnificence of stars across the curve of infinity. The lake and the shores, inhabited by nocturnal shadows, pervaded by the ambiguity of silence, clothed themselves in white splendors beneath the enchantment of the night.
+> 
+> A length of time passed that seemed infinite to him; then he thought he understood that she had begun to undress. He no longer heard the sound of her slender heels on the floor, but the soft tread of two slippers moving hurriedly; then he was tempted to approach the inner door that divided them and begin listening. But instead the door to the corridor suddenly opened, and she entered.
+> 
+> She was in a dressing gown, frightened and pale, and stopped on the threshold. He sprang down from the bed and stood gazing at her in astonishment.
+> 
+> “What do you want?...” he stammered in a stifled voice.
+> 
+> “Nothing,” she replied. She looked at him. There was an unusual light in her altered eyes; the expression of that face was singularly changed. There was also something harsh and wild in her, in her mouth that was usually so smiling.
+> 
+> “Will you not sleep tonight?”
+> 
+> “No.”
+> 
+> Then her brother began pacing gloomily about the room, without going near her, as though he were plotting some horrible thing against her.
+> 
+> But he quickly opened the window and went out onto the terrace.
+> 
+> All the stars wheeled through the trembling immensity like a whirlwind of golden confetti.
+> 
+> Stealthily, she glided after him, so lightly that he did not hear her, and hung upon his neck. She no longer wore a corset; she wore nothing but an almost diaphanous dressing gown, which scarcely concealed her swelling chemise and short petticoat; her body wrapped itself around him as a soft silk scarf wraps itself, in the wind, around the neck of the person wearing it. Her hair, which was held by a single comb, also came loose and, without falling completely, thick and soft, crowded about the nape of her neck.
+> 
+> Painfully, bitterly, their mouths joined. She felt the agony of surrender so near that she twined herself around him like ivy, wound herself around him like a knot.
+
+
+Translation, where present, is an AI-generated analytical aid, not an authoritative edition.
+
+## Evidence cited by the annotator
+
+### e1 — local text
+
+> “ho tanto sonno... ti amo. Sii dolce con me...”
+
+The first-person present-tense declaration directly presents her love as true, strongly supporting T.
+
+### e2 — local text
+
+> The declaration is surrounded by repeated requests including “báciami,” “Sii dolce con me,” and the observation that “nessuno ci guarda.”
+
+The utterance operates within an erotic appeal for immediate intimacy; these requests explain its persuasive context but do not turn “ti amo” itself into a relational undertaking.
+
+### e3 — local text
+
+> The narrator describes her as “snervata, spossata” and represents her speech with pauses and sleepy languor.
+
+The delivery is intensely affective, but there is no explicit indication that the words escape involuntarily or function independently as reflexive discharge; this supports E=0 under the calibrated criterion.
+
+### e4 — local text
+
+> Immediately afterward Rigo kisses her frantically, then tears himself away; the wider passage later calls him “il fratello.”
+
+The avowal has powerful erotic and transgressive consequences, but those contextual features do not create an additional core-force category.
+
+### e5 — supplied metadata
+
+> The occurrence is marked as affirmative present Italian “ti amo” and reviewed as VALID_EXPLICIT_LOVE_I_YOU.
+
+Confirms that the highlighted occurrence is an explicit present-tense love declaration rather than a merely formal or accidental string match.
+
+## Background, status and source records
+
+Utterance status: **direct**. The woman directly tells Rigo “ti amo” during an intimate spoken appeal on the terrace.
+
+Background knowledge reported as used: **False**. 
+
+Self-reported confidence: 0.93. Not a calibrated accuracy estimate.
+
+Ontology fit: natural. T naturally captures the core avowal. Its erotic purpose, heightened delivery, and transgressive relationship are adequately treated as context, without requiring P, E, or O.
+
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-fc3a71407483b37d/4a7c1508eba9a69f58c45bb9b631c92afd4e4158fc54378f0c016e26acb7e5c3/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-fc3a71407483b37d/4a7c1508eba9a69f58c45bb9b631c92afd4e4158fc54378f0c016e26acb7e5c3/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/verona-colei-che-non-si-deve-amare/canonical.txt)
+- Occurrence: verona-colei-che-non-si-deve-amare-fc3a71407483b37d
+- Model: gpt-5.6-sol
+- Classification prompt: 0.3.1
+- Historical run: canonical_31_v0_11_v0_3_1
+- Canonical SHA-256: c4cde8dd15ed03df6e0bc9ebc18a23493ad3ed09a178274e76860d6394eaf141
+
+Rendered deterministically from the saved record. No rescoring or replacement explanation.

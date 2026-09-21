@@ -1,0 +1,326 @@
+# Madame Bovary
+
+Gustave Flaubert · French
+
+[All records](../README.md) · [HTML reading copy](../cases/flaubert-madame-bovary-d3ce852d259a04be.html)
+
+## Target
+
+> je vous aime
+
+
+| T: report / avowal | P: undertaking | E: expressive/reflexive | O: other |
+|---:|---:|---:|---:|
+| 4 / 4 | 0 / 4 | 2 / 4 | 0 / 4 |
+
+Scores are independent support judgments. T is not a sincerity score.
+
+## Original passage
+
+> — De grâce, restez! je vous aime!
+
+
+## Original AI explanation
+
+Guillaumin directly presents his love for Emma as true, so the utterance has strong truth-conditional avowal force even if “love” disguises lust or opportunism. It does not clearly undertake a commitment or relational obligation. The narration’s statement that he yields to an onrush of overpowering desire supplies positive, though not conclusive, evidence that the words partly emerge as affective discharge rather than functioning only as an intense avowal.
+
+## Ambiguity
+
+The plea may be partly calculated to make Emma stay, while the narrated surge of desire suggests some reflex-like production. His sincerity about love, as opposed to sexual desire, remains doubtful but does not weaken the utterance’s T mode.
+
+## Narrative situation (AI interpretation)
+
+Guillaumin makes the avowal while exploiting Emma’s financial desperation and pursuing sexual access. Emma interprets the advance as an attempt to make aid conditional on her availability—“Je suis à plaindre, mais pas à vendre!” The narration attributes his conduct to overpowering desire, making lust and opportunism more secure than sincere enduring love; nevertheless, the core words still present love as true. His later relief that an affair would have carried him too far further undermines any reading of the utterance as a relational commitment.
+
+## Original context supplied to the annotator
+
+> Maître Guillaumin la connaissait, étant lié secrètement avec le
+> marchand d’étoffes, chez lequel il trouvait toujours des capitaux pour
+> les prêts hypothécaires qu’on lui demandait à contracter.
+> 
+> Donc, il savait (et mieux qu’elle) la longue histoire de ces billets,
+> minimes d’abord, portant comme endosseurs des noms divers, espacés à
+> de longues échéances et renouvelés continuellement, jusqu’au jour où,
+> ramassant tous les protêts, le marchand avait chargé son ami Vinçart de
+> faire en son nom propre les poursuites qu’il fallait, ne voulant point
+> passer pour un tigre parmi ses concitoyens.
+> 
+> Elle entremêla son récit de récriminations contre Lheureux,
+> récriminations auxquelles le notaire répondait de temps à autre par
+> une parole insignifiante. Mangeant sa côtelette et buvant son thé,
+> il baissait le menton dans sa cravate bleu de ciel, piquée par deux
+> épingles de diamants que rattachait une chaînette d’or; et il souriait
+> d’un singulier sourire, d’une façon douceâtre et ambiguë. Mais,
+> s’apercevant qu’elle avait les pieds humides:
+> 
+> — Approchez-vous donc du poêle... plus haut..., contre la porcelaine.
+> 
+> Elle avait peur de la salir. Le notaire reprit d’un ton galant:
+> 
+> — Les belles choses ne gâtent rien.
+> 
+> Alors elle tâcha de l’émouvoir, et, s’émotionnant elle-même, elle
+> vint à lui conter l’étroitesse de son ménage, ses tiraillements, ses
+> besoins. Il comprenait cela: une femme élégante! et, sans s’interrompre
+> de manger, il s’était tourné vers elle complètement, si bien qu’il
+> frôlait du genou sa bottine, dont la semelle se recourbait tout en
+> fumant contre le poêle.
+> 
+> Mais, lorsqu’elle lui demanda mille écus, il serra les lèvres, puis
+> se déclara très peiné de n’avoir pas eu autrefois la direction de sa
+> fortune, car il y avait cent moyens fort commodes, même pour une dame,
+> de faire valoir son argent. On aurait pu, soit dans les tourbières
+> de Grumesnil ou les terrains du Havre, hasarder presque à coup sûr
+> d’excellentes spéculations; et il la laissa se dévorer de rage à l’idée
+> des sommes fantastiques qu’elle aurait certainement gagnées.
+> 
+> — D’où vient, reprit-il, que vous n’êtes pas venue chez moi?
+> 
+> — Je ne sais trop, dit-elle.
+> 
+> — Pourquoi, hein?... Je vous faisais donc bien peur? C’est moi, au
+> contraire, qui devrais me plaindre! À peine si nous nous connaissons!
+> Je vous suis pourtant très dévoué; vous n’en doutez plus, j’espère?
+> 
+> Il tendit sa main, prit la sienne, la couvrit d’un baiser vorace, puis
+> la garda sur son genou; et il jouait avec ses doigts délicatement, tout
+> en lui contant mille douceurs.
+> 
+> Sa voix fade susurrait, comme un ruisseau qui coule; une étincelle
+> jaillissait de sa pupille à travers le miroitement de ses lunettes, et
+> ses mains s’avançaient dans la manche d’Emma, pour lui palper le bras.
+> Elle sentait contre sa joue le souffle d’une respiration haletante. Cet
+> homme la gênait horriblement.
+> 
+> Elle se leva d’un bond et lui dit:
+> 
+> — Monsieur, j’attends!
+> 
+> — Quoi donc? fit le notaire, qui devint tout à coup extrêmement pâle.
+> 
+> — Cet argent.
+> 
+> — Mais...
+> 
+> Puis, cédant à l’irruption d’un désir trop fort:
+> 
+> — Eh bien, oui!...
+> 
+> Il se traînait à genoux vers elle, sans égard pour sa robe de chambre.
+> 
+> — De grâce, restez! je vous aime!
+> 
+> Il la saisit par la taille.
+> 
+> Un flot de pourpre monta vite au visage de madame Bovary. Elle se
+> recula d’un air terrible, en s’écriant:
+> 
+> — Vous profitez impudemment de ma détresse, monsieur! Je suis à
+> plaindre, mais pas à vendre!
+> 
+> Et elle sortit.
+> 
+> Le notaire resta fort stupéfait, les yeux fixés sur ses belles
+> pantoufles en tapisserie. C’était un présent de l’amour. Cette vue à
+> la fin le consola. D’ailleurs, il songeait qu’une aventure pareille
+> l’aurait entraîné trop loin.
+> 
+> — Quel misérable! quel goujat!... quelle infamie! se disait-elle,
+> en fuyant d’un pied nerveux sous les trembles de la route. Le
+> désappointement de l’insuccès renforçait l’indignation de sa pudeur
+> outragée; il lui semblait que la Providence s’acharnait à la
+> poursuivre, et, s’en rehaussant d’orgueil, jamais elle n’avait eu tant
+> d’estime pour elle-même ni tant de mépris pour les autres. Quelque
+> chose de belliqueux la transportait. Elle aurait voulu battre les
+> hommes, leur cracher au visage, les broyer tous; et elle continuait à
+> marcher rapidement devant elle, pâle, frémissante, enragée, furetant
+> d’un œil en pleurs l’horizon vide, et comme se délectant à la haine qui
+> l’étouffait.
+> 
+> Quand elle aperçut sa maison, un engourdissement la saisit. Elle ne
+> pouvait avancer; il le fallait cependant; d’ailleurs, où fuir?
+> 
+> Félicité l’attendait sur la porte.
+> 
+> — Eh bien?
+> 
+> — Non! dit Emma.
+> 
+> Et, pendant un quart d’heure, toutes les deux, elles avisèrent les
+> différentes personnes d’Yonville disposées peut-être à la secourir.
+> Mais, chaque fois que Félicité nommait quelqu’un, Emma répliquait:
+> 
+> — Est-ce possible! Ils ne voudront pas!
+> 
+> — Et monsieur qui va rentrer!
+> 
+> — Je le sais bien... Laisse-moi seule.
+> 
+> Elle avait tout tenté. Il n’y avait plus rien à faire maintenant; et,
+> quand Charles paraîtrait, elle allait donc lui dire:
+> 
+> — Retire-toi. Ce tapis où tu marches n’est plus à nous. De ta maison,
+> tu n’as pas un meuble, une épingle, une paille, et c’est moi qui t’ai
+> ruiné, pauvre homme!
+> 
+> Alors ce serait un grand sanglot, puis il pleurerait abondamment, et
+> enfin, la surprise passée, il pardonnerait.
+> 
+> — Oui, murmurait-elle en grinçant des dents, il me pardonnera, lui qui
+> n’aurait pas assez d’un million à m’offrir pour que je l’excuse de
+> m’avoir connue... Jamais! jamais!
+> 
+> Cette idée de la supériorité de Bovary sur elle l’exaspérait. Puis,
+> qu’elle avouât ou n’avouât pas, tout à l’heure, tantôt, demain, il
+> n’en saurait pas moins la catastrophe; donc, il fallait attendre cette
+> horrible scène et subir le poids de sa magnanimité. L’envie lui vint
+> de retourner chez Lheureux: à quoi bon? d’écrire à son père; il était
+> trop tard; et peut-être qu’elle se repentait maintenant de n’avoir
+> pas cédé à l’autre, lorsqu’elle entendit le trot d’un cheval dans
+> l’allée. C’était lui, il ouvrait la barrière, il était plus blême que
+> le mur de plâtre. Bondissant dans l’escalier, elle s’échappa vivement
+> par la place; et la femme du maire, qui causait devant l’église avec
+> Lestiboudois, la vit entrer chez le percepteur.
+> 
+> Elle courut le dire à madame Caron. Ces deux dames montèrent dans le
+> grenier; et cachées par du linge étendu sur des perches, se postèrent
+> commodément pour apercevoir tout l’intérieur de Binet.
+
+
+## English translation supplied to the annotator
+
+> Maître Guillaumin knew her, being secretly associated with the cloth merchant, from whom he could always obtain capital for the mortgage loans he was asked to arrange.
+> 
+> Thus he knew (and better than she did) the long history of those notes, small at first, bearing the names of various endorsers, set at distant maturities and continually renewed, until the day when, gathering together all the protested notes, the merchant had instructed his friend Vinçart to conduct the necessary proceedings in his own name, not wishing to pass for a tiger among his fellow townspeople.
+> 
+> She interspersed her account with recriminations against Lheureux, recriminations to which the notary responded from time to time with some meaningless remark. As he ate his cutlet and drank his tea, he lowered his chin into his sky-blue cravat, fastened with two diamond pins linked by a little gold chain; and he smiled a peculiar smile, in a mawkish and ambiguous manner. But, noticing that her feet were damp:
+> 
+> “Do move closer to the stove... higher up... against the porcelain.”
+> 
+> She was afraid of soiling it. The notary resumed in a gallant tone:
+> 
+> “Beautiful things spoil nothing.”
+> 
+> Then she tried to move him, and, becoming emotional herself, she began telling him about the straitened circumstances of her household, her difficulties, her needs. He understood that: an elegant woman! And, without interrupting his eating, he had turned completely toward her, so that his knee brushed her ankle boot, whose sole curled upward as it steamed against the stove.
+> 
+> But when she asked him for a thousand crowns, he pursed his lips, then declared himself deeply distressed that he had not formerly been entrusted with the management of her fortune, for there were a hundred very convenient ways, even for a lady, to make her money yield a return. Whether in the peat bogs of Grumesnil or in land at Le Havre, one could have ventured upon excellent speculations with almost certain success; and he left her to consume herself with rage at the thought of the fabulous sums she would certainly have made.
+> 
+> “How is it,” he resumed, “that you never came to me?”
+> 
+> “I hardly know,” she said.
+> 
+> “Why, eh?... Was I really so frightening to you? On the contrary, it is I who should complain! We scarcely know each other! And yet I am very devoted to you; you no longer doubt that, I hope?”
+> 
+> He held out his hand, took hers, covered it with a ravenous kiss, then kept it on his knee; and he played delicately with her fingers while murmuring a thousand endearments to her.
+> 
+> His insipid voice whispered like a flowing stream; a spark flashed from his pupil through the glint of his spectacles, and his hands advanced into Emma’s sleeve to feel her arm. Against her cheek she felt the breath of his panting respiration. This man made her horribly uncomfortable.
+> 
+> She sprang to her feet and said to him:
+> 
+> “Sir, I am waiting!”
+> 
+> “For what?” said the notary, who suddenly turned extremely pale.
+> 
+> “For that money.”
+> 
+> “But...”
+> 
+> Then, yielding to the onrush of an overpowering desire:
+> 
+> “Well, yes!...”
+> 
+> He dragged himself toward her on his knees, heedless of his dressing gown.
+> 
+> “For pity’s sake, stay! I love you!”
+> 
+> He seized her around the waist.
+> 
+> A flood of crimson swiftly rose to Madame Bovary’s face. She drew back with a terrible look, exclaiming:
+> 
+> “You are shamelessly taking advantage of my distress, sir! I am to be pitied, but I am not for sale!”
+> 
+> And she went out.
+> 
+> The notary remained utterly stupefied, his eyes fixed on his handsome tapestry slippers. They were a gift from love. The sight of them finally consoled him. Besides, he reflected that an affair of that kind would have taken him too far.
+> 
+> “What a wretch! What a boor!... What infamy!” she said to herself as she fled with a nervous stride beneath the poplars along the road. The disappointment of failure reinforced the indignation of her outraged modesty; it seemed to her that Providence was bent on persecuting her, and, her pride exalted by this, never had she felt so much esteem for herself or so much contempt for others. Something warlike swept her away. She would have liked to beat men, spit in their faces, crush them all; and she continued walking rapidly straight ahead, pale, trembling, enraged, searching the empty horizon with tearful eyes, as though savoring the hatred that was choking her.
+> 
+> When she caught sight of her house, a numbness seized her. She could not go on; yet she had to; besides, where could she flee?
+> 
+> Félicité was waiting for her in the doorway.
+> 
+> “Well?”
+> 
+> “No!” said Emma.
+> 
+> And for a quarter of an hour the two of them considered the various people in Yonville who might perhaps be willing to help her. But each time Félicité named someone, Emma replied:
+> 
+> “Is it possible! They won’t!”
+> 
+> “And Monsieur will be coming home!”
+> 
+> “I know that perfectly well... Leave me alone.”
+> 
+> She had tried everything. There was nothing more to be done now; and when Charles appeared, she would therefore say to him:
+> 
+> “Go away. This carpet you are walking on is no longer ours. In your house you do not own a piece of furniture, a pin, or a wisp of straw, and it is I who have ruined you, poor man!”
+> 
+> Then there would be a great sob, after which he would weep profusely, and at last, once the surprise had passed, he would forgive her.
+> 
+> “Yes,” she murmured through clenched teeth, “he will forgive me, he who could offer me a million and still not have enough for me to forgive him for having known me... Never! Never!”
+> 
+> The idea of Bovary’s superiority over her exasperated her. Then, whether she confessed or did not confess, in a moment, later, tomorrow, he would nevertheless learn of the catastrophe; so she would have to await that horrible scene and bear the weight of his magnanimity. She felt the urge to return to Lheureux: what good would it do? To write to her father; it was too late; and perhaps she was now regretting not having yielded to the other man when she heard the trot of a horse in the lane. It was he; he opened the gate; he was paler than the plaster wall. Bounding up the stairs, she quickly escaped across the square; and the mayor’s wife, who was talking in front of the church with Lestiboudois, saw her enter the tax collector’s house.
+> 
+> She ran to tell Madame Caron. The two ladies went up into the attic; and, concealed by linen spread over poles, they settled themselves comfortably so as to see the entire interior of Binet’s house.
+
+
+Translation, where present, is an AI-generated analytical aid, not an authoritative edition.
+
+## Evidence cited by the annotator
+
+### ev1 — local text
+
+> “De grâce, restez! je vous aime!”
+
+The explicit first-person present-tense avowal strongly supports T; the surrounding plea identifies an immediate persuasive purpose but not a commitment.
+
+### ev2 — local text
+
+> “Puis, cédant à l’irruption d’un désir trop fort” immediately introduces his kneeling advance and love utterance.
+
+Provides positive evidence that an overpowering affective state partly produces the words, supporting moderate E independently of mere passionate delivery.
+
+### ev3 — local text
+
+> Emma responds: “Vous profitez impudemment de ma détresse… Je suis à plaindre, mais pas à vendre!”
+
+Shows that the utterance occurs within a coercive or transactional sexual advance, casting doubt on sincere love while leaving its avowal mode intact.
+
+### ev4 — local text
+
+> Afterward Guillaumin thinks “qu’une aventure pareille l’aurait entraîné trop loin.”
+
+His framing of the prospect as an affair that might go too far weighs against substantial undertaking or commitment force, supporting P=0.
+
+## Background, status and source records
+
+Utterance status: **direct**. Guillaumin directly says “je vous aime” to Emma as he kneels, begs her to stay, and seizes her around the waist.
+
+Background knowledge reported as used: **False**. 
+
+Self-reported confidence: 0.9. Not a calibrated accuracy estimate.
+
+Ontology fit: natural. T captures the avowal, while moderate E captures the narratively marked eruption of desire into speech. The coercive, opportunistic, and possibly insincere context does not require a separate core-force category, and there is no clear performative undertaking.
+
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-d3ce852d259a04be/8f8424ca127ae4b42f93013197295648eed6d1a221e80a5abf8538bd737e493e/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-d3ce852d259a04be/8f8424ca127ae4b42f93013197295648eed6d1a221e80a5abf8538bd737e493e/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/flaubert-madame-bovary/canonical.txt)
+- Occurrence: flaubert-madame-bovary-d3ce852d259a04be
+- Model: gpt-5.6-sol
+- Classification prompt: 0.3.1
+- Historical run: canonical_31_v0_11_v0_3_1
+- Canonical SHA-256: 93f0a2259dbaf5fde6e7b96adc22346d52f80eb1e9319336c8381a045efe40cd
+
+Rendered deterministically from the saved record. No rescoring or replacement explanation.
+
+Saved notes: The E score rests on the explicit narration of yielding to an overpowering affective onrush, not merely on the exclamation mark, kneeling, physical excitement, or intensity.

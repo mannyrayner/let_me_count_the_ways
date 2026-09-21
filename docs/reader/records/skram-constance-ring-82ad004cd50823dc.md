@@ -1,0 +1,472 @@
+# Constance Ring
+
+Amalie Skram · Norwegian
+
+[All records](../README.md) · [HTML reading copy](../cases/skram-constance-ring-82ad004cd50823dc.html)
+
+## Target
+
+> jeg elsker dig
+
+
+| T: report / avowal | P: undertaking | E: expressive/reflexive | O: other |
+|---:|---:|---:|---:|
+| 4 / 4 | 0 / 4 | 0 / 4 | 0 / 4 |
+
+Scores are independent support judgments. T is not a sincerity score.
+
+## Original passage
+
+> For han var mit alt og min Glæde, og han
+> lignede sin Fader saa op i Dagen, og jeg véd,
+> at det ikke er dig behageligt nu, siden du er
+> gift og ikke længer elsker mig, men det var
+> for mig en Hjærtens Fryd at se denne Lighed,
+> for jeg kunde ikke holde op at elske dig, da
+> du forlod mig og fæstede dit Hjærte ved en
+> anden. Desværre for mig, det var min Kval,
+> men ogsaa min Glæde, og jeg elsker dig den
+> Dag i Dag lige saa højt som den Gang, da du
+> kaldte mig din Pusunge og sagde, at min
+> Kjærlighed var din Trøst og Lykke. Og naar
+> jeg tænker paa alle de dejlige Aftener og
+> Nætter jeg tilbragte hos dig, flyder mine
+> Taarer, og det vil de gjøre bestandig, for jeg
+> glemmer dig ikke i dette Liv. Men nok herom,
+> min søde, kjære Gut døde i Dag for otte Dage
+> siden, og blev begravet paa femte Dagen.
+> Hans Kiste var saa pen, og den var ganske
+> fuld af Blomster, og han var akkurat paa
+> Dagen 1 Aar og 8 Maaneder, for han var født
+> i Januar, som du var rejst i Oktober, hvis du
+> husker det. Det var Tyfus han havde, og han
+> led græsselige Smerter. Kort før han døde,
+> slog han Øjnene op og saa' paa mig, som om
+> han vilde klage sig, og det stak mig i Hjærtet,
+> at'jeg havde sat ham ind i Verden med Skam,
+> jeg ludet mig over ham og talte til ham,
+> skjønt jeg var kvalt af Graad, og saa smilte
+> han saa sødt, og saa drog han Pusten tungt
+
+
+## Original AI explanation
+
+Kristine’s written “jeg elsker dig den Dag i Dag” explicitly avows as presently true her continuing love for Nils. Its retrospective comparison and surrounding explanation present love as an enduring emotional state. It neither undertakes a future relational commitment nor shows positive evidence that the words are a reflex-like affective discharge; grief and tears intensify the context but do not independently establish E.
+
+## Ambiguity
+
+None recorded.
+
+## Narrative situation (AI interpretation)
+
+Kristine addresses a former lover who abandoned her, married another woman, and no longer loves her. While reporting their son’s death and announcing a final separation, she says that she has been unable to stop loving Nils and still loves him as deeply as before. The letter’s grief, resignation, memories, and good wishes support the sincerity and persistence of the avowed state, but the explicit farewell and expectation of never meeting again weigh against construing the sentence as a relational undertaking. Constance’s compassionate response further frames Kristine as a patient, wronged sufferer, though that framing is contextual rather than part of the utterance’s core force.
+
+## Original context supplied to the annotator
+
+> «Du trænger til Ro, du maa sove,* sa hun,
+> og for at stille ham tilfreds og lulle ham i
+> Søvn gav hun sig til at stryge ham gennem
+> hans krøllede Haar, sagte, blødt, langsommere
+> og langsommere. Den Nat sov Lorck rolig og
+> uafbrudt for første Gang, siden han blev senge
+> liggende. Det var tydeligt, at Sygdommen
+> havde tat en god Vending.
+> 
+> Men til Constance kom der ingen Søvn.
+> Hun vilde saa gjerne faa Glemsel for den
+> 
+> Pine, hun led, og laa saa stille, saa stille med
+> lakkede Øjne, skiftede nu og da Stilling,
+> prøvede at ligge paa Ryg med Knæerne
+> trukket op i en Bue, vendte sig om og laa
+> med Ansigtet begravet i Puden, men nej, det
+> vilde ikke lykkes. Til sidst stod hun op for
+> at forsøge det med at vandre op og ned i den
+> anden Stue, indtil hun blev træt eller kom til
+> at fryse, saa maatte vel Søvnen indfinde sig.
+> Hun stak de bare Ben i et Par Tøfler, kastede
+> paa sig et Skjørt og en Toiletjakke og listede
+> sig sagte ud af Soveværelset.
+> 
+> Et blegt, forunderlig dødt og stille Morgen
+> lys fyldte Værelset. Gjennem de aabne Altan
+> døre lød et tusindstemmigt Kor af kvidrende
+> Fuglerøster. Hun traadte ud paa Altanen; den
+> var vaad af Dag, og Himlen var graablaa og
+> diset. Ikke en Luftning var der at mærke;
+> Træer og Planter syntes at staa og sove, og
+> Vandet laa og strakte sig i den dybeste
+> Hvile. Paa Himlen i Øst var der smale, gullige
+> Striber; Solen vilde snart være der. Denne
+> Stilhed var knugende. Constance gjøs og
+> krøb sammen. Hendes Tanker kredsede om
+> dette ene: denne Kvinde, som han havde
+> elsket og levet med, og som havde skjænket -
+> ham et Barn.
+> 
+> Mon han havde elsket Kristine, som han
+> nu elskede hende?  Mon han havde  mon
+> han havde?  Hun vred sig under Tankerne.
+> 
+> Pludselig huskede hun Pakken; det maate
+> være Breve. Hansen havde talt om nogle Af
+> skedsord.
+> 
+> Du mildeste Gud og Skabermand*  sa
+> hun med en lydelig Hvisken  ,,der er Breve,
+> Breve!»
+> 
+> Hun trak Øjenbrynene i Vejret og spilede
+> Øjnene op som i Forskrækkelse; Læberne drog
+> hun sammen til en Spids og fløjtede ganske
+> sagte. En kvalblandet Henrykkelse greb hende;
+> hun vilde kaste sig over Brevene og læse som
+> en besat. Hun følte ikke et Sekunds Vaklen
+> eller en Skygge af Betænkelighed; tværtom
+> vidste hun med sig selv, at intet i Verden
+> vilde kunne hindre eller stanse hende. Et
+> Udtryk af Grusomhed laa om hendes Mund,
+> Blodet hamrede i hendes Tindinger, og Hæn
+> derne skjalv, da hun skar Omslaget itu.
+> 
+> Øverst laa et Brev skrevet med en klodset
+> Haand og en højst forvirret Orthografi.
+> 
+> ,Kjære Nils» — stod der  ,jeg beder
+> dig meget om Undskyldning, fordi jeg efter
+> denne lange Tids Forløb vover at tilskrive
+> dig, men det er for at underrette dig om, at
+> Gud har taget vor elskede Søn hjem til sig,
+> og uagtet jeg godt véd, at det var det bedste
+> som kunde times min arme, velsignede Anton,
+> saasom han jo var faderløs, skjønt hans Fader
+> levede, hvilket er eudnu værre, saa føler jeg
+> dog en bitterlig Sorg over hans Bortgang.
+> 
+> For han var mit alt og min Glæde, og han
+> lignede sin Fader saa op i Dagen, og jeg véd,
+> at det ikke er dig behageligt nu, siden du er
+> gift og ikke længer elsker mig, men det var
+> for mig en Hjærtens Fryd at se denne Lighed,
+> for jeg kunde ikke holde op at elske dig, da
+> du forlod mig og fæstede dit Hjærte ved en
+> anden. Desværre for mig, det var min Kval,
+> men ogsaa min Glæde, og jeg elsker dig den
+> Dag i Dag lige saa højt som den Gang, da du
+> kaldte mig din Pusunge og sagde, at min
+> Kjærlighed var din Trøst og Lykke. Og naar
+> jeg tænker paa alle de dejlige Aftener og
+> Nætter jeg tilbragte hos dig, flyder mine
+> Taarer, og det vil de gjøre bestandig, for jeg
+> glemmer dig ikke i dette Liv. Men nok herom,
+> min søde, kjære Gut døde i Dag for otte Dage
+> siden, og blev begravet paa femte Dagen.
+> Hans Kiste var saa pen, og den var ganske
+> fuld af Blomster, og han var akkurat paa
+> Dagen 1 Aar og 8 Maaneder, for han var født
+> i Januar, som du var rejst i Oktober, hvis du
+> husker det. Det var Tyfus han havde, og han
+> led græsselige Smerter. Kort før han døde,
+> slog han Øjnene op og saa' paa mig, som om
+> han vilde klage sig, og det stak mig i Hjærtet,
+> at'jeg havde sat ham ind i Verden med Skam,
+> jeg ludet mig over ham og talte til ham,
+> skjønt jeg var kvalt af Graad, og saa smilte
+> han saa sødt, og saa drog han Pusten tungt
+> 
+> og døde. Jeg trode mit Hjærte var brustet
+> med det samme, men hvad et Menneske kan
+> udholde at lide, er utroligt. Og nu vil jeg
+> sige dig mit sidste Farvel; jeg rejser til Dram
+> men, hvor du husker jeg har Familje; jeg tror
+> nok jeg kan faa Arbejde der. Jeg ser dig
+> aldrig mere her i Verden, men tænke paa dig,
+> det kommer jeg at gjøre ofte, og paa ham,
+> som jeg har lidt og grædt saa meget for. Jeg
+> ønsker dig oprigtigt, at du al Tid maa blive
+> lykkelig, og at hun, som er din Kone, maa
+> elske dig lige saa højt, som jeg gjorde, da vil
+> du ikke savne Kjærlighed. Og saa til Slutning
+> Tak for alt. Dig skylder jeg, at jeg har smagt
+> Lykke i Livet, var det end kort og endte
+> med bitter Sorg, saa vilde jeg ikke undvært
+> det, nej ikke for aldrig det. Og jeg velsigner
+> dig, fordi du har sørget saa godt for vort Barn.
+> Lev da saa vel, og hav det saa godt som det
+> ønskes dig af din gamle tro
+> Kristine. *
+> 
+> Da Constance havde læst Brevet, la hun
+> Ansigtet ned paa Hænderne og hulkede. Denne
+> arme Kvinde med sit Barn! Hvorfor var hun
+> bleven forstødt? Med hvilken Ret bar Mændene
+> sig saaledes ad! De nød disse Kvinders Ung
+> dom, deres Sundhed, deres Kjærlighed, som om
+> de var skabt i dette ene Øjemed, de nød, til
+> de var mættet. Saa de noget mere efter-
+> 
+> tragtelsesværdigt, slængte de dem fra sig og
+> overlod dem til den Skjæbne, som Mændenes
+> brutale Egoisme havde beredt dem. Hun foølte
+> en inderlig Medlidenhed med denne taalmodig
+> lidende, der var saa fuld af Godhed og Resigna
+> tion, og samtidig en oprørsk Forbitrelse mod
+> den Samfundsraahed, der havde gjort det saa
+> bekvemt og saa ufarligt for Mændene at hen
+> give sig til sine kjønslige Lyster.
+> 
+> Hun følte ikke længer nogen Skinsyge;
+> Arten af hendes Smerte var en anden; en
+> heftig Uvilje mod hendes Mand rørte sig hos
+> hende,  hun taalte ikke at tænke paa ham.
+> 
+> De øvrige Breve var fra Lorck til Kristine;
+> de var nummereret, og hun læste dem i Række
+> følge. Hun saa', det var et Forhold, som havde
+> bestaat i flere Aar, men samtidig havde han
+> havt Kjærlighedshistorier ved Siden af, hvad
+> der fremgik af Svar, han havde givet paa
+> Kristines Bebrejdelser og Udbrud af Skinsyge.
+> En af disse Rivalinder havde været en gift
+> Dame og øjensynlig hørt til Loreks Omgangs
+> kreds. I et af Brevene stod der: ,Min elskede
+> Kristine, vær du blot rolig, jeg vender dog
+> tilbage til dig. Den dumme Historie skal du
+> ikke bry dig om. Havde du ikke tilfældie
+> faat dette at vide, vilde det ingen Fortræd
+> ha kunnet gjøre dig. Forresten er jeg kjed af
+> denne idelige Væren paa Vagt mod Manden,
+> og til syvende og sidst har hun aldrig for
+
+
+## English translation supplied to the annotator
+
+> “You need rest, you must sleep,” she said,
+> and, to satisfy him and lull him to
+> sleep, she began to stroke him through
+> his curly hair, gently, softly, more and more
+> slowly. That night Lorck slept peacefully and
+> uninterruptedly for the first time since he became
+> bedridden. It was clear that the illness
+> had taken a favorable turn.
+> 
+> But no sleep came to Constance.
+> She so dearly wished to find oblivion from the
+> 
+> torment she was suffering, and lay so still, so still, with
+> closed eyes, now and then changed position,
+> tried lying on her back with her knees
+> drawn up in an arch, turned over and lay
+> with her face buried in the pillow, but no, it
+> would not succeed. At last she got up to
+> try walking up and down in the
+> other room until she grew tired or began
+> to feel cold; then sleep would surely come.
+> She slipped her bare feet into a pair of slippers, threw
+> on a skirt and a dressing jacket, and stole
+> quietly out of the bedroom.
+> 
+> A pale, strangely dead and silent morning
+> light filled the room. Through the open balcony
+> doors came a thousand-voiced chorus of twittering
+> birds. She stepped out onto the balcony; it
+> was wet with dew, and the sky was gray-blue and
+> hazy. Not a breath of air could be felt;
+> trees and plants seemed to stand sleeping, and
+> the water lay stretching out in the deepest
+> repose. In the eastern sky there were narrow, yellowish
+> streaks; the sun would soon be there. This
+> silence was oppressive. Constance shuddered and
+> huddled up. Her thoughts revolved around
+> this one thing: this woman whom he had
+> loved and lived with, and who had given
+> him a child.
+> 
+> Could he have loved Kristine as he
+> now loved her? Could he have—could
+> he have? She writhed beneath the thoughts.
+> 
+> Suddenly she remembered the package; it had to
+> be letters. Hansen had spoken of some words of
+> farewell.
+> 
+> “O most merciful God and Creator,” she
+> said in an audible whisper, “there are letters,
+> letters!”
+> 
+> She raised her eyebrows and opened
+> her eyes wide as if in alarm; she pursed her lips
+> to a point and whistled very softly. An anguish-mingled
+> rapture seized her;
+> she wanted to throw herself upon the letters and read like
+> one possessed. She did not feel a second’s hesitation
+> or a shadow of scruple; on the contrary,
+> she knew within herself that nothing in the world
+> would be able to hinder or stop her. An
+> expression of cruelty lay about her mouth,
+> the blood hammered in her temples, and her hands
+> trembled as she cut the wrapping apart.
+> 
+> On top lay a letter written in a clumsy
+> hand and with extremely confused spelling.
+> 
+> “Dear Nils”—it said—“I beg
+> your pardon most sincerely for daring to write
+> to you after all this time, but it is to inform
+> you that God has taken our beloved son home to Him,
+> and although I know well that it was the best
+> thing that could befall my poor, blessed Anton,
+> since he was fatherless, though his father
+> was alive, which is even worse, I nevertheless feel
+> a bitter sorrow over his passing.
+> 
+> For he was my all and my joy, and he
+> was the very image of his father, and I know
+> that it is not pleasing to you now, since you are
+> married and no longer love me, but it was
+> a heartfelt joy to me to see this likeness,
+> for I could not stop loving you when
+> you left me and set your heart upon
+> another. Alas for me, it was my torment,
+> but also my joy, and I love you to this
+> day just as deeply as at the time when you
+> called me your little kitten and said that my
+> love was your comfort and happiness. And when
+> I think of all the lovely evenings and
+> nights I spent with you, my tears flow,
+> and they will do so always, for I shall not
+> forget you in this life. But enough of this;
+> my sweet, dear boy died a week ago today,
+> and was buried on the fifth day.
+> His coffin was so pretty, and it was quite
+> full of flowers, and he was exactly
+> one year and eight months old to the day, for he was born
+> in January, after you had left in October, if you
+> remember. It was typhus he had, and he
+> suffered dreadful pains. Shortly before he died,
+> he opened his eyes and looked at me as though
+> he wished to lament to me, and it pierced my heart
+> that I had brought him into the world in shame;
+> I bent over him and spoke to him,
+> though I was choked with weeping, and then he smiled
+> so sweetly, and then he drew breath heavily
+> 
+> and died. I thought my heart had broken
+> at that very moment, but what a human being can
+> endure in suffering is unbelievable. And now I will
+> say my last farewell to you; I am going to Drammen,
+> where, as you remember, I have family; I think
+> I shall be able to find work there. I shall never see
+> you again in this world, but think of you,
+> that I shall often do, and of him
+> for whom I have suffered and wept so much. I
+> sincerely wish that you may always remain
+> happy, and that she who is your wife may
+> love you as deeply as I did; then you
+> will not lack love. And so, in closing,
+> thank you for everything. To you I owe it that I have tasted
+> happiness in life; though it was brief and ended
+> in bitter sorrow, I would not have been without
+> it, no, never. And I bless
+> you because you have provided so well for our child.
+> Farewell, then, and may you fare as well as is wished
+> for you by your old faithful
+> Kristine.”
+> 
+> When Constance had read the letter, she laid her
+> face in her hands and sobbed. This
+> poor woman with her child! Why had she
+> been cast off? By what right did men behave
+> in this way! They enjoyed these women’s youth,
+> their health, their love, as though
+> they had been created for this one purpose; they enjoyed them until
+> they were sated. If they saw something more
+> 
+> desirable, they flung them aside and
+> abandoned them to the fate that the men’s
+> brutal selfishness had prepared for them. She felt
+> a profound compassion for this patient
+> sufferer, who was so full of goodness and resignation,
+> and at the same time a rebellious bitterness against
+> the brutality of society that had made it so
+> convenient and so free of danger for men to
+> indulge their sexual lusts.
+> 
+> She no longer felt any jealousy;
+> the nature of her pain was different; a
+> violent aversion to her husband stirred within
+> her—she could not bear to think of him.
+> 
+> The remaining letters were from Lorck to Kristine;
+> they were numbered, and she read them in order.
+> She saw that it was a relationship that had
+> lasted for several years, but at the same time he had had
+> love affairs on the side, as was evident
+> from answers he had given to Kristine’s reproaches
+> and outbursts of jealousy.
+> One of these rivals had been a married
+> lady and had evidently belonged to Lorck’s social
+> circle. One of the letters said: “My beloved
+> Kristine, just be calm; I shall return
+> to you. You must not concern yourself with that foolish
+> affair. If you had not happened
+> to learn of it, it could not have done
+> you any harm. Besides, I am tired of this constant
+> being on guard against the husband,
+> and when all is said and done, she has never for”
+
+
+Translation, where present, is an AI-generated analytical aid, not an authoritative edition.
+
+## Evidence cited by the annotator
+
+### e1 — local text
+
+> “jeg kunde ikke holde op at elske dig, da du forlod mig og fæstede dit Hjærte ved en anden” (“I could not stop loving you when you left me and set your heart upon another”).
+
+The preceding clause characterizes the highlighted utterance as an avowal of a persistent emotional state despite abandonment.
+
+### e2 — local text
+
+> “jeg elsker dig den Dag i Dag lige saa højt som den Gang” (“I love you to this day just as deeply as then”).
+
+The present-tense declaration with a temporal comparison gives very strong truth-conditional support.
+
+### e3 — local text
+
+> Kristine later writes, “nu vil jeg sige dig mit sidste Farvel” and “Jeg ser dig aldrig mere her i Verden” (“now I will say my last farewell” and “I shall never see you again in this world”).
+
+The declared final separation weighs against treating the love avowal as an undertaking to renew or continue their relationship.
+
+### e4 — local text
+
+> Kristine says that memories make her tears flow and that she will never forget Nils, but the letter provides no blurt, involuntary speech, or comparable reflex marker.
+
+The passage supplies emotional intensity and sincerity but no independent evidence for expressive/reflexive core force.
+
+### e5 — supplied metadata
+
+> The occurrence is located in Amalie Skram’s Constance Ring and is identified as an explicit present-tense “I love you” form.
+
+Confirms the identified occurrence and its grammatical presentation as a current love declaration.
+
+## Background, status and source records
+
+Utterance status: **written**. Kristine writes the avowal in a farewell letter to Nils; the narrator reproduces the letter as Constance reads it.
+
+Background knowledge reported as used: **False**. 
+
+Self-reported confidence: 0.98. Not a calibrated accuracy estimate.
+
+Ontology fit: natural. T naturally captures the core as an explicit written avowal of enduring love. Its emotional and narrative complexity can be represented contextually without adding P, E, or O.
+
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-constance-ring-82ad004cd50823dc/bb97be24e4ccb9b35f382a03e9a11dd5cc8c513038a9fc22ce8dac53a23f12f1/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-constance-ring-82ad004cd50823dc/bb97be24e4ccb9b35f382a03e9a11dd5cc8c513038a9fc22ce8dac53a23f12f1/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/skram-constance-ring/canonical.txt)
+- Occurrence: skram-constance-ring-82ad004cd50823dc
+- Model: gpt-5.6-sol
+- Classification prompt: 0.3.1
+- Historical run: commitment_extension_5_v0_12_v0_3_1
+- Canonical SHA-256: 49e81b7a6d20545c8c25c55267aa2deaad1f18f16b989b202a7d30a81a756aaa
+
+Rendered deterministically from the saved record. No rescoring or replacement explanation.

@@ -1,0 +1,287 @@
+# La Mare au Diable
+
+George Sand · French
+
+[All records](../README.md) · [HTML reading copy](../cases/sand-la-mare-au-diable-7ba1f4516fb0cdd9.html)
+
+## Target
+
+> je
+> t’aime
+
+
+| T: report / avowal | P: undertaking | E: expressive/reflexive | O: other |
+|---:|---:|---:|---:|
+| 4 / 4 | 2 / 4 | 2 / 4 | 0 / 4 |
+
+Scores are independent support judgments. T is not a sincerity score.
+
+## Original passage
+
+> —Marie, lui dit-il, tu me plais, et je suis bien malheureux
+> de ne pas te plaire. Si tu voulais m’accepter pour ton mari,
+> il n’y aurait ni beau-père, ni parents, ni voisins, ni
+> conseils qui pussent m’empêcher de me donner à toi. Je sais
+> que tu rendrais mes enfants heureux, que tu leur apprendrais à
+> respecter le souvenir de leur mère, et, ma conscience étant en
+> repos, je pourrais contenter mon cœur. J’ai toujours eu de
+> l’amitié pour toi, et à présent je me sens si amoureux que si
+> tu me demandais de faire toute ma vie tes mille volontés, je
+> te le jurerais sur l’heure. Vois, je t’en prie, comme je
+> t’aime, et tâche d’oublier mon âge. Pense que c’est une fausse
+> idée qu’on se fait quand on croit qu’un homme de trente ans
+> est vieux. D’ailleurs je n’ai que vingt-huit ans! une jeune
+> fille craint de se faire critiquer en prenant un homme qui a
+> dix ou douze ans de plus qu’elle, parce que ce n’est pas la
+> coutume du pays; mais j’ai entendu dire que dans d’autres pays
+> on ne regardait point à cela; qu’au contraire on aimait mieux
+> donner pour soutien, à une jeunesse, un homme raisonnable et
+> d’un courage bien éprouvé qu’un jeune gars qui peut se
+> déranger, et, de bon sujet qu’on le croyait, devenir un
+> mauvais garnement. D’ailleurs, les années ne font pas toujours
+> l’âge. Cela dépend de la force et de la santé qu’on a. Quand
+> un homme est usé par trop de travail et de misère ou par la
+> mauvaise conduite, il est vieux avant vingt-cinq ans. Au lieu
+> que moi... Mais tu ne m’écoutes pas, Marie.
+
+
+## Original AI explanation
+
+Germain’s “Vois, je t’en prie, comme je t’aime” directly avows his present love for Marie, giving T maximal support. It occurs within an explicit marriage proposal and declaration of willingness to give himself to her, so it participates in a relational undertaking, though the highlighted clause itself primarily states his feeling rather than independently making the commitment. The narration positively presents his speech as released by irresistible tenderness—his tongue is ‘loosened as though by a miracle’—which supplies moderate independent E support, despite the extended and partly reasoned form of his appeal.
+
+## Ambiguity
+
+The main uncertainty concerns how much of the surrounding proposal’s undertaking force belongs to the highlighted avowal itself, and whether the affect-driven narrative framing makes this particular clause partly expressive rather than merely a passionate assertion.
+
+## Narrative situation (AI interpretation)
+
+The avowal is sincere as presented and forms part of Germain’s attempt to persuade Marie to accept him as her husband. His speech combines emotional disclosure with practical arguments about his age, security, children, and suitability. Marie hears him but distinguishes affection from romantic inclination and initially rejects the proposed match. The courtship setting strengthens limited P support, while the narrator’s account of tenderness overcoming Germain’s shame independently supports some expressive/reflexive force.
+
+## Original context supplied to the annotator
+
+> Quand il sentit la jeune fille si près de lui, Germain, qui
+> s’était distrait et égayé un instant, recommença à perdre la
+> tête. Deux ou trois fois il s’éloigna brusquement, et la
+> laissa marcher seule. Puis voyant qu’elle avait peine à le
+> suivre, il l’attendait, l’attirait vivement près de lui, et la
+> pressait si fort, qu’elle en était étonnée et même fâchée sans
+> oser le dire.
+> 
+> Comme ils ne savaient point du tout de quelle direction ils
+> étaient partis, ils ne savaient pas celle qu’ils suivaient; si
+> bien qu’ils remontèrent encore une fois tout le bois, se
+> retrouvèrent, de nouveau, en face de la lande déserte,
+> revinrent sur leurs pas, et, après avoir tourné et marché
+> longtemps, ils aperçurent de la clarté à travers les branches.
+> 
+> —Bon! voici une maison, dit Germain, et des gens déjà
+> éveillés, puisque le feu est allumé. Il est donc bien tard?
+> 
+> Mais ce n’était pas une maison: c’était le feu de bivouac
+> qu’ils avaient couvert en partant, et qui s’était rallumé à la
+> brise...
+> 
+> Ils avaient marché pendant deux heures pour se retrouver au
+> point de départ.
+> 
+> 
+> 
+> 
+> XI
+> 
+> 
+> A LA BELLE ETOILE
+> 
+> 
+> Pour le coup j’y renonce! dit Germain en frappant du pied.
+> On nous a jeté un sort, c’est bien sûr, et nous ne sortirons
+> d’ici qu’au grand jour. Il faut que cet endroit soit endiablé.
+> 
+> —Allons, allons, ne nous fâchons pas, dit Marie, et prenons-
+> en notre parti. Nous ferons un plus grand feu, l’enfant est si
+> bien enveloppé qu’il ne risque rien, et pour passer une nuit
+> dehors nous n’en mourrons point. Où avez-vous caché la bâtine,
+> Germain? Au milieu des grands houx, grand étourdi! C’est
+> commode pour aller la reprendre!
+> 
+> —Tiens l’enfant, prends-le, que je retire son lit des
+> broussailles; je ne veux pas que tu te piques les mains.
+> 
+> —C’est fait, voici le lit, et quelques piqûres ne sont pas
+> des coups de sabre, reprit la brave petite fille.
+> 
+> Elle procéda de nouveau au coucher du petit Pierre, qui était
+> si bien endormi cette fois qu’il ne s’aperçut en rien de ce
+> nouveau voyage. Germain mit tant de bois au feu que toute la
+> forêt en resplendit à la ronde; mais la petite Marie n’en
+> pouvait plus, et quoiqu’elle ne se plaignît de rien, elle ne
+> se soutenait plus sur ses jambes. Elle était pâle et ses dents
+> claquaient de froid et de faiblesse. Germain la prit dans ses
+> bras pour la réchauffer; et l’inquiétude, la compassion, des
+> mouvements de tendresse irrésistible s’emparant de son cœur,
+> firent taire ses sens. Sa langue se délia comme par miracle,
+> et toute honte cessant:
+> 
+> —Marie, lui dit-il, tu me plais, et je suis bien malheureux
+> de ne pas te plaire. Si tu voulais m’accepter pour ton mari,
+> il n’y aurait ni beau-père, ni parents, ni voisins, ni
+> conseils qui pussent m’empêcher de me donner à toi. Je sais
+> que tu rendrais mes enfants heureux, que tu leur apprendrais à
+> respecter le souvenir de leur mère, et, ma conscience étant en
+> repos, je pourrais contenter mon cœur. J’ai toujours eu de
+> l’amitié pour toi, et à présent je me sens si amoureux que si
+> tu me demandais de faire toute ma vie tes mille volontés, je
+> te le jurerais sur l’heure. Vois, je t’en prie, comme je
+> t’aime, et tâche d’oublier mon âge. Pense que c’est une fausse
+> idée qu’on se fait quand on croit qu’un homme de trente ans
+> est vieux. D’ailleurs je n’ai que vingt-huit ans! une jeune
+> fille craint de se faire critiquer en prenant un homme qui a
+> dix ou douze ans de plus qu’elle, parce que ce n’est pas la
+> coutume du pays; mais j’ai entendu dire que dans d’autres pays
+> on ne regardait point à cela; qu’au contraire on aimait mieux
+> donner pour soutien, à une jeunesse, un homme raisonnable et
+> d’un courage bien éprouvé qu’un jeune gars qui peut se
+> déranger, et, de bon sujet qu’on le croyait, devenir un
+> mauvais garnement. D’ailleurs, les années ne font pas toujours
+> l’âge. Cela dépend de la force et de la santé qu’on a. Quand
+> un homme est usé par trop de travail et de misère ou par la
+> mauvaise conduite, il est vieux avant vingt-cinq ans. Au lieu
+> que moi... Mais tu ne m’écoutes pas, Marie.
+> 
+> —Si fait, Germain, je vous entends bien, répondit la petite
+> Marie, mais je songe à ce que m’a toujours dit ma mère: c’est
+> qu’une femme de soixante ans est bien à plaindre quand son
+> mari en a soixante-dix ou soixante-quinze, et qu’il ne peut
+> plus travailler pour la nourrir. Il devient infirme, et il
+> faut qu’elle le soigne à l’âge où elle commencerait elle-même
+> à avoir grand besoin de ménagement et de repos. C’est ainsi
+> qu’on arrive à finir sur la paille.
+> 
+> —Les parents ont raison de dire cela, j’en conviens, Marie,
+> reprit Germain; mais enfin ils sacrifieraient tout le temps de
+> la jeunesse, qui est le meilleur, à prévoir ce qu’on deviendra
+> à l’âge où l’on n’est plus bon à rien, et où il est
+> indifférent de finir d’une manière ou d’une autre. Mais moi,
+> je ne suis pas dans le danger de mourir de faim sur mes vieux
+> jours. Je suis à même d’amasser quelque chose, puisque, vivant
+> avec les parents de ma femme, je travaille beaucoup et ne
+> dépense rien. D’ailleurs, je t’aimerai tant, vois-tu, que ça
+> m’empêchera de vieillir. On dit que quand un homme est
+> heureux, il se conserve, et je sens bien que je suis plus
+> jeune que Bastien pour t’aimer; car il ne t’aime pas, lui, il
+> est trop bête, trop enfant pour comprendre comme tu es jolie
+> et bonne, et faite pour être recherchée. Allons, Marie, ne me
+> déteste pas, je ne suis pas un méchant homme: j’ai rendu ma
+> Catherine heureuse, elle a dit devant Dieu à son lit de mort
+> qu’elle n’avait jamais eu de moi que du contentement, et elle
+> m’a recommandé de me remarier. Il semble que son esprit ait
+> parlé ce soir à son enfant, au moment où il s’est endormi.
+> Est-ce que tu n’as pas entendu ce qu’il disait? et comme sa
+> petite bouche tremblait, pendant que ses yeux regardaient en
+> l’air quelque chose que nous ne pouvions pas voir! Il voyait
+> sa mère, sois-en sûre, et c’était elle qui lui faisait dire
+> qu’il te voulait pour la remplacer.
+> 
+> —Germain, répondit Marie, tout étonnée et toute pensive, vous
+> parlez honnêtement et tout ce que vous dites est vrai. Je suis
+> sûre que je ferais bien de vous aimer, si ça ne mécontentait
+> pas trop vos parents: mais que voulez-vous que j’y fasse? le
+> cœur ne m’en dit pas pour vous. Je vous aime bien, mais
+> quoique votre âge ne vous enlaidisse pas, il me fait peur. Il
+> me semble que vous êtes quelque chose pour moi, comme un oncle
+> ou un parrain; que je vous dois le respect, et que vous auriez
+> des moments où vous me traiteriez comme une petite fille
+> plutôt que comme votre femme et votre égale. Enfin, mes
+> camarades se moqueraient peut-être de moi, et quoique ça soit
+> une sottise de faire attention à cela, je crois que je serais
+> honteuse et un peu triste le jour de mes noces.
+
+
+## English translation supplied to the annotator
+
+> When he felt the young girl so close to him, Germain, who had been distracted and cheered for a moment, began to lose his head again. Two or three times he moved abruptly away and left her to walk alone. Then, seeing that she was having difficulty keeping up with him, he would wait for her, draw her briskly close to him, and hold her so tightly that she was astonished and even angry at it, without daring to say so.
+> 
+> As they had no idea at all from which direction they had set out, they did not know which one they were following; so much so that they went all the way back up through the woods once again, found themselves once more facing the deserted heath, retraced their steps, and, after wandering and walking for a long time, saw a light through the branches.
+> 
+> “Good! Here is a house,” said Germain, “and people already awake, since the fire is lit. Can it be so late?”
+> 
+> But it was not a house: it was the bivouac fire they had covered when they left, and which had flared up again in the breeze...
+> 
+> They had walked for two hours only to find themselves back at their starting point.
+> 
+> 
+> 
+> 
+> XI
+> 
+> 
+> UNDER THE STARS
+> 
+> 
+> “This time I give up!” said Germain, stamping his foot. “Someone has cast a spell on us, that is certain, and we shall not get out of here until broad daylight. This place must be bedeviled.”
+> 
+> “Come, come, let us not get angry,” said Marie, “and let us make the best of it. We shall build a bigger fire; the child is so well wrapped up that he is in no danger, and we shall not die from spending one night outdoors. Where did you hide the packsaddle, Germain? In the middle of the tall holly bushes, you great scatterbrain! That makes it convenient to go and fetch it again!”
+> 
+> “Hold the child, take him, while I pull his bed out of the undergrowth; I do not want you to prick your hands.”
+> 
+> “It is done; here is the bed, and a few pricks are not saber cuts,” replied the brave little girl.
+> 
+> She once again set about putting little Pierre to bed. This time he was so sound asleep that he noticed nothing at all of this new journey. Germain put so much wood on the fire that the whole forest glowed with it all around; but little Marie could go no farther, and although she complained of nothing, her legs could no longer support her. She was pale, and her teeth were chattering with cold and weakness. Germain took her in his arms to warm her; and anxiety, compassion, and impulses of irresistible tenderness, taking possession of his heart, silenced his senses. His tongue was loosened as though by a miracle, and, all shame gone, he said:
+> 
+> “Marie, I like you, and I am very unhappy that you do not like me. If you were willing to accept me as your husband, neither father-in-law, nor parents, nor neighbors, nor advice could prevent me from giving myself to you. I know that you would make my children happy, that you would teach them to respect their mother’s memory, and, with my conscience at peace, I could satisfy my heart. I have always felt affection for you, and now I feel so much in love that, if you asked me to spend my whole life doing your every wish, I would swear to do so this very moment. See, I beg you, how I love you, and try to forget my age. Consider that it is a false notion people have when they think that a man of thirty is old. Besides, I am only twenty-eight! A young girl is afraid of being criticized if she takes a man ten or twelve years older than she is, because that is not the custom of the region; but I have heard it said that in other regions people pay no attention to that; that, on the contrary, they prefer to give a young woman, as her support, a sensible man whose mettle has been well tested rather than a young fellow who may go astray and, though believed to be a good sort, turn into a good-for-nothing. Besides, years do not always determine age. It depends on the strength and health one has. When a man is worn out by too much work and hardship, or by bad conduct, he is old before he is twenty-five. Whereas I... But you are not listening to me, Marie.”
+> 
+> “Yes, I am, Germain; I hear you perfectly well,” little Marie replied, “but I am thinking about what my mother has always told me: that a woman of sixty is much to be pitied when her husband is seventy or seventy-five and can no longer work to support her. He becomes infirm, and she has to care for him at an age when she herself is beginning to have great need of care and rest. That is how one ends up dying on straw.”
+> 
+> “Parents are right to say that, I agree, Marie,” Germain resumed; “but then they would sacrifice all the years of youth, which are the best, to worrying about what one will become at an age when one is no longer good for anything and it makes no difference whether one ends in one way or another. But I am not in danger of dying of hunger in my old age. I am in a position to save something, since, living with my wife’s parents, I work hard and spend nothing. Besides, I shall love you so much, you see, that it will keep me from growing old. They say that when a man is happy, he keeps well, and I know that I am younger than Bastien when it comes to loving you; for he does not love you—he is too stupid, too childish to understand how pretty and good you are, and how worthy you are of being sought after. Come, Marie, do not hate me; I am not a bad man. I made my Catherine happy; before God, on her deathbed, she said that she had never had anything from me but happiness, and she urged me to marry again. It seems as though her spirit spoke this evening to her child, just as he was falling asleep. Did you not hear what he was saying, and see how his little mouth trembled while his eyes looked upward at something we could not see? He saw his mother, be sure of it, and it was she who made him say that he wanted you to take her place.”
+> 
+> “Germain,” Marie replied, utterly astonished and thoughtful, “you speak honorably, and everything you say is true. I am sure I would do well to love you, if it did not displease your parents too much; but what would you have me do? My heart does not incline me toward you. I am very fond of you, but although your age does not make you ugly, it frightens me. It seems to me that you are something to me like an uncle or a godfather; that I owe you respect, and that there would be times when you would treat me like a little girl rather than like your wife and your equal. Besides, my companions might make fun of me, and although it is foolish to pay attention to that, I think I would feel ashamed and a little sad on my wedding day.”
+
+
+Translation, where present, is an AI-generated analytical aid, not an authoritative edition.
+
+## Evidence cited by the annotator
+
+### e1 — local text
+
+> “Vois, je t’en prie, comme je t’aime” (‘See, I beg you, how I love you’).
+
+A direct, present avowal of Germain’s loving emotional state, strongly supporting T.
+
+### e2 — local text
+
+> Germain says that if Marie accepted him as her husband, nothing could prevent him from giving himself to her, and that he would immediately swear to spend his life doing her wishes.
+
+The surrounding speech is an explicit marital proposal and prospective self-commitment, giving the highlighted avowal some P force in context.
+
+### e3 — local text
+
+> “des mouvements de tendresse irrésistible s’emparant de son cœur… Sa langue se délia comme par miracle, et toute honte cessant” (‘impulses of irresistible tenderness… took possession of his heart; his tongue was loosened as though by a miracle, and all shame ceased’).
+
+Positive narrative evidence that affect itself releases the declaration, supporting E independently of mere emotional intensity.
+
+### e4 — local text
+
+> Marie replies that Germain speaks honorably and truly but that her heart does not incline toward him romantically.
+
+Confirms that she understands the speech as a serious romantic avowal and marriage proposal rather than as rote or nonsemantic language.
+
+## Background, status and source records
+
+Utterance status: **direct**. Germain directly addresses Marie during an extended declaration of love and proposal of marriage.
+
+Background knowledge reported as used: **False**. 
+
+Self-reported confidence: 0.9. Not a calibrated accuracy estimate.
+
+Ontology fit: natural. T captures the central avowal, P captures its limited participation in the surrounding marriage undertaking, and E captures the narrator’s explicit presentation of speech released by overwhelming tenderness. No important aspect of the core force remains outside T/P/E.
+
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/sand-la-mare-au-diable-7ba1f4516fb0cdd9/9238e29f055092caea01867d26820545cf625ce2a4a909820ea93a76207c9f3c/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/sand-la-mare-au-diable-7ba1f4516fb0cdd9/9238e29f055092caea01867d26820545cf625ce2a4a909820ea93a76207c9f3c/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/sand-la-mare-au-diable/canonical.txt)
+- Occurrence: sand-la-mare-au-diable-7ba1f4516fb0cdd9
+- Model: gpt-5.6-sol
+- Classification prompt: 0.3.1
+- Historical run: canonical_31_v0_11_v0_3_1
+- Canonical SHA-256: 815a2cb4d2bda35f7484aeb6d983e37de4cc6048fa0b32b39202a4839bbfaea8
+
+Rendered deterministically from the saved record. No rescoring or replacement explanation.

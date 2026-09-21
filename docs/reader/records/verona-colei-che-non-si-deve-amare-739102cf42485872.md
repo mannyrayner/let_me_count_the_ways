@@ -1,0 +1,354 @@
+# Colei che non si deve amare
+
+Guido da Verona · Italian
+
+[All records](../README.md) · [HTML reading copy](../cases/verona-colei-che-non-si-deve-amare-739102cf42485872.html)
+
+## Target
+
+> Amo te
+
+
+| T: report / avowal | P: undertaking | E: expressive/reflexive | O: other |
+|---:|---:|---:|---:|
+| 4 / 4 | 3 / 4 | 0 / 4 | 0 / 4 |
+
+Scores are independent support judgments. T is not a sincerity score.
+
+## Original passage
+
+> — Per salvarmi? Per salvarmi, dici? Ma io non voglio essere salvata!
+> A che scopo? Perchè un giorno magari mi prenda Rafa, od un altro
+> come Rafa? Io sono libera, capisci? padrona di fare con me quello che
+> voglio. E son io che ti cerco, non tu. Se hai paura del rimorso, io
+> lo voglio portare tutto su me stessa. Guarda: ragiono freddamente, so
+> quel che dico. Amo te, voglio esser tua; solo questo mi piace. Voglio
+> carezzarti, farmi carezzare, viverti vicino, essere innamorata di te,
+> gelosa di te... E son io che voglio, non tu; io sola... ti basta?
+
+
+## Original AI explanation
+
+“Amo te” is principally a deliberate avowal of Loretta’s love, strongly supporting T. In immediate coordination with “voglio esser tua” and her proposed shared life, it also helps enact an offer of herself and an undertaking toward a lovers’ relationship, supporting P. Her explicit insistence that she is reasoning calmly and knows what she is saying argues against construing the words as an expressive or reflex-like discharge.
+
+## Ambiguity
+
+The main uncertainty is whether the substantial undertaking force belongs to “Amo te” itself or chiefly to the coordinated continuation “voglio esser tua”; the unified declaration gives P significant but lower support than T.
+
+## Narrative situation (AI interpretation)
+
+Loretta addresses the man identified as her brother and consciously rejects his moral effort to resist their mutual attraction. The avowal is part of a sustained, persuasive declaration of autonomy: she claims responsibility for seeking him, accepting remorse, becoming his, and living beside him. The taboo, erotic pressure, and persuasive purpose complicate the scene but do not displace the utterance’s avowing and undertaking forces. Her claim to calm deliberation especially disfavors E.
+
+## Original context supplied to the annotator
+
+> — Sei tanto bella! — diss’egli ancora; — tanto, che mi fai male...
+> 
+> Ella non aveva pudore; sollevò la faccia, la sua bocca rise, viva,
+> invermigliata, piena di colpa. Le splendevan gli occhi: non aveva
+> pudore.
+> 
+> — Ed allora perchè?... — fece con esitazione.
+> 
+> — Cosa dici?
+> 
+> — ... perchè non mi vuoi?
+> 
+> La domanda era tanto grave, ch’ella stessa tornò a nascondersi. L’altro
+> nulla rispose; accese una sigaretta, quasi volesse ubbriacarsi di fumo.
+> 
+> Poi, quand’ella non si aspettava più nessuna risposta:
+> 
+> — Perchè sei mia sorella, — disse.
+> 
+> Ella si strinse nelle spalle, meditò.
+> 
+> — Questo nome ti pare così terribile?
+> 
+> — Sei una bambina, — egli osservò gravemente.
+> 
+> — Una bambina?... — E sorrise crollando il capo. — No, piuttosto
+> un’altra cosa, molto semplice: soffro e non voglio più soffrire. Voglio
+> bene a te, a te solo, e chiunque tu sia, voglio bene a te! Infine, di
+> cosa mi rimproveri? Perchè sento questo amore? Ma non è mia colpa.
+> Forse perchè ne parlo? Ma che servirebbe il tacere, se tu, che pure
+> taci, non fai che pensare continuamente alla stessa cosa?
+> 
+> E le sue piccole mani si allacciarono strettamente alle mani di lui,
+> che non sapeva rispondere, che non osava più guardarla. Poi divenne
+> mansueta, persuadente, insistente:
+> 
+> — Ascóltami, Rigo, ascóltami! Quel coraggio che dovresti avere tu,
+> l’ho avuto io per la prima. Ora non condannarmi: aiutami! V’è una certa
+> paura in tutto questo, è vero, ma bisognerà pur vincerla...
+> 
+> Egli la guardò stupefatto.
+> 
+> — Non bisogna vincerla, — disse oscuramente. — Anzi bisogna guarirne.
+> 
+> — È dunque un male così grande?
+> 
+> — Sì, un orribile male. Anche il parlarne, anche il pensarvi è male.
+> 
+> — No, — ella disse con fermezza. — No!
+> 
+> — Vedi, se tu potessi avere un altro nome che il nome di sorella... Non
+> senti come suona male su la mia bocca?
+> 
+> — Un nome!... cos’è un nome? — ella fece.
+> 
+> — Ma è tutto, poichè vuol dire qualcosa, poichè racchiude il peccato
+> più grande che vi sia nell’amore.
+> 
+> Ella ebbe un gesto vago, ed un sorriso.
+> 
+> — Non importa, — rispose. — Io non ti considero per tale; non sento
+> affatto che tu sia mio fratello. Paolo è mio fratello, tu no. È una
+> cosa del tutto diversa. Non mi ricordo nemmeno più com’eri, quand’eri
+> mio fratello, cioè quand’eravamo bambini. Ora tu sei un altro.
+> 
+> Fece una pausa, indi ricominciò:
+> 
+> — Del resto è naturale che fra noi ci sia una differenza. Tu hai avute
+> tante altre amanti, sei stato carezzato, baciato, adorato da tante...
+> Quello che puoi avere per me somiglia tutt’al più al desiderio che
+> potresti avere d’un’altra. Invece io...
+> 
+> — No, Lora, questo non lo dire! non lo dire! È assurdo! Ma dunque non
+> vedi che faccio sopra me stesso uno sforzo terribile per salvarti?
+> 
+> — Per salvarmi? Per salvarmi, dici? Ma io non voglio essere salvata!
+> A che scopo? Perchè un giorno magari mi prenda Rafa, od un altro
+> come Rafa? Io sono libera, capisci? padrona di fare con me quello che
+> voglio. E son io che ti cerco, non tu. Se hai paura del rimorso, io
+> lo voglio portare tutto su me stessa. Guarda: ragiono freddamente, so
+> quel che dico. Amo te, voglio esser tua; solo questo mi piace. Voglio
+> carezzarti, farmi carezzare, viverti vicino, essere innamorata di te,
+> gelosa di te... E son io che voglio, non tu; io sola... ti basta?
+> 
+> Egli guardò quella fanciulla di vent’anni, quel fiore semplice, che
+> aveva un cálice così profondo e maturo, così odoroso e perverso. Una
+> specie di ammirazione tacita nacque in lui, come se ne avesse paura.
+> 
+> — Loretta, — egli disse, — alla tua età non si può saper ancora cosa è
+> bene e cosa è male, o per lo meno qual è il male troppo grande.
+> 
+> — Il male troppo grande è non avere il coraggio d’essere felici, — ella
+> disse, inconsapevole forse delle sue parole.
+> 
+> Entraron due giovini bellimbusti, allegri e chiassosi, che
+> imbaldoriavano quella sera in compagnia di due cortigianelle, così
+> rosse di belletto e così eccentricamente vestite, che molti, fra que’
+> satolli borghesi, ebber l’aria di scandolezzarsene. Le due ragazze
+> ciarliere, tenendosi al braccio dei lor galanti, camminavan sui tacchi
+> alti con un passo dinoccolato ed uno sconcio dimenìo dell’anche, ogni
+> tratto scoppiando in certe risate stridule che ferivano i timpani
+> altrui come la nota falsa d’una chitarra scordata. Eran gaudenti o
+> nottambuli di basso ceto e donne di bassa galanteria; adocchiaron
+> passando la tavola d’Arrigo; un d’essi lo salutò. Conoscenze antiche,
+> forse del tempo ch’egli tavernava con una cricca di fannulloni equivoci
+> per le bottiglierie malfamate. I sopraggiunti sedettero ad una tavola
+> vicina e si misero manifestamente a parlar di lui. Arrigo, intuendo i
+> loro discorsi, per la prima volta si doleva che lo avessero sorpreso in
+> quella trattoria campestre, quasi clandestina per un giovine signore, e
+> sorpresi lor due soli, che parevano amanti, che dovevano a tutti parer
+> amanti, e forse portavano impressa nel viso l’incancellabile ombra del
+> loro peccato.
+> 
+> Loretta capì che qualcosa lo molestava e domandò:
+> 
+> — Chi è quel tale che t’ha salutato?
+> 
+> — Un avvocatello senza clienti, — rispose Arrigo; — un brutto tipo.
+> 
+> — E quelle due ragazze?
+> 
+> — Oh, non saprei!
+> 
+> — Discorrono di noi
+> 
+> — Me ne sono accorto.
+> 
+> — Cosa posson dire?
+> 
+> — Nulla di buono, certo. Mi spiace molto che ci vedano insieme, perchè
+> il mondo certe cose le indovina, e Dio sa come.
+> 
+> — Credi?
+> 
+> — Non costoro, forse; ma quando ci saremo fatti vedere troppe volte
+> insieme, qualche altro, chissà mai...
+> 
+> — Bene, in séguito vi penseremo.
+> 
+> Entrambi tacquero. Nel giardino le risate squillavano; chi aveva troppo
+> mangiato lasciava che il proprio stomaco operasse in pace la fatica
+> della digestione; frattanto, nel calor del vino, si tenevan propositi
+> gai. Ai bimbi s’era lasciata la briglia sul collo e scarrieravano
+> con alti gridi sotto i pergolati; uomini e donne, con quella vampa
+> di ardore nel viso che vien dal cibo soverchio e dal generoso vino,
+> riversavan su le tavole ancor ingombre il sale dell’aneddoto, il
+> pepe della barzelletta grassa. I mariti, gli amanti, gli innamorati
+> pensavano alla notte vicina.
+> 
+> Su in alto si danzava. Quel flutto di musica un po’ tempestosa
+> traboccava sul terrazzo dalle finestre aperte; ogni tanto una ragazza
+> vi si affacciava, tutta accaldata, i capelli in disordine, con un
+> amator mellifluo che le stava intorno. Respiravan una boccata d’aria, e
+> via di nuovo, strettamente, accanitamente, nel tramestìo della danza.
+
+
+## English translation supplied to the annotator
+
+> “You are so beautiful!” he said again; “so beautiful that you hurt me...”
+> 
+> She felt no shame; she raised her face, and her mouth laughed, vivid, crimson, full of guilt. Her eyes shone: she felt no shame.
+> 
+> “And then why?...” she asked hesitantly.
+> 
+> “What are you saying?”
+> 
+> “...why don’t you want me?”
+> 
+> The question was so grave that she herself hid again. The other made no reply; he lit a cigarette, as though he wished to intoxicate himself with smoke.
+> 
+> Then, when she no longer expected any answer:
+> 
+> “Because you are my sister,” he said.
+> 
+> She shrugged her shoulders and reflected.
+> 
+> “Does that name seem so terrible to you?”
+> 
+> “You are a child,” he observed gravely.
+> 
+> “A child?...” And she smiled, shaking her head. “No, rather, it is something else, something very simple: I suffer, and I no longer want to suffer. I love you, you alone, and whoever you may be, I love you! After all, what do you reproach me for? For feeling this love? But it is not my fault. Perhaps for speaking of it? But what good would silence do, if you, though you too are silent, do nothing but think continually of the same thing?”
+> 
+> And her little hands clasped his tightly, while he did not know how to answer and no longer dared look at her. Then she became gentle, persuasive, insistent:
+> 
+> “Listen to me, Rigo, listen to me! I was the first to have the courage that you ought to have. Now do not condemn me: help me! There is a certain fear in all this, it is true, but we shall have to overcome it...”
+> 
+> He looked at her in astonishment.
+> 
+> “We must not overcome it,” he said darkly. “On the contrary, we must be cured of it.”
+> 
+> “Is it, then, so great an evil?”
+> 
+> “Yes, a horrible evil. Even speaking of it, even thinking about it, is wrong.”
+> 
+> “No,” she said firmly. “No!”
+> 
+> “You see, if you could have some name other than sister... Do you not hear how wrong it sounds on my lips?”
+> 
+> “A name!... what is a name?” she said.
+> 
+> “But it is everything, since it means something, since it contains the greatest sin there is in love.”
+> 
+> She made a vague gesture and smiled.
+> 
+> “It does not matter,” she replied. “I do not regard you as such; I do not feel at all that you are my brother. Paolo is my brother; you are not. It is something entirely different. I no longer even remember what you were like when you were my brother, that is, when we were children. Now you are someone else.”
+> 
+> She paused, then began again:
+> 
+> “Besides, it is natural that there should be a difference between us. You have had so many other lovers; you have been caressed, kissed, adored by so many... What you may feel for me resembles, at most, the desire you might feel for another woman. Whereas I...”
+> 
+> “No, Lora, do not say that! Do not say it! It is absurd! Can you not see, then, that I am making a terrible effort against myself to save you?”
+> 
+> “To save me? To save me, you say? But I do not want to be saved! To what end? So that perhaps one day Rafa, or someone else like Rafa, may take me? I am free, do you understand? Free to do with myself what I please. And it is I who seek you, not you who seek me. If you are afraid of remorse, I want to take it all upon myself. Look: I am reasoning calmly; I know what I am saying. I love you; I want to be yours; that alone pleases me. I want to caress you, to have you caress me, to live close to you, to be in love with you, jealous over you... And it is I who want it, not you; I alone... is that enough for you?”
+> 
+> He looked at that twenty-year-old girl, that simple flower whose calyx was so deep and mature, so fragrant and perverse. A kind of silent admiration arose within him, as though he were afraid of it.
+> 
+> “Loretta,” he said, “at your age one cannot yet know what is good and what is evil, or at least which evil is too great.”
+> 
+> “The too-great evil is not having the courage to be happy,” she said, perhaps unaware of her own words.
+> 
+> Two young dandies came in, merry and boisterous, out carousing that evening in the company of two little courtesans, so red with rouge and so eccentrically dressed that many among those sated bourgeois appeared scandalized by them. The two talkative girls, holding the arms of their escorts, walked on high heels with a loose-jointed gait and an indecent swaying of their hips, every so often bursting into shrill laughter that struck other people’s eardrums like a false note from an out-of-tune guitar. They were low-class pleasure-seekers or night revelers and women of low gallantry; as they passed, they glanced at Arrigo’s table, and one of the men greeted him. Old acquaintances, perhaps from the days when he used to frequent taverns with a band of dubious idlers in disreputable drinking shops. The newcomers sat down at a nearby table and plainly began talking about him. Arrigo, guessing the tenor of their conversation, regretted for the first time that they had caught him in that country tavern, a place almost clandestine for a young gentleman, and had caught the two of them alone, looking like lovers, bound to look like lovers to everyone, perhaps bearing on their faces the indelible shadow of their sin.
+> 
+> Loretta understood that something was troubling him and asked:
+> 
+> “Who is that fellow who greeted you?”
+> 
+> “A little lawyer with no clients,” Arrigo replied; “an unsavory character.”
+> 
+> “And those two girls?”
+> 
+> “Oh, I wouldn’t know!”
+> 
+> “They are talking about us.”
+> 
+> “I noticed.”
+> 
+> “What can they be saying?”
+> 
+> “Nothing good, certainly. I am very sorry they have seen us together, because the world guesses certain things, God knows how.”
+> 
+> “Do you think so?”
+> 
+> “Perhaps not these people; but once we have been seen together too many times, someone else—who knows...”
+> 
+> “Very well, we shall think about it later.”
+> 
+> They both fell silent. Laughter rang through the garden; those who had eaten too much allowed their stomachs to perform the labor of digestion in peace; meanwhile, warmed by wine, they exchanged cheerful remarks. The children had been given free rein and went racing beneath the arbors with loud cries; men and women, their faces flushed with that heat which comes from excessive food and generous wine, poured over the still-cluttered tables the salt of anecdotes and the pepper of bawdy jokes. Husbands, lovers, and sweethearts thought of the approaching night.
+> 
+> Upstairs they were dancing. That surge of somewhat tempestuous music spilled onto the terrace through the open windows; from time to time a girl appeared there, all overheated, her hair disheveled, with a honey-tongued admirer hovering around her. They drew a breath of air, then off they went again, tightly, fiercely, into the commotion of the dance.
+
+
+Translation, where present, is an AI-generated analytical aid, not an authoritative edition.
+
+## Evidence cited by the annotator
+
+### ev1 — local text
+
+> “Guarda: ragiono freddamente, so quel che dico. Amo te” (“Look: I am reasoning calmly; I know what I am saying. I love you”).
+
+The explicit love avowal strongly supports T, while the asserted calm deliberation weighs against reflex-like E.
+
+### ev2 — local text
+
+> “Amo te, voglio esser tua; solo questo mi piace.”
+
+The coordination of loving him with wanting to be his gives the declaration substantial relational-undertaking force and supports P alongside T.
+
+### ev3 — local text
+
+> Loretta continues: “Voglio carezzarti, farmi carezzare, viverti vicino, essere innamorata di te, gelosa di te...”
+
+Her concrete projection of intimacy and life near him shows that the avowal participates in a proposal to enter and sustain a lovers’ relationship, rather than merely reporting an isolated feeling.
+
+### ev4 — local text
+
+> “E son io che ti cerco, non tu... io lo voglio portare tutto su me stessa” and later “E son io che voglio, non tu; io sola.”
+
+Her repeated assertion of agency and willingness to bear the remorse reinforces the deliberate, undertaking-oriented interpretation.
+
+### ev5 — local text
+
+> Arrigo says “Perchè sei mia sorella,” while Loretta argues that she does not experience him as her brother.
+
+Establishes the incest taboo and persuasive conflict as crucial context without creating a core force outside T/P/E.
+
+### ev6 — supplied metadata
+
+> The occurrence metadata identifies an affirmative present-tense main-or-embedded form and reviews it as a valid explicit I-love-you occurrence.
+
+Corroborates treating “Amo te” as the target explicit love declaration rather than an incidental lexical use.
+
+## Background, status and source records
+
+Utterance status: **direct**. Loretta directly tells Arrigo “Amo te” (“I love you”) during an extended attempt to persuade him to accept a sexual and romantic relationship.
+
+Background knowledge reported as used: **False**. 
+
+Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
+
+Ontology fit: natural. T and P naturally capture the deliberate emotional avowal and its role in proposing a committed lovers’ relationship. Intensity, taboo, sexuality, and persuasion are adequately handled as context; there is no residual core-force pressure requiring O, and no positive evidence for E.
+
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-739102cf42485872/faace4842f7b273207f5d3e16940f3ce81e4254842328c41b17600929fe7c3d4/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-739102cf42485872/faace4842f7b273207f5d3e16940f3ce81e4254842328c41b17600929fe7c3d4/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/verona-colei-che-non-si-deve-amare/canonical.txt)
+- Occurrence: verona-colei-che-non-si-deve-amare-739102cf42485872
+- Model: gpt-5.6-sol
+- Classification prompt: 0.3.1
+- Historical run: canonical_31_v0_11_v0_3_1
+- Canonical SHA-256: c4cde8dd15ed03df6e0bc9ebc18a23493ad3ed09a178274e76860d6394eaf141
+
+Rendered deterministically from the saved record. No rescoring or replacement explanation.

@@ -1,0 +1,367 @@
+# Madame Bovary
+
+Gustave Flaubert · French
+
+[All records](../README.md) · [HTML reading copy](../cases/flaubert-madame-bovary-baeec739adc7a033.html)
+
+## Target
+
+> je t’aimerai
+
+
+| T: report / avowal | P: undertaking | E: expressive/reflexive | O: other |
+|---:|---:|---:|---:|
+| 2 / 4 | 4 / 4 | 0 / 4 | 0 / 4 |
+
+Scores are independent support judgments. T is not a sincerity score.
+
+## Original passage
+
+> — Va! essaye! il le faut! cours!... Oh! tâche! tâche! je t’aimerai bien!
+
+
+## Original AI explanation
+
+Emma’s future-tense “je t’aimerai bien” presents loving affection as a promised reward for Léon’s obtaining money. It therefore has strong undertaking force and some truth-conditional force concerning her future feelings, but no independent evidence of expressive/reflexive discharge.
+
+## Ambiguity
+
+The phrase may be heard partly as a conventional inducement meaning roughly “I’ll love you for it,” which weakens literal avowal without displacing its performative promise-like force.
+
+## Narrative situation (AI interpretation)
+
+The utterance is embedded in an urgent, instrumental appeal. Emma offers future affection as an incentive after pressuring Léon to secure or personally guarantee the funds. Her desperation and manipulation affect likely sincerity, but they do not remove the utterance’s promise-like force. The surrounding exclamations and repetition convey intensity, not independently expressive/reflexive force.
+
+## Original context supplied to the annotator
+
+> Elle y gardait un pupitre où étaient enfermées les lettres de Rodolphe.
+> Il fallut l’ouvrir.
+> 
+> — Ah! une correspondance! dit maître Hareng avec un sourire discret.
+> Mais permettez! car je dois m’assurer si la boîte ne contient pas autre
+> chose.
+> 
+> Et il inclina les papiers, légèrement, comme pour en faire tomber des
+> napoléons. Alors l’indignation la prit, à voir cette grosse main, aux
+> doigts rouges et mous comme des limaces, qui se posait sur ces pages où
+> son cœur avait battu.
+> 
+> Ils partirent enfin! Félicité rentra. Elle l’avait envoyée aux aguets
+> pour détourner Bovary; et elles installèrent vivement sous les toits le
+> gardien de la saisie, qui jura de s’y tenir.
+> 
+> Charles, pendant la soirée, lui parut soucieux. Emma l’épiait d’un
+> regard plein d’angoisse, croyant apercevoir dans les rides de son
+> visage des accusations. Puis, quand ses yeux se reportaient sur la
+> cheminée garnie d’écrans chinois, sur les larges rideaux, sur les
+> fauteuils, sur toutes ces choses enfin qui avaient adouci l’amertume
+> de sa vie, un remords la prenait, ou plutôt un regret immense et
+> qui irritait la passion, loin de l’anéantir. Charles tisonnait avec
+> placidité, les deux pieds sur les chenets.
+> 
+> Il y eut un moment où le gardien, sans doute s’ennuyant dans sa
+> cachette, fit un peu de bruit.
+> 
+> — On marche là-haut? dit Charles.
+> 
+> — Non! reprit-elle, c’est une lucarne restée ouverte que le vent remue.
+> 
+> Elle partit pour Rouen, le lendemain dimanche, afin d’aller chez tous
+> les banquiers dont elle connaissait le nom. Ils étaient à la campagne
+> ou en voyage. Elle ne se rebuta pas; et ceux qu’elle put rencontrer,
+> elle leur demandait de l’argent, protestant qu’il lui en fallait,
+> qu’elle le rendrait. Quelques-uns lui rirent au nez; tous la refusèrent.
+> 
+> À deux heures, elle courut chez Léon, frappa contre sa porte. On
+> n’ouvrit pas. Enfin il parut.
+> 
+> — Qui t’amène?
+> 
+> — Cela te dérange?
+> 
+> — Non..., mais...
+> 
+> Et il avoua que le propriétaire n’aimait point que l’on reçût «des
+> femmes».
+> 
+> — J’ai à te parler, reprit-elle.
+> 
+> Alors il atteignit sa clef. Elle l’arrêta.
+> 
+> — Oh! non, là-bas, chez nous.
+> 
+> Et ils allèrent dans leur chambre, à l’hôtel de Boulogne.
+> 
+> Elle but en arrivant un grand verre d’eau. Elle était très pâle. Elle
+> lui dit:
+> 
+> — Léon, tu vas me rendre un service.
+> 
+> Et, le secouant par ses deux mains, qu’elle serrait étroitement, elle
+> ajouta:
+> 
+> — Écoute, j’ai besoin de huit mille francs!
+> 
+> — Mais tu es folle!
+> 
+> — Pas encore!
+> 
+> Et, aussitôt, racontant l’histoire de la saisie, elle lui exposa sa
+> détresse; car Charles ignorait tout, sa belle-mère la détestait, le
+> père Rouault ne pouvait rien; mais lui, Léon, il allait se mettre en
+> course pour trouver cette indispensable somme...
+> 
+> — Comment veux-tu...?
+> 
+> — Quel lâche tu fais! s’écria-t-elle.
+> 
+> Alors il dit bêtement:
+> 
+> — Tu t’exagères le mal. Peut-être qu’avec un millier d’écus ton
+> bonhomme se calmerait.
+> 
+> Raison de plus pour tenter quelque démarche; il n’était pas possible
+> que l’on ne découvrît point trois mille francs. D’ailleurs, Léon
+> pouvait s’engager à sa place.
+> 
+> — Va! essaye! il le faut! cours!... Oh! tâche! tâche! je t’aimerai bien!
+> 
+> Il sortit, revint au bout d’une heure, et dit avec une figure
+> solennelle:
+> 
+> — J’ai été chez trois personnes... inutilement!
+> 
+> Puis ils restèrent assis l’un en face de l’autre, aux deux coins de la
+> cheminée, immobiles, sans parler. Emma haussait les épaules, tout en
+> trépignant. Il l’entendit qui murmurait:
+> 
+> — Si j’étais à ta place, moi, j’en trouverais bien!
+> 
+> — Où donc?
+> 
+> — À ton étude!
+> 
+> Et elle le regarda.
+> 
+> Une hardiesse infernale s’échappait de ses prunelles enflammées, et
+> les paupières se rapprochaient d’une façon lascive et encourageante; —
+> si bien que le jeune homme se sentit faiblir sous la muette volonté de
+> cette femme qui lui conseillait un crime. Alors il eut peur, et pour
+> éviter tout éclaircissement, il se frappa le front en s’écriant:
+> 
+> — Morel doit revenir cette nuit! il ne me refusera pas, j’espère
+> (c’était un de ses amis, le fils d’un négociant fort riche), et je
+> t’apporterai cela demain, ajouta-t-il.
+> 
+> Emma n’eut point l’air d’accueillir cet espoir avec autant de joie
+> qu’il l’avait imaginé. Soupçonnait-elle le mensonge? Il reprit en
+> rougissant:
+> 
+> — Pourtant, si tu ne me voyais pas à trois heures, ne m’attends plus,
+> ma chérie. Il faut que je m’en aille, excuse-moi. Adieu!
+> 
+> Il serra sa main, mais il la sentit tout inerte. Emma n’avait plus la
+> force d’aucun sentiment.
+> 
+> Quatre heures sonnèrent; et elle se leva pour s’en retourner à
+> Yonville, obéissant comme un automate à l’impulsion des habitudes.
+> 
+> Il faisait beau; c’était un de ces jours du mois de mars clairs et
+> âpres, où le soleil reluit dans un ciel tout blanc. Des Rouennais
+> endimanchés se promenaient d’un air heureux. Elle arriva sur la place
+> du Parvis. On sortait des vêpres; la foule s’écoulait par les trois
+> portails, comme un fleuve par les trois arches d’un pont, et, au
+> milieu, plus immobile qu’un roc, se tenait le suisse.
+> 
+> Alors elle se rappela ce jour où, tout anxieuse et pleine d’espérances,
+> elle était entrée sous cette grande nef qui s’étendait devant elle
+> moins profonde que son amour; et elle continua de marcher, en pleurant
+> sous son voile, étourdie, chancelante, près de défaillir.
+> 
+> — Gare! cria une voix sortant d’une porte cochère qui s’ouvrait.
+> 
+> Elle s’arrêta pour laisser passer un cheval noir, piaffant dans les
+> brancards d’un tilbury que conduisait un gentleman en fourrure de
+> zibeline. Qui était-ce donc? Elle le connaissait... La voiture s’élança
+> et disparut.
+> 
+> Mais c’était lui, le Vicomte! Elle se détourna: la rue était déserte.
+> Et elle fut si accablée, si triste, qu’elle s’appuya contre un mur pour
+> ne pas tomber.
+> 
+> Puis elle pensa qu’elle s’était trompée. Au reste, elle n’en savait
+> rien. Tout, en elle-même et au dehors, l’abandonnait. Elle se sentait
+> perdue, roulant au hasard dans des abîmes indéfinissables; et ce fut
+> presque avec joie qu’elle aperçut, en arrivant à la Croix rouge, ce bon
+> Homais qui regardait charger sur l’Hirondelle une grande boîte pleine
+> de provisions pharmaceutiques. Il tenait à sa main, dans un foulard,
+> six cheminots pour son épouse.
+> 
+> Madame Homais aimait beaucoup ces petits pains lourds, en forme de
+> turban, que l’on mange dans le carême avec du beurre salé: dernier
+> échantillon des nourritures gothiques, qui remonte peut-être au
+> siècle des croisades, et dont les robustes Normands s’emplissaient
+> autrefois, croyant voir sur la table, à la lueur des torches jaunes,
+> entre les brocs d’hypocras et les gigantesques charcuteries, des têtes
+> de Sarrasins à dévorer. La femme de l’apothicaire les croquait comme
+> eux, héroïquement, malgré sa détestable dentition; aussi, toutes les
+> fois que M. Homais faisait un voyage à la ville, il ne manquait pas de
+> lui en rapporter, qu’il prenait toujours chez le grand faiseur, rue
+> Massacre.
+
+
+## English translation supplied to the annotator
+
+> She kept there a writing desk in which Rodolphe’s letters were locked away.
+> It had to be opened.
+> 
+> “Ah! A correspondence!” said Master Hareng with a discreet smile.
+> “But allow me! For I must make sure that the box contains nothing else.”
+> 
+> And he tilted the papers slightly, as though to make napoleons fall out of them. Then indignation seized her at the sight of that large hand, with fingers red and soft as slugs, coming to rest on those pages where her heart had throbbed.
+> 
+> At last they left! Félicité came back in. Emma had sent her to keep watch and divert Bovary; and they quickly installed the keeper of the seizure beneath the roof, and he swore to remain there.
+> 
+> During the evening, Charles seemed preoccupied to her. Emma watched him with an anguished gaze, thinking she could discern accusations in the lines of his face. Then, when her eyes returned to the fireplace adorned with Chinese screens, to the broad curtains, to the armchairs, to all those things, in short, that had softened the bitterness of her life, remorse seized her, or rather an immense regret that inflamed her passion, far from destroying it. Charles placidly poked the fire, both feet on the firedogs.
+> 
+> There came a moment when the keeper, no doubt growing bored in his hiding place, made a little noise.
+> 
+> “Is someone walking upstairs?” said Charles.
+> 
+> “No!” she replied. “It’s a skylight left open that the wind is moving.”
+> 
+> The next day, Sunday, she left for Rouen to visit every banker whose name she knew. They were in the country or away traveling. She was not discouraged; and those whom she managed to meet, she asked for money, protesting that she needed it, that she would repay it. Some laughed in her face; they all refused her.
+> 
+> At two o’clock, she hurried to Léon’s, knocked at his door. No one opened it. At last he appeared.
+> 
+> “What brings you here?”
+> 
+> “Is this inconvenient for you?”
+> 
+> “No... but...”
+> 
+> And he admitted that the landlord did not like anyone receiving “women.”
+> 
+> “I have to speak to you,” she resumed.
+> 
+> Then he reached for his key. She stopped him.
+> 
+> “Oh! No, over there, at our place.”
+> 
+> And they went to their room at the Hôtel de Boulogne.
+> 
+> On arriving, she drank a large glass of water. She was very pale. She said to him:
+> 
+> “Léon, you are going to do me a service.”
+> 
+> And, shaking him by both hands, which she gripped tightly, she added:
+> 
+> “Listen, I need eight thousand francs!”
+> 
+> “But you’re mad!”
+> 
+> “Not yet!”
+> 
+> And at once, recounting the story of the seizure, she laid her distress before him; for Charles knew nothing, her mother-in-law detested her, Father Rouault could do nothing; but he, Léon, was going to hurry about and find this indispensable sum...
+> 
+> “How do you expect me to...?”
+> 
+> “What a coward you are!” she cried.
+> 
+> Then he said stupidly:
+> 
+> “You are exaggerating the trouble. Perhaps with a thousand crowns your man would calm down.”
+> 
+> All the more reason to attempt something; it was impossible that three thousand francs could not be found. Besides, Léon could bind himself in her place.
+> 
+> “Go! Try! You must! Run!... Oh! Do try! Try! I shall love you dearly!”
+> 
+> He went out, returned at the end of an hour, and said with a solemn expression:
+> 
+> “I went to see three people... to no avail!”
+> 
+> Then they remained seated facing each other at the two corners of the fireplace, motionless, without speaking. Emma shrugged her shoulders while stamping her feet. He heard her murmur:
+> 
+> “If I were in your place, I would certainly find it!”
+> 
+> “Where, then?”
+> 
+> “At your office!”
+> 
+> And she looked at him.
+> 
+> An infernal boldness shone from her blazing eyes, and her eyelids drew closer in a lascivious and encouraging way—so much so that the young man felt himself weakening beneath the silent will of this woman who was advising him to commit a crime. Then he grew afraid, and, to avoid any explanation, struck his forehead, exclaiming:
+> 
+> “Morel is due back tonight! He will not refuse me, I hope”—he was one of his friends, the son of a very wealthy merchant—“and I shall bring it to you tomorrow,” he added.
+> 
+> Emma did not seem to greet this hope with as much joy as he had imagined. Did she suspect the lie? Blushing, he resumed:
+> 
+> “Still, if you have not seen me by three o’clock, do not wait for me any longer, my darling. I must go, forgive me. Farewell!”
+> 
+> He pressed her hand, but felt it completely inert. Emma no longer had the strength for any feeling.
+> 
+> Four o’clock struck; and she rose to return to Yonville, obeying the impulse of habit like an automaton.
+> 
+> The weather was fine; it was one of those clear, harsh days in March when the sun gleams in an entirely white sky. The people of Rouen, dressed in their Sunday best, were strolling happily. She reached the cathedral square. Vespers were letting out; the crowd flowed through the three portals like a river through the three arches of a bridge, and in the midst of it, more motionless than a rock, stood the Swiss guard.
+> 
+> Then she remembered that day when, full of anxiety and hope, she had entered beneath that great nave which stretched before her, less deep than her love; and she continued walking, weeping beneath her veil, dazed, staggering, close to fainting.
+> 
+> “Look out!” cried a voice from a carriage entrance as it opened.
+> 
+> She stopped to let a black horse pass, prancing between the shafts of a tilbury driven by a gentleman in sable fur. Who was it, then? She knew him... The carriage darted away and disappeared.
+> 
+> But it was he, the Viscount! She turned around: the street was deserted. And she was so overwhelmed, so sorrowful, that she leaned against a wall to keep from falling.
+> 
+> Then she thought she had been mistaken. In any case, she knew nothing about it. Everything, within her and outside her, was abandoning her. She felt lost, tumbling at random into indefinable abysses; and it was almost with joy that, on reaching the Red Cross, she caught sight of good Homais watching a large box full of pharmaceutical supplies being loaded onto the Hirondelle. In his hand, wrapped in a kerchief, he held six cheminot buns for his wife.
+> 
+> Madame Homais was very fond of those heavy little loaves, shaped like turbans, which are eaten during Lent with salted butter: a last specimen of Gothic fare, dating back perhaps to the century of the Crusades, on which the sturdy Normans once gorged themselves, imagining that they saw on the table, by the glow of yellow torches, amid the jugs of hippocras and gigantic meats, Saracens’ heads to devour. The apothecary’s wife crunched them as they had, heroically, despite her dreadful teeth; and so, whenever Monsieur Homais made a trip to town, he never failed to bring her some, which he always bought from the great maker on the Rue Massacre.
+
+
+Translation, where present, is an AI-generated analytical aid, not an authoritative edition.
+
+## Evidence cited by the annotator
+
+### e1 — local text
+
+> “Va! essaye! il le faut! cours!... Oh! tâche! tâche! je t’aimerai bien!”
+
+The imperative sequence makes the love utterance an incentive contingent on Léon’s efforts, strongly supporting P.
+
+### e2 — local text
+
+> Emma has just told Léon that she needs eight thousand francs and insists that he seek or guarantee the indispensable sum.
+
+Her concrete financial demand establishes the transactional and pressuring context rather than an unprompted emotional avowal.
+
+### e3 — supplied metadata
+
+> The occurrence is marked as affirmative future form and the exact match is “je t’aimerai.”
+
+The future morphology supports a prospective promise or undertaking while allowing some truth-conditional presentation of future love.
+
+### e4 — local text
+
+> After Léon returns unsuccessful, Emma criticizes him and implicitly urges him toward taking money from his office.
+
+Her subsequent conduct reinforces the interpretation of the love language as leverage in an instrumental appeal, though manipulation is contextual rather than an O-type core force.
+
+## Background, status and source records
+
+Utterance status: **direct**. Emma directly addresses Léon while urging him to find the money: “je t’aimerai bien!”
+
+Background knowledge reported as used: **False**. 
+
+Self-reported confidence: 0.92. Not a calibrated accuracy estimate.
+
+Ontology fit: natural. T and especially P adequately capture the core utterance: a prospective representation of love functioning principally as a contingent relational reward. Manipulation and desperation belong in contextual interpretation, and emphatic delivery does not require E or O.
+
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-baeec739adc7a033/1287a4d6fc09b57c5bf533b7ac91e3606f3244da9ec34d17e1b44476a01c4bac/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-baeec739adc7a033/1287a4d6fc09b57c5bf533b7ac91e3606f3244da9ec34d17e1b44476a01c4bac/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/flaubert-madame-bovary/canonical.txt)
+- Occurrence: flaubert-madame-bovary-baeec739adc7a033
+- Model: gpt-5.6-sol
+- Classification prompt: 0.3.1
+- Historical run: canonical_31_v0_11_v0_3_1
+- Canonical SHA-256: 93f0a2259dbaf5fde6e7b96adc22346d52f80eb1e9319336c8381a045efe40cd
+
+Rendered deterministically from the saved record. No rescoring or replacement explanation.

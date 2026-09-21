@@ -1,0 +1,289 @@
+# Gösta Berlings saga
+
+Selma Lagerlöf · Swedish
+
+[All records](../README.md) · [HTML reading copy](../cases/lagerlof-gosta-berlings-saga-ea36a229384cb926.html)
+
+## Target
+
+> jag älskar dig
+
+
+| T: report / avowal | P: undertaking | E: expressive/reflexive | O: other |
+|---:|---:|---:|---:|
+| 4 / 4 | 0 / 4 | 2 / 4 | 0 / 4 |
+
+Scores are independent support judgments. T is not a sincerity score.
+
+## Original passage
+
+> "O, mitt folk", tänkte han, "o, mitt folk, vad jag älskar dig!" Han
+> kände hur han älskade hela denna skaran, som drog bort i nattmörkret
+> med den döda flickan i spetsen av tåget, alla dessa i grova kläder och
+> illaluktande skodon, alla dessa, som bodde i de gråa stugorna vid
+> skogskanten, alla dessa, som inte kunde föra en penna och ofta nog
+> inte heller läsa, alla dessa, som inte kände livets fullhet och
+> rikedom, endast strävan för det dagliga brödet.
+
+
+## Original AI explanation
+
+Gösta's inward “O my people … how I love you!” clearly avows as true his newly felt love for the departing people. It undertakes no relational commitment; indeed, he does not know what he wants to do for them. The dreamlike emergence of the thought as the new emotion wells up gives moderate independent support to an expressive/reflexive reading, though it can also be understood as an intensely framed avowal.
+
+## Ambiguity
+
+The E force is limitedly ambiguous: the apostrophic thought is presented as an immediate outflow of newly arising feeling, but much of its effect can still be represented as T plus dreamlike, emotional delivery.
+
+## Narrative situation (AI interpretation)
+
+After the once-vengeful crowd has been pacified and humanized in Gösta's perception, a new collective and compassionate love arises in him for the impoverished people, including their faults and frailties. His thought is sincere within the narration and seeks eventual reciprocal love, but it neither promises action nor commits him to a defined undertaking.
+
+## Original context supplied to the annotator
+
+> Nu ska jag säga er vem hon är. För det första är hon en ängel från
+> himmelen, för det andra är det hon, som har varit gift med greven på
+> Borg. Men hennes svärmor plågade henne både natt och dag. Hon måste
+> stå vid sjön och tvätta kläder som en vanlig piga, hon blev slagen och
+> pinad så, att ingen av era kvinnor kan ha det värre. Ja, det var nära,
+> att hon hade kastat sig i Klarälven, därför att man plågade livet ur
+> henne. Jag undrar just vilken av er, era kanaljer, som då var till
+> hands för att rädda livet på henne. Ingen av er var där, men vi
+> kavaljerer, vi gjorde det. Jaha, vi gjorde det.
+> 
+> Och när hon sedan födde ett barn borta i en bondgård och greven lät
+> hälsa henne och säga: "Vi gifte oss i det främmande landet, vi följde
+> inte lag och förordning. Du är inte min hustru, jag är inte din
+> man. Ditt barn bryr jag mig inte om", ja, när det var så och hon inte
+> ville, att barnet skulle stå faderlöst i kyrkboken, då skulle ni nog
+> ha blivit högfärdiga, om hon hade sagt till någon av er: "Kom och gift
+> dig med mig! Jag måste ha en far åt barnet." Men hon valde ingen av
+> er. Hon tog Gösta Berling, den fattige prästen, som aldrig mera får
+> tala Guds ord. Ja, det säger jag er, bönder, att svårare sak har jag
+> aldrig gjort, för jag var henne så ovärdig, att jag inte tordes se
+> henne in i ögonen, men jag vågade inte heller säga nej, för hon var i
+> stor förtvivlan.
+> 
+> Och nu må ni tro vad ont ni vill om oss kavaljerer, men mot henne
+> där har vi gjort vad gott vi har kunnat. Och det är hennes förtjänst,
+> att vi inte har skjutit ihjäl er allihop i natt. Men nu säger jag er:
+> släpp henne lös och gå er väg, eljest tänker jag jorden öppnar sig och
+> uppslukar er! Och när ni går härifrån, så be Gud förlåta er, att ni
+> har skrämt och bedrövat den, som är så god och oskyldig! Och nu bort
+> med er! Vi har haft nog av er!
+> 
+> Långt innan han hade slutat tala, hade de, som hade burit ut
+> grevinnan, satt ner henne på ett av stentrappstegen, och nu kom en
+> stor bonde helt betänksamt fram till henne och räckte henne sin stora
+> hand.
+> 
+> - Tack och god natt! sade han. Vi ville henne inget ont, grevinna.
+> 
+> Efter honom kom en annan och gav henne en varsam handtryckning.
+> 
+> - Tack och god natt! Hon ska inte vara ledsen på oss!
+> 
+> Gösta hoppade ner och ställde sig vid hennes sida. Då togo de också
+> honom i hand.
+> 
+> Så kommo de nu fram långsamma och sävliga, en efter en, för att ta
+> god natt av dem, innan de gingo. De voro åter kuvade, åter voro de
+> människor, såsom de voro, när de om morgonen lämnade sina hem, innan
+> hungern och hämnden hade gjort dem till vilddjur.
+> 
+> De sågo grevinnan rätt in i ansiktet, och Gösta märkte hur
+> anblicken av den oskuld och fromhet, som de där sågo bragte tårar i
+> mångas ögon. Det var hos dem alla en tyst tillbedjan av det ädlaste de
+> hade skådat. Det var människor, som gladde sig åt att en av dem hade
+> en så stor kärlek till det goda.
+> 
+> Alla kunde ju inte skaka hand med henne. De voro ju så förfärligt
+> många, och den unga kvinnan var trött och svag. Men alla skulle dock
+> upp och se henne, och så kunde de ta Gösta i hand, hans armar tålde
+> nog skakningen.
+> 
+> Gösta stod som i en dröm. I hans hjärta rann denna kväll upp en ny
+> kärlek.
+> 
+> "O, mitt folk", tänkte han, "o, mitt folk, vad jag älskar dig!" Han
+> kände hur han älskade hela denna skaran, som drog bort i nattmörkret
+> med den döda flickan i spetsen av tåget, alla dessa i grova kläder och
+> illaluktande skodon, alla dessa, som bodde i de gråa stugorna vid
+> skogskanten, alla dessa, som inte kunde föra en penna och ofta nog
+> inte heller läsa, alla dessa, som inte kände livets fullhet och
+> rikedom, endast strävan för det dagliga brödet.
+> 
+> Han älskade dem med en smärtsam, brinnande ömhet, som tvingade fram
+> tårar i hans ögon. Han visste inte vad han ville göra för dem, men han
+> älskade dem, alla och envar, med fel och laster och skröpligheter. O,
+> herregud, om den dag kunde komma, då också han bleve älskad av dem!
+> 
+> Han vaknade ur sin dröm. Hans hustru lade sin hand på hans
+> arm. Folket var borta. De voro ensamma på trappan.
+> 
+> - O Gösta, Gösta, hur kunde du?
+> 
+> Hon satte händerna för ansiktet och grät.
+> 
+> Det är sant vad jag sa, utbrast han. Jag har aldrig lovat
+> Nygårdsflickan att gifta mig med henne. "Kom hit nästa fredag, så ska
+> du få se på roligt!" var allt, vad jag sa till henne. Jag rår inte för
+> att hon tyckte om mig.
+> 
+> - O, det var inte detta! Men hur kunde du säga till folket, att jag
+> var god och ren? Gösta, Gösta, vet du inte, att jag älskade dig, när
+> jag ännu inte hade lov därtill? Jag blygdes för folket, Gösta. Jag
+> ville dö av blygsel.
+> 
+> Och hon skakades av snyftningar.
+> 
+> Han stod och såg på henne.
+> 
+> O, min vän, min älskade! sade han stilla. Vad du är lycklig, som är
+> så god! Vad du är lycklig, som i ditt inre har en så skön själ!
+> TRETTIOTREDJE KAPITLET.
+> 
+> Kevenhüller.
+> 
+> På 1770-talet föddes i Tyskland den sedermera
+> lärde och mångkunnige Kevenhüller. Han var son till en borggreve och
+> kunde ha fått bo i höga slott och rida vid kejsarens sida, om han hade
+> haft lust, men det hade han inte.
+> 
+> Han skulle ha velat fästa väderkvarnsvingar vid borgens högsta
+> torn, göra riddarsalen till en klensmedja och frustugan till en
+> urmakarverkstad. Han skulle ha velat fylla borgen med snurrande hjul
+> och arbetande hävstänger. Men då sådant inte lät sig göra, lämnade han
+> hela ståten och gav sig i urmakarlära. Där lärde han allt, som läras
+> kunde, om kugghjul, fjädrar och pendlar. Han lärde att göra solur och
+> stjärnur, pendyler med pipande kanariefåglar och lurblåsande herdar,
+> klockspel, som fyllde ett helt kyrktorn med sitt underliga maskineri,
+> och urverk så små, att de kunde infattas i en medaljong.
+> 
+> När han hade fått sitt mästarbrev, satte han ränseln på ryggen, tog
+> knölpåken i hand och vandrade från ort till ort för att studera allt,
+> som gick med rullar och hjul. Kevenhüller var ingen vanlig urmakare,
+> han ville bli en stor uppfinnare och världsförbättrare.
+> 
+> När han så hade genomvandrat många land, begav han sig också till
+> Värmland för att studera kvarnhjul och gruvkonster. En vacker
+> sommarmorgon hände sig, att han gick tvärsöver Karlstads torg. Men i
+> samma vackra morgonstund hade skogsfrun funnit för gott att utsträcka
+> sin vandring ända in i staden. Den höga damen kom, också hon,
+> tvärsöver torget, men från motsatt håll, och så mötte hon Kevenhüller.
+
+
+## English translation supplied to the annotator
+
+> Now I shall tell you who she is. In the first place, she is an angel from heaven; in the second, she is the woman who was married to the count at Borg. But her mother-in-law tormented her night and day. She had to stand by the lake and wash clothes like an ordinary maidservant; she was beaten and tortured so that none of your women can have it worse. Yes, she came close to throwing herself into the Klarälven because they were tormenting the life out of her. I wonder which of you, you scoundrels, was then at hand to save her life. None of you was there, but we cavaliers—we did it. Yes indeed, we did it.
+> 
+> And when she later gave birth to a child out at a peasant farm and the count sent word to her, saying: “We married in a foreign country; we did not follow law and ordinance. You are not my wife; I am not your husband. I do not care about your child,” yes, when that was how matters stood and she did not want the child to be entered as fatherless in the church register, then you would surely have grown proud if she had said to one of you: “Come and marry me! I must have a father for the child.” But she chose none of you. She took Gösta Berling, the poor priest who may never again speak the word of God. Yes, I tell you, peasants, I have never done a harder thing, for I was so unworthy of her that I did not dare look her in the eyes, but neither did I dare say no, for she was in great despair.
+> 
+> And now you may believe whatever evil you like about us cavaliers, but toward her there we have done all the good we could. And it is thanks to her that we have not shot every last one of you dead tonight. But now I tell you: let her go and be on your way, or else I think the earth will open and swallow you up! And when you leave here, ask God to forgive you for having frightened and distressed one who is so good and innocent! And now away with you! We have had enough of you!
+> 
+> Long before he had finished speaking, those who had carried the countess out had set her down on one of the stone steps, and now a large peasant came forward to her, quite deliberately, and held out his large hand.
+> 
+> “Thank you and good night!” he said. “We meant you no harm, Countess.”
+> 
+> After him came another and gave her hand a gentle squeeze.
+> 
+> “Thank you and good night! You must not be angry with us!”
+> 
+> Gösta jumped down and placed himself at her side. Then they shook his hand as well.
+> 
+> And so they came forward now, slow and sedate, one by one, to bid them good night before they left. They were subdued once more; once more they were human beings, as they had been when they left their homes that morning, before hunger and vengeance had turned them into wild beasts.
+> 
+> They looked the countess straight in the face, and Gösta noticed how the sight of the innocence and piety they saw there brought tears to many eyes. In all of them there was a silent adoration of the noblest thing they had ever beheld. They were people who rejoiced that one of their number possessed so great a love for the good.
+> 
+> They could not all shake hands with her, of course. There were so terribly many of them, and the young woman was tired and weak. But all of them still had to come up and see her, and then they could shake Gösta’s hand; his arms could surely withstand the shaking.
+> 
+> Gösta stood as if in a dream. That evening a new love welled up in his heart.
+> 
+> “O my people,” he thought, “O my people, how I love you!” He felt how he loved that whole multitude as it moved away into the darkness of the night, with the dead girl at the head of the procession—all those in coarse clothes and foul-smelling footwear, all those who lived in the gray cottages at the edge of the forest, all those who could not wield a pen and often could not read either, all those who did not know life’s fullness and richness, but only the struggle for their daily bread.
+> 
+> He loved them with a painful, burning tenderness that forced tears into his eyes. He did not know what he wanted to do for them, but he loved them, each and every one, with their faults and vices and frailties. O Lord God, if only the day might come when he too would be loved by them!
+> 
+> He awoke from his dream. His wife laid her hand on his arm. The people were gone. They were alone on the steps.
+> 
+> “O Gösta, Gösta, how could you?”
+> 
+> She covered her face with her hands and wept.
+> 
+> “What I said is true,” he burst out. “I never promised the Nygård girl that I would marry her. ‘Come here next Friday and you shall see something amusing!’ was all I said to her. I cannot help it that she took a liking to me.”
+> 
+> “O, it was not that! But how could you tell the people that I was good and pure? Gösta, Gösta, do you not know that I loved you when I did not yet have permission to do so? I was ashamed before the people, Gösta. I wanted to die of shame.”
+> 
+> And she was shaken by sobs.
+> 
+> He stood looking at her.
+> 
+> “O my friend, my beloved!” he said quietly. “How fortunate you are to be so good! How fortunate you are to have so beautiful a soul within you!”
+> 
+> CHAPTER THIRTY-THREE
+> 
+> Kevenhüller
+> 
+> In the 1770s, Kevenhüller, who would later become learned and possessed of wide knowledge, was born in Germany. He was the son of a burgrave and could have lived in lofty castles and ridden at the emperor’s side if he had wished, but he did not.
+> 
+> He would have liked to fasten windmill sails to the castle’s highest tower, turn the knights’ hall into a fine-metal workshop and the ladies’ chamber into a watchmaker’s workshop. He would have liked to fill the castle with spinning wheels and working levers. But as such a thing could not be done, he left all the splendor behind and apprenticed himself to a watchmaker. There he learned everything that could be learned about cogwheels, springs, and pendulums. He learned to make sundials and star clocks, clocks with piping canaries and shepherds blowing horns, clockworks that filled an entire church tower with their strange machinery, and timepieces so small that they could be set in a locket.
+> 
+> When he had received his master’s certificate, he put his knapsack on his back, took his knotted cudgel in hand, and wandered from place to place to study everything that moved by rollers and wheels. Kevenhüller was no ordinary watchmaker; he wanted to become a great inventor and improver of the world.
+> 
+> After he had thus wandered through many lands, he also made his way to Värmland to study mill wheels and mining machinery. One beautiful summer morning, it happened that he was walking across the marketplace in Karlstad. But at that same beautiful hour of morning, the Lady of the Forest had seen fit to extend her walk all the way into the town. The tall lady was also crossing the marketplace, but from the opposite direction, and thus she met Kevenhüller.
+
+
+Translation, where present, is an AI-generated analytical aid, not an authoritative edition.
+
+## Evidence cited by the annotator
+
+### e1 — local text
+
+> “O, mitt folk … vad jag älskar dig!” is explicitly introduced by “tänkte han” (“he thought”).
+
+Identifies the event as inwardly imagined speech and gives it the form of a direct avowal addressed to the people.
+
+### e2 — local text
+
+> “I hans hjärta rann denna kväll upp en ny kärlek” (“That evening a new love welled up in his heart”).
+
+Strongly supports T and, through the presentation of words arising amid a newly emerging emotion, gives some independent support to E.
+
+### e3 — local text
+
+> The narrator says that he loved the whole crowd and “alla och envar, med fel och laster och skröpligheter” (“each and every one, with faults and vices and frailties”).
+
+Confirms that the thought presents a genuine loving emotional state rather than an empty formula or unrelated use.
+
+### e4 — local text
+
+> “Han visste inte vad han ville göra för dem” (“He did not know what he wanted to do for them”).
+
+Argues against performative undertaking force: the love is not accompanied by a promise, obligation, or defined commitment.
+
+### e5 — local text
+
+> Gösta stands “som i en dröm” and later awakens from that dreamlike state; his painful, burning tenderness forces tears into his eyes.
+
+Supports the immediate affective framing and moderate E score, while functioning mainly as contextual evidence of intensity.
+
+## Background, status and source records
+
+Utterance status: **imagined**. An internally voiced thought addressed apostrophically to the departing people, not an externally spoken declaration.
+
+Background knowledge reported as used: **False**. 
+
+Self-reported confidence: 0.92. Not a calibrated accuracy estimate.
+
+Ontology fit: natural. T naturally captures the avowal of collective love, while a moderate E score captures its presentation as a dreamlike inward effusion. P is unnecessary because no undertaking is enacted, and no residual core force requires O.
+
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lagerlof-gosta-berlings-saga-ea36a229384cb926/ffd2799451b89b3952e0352b95a167c2cdff2c7c183dbda925b15794c5697ac8/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lagerlof-gosta-berlings-saga-ea36a229384cb926/ffd2799451b89b3952e0352b95a167c2cdff2c7c183dbda925b15794c5697ac8/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/lagerlof-gosta-berlings-saga/canonical.txt)
+- Occurrence: lagerlof-gosta-berlings-saga-ea36a229384cb926
+- Model: gpt-5.6-sol
+- Classification prompt: 0.3.1
+- Historical run: canonical_31_v0_11_v0_3_1
+- Canonical SHA-256: 64dcb0e5173756de6b8cd6a20b9065731791f8c50e0f0fe48e61704432f28f47
+
+Rendered deterministically from the saved record. No rescoring or replacement explanation.
+
+Saved notes: The singular Swedish pronoun “dig” addresses the collective “mitt folk”; the love is communal and compassionate rather than romantic.

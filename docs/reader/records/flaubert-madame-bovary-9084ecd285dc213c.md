@@ -1,0 +1,358 @@
+# Madame Bovary
+
+Gustave Flaubert · French
+
+[All records](../README.md) · [HTML reading copy](../cases/flaubert-madame-bovary-9084ecd285dc213c.html)
+
+## Target
+
+> je t’aimerai
+
+
+| T: report / avowal | P: undertaking | E: expressive/reflexive | O: other |
+|---:|---:|---:|---:|
+| 3 / 4 | 4 / 4 | 0 / 4 | 0 / 4 |
+
+Scores are independent support judgments. T is not a sincerity score.
+
+## Original passage
+
+> — Ah! pardonne-moi! tu es la seule qui me plaise. J’ai été imbécile et
+> méchant! Je t’aime, je t’aimerai toujours!... Qu’as-tu? dis-le donc!
+
+
+## Original AI explanation
+
+Rodolphe’s “je t’aimerai toujours” presents his future, continuing love as true while also functioning strongly as a vow of enduring attachment in a scene of apparent reconciliation. Its future tense, “toujours,” plea for forgiveness, and kneeling posture give it substantial undertaking force. Although he cries the words out in an emotional moment, the passage supplies no independent evidence that they are a reflex-like expressive discharge rather than an impassioned avowal and promise.
+
+## Ambiguity
+
+The relative weight of T and P is somewhat ambiguous: grammatically the clause predicts a lasting emotional state, but pragmatically it closely resembles a pledge of eternal love. Rodolphe’s eventual sincerity and durability are doubtful, without changing its T/P mode.
+
+## Narrative situation (AI interpretation)
+
+Rodolphe utters the line after mistaking Emma’s sobbing for an outpouring of love and interpreting her silence as modest reserve. His tenderness and apparent contrition support a momentary avowal and vow, while his earlier vague, partly invented excuses and the later collapse of the reconciliation under Emma’s request for money cast narrative doubt on its sincerity or permanence. Emma subsequently characterizes the scene as his swearing “une éternité d’amour,” reinforcing its promise-like reception. These complications concern sincerity, misunderstanding, and narrative irony rather than requiring O or E.
+
+## Original context supplied to the annotator
+
+> Elle monta le large escalier droit, à balustres de bois, qui conduisait
+> au corridor pavé de dalles poudreuses où s’ouvraient plusieurs chambres
+> à la file, comme dans les monastères ou les auberges. La sienne était
+> au bout, tout au fond, à gauche. Quand elle vint à poser les doigts
+> sur la serrure, ses forces subitement l’abandonnèrent. Elle avait
+> peur qu’il ne fût pas là, le souhaitait presque, et c’était pourtant
+> son seul espoir, la dernière chance de salut. Elle se recueillit
+> une minute, et, retrempant son courage au sentiment de la nécessité
+> présente, elle entra.
+> 
+> Il était devant le feu, les deux pieds sur le chambranle, en train de
+> fumer une pipe.
+> 
+> — Tiens! c’est vous! dit-il en se levant brusquement.
+> 
+> — Oui, c’est moi!... je voudrais, Rodolphe, vous demander un conseil.
+> 
+> Et malgré tous ses efforts, il lui était impossible de desserrer la
+> bouche.
+> 
+> — Vous n’avez pas changé, vous êtes toujours charmante!
+> 
+> — Oh! reprit-elle amèrement, ce sont de tristes charmes, mon ami,
+> puisque vous les avez dédaignés.
+> 
+> Alors il entama une explication de sa conduite, s’excusant en termes
+> vagues, faute de pouvoir inventer mieux.
+> 
+> Elle se laissa prendre à ses paroles, plus encore à sa voix et par le
+> spectacle de sa personne; si bien qu’elle fit semblant de croire, ou
+> crut-elle peut-être, au prétexte de leur rupture; c’était un secret
+> d’où dépendaient l’honneur et même la vie d’une troisième personne.
+> 
+> — N’importe! fit-elle en le regardant tristement, j’ai bien souffert!
+> 
+> Il répondit d’un ton philosophique:
+> 
+> — L’existence est ainsi!
+> 
+> — A-t-elle du moins, reprit Emma, été bonne pour vous depuis notre
+> séparation?
+> 
+> — Oh! ni bonne... ni mauvaise.
+> 
+> — Il aurait peut-être mieux valu ne jamais nous quitter.
+> 
+> — Oui..., peut-être!
+> 
+> — Tu crois? dit-elle en se rapprochant.
+> 
+> Et elle soupira.
+> 
+> — O Rodolphe! si tu savais... Je t’ai bien aimé!
+> 
+> Ce fut alors qu’elle prit sa main, et ils restèrent quelque temps les
+> doigts entrelacés, — comme le premier jour, aux Comices! Par un geste
+> d’orgueil, il se débattait sous l’attendrissement. Mais, s’affaissant
+> contre sa poitrine, elle lui dit:
+> 
+> — Comment voulais-tu que je vécusse sans toi? On ne peut pas se
+> déshabituer du bonheur! J’étais désespérée! j’ai cru mourir! Je te
+> conterai tout cela, tu verras. Et toi... tu m’as fuie!...
+> 
+> Car, depuis trois ans, il l’avait soigneusement évitée par suite
+> de cette lâcheté naturelle qui caractérise le sexe fort; et Emma
+> continuait avec des gestes mignons de tête, plus câline qu’une chatte
+> amoureuse:
+> 
+> — Tu en aimes d’autres, avoue-le. Oh! je les comprends, va! je les
+> excuse; tu les auras séduites, comme tu m’avais séduite. Tu es un
+> homme, toi! tu as tout ce qu’il faut pour te faire chérir. Mais nous
+> recommencerons, n’est-ce pas? nous nous aimerons! Tiens, je ris, je
+> suis heureuse!... parle donc!
+> 
+> Et elle était ravissante à voir, avec son regard où tremblait une
+> larme, comme l’eau d’un orage dans un calice bleu.
+> 
+> Il l’attira sur ses genoux, et il caressait du revers de la main ses
+> bandeaux lisses, où, dans la clarté du crépuscule, miroitait comme une
+> flèche d’or un dernier rayon du soleil. Elle penchait le front; il
+> finit par la baiser sur les paupières, tout doucement, du bout de ses
+> lèvres.
+> 
+> — Mais tu as pleuré! dit-il. Pourquoi?
+> 
+> Elle éclata en sanglots. Rodolphe crut que c’était l’explosion de son
+> amour; comme elle se taisait, il prit ce silence pour une dernière
+> pudeur, et alors il s’écria:
+> 
+> — Ah! pardonne-moi! tu es la seule qui me plaise. J’ai été imbécile et
+> méchant! Je t’aime, je t’aimerai toujours!... Qu’as-tu? dis-le donc!
+> 
+> Il s’agenouillait.
+> 
+> — Eh bien!... je suis ruinée, Rodolphe! Tu vas me prêter trois mille
+> francs!
+> 
+> — Mais..., mais..., dit-il en se relevant peu à peu, tandis que sa
+> physionomie prenait une expression grave.
+> 
+> — Tu sais, continuait-elle vite, que mon mari avait placé toute sa
+> fortune chez un notaire; il s’est enfui. Nous avons emprunté; les
+> clients ne payaient pas. Du reste la liquidation n’est pas finie; nous
+> en aurons plus tard. Mais, aujourd’hui, faute de trois mille francs, on
+> va nous saisir; c’est à présent, à l’instant même; et, comptant sur ton
+> amitié, je suis venue.
+> 
+> — Ah! pensa Rodolphe, qui devint très pâle tout à coup, c’est pour cela
+> qu’elle est venue!
+> 
+> Enfin il dit d’un air calme:
+> 
+> — Je ne les ai pas, chère madame.
+> 
+> Il ne mentait point. Il les eût eus qu’il les aurait donnés, sans
+> doute, bien qu’il soit généralement désagréable de faire de si belles
+> actions: une demande pécuniaire, de toutes les bourrasques qui tombent
+> sur l’amour, étant la plus froide et la plus déracinante.
+> 
+> Elle resta d’abord quelques minutes à le regarder.
+> 
+> — Tu ne les as pas!
+> 
+> Elle répéta plusieurs fois:
+> 
+> — Tu ne les as pas!... J’aurais dû m’épargner cette dernière honte. Tu
+> ne m’as jamais aimée! tu ne vaux pas mieux que les autres!
+> 
+> Elle se trahissait, elle se perdait.
+> 
+> Rodolphe l’interrompit, affirmant qu’il se trouvait «gêné» lui-même.
+> 
+> — Ah! je te plains! dit Emma. Oui, considérablement!...
+> 
+> Et, arrêtant ses yeux sur une carabine damasquinée qui brillait dans la
+> panoplie:
+> 
+> — Mais, lorsqu’on est si pauvre, on ne met pas d’argent à la crosse
+> de son fusil! On n’achète pas une pendule avec des incrustations
+> d’écaille! continuait-elle en montrant l’horloge de Boulle; ni
+> des sifflets de vermeil pour ses fouets — elle les touchait! — ni
+> des breloques pour sa montre! Oh! rien ne lui manque! Jusqu’à un
+> porte-liqueurs dans sa chambre; car tu t’aimes, tu vis bien, tu as
+> un château, des fermes, des bois; tu chasses à courre, tu voyages à
+> Paris... Eh! quand ce ne serait que cela, s’écria-t-elle en prenant
+> sur la cheminée ses boutons de manchettes, que la moindre de ces
+> niaiseries! on en peut faire de l’argent!... Oh! je n’en veux pas!
+> garde-les!
+> 
+> Et elle lança bien loin les deux boutons, dont la chaîne d’or se rompit
+> en cognant contre la muraille.
+> 
+> — Mais, moi, je t’aurais tout donné, j’aurais tout vendu, j’aurais
+> travaillé de mes mains, j’aurais mendié sur les routes, pour un
+> sourire, pour un regard, pour t’entendre dire: «Merci!» Et tu restes là
+> tranquillement dans ton fauteuil, comme si déjà tu ne m’avais pas fait
+> assez souffrir? Sans toi, sais-tu bien, j’aurais pu vivre heureuse!
+> Qui t’y forçait? Était-ce une gageure? Tu m’aimais cependant, tu le
+> disais... Et tout à l’heure encore... Ah! il eût mieux valu me chasser!
+> J’ai les mains chaudes de tes baisers, et voilà la place, sur le tapis,
+> où tu jurais à mes genoux une éternité d’amour. Tu m’y as fait croire:
+> tu m’as pendant deux ans, traînée dans le rêve le plus magnifique et
+> le plus suave!... Hein! nos projets de voyage, tu te rappelles? Oh!
+> ta lettre, ta lettre! elle m’a déchiré le cœur!... Et puis, quand
+> je reviens vers lui, vers lui, qui est riche, heureux, libre! pour
+> implorer un secours que le premier venu rendrait, suppliante et lui
+> rapportant toute ma tendresse, il me repousse, parce que ça lui
+> coûterait trois mille francs!
+
+
+## English translation supplied to the annotator
+
+> She climbed the broad, straight staircase with its wooden balusters, which led to the corridor paved with dusty flagstones, onto which several rooms opened in a row, as in monasteries or inns. Hers was at the end, right at the back, on the left. When she came to place her fingers on the lock, her strength suddenly deserted her. She was afraid that he might not be there, almost wished it, and yet he was her only hope, her last chance of salvation. She collected herself for a minute and, tempering her courage anew in the sense of her present necessity, she entered.
+> 
+> He was in front of the fire, both feet on the mantelpiece, smoking a pipe.
+> 
+> “Well! It’s you!” he said, rising abruptly.
+> 
+> “Yes, it’s me!… Rodolphe, I would like to ask you for some advice.”
+> 
+> And despite all her efforts, it was impossible for her to open her mouth.
+> 
+> “You haven’t changed; you are still charming!”
+> 
+> “Oh!” she resumed bitterly, “they are sorry charms, my friend, since you disdained them.”
+> 
+> Then he embarked on an explanation of his conduct, excusing himself in vague terms for lack of anything better to invent.
+> 
+> She allowed herself to be taken in by his words, still more by his voice and by the sight of him; so much so that she pretended to believe, or perhaps did believe, the pretext for their breakup: it was a secret on which the honor and even the life of a third person depended.
+> 
+> “No matter!” she said, looking at him sadly. “I suffered so much!”
+> 
+> He replied in a philosophical tone:
+> 
+> “That is how life is!”
+> 
+> “Has it at least,” Emma resumed, “been good to you since our separation?”
+> 
+> “Oh! Neither good… nor bad.”
+> 
+> “Perhaps it would have been better if we had never left each other.”
+> 
+> “Yes… perhaps!”
+> 
+> “Do you think so?” she said, moving closer.
+> 
+> And she sighed.
+> 
+> “Oh, Rodolphe! If you only knew… I loved you so much!”
+> 
+> It was then that she took his hand, and for a while they remained with their fingers intertwined—as on the first day, at the Agricultural Show! In a gesture of pride, he struggled against his own tenderness. But, sinking against his chest, she said to him:
+> 
+> “How did you expect me to live without you? One cannot break oneself of happiness! I was in despair! I thought I would die! I will tell you all about it; you’ll see. And you… you fled from me!…”
+> 
+> For three years he had carefully avoided her, as a result of that natural cowardice which characterizes the stronger sex; and Emma continued, with dainty movements of her head, more coaxing than a lovesick cat:
+> 
+> “You love other women; admit it. Oh, I understand them, you know! I forgive them; you must have seduced them as you seduced me. You are a man, you are! You have everything it takes to make yourself adored. But we will begin again, won’t we? We will love each other! Look, I am laughing, I am happy!… Do say something!”
+> 
+> And she was enchanting to behold, with a tear trembling in her gaze like storm water in a blue chalice.
+> 
+> He drew her onto his knees and caressed with the back of his hand the smooth bands of her hair, where, in the twilight, a last ray of sunlight gleamed like a golden arrow. She bowed her head; at last he kissed her very gently on the eyelids with the tips of his lips.
+> 
+> “But you have been crying!” he said. “Why?”
+> 
+> She burst into sobs. Rodolphe thought it was the outpouring of her love; as she remained silent, he took that silence for a final modest reserve, and then he cried out:
+> 
+> “Ah! Forgive me! You are the only one who pleases me. I was stupid and wicked! I love you; I will always love you!… What is it? Tell me!”
+> 
+> He was kneeling down.
+> 
+> “Well!… I am ruined, Rodolphe! You are going to lend me three thousand francs!”
+> 
+> “But… but…” he said, gradually rising again, while his face assumed a grave expression.
+> 
+> “You know,” she continued quickly, “that my husband had invested his entire fortune with a notary; he ran away. We borrowed money; the clients did not pay. Besides, the liquidation is not finished; we will have more later. But today, for want of three thousand francs, they are going to seize our property; it is now, this very instant; and, counting on your friendship, I came.”
+> 
+> “Ah!” thought Rodolphe, who suddenly turned very pale. “That is why she came!”
+> 
+> At last he said calmly:
+> 
+> “I do not have it, my dear madam.”
+> 
+> He was not lying. Had he had it, he would no doubt have given it, although it is generally unpleasant to perform such noble deeds: of all the squalls that descend upon love, a request for money is the coldest and the most uprooting.
+> 
+> At first she remained looking at him for several minutes.
+> 
+> “You do not have it!”
+> 
+> She repeated several times:
+> 
+> “You do not have it!… I should have spared myself this final humiliation. You never loved me! You are no better than the others!”
+> 
+> She was betraying herself; she was ruining herself.
+> 
+> Rodolphe interrupted her, declaring that he himself was “hard up.”
+> 
+> “Ah! I pity you!” Emma said. “Yes, immensely!…”
+> 
+> And, fixing her eyes on a damascened carbine gleaming in the display of weapons:
+> 
+> “But when one is so poor, one does not put money into the stock of one’s gun! One does not buy a clock with tortoiseshell inlay!” she continued, pointing to the Boulle clock, “or silver-gilt whistles for one’s whips”—she touched them—“or trinkets for one’s watch! Oh, he lacks nothing! Even a liqueur case in his bedroom; for you love yourself, you live well, you have a château, farms, woods; you hunt with hounds, you travel to Paris… Why, even if it were only this,” she cried, taking his cuff links from the mantelpiece, “the least of these trifles! They can be turned into money!… Oh, I do not want them! Keep them!”
+> 
+> And she flung the two links far away, their gold chain breaking as they struck the wall.
+> 
+> “But I would have given you everything; I would have sold everything; I would have worked with my own hands; I would have begged along the roads, for a smile, for a look, to hear you say, ‘Thank you!’ And you sit there calmly in your armchair, as though you had not already made me suffer enough? Without you, you know, I could have lived happily! Who forced you to do it? Was it a wager? Yet you loved me; you said so… And just now, too… Ah! It would have been better if you had driven me away! My hands are warm from your kisses, and there is the place, on the carpet, where, at my knees, you swore eternal love to me. You made me believe in it: for two years you dragged me through the most magnificent and exquisite dream!… Well! Our plans for traveling—do you remember? Oh! Your letter, your letter! It tore my heart apart!… And then, when I come back to him—to him, who is rich, happy, free!—to implore a kindness that the first person who came along would grant, pleading with him and bringing him all my tenderness, he rejects me because it would cost him three thousand francs!”
+
+
+Translation, where present, is an AI-generated analytical aid, not an authoritative edition.
+
+## Evidence cited by the annotator
+
+### ev1 — local text
+
+> “Je t’aime, je t’aimerai toujours!”
+
+The pairing of present love with future enduring love supports T, while the future form and “toujours” strongly support P.
+
+### ev2 — local text
+
+> “Ah! pardonne-moi!” followed by “Il s’agenouillait.”
+
+The request for forgiveness and kneeling frame the future declaration as a reconciliation vow or relational undertaking.
+
+### ev3 — local text
+
+> “Rodolphe crut que c’était l’explosion de son amour” and then “il s’écria.”
+
+The line is emotionally prompted and emphatically delivered, but these delivery facts alone do not establish independent expressive/reflexive force, supporting E=0.
+
+### ev4 — local text
+
+> Emma later refers to the same moment as one where he “jurais à mes genoux une éternité d’amour.”
+
+Emma’s retrospective description confirms that the utterance was received as a sworn promise of enduring love, strengthening P.
+
+### ev5 — supplied metadata
+
+> The occurrence is tagged as affirmative future tense, with exact match “je t’aimerai.”
+
+Confirms the grammatical future form underlying both the prediction of continued feeling and its promise-like force.
+
+## Background, status and source records
+
+Utterance status: **direct**. Rodolphe directly addresses Emma with the highlighted future clause “je t’aimerai toujours,” immediately after “Je t’aime.”
+
+Background knowledge reported as used: **False**. 
+
+Self-reported confidence: 0.94. Not a calibrated accuracy estimate.
+
+Ontology fit: natural. T and P naturally capture the clause’s joint avowal/prediction and vow-like undertaking. Emotional delivery, questionable sincerity, and narrative irony are adequately treated as context and create no residual core-force pressure.
+
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-9084ecd285dc213c/7f728e9fdbe1f54f5d1be3be1b8128326c554ab9ec6722ad9f987d0bd6079119/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-9084ecd285dc213c/7f728e9fdbe1f54f5d1be3be1b8128326c554ab9ec6722ad9f987d0bd6079119/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/flaubert-madame-bovary/canonical.txt)
+- Occurrence: flaubert-madame-bovary-9084ecd285dc213c
+- Model: gpt-5.6-sol
+- Classification prompt: 0.3.1
+- Historical run: canonical_31_v0_11_v0_3_1
+- Canonical SHA-256: 93f0a2259dbaf5fde6e7b96adc22346d52f80eb1e9319336c8381a045efe40cd
+
+Rendered deterministically from the saved record. No rescoring or replacement explanation.

@@ -1,0 +1,256 @@
+# Illusions perdues
+
+Honoré de Balzac · French
+
+[All records](../README.md) · [HTML reading copy](../cases/balzac-illusions-perdues-4d928ce6cd452e24.html)
+
+## Target
+
+> Je vous aimerais
+
+
+| T: report / avowal | P: undertaking | E: expressive/reflexive | O: other |
+|---:|---:|---:|---:|
+| 3 / 4 | 0 / 4 | 0 / 4 | 0 / 4 |
+
+Scores are independent support judgments. T is not a sincerity score.
+
+## Original passage
+
+> —Vous ne connaissez pas les femmes, répondit madame d'Espard en
+> interrompant Lucien. Vous avez blessé le cœur le plus angélique et
+> l'âme la plus noble que je connaisse. Vous ignorez tout ce que Louise
+> voulait faire pour vous, et combien elle mettait de finesse dans son
+> plan. Oh! elle eût réussi, fit-elle à une muette dénégation de Lucien.
+> Son mari qui maintenant est mort, comme il devait mourir, d'une
+> indigestion, n'allait-il pas lui rendre, tôt ou tard, sa liberté?
+> Croyez-vous qu'elle voulût être madame Chardon? Le titre de comtesse de
+> Rubempré valait bien la peine d'être conquis. Voyez-vous? l'amour est
+> une grande vanité qui doit s'accorder, surtout en mariage, avec toutes
+> les autres vanités. Je vous aimerais à la folie, c'est-à-dire assez
+> pour vous épouser, il me serait très-dur de m'appeler madame Chardon.
+> Convenez-en? Maintenant, vous avez vu les difficultés de la vie à
+> Paris, vous savez combien de détours il faut faire pour arriver au but;
+> eh! bien, avouez que pour un inconnu sans fortune, Louise aspirait à
+> une faveur presque impossible, elle devait donc ne rien négliger. Vous
+> avez beaucoup d'esprit, mais quand nous aimons, nous en avons encore
+> plus que l'homme le plus spirituel. Ma cousine voulait employer ce
+> ridicule Châtelet... Je vous dois des plaisirs, vos articles contre lui
+> m'ont fait bien rire! dit-elle en s'interrompant.
+
+
+## Original AI explanation
+
+The conditional “Je vous aimerais à la folie” represents a hypothetical state of loving Lucien, used to illustrate how even intense love would be constrained by status considerations. Its force is predominantly propositional rather than an actual avowal. The reference to marrying him explains the imagined degree of love but does not undertake or promise marriage, and nothing indicates expressive/reflexive discharge.
+
+## Ambiguity
+
+The conditional can carry a faint flirtatious suggestion in this socially coquettish exchange, but the explicit explanatory framing strongly favors a hypothetical example rather than a veiled present confession.
+
+## Narrative situation (AI interpretation)
+
+Madame d’Espard uses the hypothetical to defend Louise’s concern with Lucien’s name and rank: even love sufficient for marriage, she argues, must coexist with social vanity, and becoming “Madame Chardon” would remain objectionable. The surrounding coquetry may give the remark a flirtatious edge, while the narration’s emphasis on worldly deceptions cautions against reading it as sincere self-disclosure; neither complication alters its chiefly truth-conditional, hypothetical force.
+
+## Original context supplied to the annotator
+
+> Chacun regagna les tables de jeu. Les lueurs de l'aurore firent bientôt
+> pâlir les bougies.
+> 
+> —Tes amis de la rue des Quatre-Vents étaient tristes comme des
+> condamnés à mort, dit Coralie à son amant.
+> 
+> —Ils étaient les juges, répondit le poète.
+> 
+> —Les juges sont plus amusants que ça, dit Coralie.
+> 
+> Lucien vit pendant un mois son temps pris par des soupers, des dîners,
+> des déjeuners, des soirées, et fut entraîné par un courant invincible
+> dans un tourbillon de plaisirs et de travaux faciles. Il ne calcula
+> plus. La puissance du calcul au milieu des complications de la vie
+> est le sceau des grandes volontés que les poètes, les gens faibles
+> ou purement spirituels ne contrefont jamais. Comme la plupart des
+> journalistes, Lucien vécut au jour le jour, dépensant son argent à
+> mesure qu'il le gagnait, ne songeant point aux charges périodiques
+> de la vie parisienne, si écrasantes pour ces bohémiens. Sa mise et
+> sa tournure rivalisaient avec celles des dandies les plus célèbres.
+> Coralie aimait, comme tous les fanatiques, à parer son idole; elle se
+> ruina pour donner à son cher poète cet élégant mobilier des élégants
+> qu'il avait tant désiré pendant sa première promenade aux Tuileries.
+> Lucien eut alors des cannes merveilleuses, une charmante lorgnette,
+> des boutons de diamants, des anneaux pour ses cravates du matin, des
+> bagues à la chevalière, enfin des gilets mirifiques en assez grand
+> nombre pour pouvoir assortir les couleurs de sa mise. Il passa bientôt
+> dandy. Le jour où il se rendit à l'invitation du diplomate allemand,
+> sa métamorphose excita une sorte d'envie contenue chez les jeunes gens
+> qui s'y trouvèrent, et qui tenaient le haut du pavé dans le royaume
+> de la fashion, tels que de Marsay, Vandenesse, Ajuda-Pinto, Maxime de
+> Treilles, Rastignac, le duc de Maufrigneuse, Beaudenord, Manerville,
+> etc. Les hommes du monde sont jaloux entre eux à la manière des femmes.
+> La comtesse de Montcornet et la marquise d'Espard, pour qui le dîner se
+> donnait, eurent Lucien entre elles, et le comblèrent de coquetteries.
+> 
+> —Pourquoi donc avez-vous quitté le monde! lui demanda la marquise,
+> il était si disposé à vous bien accueillir, à vous fêter. J'ai une
+> querelle à vous faire! vous me deviez une visite, et je l'attends
+> encore. Je vous ai aperçu l'autre jour à l'Opéra, vous n'avez pas
+> daigné venir me voir ni me saluer.
+> 
+> —Votre cousine, madame, m'a si positivement signifié mon congé...
+> 
+> —Vous ne connaissez pas les femmes, répondit madame d'Espard en
+> interrompant Lucien. Vous avez blessé le cœur le plus angélique et
+> l'âme la plus noble que je connaisse. Vous ignorez tout ce que Louise
+> voulait faire pour vous, et combien elle mettait de finesse dans son
+> plan. Oh! elle eût réussi, fit-elle à une muette dénégation de Lucien.
+> Son mari qui maintenant est mort, comme il devait mourir, d'une
+> indigestion, n'allait-il pas lui rendre, tôt ou tard, sa liberté?
+> Croyez-vous qu'elle voulût être madame Chardon? Le titre de comtesse de
+> Rubempré valait bien la peine d'être conquis. Voyez-vous? l'amour est
+> une grande vanité qui doit s'accorder, surtout en mariage, avec toutes
+> les autres vanités. Je vous aimerais à la folie, c'est-à-dire assez
+> pour vous épouser, il me serait très-dur de m'appeler madame Chardon.
+> Convenez-en? Maintenant, vous avez vu les difficultés de la vie à
+> Paris, vous savez combien de détours il faut faire pour arriver au but;
+> eh! bien, avouez que pour un inconnu sans fortune, Louise aspirait à
+> une faveur presque impossible, elle devait donc ne rien négliger. Vous
+> avez beaucoup d'esprit, mais quand nous aimons, nous en avons encore
+> plus que l'homme le plus spirituel. Ma cousine voulait employer ce
+> ridicule Châtelet... Je vous dois des plaisirs, vos articles contre lui
+> m'ont fait bien rire! dit-elle en s'interrompant.
+> 
+> Lucien ne savait plus que penser. Initié aux trahisons et aux perfidies
+> du journalisme, il ignorait celles du monde; aussi, malgré sa
+> perspicacité, devait-il recevoir de rudes leçons.
+> 
+> —Comment, madame, dit le poète dont la curiosité fut vivement éveillée,
+> ne protégez-vous pas le Héron?
+> 
+> —Mais dans le monde on est forcé de faire des politesses à ses plus
+> cruels ennemis, de paraître s'amuser avec les ennuyeux, et souvent on
+> sacrifie en apparence ses amis pour les mieux servir. Vous êtes donc
+> encore bien neuf? Comment, vous qui voulez écrire, vous ignorez les
+> tromperies courantes du monde. Si ma cousine a semblé vous sacrifier au
+> Héron, ne le fallait-il pas pour mettre cette influence à profit pour
+> vous, car notre homme est très-bien vu par le Ministère actuel; aussi,
+> lui avons-nous démontré que jusqu'à un certain point vos attaques le
+> servaient, afin de pouvoir vous raccommoder tous deux, un jour. On a
+> dédommagé Châtelet de vos persécutions. Comme le disait des Lupeaulx
+> aux ministres: Pendant que les journaux tournent Châtelet en ridicule,
+> ils laissent en repos le Ministère.
+> 
+> —Monsieur Blondet m'a fait espérer que j'aurais le plaisir de vous
+> voir chez vous, dit la comtesse de Montcornet pendant le temps que la
+> marquise abandonna Lucien à ses réflexions. Vous y trouverez quelques
+> artistes, des écrivains et une femme qui a le plus vif désir de vous
+> connaître, mademoiselle des Touches, un de ces talents rares parmi
+> notre sexe, et chez qui sans doute vous irez. Mademoiselle des Touches,
+> Camille Maupin, si vous voulez, a l'un des salons les plus remarquables
+> de Paris, elle est prodigieusement riche; on lui a dit que vous êtes
+> aussi beau que spirituel, elle se meurt d'envie de vous voir.
+> 
+> Lucien ne put que se confondre en remercîments, et jeta sur Blondet
+> un regard d'envie. Il y avait autant de différence entre une femme
+> du genre et de la qualité de la comtesse de Montcornet et Coralie
+> qu'entre Coralie et une fille des rues. Cette comtesse, jeune, belle
+> et spirituelle, avait, pour beauté spéciale, la blancheur excessive
+> des femmes du Nord; sa mère était née princesse Scherbellof, aussi le
+> ministre, avant de dîner, lui avait-il prodigué ses plus respectueuses
+> attentions. La marquise avait alors achevé de sucer dédaigneusement une
+> aile de poulet.
+> 
+> —Ma pauvre Louise, dit-elle à Lucien, avait tant d'affection pour vous!
+> j'étais dans la confidence du bel avenir qu'elle rêvait pour vous:
+> elle aurait supporté bien des choses, mais quel mépris vous lui avez
+> marqué en lui renvoyant ses lettres! Nous pardonnons les cruautés, il
+> faut encore croire en nous pour nous blesser; mais l'indifférence!...
+> l'indifférence est comme la glace des pôles, elle étouffe tout. Allons,
+> convenez-en, vous avez perdu des trésors par votre faute. Pourquoi
+> rompre? Quand même vous eussiez été dédaigné, n'avez-vous pas votre
+> fortune à faire, votre nom à reconquérir? Louise pensait à tout cela.
+
+
+## English translation supplied to the annotator
+
+> Everyone returned to the gaming tables. The gleams of dawn soon made the candles grow pale.
+> 
+> “Your friends from the rue des Quatre-Vents were as gloomy as men condemned to death,” Coralie said to her lover.
+> 
+> “They were the judges,” replied the poet.
+> 
+> “Judges are more amusing than that,” said Coralie.
+> 
+> For a month Lucien found his time taken up by suppers, dinners, luncheons, evening parties, and was swept along by an irresistible current into a whirlpool of pleasures and easy work. He ceased to calculate. The power of calculation amid the complications of life is the seal of great wills, which poets, weak people, or those who are purely spiritual never counterfeit. Like most journalists, Lucien lived from day to day, spending his money as he earned it, giving no thought to the periodic expenses of Parisian life, so crushing for these bohemians. His dress and bearing rivaled those of the most celebrated dandies. Coralie, like all fanatics, loved to adorn her idol; she ruined herself to give her dear poet that elegant furniture of the fashionable which he had so greatly desired during his first walk in the Tuileries. Lucien then possessed marvelous canes, a charming lorgnette, diamond studs, rings for his morning cravats, signet rings, and, finally, enough wondrous waistcoats to allow him to match the colors of his attire. He soon passed for a dandy. On the day when he attended the German diplomat’s invitation, his metamorphosis aroused a kind of restrained envy among the young men present, who held pride of place in the realm of fashion, such as de Marsay, Vandenesse, Ajuda-Pinto, Maxime de Treilles, Rastignac, the Duc de Maufrigneuse, Beaudenord, Manerville, etc. Men of the world are jealous of one another after the manner of women. The Comtesse de Montcornet and the Marquise d’Espard, for whom the dinner was being given, seated Lucien between them and lavished coquetries upon him.
+> 
+> “Why, then, did you leave society?” the marquise asked him. “It was so ready to welcome you warmly, to celebrate you. I have a quarrel to take up with you! You owed me a visit, and I am still waiting for it. I caught sight of you at the Opera the other day; you did not deign to come and see me or even greet me.”
+> 
+> “Your cousin, madame, dismissed me in such unequivocal terms...”
+> 
+> “You do not know women,” Madame d’Espard replied, interrupting Lucien. “You wounded the most angelic heart and the noblest soul I know. You have no idea of all that Louise wished to do for you, or how much subtlety she put into her plan. Oh! she would have succeeded,” she said in response to a silent denial from Lucien. “Was not her husband, who has now died, as he was bound to die, of indigestion, going to restore her freedom sooner or later? Do you think she wanted to be Madame Chardon? The title of Comtesse de Rubempré was well worth conquering. You see, love is a great vanity which must accord, especially in marriage, with all the other vanities. Were I to love you madly—that is to say, enough to marry you—it would be very hard for me to be called Madame Chardon. Admit it. Now you have seen the difficulties of life in Paris; you know how many detours must be made to reach one’s goal. Well, admit that, for an unknown man without a fortune, Louise was aspiring to an almost impossible favor, and therefore she could afford to neglect nothing. You have a great deal of wit, but when we love, we have even more of it than the wittiest man. My cousin intended to make use of that ridiculous Châtelet... I owe you some pleasures; your articles against him made me laugh heartily!” she said, interrupting herself.
+> 
+> Lucien no longer knew what to think. Initiated into the betrayals and perfidies of journalism, he knew nothing of those of society; and so, despite his perspicacity, he was destined to receive some harsh lessons.
+> 
+> “What, madame,” said the poet, whose curiosity had been keenly aroused, “are you not the Heron’s patroness?”
+> 
+> “But in society one is forced to show courtesy to one’s cruelest enemies, to appear to enjoy oneself with bores, and often one seemingly sacrifices one’s friends in order to serve them better. Are you still so very inexperienced? What! you, who wish to write, are ignorant of the ordinary deceptions of society. If my cousin appeared to sacrifice you to the Heron, was it not necessary in order to turn his influence to your advantage? For our man is very well regarded by the present Ministry; and so we demonstrated to him that, up to a certain point, your attacks were serving him, so that one day we might reconcile the two of you. Châtelet has been compensated for your persecutions. As des Lupeaulx said to the ministers: While the newspapers are making Châtelet ridiculous, they leave the Ministry in peace.”
+> 
+> “Monsieur Blondet has led me to hope that I shall have the pleasure of seeing you at my home,” said the Comtesse de Montcornet while the marquise left Lucien to his reflections. “You will find a few artists and writers there, and a woman who has the keenest desire to meet you, Mademoiselle des Touches, one of those talents rare among our sex, and whose home you will doubtless visit. Mademoiselle des Touches—Camille Maupin, if you prefer—has one of the most remarkable salons in Paris; she is prodigiously rich. She has been told that you are as handsome as you are witty, and she is dying to see you.”
+> 
+> Lucien could do nothing but overwhelm her with thanks, and cast an envious glance at Blondet. There was as much difference between a woman of the kind and quality of the Comtesse de Montcornet and Coralie as between Coralie and a streetwalker. This countess, young, beautiful, and witty, possessed, as her distinctive beauty, the extreme fairness of Northern women; her mother had been born Princess Scherbellof, and so, before dinner, the minister had lavished his most respectful attentions upon her. The marquise had by then finished disdainfully sucking a chicken wing.
+> 
+> “My poor Louise,” she said to Lucien, “had so much affection for you! I was privy to the splendid future she dreamed of for you: she would have endured many things, but what contempt you showed her by sending her letters back! We forgive cruelties—one must still believe in us in order to hurt us—but indifference!... Indifference is like the ice of the poles; it stifles everything. Come, admit it: through your own fault you have lost treasures. Why break it off? Even had you been spurned, do you not have your fortune to make, your name to win back? Louise was thinking of all that.”
+
+
+Translation, where present, is an AI-generated analytical aid, not an authoritative edition.
+
+## Evidence cited by the annotator
+
+### e1 — local text
+
+> “Je vous aimerais à la folie” (“Were I to love you madly”).
+
+The conditional form presents an imagined loving state rather than directly asserting present love.
+
+### e2 — local text
+
+> “c’est-à-dire assez pour vous épouser” (“that is to say, enough to marry you”).
+
+Marriage is invoked as a measure or consequence of the hypothetical love, not as a present relational undertaking.
+
+### e3 — local text
+
+> “l’amour est une grande vanité qui doit s’accorder, surtout en mariage, avec toutes les autres vanités.”
+
+The utterance functions as an illustrative premise in Madame d’Espard’s argument about love, marriage, rank, and vanity.
+
+### e4 — local text
+
+> “il me serait très-dur de m’appeler madame Chardon.”
+
+The hypothetical is designed to explain why even strong love would not erase aristocratic objections to Lucien’s family name.
+
+### e5 — supplied metadata
+
+> The occurrence is tagged as affirmative conditional/modal form.
+
+Corroborates classification of the event as hypothetical rather than a straightforward present-tense avowal.
+
+## Background, status and source records
+
+Utterance status: **hypothetical**. Madame d’Espard addresses Lucien directly but imagines loving him madly as an illustrative counterfactual, not as an avowal of her current feelings.
+
+Background knowledge reported as used: **False**. 
+
+Self-reported confidence: 0.94. Not a calibrated accuracy estimate.
+
+Ontology fit: natural. T, together with the hypothetical status and contextual explanation, naturally captures the utterance. No independent commitment force, expressive/reflexive discharge, or residual core function requires P, E, or O.
+
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/balzac-illusions-perdues-4d928ce6cd452e24/5329ba0808b6444e56bd2b0e475468693d9c808d998504df5f856bfb3c479e0d/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/balzac-illusions-perdues-4d928ce6cd452e24/5329ba0808b6444e56bd2b0e475468693d9c808d998504df5f856bfb3c479e0d/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/balzac-illusions-perdues/canonical.txt)
+- Occurrence: balzac-illusions-perdues-4d928ce6cd452e24
+- Model: gpt-5.6-sol
+- Classification prompt: 0.3.1
+- Historical run: canonical_31_v0_11_v0_3_1
+- Canonical SHA-256: 419f47435e440d4d44539f423bef3fbe9286f3bbbb359d4985ccb8436f6c0bcf
+
+Rendered deterministically from the saved record. No rescoring or replacement explanation.

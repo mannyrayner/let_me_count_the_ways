@@ -1,0 +1,380 @@
+# Madame Bovary
+
+Gustave Flaubert · French
+
+[All records](../README.md) · [HTML reading copy](../cases/flaubert-madame-bovary-fe1759703fe08567.html)
+
+## Target
+
+> je t’aime
+
+
+| T: report / avowal | P: undertaking | E: expressive/reflexive | O: other |
+|---:|---:|---:|---:|
+| 4 / 4 | 2 / 4 | 0 / 4 | 0 / 4 |
+
+Scores are independent support judgments. T is not a sincerity score.
+
+## Original passage
+
+> — Si je t’aime! si je t’aime! mais je t’adore, mon amour!
+
+
+## Original AI explanation
+
+Rodolphe’s reply directly and emphatically presents his love—or stronger adoration—as true. Because Emma has explicitly demanded that he swear his love, the reply also has moderate oath-like, relationally reassuring force, though it contains no explicit promise and is primarily an avowal. The repetition and exclamation convey intensity but do not independently establish expressive/reflexive discharge.
+
+## Ambiguity
+
+The main uncertainty is the degree of P: the preceding demand “Jure-le donc!” gives the answer some undertaking force, but its literal form remains an assertion of feeling rather than an explicit commitment.
+
+## Narrative situation (AI interpretation)
+
+The avowal reassures Emma on the eve of their supposed elopement and answers her request for sworn confirmation. Rodolphe’s delays, peculiar manner, and later abandonment make the declaration dramatically deceptive or unreliable as evidence of durable commitment, but deception does not alter its high truth-conditional mode score. The narration also attributes renewed tenderness to both lovers, allowing some immediate affection without making the words a reflex-like discharge.
+
+## Original context supplied to the annotator
+
+> Au galop de quatre chevaux, elle était emportée depuis huit jours
+> vers un pays nouveau, d’où ils ne reviendraient plus. Ils allaient,
+> ils allaient, les bras enlacés, sans parler. Souvent, du haut d’une
+> montagne, ils apercevaient tout à coup quelque cité splendide avec
+> des dômes, des ponts, des navires, des forêts de citronniers et des
+> cathédrales de marbre blanc, dont les clochers aigus portaient des nids
+> de cigogne. On marchait au pas, à cause des grandes dalles, et il y
+> avait par terre des bouquets de fleurs que vous offraient des femmes
+> habillées en corset rouge. On entendait sonner des cloches, hennir les
+> mulets, avec le murmure des guitares et le bruit des fontaines, dont
+> la vapeur s’envolant rafraîchissait des tas de fruits, disposés en
+> pyramide au pied des statues pâles, qui souriaient sous les jets d’eau.
+> Et puis ils arrivaient, un soir, dans un village de pêcheurs, où des
+> filets bruns séchaient au vent, le long de la falaise et des cabanes.
+> C’est là qu’ils s’arrêteraient pour vivre; ils habiteraient une maison
+> basse, à toit plat, ombragée d’un palmier, au fond d’un golfe, au bord
+> de la mer. Ils se promèneraient en gondole, ils se balanceraient en
+> hamac; et leur existence serait facile et large comme leurs vêtements
+> de soie, toute chaude et étoilée comme les nuits douces qu’ils
+> contempleraient. Cependant, sur l’immensité de cet avenir qu’elle se
+> faisait apparaître, rien de particulier ne surgissait; les jours, tous
+> magnifiques, se ressemblaient comme des flots; et cela se balançait
+> à l’horizon, infini, harmonieux, bleuâtre et couvert de soleil.
+> Mais l’enfant se mettait à tousser dans son berceau, ou bien Bovary
+> ronflait plus fort, et Emma ne s’endormait que le matin, quand l’aube
+> blanchissait les carreaux et que déjà le petit Justin, sur la place,
+> ouvrait les auvents de la pharmacie.
+> 
+> Elle avait fait venir M. Lheureux et lui avait dit:
+> 
+> — J’aurais besoin d’un manteau, un grand manteau, à long collet, doublé.
+> 
+> — Vous partez en voyage? demanda-t-il.
+> 
+> — Non! mais..., n’importe, je compte sur vous, n’est-ce pas? et
+> vivement!
+> 
+> Il s’inclina.
+> 
+> — Il me faudrait encore, reprit-elle, une caisse..., pas trop
+> lourde..., commode.
+> 
+> — Oui, oui, j’entends, de quatre-vingt-douze centimètres environ sur
+> cinquante, comme on les fait à présent.
+> 
+> — Avec un sac de nuit.
+> 
+> — Décidément, pensa Lheureux, il y a du grabuge là-dessous.
+> 
+> — Et tenez, dit madame Bovary en tirant sa montre de sa ceinture,
+> prenez cela; vous vous payerez dessus.
+> 
+> Mais le marchand s’écria qu’elle avait tort; ils se connaissaient;
+> est-ce qu’il doutait d’elle? Quel enfantillage! Elle insista cependant
+> pour qu’il prît au moins la chaîne, et déjà Lheureux l’avait mise dans
+> sa poche et s’en allait, quand elle le rappela.
+> 
+> — Vous laisserez tout chez vous. Quant au manteau, — elle eut l’air de
+> réfléchir, — ne l’apportez pas non plus; seulement, vous me donnerez
+> l’adresse de l’ouvrier et avertirez qu’on le tienne à ma disposition.
+> 
+> C’était le mois prochain qu’ils devaient s’enfuir. Elle partirait
+> d’Yonville comme pour aller faire des commissions à Rouen. Rodolphe
+> aurait retenu les places, pris des passeports, et même écrit à Paris,
+> afin d’avoir la malle entière jusqu’à Marseille, où ils achèteraient
+> une calèche et, de là, continueraient sans s’arrêter, par la route de
+> Gênes. Elle aurait eu soin d’envoyer chez Lheureux son bagage, qui
+> serait directement porté à l’Hirondelle, de manière que personne ainsi
+> n’aurait de soupçons; et, dans tout cela, jamais il n’était question de
+> son enfant. Rodolphe évitait d’en parler; peut-être qu’elle n’y pensait
+> pas.
+> 
+> Il voulut avoir encore deux semaines devant lui, pour terminer quelques
+> dispositions; puis, au bout de huit jours, il en demanda quinze autres;
+> puis il se dit malade; ensuite il fit un voyage; le mois d’août se
+> passa, et, après tous ces retards, ils arrêtèrent que ce serait
+> irrévocablement pour le 4 septembre, un lundi.
+> 
+> Enfin le samedi, l’avant-veille, arriva.
+> 
+> Rodolphe vint le soir, plus tôt que de coutume.
+> 
+> — Tout est-il prêt? lui demanda-t-elle.
+> 
+> — Oui.
+> 
+> Alors ils firent le tour d’une plate-bande, et allèrent s’asseoir près
+> de la terrasse, sur la margelle du mur.
+> 
+> — Tu es triste, dit Emma.
+> 
+> — Non, pourquoi?
+> 
+> Et cependant il la regardait singulièrement, d’une façon tendre.
+> 
+> — Est-ce de t’en aller? reprit-elle, de quitter tes affections, ta vie?
+> Ah! je comprends... Mais, moi, je n’ai rien au monde! tu es tout pour
+> moi. Aussi je serai tout pour toi, je te serai une famille, une patrie;
+> je te soignerai, je t’aimerai.
+> 
+> — Que tu es charmante! dit-il en la saisissant dans ses bras.
+> 
+> — Vrai? fit-elle avec un rire de volupté. M’aimes-tu? Jure-le donc!
+> 
+> — Si je t’aime! si je t’aime! mais je t’adore, mon amour!
+> 
+> La lune, toute ronde et couleur de pourpre, se levait à ras de terre,
+> au fond de la prairie. Elle montait vite entre les branches des
+> peupliers, qui la cachaient de place en place, comme un rideau noir,
+> troué. Puis elle parut, éclatante de blancheur, dans le ciel vide
+> qu’elle éclairait; et alors, se ralentissant, elle laissa tomber sur
+> la rivière une grande tache, qui faisait une infinité d’étoiles; et
+> cette lueur d’argent semblait s’y tordre jusqu’au fond, à la manière
+> d’un serpent sans tête couvert d’écailles lumineuses. Cela ressemblait
+> aussi à quelque monstrueux candélabre, d’où ruisselaient, tout du long,
+> des gouttes de diamant en fusion. La nuit douce s’étalait autour d’eux;
+> des nappes d’ombre emplissaient les feuillages. Emma, les yeux à demi
+> clos, aspirait avec de grands soupirs le vent frais qui soufflait. Ils
+> ne se parlaient pas, trop perdus qu’ils étaient dans l’envahissement
+> de leur rêverie. La tendresse des anciens jours leur revenait au cœur,
+> abondante et silencieuse comme la rivière qui coulait, avec autant de
+> mollesse qu’en apportait le parfum des seringas, et projetait dans leur
+> souvenir des ombres plus démesurées et plus mélancoliques que celles
+> des saules immobiles qui s’allongeaient sur l’herbe. Souvent quelque
+> bête nocturne, hérisson ou belette, se mettant en chasse, dérangeait
+> les feuilles, ou bien on entendait par moments une pêche mûre qui
+> tombait toute seule de l’espalier.
+> 
+> — Ah! la belle nuit! dit Rodolphe.
+> 
+> — Nous en aurons d’autres! reprit Emma.
+> 
+> Et, comme se parlant à elle-même:
+> 
+> — Oui, il fera bon voyager... Pourquoi ai-je le cœur triste, cependant?
+> Est-ce l’appréhension de l’inconnu..., l’effet des habitudes
+> quittées..., ou plutôt...? Non, c’est l’excès du bonheur! Que je suis
+> faible, n’est-ce pas? Pardonne-moi!
+> 
+> — Il est encore temps! s’écria-t-il. Réfléchis, tu t’en repentiras
+> peut-être.
+> 
+> — Jamais! fit-elle impétueusement.
+> 
+> Et, en se rapprochant de lui:
+> 
+> — Quel malheur donc peut-il me survenir? Il n’y a pas de désert, pas de
+> précipice ni d’océan que je ne traverserais avec toi. À mesure que nous
+> vivrons ensemble, ce sera comme une étreinte chaque jour plus serrée,
+> plus complète! Nous n’aurons rien qui nous trouble, pas de soucis, nul
+> obstacle! Nous serons seuls, tout à nous, éternellement... Parle donc,
+> réponds-moi.
+> 
+> Il répondait à intervalles réguliers: «Oui... oui!...» Elle lui
+> avait passé les mains dans ses cheveux, et elle répétait d’une voix
+> enfantine, malgré de grosses larmes qui coulaient:
+> 
+> — Rodolphe! Rodolphe!... Ah! Rodolphe, cher petit Rodolphe!
+> 
+> Minuit sonna.
+> 
+> — Minuit! dit-elle. Allons, c’est demain! encore un jour!
+> 
+> Il se leva pour partir; et, comme si ce geste qu’il faisait eût été le
+> signal de leur fuite, Emma, tout à coup, prenant un air gai:
+> 
+> — Tu as les passeports?
+> 
+> — Oui.
+> 
+> — Tu n’oublies rien?
+> 
+> — Non.
+> 
+> — Tu en es sûr?
+> 
+> — Certainement.
+> 
+> — C’est à l’hôtel de Provence, n’est-ce pas, que tu m’attendras?... à
+> midi?
+> 
+> Il fit un signe de tête.
+> 
+> — À demain, donc! dit Emma dans une dernière caresse.
+
+
+## English translation supplied to the annotator
+
+> At the gallop of four horses, she had been carried away for eight days toward a new country, from which they would never return. On they went, on they went, their arms entwined, without speaking. Often, from the top of a mountain, they would suddenly glimpse some splendid city with domes, bridges, ships, forests of lemon trees, and cathedrals of white marble, whose pointed steeples bore storks’ nests. They would proceed at a walk because of the great paving stones, and on the ground there were bouquets of flowers offered to you by women dressed in red bodices. Bells could be heard ringing, mules neighing, together with the murmur of guitars and the sound of fountains, whose drifting spray cooled heaps of fruit arranged in pyramids at the feet of pale statues that smiled beneath the jets of water. And then, one evening, they would arrive in a fishing village, where brown nets dried in the wind along the cliff and the huts. It was there that they would stop to live; they would inhabit a low house with a flat roof, shaded by a palm tree, at the end of a gulf, on the seashore. They would go boating in a gondola, they would sway in a hammock; and their existence would be easy and ample like their silk garments, all warm and starry like the balmy nights they would contemplate. Yet across the immensity of this future she conjured up for herself, nothing particular emerged; the days, all magnificent, resembled one another like waves; and it swayed on the horizon, infinite, harmonious, bluish, and flooded with sunlight.
+> But the child would begin to cough in her cradle, or Bovary would snore more loudly, and Emma would not fall asleep until morning, when dawn whitened the windowpanes and little Justin was already opening the shutters of the pharmacy on the square.
+> 
+> She had sent for Monsieur Lheureux and had said to him:
+> 
+> “I would need a cloak, a large cloak, with a long cape collar, lined.”
+> 
+> “Are you going on a journey?” he asked.
+> 
+> “No! But... no matter, I am counting on you, am I not? And quickly!”
+> 
+> He bowed.
+> 
+> “I would also need,” she continued, “a trunk... not too heavy... convenient.”
+> 
+> “Yes, yes, I understand, about ninety-two centimeters by fifty, as they make them nowadays.”
+> 
+> “With an overnight bag.”
+> 
+> “There is definitely trouble behind all this,” Lheureux thought.
+> 
+> “And here,” Madame Bovary said, drawing her watch from her waistband, “take this; you can pay yourself out of it.”
+> 
+> But the merchant exclaimed that she was wrong; they knew each other; did he doubt her? What childishness! She nevertheless insisted that he take at least the chain, and Lheureux had already put it in his pocket and was leaving when she called him back.
+> 
+> “You will leave everything at your house. As for the cloak”—she appeared to reflect—“do not bring that either; just give me the workman’s address and tell him to keep it at my disposal.”
+> 
+> It was the following month that they were to run away. She would leave Yonville as though going to Rouen to do some shopping. Rodolphe would have reserved the seats, obtained passports, and even written to Paris so as to have the whole coach compartment to themselves as far as Marseilles, where they would buy a carriage and, from there, continue without stopping by way of Genoa. She would have taken care to send her luggage to Lheureux’s, from where it would be carried directly to the Hirondelle, so that in this way no one would have any suspicions; and in all of this, her child was never mentioned. Rodolphe avoided speaking of her; perhaps Emma did not think of her.
+> 
+> He wanted another two weeks before him to finish making some arrangements; then, after a week, he asked for another fortnight; then he said he was ill; next he took a trip; the month of August passed, and after all these delays they decided that it would irrevocably be September 4, a Monday.
+> 
+> At last Saturday, the day before the day before, arrived.
+> 
+> Rodolphe came in the evening, earlier than usual.
+> 
+> “Is everything ready?” she asked him.
+> 
+> “Yes.”
+> 
+> Then they walked around a flower bed and went to sit near the terrace, on the coping of the wall.
+> 
+> “You are sad,” Emma said.
+> 
+> “No, why?”
+> 
+> And yet he was looking at her strangely, tenderly.
+> 
+> “Is it because you are going away?” she continued. “Because you are leaving your loved ones, your life? Ah! I understand... But I have nothing in the world! You are everything to me. And so I shall be everything to you; I shall be a family to you, a homeland; I shall care for you, I shall love you.”
+> 
+> “How charming you are!” he said, seizing her in his arms.
+> 
+> “Truly?” she said with a voluptuous laugh. “Do you love me? Then swear it!”
+> 
+> “If I love you! If I love you! Why, I adore you, my love!”
+> 
+> The moon, perfectly round and purple in color, was rising level with the ground at the far end of the meadow. It rose quickly among the branches of the poplars, which hid it here and there like a black curtain pierced with holes. Then it appeared, dazzlingly white, in the empty sky that it illuminated; and then, slowing down, it cast upon the river a broad patch that made an infinity of stars; and that silvery light seemed to writhe there down to the depths, like a headless serpent covered with luminous scales. It also resembled some monstrous candelabrum from which drops of molten diamond streamed all along its length. The balmy night spread out around them; sheets of shadow filled the foliage. Emma, her eyes half closed, breathed in with deep sighs the fresh wind that was blowing. They did not speak, so lost were they in the inrush of their reverie. The tenderness of former days returned to their hearts, abundant and silent like the flowing river, with as much softness as the fragrance of the mock orange brought, and cast across their memories shadows more immense and melancholy than those of the motionless willows stretching over the grass. Often some nocturnal creature, hedgehog or weasel, setting out to hunt, disturbed the leaves, or at moments they would hear a ripe peach fall by itself from the espalier.
+> 
+> “Ah! What a beautiful night!” Rodolphe said.
+> 
+> “We shall have others!” Emma replied.
+> 
+> And, as though speaking to herself:
+> 
+> “Yes, it will be delightful to travel... Why is my heart sad, though? Is it apprehension of the unknown... the effect of leaving familiar habits behind... or rather...? No, it is an excess of happiness! How weak I am, am I not? Forgive me!”
+> 
+> “There is still time!” he exclaimed. “Think it over; perhaps you will regret it.”
+> 
+> “Never!” she said impetuously.
+> 
+> And, moving closer to him:
+> 
+> “What misfortune could possibly befall me? There is no desert, no precipice, no ocean that I would not cross with you. As we go on living together, it will be like an embrace growing tighter, more complete, each day! We shall have nothing to trouble us, no worries, no obstacle! We shall be alone, wholly each other’s, eternally... Speak, answer me.”
+> 
+> At regular intervals he answered, “Yes... yes!...” She had run her hands through his hair, and she kept repeating in a childish voice, despite the large tears flowing down her cheeks:
+> 
+> “Rodolphe! Rodolphe!... Ah! Rodolphe, dear little Rodolphe!”
+> 
+> Midnight struck.
+> 
+> “Midnight!” she said. “Come, it is tomorrow! Only one more day!”
+> 
+> He rose to leave; and, as though the gesture he made had been the signal for their flight, Emma suddenly assumed a cheerful air:
+> 
+> “You have the passports?”
+> 
+> “Yes.”
+> 
+> “You are not forgetting anything?”
+> 
+> “No.”
+> 
+> “You are sure?”
+> 
+> “Certainly.”
+> 
+> “It is at the Hôtel de Provence, is it not, that you will wait for me?... at noon?”
+> 
+> He nodded.
+> 
+> “Until tomorrow, then!” Emma said in a final caress.
+
+
+Translation, where present, is an AI-generated analytical aid, not an authoritative edition.
+
+## Evidence cited by the annotator
+
+### e1 — local text
+
+> Emma asks, “M’aimes-tu? Jure-le donc!”
+
+The utterance is elicited as confirmation of love and as an oath-like reassurance, supporting strong T and moderate P.
+
+### e2 — local text
+
+> Rodolphe replies, “Si je t’aime! si je t’aime! mais je t’adore, mon amour!”
+
+The explicit first-person avowal and stronger verb “adore” provide maximal support for truth-conditional presentation; repetition marks emphasis but not independently E.
+
+### e3 — local text
+
+> Before the exchange, Rodolphe has repeatedly delayed the planned flight and looks at Emma “singulièrement, d’une façon tendre.”
+
+His conduct makes the reassurance contextually suspect while the described tenderness permits some contemporaneous affection; neither point changes the utterance’s core T/P mode.
+
+### e4 — local text
+
+> Afterward, the narration says, “La tendresse des anciens jours leur revenait au cœur, abondante et silencieuse.”
+
+The scene presents genuine renewed tenderness, but as silent surrounding affect rather than evidence that the spoken formula itself is an expressive/reflexive discharge.
+
+### e5 — background knowledge
+
+> In the subsequent plot of Madame Bovary, Rodolphe abandons the planned elopement and sends Emma a farewell letter.
+
+This confirms dramatic irony and the unreliability of the avowal as assurance of enduring love or commitment, while remaining orthogonal to its T/P/E force.
+
+## Background, status and source records
+
+Utterance status: **direct**. Rodolphe directly addresses Emma in response to her question and demand that he swear he loves her.
+
+Background knowledge reported as used: **True**. Knowledge of Rodolphe’s ensuing abandonment clarifies the declaration’s deceptive dramatic context and limits any inference from its oath-like force to sincere commitment.
+
+Self-reported confidence: 0.92. Not a calibrated accuracy estimate.
+
+Ontology fit: natural. T naturally captures the avowal, while P captures its limited oath-like force under Emma’s demand. Emotional repetition and romantic atmosphere can remain contextual delivery evidence, so neither E nor O is needed.
+
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-fe1759703fe08567/d6b80d23dc9840f1f62e3397dea17f6fee8bc359aab864d0681078b433d9cd89/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-fe1759703fe08567/d6b80d23dc9840f1f62e3397dea17f6fee8bc359aab864d0681078b433d9cd89/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/flaubert-madame-bovary/canonical.txt)
+- Occurrence: flaubert-madame-bovary-fe1759703fe08567
+- Model: gpt-5.6-sol
+- Classification prompt: 0.3.1
+- Historical run: canonical_31_v0_11_v0_3_1
+- Canonical SHA-256: 93f0a2259dbaf5fde6e7b96adc22346d52f80eb1e9319336c8381a045efe40cd
+
+Rendered deterministically from the saved record. No rescoring or replacement explanation.

@@ -1,0 +1,395 @@
+# Maria: En Bog om Kærlighed
+
+Peter Nansen · Danish
+
+[All records](../README.md) · [HTML reading copy](../cases/nansen-maria-a95aa1804441024d.html)
+
+## Target
+
+> elsker jeg Dig
+
+
+| T: report / avowal | P: undertaking | E: expressive/reflexive | O: other |
+|---:|---:|---:|---:|
+| 4 / 4 | 4 / 4 | 0 / 4 | 0 / 4 |
+
+Scores are independent support judgments. T is not a sincerity score.
+
+## Original passage
+
+> Jeg svarer: »Saavist som jeg altid hellere har sagt Dig for lidt
+> end for meget, saavist elsker jeg Dig. Jeg elsker Dig i Lyst og i
+> Nød, Hverdage og Festdage. Du er den, jeg vil dø med, men først vil
+> jeg leve meget, meget længe med Dig. Javel har jeg længtes efter
+> min yndige Elskerindes Kærtegn. Men mest har jeg længtes efter alt
+> det andet, som ogsaa er Dig: dit trofaste Hjærte, din rene Tanke,
+> din milde Tale, dit lyse Smil, som er min Sol i Tvivlen, dit gode
+> Haandtryk, som er min Styrke paa Vejen.«
+
+
+## Original AI explanation
+
+The narrator’s answer is both an unequivocal avowal that he loves Maria and a vow-like relational undertaking. Its elaboration extends love across joy, adversity, ordinary days, and celebrations, and links it to a shared lifetime. Despite the emotionally intense reunion, the measured, reason-giving response supplies no independent evidence of reflex-like expressive discharge.
+
+## Ambiguity
+
+The exact highlighted clause primarily answers Maria’s question about the truth and durability of his feelings, while its strong performative force becomes fully explicit through the immediately following elaboration.
+
+## Narrative situation (AI interpretation)
+
+Maria asks whether his changed attitude is genuine and lasting rather than temporary longing for his mistress. He answers with a solemn assurance, contrasting his habitual understatement with the certainty of his present avowal. His references to loving her in every circumstance and wanting to live and die with her turn the declaration into a durable relational undertaking. The narration explicitly endorses his sincerity by saying that Maria understands he speaks the truth; the subsequent marriage scene reinforces the commitment-oriented framing. The joy, tears, and elevated rhetoric indicate emotional intensity but not independently reflexive production of the words.
+
+## Original context supplied to the annotator
+
+> Jeg staar paa Waggonens Platform. Jeg har staaet der hele Natten,
+> svøbt i min Kappe. Jeg har set Aftenens Skygger fra Dalene krybe op
+> ad Bjærgene, indtil alt var hyllet i Mørke. Nu lakker det mod Dag,
+> et blegt Skær lysner i Horisonten; med stedse rappere Stempelslag, i
+> Takt med mit Hjærte, haster Toget afsted mod den fremmede By.
+> 
+> Hvilken sælsom Uro har holdt mig vaagen den ganske Nat? Hvilke
+> angstfulde Spørgsmaal er det, mit Hjærte søger Svar paa, mens jeg
+> grublende stirrer ud i Mørket?
+> 
+> Jeg kan jo ikke tvivle om Marias Kærlighed, jeg tvivler ikke længer
+> om min egen.
+> 
+> Dog drager jeg skælvende til Mødet. Thi mit angstfulde Spørgsmaal er
+> dette: Vil vi mon ikke føle os fremmede for hinanden?
+> 
+> Den Maria, jeg rejser ud for at finde, er ikke Maria fra før. Det
+> er ikke det hensynsløst forelskede Barn, der i gamle Dage lagde
+> sig i mine Arme, ikke den muntre og altid beredte Elskerinde, min
+> Erobring og mit Bytte, -- det er vel baade det ene og det andet, men
+> samtidig noget større og højere, det, som maaske altid var hendes
+> Væsens Baggrund, det, jeg troede at fornemme de sidste Gange, vi var
+> sammen, det, som, til Syvende og sidst, blev min ensomme Tilbedelses
+> Madonnabilled.
+> 
+> Og hun, vil hun genkende mig? Jeg gør det jo næppe selv. Jeg vandt
+> hende i Leg, jeg tog hende med Sværd i Haand. Alle Dage var det saa
+> let en Dans, vi traadte. Og nu kommer jeg til hende med vaabenløs
+> Alvor. Før gjaldt det en Dans, nu gælder det Livet. Før nøjedes jeg i
+> rigt Overmod med lidet, nu beder jeg i fattig Ydmyghed om Alt.
+> 
+> ... Vi farer frem mod den dæmrende Morgen. Pludselig er det atter
+> sort Nat: under buldrende Larm jager Toget gennem en Tunnel. Mørket
+> stemmer mig for Brystet, det suser i mine Øren, og svimmel griber
+> jeg om Platformens Gelænder. Jeg synes, denne Tunnel aldrig faar
+> Ende, jeg famler mig frem for at naa ind i den lyse Waggon -- da ...
+> hvilken Aabenbarelse! I den purpurne Himmelrand opstiger Solskiven,
+> spreder sin gyldne Glorie vidt om, gyder dirrende Varmelys over
+> fugtigt blinkende Græsdale og Kornskraaninger.
+> 
+> Skønne fagre Dag, med frydelig Tak knæler jeg for Dig, Du, som friede
+> mig ud af min vaandefulde Nat og førte mig, med genfødt Tro, til
+> Maria.
+> 
+> 
+> 
+> 
+> LXI.
+> 
+> 
+> Gensyns gyldne Sol over Bjærge, Gensyns tindrende Graad i stille Dale.
+> 
+> I undrende Betagelse staar vi overfor hinanden, véd ej Ord at finde,
+> kan ikke spørge, ikke svare, kan kun synke i hinandens Arme og,
+> jublende, grædende, i fælles Lyksalighed lovprise den opstigende Dag.
+> 
+> Var det virkelig ingen Drøm? Var det virkelig Dig og mig? Vi ser paa
+> hinanden, vi ryster vantro paa Hovedet. Og dog, først nu synes vi,
+> vi rigtigt kender hinanden. Thi det er jo vort Gensyns høje Under:
+> vi mødes, som saa ofte tilforn vi mødtes i vor næppe tilstaaede
+> Længsels Lykkedrøm. Nu er Drømmen lyslevende.
+> 
+> Og Du dejlige lyslevende Pige, med Forklarelsens stille Lykke i dine
+> skælmske Øjne, med Kvindens voksne Tænksomhed paa din Barne-Pande, Du
+> lægger dine Arme om min Hals og Du siger: »Saa skete det da omsider,
+> i den elvte Time, men ikke for sent, det, jeg aldrig ophørte at
+> haabe. For det er jo sandt, ikke noget, Du imorgen fortryder, ikke
+> noget, Du nu bilder Dig ind, fordi Du har længtes en Smule efter din
+> Elskerinde?«
+> 
+> Jeg svarer: »Saavist som jeg altid hellere har sagt Dig for lidt
+> end for meget, saavist elsker jeg Dig. Jeg elsker Dig i Lyst og i
+> Nød, Hverdage og Festdage. Du er den, jeg vil dø med, men først vil
+> jeg leve meget, meget længe med Dig. Javel har jeg længtes efter
+> min yndige Elskerindes Kærtegn. Men mest har jeg længtes efter alt
+> det andet, som ogsaa er Dig: dit trofaste Hjærte, din rene Tanke,
+> din milde Tale, dit lyse Smil, som er min Sol i Tvivlen, dit gode
+> Haandtryk, som er min Styrke paa Vejen.«
+> 
+> Men da jeg siger Maria dette, græder hun, fordi hun forstaar, jeg
+> taler sandt, og fordi hun er lykkelig.
+> 
+> 
+> 
+> 
+> LXII.
+> 
+> 
+> Der er En, som bagfra rykker mig i Ærmet. Jeg sidder med Maria paa
+> Skødet og siger vredt: »Hvem vover at forstyrre?«
+> 
+> Men en Stemme hvisker: »Jeg kommer som Deputation fra Læserne. Deres
+> Bog, som i Begyndelsen var frygtelig, er efterhaanden kommen ind paa
+> et bedre Spor. Der er endogsaa nogle af os, som har faaet Taarer i
+> Øjnene. Men nu er vi saa bange for, at den alligevel tilsidst skal
+> skeje ud. For Guds Skyld: De vil da vel ægte Maria? Husk paa, De har
+> taget hende fra hendes Bejler, som havde de agtværdigste Hensigter?«
+> 
+> Min strænge Censorinde, frygt ikke. Maria, siig den rare Dame, at hun
+> uden Skrupler kan lade os ene.
+> 
+> 
+> 
+> 
+> LXIII.
+> 
+> 
+> Bispen staar foran Altret i sin Guldkjole og skinner omkap med
+> Kandelabrene. De ærværdige Marmorstatuer i Nicherne er blevne
+> vaskede, og ved Orglet sidder den højt bedagede Mester med Silkekalot
+> paa Hovedet og Storkorset paa sit Bryst.
+> 
+> Stolestaderne er fyldte med Landets mest forelskede unge Piger og
+> Mænd. De har Blomster i Hænderne, de sidder Par ved Par, de unge
+> Piger med hvide Roser, de unge Mænd med røde. Alle stirrer de ned mod
+> Indgangsdøren, hvor tolv venlige gamle Præster i sorte Fløjlskjoler
+> staar opstillede, seks paa hver Side.
+> 
+> Saa begynder Mesteren at spille. Orgeltonerne bruser under de høje
+> Hvælvinger. De unge Piger og Mænd rejser sig.
+> 
+> Den tunge Egetræsdør slaas op, et blændende Lys fylder Aabningen: dér
+> staar Maria i sin hvide Brudekjole, ombølget af det lange Slør. En
+> blussende Jomfru med nedslagne Blikke. Himmelsk Højhed, salig Lykke
+> udstraaler fra hende.
+> 
+> Gennem Kirken gaar en beundrende Mumlen, Bispen ved Altret vender
+> sig, sætter sine Briller paa, og da han ser, hvor yndig Maria er,
+> iler han hende i Møde, bøjer sig for hende og fører hende ved Haanden
+> til Altret.
+> 
+> De unge Piger og Mænd strøer deres Roser, de røde og de hvide, over
+> hende, idet hun gaar forbi; nogle af Roserne bliver hængende i
+> Sløret, og Maria smiler, da hun ser den blomstrede Kjole.
+> 
+> Men den gamle Mester er hørt op at spille, han bøjer sig ud over
+> Orgelpulpiturets Ballustrade for at se Maria, og gennem Glughullerne
+> i Hvælvingerne kigger nysgærrige Engleansigter.
+> 
+> ... Saa er Maria med det gamle og nye Testamentes Ord givet i min
+> Haand, jeg fører hende ud, fulgt af Bispen og de tolv Præster samt
+> alle de forelskede unge Par, mens den gamle Mester spiller med den
+> ene Haand og vifter til os med den anden.
+> 
+> Udenfor holder Kareten med de hvide Heste for, og vi stiger op for at
+> køre hjem til mig, hjem til os. Og saa begynder Klokkerne at kime.
+
+
+## English translation supplied to the annotator
+
+> I am standing on the platform of the railway carriage. I have stood there all night,
+> wrapped in my cloak. I have watched the evening shadows creep up from the valleys
+> along the mountains, until everything was shrouded in darkness. Now daybreak draws near;
+> a pale glow brightens on the horizon; with ever quicker piston strokes, in
+> time with my heart, the train speeds onward toward the foreign city.
+> 
+> What strange unrest has kept me awake the whole night? What
+> anxious questions are these for which my heart seeks answers as I
+> stare broodingly out into the darkness?
+> 
+> Surely I cannot doubt Maria's love; I no longer doubt
+> my own.
+> 
+> Yet I journey trembling to our meeting. For my anxious question is
+> this: Might we not feel like strangers to one another?
+> 
+> The Maria whom I am travelling out to find is not the Maria of before. She
+> is not the recklessly enamoured child who in days gone by laid
+> herself in my arms, not the merry and ever-ready mistress, my
+> conquest and my prize—it is presumably both the one and the other, but
+> at the same time something greater and higher, that which perhaps had always been
+> the foundation of her being, that which I thought I sensed the last times we were
+> together, that which, ultimately, became the Madonna image of my solitary
+> worship.
+> 
+> And she—will she recognize me? I scarcely do so myself. I won
+> her in play; I took her, sword in hand. All along, the dance
+> we danced was so light. And now I come to her with unarmed
+> earnestness. Before, it was a matter of a dance; now, life is at stake. Before, in
+> wealthy arrogance, I contented myself with little; now, in impoverished humility, I ask for Everything.
+> 
+> ... We rush onward toward the dawning morning. Suddenly it is black
+> night again: amid a thunderous din, the train hurtles through a tunnel. The darkness
+> constricts my chest, there is a rushing in my ears, and, dizzy, I clutch
+> the railing of the platform. It seems to me that this tunnel will never
+> end; I grope my way forward to reach the brightly lit carriage—then ...
+> what a revelation! From the purple rim of the sky rises the disc of the sun,
+> spreading its golden halo far and wide, pouring quivering, warm light over
+> moistly gleaming grassy valleys and slopes of grain.
+> 
+> Beautiful, fair Day, with joyful gratitude I kneel before You, You who delivered
+> me from my agonizing Night and led me, with faith reborn, to
+> Maria.
+> 
+> 
+> 
+> 
+> LXI.
+> 
+> 
+> Golden sun of reunion over mountains, sparkling tears of reunion in quiet valleys.
+> 
+> In wondering rapture we stand facing one another, know not what words to find,
+> cannot ask, cannot answer, can only fall into each other's arms and,
+> rejoicing, weeping, in shared bliss praise the rising Day.
+> 
+> Was it really not a dream? Was it really You and me? We look at
+> one another; we shake our heads in disbelief. And yet only now, it seems to us,
+> do we truly know one another. For this is the lofty miracle of our reunion:
+> we meet as so often before we met in the blissful dream of our scarcely confessed
+> longing. Now the dream is vividly alive.
+> 
+> And You, lovely, vividly alive girl, with the quiet happiness of transfiguration in Your
+> mischievous eyes, with the mature thoughtfulness of a woman upon Your child's brow, You
+> put Your arms around my neck and You say: “So at last it has happened,
+> at the eleventh hour, but not too late, that which I never ceased to
+> hope for. For it is true, is it not—not something You will regret tomorrow, not
+> something You are now imagining because You have missed Your
+> mistress a little?”
+> 
+> I answer: “As surely as I have always preferred to tell You too little
+> rather than too much, I love You. I love You in joy and in
+> adversity, on weekdays and feast days. You are the one with whom I wish to die, but first I wish
+> to live a very, very long time with You. It is true that I have longed for
+> my lovely mistress's caresses. But most of all I have longed for all
+> the rest that is also You: Your faithful heart, Your pure thought,
+> Your gentle speech, Your bright smile, which is my sun in doubt, Your good
+> handclasp, which is my strength upon the road.”
+> 
+> But when I tell Maria this, she weeps because she understands that I
+> speak the truth, and because she is happy.
+> 
+> 
+> 
+> 
+> LXII.
+> 
+> 
+> There is Someone tugging at my sleeve from behind. I am sitting with Maria on
+> my lap and say angrily: “Who dares disturb us?”
+> 
+> But a voice whispers: “I come as a deputation from the readers. Your
+> book, which was terrible at the beginning, has gradually got onto a better track.
+> There are even some of us whose eyes have filled with tears. But now we are so
+> afraid that it may nevertheless go off course in the end. For God's sake: surely
+> you do intend to marry Maria? Remember, you have taken her from her suitor,
+> who had the most respectable intentions?”
+> 
+> My stern lady censor, do not fear. Maria, tell the nice lady that she
+> may leave us alone without qualms.
+> 
+> 
+> 
+> 
+> LXIII.
+> 
+> 
+> The Bishop stands before the altar in his golden robe and vies in radiance with
+> the candelabra. The venerable marble statues in the niches have been
+> washed, and at the organ sits the greatly aged Master, with a silk skullcap
+> on his head and the Grand Cross upon his breast.
+> 
+> The pews are filled with the country's most enamoured young women and
+> men. They have flowers in their hands; they sit pair by pair, the young
+> women with white roses, the young men with red. They all stare down toward
+> the entrance door, where twelve kindly old priests in black velvet robes
+> stand arrayed, six on either side.
+> 
+> Then the Master begins to play. The notes of the organ surge beneath the high
+> vaults. The young women and men rise.
+> 
+> The heavy oak door is flung open; a dazzling light fills the opening: there
+> stands Maria in her white bridal gown, enveloped by the long veil. A
+> blushing maiden with downcast eyes. Heavenly majesty, blessed happiness
+> radiate from her.
+> 
+> A murmur of admiration passes through the church; the Bishop at the altar turns,
+> puts on his spectacles, and when he sees how lovely Maria is,
+> he hurries to meet her, bows to her, and leads her by the hand
+> to the altar.
+> 
+> The young women and men strew their roses, the red and the white, over
+> her as she passes; some of the roses remain caught in
+> the veil, and Maria smiles when she sees the flower-covered gown.
+> 
+> But the old Master has stopped playing; he leans out over
+> the balustrade of the organ loft to see Maria, and through the apertures
+> in the vaults curious angels' faces peer.
+> 
+> ... Then, with the words of the Old and New Testaments, Maria is given into my
+> hand; I lead her out, followed by the Bishop and the twelve priests, as well as
+> all the enamoured young couples, while the old Master plays with one
+> hand and waves to us with the other.
+> 
+> Outside, the carriage with the white horses is waiting, and we climb in to
+> drive home to me, home to us. And then the bells begin to peal.
+
+
+Translation, where present, is an AI-generated analytical aid, not an authoritative edition.
+
+## Evidence cited by the annotator
+
+### e1 — local text
+
+> Maria asks whether what has happened is true and not something he will regret tomorrow or merely imagine because he has missed his mistress.
+
+The declaration is a considered answer to a challenge about the truth and durability of his feelings, strongly supporting T.
+
+### e2 — local text
+
+> “Saavist som jeg altid hellere har sagt Dig for lidt end for meget, saavist elsker jeg Dig.”
+
+His appeal to a history of understatement presents the declaration as a deliberate and emphatic avowal rather than a reflexive outburst.
+
+### e3 — local text
+
+> “Jeg elsker Dig i Lyst og i Nød, Hverdage og Festdage.”
+
+The extension of love across good and bad circumstances has vow-like force and strongly supports a continuing relational undertaking under P.
+
+### e4 — local text
+
+> “Du er den, jeg vil dø med, men først vil jeg leve meget, meget længe med Dig.”
+
+The projected shared lifetime makes commitment to an enduring relationship explicit, reinforcing P.
+
+### e5 — local text
+
+> The narrator says that Maria weeps because she understands that he is speaking truthfully and because she is happy.
+
+The narrative explicitly validates the utterance as a sincere truth-presenting avowal, while treating the tears as Maria’s reaction rather than evidence that his words were reflexively discharged.
+
+## Background, status and source records
+
+Utterance status: **direct**. A directly represented spoken reply by the first-person narrator to Maria during their reunion.
+
+Background knowledge reported as used: **False**. 
+
+Self-reported confidence: 0.98. Not a calibrated accuracy estimate.
+
+Ontology fit: natural. T and P naturally capture the declaration’s dual force as sincere avowal and durable relational undertaking. Emotional intensity is adequately handled as context and does not create residual pressure for E or O.
+
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/nansen-maria-a95aa1804441024d/6dbeb2f2a84e2012c634ccc046d6adc3bc5a745d7ade75aed3dd68ee5778a2b0/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/nansen-maria-a95aa1804441024d/6dbeb2f2a84e2012c634ccc046d6adc3bc5a745d7ade75aed3dd68ee5778a2b0/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/nansen-maria/canonical.txt)
+- Occurrence: nansen-maria-a95aa1804441024d
+- Model: gpt-5.6-sol
+- Classification prompt: 0.3.1
+- Historical run: canonical_31_v0_11_v0_3_1
+- Canonical SHA-256: 3900722ea066addbf5935684421300822679e66cd629d8f9f170ed10a5400e41
+
+Rendered deterministically from the saved record. No rescoring or replacement explanation.

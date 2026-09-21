@@ -1,0 +1,277 @@
+# Le Rouge et le Noir
+
+Stendhal · French
+
+[All records](../README.md) · [HTML reading copy](../cases/stendhal-le-rouge-et-le-noir-0d87fb630a2ab1a5.html)
+
+## Target
+
+> je t'aime
+
+
+| T: report / avowal | P: undertaking | E: expressive/reflexive | O: other |
+|---:|---:|---:|---:|
+| 4 / 4 | 0 / 4 | 0 / 4 | 0 / 4 |
+
+Scores are independent support judgments. T is not a sincerity score.
+
+## Original passage
+
+> Ne m'aimes-tu pas, es-tu las de mes folies, de mes remords, impie?
+> Veux-tu me perdre? je t'en donne un moyen facile. Va, montre cette lettre
+> dans tout Verrières ou plutôt montre-la au seul M. Valenod. Dis-lui que
+> je t'aime; mais non, ne prononce pas un tel blasphème; dis-lui que je
+> t'adore, que la vie n'a commencé pour moi que le jour où je t'ai vu; que
+> dans les moments les plus fous de ma jeunesse, je n'avais jamais même
+> rêvé le bonheur que je te dois; que je t'ai sacrifié ma vie, que je te
+> sacrifie mon âme. Tu sais que je te sacrifie bien plus.
+
+
+## Original AI explanation
+
+The embedded clause “je t’aime” presents Madame de Rênal’s love for Julien as true and is therefore strongly truth-conditional. It does not itself undertake a commitment, despite the letter’s surrounding language of sacrifice. The wording occurs within a deliberate instruction about what Julien should tell Valenod, so the tearful and impassioned delivery does not independently establish expressive/reflexive force.
+
+## Ambiguity
+
+The clause is a written avowal embedded within an imperative that imagines its later revoicing by Julien; this affects utterance status but not its dominant truth-conditional force.
+
+## Narrative situation (AI interpretation)
+
+Madame de Rênal’s letter follows her fear that Julien no longer loves her and that their affair has been exposed. She asks him to tell Valenod that she loves him, then immediately rejects that formulation as almost blasphemously inadequate and substitutes the stronger “je t’adore.” Her tears, haste, agitation, and sacrificial rhetoric show extreme emotional intensity, but the highlighted clause remains a considered representation of her loving state rather than a reflex-like verbal discharge.
+
+## Original context supplied to the annotator
+
+> Cette femme la plus distinguée du pays, que pendant six ans il avait
+> environnée de tant de soins, et malheureusement au vu et au su de tout
+> le monde; cette femme si fière, dont les dédains l'avaient tant de fois
+> fait rougir, elle venait de prendre pour amant un petit ouvrier déguisé
+> en précepteur. Et afin que rien ne manquât au dépit de M. le directeur
+> du dépôt, Mme de Rênal adorait cet amant.
+> 
+> --Et ajoutait la femme de chambre avec un soupir, M. Julien ne s'est
+> point donné de peine pour faire cette conquête, il n'est point sorti
+> pour madame de sa froideur habituelle.
+> 
+> Élisa n'avait eu des certitudes qu'à la campagne, mais elle croyait que
+> cette intrigue datait de bien plus loin.
+> 
+> --C'est sans doute pour cela, ajouta-t-elle avec dépit, que dans le
+> temps il a refusé de m'épouser. Et moi imbécile, qui allais consulter
+> Mme de Rênal! qui là priais de parler au précepteur!
+> 
+> Dès le même soir, M. de Rênal reçut de la ville, avec son journal, une
+> longue lettre anonyme qui lui apprenait dans le plus grand détail ce qui
+> se passait chez lui. Julien le vit pâlir en lisant cette lettre écrite
+> sur du papier bleuâtre, et jeter sur lui des regards méchants. De toute
+> la soirée, le maire ne se remit point de son trouble; ce fut en vain que
+> Julien lui fit la cour en lui demandant des explications sur la
+> généalogie des meilleures familles de la Bourgogne.
+> 
+> 
+> 
+> 
+> CHAPITRE XX
+> 
+> LES LETTRES ANONYMES
+> 
+>     Do not give dalliance
+>     Too much the rein; the strongest oaths are straw
+>     To the fire i' the blood.
+> 
+>     TEMPEST.
+> 
+> 
+> Comme on quittait le salon sur le minuit, Julien eut le temps de dire à
+> son amie:
+> 
+> --Ne nous voyons pas ce soir, votre mari a des soupçons; je jurerais que
+> cette grande lettre qu'il lisait en soupirant est une lettre anonyme.
+> 
+> Par bonheur Julien se fermait à clef dans sa chambre. Mme de Rênal eut
+> la folle idée que cet avertissement n'était qu'un prétexte pour ne pas
+> la voir. Elle perdit la tête absolument, et à l'heure ordinaire vint à
+> sa porte. Julien qui entendit du bruit dans le corridor souffla sa lampe
+> à l'instant. On faisait des efforts pour ouvrir sa porte était-ce Mme de
+> Rênal était-ce un mari jaloux?
+> 
+> Le lendemain de fort bonne heure, la cuisinière qui protégeait Julien
+> lui apporta un livre sur la couverture duquel il lut ces mots écrits en
+> italien: _Guardate alla pagina 130_.
+> 
+> Julien frémit de l'imprudence, chercha la page cent trente et y trouva
+> attachée, avec une épingle, la lettre suivante écrite à la hâte, baignée
+> de larmes et sans la moindre orthographe. Ordinairement Mme de Rênal la
+> mettait fort bien il fut touché de ce détail et oublia un peu
+> l'imprudence effroyable.
+> 
+> Tu n'as pas voulu me recevoir cette nuit? Il est des moments où je crois
+> n'avoir jamais lu jusqu'au fond de ton âme. Tes regards m'effrayent.
+> J'ai peur de toi. Grand Dieu! ne m'aurais-tu jamais aimée? En ce cas,
+> que mon mari découvre nos amours, et qu'il m'enferme dans une éternelle
+> prison, à la campagne, loin de mes enfants. Peut-être Dieu le veut
+> ainsi. Je mourrai bientôt. Mais tu seras un monstre.
+> 
+> Ne m'aimes-tu pas, es-tu las de mes folies, de mes remords, impie?
+> Veux-tu me perdre? je t'en donne un moyen facile. Va, montre cette lettre
+> dans tout Verrières ou plutôt montre-la au seul M. Valenod. Dis-lui que
+> je t'aime; mais non, ne prononce pas un tel blasphème; dis-lui que je
+> t'adore, que la vie n'a commencé pour moi que le jour où je t'ai vu; que
+> dans les moments les plus fous de ma jeunesse, je n'avais jamais même
+> rêvé le bonheur que je te dois; que je t'ai sacrifié ma vie, que je te
+> sacrifie mon âme. Tu sais que je te sacrifie bien plus.
+> 
+> Mais se connaît-il en sacrifices, cet homme? Dis-lui, dis-lui pour
+> l'irriter, que je brave tous les méchants, et qu'il n'est plus au monde
+> qu'un malheur pour moi, celui de voir changer le seul homme qui me
+> retienne à la vie. Quel bonheur pour moi de la perdre, de l'offrir en
+> sacrifice, et de ne plus craindre pour mes enfants!
+> 
+> N'en doute pas cher ami, s'il y a une lettre anonyme, elle vient de cet
+> être odieux qui, pendant six ans, m'a poursuivie de sa grosse voix, du
+> récit de ses sauts à cheval, de sa fatuité, et de l'énumération
+> éternelle de tous ses avantages.
+> 
+> Y a-t-il une lettre anonyme? méchant, voilà ce que je voulais discuter
+> avec toi; mais non, tu as bien fait. Te serrant dans mes bras, peut-être
+> pour la dernière fois jamais je n'aurais pu discuter froidement, comme
+> je fais étant seule. De ce moment, notre bonheur ne sera plus aussi
+> facile. Sera-ce une contrariété pour vous? Oui les jours où vous n'aurez
+> pas reçu de M. Fouqué quelque livre amusant. Le sacrifice est fait;
+> demain, qu'il y ait ou qu'il n'y ait pas de lettre anonyme, moi aussi je
+> dirai à mon mari que j'ai reçu une lettre anonyme et qu'il faut à
+> l'instant te faire un pont d'or, trouver quelque prétexte honnête, et
+> sans délai te renvoyer à tes parents.
+> 
+> Hélas, cher ami, nous allons être séparés quinze jours, un mois
+> peut-être! Va, je te rends justice, tu souffriras autant que moi. Mais
+> enfin voilà le seul moyen de parer l'effet de cette lettre anonyme; ce
+> n'est pas la première que mon mari ait reçue, et sur mon compte encore.
+> Hélas! combien j'en riais!
+> 
+> Tout le but de ma conduite, c'est de faire penser à mon mari que la
+> lettre vient de M. Valenod; je ne doute pas qu'il n'en soit l'auteur. Si
+> tu quittes la maison, ne manque pas d'aller t'établir à Verrières. Je
+> ferai en sorte que mon mari ait l'idée d'y passer quinze jours, pour
+> prouver aux sots qu'il n'y a pas de froid entre lui et moi. Une fois à
+> Verrières, lie-toi d'amitié avec tout le monde, même avec les libéraux.
+> Je sais que toutes ces dames te rechercheront.
+> 
+> Ne va pas te fâcher avec M. Valenod, ni lui couper les oreilles, comme
+> tu disais un jour; fais-lui au contraire toutes tes bonnes grâces.
+> L'essentiel est que l'on croie à Verrières que tu vas entrer chez le
+> Valenod, ou chez tout autre, pour l'éducation des enfants.
+> 
+> Voilà ce que mon mari ne souffrira jamais. Dût-il s'y résoudre, eh bien!
+> au moins tu habiteras Verrières, et je te verrai quelquefois. Mes
+> enfants qui t'aiment tant iront te voir. Grand Dieu! je sens que j'aime
+> mieux mes enfants, parce qu'ils t'aiment. Quel remords! comment tout
+> ceci finira-t-il?... Je m'égare... Enfin tu comprends ta conduite; sois
+> doux, poli, point méprisant avec ces grossiers personnages, je te le
+> demande à genoux: ils vont être les arbitres de notre sort. Ne doute pas
+> un instant que mon mari ne se conforme à ton égard à ce que lui
+> prescrira l'opinion publique.
+
+
+## English translation supplied to the annotator
+
+> This woman, the most distinguished in the region, whom for six years he had surrounded with so many attentions, and unfortunately in full view and with the full knowledge of everyone; this proud woman, whose disdain had so often made him blush, had just taken as her lover a little workman disguised as a tutor. And so that nothing might be lacking to the vexation of the director of the poorhouse, Madame de Rênal adored this lover.
+> 
+> “And,” the chambermaid added with a sigh, “Monsieur Julien took no trouble at all to make this conquest; for Madame he did not depart from his customary coldness.”
+> 
+> Élisa had obtained certainty only in the country, but she believed that this intrigue dated from much further back.
+> 
+> “That is no doubt why,” she added spitefully, “he refused at the time to marry me. And I, fool that I was, went to consult Madame de Rênal! went to beg her to speak to the tutor!”
+> 
+> That very evening, Monsieur de Rênal received from town, along with his newspaper, a long anonymous letter informing him in the greatest detail of what was going on in his own house. Julien saw him turn pale as he read this letter, written on bluish paper, and cast malicious glances at him. Throughout the evening, the mayor did not recover from his agitation; in vain did Julien court his favor by asking him for explanations concerning the genealogy of the finest families of Burgundy.
+> 
+> 
+> 
+> 
+> CHAPTER XX
+> 
+> THE ANONYMOUS LETTERS
+> 
+>     Do not give dalliance
+>     Too much the rein; the strongest oaths are straw
+>     To the fire i’ the blood.
+> 
+>     TEMPEST.
+> 
+> 
+> As they were leaving the drawing room around midnight, Julien had time to say to his beloved:
+> 
+> “Let us not see each other tonight; your husband has suspicions. I would swear that the large letter he was reading with sighs is an anonymous letter.”
+> 
+> Fortunately, Julien locked himself into his room. Madame de Rênal conceived the mad idea that this warning was merely a pretext for not seeing her. She lost her head completely and came to his door at the usual hour. Julien, who heard a noise in the corridor, instantly blew out his lamp. Someone was trying to open his door: was it Madame de Rênal, was it a jealous husband?
+> 
+> Very early the next morning, the cook, who protected Julien, brought him a book on the cover of which he read these words written in Italian: Look at page 130.
+> 
+> Julien shuddered at the imprudence, looked for page one hundred and thirty, and found pinned to it the following letter, written in haste, bathed in tears, and without the slightest regard for spelling. Ordinarily Madame de Rênal spelled very well; he was touched by this detail and partly forgot the appalling imprudence.
+> 
+> Thou wouldst not receive me last night? There are moments when I believe that I have never read to the depths of thy soul. Thy looks frighten me. I am afraid of thee. Great God! can it be that thou hast never loved me? In that case, let my husband discover our love, and let him shut me up in an eternal prison, in the country, far from my children. Perhaps God wills it so. I shall soon die. But thou wilt be a monster.
+> 
+> Dost thou not love me, art thou weary of my follies, of my remorse, impious man? Dost thou wish to ruin me? I give thee an easy means of doing so. Go, show this letter throughout Verrières, or rather show it to Monsieur Valenod alone. Tell him that I love thee; but no, do not utter such blasphemy; tell him that I adore thee, that life began for me only on the day when I saw thee; that in the maddest moments of my youth, I had never even dreamed of the happiness I owe thee; that I have sacrificed my life to thee, that I sacrifice my soul to thee. Thou knowest that I sacrifice far more to thee.
+> 
+> But does that man know anything of sacrifices? Tell him, tell him, to enrage him, that I defy all wicked men, and that there is now only one misfortune in the world for me: to see the only man who keeps me alive change. What happiness it would be for me to lose my life, to offer it in sacrifice, and no longer to fear for my children!
+> 
+> Do not doubt it, dear friend: if there is an anonymous letter, it comes from that odious creature who, for six years, has pursued me with his booming voice, the account of his feats on horseback, his conceit, and the endless enumeration of all his advantages.
+> 
+> Is there an anonymous letter? Wretch, that is what I wished to discuss with thee; but no, thou didst well. Holding thee in my arms, perhaps for the last time ever, I could never have discussed matters coldly, as I do when alone. From this moment on, our happiness will no longer be so easy. Will that be an annoyance to you? Yes, on the days when you have not received some amusing book from Monsieur Fouqué. The sacrifice is made; tomorrow, whether or not there is an anonymous letter, I too shall tell my husband that I have received an anonymous letter and that he must at once build thee a golden bridge, find some honorable pretext, and send thee back to thy parents without delay.
+> 
+> Alas, dear friend, we are going to be separated for a fortnight, perhaps a month! Come, I do thee justice, thou wilt suffer as much as I. But after all, this is the only way to counteract the effect of that anonymous letter; it is not the first my husband has received, and about me, too. Alas! how I used to laugh at them!
+> 
+> The entire purpose of my conduct is to make my husband think that the letter comes from Monsieur Valenod; I do not doubt that he is its author. If thou leavest the house, do not fail to settle in Verrières. I shall arrange matters so that my husband conceives the idea of spending a fortnight there, to prove to the fools that there is no coolness between him and me. Once in Verrières, make friends with everyone, even with the liberals. I know that all those ladies will seek thy company.
+> 
+> Do not go and quarrel with Monsieur Valenod, nor cut off his ears, as thou saidst one day; on the contrary, show him all thy charm. The essential thing is that people in Verrières should believe that thou art going to enter the Valenod household, or some other, to educate the children.
+> 
+> That is something my husband will never tolerate. Even if he should resign himself to it, well! at least thou wilt live in Verrières, and I shall see thee sometimes. My children, who love thee so much, will go to see thee. Great God! I feel that I love my children more because they love thee. What remorse! How will all this end?… I am wandering… At any rate, thou understandest how thou must conduct thyself; be gentle, polite, not disdainful with those coarse people, I beg it of thee on my knees: they are going to be the arbiters of our fate. Do not doubt for an instant that my husband will act toward thee as public opinion dictates to him.
+
+
+Translation, where present, is an AI-generated analytical aid, not an authoritative edition.
+
+## Evidence cited by the annotator
+
+### e1 — local text
+
+> “Dis-lui que je t’aime; mais non, ne prononce pas un tel blasphème; dis-lui que je t’adore”
+
+The complement “que je t’aime” explicitly represents the writer’s loving state, strongly supporting T; its replacement by “je t’adore” frames it as a deliberately selected description rather than a reflexive discharge.
+
+### e2 — local text
+
+> The letter is described as “écrite à la hâte, baignée de larmes,” followed by fears of abandonment and declarations of sacrifice.
+
+This establishes intense, distressed delivery and the sincerity presented by the scene, while not by itself supplying independent E or P force to the highlighted clause.
+
+### e3 — local text
+
+> “Ne m’aimes-tu pas… Veux-tu me perdre?” precedes the highlighted wording.
+
+The avowal answers a crisis of reciprocal feeling and abandonment, reinforcing its truth-conditional presentation of love.
+
+### e4 — supplied metadata
+
+> The occurrence is located in Chapter XX, “LES LETTRES ANONYMES,” of Stendhal’s Le Rouge et le Noir.
+
+Confirms the bibliographic and epistolary setting used to identify the event as written.
+
+## Background, status and source records
+
+Utterance status: **written**. Madame de Rênal writes “Dis-lui que je t’aime” in a letter to Julien, presenting her avowal inside an instruction that he could repeat it to Valenod.
+
+Background knowledge reported as used: **False**. 
+
+Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
+
+Ontology fit: natural. T naturally captures the core avowal. The letter’s emotional intensity, rhetorical escalation, and imagined revoicing are adequately handled as context and utterance-status complications; they do not create residual pressure for E or O.
+
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stendhal-le-rouge-et-le-noir-0d87fb630a2ab1a5/bae0282197d30ec410a7db0d9f8d14fa571f810f69f53f9b113ed6d61bcc540c/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stendhal-le-rouge-et-le-noir-0d87fb630a2ab1a5/bae0282197d30ec410a7db0d9f8d14fa571f810f69f53f9b113ed6d61bcc540c/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/stendhal-le-rouge-et-le-noir/canonical.txt)
+- Occurrence: stendhal-le-rouge-et-le-noir-0d87fb630a2ab1a5
+- Model: gpt-5.6-sol
+- Classification prompt: 0.3.1
+- Historical run: canonical_31_v0_11_v0_3_1
+- Canonical SHA-256: 59a9b2c87b337628692a43654a1e65efe379f908b636174899959e86c4dcfb3c
+
+Rendered deterministically from the saved record. No rescoring or replacement explanation.

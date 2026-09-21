@@ -1,0 +1,5019 @@
+# Kristin Lavransdatter
+
+Sigrid Undset · Norwegian
+
+[All records](../README.md) · [HTML reading copy](../cases/undset-kristin-lavransdatter-e5e791f1a3c0031a.html)
+
+## Target
+
+> jeg
+> elsket dig
+
+
+| T: report / avowal | P: undertaking | E: expressive/reflexive | O: other |
+|---:|---:|---:|---:|
+| 4 / 4 | 0 / 4 | 0 / 4 | 0 / 4 |
+
+Scores are independent support judgments. T is not a sincerity score.
+
+## Original passage
+
+> uen stod med dypt sænket hode.
+> «Den manden,» svarte hun næsten uhørlig, «han
+> vilde ikke ha mig.» Der gik som et ryk gjennem hendes
+> legeme — hun slog ut i luften med knyttet haand.
+> Da la manden varsomt hænderne paa hendes skuldre.
+> «Er det det,» spurte han overvældet, og en dyp og
+> sorgfuld undren brast ut i hans stemme; «— er det det
+> — i alle disse aarene — har du baaret sorg for ham —
+> Ragnfrid?»
+> Hun skalv sterkt, men hun sa intet.
+> «Ragnfrid?» spurte han som før. «Jamen siden
+> da Bjørgulf var død — og siden — da du — da du
+> vilde — jeg skulde være mot dig — saan som jeg ikke
+> kunde. Tænkte du paa den anden da,» hvisket han
+> ræd og forvirret og pint.
+> «Hvordan kan du komme paa slike tanker,» hvisket
+> hun paa graaten.
+> Lavrans satte panden mot hustruens og virret litt med
+> hodet.
+> «Jeg vet ikke. Du er saa underlig _ alt du sa ikveld.
+> Jeg blev ræd, Ragnfrid. Jeg skjønner mig vel ikke paa
+> kvindesind —»
+> Ragnfrid smilte blekt og la sine hænder om hans
+> hals:
+> «Det vet Gud, Lavrans — jeg tigget dig fordi jeg
+> elsket dig mere end det er godt for et menneskes sjæl.
+> Og jeg hådet den anden slik at jeg kjendte djævelen
+> glædet sig ved det.»
+> «Jeg har holdt av dig, hustru min,» sa Lavrans sagte
+> og kysset hende, «av hele mit hjerte. Det vet du? Det
+> syntes mig, vi hadde det godt sammen — Ragnfrid?»
+> «Du var den bedste husbond,» sa hun med et litet
+> hulk, og gjemte sig ind til ham.
+> Han tok heftig om hende:
+> «Inat skulde jeg like at sove med dig, Ragnfrid. Og
+> vilde du være mot mig slik som i gamle dage, da skulde
+> jeg ikke være — slik en nar —»
+> Hustruen stivnet i hans arme, drog sig litt unna:
+> «Det er fastetid nu,» sa hun sagte — underlig haardt.
+> «Det er saa.» Manden lo litt. «Du og jeg, Ragnfrid,
+> vi har holdt alle faster, og fristet at leve efter Guds bud
+> i alle ting. Og nu tykkes mig næsten — vi hadde kanske
+> været gladere om vi hadde hat mere at angre »
+> «Snak ikke slik du,» bad konen fortvilet og klemte
+> sine magre hænder om hans tindinger. «Du vet da vel
+> jeg vil ikke du skal gjøre andet end det du selv synes
+> er re
+
+
+## Original AI explanation
+
+Ragnfrid directly and retrospectively avows that she loved Lavrans intensely, using that emotional state to explain why she once begged for his intimacy. The utterance strongly presents a loving state as true. It neither undertakes a new relational commitment nor functions as a reflex-like verbal discharge; the emotional delivery and bodily agitation belong to the context rather than supplying independent E force.
+
+## Ambiguity
+
+The avowal also reassures Lavrans and answers his fear that she remained attached to another man, but this interpersonal purpose does not by itself make the utterance performative.
+
+## Narrative situation (AI interpretation)
+
+Lavrans fears that Ragnfrid's former lover remained the object of her desire during their marriage. Ragnfrid counters that suspicion by invoking God as witness and explaining that she begged Lavrans because she loved him with spiritually excessive intensity, while she hated the other man. Her pale smile, tears, trembling, and embrace make the scene emotionally charged, but her wording is controlled and explanatory. The later narration confirms her longstanding, painful desire for Lavrans while complicating the marriage through his emotional and erotic reserve; this supports the avowal's T force without adding P or independently reflexive E force.
+
+## Original context supplied to the annotator
+
+> Lavrans og gjesterne hans var derfor i godt lune da
+> de gik ned for at hilse paa almissefolket i aarestuen.
+> De fattige sat om bordet, aat melkegrøt og drak
+> godtøl til, og Kristin gik for bordet, tjente de gamle og
+> syke.
+> Lavrans hilste gjestene sine og spurte om de var til
+> fredse med bevertningen. Deretter gik han bort og bød
+> velkommen et gammelt fattighjon, som var blit flyttet
+> til Jørundgaard denne dagen. Manden het Haakon, han
+> hadde været krigsmand under gamle kong Haakon og
+> hadde været med paa kongens sidste ferd til Skotland.
+> Han var nu utfattig og næsten blind; folk hadde budt
+> til at sætte ham i en stue, men han vilde heller føres
+> om i gaardene, for overalt blev han tat imot mere som
+> en hædret gjest, fordi han var sjelden kundskapsrik og
+> hadde set meget av verden.
+> Lavrans stod med haanden paa sin brors skulder —
+> Aasmund Bjørgulfsøn var kommet til Jørundgaard paa
+> gjesting. Han spurte ogsaa Haakon, hvordan han var
+> fornøiet med maten.
+> «Øllet er godt, Lavrans Bjørgulfsøn,» sa Haakon.
+> «Men en merr har nok kokt grøten til os idag. At
+> aatligget kokke lager ataatbrændt grøt, sier ordet, og
+> grøten er svidd den.»
+> «Det var ilde det,« sa Lavrans, «at jeg skulde gi
+> dere svidd grøt. Men det gamle ordet slaar vel ikke
+> altid til, faar jeg haabe, for det er datteren min som har
+> kokt grøten selv.» Han lo og bød Kristin og Tordis
+> at de skulde skynde sig og faa ind sulefatene.
+> Kristin strøk raskt ut og over mot ildhuset. Hjertet
+> hendes klappet — hun hadde set et glimt av farbrorens
+> ansigt, da Haakon sa det om kokken og grøten.
+> Sent om kvelden saa hun at faren og farbroren gik
+> længe op og ned paa tunet og snakket. Hun var svim
+> lende ræd, og det blev ikke bedre for hende da hun
+> næste dag merket faren var faamælt og uglad. Men
+> han sa ingenting.
+> Han sa heller intet efterat farbroren var reist. Men
+> Kristin la merke til at han talte ikke saa meget med
+> Haakon som han pleiet, og da den tid var omme de
+> skulde ha den gamle, bød ikke Lavrans til at ta ham
+> endda en frist, men han lot ham flytte til næste gaard.
+> Ellers var der aarsaker nok til at Lavrans Bjørgulfsøn
+> kunde være uglad og stur denne sommeren, for nu teg
+> net det rent til uaar der i bygden, og bønderne satte
+> ting for at raade om, hvordan de skulde møte vinteren
+> som stundet til. Allerede ut paa eftersommeren var det
+> klart for de fleste, at de maatte slagte ned eller drive
+> sydover til salgs storparten av buskaperne sine og
+> kjøpe hjem korn til vintermat for folk. Aaret før hadde
+> ikke været godt kornaar, saa forraadene av gammelt
+> korn var mindre end vanlig.
+> En morgen først paa høsten gik Ragnfrid ut med alle
+> tre døttrene sine og saa til noget lerret hun hadde lig
+> gende paa bleken. Kristin roste meget morens væv. Da
+> strøk denne Ramborg over haaret:
+> «Dette faar bli til kisten din det, liten.»
+> «Mor,» sa Ulvhild, «skal ikke jeg ha nogen kiste
+> jeg da, nåar jeg skal i klosteret?»
+> «Du vet du faar ikke mindre hjemmefølge du end
+> søstrene dine,» sa Ragnfrid. «Men det blir ikke de
+> samme tingene du trænger. Saa vet du nok, du skal bli
+> hos far din og mig saa længe vi lever — om du vil det.»
+> «Og nåar du kommer ind i klosteret,» sa Kristin
+> usikker i maalet, «— kanhænde, Ulvhild, at da har jeg
+> været nonne alt i mange aar.»
+> Hun saa over paa moren, men Ragnfrid taug.
+> «Hadde jeg været slik at jeg hadde kunnet bli gift.»
+> sa Ulvhild, «da skulde jeg aldrig vendt mig fra Simon
+> — han var snil, og han var saa sorgfuld da han sa
+> farvel til os alle.»
+> «Dette vet du din far har sagt vi ikke skulde tale
+> om,» sa Ragnfrid, men Kristin mælte trodsig:
+> «Ja jeg vet at han sørget mere over at skilles fra
+> dere end fra mig.»
+> Moren mælte vredt:
+> «Da maatte han ogsaa været litet kry, skulde han
+> vist det for dig at han sørget — du handlet ikke vak
+> kert mot Simon Andressøn, datter min. Endda saa
+> bad han os, vi skulde ikke true dig eller bande dig —»
+> «Nei han mente vel han hadde bandet mig saa me
+> get,» sa Kristin som før, «at ingen anden har nødig at
+> si mig hvor ussel jeg er. Men ikke merket jeg noget
+> til at Simon brød sig stort om mig før han skjønte, jeg
+> hadde en anden mand kjærere end ham.»
+> «Gaa hjem dere,» sa moren til de to smaa. Hun satte
+> sig paa en stok som laa der, og drog Kristin ned ved
+> sin side.
+> «Det vet du vel,» tok hun paa, «at det har altid været
+> holdt for mest sømmelig og hæderlig, at en mand ikke
+> talte for meget om elskov til fæstemøen sin — sat ene
+> med hende eller viste sig for heftig —»
+> «Aa jeg undres paa,» sa Kristin, «om unge folk som
+> har hinanden kjær ikke glemmer sig en gang eller
+> anden, men altid mindes det, de gamle regner for søm
+> melig.»
+> «Vogt dig du, Kristin,» sa moren, «at du aldrig glem
+> mer det.» Hun sat litt. «Det er nok saa, skjønner jeg,
+> at far din er ræd, du har kastet din elsk paa en mand
+> som han ugjerne vil gi dig til.»
+> «Hvad har min farbror sagt,» spurte Kristin litt
+> efter.
+> «Ikke andet,» sa moren, «end at Erlend av Husaby
+> har bedre ætt end han har rygte. Ja han har nok talt
+> til Aasmund, at han skulde lægge ind et ord for ham
+> hos Lavrans. Din far blev litet glad, da han hørte
+> dette.»
+> Men Kristin sat straalende. Erlend hadde talt til
+> hendes farbror. Hun som hadde hat det saa vondt, for
+> han ikke lot høre fra sig.
+> Da sa moren igjen:
+> «Nu er det slik at Aasmund nævnte noget om, der skal
+> ha gaat det ord i Oslo, at denne Erlend skulde ha
+> hængt oppe i gåterne omkring nonneboet og du har
+> gaat ut og talt med ham ved gjerderne.»
+> «Naa?» spurte Kristin.
+> «Aasmund raader jo til denne handelen, skjønner
+> du,» sa Ragnfrid. «Men da blev Lavrans mere harm
+> end jeg mindes jeg har set ham. Han sa at en beiler
+> som gik den veien til datter hans, skulde finde ham med
+> sverdet i haand. Uhæderlig nok var den maaten, vi
+> hadde stelt os med Dyfrinsfolket paa, men hadde Er
+> lend lokket dig til at rende paa veiene med ham i mørke,
+> og det mens du var i et nonnekloster, saa tok han det
+> for et fuldgodt tegn paa at slik en husbond var du
+> bedre tjent med at miste.»
+> Kristin knuget hænderne sammen i sit fang — far
+> ven kom og gik i hendes ansigt. Moren la en arm om
+> hendes liv — men Kristin vred sig fra hende og skrek,
+> ute av sig av sindsoprør:
+> «La mig være, mor! Skal I kjende efter om jeg er
+> blit tykkere i midjen kanhænde —»
+> Næste øieblik stod hun op og holdt sin haand mot
+> kindet — forvirret saa hun ned i morens gnistrende
+> aasyn. Ingen hadde slaat hende siden hun var litet
+> barn.
+> «Sæt dig,» sa Ragnfrid. «Sæt dig,» tok hun op saa
+> datteren lystret. Moren sat taus en stund, da hun talte,
+> var hendes røst usikker:
+> «Jeg har nok set det, Kristin, meget har du aldrig
+> holdt av mig. Jeg tænkte, kanhænde var det for du
+> trodde at ikke jeg elsket dig saa meget — ikke slik
+> som far din elsker dig. Jeg lot det staa hen — jeg
+> tænkte, nåar den tid kom at du selv har født barn, saa
+> vil du vel skjønne —.
+> Jeg gav dig die endda, da var det alt slik, at nåar
+> Lavrans kom nær os to, da slåp du brystet mit av
+> munden og rakte mot ham og lo saa melken min randt
+> over læberne dine. Lavrans syntes dette var morro —
+> og Gud vet jeg undte ham det; jeg undte dig det og
+> at din far lekte og 10, hvergang han saa dig. Jeg syntes
+> selv det var synd for dig, du vesle livet, at jeg ikke
+> kunde la være med al den graaten. Jeg tænkte mere
+> paa om jeg skulde miste dig og, end jeg glædet mig
+> for jeg hadde dig. Men det vet Gud og jomfru
+> Maria, at jeg elsket dig nok ikke mindre end Lavrans
+> gjorde.»
+> Taarerne randt nedover Ragnfrids kinder, men hen
+> des ansigt var ganske rolig og hendes stemme ogsaa:
+> «Gud vet jeg bar aldrig nag til ham eller til dig for
+> det venskap som var mellem dere. Jeg tænkte, jeg hadde
+> ikke git ham for megen glæde i de aarene vi hadde levet
+> sammen, jeg var glad til han hadde dig. Ogsaa tænkte
+> jeg, at hadde Ivar, min far, været slik mot mig —.
+> Der er mange ting, Kristin, som en mor skulde lært
+> datteren sin at vogte sig for. Jeg tænkte, det trængtes
+> ikke med dig som har fulgt din far i alle disse aarene
+> — du skulde vel vite hvad som er hæderlig og ret. Det
+> du nævnte nys — tror du jeg kunde tænke du skulde
+> ville gjøre Lavrans slik en sorg —.
+> Jeg vilde bare si dig — jeg ønsker det at du maa
+> faa en husbond, som du kan ha kjærlighet til. Men
+> da maa du stelle dig forstandig — ikke la Lavrans
+> faa den tanken at du har valgt dig en ulykkesmand
+> og en som ikke agter kvinders fred eller hæder. For
+> til en slik vil han ikke gi dig — ikke om det gjaldt at
+> fri dig fra aapenlys skam. Da lot Lavrans hellere
+> staalet skifte retten mellem sig og den som hadde spildt
+> dit liv —.»
+> Dermed reiste moren sig og gik fra hende.
+> 11.
+> Bartolomæusmessedagen, den 24de august, blev den
+> salige kong Haakons dattersøn hyldet paa Haugating.
+> Blandt de mænd som blev sendt dit fra Nordre Gud
+> brandsdalen var Lavrans Bjørgulfsøn. Han het kongs
+> mand siden sin ungdom, men han var i alle disse aarene
+> sjelden kommet hirden nær, og det gode navnet som
+> han hadde vundet i felttoget mot Hertug Eirik, hadde
+> han aldrig prøvet at drage sig til nytte. Han var heller
+> ikke opsat paa at fare til hyldningstinget, men han
+> kunde ikke undslaa sig. Nævndemændene fra Nord
+> dalen hadde ogsaa det opdrag, at de skulde forsøke at
+> faa kjøpt korn syd i landet, og sende det med skib til
+> Raumsdalen.
+> Folket i bygderne var motløse og rædde for vinteren
+> som stundet til. Det tyktes ogsaa bønderne ilde at nu
+> atter et barn skulde bli Norges konge. Gamle folk
+> mindedes den tiden da kong Magnus var død og hans
+> sønner børn, og Sira Eirik sa:
+> «Væ terræ, übi puer rex est. Det er paa norsk maal,
+> der er ikke nattero for rotter i gaarden, der katten er
+> unge.»
+> Ragnfrid Ivarsdatter styrte paa gaarden mens man
+> den var borte, og det var godt baade for Kristin og
+> hende at de hadde hodet og hænderne fulde med om
+> sut og arbeide. Over hele bygden strævet folk med at
+> berge mose i fjeldet og skave bark, for der var blit
+> litet av høi og næsten ikke halm, og selv løvet som var
+> berget senere end Jonsmesse, var gulnet og daarlig.
+> Korsmessedagen, da Sira Eirik bar krucifikset over
+> markerne, var der mange i optoget som graat og høi
+> lydt bad Gud miskunde sig over folk og fæ.
+> En ukes tid efter korsmesse kom Lavrans Bjørgulf
+> søn hjem fra tinget.
+> Det var langt over folks sengetid, men Ragnfrid sat
+> endda i vævstuen. Hun hadde saa meget at vareta om
+> dagene nu, saa hun arbeidet ofte sent utover kveldene
+> ved væv og søm. Ragnfrid likte sig ogsaa saa godt i
+> dette huset. Det skulde være den ældste stuen paa gaar
+> den; de kaldte den ogsaa for dyngjen, og folk sa, den
+> stod her siden hedenold. Kristin og den piken som het
+> Astrid var hos hende, de sat og spandt fremved aaren.
+> De hadde sittet tause og søvnige en sumd da de hørte
+> hovslag av en enkelt hest — en mand kom ridende i
+> stor fart ind paa det vaate tun. Astrid gik til forstuen
+> og saa ut — straks efter vendte hun tilbake, fulgt av
+> Lavrans Bjørgulfsøn.
+> Baade hustruen og datteren saa straks at han var
+> temmelig drukken. Han ravet og tok fat i ljorestangen,
+> mens Ragnfrid skilte han av med den silvaate kappe
+> og hat, og spændte sverdbeltet av ham.
+> «Hvor har du gjort av Halvdan og Kolbein,» sa hun
+> litt forskrækket, «har du redet fra dem paa veien?»
+> «Nei, jeg red fra dem paa Loptsgaard,» sa han og
+> Io litt. «Jeg fik slik hug til at komme hjem — jeg faar
+> saa ingen ro før — de gik i seng dernede, men saa tok
+> jeg Guldsveinen og strøk hjem —»
+> «Du faar finde litt mat til mig, Astrid,» sa han til
+> piken. «Bær det hitind du, saa slipper du gaa saa langt
+> i regnet. Men vær snar, jeg har ikke spist siden tidlig
+> idag —»
+> «Fik du ikke mat paa Loptsgaard da?» sa hustruen
+> forundret.
+> Lavrans sat paa bænken, rugget paa sig og lo litt:
+> «Du vet der var mat — men jeg hadde ikke matlyst
+> da jeg var der. Jeg dråk en stund med Sigurd — men
+> — saa tænkte jeg, det var like godt jeg for hjem straks
+> som jeg biet til imorgen —»
+> Astrid kom med øl og mat, hun hadde ogsaa tat med
+> tørre sko til husbonden.
+> Lavrans famlet og skulde spænde av sig sporene,
+> men han holdt paa at dætte forover.
+> «Kom hit du, Kristin,» bad han, «og hjelp far din.
+> Jeg vet du gjør det av et kjærlig hjerte — et kjærlig
+> hjerte ja — idag.»
+> Kristin adlød og knælte ned. Da tok han med begge
+> hænder om hendes hode og løftet det op:
+> «Du vet da vel det, datter min — jeg vil ikke andet
+> end dit vel. Ikke vilde jeg gjøre dig en sorg uten jeg
+> ser, jeg sparer dig for mange sorger siden. Du er svært
+> ung endda, Kristin — det var sytten aar du var nu
+> iaar — tre dage efter Halvardsmesse — sytten aar
+> er du —»
+> Kristin var færdig med sin tjeneste. Litt blek stod
+> hun op og satte sig paa sin krak ved aaren igjen.
+> Rusen syntes at gaa av Lavrans i noget mon, etter
+> hvert som han blev mæt. Han svarte paa hustruens og
+> tjenestemøens spørsmaal om tinget — jo, det hadde
+> været vakkert. De hadde faat kjøpt korn og noget mel
+> og malt, noget i Oslo og noget i Tunsberg; det var
+> utenlandske varer, kunde været bedre, men det kunde
+> ogsaa været værre. Jo han hadde truffet mange baade
+> frænder og kjendinger og hadde hilsener med hjem.
+> Men han sat og dryppet svarene av sig.
+> «Jeg talte med herr Andres Gudmundsøn,» sa han,
+> da Astrid var gaat ut. «Simon har drukket sit fæstensøl
+> med den unge enken paa Manvik. Bryllupet skal staa
+> paa Dyfrin ved Andreasmesse tider. Han har raadet
+> selv med det dennegang, gutten. Jeg holdt mig unna
+> herr Andres i Tunsberg, men han søkte mig op — vilde
+> si mig at han visste for sikkert, Simon saa fru Halfrid
+> første gangen ved midtsommerstid iaar. Han var ræd
+> jeg skulde tro, Simon hadde hat dette rike giftermaalet
+> for øie da han brøt av med os.» Lavrans sat litt og lo
+> glædeløst. «Dere skjønner, denne hæderlige manden
+> var svært ræd, vi skulde tro noget slikt om sønnen
+> hans.»
+> Kristin aandet lettere. Hun tænkte, det var dette som
+> faren var saa oprørt over. Kanske hadde han haabet
+> hele tiden, det kunde bli av allikevel, dette giftermaalet
+> mellem Simon Andressøn og hende. Først hadde hun
+> været ræd, han hadde spurt noget om hendes færd syd
+> i Oslo.
+> Hun reiste sig og bød godnat. Da sa faren, hun fik
+> bie litt endda.
+> «Jeg har en tidende til,» sa Lavrans. «Jeg kunde
+> tiet med det for dig, Kristin — men det er bedre du
+> faar vite det. Det er det, at den manden, du har lagt
+> hugen din til, ham faar du friste at glemme.»
+> Kristin hadde staat med hængende arme og bøiet
+> hode. Nu saa hun op i farens ansigt. Hun bevæget
+> læberne, men hun fik ikke noget frem som var hørlig.
+> Lavrans saa bort for datterens blik; han slog ut med
+> haanden:
+> «Du vet nu vel det, ikke vilde jeg sætte mig imot
+> det, kunde jeg saa sandt tro at det blev til gavn for dig.»
+> «Hvad er det for tidender I har spurt paa denne reisen,
+> far?» sa Kristin, klar i røsten.
+> «Erlend Nikulaussøn og hans frænde herr Munan
+> Baardsøn kom til mig i Tunsberg,» svarte Lavrans.
+> «Herr Munan bad om dig for Erlend, og jeg svarte
+> ham nei.»
+> Kristin stod en stund og pustet tungt.
+> «Hvorfor vil I ikke gi mig til Erlend Nikulaussøn,»
+> spurte hun.
+> «Jeg vet ikke hvor meget du vet om den manden som
+> du vil ha til husbond,» sa Lavrans. «Kan du ikke selv
+> skjønne aarsaken, saa blir det ikke hyggelig for dig at
+> høre den av min mund.»
+> «Er det fordi han har været bansat og utlegd,» spurte
+> Kristin som før.
+> «Vet du hvad det var som voldte at kong Haakon
+> viste sin nære frænde av gaarden sin — og at han kom
+> i ban tilslut fordi han trodset erkebispens bud — og at
+> han for ikke alene ut av landet?»
+> «Ja,» sa Kristin. Hun blev usikker i maalet: «Jeg
+> vet ogsaa, han var atten aar da han blev kjendt med
+> hende — frillen sin.»
+> «Saa gammel var jeg da jeg blev gift,» svarte Lav
+> rans. «Vi regnet det da jeg var ung, at ved atten aars
+> alder kunde en mand svare for sig selv og raade med
+> egen og andres velfærd.»
+> Kristin stod taus.
+> «Du kaldte den konen frillen hans, som han har levet
+> med i ti aar og avlet børn med,» sa Lavrans litt efter.
+> «Litet glad vilde jeg være den dagen jeg sendte min
+> datter hjemmefra med en husbond som hadde levet i
+> aapenbart frilleliv aar ut og aar ind før han giftet sig.
+> Men du vet at frilleliv var det ikke.»
+> «I dømte ikke saa haardt om fru Aashild og herr
+> Bjørn,» sa Kristin sagte.
+> «Endda kan jeg ikke si jeg gjerne saa, vi kom i svo
+> gerskap med dem,» svarte Lavrans.
+> «Far,» sa Kristin, «har I da været saa syndeløs hele
+> eders liv, siden I tør dømme saa haardt om Erlend —»
+> «Gud vet,» svarte Lavrans barsk, «at jeg dømmer
+> ingen mand at være større synder for ham end jeg er
+> selv. Men en kan nu ikke regne slik at jeg skal gi bort
+> datter min til hvilken mand som lyster at be om hende,
+> fordi om vi alle trænger Guds miskund.»
+> «I vet, jeg mente ikke slik,» sa Kristin heftig. «Far
+> 17 — Undset: Kristin.
+> — mor — dere har da været unge — mindes I ikke saa
+> meget at I vet, det er ikke let at vare sig for den syn
+> den som elskov volder —»
+> Lavrans blev blodrød.
+> «Nei,» sa han kort.
+> «Da vet I ikke hvad I gjør,» skrek Kristin fortvilet,
+> «hvis I skiller Erlend Nikulaussøn og mig!»
+> Lavrans satte sig ned igjen i bænken.
+> «Du er bare sytten aar, Kristin,» tok han op igjen.
+> «Det kan saa være at han og du — at dere har faat
+> hinanden kjærere end jeg trodde. Men han er ikke saa
+> ung en mand at han ikke skulde skjønt — hadde han
+> været en god mand, da hadde han ikke gaat nær slikt
+> et ungt, umyndig barn, som du er, med eiskovsord. —
+> At du var lovet til en anden, tyktes vel ham at være en
+> ringe ting —.
+> Men jeg gifter ikke min datter til en mand som har
+> to børn med en andens egtekone. Vet du at han har
+> børn?
+> Du er for ung til at skjønne, at slik en uret avler
+> kiv — og ufred i en slegt — uten ende. Ikke kan man
+> den svige sit eget avkom og ikke kan han rette det op
+> — vanskelig finde utvei til at bringe sønnen sin frem
+> mellem folk eller faa datteren giftet bort til anden mand
+> end en tjenestedreng eller smaabonde. De maatte ikke
+> være kjøt og blod, de børnene, om de ikke la dig og
+> børnene dine for hat —.
+> Skjønner du ikke, Kristin — slike synder — Gud til
+> gir kanhænde slike synder lettere end mange andre, men
+> de øder ætten slik at det kan aldrig hjelpes. Jeg tænkte
+> paa Bjørn og Aashild jeg og — der stod denne Munan,
+> søn hendes, han lavet av guid, han sitter i kongens
+> raadsmænds raad, de har morsarven sin, han og brø
+> drene hans, og han har ikke hilst sin mor i hendes ar
+> mod alle disse aarene. Ja den manden hadde vennen
+> din valgt til sin talsmand.
+> Nei, sier jeg, nei. I den ætten kommer du ikke ind
+> mens mit hode er over mulden.»
+> Kristin slog hænderne for sit ansigt og brast i graat:
+> «Da vil jeg be til Gud nat og dag, nat og dag, at
+> skifter I ikke sind, saa maa han ta mig herifra!»
+> «Det er unyttig at snakke mere om dette ikveld,» sa
+> faren forpint. «Du tror det vel ikke, men jeg maa raade
+> over dig slik som jeg synes jeg kan svare for det. Gaa
+> til ro nu, barn.»
+> Han holdt haanden ut mot hende, men hun vilde ikke
+> se den og gik hulkende ut av stuen.
+> Forældrene blev sittende en stund. Da sa Lavrans til
+> konen:
+> «Gidder du hente hit en drik øl — nei hent ind noget
+> vin,» bad han. «Jeg er træt —.»
+> Ragnfrid gjorde som han bad. Da hun vendte til
+> bake med det høie støp, sat manden med ansigtet ned
+> i hænderne. Han saa op, tok over hendes hodeduk og
+> ned over hendes arme:
+> «Stakkar, nu blev du vaat. — Drik mig til da, Ragn
+> frid.»
+> Hun la saavidt munden til støpet.
+> «Nei drik nu med mig,» sa Lavrans heftig og vilde
+> trække hustruen ned paa fanget sit. Motvillig føiet
+> konen ham. Lavrans sa:
+> «Du vil vel staa med mig i denne saken, hustru min?
+> Bedst blir det dog for Kristin selv at hun skjønner
+> fra første færd av, hun maa slaa denne manden av
+> hugen.»
+> «Det blir haardt for barnet,» sa moren.
+> «Ja jeg skjønner det,» svarte Lavrans.
+> De sat en stund, da spurte Ragnfrid:
+> «Hvordan ser han ut, denne Erlend av Husaby?»
+> «Aa,» sa Lavrans og drog paa det. «En vakker kar
+> er han — paa et vis. Men ikke ser han ut som han duet
+> til meget andet end daare kvinder.»
+> De taug igjen en stund, da sa Lavrans atter:
+> «Den store arven han tok efter herr Nikulaus, den
+> har han nok stelt slik at den er minket meget. Det er
+> ikke for slik en maag at jeg har strævet og søkt at
+> trygge børnene mine.»
+> Moren drev urolig op og ned paa gulvet. Lavrans
+> blev ved:
+> «Mindst likte jeg det at han forsøkte at lokke Kol
+> bein med sølv — han skulde bære et lønbrev fra ham
+> til Kristin.»
+> «Saa du i brevet,» spurte Ragnfrid.
+> «Nei det gad jeg ikke,» sa Lavrans tvert. «Jeg flidde
+> det herr Munan tilbake, og sa ham hvad jeg mente om
+> slik adfærd. Sit segl hadde han hængt ved og — ikke
+> vet jeg hvad en skal si om slike barnestreker. Herr
+> Munan synte mig indseglet, at det var kong Skules
+> sekret som Erlend har i eie efter far sin. Han mente
+> vel jeg skulde komme i tanker om at det er en stor ære,
+> de ber om min datter. Men jeg tænker at herr Munan
+> hadde ikke ført denne saken for Erlend med saa megen
+> varme, hadde det ikke været fordi han skjønner, med
+> den manden gaar det ned med Husabyættens magt og
+> ære som den vandt i herr Nikulaus’ og herr Baards
+> dage — Erlend kan ikke nu mere vente at gjøre et slikt
+> gifte som han var byrdig til.»
+> Ragnfrid stanset foran manden:
+> «Nu vet jeg ikke, husbond, om du har ret i dette
+> stykket. Der er først det at nævne at slik som tiderne
+> er, saa har mange mænd rundt om paa de store gaar
+> dene maattet nøie sig med mindre magt og hæder end
+> hans far før ham. Det vet du bedst selv at det er
+> mindre let for en mand at vinde sig rigdom enten av
+> jord eller av kjøpmandsskap end det var før i ver
+> den —»
+> «Jeg vet, jeg vet,» brøt manden utaalmodig av, «desto
+> mere gjælder det at raade med omtanke om det en har
+> arvet —»
+> Men hustruen blev ved:
+> «Saa er der ogsaa det at si: Mig tykkes det ikke at
+> Kristin kan være et ulike gifte for Erlend. I Sverige er
+> din ætt med de bedste, din farfar og din far bar rid
+> dersnavn her i landet. De fremfarne fædrene mine var
+> lendermænd søn efter far i mange hundrede aar indtil
+> Ivar gamle; min far og min farfar var sysselmænd. Det
+> er saa at du eller Trond har ikke faat navnebøter eller
+> jord under kronen. Men da tykkes mig en kunde si, det
+> staar ikke anderledes med Erlend Nikulaussøn end
+> med dere.»
+> «Det er ikke det samme,» sa Lavrans heftig. «For
+> Erlend laa magt og riddersnavn like for haanden, og
+> han snudde sig fra det for horskaps skyld. Men jeg
+> skjønner nu du er imot mig du og. Kanhænde synes
+> du likesom Aasmund og Trond at det er en ære for
+> mig, at disse stormændene vil ha datteren min til en av
+> sine frænder —»
+> «Jeg har sagt dig,» mælte Ragnfrid noget hidsig, «at
+> jeg synes ikke du trænger være saa såar at du frygter,
+> Erlends frænder skal mene de nedlater sig i denne sak.
+> Men skjønner du da ikke av alle ting — det blide og
+> føielige barnet hadde mot til at sætte sig op mot os og
+> vrake Simon Darre — har du da ikke set at Kristin er
+> aldeles ulik sig selv siden hun kom fra Oslo, ser du
+> ikke hun gaar som hun var kommet ut av berget —.
+> Skjønner du ikke, hun har denne manden saa kjær, at
+> gir du ikke efter, saa kan her ske en stor ulykke.»
+> «Hvad mener du med det,» spurte faren og saa
+> hvasst op.
+> «Mangen mand hilser maagen sin og vet ikke av det,»
+> sa Ragnfrid.
+> Det var som manden stivnet; langsomt blev han hvit
+> i ansigtet:
+> «Du som er mor hendes!» sa han hæst. «Har du —
+> har du set — saa sikre tegn — at du tør skylde din
+> egen datter for dette —»
+> «Nei nei,» sa Ragnfrid fort. «Jeg mente ikke det du
+> tænker. Men derfor kan ingen vite hvad som er hændt
+> eller hvad som kan hænde. Hun eier ikke en tanke uten
+> det at hun elsker denne manden — det har jeg set —
+> hun kunde vise os en dag at hun har ham kjærere end
+> æren — eller livet!»
+> Lavrans sprang op:
+> «Aa du er gal! Kan du tænke slik om det vakre,
+> gode barnet vort! Hun kan vel ikke ha kommet stort
+> til der hun var — hos nonnerne. Hun er da ikke en
+> fjøsdeie, vet jeg, som lægger sig bort bakom en ski
+> gar. Du kan da skjønne, hun kan ikke ha set denne
+> manden eller talt med ham ret mange ganger — det
+> gaar vel over; det er da vel bare en ung møs lune.
+> Gud vet det tykkes mig tungt nok at se, hun sørger
+> slik, men du kan da vite, dette maa gaa over med tiden!
+> Liv, sier du, og ære —. Herhjemme i min egen
+> gaard kan jeg vel vogte møen min. Og ikke tror jeg
+> nogen mø av god ætt og fostret op i kristendom og
+> ærbarhet skiller sig saa fort ved æren eller livet heller.
+> Heh, det er slikt som folk sætter sammen viser om —
+> men jeg tænker det er slik at nåar en mand eller mø
+> er fristet til at gjøre slik, saa lager de en vise om det
+> og er hjulpet dermed, men lar være med at gjøre det —
+> Du selv,» sa han og stanset foran hustruen. «Der
+> var en anden du hellere vilde hat, den tid vi to blev git
+> sammen. Hvadfor kaar tænker du, du hadde faat, om
+> far din hadde latt dig raade i det stykket —?»
+> Nu var det Ragnfrid som var blit dødblek:
+> «Jesus, Maria! Hvem har sagt dig —»
+> «Sigurd paa Loptsgaard sa noget om det — det var
+> straks vi var flyttet hit til dalen,» sa Lavrans. «Men
+> svar mig paa det jeg spurte om — tror du at du var blit
+> gladere om Ivar hadde git dig til den manden?»
+> Hustruen stod med dypt sænket hode.
+> «Den manden,» svarte hun næsten uhørlig, «han
+> vilde ikke ha mig.» Der gik som et ryk gjennem hendes
+> legeme — hun slog ut i luften med knyttet haand.
+> Da la manden varsomt hænderne paa hendes skuldre.
+> «Er det det,» spurte han overvældet, og en dyp og
+> sorgfuld undren brast ut i hans stemme; «— er det det
+> — i alle disse aarene — har du baaret sorg for ham —
+> Ragnfrid?»
+> Hun skalv sterkt, men hun sa intet.
+> «Ragnfrid?» spurte han som før. «Jamen siden
+> da Bjørgulf var død — og siden — da du — da du
+> vilde — jeg skulde være mot dig — saan som jeg ikke
+> kunde. Tænkte du paa den anden da,» hvisket han
+> ræd og forvirret og pint.
+> «Hvordan kan du komme paa slike tanker,» hvisket
+> hun paa graaten.
+> Lavrans satte panden mot hustruens og virret litt med
+> hodet.
+> «Jeg vet ikke. Du er saa underlig _ alt du sa ikveld.
+> Jeg blev ræd, Ragnfrid. Jeg skjønner mig vel ikke paa
+> kvindesind —»
+> Ragnfrid smilte blekt og la sine hænder om hans
+> hals:
+> «Det vet Gud, Lavrans — jeg tigget dig fordi jeg
+> elsket dig mere end det er godt for et menneskes sjæl.
+> Og jeg hådet den anden slik at jeg kjendte djævelen
+> glædet sig ved det.»
+> «Jeg har holdt av dig, hustru min,» sa Lavrans sagte
+> og kysset hende, «av hele mit hjerte. Det vet du? Det
+> syntes mig, vi hadde det godt sammen — Ragnfrid?»
+> «Du var den bedste husbond,» sa hun med et litet
+> hulk, og gjemte sig ind til ham.
+> Han tok heftig om hende:
+> «Inat skulde jeg like at sove med dig, Ragnfrid. Og
+> vilde du være mot mig slik som i gamle dage, da skulde
+> jeg ikke være — slik en nar —»
+> Hustruen stivnet i hans arme, drog sig litt unna:
+> «Det er fastetid nu,» sa hun sagte — underlig haardt.
+> «Det er saa.» Manden lo litt. «Du og jeg, Ragnfrid,
+> vi har holdt alle faster, og fristet at leve efter Guds bud
+> i alle ting. Og nu tykkes mig næsten — vi hadde kanske
+> været gladere om vi hadde hat mere at angre »
+> «Snak ikke slik du,» bad konen fortvilet og klemte
+> sine magre hænder om hans tindinger. «Du vet da vel
+> jeg vil ikke du skal gjøre andet end det du selv synes
+> er ret.»
+> Han tok hende ind til sig, endda en gang — han
+> stønnet høit ved det:
+> «Gud hjelpe hende. Gud hjelpe os alle, Ragnfrid
+> min.
+> — Jeg er træt,» sa han og slåp. «Du skal vel gaa
+> til ro nu du og?»
+> Han blev staaende ved døren og biet mens hun slukket
+> paa aaren, blaaste ut den lille jernlampen ved væven
+> og kløp ut gnisten. Sammen gik de gjennem regnet over
+> mot stuehuset.
+> Lavrans hadde alt foten paa loftstrappen, da vendte
+> han tilbake til konen som stod i forstuedøren endda.
+> Han tok hende heftig ind til sig endda en sidste gang
+> og kysset hende i mørket. Saa gjorde han korsets tegn
+> over sin hustrus ansigt og gik op.
+> Ragnfrid slængte av sig klærne og krøp ind i sengen.
+> En stund laa hun og lyttet efter mandens skridt oven
+> paa i høienloftsstuen — saa knaket sengen deroppe og
+> det blev stilt. Ragnfrid krystet de spinkle arme over
+> sine visnede bryster.
+> Ja Gud hjelpe mig. Hvad var hun da for en kvinde,
+> hvad var hun da for en mor. Nu var hun snart gam
+> mel. Og endda var hun den samme. Hun tigget ikke
+> mere som da de var unge folk, da hun hadde stormet
+> og tryglet denne manden som stængte sig, sky og blyg,
+> nåar hun blev heftig — blev kold, nåar hun vilde gi
+> ham mere end hans husbondsret. Slik hadde det været
+> — og slik var hun blit med barn, gang efter gang —
+> hun ydmyket, rasende av skam for hun ikke kunde
+> nøies med hans lunkne egtemandskjærlighet. Saa, nåar
+> hun gik slik og trængte godhet og ømhet, da hadde
+> han hat saa meget at gi — mandens utrættelige, blide
+> omtanke for hende, nåar hun var syk og plaget, faldt
+> som dugg over hendes hete sind. Han tok gjerne alt
+> hendes op og bar — men der var noget av sit eget
+> han ikke vilde gi. Hun hadde elsket børnene sine slik
+> at det var som hjertet blev slitt ut av hende, hvergang
+> hun mistet ett — Gud, Gud, hvordan var hun da som
+> midt i kvalerne hadde evnet at smake denne draape
+> av sødme, at hendes sorg tok han ind til sig og la
+> den tæt ind til sin egen.
+> Kristin — hun skulde gjerne gaat gjennem varmen
+> for datter sin — de trodde det ikke, ikke Lavrans og
+> ikke barnet, men det var slik. Endda følte hun en vrede
+> som lignet hat mot hende nu — det var for at glemme
+> sin sorg over barnets sorg at han hadde ønsket i kveld,
+> han kunde git sig over til hustruen.
+> — Ragnfrid turde ikke staa op, for hun visste ikke
+> om Kristin kanske laa vaaken borte i den anden sengen.
+> Men hun reiste sig lydløst paa knæ, og med panden
+> lutet mot fotgjerdet av sengen, prøvet hun at bede. For
+> datteren, for sin husbond og for sig selv. Mens kulden
+> litt efter litt stivnet hendes krop, tok hun atter ut paa
+> en av sine velkjendte nattevandringer, prøvet at bryte
+> sig vei til et fredshjem for sit hjerte.
+> 111.
+> Haugen laa høit oppe i lien paa vestsiden av dalen.
+> Denne maanesk.insnatten var hele verden hvit. Bølge
+> efter bølge av hvitt fjeld kuvet sig ind under den blaa
+> bleke, stjernefattige himmel. Selv skyggerne som nuter
+> og kamper kastet utover sneflaterne syntes underlig
+> lette og lyse, for maanen seilet saa høit.
+> Nedover mot dalen stod skogen løent hvit av sne og
+> rim omkring de hvite sletter av bøer med smaat krot av
+> gjerder og huser. Men helt nede mot dalbunden tætnet
+> skyggerne til dunkelhet.
+> Fru Aashild kom ut av fjøset, lukket efter sig og
+> stod litt i sneen. Hvit hele verden, og endda var det
+> mere end tre uker til advent gik ind. Klemetsmesse
+> kulde — da var vel vinteren kommet for alvor. Aaja,
+> det hørte gjerne med til uaar —.
+> Den gamle kvinde sukket tungt ut i ødet. Vinter
+> igjen og kulde og ensomhet. — Saa tok hun op melke
+> bøtten og lygten, og gik mot stuehuset. Saa utover
+> endda engang.
+> Der kom fire svarte prikker ut av skogen halvveis
+> nede i lien. Fire mænd tilhest — det blikket i en spyd
+> odd i maaneskinnet. Det gik tungt med dem opover —
+> ingen hadde faret hit siden snefaldet. Mon de skulde
+> hit —.
+> Fire væbnede mænd —. Ingen som hadde lovlig
+> ærinde til hende var det likt til vilde fare i slikt følge.
+> Hun tænkte paa kisten med sit og Bjørns gods i. Skulde
+> hun gjemme sig i uthuset.
+> Hun saa utover vinteren og ødet omkring sig. Saa
+> gik hun ind i stuen. De to gamle hundene som hadde
+> ligget foran røkovnen, basket halerne mot gulvtiljerne.
+> De unge hundene hadde Bjørn med i fjeldet.
+> Hun blaaste paa glørne i ovnen og la ved indpaa,
+> fyldte jerngryten med sne, og satte den til ilden. Sliet
+> melken i et træfat og bar det ind i koven bak for
+> stuen.
+> Aashild byttet av sig den skidne, ufarvede vadmels
+> kjolen som stank av fjøs og sved, tok paa sig en mørke
+> blaa klædning og skiftet blaarlerrets skautet med en
+> hvit linduk som hun ordnet om hode og hals. Hun tok
+> av de laadne skindstøvlerne og drog paa sølvspændte
+> sko.
+> Saa gav hun sig til at stede stuen sin — glattet pu
+> terne og skind i sengen efter Bjørn hadde ligget der
+> om dagen, tørket av langbordet og rettet paa bænke
+> hynderne.
+> Fru Aashild stod foran ovnen og stampet kvelds
+> grøten da hundene varslet. Hun hørte hestene i tunet,
+> mænd kom i svalen, og en støtte paa døren med et spyd.
+> Aashild løftet gryten fra ilden, rettet paa sin dragt, og
+> med hundene ved siden gik hun frem og lukket op.
+> Ute i det maanelyse tun holdt tre unge mænd fire
+> rimede hester. Han som stod i svalen, ropte glad:
+> «Moster Aashild, kommer du selv og lukker op! Da
+> maa jeg si Ben trouvé!»
+> «Søstersøn, nei er det dig! Da sier jeg dig detsamme!
+> Gaa ind i stuen, mens jeg viser mændene dine til stal
+> den.»
+> «Er du alene paa gaarden,» spurte Erlend. Han
+> fulgte med, mens hun viste mændene tilrette.
+> «Ja herr Bjørn og arbeidskaren vor drog indover med
+> slæden — de skulde se at faa hjem noget for, vi har
+> berget indpaa tjeldet,» sa fru Aashild. «Og tjeneste
+> kvinde har jeg ikke,» sa hun leende.
+> Litt efter sat de fire unge mænd paa ytterbænken,
+> med ryggen mot bordet og saa paa den gamle frue
+> som syslet stilt og travelt med at sætte frem mat til dem.
+> Hun la duk paa bordet, og satte et tændt lys frem
+> paa, kom med smør, ost, en bjørneskinke og en høi
+> stabel tynde, fine brødleiver. Hun hentet øl og mjød
+> op fra kjælderen under stuen, og saa øste hun grøten i
+> et fint træfat, bad dem sætte sig ind og begynde.
+> «Det er litet for dere unge karer,» sa hun leende.
+> «Jeg faar koke en gryte grøt til. Imorgen skal dere
+> fare bedre — men jeg stænger ildhuset om vinteren
+> uten nåar jeg baker eller brygger. Vi er faa folk her
+> paa gaarden, og jeg tar til at bli gammel, frænde.»
+> Erlend lo og rystet paa hodet. Han merket sig at
+> svendene hans holdt sig mot den gamle konen saa
+> høviske og ærbødige som han aldrig hadde set dem te
+> sig før.
+> «Du er en underlig kvinde, moster. Mor var ti aar
+> yngre end du er, og hun saa ældre ut da vi var hos
+> dig sidst end du gjør ikveld.»
+> «Ja ungdommen gik fort nok av Magnhild,» sa fru
+> Aashild sagte. «Hvor kommer du fra nu,» spurte hun
+> litt efter.
+> «Jeg har været en stund paa en gaard nord i Lesja,»
+> sa Erlend. «Jeg hadde leiet mig husly der. Jeg vet
+> ikke om du kan gjette hvad ærinde jeg har her i disse
+> bygder?»
+> «Du mener om jeg vet at du har latt beile til Lavrans
+> Bjørgulfsøns datter her syd paa Jørundgaard?» sa fru
+> Aashild.
+> «Ja,» sa Erlend. «Jeg lot spørge om hende paa
+> sømmelig og hæderlig vis, og Lavrans Bjørgulfsøn
+> svarte tvert nei. Nu vet jeg ikke bedre raad, siden
+> Kristin og jeg vil ikke la os tvinge fra hinanden, end
+> at jeg tar hende bort med vold. Jeg har — jeg har hat
+> en speider her i bygden, og jeg vet at hendes mor
+> skulde være paa Sundbu fra Klemensmesse og utover
+> en tid, og Lavrans er ute ved nesset med de andre
+> mændene som skal hente vintervarerne til Sil.»
+> Fru Aashild sat litt:
+> «Det raadet, Erlend, bør du hellere la fare,» sa hun.
+> «Ikke tror jeg heller at møen følger dig godvillig, og
+> du vil vel ikke bruke magt.»
+> «Jo hun gjør. Vi har talt om dette mange ganger —
+> hun har bedt mig selv mange ganger at jeg skulde føre
+> hende bort.»
+> «Har Kristin —!» sa fru Aashild. Saa Io hun: «Der
+> for skal du nu ikke lite paa at du faar møen med dig
+> nåar du kommer for at ta hende paa ordet.»
+> «Jo,» sa Erlend. «Og nu hadde jeg tænkt det, mo
+> ster, at du skulde sende bud til Jørundgaard, om Kri
+> stin maa komme og gjeste dig — en uke eller saa, mens
+> forældrene er borte. Da kunde vi være paa Hamar før
+> nogen merker at hun er borte,» forklarte han.
+> Fru Aashild svarte, stadig smaaleende:
+> «Har du ogsaa tænkt hvad vi skulde svare, herr
+> Bjørn og jeg, nåar Lavrans kommer og kræver os til
+> regnskap for datteren sin?»
+> «Ja,» sa Erlend. «Vi var fire væbnede mænd, og
+> møen var villig.»
+> «Jeg vil ikke hjelpe dig med dette,» sa fruen heftig.
+> «Lavrans har været os en trofast mand i mange aar
+> han og hustruen hans er hæderlige folk, og jeg vil ikke
+> laane mig til at svige dem eller skjæmme hende. La
+> den møen være i fred, Erlend. Det var ogsaa paa tide
+> snart at frænderne dine spurte anden daad av dig, end
+> at du ræker ut og ind av landet med stjaalne kvin
+> der —»
+> «Vi faar tales ved i enerum, moster,» sa Erlend kort.
+> Fru Aashild tok et lys, gik ind i koven og stængte
+> døren bak sig. Hun satte sig paa en melbøle; Erlend
+> stod med hænderne stukket ind i beltet og saa ned paa
+> hende.
+> «Du kan ogsaa si det til Lavrans Bjørgulfsøn, at Sira
+> Jon i Gerdarud viet os sammen, før vi drog videre til
+> fru Ingebjørg Haakonsdatter i Sverige.»
+> «Saa,» sa fru Aashild. «Vet du om at fru Ingebjørg
+> vil ta vel mot dere, nåar dere kommer dit?»
+> «Jeg talte med hende i Tunsberg,» sa Erlend. «Hun
+> hilste mig som sin kjære frænde, og takket mig for jeg
+> bød hende min tjeneste her eller i Sverige. Og Munan
+> har lovet at gi mig brever med til hende.»
+> «Saa vet du vel,» sa fru Aashild, «om du kan faa
+> en prest til at vie dere, saa har Kristin spildt al ret til
+> gods og arv efter sin far. Og børnene hendes blir ikke
+> dine lovlige arvinger. Usikkert er det om hun vil bli
+> regnet for din hustru.»
+> «Ikke her i landet kanhænde. Det er ogsaa derfor
+> jeg tyr til Sverige. Hendes ættfar, Laurentius Lagmand,
+> var aldrig gift med jomfru Bengta paa andet vis — de
+> fik aldrig hendes brors samtykke. Og dog blev hun
+> regnet for frue —»
+> «Der var ingen børn,» sa fru Aashild. «Tænker du
+> sønnerne mine vil holde sine hænder fra arven efter
+> dig, om Kristin blev sittende enke med børn, og der kan
+> tvistes om de er egte født!»
+> «Du gjør Munan uret,» sa Erlend. «De andre bør
+> nene dine kjender jeg litet — du har ikke grund til
+> at være blid paa dem, det vet jeg. Men Munan har
+> været min fuldtro frænde altid — han vil gjerne ha mig
+> gift; han beilet for mig hos Lavrans. — Ellers kan jeg
+> leie til arv og ætt de børnene vi faar »
+> «Dermed merker du moren som frille,» sa fru Aas
+> hild. «Men ikke skjønner jeg at den sagtmodige man
+> den, Jon Helgesøn, vil vaage sig til at faa sak med
+> biskopen sin for at vie dig mot loven.»
+> «Jeg skriftet for ham isommer,» sa Erlend dæmpet.
+> «Da lovet han at vie os, hvis alle andre raad skulde
+> glippe.»
+> «Naa saan,» sa fru Aashild. «Da har du læsset en
+> svær synd paa dig, Erlend. Kristin hadde det godt
+> hjemme hos sin far og mor — et godt gifte med en
+> vakker og hæderlig mand av god ætt var avtalt for
+> hende.»
+> «Det har Kristin nu selv sagt,» mælte Erlend, «at
+> du har talt om, at hun og jeg kunde høve bra sammen.
+> Og at Simon Andressøn var ingen husbond for hende.»
+> «Aa jeg har sagt og jeg har sagt,» bet mosteren
+> av. «Jeg har sagt saa meget i min tid jeg. — Ikke
+> skjønner jeg, at du har kunnet faa din vilje med Kristin
+> saa let heller. Mange ganger kan dere ikke ha truffet
+> sammen. Og jeg vilde ikke trodd hun var let at vinde,
+> den møen —.»
+> «Vi møttes i Oslo,» sa Erlend. «Siden var hun ute
+> hos farbroren i Gerdarud. Hun kom ut og møtte mig
+> i skogen.» Han saa ned og sa meget sagte: «Jeg hadde
+> hende alene for mig selv derute —.»
+> Fru Aashild for op. Erlend bøiet hodet endda dypere.
+> «Og efter det var — var hun ven med dig,» spurte
+> fruen vantro.
+> «Ja,» Erlend smilte vekt og dirrende. «Vi var ven
+> ner efter dette. Og det var hende ikke saa haardt imot
+> — men uten skyld er hun. Det var da, hun vilde jeg
+> skulde ta hende bort — hun vilde ikke tilbake til fræn
+> derne sine —»
+> «Men du vilde ikke det?»
+> «Nei jeg vilde friste at faa hende til hustru med
+> hendes fars samtykke.»
+> «Er dette længe siden,» spurte fru Aashild.
+> «Det var ett aar siden ved Lavransmessetide,» svarte
+> Erlend.
+> «Du har ikke forhastet dig med at beile,» sa den
+> anden.
+> «Hun var ikke løst fra den forrige trolovelse,» svarte
+> Erlend.
+> «Og siden har du ikke traadt hende for nær,» spurte
+> Aashild.
+> «Vi fik stelt det slik, at vi møttes nogen ganger» —
+> igjen gled det dirrende smil over mandens ansigt. «I
+> en gaard i kjøpstaden.»
+> «I Guds navn,» sa fru Aashild. «Jeg skal hjelpe
+> dig og hende det jeg kan. Jeg skjønner det blir for
+> vondt for Kristin at gaa der hos forældrene med
+> noget slikt at bære paa. Der er vel ikke mere?» spurte
+> hun.
+> «Ikke det jeg har hørt om,» sa Erlend kort.
+> «Har du tænkt paa det,» spurte fruen litt efter, «at
+> Kristin har venner og frænder nedigjennem dalen?»
+> «Vi faar fare i løn, alt vi kan,» sa Erlend. «Derfor
+> gjælder det, at vi kommer fort avsted, saa vi er et
+> stykke unna før faren kommer hjem. Du faar laane os
+> slæden din, moster.»
+> 18 — Undset: Kristin.
+> Aashild tråk paa skuldrene:
+> «Saa er der hendes farbror paa Skog — om han
+> hører at du turer bryllup med hans brordatter i Ger
+> darud?»
+> «Aasmund har talt for mig til Lavrans,» sa Erlend.
+> «Han kan ikke være medvider, det er saa, men han
+> lukker nok et øie — vi faar komme til presten ved nat
+> og fare videre ved nat. Saa tænker jeg nok at Aasmund
+> vil holde frem for Lavrans baketter, at det sømmer sig
+> ikke for en gudfrygtig mand som han er at skille os,
+> nåar vi er viede av prest — han maa heller gi sit sam
+> tykke saa vi blir lovlige egtefæller. Du faar si det
+> samme til manden. Han faar sætte de vilkaar han selv
+> vil for forlik mellem os og kræve bøter som han synes
+> rimelig.»
+> «Jeg tror ikke Lavrans Bjørgulfsøn blir god at raade
+> i denne sak,» sa fru Aashild. «Det vet Gud og Sankt
+> Olav, at denne handelen liker jeg ilde, søstersøn. Men
+> jeg skjønner, at det er det sidste raadet du kan gripe
+> til, skal du kunne hjelpe den skaden du har voldt Kri
+> stin. Jeg skal ride til Jørundgaard selv imorgen, hvis
+> du vil laane mig en av svendene dine, og jeg kan faa
+> Ingrid her nord i bakken til at stelle fæet mit.»
+> Fru Aashild kom til Jørundgaard næste kveld just da
+> maaneskinnet brøtes med det sidste skjær av dagslyset.
+> Hun saa hvor blek og smalkindet Kristin var blit, da
+> den unge kom ut i tunet og tok imot gjesten.
+> Fruen sat ved ovnen og lekte med de to smaa. Løn
+> lig saa hun granskende paa Kristin som gik og dækket
+> bordet. Tynd var hun og stille saa hun ut. Hun hadde
+> altid været stille, men det var en anden slags stilhet
+> som var over piken nu. Fru Aashild gjettet al den
+> spænding og den stædige trods som laa bak.
+> «I har vel hørt,» sa Kristin og kom bort til hende,
+> «om det som er hændt her i høst?»
+> «Ja at søstersønnen min har beilet til dig?»
+> «Mindes I,» spurte Kristin, «at I sa engang, han og
+> jeg kunde høve bra sammen. Bare at han var altfor
+> rik og ættstor for mig?»
+> «Jeg hører at Lavrans er av en anden mening,» sa
+> fruen tørt.
+> Det glimtet til i Kristins øine, og hun smilte litt.
+> Hun er god nok hun, tænkte fru Aashild. Saa litet som
+> hun likte det, fik hun føie Erlend og gi ham den haands
+> rækning, han hadde bedt om.
+> Kristin redte til gjesten i forældrenes seng, og fru
+> Aashild bad at den unge skulde sove med hende. Efter
+> de hadde lagt sig, og der var blit stilt i stuen, bar fru
+> Aashild sit ærinde frem.
+> Hun blev underlig tung om hjertet ved at se, dette
+> barnet syntes ikke at tænke noget paa den sorg som
+> hun vilde volde sine forældre. Jeg hadde dog været i
+> sorg og pine hos Baard i mere end tyve aar, tænkte
+> fruen. Men det er vel slik for os alle. Kristin syntes
+> end ikke at ha set, hvor Ulvhild var faldt av denne
+> høsten — Aashild tænkte, det er litet rimelig hun faar
+> se den lille søsteren i live mere. Men hun sa intet om
+> det — jo længere Kristin kunde holde denne vilde glæ
+> den og overmotet oppe, desto bedre var det vel.
+> Kristin stod op, og i mørket samlet hun sine smykker
+> i et litet skrin som hun tok bort til sig i sengen. Da sa
+> fru Aashild allikevel:
+> «Endda synes det mig, Kristin, det maatte være et
+> bedre raad at Erlend rider hitned, nåar din far kommer
+> hjem — at han aapent utsa, han har gjort en stor uret
+> mot dig — og la sin sak i Lavrans’ hænder.»
+> «Da tror jeg at far dræpte Erlend,» sa Kristin.
+> «Det gjør ikke Lavrans, hvis Erlend negter at drage
+> sverd mot sin verfar,» svarte fruen.
+> «Jeg vil ikke at Erlend skal bli ydmyket slik,» sa
+> Kristin. «Og jeg vil ikke at far skal vite, Erlend hadde
+> rørt mig, før han bad om mig med hæder og ære.»
+> «Tror du Lavrans blir mindre harm,» spurte Aas
+> hild, «nåar han spørger at du er rømt av gaarden med
+> ham, og tror du det blir lettere for ham at bære. Andet
+> end Erlends frille blir du ikke efter loven, saa længe
+> du lever med ham uten din far har git dig bort.»
+> «Det er en anden sak,» sa Kristin, «om jeg blir
+> Erlends frille, nåar han ikke kunde faa mig til egte
+> kone.»
+> Fru Aashild taug. Hun tænkte paa at hun skulde
+> møte Lavrans Bjørgulfsøn nåar han kom hjem og fik
+> vite, datteren var stjaalet bort.
+> Da sa Kristin:
+> «Jeg skjønner det, fru Aashild, I synes jeg er et ondt
+> barn. Men det har været slik her i gaarden helt siden
+> far kom hjem fra tinget, at hver dag har været en pine
+> for ham som for mig. Bedst er det for alle, at denne
+> sak nu faar en ende.»
+> De red fra Jørundgaard i god tid næste dag og kom
+> til Haugen like over non. Erlend møtte dem i tunet, og
+> Kristin kastet sig i hans arme uten at bry sig om sven
+> den, som hadde fulgt fru Aashild og hende.
+> Inde i stuen hilste hun paa Bjørn Gunnarsøn og siden
+> paa de to svendene til Erlend, som om hun kjendte dem
+> godt fra før. Fru Aashild kunde ikke merke tegn til,
+> at hun var enten undselig eller ræd. Og siden, da de
+> sat over bordet, og Erlend la frem sin plan, gav Kristin
+> sit ord med i laget og raadet om veien, at de skulde
+> ride fra Haugen næste kveld saa sent, at de kom til
+> Rosten, nåar maanen gik ned, og fare i mørke gjennem
+> Sil til forbi Loptsgaard, derfra op langs Ottaaen til
+> broen og paa vestsiden av Otta og Laagen efter øde
+> veiene saa langt hestene orket. De fik raste dagen over
+> paa en av de vaarsætrene, som laa der i lien, «for saa
+> langt som Holledis tinglag gaar kan vi støte paa folk
+> som kjender mig.»
+> «Har du tænkt paa for til hestene,» sa fru Aashild.
+> «Dere kan ikke rane for paa vaarsætrene til folk et aar
+> som dette — om der findes for der — og du vet, at
+> ingen har for at sælge her i dalen iaar.»
+> «Jeg har tænkt paa det,» svarte Kristin. «I faar
+> laane os for og mat for tre dage. Det er ogsaa en
+> aarsak til at vi bør ikke fare saa mange i flok — Er
+> lend faar sende Jon tilbake til Husaby. Aaret har været
+> bedre i Trøndelagen, og der kan vel føres nogen læss
+> over tjeldet før jul. Der er nogen fattige folk syd i
+> bygden, som jeg gjerne vilde I skulde hjelpe med en
+> almisse fra Erlend og mig, fru Aashild.»
+> Bjørn slog op en underlig uglad skoggerlatter. Fru
+> Aashild rystet paa hodet. Men svenden Ulv løftet sit
+> mørkladne, hvasse aasyn og saa paa Kristin med et
+> eget frækt smil:
+> «Der er aldrig overflod paa Husaby, Kristin Lav
+> ransdatter, hverken i gode aar eller uaar. Men kan
+> hænde blir det anderledes, nåar I kommer til styret der.
+> Det høres ut paa eders tale, som I er den husfruen,
+> Erlend trænger.»
+> Kristin nikket rolig til manden og for fort. De
+> maatte holde sig mest mulig utenfor tjodveien. Og det
+> syntes hende uraadelig at lægge veien over Hamar.
+> Erlend indvendte, at Munan sat der — det var dette
+> brevet til hertuginden.
+> «Da faar Ulv fare fra os ved Fagaberg og ride til
+> herr Munan, mens vi holder os vest for Mjøs og rider
+> over Land og bakveiene over Hadeland ned til Hakedal.
+> Derfra skal der gaa en øde vei syd til Margretadal, har
+> jeg hørt farbror tale om. Det er uraadelig for os at
+> ride over Raumarike i denne tiden det store brylluppet
+> skal staa paa Dyfrin,» sa hun leende.
+> Erlend gik bort og tok om hendes skulder, og hun
+> lænet sig bakover mot ham uten at bry sig om alle de
+> folk, som sat og saa det. Fru Aashild sa fortørnet:
+> «Ingen skulde tro andet end du hadde rømt av
+> gaarde før.»
+> Og herr Bjørn skogret som før.
+> Litt efter stod fru Aashild op for at gaa i ildhuset
+> og stelle maten. Hun hadde lagt paa varmen der, for
+> Erlends svende skulde være der om natten. Hun bad
+> Kristin bli med, «for jeg vil kunne sverge for Lavrans
+> Bjørgulfsøn, at dere var ikke alene nogen stund i mit
+> hus,» sa hun sint.
+> Kristin lo og gik med fruen. Straks efter kom Erlend
+> slængende ind til dem, drog en trefot frem til aaren og
+> sat og var i veien for kvinderne. Han tok fat i Kristin,
+> hver gang hun kom nær ham, mens hun fløi og syslet.
+> Tilslut drog han hende ned paa knæet sit.
+> «Det er nok som Ulv sier, at du er den husfruen jeg
+> trænger.»
+> «Aaja,» sa Aashild leende og ærgerlig, «du kan være
+> godt nok tjent med hende. Hun er det som sætter alt
+> paa spil i dette eventyret — du vover ikke meget.»
+> «Det er saa,» sa Erlend. «Men jeg har da vist viljen
+> til at gaa til hende den rette veien. Vær nu ikke saa
+> sint, moster Aashild.»
+> «Jeg maa vel være sint,» sa fruen. «Ikke før hadde
+> du faat dine saker i orden, saa steller du dig slik, at
+> du maa løpe fra det alt med en kvinde.»
+> «Du faar huske, moster,» sa Erlend. «Det har altid
+> været slik, at det var ikke de daarligste mændene som
+> ustelte sig for en kvindes skyld — det sier alle sagaer
+> det.»
+> «Aa Gud hjelpe os,» sa Aashild. Hun blev ung og
+> myk i ansigtet. «Den talen har jeg hørt før, Erlend» —
+> hun tok om hans hode og rusket i hans håar.
+> I det samme rev Ulv Haldorsøn døren op og lukket
+> den fort bak sig:
+> «Her er kommet en gjest til gaards, Erlend — den
+> som du nødigst vil se, tænker jeg.»
+> «Er det Lavrans Bjørgulfsøn,» sa Erlend og sprang op.
+> «Det er ikke saa vel,» sa svenden. «Det er Eline
+> Ormsdatter.»
+> Døren blev aapnet utefra; den kvinde som kom ind,
+> skjøv Ulv tilside og gik frem i lyset. Kristin saa bort
+> paa Erlend. Først var det som han visnet og sank
+> sammen; saa rettet han sig op, mørkerød i ansigtet.
+> «Hvor djævelen kommer du fra — hvad vil du her!»
+> Fru Aashild gik frem og mælte:
+> «I faar følge med op i stuen, Eline Ormsdatter —
+> vi har dog saa meget skik her paa gaarden, at vi tar
+> ikke mot gjesterne vore i ildhuset.
+> «Jeg venter ikke, fru Aashild,» sa den anden, «at
+> Erlends frænder skal hilse mig som gjest. — Spurte
+> du hvor jeg kom fra — jeg kommer fra Husaby, kan
+> du vel vite. Jeg kan hilse dig fra Orm og Margret; de
+> lever bra.»
+> Erlend svarte ikke.
+> «Da jeg hørte, at du hadde latt Gissur Arnfinsøn
+> reise penger for dig, og du skulde sydover igjen,» blev
+> hun ved, «saa tænkte jeg, du stanset vel hos dine fræn
+> der i Gudbrandsdalen denne gangen. Jeg visste du
+> hadde latt spørre til datter av naboen deres.»
+> Hun saa bort paa Kristin første gang, og møtte
+> pikens øine. Kristin var meget blek, men hun saa rolig
+> og forskende paa den anden.
+> Kristin var rolig som sten. Hun hadde visst det fra
+> det øieblik hun hørte hvem som var kommet — denne
+> tanken var det hun hadde flygtet for bestandig; den
+> hadde hun villet overdøve med trodsen og uroen og
+> utaalmodigheten; hele tiden hadde hun strævet for
+> ikke at tænke paa om Erlend hadde faat fridd sig fuldt
+> og helt fra den forrige frillen sin. Nu var hun indhentet,
+> nytteløst at stride imot længer. Men hun bad ikke
+> for sig.
+> Hun saa at Eline Ormsdatter var vakker. Hun var
+> ikke ung mere, men hun var vakker, og engang maatte
+> hun ha været straalende vakker. Hun hadde slaat
+> hætten tilbake; hendes hode var kuglerundt og haardt,
+> kindbenene stod noget ut — men det var godt at se,
+> engang hadde hun været fager allikevel. Hodeduken
+> dækket bare bakhodet; mens hun talte, glattet Eline
+> med hænderne det guldblanke, bølgende forhaar ind
+> under linet. Kristin hadde aldrig set en kvinde ha saa
+> store øine; de var mørkebrune, runde og haarde, men
+> under de smale, kulsorte bryn og de lange øienhaar
+> var de forunderlig vakre mot det gyldne haaret. Hun
+> var skrubbet i huden og paa læberne efter ridtet i
+> kulden, men det kunde ikke skjæmme hende for meget;
+> hun var for vakker til det. Det tunge reisetøi hyllet
+> hendes skikkelse, men hun førte sig i det og holdt sig
+> som bare en kvinde gjør, der gaar i den tryggeste
+> stolthet over sin legemspragt. Hun var knapt saa høi
+> som Kristin, men hun hadde slik reisning, at hun virket
+> høiere end den slanke og spædlemmede unge.
+> «Har hun været hos dig paa Husaby hele tiden,»
+> spurte Kristin sagte.
+> «Jeg har ikke været paa Husaby,» sa Erlend kort og
+> blev rød igjen. «Jeg har været paa Hestnæs det meste
+> av denne sommeren.»
+> «Dette er nu den tidende, jeg vilde bringe dig, Er
+> lend,» sa Eline. «Du trænger ikke mere lægge dig ind
+> paa frænderne dine og prøve gjestevenskapen deres for
+> om jeg styrer huset dit. Jeg blev enke nu i høst.»
+> Erlend stod som før.
+> «Det var ikke mig som bad dig komme til Husaby
+> og styre ifjor,» sa han møisommelig.
+> «Jeg spurte at alting laa nede der,» sa Eline. «Jeg
+> hadde saa megen godhet for dig fra gammelt av, Er
+> lend, at jeg syntes jeg skulde ta haand om velfærden
+> din — endda Gud vet, at du har ikke handlet vel mot
+> børnene vore og mot mig.»
+> «For børnene har jeg gjort det jeg kunde,» sa Er
+> lend. «Og du vet saa vel, at det var for ders skyld at
+> jeg fandt mig i du sat paa Husaby. At du gavnet dem
+> eller mig ved det, kan du vel ikke mene selv,» sa han
+> og smilte haanlig. «Gissur greiet vel at styre der uten
+> din hjelp.»
+> «Ja du har altid trodd Gissur saa godt du,» sa Eline
+> og lo sagte. «Men det er nu det, Erlend — nu er jeg
+> fri. Om du vil det, da kan du nu holde det løftet du
+> gav mig engang.»
+> Erlend taug.
+> «Mindes du,» spurte Eline, «den natten jeg fødte
+> sønnen din? Da lovet du, at du skulde egte mig, nåar
+> Sigurd døde.»
+> Erlend strøk haanden opunder sit svedvaate håar.
+> «Ja, jeg mindes det,» sa han.
+> «Vil du holde det ordet nu?» spurte Eline.
+> «Nei,» sa Erlend.
+> Eline Ormsdatter saa over paa Kristin — smilte litt
+> og nikket. Saa paa Erlend igjen.
+> «Det er ti aar siden, Eline,» sa manden. «Siden den
+> tid har vi levet sammen aar ut og aar ind som to for
+> dømte i helvede.»
+> «Ikke bare det vel!» sa hun med det samme smilet.
+> «Det er aar og aar siden det var noget andet,» sa
+> Erlend utslitt. «Børnene kan det ikke hjelpe. Og du
+> vet — du vet at jeg orker neppe være i stue med dig
+> mere,» næsten skrek han.
+> «Det merket jeg ingenting til, da du var hjemme
+> isommer,» sa Eline med et talende smil. «Da var vi
+> ikke uvenner — altid.»
+> «Regner du det for vi var venner, saa gjerne for
+> mig,» sa Erlend træt.
+> «Skal dere staa her,» mælte fru Aashild. Hun øste
+> op av gryten i to store træfat og gav det ene til Kristin.
+> Piken tok mot det. «Gaa over med det — du Ulv, ta
+> det andet, — sæt paa bordet; kveldsmat maa vi ha
+> enten det er slik eller slik.»
+> Kristin og svenden gik med matfatene. Fru Aashild
+> sa til de to andre:
+> «Kom nu dere og; det er unyttig dere staar her og
+> bjeffer mot hinanden.»
+> «Det er bedre Eline og jeg faar tale ut med hinanden
+> nu,» sa Erlend.
+> Fru Aashild svarte da ikke mere, men gik.
+> Over i stuen hadde Kristin sat paa bordet og hentet
+> øl fra kjælderen. Hun sat paa ytterbænken, rank som
+> et lys og rolig i ansigtet, men hun spiste ikke. De hadde
+> ikke stor matlyst heller, hverken Bjørn eller Erlends
+> svende. Bare den manden som var kommet med Eline
+> og Bjørns arbeidskar aat. Fru Aashild satte sig og
+> spiste litt av grøten. Ingen mælte et ord.
+> Langt om længe kom Eline Ormsdatter ind alene.
+> Fru Aashild bød hende plads mellem Kristin og sig
+> selv; Eline satte sig og spiste noget. Av og til fløi som
+> gjenskin av et dulgt smil over hendes ansigt, og hun
+> skottet paa Kristin.
+> Om en stund gik fru Aashild ut i ildhuset.
+> Det var næsten brændt ut paa aaren. Erlend sat
+> paa trefoten fremved der, sammenkrøket med hodet
+> ned i armene.
+> Fru Aashild gik bort og la haanden paa hans
+> skulder;
+> «Gud forlate dig, Erlend, som du har stelt dette — !»
+> Erlend saa op, han var grimet i ansigtet av elen
+> dighet.
+> «Hun er med barn,» sa han og lukket øinene.
+> Fru Aashilds ansigt luet op, hun grep haardt i hans
+> aksel :
+> «Hvem av dem,» spurte hun raat og haanlig.
+> «Ja mit er det ikke,» sa Erlend, utslukt som før.
+> «Men du vil vel ikke tro mig — det vil Vel ingen —»
+> han seg sammen igjen.
+> Fru Aashild satte sig foran ham paa kanten av aaren.
+> «Du faar friste at mande dig op nu, Erlend. Det er
+> ikke saa let at tro dig i dette stykke. Sverger du paa,
+> det er ikke dit?»
+> Erlend løftet sit herjede ansigt:
+> «Saa sandt jeg trænger Guds miskund —. Saasandt
+> som jeg haaber at — at Gud har trøstet mor hos sig
+> for alt hun maatte taale her nede — jeg har ikke rørt
+> Eline siden jeg saa Kristin første gangen!» Han skrek
+> det, saa fru Aashild hysset paa ham.
+> «Da skjønner jeg ikke, at dette er slik en ulykke.
+> Du faar finde ut hvem som er faren og kjøpe ham til
+> at egte hende.»
+> «Jeg tænker det er Gissur Arnfinsøn, — raadsman
+> den min paa Husaby,» sa Erlend træt. «Vi talte om
+> det forrige høsten —og siden og —-. Sigurds død har
+> jo været ventet en stund. Han var villig til at egte
+> hende, nåar hun blev enke, hvis jeg vilde gi hende et
+> passelig hjemmefølge —»
+> «Ja,» sa fru Aashild. Erlend blev ved:
+> «Hun forbander sig paa, hun vil ikke ha ham. Hun
+> vil nævne mig som far. Om jeg sverger mig fri —
+> tænker du nogen vil tro andet end at jeg sverger
+> falsk —»
+> «Du maa kunne faa hende fra dette,» sa fru Aashild.
+> «Der er nu ikke anden raad, du farer hjem med hende
+> til Husaby imorgen den dag. Og saa faar du være
+> haard og fast og faa dette giftermaalet ordnet med
+> raadsmanden din og Eline.»
+> «Ja,» sa Erlend. Da kastet han sig fremover og
+> hulket høit.
+> «Skjønner du ikke, moster — hvad tænker du Kristin
+> vil tro —»
+> Om natten laa Erlend i ildhuset med svendene. I
+> stuen sov Kristin hos fru Aashild i hendes seng og Eline
+> Ormsdatter i den anden sengen som var der. Bjørn
+> gik ut og la sig i stalden.
+> Næste morgen fulgte Kristin med fru Aashild i fjøset.
+> Mens fruen gik i ildhuset for at lage dugurd, bar Kri
+> stin melken op i stuen.
+> Der brændte et lys paa bordet. Eline var klædd og
+> sat paa kanten av sin seng. Kristin hilste hende stilt,
+> hentet en ringe og silte op melken.
+> «Vil du gi mig en drik melk,» spurte Eline. Kristin
+> tok en træøse og rakte den anden; hun dråk begjærlig
+> og saa over koppens rand paa Kristin.
+> «Saa du er hende Kristin Lavransdatter, som har
+> skilt mig med Erlends venskap,» sa hun og gav øsen
+> tilbake.
+> «Det maa I vite selv, om der var noget venskap at
+> skille,» svarte den unge.
+> Eline bet sig i læben.
+> «Hvad vil du gjøre, du,» sa hun, «hvis Erlend blir
+> træt av dig og en dag byder til at han vil gifte dig med
+> tjenestekaren sin. Vil du føie Erlend i det og?»
+> Kristin svarte ikke, da lo den anden og sa:
+> «Nu føier du ham i alle ting, kan jeg tænke. Hvad
+> mener du, Kristin — skal vi kaste terninger om man
+> den vor, vi to trillerne til Erlend Nikulaussøn?» Da hun
+> ikke fik svar, lo hun igjen og sa: «Er du saa enfoldig,
+> at du negter ikke du er frillekone?»
+> «For dig gidder jeg ikke lyve,» sa Kristin.
+> «Det vilde ikke nytte dig stort heller,» svarte Eline
+> som før. «Jeg kjender drengen jeg. Han bruste vel
+> paa dig som en orre anden gangen dere var sammen,
+> tænker jeg. Det er synd paa dig og, vakre barnet du
+> staar der.»
+> Kristin hvitnet om kinderne. Syk av lede sa hun
+> sagte:
+> «Jeg vil ikke tale med dig —»
+> «Tænker du han kommer til at handle bedre mot dig
+> end mot mig,» tok Eline paa. Da svarte Kristin hvasst:
+> «Ikke kommer jeg til at klage paa Erlend, hvad han
+> saa gjør. Selv gik jeg ut paa vildsti — og ikke skal
+> jeg syte og ynke mig om det bærer utfor uren —»
+> Eline taug litt. Da sa hun, rød og usikker:
+> «Jeg var mø jeg og, da han fik mig, Kristin — endda
+> hadde jeg hett den gamle mandens hustru i syv aar.
+> Men det kan vel ikke du skjønne, hvad det var for et
+> elendig liv.»
+> Kristin kom til at ryste sterkt. Eline saa paa hende.
+> Da tok hun fra sit reiseskrin, som stod ved hendes side
+> paa sengetrinet, et litet horn. Hun brøt seglet og sa
+> sagte :
+> «Du er ung og jeg er gammel, Kristin. Jeg vet vel,
+> det er unyttig for mig at stride mot dig — nu er din
+> tid. Vil du drikke med mig, Kristin?»
+> Kristin rørte sig ikke. Da førte den anden hornet til
+> munden. Kristin la merke til at hun dråk ikke. Eline sa:
+> «Den æren kan du vel vise mig, at du drikker mig
+> til — og lover at du vil ikke bli mine børn en haard
+> stedmor?»
+> Kristin tok hornet. I det samme aapnet Erlend døren.
+> Han stod litt, saa fra den ene til den anden av de to
+> kvinder.
+> «Hvad er dette,» spurte han.
+> Da svarte Kristin, og hendes stemme var skjærende
+> og vild:
+> «Vi drikker hinanden til, vi trillerne dine —»
+> Han grep hende om haandleddet og tok hornet. «Ti
+> stille,» sa han barsk. «Du skal ikke drikke med
+> hende.»
+> «Hvorfor ikke,» sa Kristin som før. «Hun var like
+> skjær hun som jeg, da du lokket hende —»
+> «Det har hun sagt saa tidt, at jeg tror hun tror det
+> selv,» sa Erlend. «Mindes du, da du fik mig til at gaa
+> til Sigurd med den snakken, og han førte vidner paa
+> han hadde grepet dig før med en anden mand?»
+> Hvit av væmmelse vendte Kristin sig bort. Eline var
+> blit mørkerød, saa sa hun trodsig:
+> «Endda blir vel ikke hun der spedalsk, om hun drik
+> ker med mig.»
+> Erlend vendte sig harm mot Eline — da var det som
+> hans ansigt blev langt og stivt med ett, manden gispet
+> av rædsel:
+> «Jesus!» sa han næsten uhørlig. Han grep Eline om
+> armen.
+> «Drik hende til da,» sa han haardt og dirrende.
+> «Drik først du, saa skal hun drikke med dig.»
+> Eline vred sig unna med et støn. Hun flygtet bak-
+> Iængs indover stuen, manden gik efter. «Drik,» sa han.
+> Han rev dolken ut av beltet og fulgte med den i haan
+> den. «Drik den drikken du har skjænket i for Kristin.»
+> Grep Eline i armen og drog hende bort til bordet, tvang
+> hende fremover mot hornet.
+> Eline skrek en gang og gjemte ansigtet ned i armen.
+> Erlend slåp hende, stod og skalv.
+> «Et helvede hadde jeg hos Sigurd,» skrek Eline, «du,
+> du lovet — men du har været værre mot mig du,
+> Erlend!»
+> Da gik Kristin frem og grep hornet:
+> «En av vi to faar drikke — os begge kan du ikke
+> holde —»
+> Erlend tok hornet fra hende, slængte hende bortover
+> gulvet, saa hun tumlet overende borte ved fru Aashilds
+> seng. Han truet drikken mot Eline Ormsdatters mund
+> — stod med knæet oppe paa bænken ved hendes side,
+> og med haanden om hendes hode prøvet han at tvinge
+> drikken i hende.
+> Hun rakte ut under hans arm, nappet dolken fra
+> bordet og hug efter manden. Støtet rispet ikke stort
+> mere end hans klær. Da vendte hun odden mot sig
+> selv, og straks efter seg hun sidelængs ned i hans
+> fang.
+> Kristin reiste sig og kom borttil. Erlend holdt om
+> Eline, hendes hode hang bakover armen hans. Hun
+> begyndte at ralle næsten straks — hadde blod i halsen,
+> det randt ut av hendes mund. Hun spyttet ut en hel
+> del og sa:
+> «Dig hadde jeg agtet — den drikken — for alle de
+> gangene — du har sveget mig —»
+> «Faa moster Aashild hit,» sa Erlend lavt. Kristin
+> stod urørlig.
+> «Hun dør,» sa Erlend som før.
+> «Da farer hun bedre end vi,» mælte Kristin. Erlend
+> saa paa hende — fortvilelsen i hans øine myknet hende.
+> Hun gik ut av stuen.
+> «Hvad er det?» spurte fru Aashild, da Kristin kaldte
+> hende ut av ildhuset.
+> «Vi har dræpt Eline Ormsdatter,» sa Kristin. «Hun
+> dør —»
+> Fru Aashild la paa sprang. Men Eline utaandet, idet
+> fruen steg ind av døren.
+> Fru Aashild hadde lagt den døde tilrette paa bænken,
+> tvættet blodet av hendes aasyn og dækket det med
+> hodelinet. Erlend stod lænet op mot væggen bakom
+> liket.
+> «Skjønner du,» sa fru Aashild, «at dette var det
+> værste som kunde ske?»
+> Hun hadde fyldt ved og kvist i ovnen; nu stillet hun
+> hornet midt mdi og blaaste i lue.
+> «Kan du lite paa svendene dine,» spurte fruen igjen.
+> «Paa Ulv og Haftor tænker jeg —. Jon og den man
+> den, som kom med Eline, kjender jeg litet.»
+> «Du skjønner,» sa fruen, «kommer det op, at Kri
+> stin og du var sammen her, og at dere var alene med
+> hende da hun døde, da kunde du like godt latt hende
+> drikke av Elines brygg. — Og blir der tale om gift, da
+> vil folk mindes hvad jeg har været skyldt for før. —
+> Hadde hun nogen frænder eller venner?»
+> 19— Undset: Kristin.
+> «Nei,» sa Erlend dæmpet. «Hun hadde ingen uten
+> mig.»
+> «Endda,» tok fru Aashild paa, «kan det bli vanskelig
+> at skjule dette og faa bragt liket unna uten at du faar
+> den styggeste mistanken paa dig.»
+> «Hun skal i viet muld,» sa Erlend, «om det skal koste
+> mig Husaby. Hvad sier du, Kristin?»
+> Kristin nikket.
+> Fru Aashild sat taus. Jo mer hun tænkte, desto
+> umuligere syntes det hende at finde en utvei. I ildhuset
+> sat fire svender — om Erlend kunde kjøpe dem til at
+> tie alle, om nogen av dem, om Elines svend kunde
+> kjøpes til at fare fra landet: usikkert blev det endda
+> altid. Og paa Jørundgaard visste de, at Kristin hadde
+> været her — spurte Lavrans dette, da kunde hun ikke
+> tænke, hvad han vilde gjøre. Saa var det at faa den
+> døde bort. Fjeldveien vestover var ikke at tænke paa
+> nu — der var veien til Raumsdal eller over tjeldet til
+> Trondheim eller sydover gjennem dalen. Og kom sand
+> heten op, vilde den aldrig bli trodd — selv om den blev
+> tat for god.
+> «Jeg maa raade med Bjørn om dette,» sa hun, reiste
+> sig og gik ut.
+> Bjørn Gunnarsøn hørte paa sin hustrus beretning
+> uten at røre en mine og uten at flytte sine øine fra
+> Erlend.
+> «Bjørn,» sa Aashild fortvilet. «Der maa en sverge
+> paa at han saa hende lægge haand paa sig selv.»
+> Det mørknet langsomt av liv i Bjørns øine; han saa
+> paa sin hustru, og munden hans drog sig til et skjævt
+> smil:
+> «Du mener at denne ene skulde være jeg?»
+> Fru Aashild krystet sine hænder og løftet dem mot
+> ham: «Bjørn, du skjønner hvad det gjælder for
+> disse to —»
+> «Og saa mener du, at med mig er det ute allikevel,»
+> spurte han langsomt. «Eller mener du der er saa meget
+> igjen av den manden jeg var engang, at jeg tør sverge
+> vranged for at fri gutten der fra at gaa under?
+> Jeg som selv blev dradd under — for alle de aarene
+> siden. Dradd under, sa jeg,» tok han i.
+> «Det sier du for jeg er gammel nu,» hvisket Aas
+> hild.
+> Kristin brøt ut i graat, saa det skar gjennem stuen.
+> Hun hadde sittet i kroken ved Aashilds seng, stiv og
+> stille. Nu tok hun paa at graate overlydt. Det var
+> som fru Aashilds stemme hadde revet hendes hjerte
+> aapent. Den hadde været tung av minder om elskovs
+> sødme, det var som fik først den stemmen Kristin til
+> at fatte helt, hvad hendes og Erlends kjærlighet hadde
+> været. Mindet om het og heftig lykke skyllet over alt
+> andet — skyllet bort det haarde fortvilelsens hat fra
+> denne sidste nat. Hun visste bare om sin kjærlighet
+> og sin vilje til at holde ut.
+> De saa paa hende alle tre. Da gik herr Bjørn bort
+> og tok under hendes hake, saa ned paa hende:
+> «Sier du, Kristin, hun gjorde det selv?»
+> «Det er sandt hvert ord I har hørt,» sa Kristin fast.
+> «Vi truet hende til hun gjorde dette.»
+> «Kristin hadde hun agtet en værre skjæbne,» sa Aas
+> hild.
+> Herr Bjørn slåp piken. Han gik bort til liket, løftet
+> det op i den sengen hvor Eline hadde ligget natten før,
+> og la det ind til væggen, dækket tepperne godt opover.
+> «Jon og den svenden du ikke kjender, faar du sende
+> hjem til Husaby med den besked at Eline følger dig
+> sydover. La dem ride ved middagstid. Si at kvinderne
+> sover hermde; de faar spise i ildhuset. Siden faar du
+> tale med Ulv og Haftor. Har hun truet med at gjøre
+> dette før? Saa du kan føre vidne paa det, om der blir
+> spurt efter slikt?»
+> «Hvert menneske som har været paa gaarden de sidste
+> aarene vi levet sammen der,» sa Erlend træt, «kan
+> vidne at hun truet med at undlive sig selv — og mig
+> og sommetider — nåar jeg talte om, jeg vilde skilles
+> fra hende.»
+> Bjørn lo barsk:
+> «Det tænkte jeg. Ikveld faar vi klæ hende i reise
+> tøiet og sætte hende i slæden. Du faar sætte dig ved
+> siden av hende —»
+> Erlend svaiet, der han stod:
+> «Det kan jeg ikke.»
+> «Gud vet hvor meget mand der er igjen av dig, nåar
+> du faar raadet med dig selv en tyve aar til,» sa Bjørn.
+> «Tænker du du kan kjøre slæden da? Saa skal jeg sitte
+> hos hende. Vi faar fare om nat og paa ødeveie, til vi
+> er nede i Fron. I denne kulden kan ingen vite hvor
+> længe hun har været død. Vi kjører ind til munkenes
+> herberg paa Roaldstad. Der vidner du og jeg, at dere
+> kom i ordstrid bak i slæden. Det er vidnefast, at du
+> har ikke villet leve med hende siden du blev løst av
+> bannet, og at du har beilet til en mø som er din like.
+> Ulv og Haftor faar holde sig unna hele veien, slik at de
+> kan sverge, om det trænges, at hun var i live sidst de
+> saa hende. Det kan du vel faa dem til? Hos munkene
+> kan du faa hende lagt i kiste — og saa faar du kjøp
+> slaa med presterne om gravfred for hende og sjælefred
+> for dig selv.
+> — Ja det er ikke vakkert. Men du har ikke stelt
+> slik, at det kan bli vakrere. Staa ikke der som en
+> barnkone der skal til at dåane bort. Gud hjelpe dig,
+> gut, du har nok ikke prøvet det før at kjende eggen
+> paa halsknuten, du.»
+> Der stod en bitende sno ned fra tjeldet — det røk
+> fint og sølvblankt fra snefonnerne op mot den maane
+> blaa luft, da mændene skulde kjøre.
+> Der var spændt to hester foran hinanden. Erlend
+> sat fremme paa slæden. Kristin gik bort til ham:
+> «Denne gangen, Erlend, faar du friste at faa sendt
+> mig bud, hvordan færden gaar, og hvor det blir av dig.»
+> Han klemte hendes haand saa hun syntes, blodet
+> maatte sprække av neglerøtterne.
+> «Tør du holde fast ved mig endda, Kristin?»
+> «Ja endda,» sa hun, og litt efter: «I denne gjerning
+> har vi skyld begge — jeg egget dig, for jeg vilde
+> hendes død.»
+> Fru Aashild og Kristin stod og saa efter færden.
+> Slæden duppet op og ned over fonnerne. Den blev
+> borte i en sænkning — kom frem længer nede paa en
+> hvit vold. Men saa for mændene ind i skyggen av en
+> kamp og forsvandt for godt.
+> De to kvinder sat foran ovnen, med ryggen til den
+> tomme sengen, som fru Aashild hadde baaret klær og
+> halm ut av. De kjendte begge, at den stod der tom og
+> gapte bak dem.
+> «Vil du vi skal sove i ildhuset mat,» sa fru Aashild
+> engang.
+> «Det blir vel detsamme, hvor vi lægger os,» sa
+> Kristin.
+> Fru Aashild gik ut og saa efter veiret.
+> «Ja blaaser det op eller blir lindveir, da rækker de
+> ikke langt før det kommer op,» sa Kristin.
+> «Det blaaser altid her paa Haugen,» svarte fru Aas
+> hild. «Der er ikke tegn til veirvending.»
+> Saa sat de som før.
+> «Du faar ikke glemme,» sa fruen en gang, «hvad
+> for skjæbne hun hadde agtet dere.»
+> Kristin svarte sagte:
+> «Jeg tænker paa, jeg hadde kanske villet det samme
+> i hendes sted.»
+> «Aldrig hadde du villet volde, at et andet menneske
+> blev spedalsk,» sa fru Aashild heftig.
+> «Mindes du, moster, du sa til mig engang, det er
+> godt nåar en ikke tør gjøre det en ikke synes er vakkert.
+> Men det er ikke saa godt, nåar en synes en ting er ikke
+> vakker, fordi en tør ikke gjøre det.»
+> «Du turde ikke gjøre det for synden,» sa fru Aashild.
+> «Nei jeg tror ikke det,» sa Kristin. «Det er saa, at
+> jeg har alt gjort meget som jeg skulde trodd engang
+> jeg turde ikke for synden. Men jeg saa ikke da, at det
+> følger med synd, at en maa træde ned andre.»
+> «Erlend vilde slutte med sit ulevned længe før han
+> traf dig,» svarte Aashild heftig. «Det var ute mellem de
+> to før.»
+> «Jeg vet det,» sa Kristin. «Men hun har vel aldrig
+> faat aarsak til at tro, Erlends forsætter var saa faste,
+> at hun ikke kunde rokke dem.»
+> «Kristin,» bad fru Aashild angstfuld, «du vil vel ikke
+> slippe Erlend nu. Nu kan dere ikke berges uten dere
+> berger hinanden.»
+> «Slik vilde vel neppe en prest raade,» sa Kristin og
+> smilte koldt. «Men jeg vet, at jeg kommer ikke til at
+> slippe Erlend — ikke om jeg skal træde ned min egen
+> far.»
+> Fru Aashild reiste sig op.
+> «Vi kan like gjerne ta for os noget at gjøre som sitte
+> slik,» sa hun. «Det vilde vel være faafængt om vi fri
+> stet at gaa tilro.»
+> Hun hentet smørkjernen fra koven, bar ind nogen
+> ringer med melk og fyldte i, stillet sig til og vilde
+> kjerne.
+> «La mig gjøre dette,» bad Kristin. «Jeg har yngre
+> ryg.»
+> De arbeidet uten at tale sammen; Kristin stod ved
+> kovedøren og kjernet, og Aashild kardet uld fremme
+> ved aaren. Først da Kristin hadde silt ut av kjernen
+> og holdt paa at kna smørret, spurte den unge med ett:
+> «Moster Aashild — er I aldrig ræd for den dag, da
+> I skal staa for Guds dom?»
+> Fru Aashild reiste sig, kom bort og stod foran Kri
+> stin i lyset:
+> «Kanhænde faar jeg mot til at spørge den som har
+> skapt mig, slik jeg er, om han vil miskunde sig over
+> mig, nåar hans tid er. Ti jeg har aldrig bedt om hans
+> miskund, nåar jeg gjorde mot hans bud. Og aldrig har
+> jeg bedt Gud eller mand gi mig efter en penning av
+> den bod, jeg har svaret her i denne heimen.»
+> Litt efter sa hun sagte:
+> «Munan, ældste sønnen min, var tyve aar. Han var
+> ikke slik da, som jeg vet han er nu. De var ikke slik
+> dengang, børnene mine —»
+> Kristin svarte stille:
+> «I har dog hat herr Bjørn ved eders side hver dag
+> og hver nat i alle disse aarene.»
+> «Ja — det ogsaa har jeg hat,» sa Aashild.
+> Litt efter var Kristin færdig med smørlagingen. Fru
+> Aashild sa da, at de fik friste at lægge sig nedpaa litt.
+> Inde i den mørke sengen la hun sin arm om Kristins
+> skulder og drog det unge hode ind til sig. Og det varte
+> ikke længe før hun hørte paa hendes jevne og stille
+> pust at Kristin var sovnet.
+> IV.
+> Frosten blev staaende. Paa hvert fjøs i bygden rau
+> tet og klaget de sulteforede dyr og led av kulden. Men
+> folk sparte allerede nu paa foret, det ytterste de kunde.
+> Der blev ikke meget til gjesting i julen dette aaret,
+> men folk holdt sig hjemme hver ved sit.
+> I julen tok kulden til — det var som hver dag syntes
+> koldere end den forrige. Folk kunde neppe mindes saa
+> haard en vinter — der faldt ikke mere sne heller, selv
+> ikke inde i tjeldet, men den sneen som var kommet ned
+> ved Klemensmesse, frøs haard som sten. Solen skinnet
+> fra klar himmel nu dagene tok til at lysne. Om nætterne
+> spraket og flakket vindlyserne over fjeldkammene i
+> nord, de flakket over halve himmelen — men de bragte
+> ikke veirvending, en dag indimellem kunde det skye
+> over, der drysset litt tør sne, og saa var det klarveir
+> og brændkulde igjen. Laagen murret og klunket dovt
+> under isbroerne.
+> Hver morgen tænkte Kristin, at nu orket hun ikke
+> mere, hun holdt ikke ut denne dag tilende. For hver
+> dag følte hun var som en tvekamp mellem faren og
+> hende. Og skulde de staa slik mot hinanden nu, da
+> hvert levende liv av folk og fæ over bygderne led under
+> en prøvelse. Men nåar kvelden kom, saa hadde hun
+> holdt ut.
+> Det var ikke slik, at faren var uvenlig. De talte aldrig
+> om det som laa mellem dem, men hun følte bak alt
+> han ikke sa, at han var übøielig fast besluttet paa at
+> holde ut i sin vægring.
+> Og det sved i hende av savn efter hans venskap. Det
+> sved saa forfærdelig haardt, fordi hun visste hvor
+> meget andet faren hadde at bære paa — og hadde det
+> været som før, da vilde han talt med hende om det. —
+> Det var saa, at de var bedre berget paa Jørundgaard
+> end de fleste steder ellers, men ogsaa her følte de
+> uaaret hver dag og hver stund. Ellers hadde Lavrans
+> om vintrene brukt at ta op og tæmme ungfolerne sine,
+> men dette aaret hadde han om høsten solgt dem alle
+> syd i landet. Og datteren savnet at høre hans stemme
+> ute i tunet, og se ham tumle med de smekre, raggede
+> to-aaringerne i den leken, han elsket saa meget. Der
+> hadde jo ikke været blankt der paa gaarden i bur eller
+> laaver og binger efter forrige aars høst, men til Jørund
+> gaard kom ogsaa mange folk og bad om hjelp, til kjøps
+> og til gave, og ingen bad forgjæves.
+> Sent en kveld kom en svær gammel skindklædt mand
+> paa ski. Lavrans talte med ham ute i tunet, og Halvdan
+> bar mat til ham i aarestuen. Ingen paa gaarden som
+> hadde set ham, visste hvem han var — sagtens var han
+> en av de folkene som levet inde i tjeldet; kanske hadde
+> Lavrans støtt paa ham indi der. Men faren nævnte
+> ikke besøket, og ikke Halvdan heller.
+> Men en kveld kom en mand som Lavrans Bjørgulfsøn
+> hadde hat noget utestaaende med i mange aar. Lavrans
+> gik paa boden med ham. Men da han kom ind i stuen
+> igjen, sa han:
+> «Alle saa vil de ha hjelp hos mig. Men her i gaarden
+> min er dere alle imot mig. Du og, hustru,» sa han heftig
+> til Ragnfrid.
+> Da for moren op mot Kristin.
+> «Hører du hvad far din sier til mig! Ikke er jeg imot
+> dig, Lavrans. Du vet det jo du og, Kristin, det som
+> hændte her syd paa Roaldstad senhøstes, da han for
+> nedover dalen i følge med den anden horsmanden, fræn
+> den hans fra Haugen — hun tok sit eget liv, den usalige
+> konen som han hadde lokket fra alle hendes frænder.»
+> Stiv og haard svarte Kristin:
+> «Jeg skjønner at dere laster ham like meget for de
+> aarene han har strævet for at komme ut av synden som
+> for de aarene han levet i den.»
+> «Jesus, Maria,» ropte Ragnfrid og slog sine hænder
+> sammen. «Hvordan er du blit! Har end ikke dette
+> kunnet volde at du skiftet sind!»
+> «Nei,» sa Kristin. «Jeg har ikke skiftet sind.»
+> Da saa Lavrans op fra bænken hvor han sat hos
+> Ulvhild:
+> «Det har ikke jeg heller, Kristin,» sa han dæmpet.
+> Men Kristin visste i sit hjerte, paa sæt og vis hadde
+> hun skiftet, om ikke sind saa syn. Hun hadde faat bud
+> om hvordan den var løpet av, den ulykkesfærden. Det
+> hadde gaat lettere end en kunde vente. Om det var
+> fordi der hadde sat sig kulde i saaret eller hvad det
+> nu kom av, det knivhugget som Erlend hadde faat i
+> brystet, hadde slaat sig vrangt; han kom til at ligge
+> syk en tid i herberget paa Roaldstad. Herr Bjørn hadde
+> pleiet ham de dagene. Men ved det at Erlend var saaret
+> hadde det faldt lettere at forklare det andet og bli
+> trodd.
+> Da han kunde fare videre, hadde han ført den døde
+> med sig i en kiste helt til Oslo. Der hadde han nok
+> ved Sira Jons mellemkomst faat gravplads til hende paa
+> kirkegaarden til den nedbrutte Nikolauskirke, og saa
+> hadde han skriftet for biskoppen i Oslo selv, og denne
+> hadde lagt paa ham at fare til det hellige blod i
+> Schwerin. Nu var han utdragen av landet.
+> Hun kunde ikke valfarte til noget sted og finde av
+> løsning. For hende var det at sitte her, bie og tænke
+> og friste at holde ut i sin motstand mot forældrene.
+> Der faldt et underlig vinterkoldt lys over alle minderne
+> om hendes møter med Erlend. Hun tænkte paa hans
+> voldsomhet — i elskov og i sorg — og det bares hende
+> for, at hadde hun kunnet ta op alle ting like saa braat
+> og storme slik med dem straks, da vilde de kanske bak
+> etter synes mindre og lettere at bære. Det hændte at
+> hun tænkte, kanhænde gir Erlend mig op. Hun syntes,
+> hun hadde vist altid hat en liten frygt for, at blev det
+> for vanskelig for dem, saa vilde han gi op. Men hun
+> vilde ikke opgi ham, uten han selv løste hende fra
+> alle eder.
+> Saa led det fremover vinteren. Og Kristin kunde ikke
+> længer narre sig selv, men hun maatte se, at nu ventet
+> dem alle den haardeste prøvelse, for nu hadde ikke
+> Ulvhild længe igjen at leve. Og midt i sin bitre sorg
+> over søsteren saa hun med gru, at sandelig var hendes
+> egen sjæl forvildet og fortæret av synd. For med det
+> døende barnet og forældrenes usigelige sorg for øie
+> tænkte hun endda paa dette — hvis Ulvhild dør, hvor
+> dan skal jeg da kunne utholde at se paa far og ikke
+> kaste mig ned for ham, skrifte alt og be ham tilgi mig
+> og raade over mig —.
+> De var ute i fasten. Folk hugget ned av de smaa
+> buskaper, de hadde haabet at kunne livberge, for at
+> ikke fæet skulde selvdø. Og menneskene blev syke av
+> at leve paa fisk og ha saa litet og elendig melmat til.
+> Sira Eirik løste hele bygden fra forbudet mot melke
+> mat. Men folk hadde neppe melkedraapen.
+> Ulvhild laa tilsengs. Hun laa alene i søstersengen,
+> og nogen vaaket over hende hver nat. Det hændte, at
+> faren og Kristin sat over hende begge. Slik en nat sa
+> Lavrans til datteren:
+> «Mindes du det som broder Edvin sa om Ulvhilds
+> skjæbne. Jeg tænkte det alt dengang, at kanske han
+> mente dette. Men da skjøv jeg det fra mig.»
+> I disse nætterne talte han stundom om ett og andet
+> fra den tid børnene var smaa. Kristin sat hvit og for
+> tvilet og forstod at bak ordene tigget faren hende.
+> En dag var Lavrans gaat ut med Kolbein for at hjem
+> søke et bjørnehi nord i fjeldskogen. Hjem kom de med
+> en binne paa en slæde, og Lavrans hadde en levende
+> bjørnunge i koftebarmen. Det moret Ulvhild litt, da han
+> synte den frem for hende. Men Ragnfrid sa, dette var
+> dog ikke en tid til at sætte paa et slikt dyr, og hvad
+> vilde han med den nu?
+> «Jeg skal føde den op til at binde foran buret til
+> møerne mine,» sa Lavrans og lo barsk.
+> Men de kunde ikke skaffe bjørnungen fet melk, som
+> den maatte ha, og saa dræpte Lavrans den nogen dage
+> efter.
+> Solen fik saa megen magt at det hændte, det dryp
+> pet litt av takene midt paa dagen. Meiserne klemte sig
+> fast og klatret paa tømmervæggene til solsiden, de hak
+> ket saa det klang, mens de søkte efter fluer som sov i
+> stokkefarene. Utover voldene lyste sneen haard og
+> blank som sølv.
+> Endelig en kveld tok det til at trække med skyer
+> over maanen. Om morgenen vaagnet de paa Jørund
+> gaard i et gov av sne som de ikke kunde se ut av til
+> nogen kant.
+> Den dagen skjønte de at Ulvhild skulde dø.
+> Hele huslyden var inde, og Sira Eirik kom over. Der
+> brændte mange lys i stuen. Tidlig paa kvelden sluknet
+> Ulvhild stille og rolig i morens arme.
+> Ragnfrid bar det bedre end nogen hadde ventet.
+> Forældrene sat hos hinanden, de graat begge to ganske
+> stille. Alle graat som var i stuen. Da Kristin gik bort
+> til faren, la han armen om hendes skulder. Han kjendte
+> hvor hun rystet og skalv, og da tok han hende ind til
+> sig. Men hun syntes selv at han maatte kjende det,
+> som om hun var mere bortrykket fra ham end den lille
+> døde i sengen.
+> Hun skjønte ikke, hvordan hun holdt ut. Hun husket
+> neppe selv, hvad hun holdt ut for, men sløv og stum av
+> smerte holdt hun sig oppe og faldt ikke tilfote.
+> — Saa blev etpar planker brutt op i kirkegulvet
+> foran Sankt Tomas’ alter, og der blev hugget en grav
+> i den stenhaarde jord under til Ulvhild Lavransdatter.
+> Det snedde tæt og stilt alle de dagene barnet laa paa
+> likstråa; det snedde da hun blev ført til jorden, og det
+> blev ved at sne, næsten uten stans, en hel maaned
+> tilende.
+> For folket som gik og biet paa vaarens forløsning
+> syntes det som den aldrig vilde komme. Dagene blev
+> lange og lyse, og dalen laa i en damp av braanende
+> sne, mens solen stod paa. Men kulden holdt sig i luften,
+> og varmen fik ingen magt. Om nætterne frøs det haardt
+> — det smaldt i is, det dønnet inde fra tjeldene, og
+> ulvene tutet og ræven gjødde helt nede i bygden som
+> ved midtvinter. Folk skavet bark til kreaturerne, men
+> de styrtet i hobetal paa baasen. Ingen skjønte, hvor
+> dette skulde ende.
+> Kristin gik ut en slik dag, da der sipret vand i vei
+> farene og sneen glinset som sølv utover jorderne. Mot
+> solen var snefonnerne ætt indhule, saa skarebremmens
+> fine isgitter brast med sagte sølvklang, nåar hun støtte
+> til den med foten. Men overalt, i den mindste skygge,
+> var den skarpe kulden i luften og sneen haard.
+> Hun gik opover mot kirken — hun visste ikke selv
+> hvad hun skulde der, men hun droges dit. Faren var
+> der — der var nogen bønder, gildesbrødre, som hadde
+> et stevne i svalen, visste hun.
+> Oppe i bakken møtte hun bondeflokken, som kom
+> nedover. Sira Eirik var med dem. Mændene var tilfots
+> alle, de gik i en mørk, lodden klynge, dukkede og snak
+> ket ikke sammen; de hilste tvert tilbake da hun hilste,
+> idet hun gik forbi.
+> Kristin tænkte, det var længe siden den tiden, da
+> hvert menneske i bygden hadde været hendes ven. Nu
+> visste vel alle, at hun var en ond datter. Kanske visste
+> de mere om hende og. Nu trodde de vel ogsaa alle, at
+> der hadde været noget sandt i den gamle snakken om
+> hende og Arne og Bentein. Kanske var hun i det
+> værste vanry. Hun rettet op sit hode og gik videre til
+> kirken.
+> Døren stod paa gløt. Der var koldt inde i kirken,
+> men endda strømmet der som en lunhet mot hendes
+> sind fra dette dunkle og brune rum, med de høit op
+> stræbende søilestammer, som løftet mørket op mot
+> takets sprængverk. Der var ikke tændt paa altrene, men
+> litt sol faldt ind av dørgløtten og glimtet svakt paa
+> billeder og kar.
+> Fremme ved Tomasalteret saa hun faren laa paa
+> knæ med hodet ned mot de foldede hænder som krystet
+> luen ind til barmen.
+> Sky og bedrøvet listet Kristin ut og stod i svalen.
+> Rammet ind av buen mellem de to smaasøiler hun stod
+> og holdt om, saa hun Jørundgaard ligge og bak hjem
+> met den blekblaa dis over dalen. I solen blikket elven
+> hvitt av vand og is utigjennem bygden. Men orekrattet
+> langs dens løp var guldbrunt av blomme, granskogen
+> var vaarlig grøn allikevel heroppe ved kirken, og det
+> pjutret og kvitret og fløitet av smaafugl i lunden like
+> ved. Aaja, der hadde været slik fuglesang hver kveld
+> efter solnedgang.
+> Og hun kjendte, den længselen hun hadde trodd
+> maatte være pint ut av hende nu, længselen i blodet og
+> i kroppen, den rørte sig nu, spædt og svakt som den var
+> ved at vaagne av vinterdvale.
+> Lavrans Bjørgulfsøn kom ut og laaste kirkedøren
+> bak sig. Han gik bort og stod nær datteren, saa ut
+> over ved den næste bue. Hun saa hvor denne vinteren
+> hadde herjet faren. Hun skjønte ikke selv at hun kunde
+> røre ved dette nu, men det for ut av hende allikevel.
+> «Er det sandt som mor sa forleden dag, at du har
+> sagt til hende — hadde det været Arne Gyrdsøn, da
+> vilde du føiet mig?»
+> «Ja,» sa Lavrans og saa ikke paa hende.
+> «Det sa du ikke mens Arne levet,» svarte Kristin.
+> «Det kom aldrig paa tale. Jeg skjønte nok at gutten
+> holdt av dig — men han sa intet — og han var ung
+> — og jeg merket aldrig at du tænkte slik paa ham.
+> Du kunde vel ikke vente jeg skulde byde frem datteren
+> min til en mand som intet eiet.» Han smilte flygtig.
+> «Men jeg holdt av gutten,» sa han sagte. «Og hadde
+> jeg set dig pines ut av kjærlighet til ham —»
+> De blev staaende og se ut. Kristin følte at faren saa
+> paa hende — hun strævet for at være rolig i ansigtet,
+> men hun kjendte hvor hvit hun blev. Da gik faren bort
+> til hende, la begge armene om hende og knuget hende
+> i favn. Han bøiet hendes hode bakover, saa ned i datte
+> rens ansigt, og gjemte det igjen ved sin skulder.
+> «Jesus Kristus, Kristin liten, er du da saa ulykke
+> lig —»
+> «Jeg tror jeg dør av det, far,» sa hun ind til ham.
+> Hun brast i graat. Men hun graat, fordi hun hadde
+> følt i hans kjærtegn og set i hans øine, at nu var han
+> .
+> saa pint ut, saa han orket ikke holde fast ved sin mot
+> stand længer. Hun hadde vundet paa ham.
+> Utpaa natten vaagnet hun ved at faren rørte ved hen
+> des skulder i mørket:
+> «Staa op,» sa han sagte, «hører du —?»
+> Da hørte hun det sang om husnoverne — den dype
+> fulde tone av vætemættet søndenvind. Det stridrandt
+> av taket, det hvisket av regn som faldt i bløt, tinende sne.
+> Kristin kastet kjolen paa sig og gik efter faren til
+> ytterdøren. Sammen stod de og saa ut i den lyse mai
+> nat varm vind og regn slog imot dem — himmelen
+> var et velte av flokede, drivende regnskyer, det bruste
+> fra skogene, det fløitet mellem husene — og oppe fra
+> tjeldet hørte de dumpe drøn av sneen som skred ut
+> over.
+> Kristin søkte farens haand og holdt den. Han hadde
+> kaldt paa hende og villet vise hende dette. Slik hadde
+> det været mellem dem før at han vilde ha gjort det.
+> Og nu var det slik igjen.
+> Da de gik ind igjen for at lægge sig, sa Lavrans:
+> «Den fremmede svenden som var her i uken, bar brev
+> til mig fra herr Munan Baardsøn. Han agter sig op
+> over hit isommer for at se til mor sin, og da bad han
+> om han maatte finde mig og faa mig i tale.»
+> «Hvad vil I svare ham, far min,» hvisket hun.
+> «Det kan jeg ikke si dig nu,» svarte Lavrans. «Men
+> jeg skal tale med ham, og saa faar jeg raade slik som
+> jeg synes jeg kan svare for Gud, datter min.»
+> Kristin krøp ind igjen til Ramborg, og Lavrans gik og
+> la sig ned ved siden av den sovende hustru. Han laa og
+> tænkte paa, at hvis flommen kom stor og overbrat, da
+> 20 — Undset: Kristin.
+> laa faa gaarder i bygden saa utsat som Jørundgaard.
+> Der skulde være en spaadom om det, at engang vilde
+> elven ta den.
+> V.
+> Vaaren kom i ett ryk. Nogen dage efter tøbruddet
+> laa bygden svartbrun under regnskyllene. Våndet fos
+> set nedigjennem lierne, elven vokste og laa som en bly
+> graa sjø i dalbunden, med smaa svømmende lunder i
+> vandskorpen og en lumsk boblende fure av strømmen.
+> Paa Jørundgaard stod våndet langt ind over jorderne.
+> Dog blev skaden overalt mindre end folk hadde frygtet.
+> Det blev sen vaaronn, og folk saadde sit knappe
+> sædekorn med bøn til Gud, at han maatte spare det
+> for nattefrosten til høst. Og det saa ut som han nu
+> vilde høre dem og lette deres byrder litt. Juni kom med
+> drivende veir, sommeren blev god, og folket vendte sig
+> mot haabet om at uaarets spor skulde bli slettet med
+> tiden.
+> Høionnen var over, da kom en kveld til Jørundgaard
+> fire mænd ridende. Det var to herrer med to svender,
+> herr Munan Baardsøn og herr Baard Petersøn til
+> Hestnæs.
+> Ragnfrid og Lavrans lot bordet duke i høienloftsstuen
+> og senger rede til gjesterne i buret. Men Lavrans bad
+> herrerne bie med at føre frem sit maalemne til næste
+> dag, nåar de var uthvilte efter reisen.
+> Herr Munan førte ordet under maaltidet, han vendte
+> meget sin tale til Kristin og snakket som de skulde
+> være godt kjendte. Hun saa at dette likte ikke faren.
+> Herr Munan var undersætsig, rød i ansigtet, grim,
+> snaksom og noget naragtig av væsen. Folk kaldte ham
+> Munan Stumpe eller Munan Dans. Men med dette
+> væsenet han hadde var dog fru Aashilds søn en for
+> standig og duelig mand, som hadde været kronens om
+> budsmand i flere saker og nok hadde en haand med
+> hos dem som raadet rikets styrelse. Han sat i sin mors
+> odelsgods i Skogheimsherred, var meget rik og hadde
+> gjort et rikt gifte. Fru Katrin, hans hustru, var merkelig
+> styg og oplot sjelden sin mund, men manden talte altid
+> om hende som hun skulde være den klokeste kone, saa
+> folk kaldte hende paa skjemt fru Katrin den raadsnilde
+> og den maalfagre. De syntes at leve godt og kjærlig
+> sammen, endda herr Munan var berygtet for sin løs
+> agtige vandel baade før og efter sit giftermaal.
+> Herr Baard Petersøn var en vakker og anselig gam
+> mel mand, om han end nu var noget mavesvær og tung
+> av lemmer. Hans håar og skjeg var noget falmet nu,
+> men endda like meget gult som hvitt. Siden kong
+> Magnus Haakonsøns død hadde han levet i ro og styrt
+> sine store eiendommer paa Nordmøre. Han var enke
+> mand efter sin anden hustru og hadde mange børn, som
+> alle skulde være vakre, velopfostrede og i gode kaar.
+> Næste dag gik Lavrans og hans gjester til samtale i
+> loftet. Lavrans bad sin hustru være hos, men hun vilde
+> ikke. «Dette maa helt ligge i dine hænder. Du vet, at
+> det blir den tungeste sorg for vor datter, hvis denne
+> sak ikke fremmes, men jeg ser vel at der er ikke litet
+> som kan tale imot dette giftermaal.»
+> Herr Munan bar frem et brev fra Erlend Nikulaussøn.
+> Erlend bød til at Lavrans maatte i ett og alt raade for
+> vilkaarene selv, om han vilde fæste ham sin datter
+> Kristin. Selv var Erlend villig til at la sine eiendommer
+> værdsaette og sine indkomster ransake av uvillige mænd,
+> yde Kristin slik tilgave og morgengave at hun blev
+> eiende tredjedelen av hans bo utenom sit eget hjemme
+> følge og al arv som hun maatte faa efter sine frænder,
+> dersom hun skulde bli enke efter ham uten børn som
+> overlevet faren. Videre bød han til at la Kristin faa
+> raade med fuld myndighet over hendes del av boet,
+> baade det hun eiet hjemmefra og det hun fik av ham.
+> Men om Lavrans ønsket andre vilkaar for boskipnaden,
+> da vilde Erlend ogsaa gjerne høre paa ham og rette sig
+> deretter. Det eneste vilkaar Kristins frænder skulde
+> binde sig til mot dette var, at om de fik vergemaal for
+> børn av ham og hende, da skulde de aldrig friste at
+> omstøte de gaver han hadde git til sin børn med Eline
+> Ormsdatter, men la staa ved magt, at dette gods var
+> utgaat av hans bo før han kom i egteskap med Kristin
+> Lavransdatter. Tilslut bød Erlend til at holde bryllup
+> pet med al sømmelig pragt hos sig paa Husaby.
+> Lavrans tok til orde og sa:
+> «Dette er et vakkert tilbud. Jeg skjønner at det ligger
+> eders frænde meget paa hjertet at komme til enighet
+> med mig. Det ser jeg ogsaa derav, at han har faat
+> Eder, herr Munan, til at fare for anden gang i et slikt
+> ærinde til en mand som mig, der ikke gjælder stort
+> utenfor denne bygden, og at en herre som I, herr Baard,
+> har umaket Eder med denne reisen for at støtte. Men
+> nu vil jeg si det om Erlends tilbud, at min datter er
+> ikke fostret op til at raade selv over gods og rigdom,
+> men jeg har altid agtet at gi hende til en mand som
+> var slik, at jeg trygt kunde lægge møens velfærd i hans
+> hænder. Ikke vet jeg om Kristin duer til at sættes med
+> en slik myndighet, men jeg tror neppe hun vil trives
+> med det. Hun er mild og føielig av sind — og dette
+> er en av de grundene som jeg har hat i hugen, da jeg
+> satte mig mot dette giftermaalet, at Erlend har dog
+> vist uforstand i fiere stykker. Hadde hun været en
+> raadelysten, djerv og stridig kvinde, da hadde saken
+> straks staat anderledes.»
+> Herr Munan brast i latter og sa:
+> «Kjære Lavrans, klager I over, at møen er for litet
+> stridig —» og herr Baard sa med et litet smil:
+> «Vilje synes mig dog Eders datter har vist, at hun
+> ikke mangler — i to aar har hun nu holdt fast ved
+> Erlend bent imot Eder.»
+> Lavrans sa:
+> «Jeg husker det godt nok, allikevel vet jeg hvad jeg
+> sier. Ondt har det været for hende selv i denne tiden
+> hun har trodset mig, og hun blir ikke længe glad med
+> en husbond, uten han kan raade over hende.»
+> «Det var djævelen og det,» sa herr Munan. «Da
+> maa Eders datter være meget ulik alle de kvinder jeg
+> har kjendt, for jeg har ikke set en, som ikke helst vilde
+> raade baade over sig selv og bonden sin med.»
+> Lavrans tråk paa skuldrene og svarte ikke.
+> Baard Petersøn sa da:
+> «Jeg kan tænke, Lavrans Bjørgulfsøn, at I har ikke
+> faat mere lyst til dette giftermaalet mellem Eders datter
+> og min fostersøn, siden det tok en slik ende med den
+> konen han hadde hos sig. Men nu maa I vite, at det
+> er kommet op, denne arme kvinden hadde latt sig lokke
+> av en anden mand, Erlends gaardsstyrer paa Husaby.
+> Erlend visste om dette, da han reiste med hende ned
+> gjennem dalen, han hadde budt til at utstyre hende
+> med sømmelig hjemmefølge, om han vilde egte hende.»
+> «I er viss paa at dette er slik,» spurte Lavrans. —
+> «Endda vet jeg ikke om saken blir vakrere av det. Haardt
+> maatte det være for en kvinde av god ætt at gaa ind
+> paa gaarden ved husbondens haand, men følges ut med
+> drengen.»
+> Munan Baardsøn tok i:
+> «Jeg skjønner dette, Lavrans Bjørgulfsøn, det meste
+> I har mot systrungen min er at han hadde dette uheldet
+> med Sigurd Saksulvsøns kone. Og det er saa, at vel
+> var det ikke. Men I faar da mindes, mand, i Guds
+> navn — der gik den unge drengen i huset med en ung
+> og vakker viv, og hun hadde en gammel kold, uduelig
+> husbond — og natten er et halvaar lang deroppe; ikke
+> synes jeg en kunde ventet stort andet, uten Erlend
+> hadde været rent en hellig mand. Det kan ikke negtes,
+> munkekjøt har Erlend aldrig hat, men jeg tænker heller
+> ikke Eders unge, vakre datter vilde takke til om I gav
+> hende til en munkemand. — Det er saa, at Erlend
+> stelte sig dumt og værre siden —. Men denne saken
+> maa da være slut engang — vi frænderne hans har
+> strævet for at hjelpe gutten paa fote igjen, konen er
+> død, og Erlend har sørget alt han evnet for hendes
+> krop og sjæl, bispen i Oslo selv har løst ham ut av
+> hans synd, og nu er han hjemkommet, renset ved det
+> hellige blod i Schwerin — vil I være strengere end
+> bispen i Oslo og han erkebispen eller hvem det nu er
+> som raader dernede med det kostelige blod —.
+> Kjære Lavrans, det er slik, at renlevned er en vakker
+> ting, men det evner sandelig ikke en voksen kar uten
+> en særskilt naadegave fra Gud, Ved Sankt Olav — I
+> faar da mindes, at den hellige kongen selv fik ikke den
+> gaven før det led mot slutten av hans liv hernede —
+> ventelig var det Guds vilje, at han skulde først avle den
+> dugelige drengen kong Magnus som kastet ned hed
+> ningenes storm paa nordlandene. Kong Olav hadde
+> ikke den sønnen med dronningen sin, og dog sitter han
+> blandt de høieste helgener i Himmerike. Ja jeg ser paa
+> Eder at I synes dette er usømmelig tale —»
+> Herr Baard brøt av:
+> «Lavrans Bjørgulfsøn, jeg likte ikke denne saken
+> bedre end I, da Erlend kom til mig første gangen og sa,
+> han hadde lagt sin hug til en mø, som var bortlovet.
+> Men jeg har skjønt det siden, at der er saa sterk en
+> kjærlighet mellem disse to unge, at det vilde være stor
+> synd at skille deres venskap. Erlend var med mig til
+> den sidste juleveitslen kong Haakon holdt for sine mænd
+> der møttes de, og straks de saa hinanden, daanet
+> eders datter ned og laa som død en lang stund — men
+> jeg saa paa min fostersøn, at han vilde heller miste sit
+> liv end hende.»
+> Lavrans sat litt inden han svarte:
+> «Ja slikt tykkes en at være vakkert nåar en hører
+> det i en riddersaga fra sydlandene. Men vi er nu ikke
+> i Bretland, og I vilde vel ogsaa kræve mere av en mand
+> I skulde ta til maag end at han har faat eders datter
+> til at dåane av elskov for alle folks øine —»
+> De to andre taug, da blev Lavrans ved:
+> «Jeg tænker det, I gode herrer, at hadde ikke Erlend
+> Nikulaussøn forringet meget baade sit gods og sit ry,
+> da sat I ikke her og bad saa meget en mand i mine
+> kaar, at jeg skulde gi min datter til ham. Men jeg vil
+> ikke at det skal sies om Kristin at hun blev hædret, da
+> hun giftet sig ind paa Husaby med en mand av lan
+> dets gjæveste ætter — efter manden hadde skjæmt sig
+> ut slik, at han kunde ikke vente bedre gifte eller holde
+> oppe sin ætts anseelse.»
+> Han reiste sig heftig, gik frem paa gulvet og drev
+> op og ned.
+> Men herr Munan for op:
+> «Nei Lavrans, snakker I om at skjæmme sig ut, da
+> skal I sandt for Gud vite at I er altfor hovmodig —»
+> Herr Baard brøt ham av; han gik bort til Lavrans:
+> «Hovmodig er I, Lavrans — I er slik som hine bøn
+> derne vi har hørt om før i tiden som ikke vilde ta mot
+> navnebøter av kongerne, fordi deres hovmot kunde ikke
+> taale at folk skulde si, de skyldte nogen tak uten sig
+> selv. Det sier jeg eder, hadde Erlend staat med saa
+> megen ære og rigdom som svenden var født til, saa
+> vilde jeg endda ikke regnet for at jeg forringet mig,
+> nåar jeg bad en godættet og velstaaende mand om at
+> gi sin datter til min fostersøn, hvis jeg skjønte de to
+> unge kan faa sin hjertespreng, skal de skilles ad. Helst,»
+> sa han sagte og la en haand paa den andens skulder,
+> «hvis det stod slik at det var bedst for begges sjæle
+> helse at de fik gifte sig med hinanden.»
+> Lavrans rettet sig unna den andens haand; hans an
+> sigt blev stængt og koldt:
+> «Jeg skjønner vist ikke hvad I mener, herre.»
+> De to mænd saa paa hinanden en stund; da sa herr
+> Baard:
+> «Jeg mener det at Erlend har sagt mig, de to har
+> svoret sig til hinanden med de dyreste eder. Kanhænde
+> I tænker som saa, at I har myndighet til at løse eders
+> barn, siden hun har svoret uten eders samtykke. Men
+> Erlend kan I ikke løse. — Og ikke kan jeg se andet
+> end at det som staar mest i veien er eders hovmodig
+> het — og eders hat til synden. Men i det stykke tyk
+> kes det mig at I vil være strengere end Gud selv, Lav
+> rans Bjørgulfsøn!»
+> Lavrans svarte noget usikkert:
+> «Kanhænde har I nogen ret i dette som I her sier
+> mig, herr Baard. Men mest har jeg sat mig imot dette
+> fordi det syntes mig at Erlend var en utrygg mand at
+> gi min datter i hænderne paa.»
+> «Jeg tænker jeg tør borge for min fostersøn nu,» sa
+> Baard dæmpet. «Han har Kristin saa kjær at jeg vet.
+> gir I hende til ham, da vil han arte sig slik at I skal
+> ikke faa aarsak til at klage paa maagen.»
+> Lavrans svarte ikke med det samme. Da sa herr Baard
+> indtrængende og holdt ut sin haand:
+> «I Guds navn, Lavrans Bjørgulfsøn, gi eders jaord!»
+> Lavrans la sin haand i herr Baards:
+> «I Guds navn!»
+> Ragnfrid og Kristin blev kaldt op i loftet, og Lavrans
+> sa dem sin beslutning. Herr Baard hilste vakkert paa
+> de to kvinder, herr Munan haandtokes med Ragnfrid
+> og talte høvisk til husfruen, men Kristin hilste han paa
+> utenlandsk vis med kys, og han gav sig tid over den
+> hilsingen. Kristin kjendte at faren saa paa hende under
+> dette.
+> «Hvordan liker du din nye frænde, herr Munan,»
+> spurte han spotsk, da han blev alene med hende et
+> øieblik ut paa kvelden.
+> Kristin saa bønlig paa faren. Da strøk han hende
+> over ansigtet nogen ganger og sa ikke mere,
+> Da herr Baard og herr Munan gik til ro, sa den
+> sidste:
+> «Ikke litet skulde jeg git for at faa se denne Lav
+> rans Bjørgulfsøns mine, om han fik vite sandheten om
+> denne dyre datteren. Her har du og jeg maattet tigge
+> paa knæ at Erlend skal faa til kone en kvinde som han
+> har hat hos sig i Brynhilds gaard mange ganger —»
+> «Hold mund med det,» svarte herr Baard forbitret.
+> «Det er det værste Erlend har gjort at han lokket dette
+> barnet til slike steder — og la aldrig Lavrans faa
+> nys om det; det er bedst for alle at de to nu kan bli
+> venner.»
+> Det blev avtalt at fæstensøllet skulde drikkes samme
+> høst. Lavrans sa at han kunde ikke gjøre dette gildet
+> meget stort, fordi det forrige aaret hadde været uaar
+> her i dalen; til gjengjæld vilde han selv koste brylluppet,
+> og holde det paa Jørundgaard med sømmelig pragt.
+> Han nævnte igjen uaaret som aarsak til at han krævet,
+> trolovelsestiden skulde vare ett aar.
+> VI.
+> Fæstensøllet blev utsat av forskjellige aarsaker; det
+> stod først paa nyaaret, men Lavrans gik med paa
+> at brylluppet ikke derfor skulde bli utsat; det skulde
+> staa straks over Mikalsmesse, som den første avtalen
+> lød.
+> Saa sat da Kristin paa Jørundgaard og var Erlends
+> rette fæstekone. Sammen med moren saa hun over alt
+> utstyret som var samlet op til hende, og strævet med
+> at øke bunkerne av sengebunad og klær endda mere,
+> for Lavrans vilde, der skulde intet spares, nåar han
+> først hadde git sin datter til husbonden paa Husaby.
+> Kristin undret sig selv over at hun var ikke mere
+> glad nu. Men trods al travlheten var der ingen rigtig
+> glæde paa Jørundgaard.
+> Forældrene savnet Ulvhild såart, det skjønte hun.
+> Men hun forstod ogsaa at det var ikke bare det som
+> voldte, at de var saa stille og uglade. De var snille mot
+> hende, men nåar de talte til hende om hendes fæste
+> mand, da skjønte hun at de tok paa tak og gjorde det
+> for at glæde hende og vise hende venlighet; de gjorde
+> det ikke for de selv hadde lyst til at snakke om Erlend.
+> De var ikke blit mere glade over det gifte, hun gjorde,
+> nu de var blit kjendt med manden. Erlend selv hadde
+> ogsaa været stille og holdt sig tilbake den korte tiden,
+> han hadde været paa Jørundgaard til trolovelsen —
+> og anderledes kunde det vel ikke være, tænkte Kristin;
+> han visste jo at hendes far bare ugjerne hadde git sit
+> samtykke.
+> Selv hadde hun og Erlend neppe faat skifte ti ord i
+> enerum. Og det hadde været uvant og rart for dem
+> begge at sitte sammen slik i alle folks paasyn; da hadde
+> de hat litet at tale om, fordi de hadde hat saa meget
+> hemmelig sammen. Der dæmret en usikker frygt hos
+> hende, vag og dunkel, men altid nærværende — at det
+> kanske paa en eller anden maate kunde bli vanskelig
+> for dem, nåar de nu blev gifte, det at de først hadde
+> staat hinanden saa altfor nær og siden saa altfor længe
+> hadde været helt skilt ad.
+> Men hun prøvet at slaa det fra sig. Det var menin
+> gen at Erlend skulde gjeste dem paa Jørundgaard ved
+> hvitsøndagstider; han hadde spurt Lavrans og Ragn
+> frid om det vilde være dem imot at han kom, og Lavrans
+> hadde ledd litt og svart, han skulde da ta vel imot
+> maagen sin, kunde Erlend vite.
+> Ved hvitsøndagstider kunde de gaa ute sammen, de
+> kunde da faa tales ved som i gamle dage, og da gik
+> den vel bort, denne skyggen som var kommet mellem
+> dem av den lange skilsmissen, da de hadde gaat hver
+> for sig og baaret sit alene.
+> I paasken var Simon Andressøn og hans hustru paa
+> Formo. Kristin saa dem i kirken. Simons kone stod
+> ikke langt fra hende.
+> Hun maatte være meget ældre end ham, tænkte
+> Kristin — nær tredve aar. Fru Halfrid var spæd og
+> liten og mager, men hun hadde et forunderlig yndig
+> ansigt. Selve den bleke brune farven paa hendes håar,
+> som bølget frem under linklædet, var likesom saa blid,
+> og fuld av blidhet var hendes øine; de var store og
+> gråa med et dryss av smaa guldstænk i. Hvert drag i
+> hendes ansigt var fint og skjært — men hun var litt
+> graablek i huden, og nåar hun aapnet munden, saa man
+> at hun hadde ikke gode tænder. Hun saa ikke sterk ut
+> og skulde ogsaa være sykelig — hadde nok allerede
+> faret ilde flere ganger, hørte Kristin. Hun undret sig
+> paa, hvordan Simon kunde ha det med denne hustruen.
+> Jørundgaardsfolket og de fra Formo hadde hilst paa
+> hinanden tvers over kirkebakken nogen ganger, men
+> ikke talt sammen. Men tredjedagen var Simon i kirken
+> uten sin kone. Da gik han bort til Lavrans, og de snak
+> ket sammen en stund. Kristin hørte at Ulvhild blev
+> nævnt mellem dem. Baketter talte han med Ragnfrid.
+> Ramborg, som stod hos moren, sa ganske høit: «Jeg
+> mindes dig godt jeg — jeg vet hvem du er.» Simon
+> lettet barnet op litt og snurret hende rundt: «Det var
+> vakkert av dig det, Ramborg, at du ikke har glemt
+> mig.» Paa hende hilste han bare et stykke borte fra.
+> Og forældrene nævnte ikke møtet etterpaa.
+> Men Kristin tænkte en hel del paa det. Det hadde
+> allikevel været underlig at se igjen Simon Darre som
+> gift mand. Der var saa meget gammelt som blev le
+> vende ved det: hun husket sin egen blinde og undergivne
+> elskov til Erlend dengang. Nu var den noget ander
+> ledes. Hun tænkte paa om Simon hadde fortalt sin
+> hustru, hvordan han og hun var blit skilt — men det
+> visste hun han ikke hadde gjort «for min fars skyld»,
+> tænkte hun spotsk. Det var saa underlig fattig at hun
+> gik her ugift hjemme hos forældrene endda. Men tro
+> lovede var de, Simon kunde se, de hadde faat trodset
+> sit igjennem. Hvad saa Erlend ellers hadde gjort,
+> hende hadde han holdt trofast ved, og hun hadde ikke
+> været løs eller letfærdig.
+> En kveld tidlig paa vaaren skulde Ragnfrid ha et
+> bud sydover til Gamle Gunhild, den enken som sydde
+> pelsverk. Kvelden var saa vakker, og Kristin bad om
+> ikke hun kunde faa fare; tilsidst fik hun lov, da mæn
+> dene hadde travlt alle.
+> Det var efter solnedgang, og der steg en fin hvit
+> frostaande op mot den guldgrønne himmel. Kristin
+> hørte ved hvert hovslag den skjøre lyd av kveldis,
+> som brøtes og stænket raslende utover. Men fra krattet
+> langs veien jublet fuglesangen bløtt og vaarlig fuldt
+> mot skumringen.
+> Kristin red raskt nedover, hun tænkte ikke større paa
+> noget, men bare kjendte det var godt at faa være alene
+> ute engang igjen. Hun red med øinene fæstet paa ny
+> maanen som var ved at synke ned mot fjeldkammen
+> paa hin siden av dalen. Saa hun var nær faldt av
+> hesten, da den pludselig sprat ut til siden og steilet.
+> Hun saa der laa et mørkt legeme sammenbyltet i
+> veikanten — først blev hun ræd. Den stygge angsten
+> hun hadde faat i sig for at møte folk alene paa veien
+> blev hun aldrig kvit. Men hun tænkte det kunde være
+> en veifarende som var blit syk, saa da hun atter hadde
+> faat magt over hesten, vendte hun den og red tilbake,
+> mens hun ropte om der var folk?
+> Bylten rørte sig litt, og en stemme sa:
+> «Jeg mener det er dig selv, Kristin Lavransdatter —»
+> «Broder Edvin,» spurte hun sagte. Hun var like ved
+> at tro, dette var blendverk eller djævelskap som vilde
+> narre hende. Men hun gik bort til ham; det var virke
+> lig den gamle, og han kunde ikke reise sig uten hjelp.
+> «Kjære fader min — er I ute og vandrer paa denne
+> tid av aaret,» sa hun forbauset.
+> «Lovet være Gud som sendte dig denne veien ikveld,»
+> sa munken. Kristin merket at han skalv over hele krop
+> pen. «Jeg agtet mig nord til dere, men nu orket jeg
+> ikke gaa længer ikveld. Jeg trodde næsten det var Guds
+> vilje at jeg skulde ligge og dø paa de veiene der jeg
+> har ligget og ræket hele mit liv. Men jeg vilde gjerne
+> faat skriftemaal og den sidste tjenesten. Og jeg vilde
+> gjerne set dig igjen en gang, datter min —»
+> Kristin hjalp munken op paa hesten sin; hun leiet
+> den ved bigselet og støttet ham. Indimellem at han
+> anket sig for hun nu blev vaat om føtterne i issørpen,
+> klaget han sagte av smerte.
+> Han fortalte at han hadde været i Eyabu siden jul;
+> nogen rike bønder i bygden hadde lovet under uaaret
+> at forbedre kirken sin med nye prydelser. Men det
+> hadde gaat smaat med arbeidet; han hadde været syk
+> utover vinteren — det var noget vondt i maven, saa
+> han brækket op blod og taalte ikke mat. Han trodde
+> selv han hadde ikke langt igjen, og han stundet nu
+> hjem til klosteret sit, vilde helst faa dø der hos brødrene
+> sine. Men han hadde faat hug til at komme nordover
+> dalen en sidste gang først, og saa hadde han fulgt med
+> da den prestmunken fra Hamar reiste nord som skulde
+> være den nye husfaren paa pilegrimsherberget paa
+> Roaldstad. Fra Fron hadde han gaat videre alene.
+> «Jeg spurte det at du var blit trolovet,» sa han, «med
+> denne manden —. Og da fik jeg slik en længsel efter
+> at se dig. Det tyktes mig såart at det skulde være
+> vort sidste møte, det ute i kirken hos os. Det har lig
+> get saa tungt paa hjertet mit, Kristin, at du var kom
+> met ut paa ufredens vei —»
+> Kristin kysset munkens haand og sa:
+> «Ikke skjønner jeg, fader, hvad jeg har gjort og for
+> skyldt, at I viser mig saa stor kjærlighet.»
+> Munken svarte sagte:
+> «Jeg har tænkt ofte, Kristin, at hadde det baaret til
+> slik at vi hadde møttes oftere, da kunde du blit som
+> min aandelige datter.»
+> «Mener I at da skulde I ført mig dit, at jeg vendte
+> mit sind til klosterlivet,» spurte Kristin. Litt efter sa
+> hun: «Sira Eirik la det paa mig, at kunde jeg ikke
+> faa min fars samtykke og bli gift med Erlend, da maatte
+> jeg gaa ind i et gudelig søsterlag og bedre synderne
+> mine —»
+> «Jeg har ofte bedt om at du maatte faa længsel efter
+> klosterlivet,» sa broder Edvin. «Men ikke siden du sa
+> det du vet. Jeg vilde du skulde kommet til Gud med
+> kransen din, Kristin —»
+> Da de kom til Jørundgaard, maatte broder Edvin
+> bæres ind og i seng. De la ham i den gamle vinter
+> stuen, aarestuen, og stelte om ham paa det bedste. Han
+> var meget syk, og Sira Eirik kom bort og saa til ham
+> med lægemidler for legeme og sjæl. Men presten sa
+> det var cancer som feilet den gamle, og han kunde
+> ikke ha længe igjen at leve. Broder Edvin mente selv
+> at nåar han var kommet litt til kræfter, vilde han reise
+> sydover igjen og prøve at række hjem til sit kloster.
+> Sira Eirik sa til de andre at han trodde ikke dette var
+> at tænke paa.
+> Alle paa Jørundgaard syntes der var kommet en stor
+> fred og glæde ind til dem med munken. Folk kom og
+> gik i aarestuen hele dagen, og der var aldrig vondt om
+> nogen som vilde vaake om nætterne hos den syke. De
+> flokket sig saa mange som hadde tid til at sitte og
+> høre paa, nåar Sira Eirik kom over og læste for den
+> døende av gudelige bøker, og de talte med broder Edvin
+> om aandelige ting. Og endda meget av det han sa var
+> dunkelt og uklart, som han hadde pleiet at tale, saa
+> syntes folk han styrket og trøstet deres sjæl, fordi hver
+> og en kunde skjønne at broder Edvin var helt opfyldt
+> av kjærlighet til Gud.
+> Men munken vilde ogsaa gjerne høre om alt mulig
+> andet, spurte nyt fra bygderne, og lot Lavrans forfelle
+> om uaaret. Der var folk som hadde grepet til onde
+> raad i den trængselen og vendt sig til slike hjelpere
+> som kristne mænd maatte sky. Litt indpaa aasen vest
+> for dalen var der et sted i fjeldet nogen store hvite
+> Stener, som var skapt lik menneskenes hemmelige ting,
+> og nogen mænd var faldt til at ofre raaner og kj ætter
+> ved denne styggedom. Sira Eirik hadde da faat nogen
+> av de frommeste og modigste bønderne med ditind en
+> nat og de hadde slaat sund stenene. Lavrans hadde
+> været med og kunde vidne, de var helt tilsmurte med
+> blod, og der laa ben og slikt omkring. — Oppe i Heidal
+> skulde folk ha latt en gammel kone sitte ute paa en
+> jordfast sten og kvæde gamle galdrer i tre torsdags
+> nætter.
+> En nat sat Kristin alene hos broder Edvin.
+> Ved midnatstid vaagnet han og syntes at lide store
+> smerter. Da bad han Kristin ta boken om Jomfru
+> Marias jertegn, som Sira Eirik hadde laant broder
+> Edvin, og læse for ham.
+> Kristin var uvant med at læse høit, men hun satte
+> sig paa sengetrinet og stillet lyset ved sin side; hun tok
+> boken paa knæet og læste saa godt hun kunde.
+> Om en stund saa hun at den syke laa og bet fen
+> derne sammen; han knyttet sine uttærede hænder under
+> smerterierne.
+> «I lider haardt, kjære fader,» sa Kristin bedrøvet.
+> «Det synes mig slik nu. Men jeg vet at det er Gud
+> som har gjort mig til barn igjen, og tumler med mig
+> op og ned —.
+> — Jeg mindes en gang mens jeg var liten — fire
+> vintre gammel var jeg — da hadde jeg strøket hjemme
+> fra og tilskogs. Jeg gik vild der og var ute i mange
+> nætter og dage —. Mor min var med de folkene som
+> 21— Undset: Kristin.
+> fandt mig, og da hun tok mig op i armene sine, bet
+> hun mig i nakken, kan jeg huske. Jeg trodde det var
+> fordi hun var harm paa mig, men siden skjønte jeg
+> bedre.
+> — Nu længter jeg selv hjem av denne skogen. Der
+> staar skrevet: forlater alle ting og følger mig, men der
+> har været saa altfor meget her i verden som jeg ikke
+> hadde hug til at forlate —»
+> «I, fader?» sa Kristin. «Altid har jeg hørt alle si at
+> I har været et foredøme paa renlevned og fattigdom og
+> ydmyket —»
+> Munken smaalo:
+> «Ja du unge barnet tror vel ikke der er andet som
+> lokker i verden end vellyst og rigdom og magt. Jeg
+> sier dig, disse er smaa ting som en finder efter vei
+> kanten, og jeg, jeg elsket veiene — ikke verdens smaa
+> ting elsket jeg, men hele verden. Gud gav mig naade
+> til at elske fru fattigdom og fru kyskhet fra ungdom
+> men av, og derfor saa trodde jeg, med disse lekesøstrene
+> gik jeg tryg, og saa har jeg vanket og gaat og jeg
+> ønsket jeg kunde kommet over alle jordens veie. Og
+> mit hjerte og mine tanker har vanket og gaat de og
+> — jeg er ræd jeg har faret vild ofte i mine tanker om
+> de dunkleste tingene. Men nu er det slut, Kristin liten,
+> nu vil jeg hjem til huset mit og lægge fra mig alle mine
+> egne tanker, og høre gardianens klare ord om hvad jeg
+> skal tro og tænke om min synd og om naaden i
+> Gud —»
+> Litt efter sovnet han. Kristin satte sig hen til aaren
+> og passet varmen. Men ut paa morgensiden, da hun
+> selv var ved at blunde av, sa broder Edvin med ett
+> henne fra sengen.
+> «Jeg er glad, Kristin, at denne saken med Erlend
+> Nikulaussøn og dig er ført til en god ende.»
+> Da brast Kristin ut i graat:
+> «Vi har gjort saa megen uret før vi kom hit. Og det
+> gnager mest paa hjertet mit at jeg har gjort min far
+> saa megen sorg. Han er ikke glad for dette nu heller.
+> Og endda saa vet han ikke — visste han alt, da tok
+> han vel sit venskap aldeles fra mig.»
+> «Kristin,» sa broder Edvin mildt, «skjønner du ikke
+> det, barn, at det er derfor du skal tie for ham, og det
+> er derfor at du ikke maa gjøre ham sorg mere — fordi
+> han aldrig vil kræve bod av dig. Ingen ting du kunde
+> gjøre kunde forandre din fars hjertelag mot dig.»
+> Et par dage senere hadde broder Edvin det saa godt
+> at han vilde fare sydover. Siden dette laa ham saa
+> meget paa hjerte, lot Lavrans gjøre enslags baare, som
+> blev ophængt mellem to hester, og slik førte han den
+> syke saa langt syd som til Lidstad; der fik broder Edvin
+> nye hester og nyt følge, og slik blev han ført frem saa
+> langt som til Hamar. Der døde han i prædikebrødrenes
+> kloster og blev gravlagt i deres kirke. Siden forlangte
+> barfotbrødrene liket utleveret til sig, fordi mange folk
+> omkring i bygderne holdt ham for en hellig mand, og
+> talte om ham som Sankt Even; bønderne bad til ham
+> opover Oplandene og Dalene helt nord til Trondheim.
+> Der blev derfor en lang trætte mellem de to klostere
+> om liket.
+> Om dette hørte Kristin først meget senere. Men hun
+> sørget saare da hun skiltes fra munken. Det syntes
+> hende at han alene kjendte helt ut hendes liv — han
+> hadde kjendt det menløse barn, hun hadde været i sin
+> fars varetægt, Og han hadde kjendt hendes hemmelige
+> liv med Erlend, saa han var som et spænde, syntes
+> hun, der bandt alt hun hadde hat kjært sammen med
+> det som nu fyldte hendes sind. Nu var hun helt skilt
+> fra sig selv som hun hadde været, den tid hun var mø.
+> VII.
+> «Jeg tænker,» sa Ragnfrid og kjendte paa det lunkne
+> brygg i karrene, «nu er det saa svalet at vi kan blande
+> i gjæret.»
+> Kristin hadde sittet i bryghusdøren og spundet, mens
+> hun ventet paa at laagen skulde kjøle sig. Hun la fra
+> sig tenen paa dørhellen, viklet spandet med opløst øl
+> gang ut av aaklædet og maalte op.
+> «Luk døren først,» bad moren, «saa der ikke kommer
+> træk til. — Du gaar som du sover, Kristin,» sa hun
+> ærgerlig.
+> Kristin silte ned i bryggerkarrene, mens Ragnfrid
+> rørte.
+> — Geirhild Drivsdatter kaldte paa Hatt, men det var
+> Oden. Da kom han og hjalp hende med ølbryggingen;
+> han krævet i løn det som var mellem karret og hende. —
+> Det var en saga som Lavrans hadde fortalt engang,
+> mens hun var liten.
+> — Det som var mellem karret og hende. — Kristin
+> følte sig syk og ør av heten og den søte krydderdamp
+> i det mørke, stængte bryghus.
+> Ute i tunet gik Ramborg med en ungeflok i ring og
+> sang:
+> Ørnen sitter paa høgste hallen
+> og krøker sin gylte klo —
+> Kristin fulgte med moren ut gjennem det lille forrum
+> hvor der laa tomme ølankere og alslags redskap. Der
+> fra var en dør ut til en stripe grund mellem bryghusets
+> bakre væg og skigaren om bygakeren. En flok griser
+> puffet hverandre, betes og skrek, mens de slos om den
+> utkastede lunkne mask.
+> Kristin skygget øinene med haanden mot det blen
+> dende middagssolskin. Moren saa paa svineflokken
+> og sa:
+> «Mindre end atten rensdyr kan vi ikke klare os med.»
+> «Kan vi trænge saa mange, tror I,» sa datteren tanke
+> spredt.
+> «Ja vi maa bære frem vildt med flesket hver dag,»
+> svarte moren. «Og av fugl og hare faar vi neppe mere
+> end som gaar til i høienloftet alene. Du faar huske, her
+> kommer indpaa det andet hundrede mennesker — med
+> tjenestefolk og børn — og de fattige som skal mættes.
+> Og selv om nu du og Erlend farer bort femtedagen,
+> saa blir vel nogen av gjesterne uken ut — mindst.»
+> «Du faar bli her og passe paa øllet du, Kristin,»
+> mælte Ragnfrid. «Jeg maa gaa og sørge for maten til
+> far din og slaattefolket.»
+> Kristin hentet spindingen sin, og satte sig der i bak
+> døren. Hun stak spiren med uldhodet op i armhulingen,
+> men hænderne hendes sank ned i fanget med tenen.
+> Bakom skigaren glinset byggens vipper som sølv og
+> silke i solen. Over elvesusen hørte hun nu og da lyden
+> av ljaa i engene ute paa holmen — sommetider bet
+> jernet mot en sten. Faren og husfolkene slet for at faa
+> slaattonnen unnagjort. Der var jo saa meget at stri
+> ;med til hendes bryllup.
+> Lugten av det lunkne mask og den stramme tev av
+> svinene — hun blev kvalm igjen. Og middagsheten
+> voldte at hun blev saa svimmel og mat. Hvit og stiv i
+> ryggen sat hun og biet paa det skulde gaa over — vilde
+> ikke bli syk igjen.
+> — Saan hadde hun aldrig kjendt sig før. Det nyttet
+> nok ikke om hun prøvet at trøste sig, det var ikke sik
+> kert endda, hun kunde ta feil. Det som var mellem
+> karret og hende —.
+> Atten rener. Indpaa det andet hundrede av bryllups
+> gjester. — Folk skulde faa litt at le av da, nåar det
+> spurtes at alt dette opstyret hadde bare været om en
+> barnkone som de skulde se at faa gift forinden —.
+> Aanei. Hun kastet fra sig spindingen og for op.
+> Med panden mot bryghusvæggen brækket hun sig ned i
+> neslekjærrene som grodde frodig indtil der. Det myldret
+> av brune aamer paa neslerne — hun blev endda sykere
+> av at se det.
+> Kristin strøk hænderne over sine svedvaate tindinger.
+> Aanei, det var da sikkert nok —.
+> De skulde vies anden søndag efter Mikalsmesse, og
+> saa skulde deres bryllup drikkes i fem dage. Der var
+> mere end to maaneder til. Da kunde de vel se det paa
+> hende — moren og de andre hustruerne i bygden. De
+> var altid saa kloke slik, visste altid om det, nåar en
+> kone gik med barn, maaneder før Kristin kunde skjønne,
+> hvad de saa det paa. Stakkar, hun falmer slik —.
+> Utaalmodig skrubbet Kristin hænderne mot sine kinder,
+> for hun følte de var blodløst hvite.
+> Før, da hadde hun jo saa ofte tænkt, dette maatte vel
+> komme paa engang. Og hun hadde ikke været saa
+> forfærdelig ræd for det. Men det vilde ikke været det
+> samme dengang, da de ikke kunde og ikke maatte faa
+> hinanden paa lovlig vis. Det blev regnet — ja for en
+> skam paa sæt og vis, og for synd ogsaa — men var
+> det to unge som ikke vilde la sig tvinge fra hinanden,
+> saa glemte folk ikke det og talte om dem med godhet.
+> Hun vilde ikke skammet sig. Men nåar slikt hændte
+> mellem fæstefolk — saa blev der bare ledd av det og
+> skjemtet grovt. Hun skjønte selv — det var latterlig;
+> her brygget de og blandet vin, der skulde slagtes og
+> bakes og lages til et bryllup som der kunde g?.a ord
+> av — og hun, bruden, blev kvalm, bare hun lugtet mat,
+> krøp koldsvedende bakom uthusene og var syk —.
+> Erlend. Hun bet tænderne sammen i vrede. Han
+> skulde spart hende for dette. For hun hadde ikke villet.
+> Han burde husket paa at før, da alting hadde været saa
+> uvisst for hende, da hun ikke hadde hat andet at lite
+> paa end hans kjærlighet, da hadde hun altid, altid glade
+> lig været ham til vilje. Han skulde latt hende være nu,
+> da hun prøvet at negte, fordi hun syntes, det var ikke
+> vakkert av dem, om de stjal sig til noget efter faren
+> hadde lagt deres hænder sammen i deres begges fræn
+> ders paasyn. Men han hadde tat hende, halvveis med
+> vold, og med latter og med kjærtegn; saa hun ikke hadde
+> evnet at vise ham, hun hadde ment alvorlig med sin
+> motstand.
+> — Hun var inde og saa til øllet, kom tilbake igjen
+> og stod og hang over skigaren. Kornet duvet svakt i en
+> liten luftning og glinset. Hun kunde ikke mindes hun
+> hadde set akrerne saa tætte og frodige noget aar som
+> iaar. — Det blikket av elven langt ute, og hun hørte
+> sin fars røst som ropte — ordene kunde hun ikke
+> skjelne, men de 10, folkene ute paa holmen.
+> — Om hun skulde gaa til sin far og si det. — Det
+> var bedre at la fare alt dette strævet, gi hende og Er
+> lend sammen stilfærdig, uten kirkevigsel og stort gilde
+> — nu det bare gjaldt at hun fik hustrunavn inden det
+> blev synlig for alle mennesker at hun hadde Erlends
+> barn under barmen allerede.
+> Han blev til spot, Erlend og, like fuldt som hun selv
+> — eller mere; han var dog ingen unggut. Men det var
+> han som hadde villet ha dette brylluppet, han hadde
+> villet se hende staa brud i silke og fløil og høi guld
+> krone — han hadde villet det, og han hadde villet eie
+> hende ogsaa alle de søte, lønlige stunderne. Hun hadde
+> føiet ham i ett og alt. Hun skulde bli ved at gjøre ham
+> til vilje i det andet og.
+> Saa fik han vel se tilsidst — ingen kunde faa begge
+> dele. Han som hadde snakket om det store julegildet
+> han skulde holde paa Husaby første aaret hun sat som
+> husfrue paa hans gaard — da skulde han syne frem
+> for alle sine frænder og venner og folk fra bygderne
+> vidt omkring den vakre konen han hadde faat. Kristin
+> smilte haanlig. Dette vilde neppe høve ved juletider iaar.
+> Omkring Gregorsmesse skulde det bli. Det var
+> som tankerne tok til at stime i hendes sind nåar hun
+> sa til sig selv, at ved Gregorsmesseleite skulde hun
+> føde barn. Hun var litt ræd ved det ogsaa — hun
+> husket morens skrik som hadde skingret over gaarden
+> i to døgn, dengang Ulvhild kom til verden. Over paa
+> Ulvsvolden var to unge koner efter hinanden døde i
+> barnsnød — og begge de første konerne til Sigurd av
+> Loptsgaard. Og hendes egen farmor som hun var kaldt
+> op efter —.
+> Men hun var ikke mest ræd. Hun hadde tænkt det i
+> disse aarene saa ofte, nåar hun paany hadde merket, hun
+> var endda usvanger — kanske skulde dette bli straffen
+> over hende og Erlend. At hun skulde bli ved at være
+> gold. De skulde komme til at vente og vente forgjæves
+> paa det de hadde frygtet før, skulde faa haabe saa
+> faafængt som de før hadde frygtet i utrængsmaal. Til
+> de tilslut visste, at engang skulde de bæres ut fra hans
+> ættegaard og være borte — bror hans var jo prest, de
+> børnene han hadde, kunde aldrig arve ham. Munan
+> Stumpe og hans sønner skulde komme ind og sætte sig
+> i deres sæte, og Erlend skulde være slettet ut av slegten.
+> Hun la en haand haardt ind mot sit fang. Det var
+> der — mellem skigaren og hende, mellem karret og
+> hende. Mellem hende og hele verden var det — Er
+> lends egte søn. Hun hadde alt prøvet det raadet hun
+> hadde hørt fru Aashild tale om engang, med blod av
+> høire og venstre arm. Det var søn hun gik med. Hvad
+> han saa skulde bringe hende. — Hun husket de døde
+> smaa brødrene sine, forældrenes sorgfulde ansigter de
+> gangene de hadde nævnt dem, hun husket alle de gan
+> gene hun hadde set dem fortvile for Ulvhilds skyld, —
+> den natten Ulvhild døde. Og hun tænkte paa al den
+> sorg hun selv hadde voldt dem, paa farens forgræm
+> mede aasyn — og endda var ikke enden paa de sorger
+> hun skulde bringe over far og mor —.
+> Allikevel, allikevel. Kristin la hodet ned paa armen
+> over skigaren; den anden haand holdt hun endda over
+> sit fang. Om det bragte hende nye sorger, om det
+> skulde tvinge hende tildøde — hun vilde hellere dø for
+> at føde Erlend en søn end at de skulde dø begge en
+> gang, og husene staa tomme efter dem, og kornet skulde
+> duve for fremmede over bøerne deres —.
+> Der kom en i forstuen. Øllet! tænkte Kristin — jeg
+> skulde set til det for længe siden. Hun rettet sig op —
+> da dukket Erlend sig ut under dørkarmen og kom frem
+> i solskinnet — straalende glad:
+> «Er det her du staar,» sa han. «Og du gaar mig ikke
+> et skridt til møtes engang,» spurte han hende; han kom
+> bort og tok omkring hende.
+> «Kjære, er du kommet hit da,» sa hun forbauset.
+> Han maatte like været staat av hesten — hadde kap
+> pen over skulderen endda og sverdet ved siden — var
+> vraket, skidden og svært støvet. Han var klædt i en
+> rød kjortel som faldt i folder fra halsringningen og var
+> opsplittet i siderne næsten til under armene. Mens de
+> gik gjennem bryghuset og opover tunet, slog dragten
+> om ham saa laarene hans vistes helt til midjen. Det var
+> underlig — hun hadde aldrig før lagt merke til at han
+> skjævet litt utover nåar han gik — før hadde hun bare
+> set at han hadde lange, slanke ben, spinkle fotledd og
+> smaa, velskapte føtter.
+> Erlend var kommet mandsterk — med fem svende
+> og fire løshester. Han fortalte Ragnfrid at han var kom
+> met for at hente Kristins gods — det var vel hyggeligere
+> for hende at finde tingene sine paa Husaby, nåar hun
+> kom dit? Og saa sent paa høsten som brylluppet skulde
+> staa, turde det bli vanskeligere at faa fragtet det frem
+> — let kunde det bli skjæmt av sjøvand paa skibet
+> ogsaa? Nu hadde abbeden i Nidarholm budt til at
+> han kunde faa sende det med Laurentiusbussen — de
+> ventet den skulde seile fra Veøy omkring Maria Him
+> melfartsdag. Derfor var han kommet for at faa kjørt
+> godset ut gjennem Raumsdalen til nesset.
+> Han sat i ildhusdøren og dråk øl og snakket,
+> >
+> mens Ragnfrid og Kristin ribbet de vildænder som
+> Lavrans hadde bragt hjem dagen før. Mor og datter
+> var alene ved husene; kvinderne var i engen og
+> raket. Han saa saa glad ut — var godt fornøiet med
+> sig selv som hadde kommet hit i slikt et forstandig
+> ærinde.
+> Moren gik ut, og Kristin passet spiddet med fuglene.
+> Gjennem den aapne dør kunde hun se et glimt av
+> svendeflokken som laa borte i skyggen paa den anden
+> side tunet og lot ølbollen gaa rundt mellem sig. Han
+> selv sat paa dørstokken, smaasnakket og lo — solen
+> skinnet like paa hans bare, sotsorte håar; hun opdaget
+> at der var nogen gråa traader i det. Ja han var snart
+> toogtredve aar vist — men han bar sig som en kaat
+> gut. Hun visste, hun kom ikke til at si ham om sin
+> vanskelighet — tidsnok, nåar han saa det selv. Latter
+> mild ømhet strømmet i hendes sind over den lille haarde
+> vreden som var paa bunden, lik en glittrende elv over
+> stener.
+> Hun elsket ham utover alt — det fyldte hendes sind,
+> endda hun hele tiden saa og husket alt det andet. Hvor
+> litet denne hovmanden i den fine røde kjortel, med
+> sølvsporerne om fot og guldprydet belte passet i onne
+> travlheten her paa Jørundgaard. — Hun la ogsaa merke
+> til at faren kom ikke op paa gaarden, endda moren
+> hadde sendt Ramborg ned til elven med bud, hvilken
+> gjest som var kommet.
+> Erlend stod borte hos hende og tok om hendes
+> skuldre:
+> «Kan du skjønne det,» sa han straalende. «Tykkes
+> dig ikke det er underlig — at det er vort bryllup som
+> alt dette strævet er for?»
+> r
+> Kristin gav ham et kys og skjøv ham unna — øste
+> fett over fuglene og bad ham ikke staa i veien. Nei
+> hun vilde ikke si det —.
+> Lavrans kom først op paa gaarden ved natverdstid
+> — sammen med slaattefolket. Han var ikke klædd stort
+> anderledes end arbeidsmændene, i en ufarvet knækort
+> vadmelskofte, og ankelsid leistebrok av samme tøi; han
+> gik barføtt og bar ljaaen over skulderen. Det eneste
+> hvori hans dragt skilte sig ut fra tjenestefolkenes var at
+> han bar en skulderkrave av lær for falken som sat paa
+> hans venstre aksel. Han leiet Ramborg ved haanden.
+> Lavrans hilste noksaa hjertelig paa maagen sin, og
+> bad ham undskylde at han ikke var kommet før — de
+> maatte drive saa haardt de orket med gaardsarbeidet,
+> for selv var han nødt til at gjøre en kjøpstadsreise
+> mellem slaatonnen og skuronnen. Men da Erlend over
+> matbordet bar frem sit ærinde, blev Lavrans noksaa
+> tver.
+> Undvære vogner og hester nu kunde han umulig.
+> Erlend svarte, han hadde bragt med fire løshester selv.
+> Lavrans mente, der blev mindst tre lass. Desuten,
+> gangklærne sine maatte møen beholde her. Og seng
+> klærne, som Kristin skulde ha med, trængte de at ha
+> paa gaarden under brylluppet, saa mange gjester som
+> de skulde huse.
+> Neinei, mente Erlend. Der blev vel en raad til at
+> faa det ført frem i høst og. Men han var blit glad, og
+> hadde syntes, det hørtes forstandig ut, da abbeden
+> hadde foreslaat, det kunde komme med klosterbussen.
+> Abbeden hadde mindet om frændskapet: «Det kom
+> mer de nu i hug alle,» sa Erlend smilende. Verfarens
+> misnøie syntes ikke at gaa ind påa ham i mindste
+> maate.
+> Det blev dog til at Erlend skulde faa laane ert
+> vogn og føre avsted et lass med de ting som Kristin
+> kunde trænge mest, straks hun kom i det nye hjem
+> met sit.
+> Dagen efter fik de da travlt med at pakke. Den store
+> og den lille vævstolen mente moren kunde gaa med
+> nu — hun fik neppe tid til at væve mere før brylluppet.
+> Ragnfrid og datteren klippet ned den væven som sat
+> paa. Det var ufarvet vadmel, men av det fineste, my
+> keste uld, med indspundne dotter fra svarte sauer som
+> dannet regelmæssige spetter. Kristin og moren rullet
+> op tøiet og la det i skindsækken. Kristin tænkte, det
+> vilde være godt til svøp — vakkert ogsaa nåar der
+> kom røde eller blåa linder utenpaa.
+> Sømmestolen, som Arne hadde smidd engang, kunde
+> ogsaa sendes. Kristin tok ut av skrinet alle de ting hun
+> hadde faat av Erlend tid efter anden. Hun viste moren
+> den blåa fløilskaapen med rødt mønster som hun skulde
+> ride brudéfærd i. Moren snudde og vendte den, og
+> følte paa tøiet og skindforet.
+> «Det har været en meget kostbar kaape,» sa Ragn
+> frid. «Naar gav Erlend dig denne?»
+> «Den gav han mig mens jeg var i Nonneseter,» sa
+> datteren.
+> Kristins brudekiste, den som moren hadde samlet i
+> fra hun var liten, blev pakket om. Den var utskaaret i
+> ruter med et springende dyr eller en fugl mellem løv
+> i hvert felt. Brudekjolen hendes la Ragnfrid ned i en
+> av sine egne kister. Den var ikke helt færdig, de hadde
+> sydd paa den i vinter. Den var av skarlagenrød silke
+> og skaaret slik at den skulde sitte meget stramt efter
+> legemet. Kristin tænkte, nu blev den altfor trang til
+> hende over brysterne.
+> Mot kvelden stod lasset færdig og gjuret under vogn
+> taket. Erlend skulde fare tidlig næste morgen.
+> Han stod med Kristin og hang over gaardsledet, saa
+> nordover, hvor et blaasvart uveirsmørke fyldte dalen.
+> Tordøn rullet inde i tjeldet — men sydover laa voldene
+> og elven i gult, stikkende sollys.
+> «Kan du mindes uveiret hin dagen i skogen ved
+> Gerdarud,» spurte han sagte og lekte med hendes fingre.
+> Kristin nikket og prøvet at smile. Luften var saa
+> tung og lummer — hendes hode verket, og hun svedet
+> ved hvert aandedrag hun tok.
+> Lavrans kom bort til de to ved grinden og snakket
+> om veiret. Det pleiet sjelden at gjøre skade her nede
+> i bygden — men Gud maatte vite om en ikke spurte
+> ulykker paa fæet og hestene oppe i tjeldet.
+> Det var svart som natten oppe over kirken paa bak
+> ken. Et lynglimt synte frem en hesteflok som stod
+> sammentrængt og urolig paa volden utenfor kirke
+> gaardsgrinden. Lavrans trodde ikke de hørte til her i
+> bygden — det var snarere hester fra Dovre som hadde
+> gaat paa tjeldet oppe under Jetta; han kunde dog ha
+> hug til at gaa opover og se paa dem, ropte han gjen
+> nem tordønnet — om der skulde være nogen av hans
+> imellem —.
+> Et forfærdelig lyn flærret mørket deroppe — tor
+> dønnet skrattet og braket saa de kunde ikke høre ørens
+> lyd. Hesteflokken sprængte utover voldene under aa
+> sen. De slog kors for sig alle tre —
+> — da kom et lyn til; det var som himmelen flaknet
+> like over, en vældig snehvit ildslue svøpte ned paa dem
+> — de tre blev kastet mot hinanden, de stod med luk
+> kede, blendede øine og kjendte en lugt som av svidd
+> sten — og tordenbraket drev dot i ørene paa dem.
+> «Sankt Olav, hjelp os,» sa Lavrans sagte. «Se bjer
+> ken, se bjerken,» skrek Erlend: den store bjerken inde
+> paa jordet syntes at vakle — saa skilte en svær gren sig
+> ut og seg ned mot bakken, brytende en flænge ut av
+> stammen.
+> «Tro den skal ta varme —. Jesus Kristus! Det
+> brænder paa kirketaket,» ropte Lavrans.
+> De stod og stirret — nei — jo! Der piplet røde luer
+> frem i spaandækket under takrytteren.
+> Begge mændene la paa sprang tilbake over tunet.
+> Lavrans rev op alle husdører og skrek ind; folkene
+> myldret ut.
+> «Ta økser, ta økser — tømmerøkserne,» ropte han,
+> «og haker —» han for forbi til stalden. Straks efter
+> kom han ut, leiende Guldsveinen efter manet, han sprang
+> op paa den usadlede hest og sprængte nordover; han
+> hadde den store bilen i haanden. Erlend red like efter
+> — alle mændene fulgte; nogen var tilhest, men nogen
+> kunde ikke raa med de opskræmte dyr, gav op og løp
+> efter. Tilslut kom Ragnfrid og gaardens kvinder med
+> bøtter og spand.
+> Ingen syntes at sanse uveiret længer. I lysningen av
+> lynene saa de folk strømme ut av husene længre nede
+> i bygden. Sira Eirik løp allerede oppe i bakken, fulgt
+> av husfolket sit. Det dundret av hestehover nedpaa
+> broen — nogen karer sprængte forbi; de vendte hvite,
+> forfærdede ansigter mot sin brændende kirke.
+> Det blaaste litt fra sydøst. Ilden hadde godt tak i
+> nordvæggen; i vest var indgangsdøren sperret allerede.
+> Men det hadde ikke fattet i sydsiden eller i korrundin
+> gen endda.
+> Kristin og kvinderne fra Jørundgaard kom ind paa
+> gravgaarden syd for kirken paa et sted, hvor gjerdet
+> var brutt ned.
+> Det vældige røde skin lyste op lunden nord for kirken
+> og pladsen med bommene til at binde hester ved. Dit
+> kunde ingen komme for heten — korset stod alene der
+> fremme, badet i flammeskjæret. Det saa ut som det
+> levet og rørte sig.
+> Gjennem ildens buldren og hvinen lød drønnet av
+> økserne mot sydvæggens staver. Der var mænd i sva
+> len som hugget og hamret, mens andre forsøkte at rive
+> ned selve svalgangen. Nogen ropte til kvinderne fra
+> Jørundgaard at Lavrans og etpar mænd til hadde fulgt
+> Sira Eirik ind i kirken. De maatte se at faa aapning i
+> væggen — der lekte smaa ildtunger mellem spaanerne
+> over taket her og. Snudde vinden, eller stilnet den av,
+> vilde ilden spænde om hele kirken.
+> Tænke paa slukning var unyttig; der var ikke tid til
+> at gjøre kjede ned til elven, men paa Ragnfrids bud
+> stillet kvinderne sig op og langet vand fra den lille
+> bækken som randt vest i veikanten — det var litt til
+> at slaa paa sydvæggen og paa de mændene som ar
+> beidet der. De hulkegraat, mange av dem, imens, av
+> spænding og av angst for de folkene som var trængt
+> ind i det brændende hus, og av sorg over kirken sin.
+> Kristin stod helt fremme i kvinderækken og langet
+> bøtter — hun stirret aandeløst paa kirken hvor de var
+> inde, baade faren og Erlend vist.
+> Svalgangens søiler laa nedrevet i et vase av træ og
+> spaanflaker fra omgangens tak. Mændene bar løs paa
+> stawæggen av al magt — en hel flok hadde løftet en
+> tømmerstok og rendte imot.
+> Erlend og en av svendene hans kom ut av den lille
+> dør syd paa koret; de bar mellem sig den store kisten
+> fra skrudhuset — den som Eirik pleiet at sitte paa, nåar
+> han hørte skriftemaal. Erlend og manden veltet kisten
+> ut paa kirkegaarden.
+> Kristin hørte ikke hvad han ropte; han løp tilbake,
+> op i svalen igjen. Han var myk som en kat, nu han
+> sprang der — ytterklærne hadde han kastet av sig og
+> løp i bare skjorten, brok og hoser.
+> De andre tok op hans rop — det brændte i skrud
+> huset og i koret; ingen kunde komme fra langhuset og
+> op til syddøren længer — ilden sperret begge utganger
+> nu. Etpar staver i væggen var blit splintret, Erlend
+> hadde tat en brandhake, rev og slet i vraket av sta
+> verne — de flaadde et hul i kirkesiden, mens andre
+> folk skrek de maatte agte sig, taket kunde skride ned
+> og sperre inde dem som var i kirken; det brændte friskt
+> i spaantaket ogsaa paa denne siden nu, og heten tok
+> til at bli ulidelig.
+> Erlend sprang ind i hullet og hjalp ut Sira Eirik.
+> Presten kom med kjolefanget fuldt av altrenes hellige kar.
+> En unggut fulgte med haanden over ansigtet og det
+> høie processionskors stangende frem for sig. Lavrans
+> kom efter. Han holdt øinene lukket for røken — han
+> vaklet under det svære krucifiks som han bar i favnen;
+> det var meget høiere end manden.
+> Folk sprang til og hjalp dem ned paa kirkegaarden.
+> Sira Eirik snublet, faldt i knæ, og alterkarrene trillet
+> 22 — Undset: Kristin.
+> utover bakken. Sølvduen sprang op, og hostien faldt
+> ut — presten tok den op, børstet av den og kysset den,
+> mens han hulket høit; han kysset det forgyldte mands
+> hode som hadde staat over alteret med litt av Sankt
+> Olavs håar og negler i.
+> Lavrans Bjørgulfsøn stod endda og holdt om rode
+> korset. Hans arm laa utover korsets arme, han lutet
+> sit hode ind mot Kristusbilledets skulder; det saa ut
+> som Frelseren bøiet sit fagre, bedrøvede ansigt trøstende
+> indtil manden.
+> Taket hadde begyndt at skride ind stykkevis paa
+> nordsiden av kirken — et brændende bjelkestykke
+> slængtes ut og ramte den store klokken i støpulen ved
+> kirkegaardsgrinden. Klokken tonet med en dyp hulke
+> lyd, der døde i et langt støn som ildens buldren druknet.
+> Ingen hadde git agt paa veiret under dette — det
+> hele hadde ikke varet lange stunden, men hellerikke det
+> hadde vel folk sanset. Nu tordnet og lynte det langt
+> syd i dalen, regnet som hadde faldt en stund, tok til
+> og vinden la sig.
+> Men med ett var det som et seil av flammer blev
+> heist op fra grundsvillen — ett nu, og med et hvin
+> spændte ilden om kirken fra ende til anden.
+> Folk styrtet unna for den fortærende hete. Erlend
+> var ved Kristins side med ett og drog hende nedover.
+> Det lugtet svidd av hele ham — hun fik haanden fuld
+> av brændt håar, da hun strøk over hans hode og ansigt.
+> De kunde ikke høre hinandens stemmer for brandens
+> buldren. Men hun saa, hans øienbryn var svidd væk
+> til roten, han hadde brandsaar i ansigtet, og der var
+> brændte steder i skjorten hans. Han 10, da han drog
+> hende med sig efter de andre.
+> Folket fulgte den graatende gamle prest og Lavrans
+> Bjørgulfsøn med krucifikset.
+> Ved enden av kirkegaarden stillet Lavrans roden fra
+> sig op mot et træ, han sank ned tilsæte paa vraket av
+> gjerdet. Sira Eirik sat der alt — han rakte ut armene
+> mot den brændende kirke:
+> «Farvel, farvel, du Olavskirken. Gud signe dig, du
+> Olavskirken min, Gud signe dig for hver en stund jeg
+> har sunget i dig og messet — du Olavskirken, godnat,
+> godnat —»
+> Sognefolket graat høit med ham. Regnet strømmet
+> ned over menneskeklyngerne, men ingen tænkte paa at
+> gaa. Det saa ikke ut til at dæmpe varmen i det tjærede
+> træverk — brander og glødende spaan blev slængt
+> omkring. Straks efter styrtet takrytteren ned i branden
+> med et gov av gnister staaende tilveirs efter sig.
+> Lavrans sat med den ene haanden for ansigtet; den
+> anden arm laa utover hans fang, og Kristin saa at ærmet
+> var blodig fra skulderen og helt ned, blod randt utover
+> hans fingre. Hun gik bort og rørte ved.
+> «Det er vist ikke stort — der faldt noget ned paa
+> skulderen min,» sa han og saa op. Han var hvit helt
+> ut paa læberne. «Ulvhild,» hvisket han vaandefuldt og
+> saa ind i baalet.
+> Sira Eirik hørte det og la en haand paa hans skulder.
+> «Det vækker ikke barnet dit, Lavrans — hun sover
+> like godt cm det brænder over leiet hendes,» sa han.
+> «Ikke har hun mistet sit sjælehjem, slik som vi andre
+> ikveld.»
+> Kristin gjemte sit ansigt ind til Erlends bryst — stod
+> slik og følte hans arme om sine skuldre. Da hørte hun
+> at faren spurte efter sin hustru.
+> Nogen svarte at en kvinde hadde faat barnsondt av
+> skrækken; de hadde baaret hende ned i prestegaarden.
+> Og Ragnfrid var fulgt med dit.
+> Kristin husket igjen det hun hadde glemt helt siden
+> de blev var at kirken brændte. Hun skulde vist ikke set
+> paa dette. Der var en mand syd i bygden som hadde en
+> rød flek over halve ansigtet; de sa han var blit slik av
+> at hans mor hadde set paa vaadild, mens hun bar ham.
+> Kjære, hellige jomfru Maria, bad hun indi sig, la ikke
+> mit foster ha faat skade av dette —.
+> Dagen efter blev der stevnet bygdeting paa kirke
+> bakken — folket skulde raade om at faa reist kirken
+> av nyt.
+> Kristin søkte Sira Eirik op paa Romundgaard, før
+> han skulde gaa til tinget. Hun spurte presten om han
+> mente, hun burde ta dette som et tegn. Kanske var det
+> Guds vilje at hun skulde si til sin far, hun var uværdig
+> til at staa under brudekronen; det var sømmeligere at
+> hun blev git Erlend Nikulaussøn til egte uten hæders
+> fest.
+> Men Sira Eirik for op imot hende, hans øine gnistret
+> av sinne:
+> «Tænker du at Gud bryr sig saa meget om hvordan
+> dere tisperne flyr og spilder dere bort, at han skulde
+> brænde op en fager, ærefuld kirke for din skyld! La
+> du hovmodigheten din fare, og gjør ikke mor din og
+> Lavrans en sorg som de sent kommer over. Bærer du
+> ikke kronen med ære paa din hædersdag — det er
+> ilde for dig, men desto mere trænger du og Erlend
+> vigselen, nåar dere føres sammen. Hver og en har sine
+> synder at svare for; derfor er vel denne ulykken kom
+> met over os alle. Se til at bedre dit levned du, og hjelp
+> til at faa op kirken her igjen, baade du og Erlend.»
+> Kristin tænkte, hun hadde jo endda ikke sagt dette
+> sidste som var kommet paa — men hun slog sig tilro
+> med dette.
+> Hun gik med mændene til tinget. Lavrans kom med
+> armen i en slynge, og Erlend hadde mange brandsaar i
+> ansigtet; han saa fæl ut, men han lo av det. Ingen
+> av saarene var store, og han sa, han haabet de skulde
+> ikke skjæmme ham til han skulde være brudgom. Han
+> stod op efter Lavrans, og lovet at ofre til kirken fire
+> mark sølv og for sin fæstekone, med Lavrans’ samtykke,
+> et markebol av Kristins jord i sognet.
+> Erlend maatte bli paa Jørundgaard en uke for sine
+> saars skyld. Kristin saa at det var som Lavrans var
+> kommet til at like maagen sin bedre efter brandkvelden;
+> mændene syntes nu at være fuldgode venner. Hun
+> tænkte da, kanhænde at faren kunde bli saa glad i
+> Erlend Nikulaussøn at han vilde dømme overbærende,
+> og ikke ta det saa tungt som hun hadde frygtet, nåar
+> den tid kom at han skjønte, de hadde forset sig imot
+> ham.
+> VIII.
+> Dette aar blev ualmindelig godt over hele Norddalen.
+> Der blev meget høi og det kom tørt i hus, fra sætrene
+> vendte folk hjem med stor budraat og fete bølinger
+> — og de hadde sluppet naadig fra udyr iaar. Kornet
+> stod saa vakkert at faa mennesker kunde mindes, de
+> hadde set det staa bedre — det blev vel modent og
+> fuldt av mat, og veiret var det allerbedste. Mellem
+> Bartolomæusmesse og Maria Fødselsmesse, den tiden
+> en mest maatte frygte frostnætterne, regnet det litt og
+> var mildt og skyet, men deretter gik høstmaaneden med
+> sol og vind og milde, disede nætter. Uken efter Mikals
+> messe var det meste korn indberget over hele bygden.
+> Paa Jørundgaard strævet de og stelte til det store
+> brylluppet. De sidste to maaneder hadde Kristin hat
+> saa travlt fra morgen til kveld hver eneste dag, saa
+> hun fik liten tid til at bekymre sig om andet end ar
+> beidet. Hun saa at hun var blit svær over barmen, de
+> smaa lyserøde brystvorter blev brune, og de var ømme
+> som såar hver morgen nåar hun maatte op i kulden —
+> men det gik over, nåar hun hadde arbeidet sig varm, og
+> saa tænkte hun bare paa alt hun skulde ha utrettet
+> før kvelden. Nåar hun maatte rette op ryggen indi
+> mellem og staa og hvile litt, kjendte hun at det tok til
+> at bli tungt, det som hun bar i fanget — men hun var
+> like smal og slank at se paa endda. Hun strøk med
+> hænderne nedover sine lange, fine hofter. Nei hun gad
+> ikke sørge over det nu. Det kunde komme over hende
+> at hun tænkte med en liten kriblende længsel — om en
+> maaned eller saa vilde hun vel kjende liv —. Til den
+> tid var hun paa Husaby. Kanske Erlend blev glad —.
+> Hun lukket øinene og bet i sin fæstensring — saa for
+> sig Erlends ansigt, blekt av bevægelse, da han stod
+> her oppe i høienloftet og sa op trolovelsesordene med
+> høit og klart mæle:
+> «Saa være Gud mit vidne og disse mænd som her
+> staar, at jeg Erlend Nikulaussøn lovfæster mig Kristin
+> Lavransdatter efter Guds og mænds lov, paa slike vil
+> kaar som her er talt for disse vidner som staar hos.
+> At jeg skal eie dig til min kone og du skal eie mig til
+> din husbond, saa længe vi lever begge, at bo sammen
+> i hjonelag, med alt slikt fellesskap som Guds lov og
+> landsloven vet av.»
+> Hun løp i ærinder over tunet fra hus til hus og stanset
+> et øieblik — rognen stod saa fuld av bær iaar, det blev
+> snevinter. Og solen skinnet over de bleke bøer, hvor
+> kornet stod paa staurer. Gid dette veiret vilde holde
+> over brylluppet.
+> Lavrans holdt fast ved at datteren skulde vies i kirken.
+> Det var derfor blit bestemt at dette skulde ske i kapellet
+> paa Sundbu. Lørdag skulde brudefærden ride over
+> tjeldet til Vaage, de skulde ligge om natten paa
+> Sundbu og nabogaardene, og ride tilbake søndag efter
+> brudemessen. Samme kveld efter vesper, nåar helgen
+> var ute, skulde brylluppet feires og Lavrans gi sin dat
+> ter bort til Erlend. Og efter midnat skulde brud og
+> brudgom følges til sengs sammen.
+> Fredag om ettermiddagen stod Kristin i høienlofts
+> svalen og saa paa færden som kom ridende nordfra,
+> forbi den nedbrændte kirke paa bakken. Det var Er
+> lend og alle hans brudemænd. Hun spændte sine øine
+> for at skille ham ut fra de andre. De maatte ikke se
+> hinanden, ingen mand maatte nu se hende før hun blev
+> ført frem brudeklædd imorgen.
+> Hvor veien tok av til Jørundgaard, skilte etpar kvin
+> der sig ut av flokken. Mændene red videre til Laugar
+> bru; de skulde sove der denne natten.
+> Kristin gik ned for at møte de kommende. Hun
+> kjendte sig saa træt efter badet og var såar i hode
+> bunden — moren hadde brukt saa sterkt lutvand paa
+> haaret hendes for at faa det rigtig lyst til imorgen.
+> Fru Aashild Gautesdatter lot sig gli av sadlen i Lav
+> rans’ arme. Saa let og ung hun holder sig, tænkte
+> Kristin. Sønnekonen, herr Munans frue, Katrin, saa
+> ældre ut næsten, hun var stor og før, farveløs av hud
+> og øine. Det er underlig, tænkte Kristin, hun er styg og
+> han er utro, og endda sier folk de lever godt sammen.
+> Saa var der to døttre av herr Baard Petersøn, en gift
+> og en ugift. De var hverken stygge eller vakre, saa
+> troværdige og gode ut, men holdt sig noksaa stivt mot
+> de fremmede. Lavrans takket dem høvisk fordi de hadde
+> villet gjøre slik ære paa dette brylluppet og fare den
+> lange veien saa sent paa høsten.
+> «Erlend blev fostret op hos vor far, da han var gut,»
+> sa den ældste, gik frem og hilste paa Kristin.
+> Nu kom to unge svende i skarpt trav ridende ind paa
+> tunet — de hoppet av hestene og løp leende efter Kri
+> stin, som sprang i hus og gjemte sig. Det var Trond
+> Gjeslings unge sønner, vakre og lovende drenge. De
+> førte med sig brudekronen fra Sundbu i et skrin. Trond
+> og hans hustru skulde først følge med til Jørundgaard
+> søndag efter messen.
+> Kristin var flygtet ind i aarestuen, fru Aashild kom
+> efter, la sine hænder paa hendes skuldre og drog hen
+> des ansigt ned til sit, til kys.
+> «Jeg er glad jeg skal leve denne dagen,» sa fru Aas
+> hild.
+> Hun saa hvor tynde de var blit, Kristins hænder, som
+> hun holdt. Hun saa at bruden var blit mager ellers,
+> men høi over brystet. Alle ansigtets drag var blit smalere
+> og finere end før, tindingerne syntes litt sunkne i skyg
+> gen av det tunge, fugtige håar. Kinderne rundet sig
+> ikke mere, og den friske farven var falmet. Men Kri
+> stins øine var blit meget større og mørkere.
+> Fru Aashild kysset hende igjen.
+> «Jeg ser du har hat meget at stræve med, Kristin,»
+> sa hun. «Du skal faa en drik av mig ikveld, saa du
+> kan være uthvilt og frisk imorgen.»
+> Det tok til at bævre om Kristins læber.
+> «Hys,» sa fru Aashild og klappet hendes haand.
+> «Jeg glæder mig til jeg skal pynte dig imorgen — der
+> skal ingen ha set vakrere brud end du blir imorgen.»
+> Lavrans red over til Laugarbru for at sitte tilbords
+> med sine gjester som var der.
+> Mændene kunde ikke fuldrose maten — slik fredags
+> kost fik en ikke bedre i det rikeste kloster. Der var
+> rugmelsgrøt, kokte bønner, hvitt brød, og til fisk fik
+> de bare ørret, salt og fersk, og fet rækling.
+> Efter hvert som mændene tok til sig av øllet, blev de
+> mere og mere oprømte og skjemtet grovere og grovere
+> med brudgommen. Alle Erlends brudesvende var meget
+> yngre end han selv — hans egne jevnaldrende og ven
+> ner var alle gifte mænd for længe siden. Nu spøkte
+> mændene med det at han var saa gammel og skulde i
+> brudeseng for første gang. Nogen av Erlends ældre
+> frænder, som var temmelig ædru endda, sat og var
+> rædde for hvert ord som faldt, at nu skulde talen drive
+> ind paa emner som det var bedre der ikke blev rørt
+> ved. Herr Baard av Hestnæs holdt øie med Lavrans.
+> Denne dråk tæt, men det saa ikke ut til at øllet gjorde
+> ham gladere, der han sat i høisætet — hans ansigt blev
+> mere og mere spændt, etterhvert som hans øine blev
+> stivere. Men Erlend, som sat ved verfarens høire side,
+> svarte kaat paa skjemten og lo meget; han var rød i
+> ansigtet og hans øine tindret.
+> Med ett bruser Lavrans op:
+> «Den vognen, maag — mens jeg mindes det, hvor har
+> du gjort av den vognen du laante av mig isommer —»
+> «Vogn —» sier Erlend.
+> «Mindes du ikke du laante en vogn av mig isommer
+> nu længer —. Gud vet det var saa god en vogn at
+> jeg faar aldrig se den bedre, for jeg var over det selv
+> da den blev smidd her paa gaarden. Du lovet og du
+> svor, det vidner jeg for Gud og det vet husfolkene
+> mine, at du lovet du skulde føre mig den tilbake, men
+> det ordet har du ikke holdt —»
+> Nogen av gjesterne ropte at dette var da ingenting at
+> snakke om nu, men Lavrans slog i bordet og svor paa
+> at han vilde vite hvor Erlend hadde gjort av vognen
+> hans.
+> «Aa den staar vel i den gaarden paa nesset, der vi
+> fik baat ut til Veøy,» sa Erlend likesæl. «Jeg tænkte
+> ikke det var saa nøie. Det er slik, ser I, verfar — det
+> var en lang og tung færd med læsset utefter dalene,
+> saa da vi kom frem til fjorden, var der ingen av mæn
+> dene mine som hadde hug til at fare hele den veien
+> tilbake hit med vognen og saa siden over tjeldet nord
+> til Trondheim. Da tænkte jeg, det kunde vel være saa
+> længe —»
+> «Nei nu maa djævelen flytte mig herfra jeg sitter,
+> om jeg nogen tid har hørt om din like,» tok Lavrans i.
+> «Hvad er det for en skik du har i huset dit — er det
+> du eller er det svendene dine som raader, hvor de vil
+> fare eller ikke fare —»
+> Erlend tråk paa skuldrene:
+> «Det er saa, meget har været anderledes end det
+> burde hjemme hos mig. — Den vognen skal jeg nu faa
+> sendt syd til eder igjen, nåar Kristin og jeg farer over
+> der. — Kjære min verfar,» sier han smilende og rækker
+> frem haanden, «I kan vite, nu blir der en anden skik
+> paa alt og paa mig med, nu jeg faar Kristin hjem til
+> husfrue. Det var ilde med denne vognen. Men jeg
+> lover eder, dette skal bli sidste gangen I faar aarsak
+> til at klage over mig.»
+> «Kjære Lavrans,» bad Baard Petersøn, «forlik eder
+> med ham om denne ringe sak —»
+> «Ringe sak eller større sak,» begyndte Lavrans. Men
+> saa tok han sig i det og haandtokes med Erlend.
+> Kort efter brøt han op, og gjesterne paa Laugarbru
+> søkte sine sovepladser.
+> Lørdag før høgstedagstid hadde koner og møer
+> travlt i gammelloftet. Nogen redte brudesengen, og
+> nogen smykket bruden færdig.
+> Ragnfrid hadde valgt dette huset til brudehus, baade
+> fordi det var det mindste loftet — de kunde huse mange
+> flere gjester i det nye bursloftet; det de selv hadde
+> brukt til soverum om sommeren, da Kristin var liten,
+> før Lavrans hadde faat op det store stuehuset, der de
+> nu bodde baade sommer og vinter. Men gamlebureit
+> var desuten ogsaa næsten det vakreste huset paa gaar
+> den, siden Lavrans hadde faat det sat istand — det
+> hadde staat til nedfalds, da de flyttet ind paa Jørund
+> gaard. Det var prydet med den vakreste træskurd
+> baade ute og inde, og var loftsrummet ikke stort, saa
+> var det desto lettere at drage vakkert med tepper og
+> aaklær og skind.
+> Brudesengen stod færdig opredt med silketrukne
+> puter, vakre tepper var hængt omkring den som et
+> tjeld; over skindene og kvislerne var der spredt et
+> utsydd silkeklæde. Ragnfrid og nogen flere kvinder
+> holdt paa at hænge aaklær op over vægstokkene og
+> lægge hynder paa bænkene.
+> Kristin sat i en karmstol som var baaret hitop. Hun
+> var klædd i sin skarlagenrøde brudekjole. Store søljer
+> holdt den sammen over brystet og lukket den gule
+> silkeserk i halsaapningen, gyldne armringer glinset paa
+> de gule silkeærmer. Et forgyldt sølvbelte var slængt
+> tre ganger om midjen hendes, og om hals og barm laa
+> kjede utenfor kjede, ytterst farens gamle gyldne med
+> det store relikvikors. Hendes hænder, som laa i fanget,
+> var tunge av ringe.
+> Fru Aashild stod bak stolen hendes og børstet det
+> svære, guldbrune haaret utover.
+> «Imorgen skal du slaa det ut for sidste gang,» sa
+> hun smilende, vandt de røde og grønne silkebindeler,
+> som skulde støtte kronen, om Kristins hode. Saa stimlet
+> kvinderne sammen om bruden.
+> Ragnfrid og Gyrid av Skog tok Gjeslingættens store
+> brudekrone fra bordet. Den var helt forgyldt, takkerne
+> endte vekselvis i kors og kløverblader, og ringen var
+> sat med bergkrystaller.
+> De trykket den ned om brudens hode. Ragnfrid var
+> blek, og hænderne hendes skalv, da hun gjorde det.
+> Kristin reiste sig langsomt. Jesus, saa tungt det var
+> at bære alt dette guid og sølv —. Da tok fru Aashild
+> hende ved haanden og leiet hende frem til et stort vand
+> kar, — mens brudemøerne slog døren op ut til solskin
+> net, saa det skulde bli lyst i loftet.
+> «Speil dig nu, Kristin,» sa fru Aashild, og Kristin
+> bøiet sig over karret. Hun skimtet sit eget ansigt stige
+> hvitt op fra våndet, det kom saa nær, at hun saa guld
+> kronen over det. Rundt om rørte sig saa mange lyse
+> og mørke skygger i speilet — der var noget hun var
+> like ved at mindes — saa var det som hun skulde dåane
+> bort — hun tok for sig om karrets rand. Da la fru
+> Aashild sin haand paa hendes og grov sine negler ned
+> i holdet saa vondt, at hun kom til sig ved det.
+> Der hørtes lurtoner nede ved broen. Fra gaarden
+> blev der ropt op, at nu kom brudgommen med sit følge.
+> Konerne leiet Kristin ut paa bursvalen.
+> I tunet bølget det av hester med stasseletøi og av
+> helgeklædte mennesker, det glitret og glimtet i solen.
+> Kristin saa utover, forbi alt det, ut mot dalen. Hjem
+> bygden laa lys og stille under en tynd, taakeblaa dis,
+> op av disen steg tjeldene gråa av ur og svarte av skog,
+> og solen gjød sit lys ned i dalens kumme fra en skyløs
+> himmel.
+> Hun hadde ikke merket det før, men alt løv var av
+> trærne, lundene skinnet sølvgråa og nakne. Bare ore
+> krattet efter elven hadde litt falmet grønt øverst i top
+> pene, og en og anden bjerk holdt fast paa noget hvitgult
+> løv ytterst paa kvistene. Men trærne var næsten bare
+> — uten rognen, den skinnet endda med brunrødt løv om
+> de blodrøde bær. I den stille, varme dag duftet det
+> syrlig av høst fra det askefarvede teppe som var spredt
+> overalt av nedfaldent løv.
+> Hadde det ikke været for rognetrærne, saa kunde det
+> været tidlig paa vaaren. Og for stilhetens skyld — men
+> det var høststilt, saa stilt. Hvergang lurtonerne taug,
+> hørtes ingen anden lyd ute fra bygden end bjeldeklun
+> ken fra alle stubbakrer og træder, hvor fæet gik og
+> beitet.
+> Elven var tynet og liten, den suste saa stilt; det var
+> bare nogen smaa vandstrenger som løp mellem sand
+> mæler og svære flater av hvite, rundslipte sten. Ingen
+> bækkebrus fra lierne — det hadde været slik en tør
+> høst. Endda glimtet det vaatt overalt paa jorderne —
+> men det var bare den fugtighet som siver op av jorden
+> om høst, er dagene end aldrig saa varme og luften
+> klar.
+> Folkehoben nede paa tunet skiltes og gav plads for
+> brudgommens følge. De unge brudesvende kom just
+> ridende frem; der blev uro blandt kvinderne paa svalen.
+> Fru Aashild stod ved brudens side:
+> «Hold dig nu vel, Kristin,» sa hun, «nu er det ikke
+> længe til du er berget under hustrulinet.»
+> Kristin nikket hjelpeløst. Hun følte hvor forfærdelig
+> hvit hun vist var i ansigtet.
+> «Jeg er nok altfor blek en brud,» sa hun sagte.
+> «Du er den vakreste brud,» svarte Aashild, «og der
+> rider Erlend — vakrere to end dere skal en lete efter.»
+> Erlend selv red frem under svalen. Han sprang fra
+> hesten, let og uhemmet av de tunge, folderike klær.
+> Kristin syntes han var saa vakker at det gjorde vondt
+> gjennem hele hendes legeme.
+> Han var mørkt klædd, i en fotsid, opsplittet silke
+> kjortel, vissenbrun av farve og indvævet med sort og
+> hvitt. Om livet hadde han et guldprydet belte og ved
+> venstre hofte et sverd med guid paa hjalte og balg.
+> Bak over hans skuldre faldt en svær, mørkeblaa fløils
+> kappe, og ned paa det svarte håar bar han en sort,
+> fransk silkehue som stod rynket som vinger ut paa
+> siderne og endte i to lange slæp; det ene var kastet
+> tvers over brystet fra venstre skulder og bakut.
+> Erlend hilste op til sin brud, gik bort til hendes hest
+> og stod ved den med haanden paa sadelbuen, mens
+> Lavrans steg opfor trappen. Kristin blev saa rar og
+> svimmel ved al denne pragt — faren saa fremmed ut
+> i den høitidelig fotside grønne fløilsdragt. Men moren
+> var graablek under linet med den røde silkekjolen sin.
+> Ragnfrid kom og la kaapen om sin datter.
+> Saa tok Lavrans brudens haand og leiet hende ned
+> til Erlend. Han løftet hende tilhest og steg selv i sadlen.
+> De holdt side om side, de to, foran brudeloftet, mens
+> toget begyndte at ride ut gjennem gaardsledet. Først
+> presterne, Sira Eirik, Sira Tormod fra Ulvsvolden, en
+> korsbroder fra Hamar som var farens ven. Saa kom
+> brudesvendene og møerne par om par. Og nu var det
+> Erlend og hende som skulde ride frem. Efter dem kom
+> brudens forældre, frænderne, venner og gjester i lang
+> rad ned mellem skigarerne til bygdeveien. Et langt
+> stykke fremover var der strødd med rognebærklaser,
+> granris og høstens sidste hvite baldersbraa, og folk
+> stod efter veien, der færden skulde ride, hilsende med
+> tilrop.
+> Søndag like efter solnedgang vendte ryttertoget til
+> bake til Jørundgaard. Gjennem de første fliker av skum
+> ring lyste baalene røde fra bryllupsgaardens tun. Le
+> kere og spillemænd sang og lot giger og trommer laate,
+> mens skaren red mot det varme, røde skin.
+> Kristin holdt paa at sige overende, da Erlend løftet
+> hende fra hesten foran høienloftssvalen.
+> «Jeg frøs slik over tjeldet,» hvisket hun, «jeg er saa
+> træt —.» Hun stod litt —da hun steg opfor trappen
+> til loftet, svaiet hun for hvert trin.
+> Oppe i høienloftsstuen fik de forfrosne bryllupsgjester
+> snart varmen i kroppen — det hetet av alle lysene som
+> brændte i rummet, rykende varm mat blev baaret om
+> kring, og vin, mjød og sterkt øl gik rundt. Susen av
+> stemmer og lyden av folk som spiste duret fjernt for
+> Kristins ører.
+> Hun sat og kunde ikke bli rigtig varm. Hun tok til
+> at brænde i kinderne om en stund, men føtterne vilde
+> ikke tine og der løp frostbyger nedetter ryggen hendes.
+> Alt det tunge guid tvang hende fremover, der hun sat
+> i høisætet ved Erlends side.
+> Hver gang brudgommen dråk hende til, maatte hun
+> se paa de røde skjolder og flekker som vistes saa skarpt
+> i hans aasyn, nu han tok til at bli het efter ridtet i
+> kulden. Det var merker efter brandsaarene fra isom
+> mer.
+> Den forferdelige rædselen var kommet over hende
+> igaarkveld, da de sat over bordet paa Sundbu. Da hun
+> møtte Bjørn Gunnarsøns slukte blik som hvilte paa
+> hende og Erlend — øinene ikke blunket og ikke flakket.
+> De hadde klædd herr Bjørn op i ridderklær — han saa
+> ut som en død mand der er galdret tillive.
+> Om natten laa hun med fru Aashild — hun var brud
+> gommens nærmeste frændekone i laget.
+> «Hvad er det med dig, Kristin,» sa fru Aashild litt
+> utaalmodig. «Nu faar du holde dig stiv til enden og
+> ikke være saa overgit.»
+> «Jeg tænker,» sa Kristin frysende, «paa alle dem som
+> vi har gjort vondt for at vi skulde leve denne dagen —»
+> «Dere har vel ikke hat det bare godt heller,» sa fru
+> Aashild. «Ikke Erlend. Og jeg tænker at du har hat
+> det værre.»
+> «Jeg tænker paa de vernløse børnene hans,» sa bru
+> den som før, «jeg undres paa om de vet at faren deres
+> drikker bryllup idag —»
+> «Tænk paa dit eget barn,» sa fruen. «Vær glad at
+> du drikker bryllup med ham som er far til det.»
+> Kristin laa litt, synkende svimmel. Det var saa rart
+> at høre det nævnt, det som hadde fyldt hendes sind
+> hver eneste dag i tre maaneder og mere, uten hun hadde
+> kunnet mæle et ord derom til en levende sjæl. Men
+> det hjalp hende bare en liten stund.
+> «Jeg tænker paa hende som maatte bøte med livet,
+> for hun hadde Erlend kjær,» hvisket hun skjælvende.
+> «Du kan komme til at bøte med livet selv, før du
+> er et halvaar ældre,» sa fru Aashild haard. «Glæd dig,
+> mens du kan det —.
+> — Hvad skal jeg si til dig, Kristin,» sa den gamle
+> overgit, «har du da rent mistet motet nu. Tidsnok blir
+> det krævet av dere at dere skal betale for alt, dere
+> har tat — vær ikke ræd for andet.»
+> Men Kristin følte det som der gik skred efter skred
+> i hendes sind, alt blev revet ned som hun hadde byg
+> get op siden hin rædselsdagen paa Haugen. I den før
+> ste tiden da hun vildt og blindt hadde tænkt bare hun
+> vilde holde ut, en dag efter anden vilde hun holde ut.
+> 23 — Undset: Kristin.
+> Og hun hadde holdt ut til det blev lettere — og let til
+> slut, da hun hadde kastet fra sig alle tanker uten denne,
+> at nu blev det deres bryllup tilslut, Erlends bryllup til
+> slut.
+> Hun og Erlend knælte sammen under brudemessen.
+> Men det var som en synkverving altsammen — lysene,
+> billederne, de blinkende kar, presterne i linskrud og
+> korkaaper. Alle mennesker som hadde kjendt hende
+> der hun levet før — de syntes som drømmesyner, der
+> de stod og fyldte kirken i sine fremmede helgedags
+> klær. Men herr Bjørn stod op mot en søile og saa paa
+> dem med sine døde øine, og hun syntes den anden døde
+> maatte være kommet tilbake med ham, i hans arm.
+> Hun prøvet at se op til Sankt Olavs billede — han
+> stod rød og hvit og fager, lænet til sin øks, og traadte
+> sit eget syndige menneskevæsen under føtterne — men
+> herr Bjørn drog hendes blik. Og nær ham saa hun
+> Eline Ormsdatters døde aasyn, likeglad saa hun paa
+> dem. De hadde traakket over hende for at komme hit
+> — og hun undte dem det.
+> Hun hadde reist sig op og veltet av sig alle de sten
+> som Kristin hadde strævet saa med at faa lagt paa den
+> døde. Erlends bortødslede ungdom, hans hæder og
+> velferd, venners yndest, hans sjæls helse. Den døde
+> rystet det av sig. Han vilde ha mig og jeg vilde ha
+> ham, du vilde ha ham og han vilde ha dig, sa Eline.
+> Jeg har bøtet og han maa bøte og du maa bøte nåar
+> din tid kommer. Naar synden er fuldkommet, da føder
+> den død —.
+> Hun syntes hun knælte med Erlend paa en kold sten.
+> Han knælte med de røde, brændte flekker paa sit bleke
+> aasyn; hun knælte under den tunge brudekrone og følte
+> den dumpe, knugende tyngsel i sit skjød — syndebyr
+> den, hun bar. Hun hadde lekt og tumlet med sin synd,
+> maalt den som i barnelek. Hellige Jomfru — nu var
+> det snart tiden at den skulde ligge fuldbaaret foran
+> hende, se paa hende med levende øine, syne hende syn
+> dens brændemerker, syndens hæslige vanførhet, slaa
+> hadefuldt med forvredne hænder mot sin mors bryst.
+> Naar hun hadde født sit barn, nåar hun saa sin
+> synds merker paa det og hun elsket det, som hun
+> hadde elsket sin synd, da vilde leken være lekt
+> tilende.
+> Kristin tænkte, hvis hun skrek nu, saa det skar over
+> sangen og de dype, messende mandsrøster — ljomet ut
+> over folket. Blev hun kvit Elines aasyn da — vilde der
+> komme liv i den døde mandens øine. Men hun bet
+> fenderne sammen.
+> — Hellige kong Olav, jeg roper til dig. Dig ber jeg
+> om hjelp blandt alle i Himmelen, for jeg vet du elsket
+> Guds retfærdighet over alle ting. Jeg kalder paa dig,
+> at du tar haand om den uskyldige som er i mit mors
+> liv. Vend Guds vrede fra den uskyldige, vend den over
+> mig, amen i drottens dyre navn —.
+> Mine børn, sa Eline, er vel menløse og der er ikke
+> plads til dem i land hvor kristenfolk lever. Dit barn er
+> avlet i utlegd, det som mine børn. Ikke kan du kræve
+> ret for det i det landet du er faret bort fra, mere end
+> jeg kunde kræve det for mine —.
+> Hellig Olav, jeg ber om miskund allikevel. Bed om
+> naade for sønnen min, ta ham i dit vern, saa skal jeg
+> bære ham til kirken din paa mine bare føtter, jeg skal
+> bære mit guldlav ind til dig og lægge det ned paa dit
+> alter, hvis du vil hjelpe mig, amen —.
+> Hun var stiv som sten i ansigtet, slik stred hun for
+> at holde sig rolig, men det rykket og skalv i hendes
+> legeme, da hun laa paa knæ og blev viet til Erlend.
+> Og nu sat hun hos ham i høisætet hjemme og sanset
+> alting omkring sig bare som en hildring i feberørsken.
+> Der var lekerne som spillet paa harper og giger i
+> loftet, det spillet og det sang fra stuen nedenunder og
+> ute fra gaarden. Der var et skjær av rød ild utefra, nåar
+> de gik i døren og bar ut og ind.
+> De stod op omkring bordet, hun stod mellem sin far
+> og Erlend. Faren kundgjorde med høi røst at han nu
+> hadde git Erlend Nikulaussøn sin datter Kristin til
+> hustru. Erlend takket sin verfar og takket alle gode folk
+> som hadde samlet sig for at hædre ham og hans hustru.
+> Hun skulde sætte sig, sa de, og Erlend la sine brude
+> gåver i hendes knæ. Sira Eirik og herr Munan Baard
+> søn rullet op brever og læste op om bolaget deres.
+> Brudesvendene stod op imens med spyd i hænderne og
+> støtte stakerne i gulvet, av og til under læsningen og
+> nåar gaver og pengeposer blev lagt paa bordet.
+> De indsatte løse bordene blev ryddet ut, Erlend leiet
+> hende frem paa gulvet og de danset. Kristin tænkte,
+> brudesvendene og brudemøerne vore, de er altfor unge
+> til os _ alle de som var unge med os, de er bortflyttet
+> fra disse bøer, hvordan er vi kommet tilbake hit.
+> «Du er saa underlig, Kristin,» hvisket Erlend i dan
+> sen. «Jeg blir ræd for dig, Kristin — er du ikke glad —»
+> De gik fra hus til hus og hilste paa gjesterne sine.
+> Der var mange lys i alle stuer og fuldt av folk som dråk
+> og sang og danset alle steder. Kristin syntes ikke hun
+> kjendte sig igjen hjemme — og hun hadde mistet al
+> sans av tid — stunderne og billederne fløt saa under
+> lig løsbrutte om hinanden.
+> Høstnatten var mild; der var spillemænd i tunet og
+> saa, og folk som danset om baalet. De skrek at bruden
+> og brudgommen maatte gjøre ære paa dem og, og hun
+> danset med Erlend paa det kolde, duggvaate tun. Det
+> var som hun vaagnet litt av det og blev klarere i hodet.
+> Ute i mørket svam et lyst taakebaand over elvesusen.
+> Fjeldene stod kulsvarte mot den stjernestrødde luft.
+> Erlend leiet hende ut av dansen — krystet hende til
+> sig i mørket under en sval.
+> «Jeg har ikke faat sagt dig det engang — du er saa
+> fager, saa fager og saa væn. Kinderne dine er saa
+> røde ’som luer —,» han klemte sin kind mot hendes
+> med det samme. «Kristin, hvad er det med dig —?»
+> «Jeg er saa træt, saa træt,» hvisket hun tilbake.
+> «Nu skal vi snart gaa og sove,» svarte brudgommen
+> og saa op mot himmelen. Vintergaten hadde svinget og
+> gik næsten ret mot syd og nord. «Mindes du det at
+> sovet hos hinanden har vi ikke siden den eneste natten
+> jeg var hos dig i buret dit paa Skog —»
+> En stund efter ropte Sira Eirik ut over gaarden, at
+> nu var det mandag. Konerne kom og vilde føre bruden
+> til sengen — Kristin var saa træt at hun orket neppe
+> sætte sig imot det, slik som hun skulde for sømmelig
+> hets skyld. Hun lot sig ta og leie ut av loftet av fru
+> Aashild og Gyrid fra Skog. Brudesvendene stod ved:
+> foten av trappen med brændende kjerter og dragne
+> sverd; de slog ring om kvindeskaren og fulgte Kristin
+> over tunet, op i gamleloftet.
+> Konerne klædde av hende brudestasen, stykke for
+> stykke, la det bort. Kristin saa at over senge
+> foten hang den violblaa fløilskjolen som hun skulde
+> bære imorgen, og oppåa laa et langt snehvitt, fintfoldet
+> linklæde. Det var hustrulinet som Erlend hadde bragt
+> med til hende; imorgen skulde hun binde op sit håar i
+> knute og fæste det over. Det saa saa friskt og svalt
+> og rogivende ut.
+> Sidst stod hun foran brudesengen, paa nøkne føtter,
+> bararmet, klædt alene i den ankelside, guldgule silke
+> serk. Kronen hadde de sat paa hende igjen — den
+> skulde brudgommen ta av hende, nåar de to blev alene.
+> Ragnfrid la sine hænder paa datterens skuldre, kys
+> set hendes kind — morens ansigt og hænder var under
+> lig kolde, men det var som graat sprængte paa dypt
+> inde i hendes bryst. Saa slog hun sengen op og bød
+> bruden sætte sig ned i den. Kristin adlød og lænet sig
+> tilbake mot hodegjerdets opstablede silkeputer — hodet
+> maatte hun lute litt frem for at holde paa kronen. Fru
+> Aashild dækket over hende til midjen, la hendes hænder
+> paa silkespredet og tok i brudens skinnende håar, slog
+> det frem over barmen og de nøkne, slanke over
+> arme.
+> Mændene førte brudgommen ind i loftet. Munan
+> Baardsøn spændte guldbeltet med sverdet av Erlend
+> — da han hængte det ind paa væggen over sengen,
+> hvisket han noget til bruden — Kristin skjønte ikke
+> hvad han sa, men hun smilte saa godt hun kunde.
+> Brudesvendene snørte op Erlends silkeklædning og
+> løftet det tunge, side plagg over hans hode. Han satte
+> sig i karmstolen og de hjalp ham av med sporer og
+> støvler.
+> En eneste gang vaaget bruden sig til at se op og
+> møte hans øine.
+> Saa begyndte godnatbydningen. Loftet tømtes for
+> bryllupsgjester. Sidst gik Lavrans Bjørgulfsøn ut og
+> lukket døren til brudehuset.
+> Erlend stod op, krænget av sig underklærne og
+> slængte dem bort i bænken. Han stod foran sengen,
+> tok kronen og silkebindlerne av hendes håar og la det
+> bort paa bordet. Saa kom han tilbake og steg op i
+> sengen. Og knælende paa leiet ved hendes side fattet
+> han om hendes hode, klemte det ind til sit nøkne, hete
+> bryst, mens han kysset panden efter hele den røde
+> stripe som kronen hadde gjort.
+> Hun kastet armene om hans skuldre og hulket høit —
+> søtt og vildt følte hun, at nu kvarv det bort, rædselen,
+> spøkelsessynerne — nu, nu igjen var det bare ham og
+> hende. Han løftet hendes ansigt et øieblik, saa ned i
+> det og strøk en haand over hendes ansigt og hendes
+> legeme, underlig hastig og raat, som han rev væk et
+> dække:
+> «Glem,» bad han hviskende og hett, «glem alt, Kri
+> stin min — alt uten det, at du er min egen hustru, og
+> jeg er din egen husbond —»
+> Med haanden slog han ut den sidste flammen og
+> kastet sig ned hos hende i mørket, han hulket
+> han og:
+> «Jeg har aldrig trodd det, aldrig i disse aarene, at
+> vi skulde leve denne dagen —»
+> Utenfor i tunet tystnet staaket litt efter litt. Trætte
+> av ridtet før paa dagen og øre av drik vimret gjesterne
+> for skams skyld omkring en liten stund endda — men
+> flere og flere sneg sig unna og fandt de steder, hvor
+> de skulde sove.
+> Ragnfrid fulgte dem som mest skulde hædres til
+> pladserne deres og bød godnat. Husbonden, som skulde
+> hjulpet hende med dette, saa hun ingen steder.
+> Der stod bare nogen smaa flokker med ungdom —
+> mest tjenestefolk — i det mørke tun, da hun tilslut sneg
+> sig ut for at finde manden sin og faa ham med sig i
+> seng. Lavrans var blit dygtig drukken ut paa kvelden,
+> hadde hun set.
+> Hun snublet over ham tilsidst, da hun listet letende
+> utenfor bugaarden — han laa næsegrus i græsset bakom
+> badstuen.
+> Trevende i mørket kjendte hun — jo det var ham.
+> Hun trodde han sov, tok i hans skulder og vilde ha
+> ham op fra den iskolde bakken. Men han sov ikke —
+> ikke helt ialfald.
+> «Hvad vil du,» spurte han, grøtet i mælet.
+> «Du kan ikke ligge her,» sa hustruen. Hun støttet
+> ham, for han stod og sjanglet. Med den ene haanden
+> børstet hun av ham nedover fløielsklædningen. «Det
+> er tid vi gaar iseng vi og, husbond.» Hun tok ham
+> under armen og leiet den ravende mand opover mot
+> gaarden; de gik paa baksiden av bugaardsbygnin
+> gerne.
+> «Du saa ikke op du, Ragnfrid, da du sat i brude
+> seng under kronen,» sa han som før. «Datteren vor,
+> hiin var mindre blyg hun, hun var ikke blyg i øinene,
+> da hun saa paa brudgommen sin.»
+> «Hun har biet paa ham i syv halvaar,» sa moren
+> sagte. «Da maatte hun vel turde se op —»
+> «Nei saa djævelen om de har biet,» skrek faren, og
+> hustruen tysset ræd paa ham.
+> De var i den smale gaten mellem baksiden av skithuset
+> og en skigar. Lavrans hug den knyttede haand i under
+> stokken til avtrædet.
+> «Jeg la dig her til spot og skam, du stok. Jeg la dig
+> her for at skarnet kunde æte dig op. Jeg la dig her til
+> straf for du slog ned den lille væne møen min. jeg
+> skulde lagt dig over loftsdøren min og æret og takket
+> dig med prydelig skurd for du berget hende fra skam
+> og fra sorg — for du voldte at Ulvhild min døde et
+> menløst barn —»
+> Han vendte sig om, ravet indimot skigaren og faldt
+> fremover den, med hodet ned paa armene graat han
+> übændig, med lange, dype støn indimellem.
+> Hustruen tok om hans skuldre:
+> «Lavrans, Lavrans.» Men hun kunde ikke stagge
+> ham. «Husbond.»
+> «Aa aldrig, aldrig, aldrig skulde jeg git hende til
+> den manden. Gud hjelpe mig — jeg har vel visst det
+> hele tiden — han hadde brutt ned hendes ungdom og
+> hendes fagre hæder. Jeg trodde det ikke, nei skulde
+> jeg tro slik om Kristin — men jeg visste det endda.
+> Endda saa er hun for god til den veke drengen som
+> har ødt sig selv og hende — hadde han lokket hende
+> ti ganger, jeg skulde ikke git hende til ham, saa han
+> kan spilde mere av livet hendes og lykken —»
+> «Hvad anden raad var der da,» sa moren opgit.
+> «Du skjønner det jo du og, hun var alt hans —»
+> «Ja jeg hadde ikke trængt at gjøre saa stort opstyr
+> for at gi til Erlend det han alt hadde tat sig til selv,»
+> sa Lavrans. «Det er en gjæv husbond hun har faat,
+> Kristin min —.» Han rev i skigaren. Saa graat han
+> igjen. Ragnfrid syntes, han var likesom blit litt mere
+> ædru, men nu tok rusen overhaand igjen.
+> Saa drukken og saa over sig fortvilet som manden
+> var, syntes hun ikke, hun kunde dra ham op i aare
+> stuen, der de skulde sove — der laa fuldt av gjester.
+> Hun saa sig om — like ved var en liten laave, hvor de
+> gjemte det gode høiet til hestene i vaaronnen. Hun gik
+> bort og kek ind — der laa ingen; da tok hun og leiet
+> manden ditind, lukket døren efter dem.
+> Ragnfrid tok og karret høi op om sig og ham og
+> lunet utenpaa med kapperne. Lavrans graat fra tid til
+> anden og sa noget, men det var saa røret, at hun kunde
+> ikke finde mening i det. Om en stund lettet hun hans
+> hode op i fanget sit.
+> «Kjære husbond min — nåar de nu har lagt slik en
+> elskov til hinanden — kanhænde blir alt bedre end vi
+> tror —»
+> Lavrans svarte støtvis — syntes nu igjen klarere:
+> «Skjønner du ikke — han har nu aldeles magten
+> over hende, han som aldrig har kunnet raade sig selv.
+> Vanskelig vil hun faa mot til at sætte sig imot noget
+> hendes husbond vil — og maa hun det en dag, da vil
+> hun pines saa bittert ved det selv — det milde barnet
+> mit —.
+> — Nu skjønner jeg snart ikke mere, hvorfor Gud
+> lægger saa mange og tunge sorger paa mig — jeg har
+> strævet trofast for at gjøre hans vilje. Hvorfor har han
+> tat fra os børnene vore, Ragnfrid, ett efter ett — først
+> sønnerne vore, saa liten Ulvhild, og nu har jeg git hende
+> som jeg hadde kjærest, uten hæder, til en utryg og
+> uforstandig mand. Nu har vi bare den lille tilbake
+> >
+> og det tykkes mig uklokt nu at glæde mig over hende,
+> før jeg ser hvordan det gaar med hende, Ramborg.»
+> Ragnfrid skalv som et løv. Da tok manden om hendes
+> skulder:
+> «Læg dig ned,» bad han, «saa sover vi —» og med
+> hodet mot hustruens arm laa han en stund, sukket av
+> og til, men tilslut sovnet han.
+> Det var kulmørkt i laaven endda, da Ragnfrid rørte
+> paa sig — hun undret sig over at hun hadde sovet.
+> Hun følte ut for sig med haanden; Lavrans sat op med
+> hænderne flettet om knærne.
+> «Er du vaaken alt,» spurte hun forundret. «Fryser
+> du?»
+> «Nei,» svarte han rusten i mælet, «men jeg kan ikke
+> sovne igjen.»
+> «Er det Kristin du tænker paa,» spurte moren. «Det
+> kan da gaa bedre end vi tror, Lavrans,» sa hun igjen.
+> «Ja det er det jeg tænker paa,» sa manden. «Jaja.
+> Mø eller kone, hun kom da i brudeseng med den hun
+> hadde lagt sin elsk til. Det gjorde hverken du eller
+> jeg, min stakkars Ragnfrid.»
+> Hustruen gav et dumpt, dypt støn — hun slængte sig
+> ned paa siden i høiet. Lavrans flyttet en haand bort
+> paa hendes skulder.
+> «Men jeg har ikke kunnet,» sa han heftig og vaande
+> fuldt. «Nei jeg kunde ikke — være slik som du vilde
+> ha mig — da vi var unge. Jeg er ikke slik —»
+> Om en stund sa Ragnfrid sagte og i graat:
+> «Vi har jo levet godt sammen allikevel — Lavrans —
+> alle disse aarene.»
+> «Saa har jeg trodd selv,» svarte han mørkt.
+> r
+> Tankerne tumlet og trængte sig i ham. Det ene
+> nøkne blikket som brudgom og brud hadde slaat mot
+> hinanden i, de to unge aasyn som flammet op i rød
+> lue — ham tyktes det være en skamløshet. Det hadde
+> svidd ham, dette var hans datter. Men han blev ved
+> at se de øinene — og vildt og blindt stred han imot, at
+> dækket skulde bli revet fra noget i hans eget hjerte,
+> han hadde aldrig villet vite, at det var der, han hadde
+> verget sig mot sin egen hustru, da hun lette efter det —.
+> Han hadde ikke kunnet, tok han haardt i for sig selv.
+> I djævelens navn, han var blit giftet bort som gut, han
+> hadde ikke valgt selv, hun var ældre end ham — han
+> hadde ikke attraaet hende; han hadde ikke villet lære
+> dette av hende — elskov. Han blev het av blu endda,
+> nåar han tænkte paa det — at hun vilde hat ham til
+> at elske hende, nåar han ikke hadde villet en slik kjær
+> lighet av hende. At hun hadde budt ham alt dette som
+> han aldrig hadde bedt om.
+> Han hadde været hende en god husbond, det hadde
+> han trodd selv. Han hadde vist hende al den ære han
+> kunde, git hende fuld myndighet med sig og raadspurt
+> hende i alt, været hende tro — og seks børn hadde de
+> da hat. Han hadde bare villet faa lov til at leve med
+> hende uten hun altid skulde gripe efter dette i hans
+> hjerte som han selv ikke vilde blotte —.
+> Ingen hadde han baaret elskov til. — Ingunn, Karls
+> hustru paa Bru. Lavrans rødmet i kulmørket. Han
+> hadde altid gjestet dem, nåar han reiste ned gjennem
+> dalen. Han hadde vist end ikke talt med husfruen i
+> enerum en gang. Men nåar han saa hende — bare han
+> tænkte paa hende, sanset han noget som den første lugt
+> av jorderne om vaaren, straks sneen er gaat bort. Han
+> visste det nu, det kunde hændt ham ogsaa — han
+> kunde ha elsket han og.
+> Men han var blit gift saa ung, og han var blit sky.
+> Saa var han kommet til at trives bedst ute i ødeskogen
+> — indpaa vidden, hvor alle liv som lever vil ha vidt
+> rum omkring sig, rum til at flygte gjennem, — sky
+> speider de mot hver fremmed som vil snige sig ind
+> paa dem —.
+> En tid paa aaret var der da dyrene i skogen og paa
+> tjeldet glemte skyheten sin. Da de bruste mot hunnen
+> sin. Men han hadde faat sin til gave. Og hun hadde
+> budt ham alt han ikke hadde beilet om —.
+> Men ungerne i reden. — De hadde været den lille lune
+> flekken i ødet, den inderste søteste lyst i hans liv. De
+> smaa lyse pikehoderne under hans haand. —
+> Gift, det var han blit — uspurt næsten. Venner —
+> han hadde mange, og han hadde ingen. Krig — det
+> hadde været glæde, men der blev ikke mere krig —
+> hans rustning hang oppe i loftet, litet brukt. Han var
+> blit bonde —. Men han hadde hat døttrene — alt han
+> hadde levet var blit kjært, fordi han trygget dem med
+> det, de fine bløte smaa livene han hadde holdt i hæn
+> derne sine. Han husket Kristins lille toaars skrot paa
+> skuldren sin, hendes linbleke, myke håar mot kinden
+> sin. Hendes smaahænder som holdt i hans belte mens
+> hun stanget sin runde, haarde barnepande mot hans
+> skulderblade, nåar han red ut med hende bak sig paa
+> hesten.
+> Og nu hadde hun de samme hete øinene — og hun
+> hadde faat sit. Hun sat der i halvskyggen op mot sen
+> gens silkeputer. I kjerteskjæret var hun helt gylden —
+> gylden krone og gylden serk og gyldent håar utover
+> de nøkne gyldne arme. Hendes øine var ikke blyge
+> mere —.
+> Faren kved av skam.
+> Og endda var det som hans hjerte sprang i blødning.
+> For det han ikke selv hadde faat. Og for hustruen her
+> ved sin side som han ikke hadde kunnet gi.
+> Syk av medynk tok han i mørket efter Ragnfrids
+> haand:
+> «Ja jeg trodde vi levet godt sammen,» sa han. «Jeg
+> trodde du sørget over børnene vore. — Ja og at du
+> hadde et tungt sind. Aldrig tænkte jeg paa det, at det
+> kunde være mig som ikke var dig en god husbond —»
+> Ragnfrid skalv som i krampe:
+> «Du var en god husbond altid, Lavrans.»
+> «Hm.» Lavrans sat med haken helt ned paa knærne.
+> «Endda hadde du kanske faat bedre om du var blit
+> gift slik som datter vor idag —»
+> Ragnfrid for op, skrek lavt og skjærende:
+> «Vet du! Hvordan fik du vite — hvor længe har du
+> visst —»
+> «Jeg vet ikke hvad du taler om,» sa Lavrans om en
+> stund, med en underlig knuget stemme.
+> «Jeg taler om det, at jeg var ikke mø, da jeg blev
+> din hustru,» svarte Ragnfrid, og hendes røst var klar
+> og klinger av fortvilelse.
+> Om en stund svarte Lavrans som før:
+> «Det har jeg aldrig visst før nu.»
+> Ragnfrid laa ned i høiet, skaket av graat. Da rien
+> var over, løftet hun hodet litt. Der begyndte at sive litt
+> graat lys ind gjennem gluggen i væggen. Hun kunde
+> skimte sin mand, at han sat med armene slynget om
+> knærne, urørlig som han var av sten.
+> «Lavrans — tal til mig —» jamret hun.
+> «Hvad vil du jeg skal si,» spurte han übevægelig.
+> «Aa jeg vet ikke — at du skulde bande mig — slaa
+> mig —»
+> «Det vilde være noget sent nu,» svarte manden; der
+> var som skyggen av et haansmil i hans stemme.
+> Ragnfrid graat igjen. «Ja jeg agtet ikke paa det, at
+> jeg sveg dig. Jeg syntes, saa sveget og saa krænket
+> var jeg blit selv. Der hadde ingen spart mig. De kom
+> med dig — jeg saa dig jo bare tre ganger før vi blev
+> gifte — jeg syntes du var bare en gut, rød og hvit —
+> saa ung og barnslig —»
+> «Jeg var det,» sa Lavrans, og der kom litt mere
+> klang i stemmen hans. «Og derfor vilde jeg trodd, at
+> du som var kvinde, du vilde være mere ræd for at —
+> for at svige en som var saa ung, at han intet skjønte —»
+> «Slik kom jeg til at tænke siden,» sa Ragnfrid graa
+> tende. «Da jeg var blit kjendt med dig. Snart nok
+> kom den tiden, da jeg vilde git sjælen min tyve ganger
+> om jeg kunde blit skyldfri mot dig.»
+> Lavrans sat taus og urørlig; da sa hustruen igjen:
+> «Du spørger ikke om noget?»
+> «Hvad skulde det nytte til. Det var ham som — vi
+> møtte likfærden hans paa Feginsbrekka, da vi bar Ulv
+> hild ind til Nidaros —»
+> «Ja,» sa Ragnfrid. «Vi maatte gaa ut av veien —
+> ind paa engen. Jeg saa dem føre baaren hans forbi —
+> med prester og munke og væbnede svende. Jeg hørte
+> han hadde faat en god død — forlikt sig med Gud.
+> Jeg bad, der vi stod med Ulvhilds baare mellem os, at
+> min synd og min sorg maatte lægges for hans føtter
+> paa den sidste dag —»
+> «ja du gjorde vel det,» sa Lavrans, og der var den
+> samme skyggen av haan i hans stille stemme.
+> «Du vet ikke alt,» sa Ragnfrid, kold av fortvilelse.
+> «Mindes du, at han kom ut til os paa Skog den første
+> vintren vi var gifte —»
+> «Ja,» svarte manden.
+> «Da Bjørgulv droges med døden —. Aa der hadde
+> ingen spart mig. Han var drukken, da han gjorde det
+> mot mig — siden sa han, han hadde aldrig hat mig
+> kjær, han vilde ikke ha mig — han bad mig glemme
+> det —. Far min visste ikke dette, han har ikke sveget
+> dig, det maa du aldrig tro. Men Trond — vi var hin
+> andens kjæreste venner dengangen, jeg klaget det for
+> ham. Han vilde true den manden til at egte mig —
+> men han var bare gutten, han fik bank—. Siden raadet
+> han mig til at tie med det og ta dig —»
+> Hun sat stille litt.
+> «Da han kom ut til Skog —. Der var gaat et aar;
+> jeg tænkte ikke saa meget paa det. Men han kom
+> ditut — han sa, at han angret, han vilde hat mig nu,
+> om jeg hadde været ugift — han holdt av mig. Saa
+> sa han. Gud maa dømme om han sa sandt. Da han
+> var reist — jeg turde ikke gaa paa fjorden, jeg turde
+> ikke for synden, ikke med barnet. Og saa hadde jeg —
+> saa hadde jeg begyndt at holde slik av dig!» Hun
+> skrek engang, som i vildeste pine. Manden vendte fort
+> hodet mot hende.
+> «Da Bjørgulv var født — aa jeg syntes jeg hadde ham
+> kjærere end livet mit. Da han laa og droges med døden
+> — jeg tænkte, slukner han, saa slukner jeg og. Men
+> jeg bad ikke Gud spare guttens liv —»
+> Lavrans sat meget længe før han spurte, dødt og tungt:
+> «Var det for jeg var ikke far hans?»
+> «Jeg visste ikke om du var det,» sa Ragnfrid stiv
+> nende.
+> Længe sat de dødsens stille begge to. Da spurte
+> manden med ett heftig:
+> «Jesu navn, Ragnfrid — hvorfor sier du mig dette
+> — nu?»
+> «Aa jeg vet ikke.» Hun vred sine hænder saa finger
+> leddene knaket. «For at du kan faa hevn paa mig.
+> Jag mig ut av gaarden din —»
+> «Tænker du det skulde hjelpe mig —.» Hans stemme
+> skalv av haan. «Saa er der døttrene vore,» sa han stille.
+> «Kristin — og den lille.»
+> Ragnfrid sat en stund.
+> «Jeg mindes hvordan du dømte om Erlend Nikulaus
+> søn,» sa hun sagte. «Hvad dømmer du da om mig —»
+> Der gik en lang kuldegysning gjennem mandens
+> legeme — løste ut litt av stivheten.
+> «Du har nu — vi har nu levet sammen i syv og tyve
+> aar — snart. Det er ikke slik som med en fremmed
+> mand. Jeg skjønner det, at du har hat det værre end
+> vondt.»
+> Ragnfrid sank hulkende sammen under hans ord.
+> Hun vaaget sig til at ta bort paa hans ene haand. Han
+> rørte sig ikke, sat stille som en død. Da graat hun
+> høiere og høiere — hendes husbond sat like übevæge
+> lig og saa mot den gråa lysning omkring døren. Til
+> slut laa hun som om al graat var rundet ut av hende.
+> Da strøk han flygtig nedover hendes arm. Saa tok
+> hun paa at graate igjen.
+> «Mindes du,» sa hun indimellem graaten. «Den man
+> den som kom til os engang, mens vi var paa Skog.
+> 24 — Undset: Kristin.
+> Han som kunde de gamle kvadene? Mindes du ett om
+> en død mand som var kommet tilbake fra kvalverdenen
+> og sa sønnen sin frasagn om det han hadde set? Da
+> hørtes gny fra helvedes dypeste grund, til sine mænd
+> malte utro kvinder muld for mat. Blodige var stenene
+> de drog, blodige hang hjerterne ut av deres bryst —»
+> Lavrans sa intet.
+> «Jeg har tænkt i alle disse aarene paa de ord,» sa
+> Ragnfrid. «Hver dag var det som hjertet mit blødde,
+> for hver dag syntes jeg, at jeg malte dig muld til’ mat —»
+> Lavrans visste ikke selv, hvorfor han svarte som han
+> gjorde. Han syntes han var tom og hul i brystet som en
+> mand, de har ristet blodørn paa ryggen. Men han Ia
+> haanden tungt og træt paa sin hustrus hode og mælte:
+> «Muld maa der vel males, Ragnfrid min, før maten
+> kan gro.»
+> Da hun vilde ta hans haand og kysse den, rev han
+> den heftig til sig. Saa saa han ned paa hustruen, tok
+> hendes ene haand og la den paa sit knæ, lutet sit kolde
+> og stivnede ansigt ned imot den. Og slik blev de sit
+> tende, uten at røre sig og uten at tale mere sammen.
+
+
+## English translation supplied to the annotator
+
+> Lavrans and his guests were therefore in good spirits when they went down to greet the almsfolk in the hearth-room.
+> The poor sat around the table, eating milk porridge and drinking good ale with it, and Kristin went about the table, serving the old and sick.
+> Lavrans greeted his guests and asked whether they were satisfied with the fare. Then he went over and welcomed an old pauper who had been brought to Jørundgaard that day. The man was named Haakon; he had been a warrior under old King Haakon and had accompanied the king on his last expedition to Scotland. He was now utterly destitute and nearly blind. People had offered to settle him in a cottage, but he preferred to be taken from farm to farm, for everywhere he was received more as an honored guest, because he possessed unusually great knowledge and had seen much of the world.
+> Lavrans stood with his hand on his brother’s shoulder—Aasmund Bjørgulfsøn had come to Jørundgaard as a guest. He too asked Haakon how well pleased he was with the food.
+> “The ale is good, Lavrans Bjørgulfsøn,” said Haakon. “But a mare must have cooked our porridge today. The saying goes that a cook who has lain under a stallion makes scorched porridge to go with the meal, and this porridge is scorched.”
+> “That was ill done,” said Lavrans, “that I should give you scorched porridge. But I hope the old saying does not always hold true, for it was my daughter who cooked the porridge herself.” He laughed and told Kristin and Tordis to hurry and bring in the dishes of meat.
+> Kristin slipped quickly out and across toward the cookhouse. Her heart was pounding—she had caught a glimpse of her uncle’s face when Haakon said that about the cook and the porridge.
+> Late that evening she saw her father and uncle walking up and down the yard for a long time, talking. She was dizzy with fear, and matters did not improve when, the next day, she noticed that her father was taciturn and joyless. But he said nothing.
+> Nor did he say anything after her uncle had left. But Kristin noticed that he did not speak as much with Haakon as he usually did, and when the time for keeping the old man was over, Lavrans did not offer to take him for another term, but let him be moved to the next farm.
+> Otherwise there were reasons enough for Lavrans Bjørgulfsøn to be joyless and despondent that summer, for it now plainly promised to be a year of dearth in the district, and the farmers convened an assembly to deliberate how they should face the approaching winter. By late summer it was already clear to most of them that they would have to slaughter or drive south for sale the greater part of their livestock and buy grain for the people’s winter food. The previous year had not been a good grain year, so the stores of old grain were smaller than usual.
+> One morning early in autumn, Ragnfrid went out with all three of her daughters to look at some linen she had lying on the bleaching ground. Kristin praised her mother’s weaving highly. Ragnfrid stroked Ramborg’s hair:
+> “This shall go into your bridal chest, little one.”
+> “Mother,” said Ulvhild, “am I not to have any chest, then, when I go into the convent?”
+> “You know you will have no smaller dowry from home than your sisters,” said Ragnfrid. “But you will not need the same things. And you know that you are to stay with your father and me as long as we live—if you wish it.”
+> “And when you enter the convent,” Kristin said uncertainly, “perhaps, Ulvhild, I shall already have been a nun for many years.”
+> She looked over at her mother, but Ragnfrid was silent.
+> “If I had been such that I could marry,” said Ulvhild, “I should never have turned away from Simon—he was kind, and he was so sorrowful when he bade farewell to us all.”
+> “You know your father has said we are not to speak of this,” said Ragnfrid, but Kristin said defiantly:
+> “Yes, I know he grieved more at parting from you than from me.”
+> Her mother said angrily:
+> “Then he too must have had little pride, if he had shown you that he grieved—you did not deal fairly with Simon Andressøn, my daughter. And yet he begged us not to threaten or curse you—”
+> “No, he must have thought he had cursed me so much,” said Kristin as before, “that no one else needed to tell me how wretched I am. But I never noticed that Simon cared greatly for me before he understood that I held another man dearer than him.”
+> “Go home, you two,” the mother said to the little ones. She sat down on a log that lay there and drew Kristin down beside her.
+> “You surely know,” she began, “that it has always been held most seemly and honorable for a man not to speak too much of love to his betrothed—not to sit alone with her or show himself too ardent—”
+> “Oh, I wonder,” said Kristin, “whether young people who love one another do not forget themselves now and then, rather than always remembering what the old consider seemly.”
+> “Take care, Kristin,” said her mother, “that you never forget it.” She sat for a while. “It is so, I understand, that your father fears you have bestowed your love upon a man to whom he would be reluctant to give you.”
+> “What has my uncle said?” Kristin asked after a moment.
+> “Nothing more,” said her mother, “than that Erlend of Husaby has a better lineage than reputation. Yes, he has apparently spoken to Aasmund, asking him to put in a word for him with Lavrans. Your father was not pleased when he heard this.”
+> But Kristin sat radiant. Erlend had spoken to her uncle. She who had suffered so because he had sent her no word.
+> Then her mother said again:
+> “Now it is so that Aasmund mentioned something about a rumor said to have gone around Oslo: that this Erlend had been hanging about in the lanes around the convent and that you had gone out and spoken with him by the fences.”
+> “Well?” asked Kristin.
+> “Aasmund advises this match, you understand,” said Ragnfrid. “But then Lavrans grew angrier than I remember ever seeing him. He said that a suitor who took that road to his daughter would find him with sword in hand. Dishonorable enough was the way we had dealt with the Dyfrin people, but if Erlend had enticed you to run the roads with him in the dark, and while you were in a convent, then he took it as a sure sign that you were better served by losing such a husband.”
+> Kristin clenched her hands in her lap—the color came and went in her face. Her mother put an arm around her waist—but Kristin twisted away and screamed, beside herself with agitation:
+> “Leave me alone, Mother! Perhaps you want to feel whether I have grown thicker around the waist—”
+> The next moment she was standing, holding her hand to her cheek—bewildered, she looked down into her mother’s blazing face. No one had struck her since she was a little child.
+> “Sit down,” said Ragnfrid. “Sit down,” she repeated, and her daughter obeyed. The mother sat silent for a while; when she spoke, her voice was unsteady:
+> “I have seen it clearly enough, Kristin: you have never loved me very much. I thought perhaps it was because you believed I did not love you so much—not as your father loves you. I let the matter rest—I thought that when the time came for you to bear children yourself, you would understand.
+> “I was still nursing you, and even then it was so that whenever Lavrans came near us two, you would let my breast fall from your mouth and reach toward him and laugh, so that my milk ran over your lips. Lavrans thought this amusing—and God knows I did not begrudge him that; I did not begrudge it to you either, nor that your father played and laughed every time he saw you. I myself thought it a pity for you, poor little life, that I could not cease all my weeping. I thought more about whether I should lose you too than I rejoiced because I had you. But God and the Virgin Mary know that I loved you no less than Lavrans did.”
+> The tears ran down Ragnfrid’s cheeks, but her face was entirely calm, and so was her voice:
+> “God knows I never bore him or you any resentment for the friendship between you. I thought I had not given him much joy during the years we had lived together; I was glad he had you. And I also thought that if Ivar, my father, had been like that with me—
+> “There are many things, Kristin, that a mother should teach her daughter to guard against. I thought it was not necessary with you, who have followed your father all these years—you ought to know what is honorable and right. What you mentioned just now—do you think I could imagine that you would wish to cause Lavrans such sorrow?
+> “I only wanted to tell you—I wish that you may have a husband whom you can love. But then you must conduct yourself wisely—do not let Lavrans gain the thought that you have chosen a man of misfortune, one who does not respect women’s peace or honor. For he will not give you to such a man—not even if it were a matter of saving you from manifest disgrace. Lavrans would sooner let steel decide the right between himself and the man who had ruined your life.”
+> With that, her mother rose and left her.
+> 
+> II
+> 
+> On Saint Bartholomew’s Day, the twenty-fourth of August, the blessed King Haakon’s daughter’s son was acclaimed at Haugating. Among the men sent there from northern Gudbrandsdal was Lavrans Bjørgulfsøn. He had been the king’s man since his youth, but during all those years had seldom come near the royal household, and he had never tried to turn to his advantage the good name he had won in the campaign against Duke Eirik. Nor was he eager to journey to the acclamation assembly, but he could not excuse himself. The delegates from the northern valley had also been charged with trying to buy grain in the south of the country and sending it by ship to Raumsdal.
+> The people in the districts were disheartened and afraid of the approaching winter. The farmers also thought it ill that once again a child was to become Norway’s king. Old people remembered the time when King Magnus had died and his sons were children, and Sira Eirik said:
+> “Væ terræ, ubi puer rex est. In the Norwegian tongue: there is no night’s rest for the rats on a farm where the cat is young.”
+> Ragnfrid Ivarsdatter managed the farm while her husband was away, and it was good for both Kristin and her that their heads and hands were full of cares and work. Throughout the district people labored to gather moss in the mountains and strip bark, for there had been little hay and almost no straw, and even the foliage gathered after Midsummer had yellowed and was poor. On Holy Cross Day, when Sira Eirik carried the crucifix over the fields, many in the procession wept and loudly begged God to have mercy on people and livestock.
+> About a week after Holy Cross Day, Lavrans Bjørgulfsøn came home from the assembly.
+> It was long past people’s bedtime, but Ragnfrid was still sitting in the weaving room. She had so much to attend to during the day now that she often worked late into the evenings at weaving and sewing. Ragnfrid also liked being in this house. It was said to be the oldest room on the farm; they also called it the dyngje, and people said it had stood there since heathen times. Kristin and the girl named Astrid were with her, sitting and spinning by the hearth.
+> They had sat silent and sleepy for a while when they heard the hoofbeats of a single horse—a man rode at great speed into the wet yard. Astrid went into the vestibule and looked out; shortly afterward she returned, followed by Lavrans Bjørgulfsøn.
+> Both his wife and daughter saw at once that he was rather drunk. He reeled and caught hold of the smoke-vent pole while Ragnfrid relieved him of his soaking-wet cloak and hat and unbuckled his sword belt.
+> “What have you done with Halvdan and Kolbein?” she asked, a little frightened. “Did you ride away from them on the road?”
+> “No, I rode away from them at Loptsgaard,” he said, laughing a little. “I had such a desire to come home—I can never find rest before I do—they went to bed down there, but then I took Guldsvein and slipped home—”
+> “You must find me a little food, Astrid,” he told the girl. “Bring it in here, so you need not go so far in the rain. But be quick; I have eaten nothing since early today—”
+> “Did you get no food at Loptsgaard?” his wife asked in surprise.
+> Lavrans sat on the bench, swaying and laughing a little:
+> “You know there was food—but I had no appetite while I was there. I drank for a while with Sigurd—but—then I thought I might as well go home at once rather than wait until tomorrow—”
+> Astrid came with ale and food; she had also brought dry shoes for the master.
+> Lavrans fumbled at unfastening his spurs, but nearly toppled forward.
+> “Come here, Kristin,” he begged, “and help your father. I know you do it with a loving heart—a loving heart, yes—today.”
+> Kristin obeyed and knelt down. Then he took her head in both hands and lifted it:
+> “You surely know this, my daughter—I desire nothing but your good. I would not cause you sorrow unless I saw that I was sparing you many sorrows afterward. You are still very young, Kristin—you turned seventeen this year—three days after Saint Hallvard’s Day—seventeen you are—”
+> Kristin had finished helping him. A little pale, she rose and sat down again on her stool by the hearth.
+> Lavrans seemed to sober somewhat as he ate his fill. He answered his wife’s and the maidservant’s questions about the assembly—yes, it had been splendid. They had managed to buy grain and some flour and malt, some in Oslo and some in Tunsberg; it was foreign merchandise and could have been better, but it could also have been worse. Yes, he had met many kinsmen and acquaintances and brought greetings home. But he sat letting the answers drip from him.
+> “I spoke with Sir Andres Gudmundsøn,” he said when Astrid had gone out. “Simon has drunk his betrothal ale with the young widow of Manvik. The wedding is to be held at Dyfrin around Saint Andrew’s Day. The lad arranged it himself this time. I kept away from Sir Andres in Tunsberg, but he sought me out—wanted to tell me that he knew for certain Simon first saw Lady Halfrid at Midsummer this year. He feared I might believe Simon had had this rich marriage in mind when he broke with us.” Lavrans sat for a moment and laughed joylessly. “You understand, this honorable man was very much afraid that we might think such a thing of his son.”
+> Kristin breathed more easily. She thought this was what had so disturbed her father. Perhaps he had hoped all along that the marriage between Simon Andressøn and her might still come about. At first she had feared that he had learned something about her conduct in Oslo.
+> She rose and bade them good night. Then her father said that she must wait a little longer.
+> “I have another piece of news,” said Lavrans. “I could have kept it from you, Kristin—but it is better that you know. The man upon whom you have set your heart—you must try to forget him.”
+> Kristin had stood with her arms hanging and her head bowed. Now she looked up into her father’s face. Her lips moved, but no audible sound came forth.
+> Lavrans looked away from his daughter’s gaze and flung out his hand:
+> “You surely know that I would not oppose it if I could truly believe it would be for your good.”
+> “What news did you hear on this journey, Father?” said Kristin, her voice clear.
+> “Erlend Nikulaussøn and his kinsman Sir Munan Baardsøn came to me in Tunsberg,” answered Lavrans. “Sir Munan asked for you on Erlend’s behalf, and I answered no.”
+> Kristin stood for a while, breathing heavily.
+> “Why will you not give me to Erlend Nikulaussøn?” she asked.
+> “I do not know how much you know about the man you wish to have as husband,” said Lavrans. “If you cannot understand the reason yourself, it will not be pleasant for you to hear it from my mouth.”
+> “Is it because he has been excommunicated and outlawed?” Kristin asked in the same manner.
+> “Do you know what caused King Haakon to banish his close kinsman from his court—and why in the end he fell under the ban because he defied the archbishop’s command—and that he did not leave the country alone?”
+> “Yes,” said Kristin. Her voice became uncertain. “I also know that he was eighteen when he became acquainted with her—his concubine.”
+> “I was that old when I married,” answered Lavrans. “When I was young, we reckoned that at eighteen a man could answer for himself and govern his own welfare and that of others.”
+> Kristin stood silent.
+> “You called that woman his concubine, the woman with whom he lived for ten years and fathered children,” said Lavrans after a moment. “Little joy would I feel on the day I sent my daughter from home with a husband who had lived openly with a concubine year after year before marrying. But you know that concubinage was not what it was.”
+> “You did not judge Lady Aashild and Sir Bjørn so harshly,” Kristin said softly.
+> “Even so, I cannot say I should gladly see us become allied by marriage with them,” answered Lavrans.
+> “Father,” said Kristin, “have you been so sinless all your life that you dare judge Erlend so harshly—”
+> “God knows,” Lavrans answered brusquely, “that I judge no man a greater sinner before Him than I am myself. But one cannot reason that I must give my daughter to any man who chooses to ask for her merely because we all need God’s mercy.”
+> “You know I did not mean it so,” Kristin said fiercely. “Father—Mother—you too were young—do you remember so little that you do not know it is not easy to guard oneself against the sin caused by love—”
+> Lavrans turned blood-red.
+> “No,” he said curtly.
+> “Then you do not know what you are doing,” Kristin screamed in despair, “if you separate Erlend Nikulaussøn and me!”
+> Lavrans sat down again on the bench.
+> “You are only seventeen, Kristin,” he began again. “It may be that he and you—that you have grown dearer to each other than I believed. But he is not so young that he should not have understood—had he been a good man, he would not have approached so young and legally dependent a child as you with words of love. That you were promised to another must have seemed a small matter to him.
+> “But I will not marry my daughter to a man who has two children with another man’s lawful wife. Do you know that he has children?
+> “You are too young to understand that such a wrong breeds strife—and discord within a kindred—without end. A man cannot betray his own offspring, nor can he set matters right—it is difficult to find a way to advance his son among men or marry his daughter to anyone but a servant or small farmer. Those children would have to be neither flesh nor blood if they did not come to hate you and your children.
+> “Do you not understand, Kristin—such sins—God may forgive such sins more readily than many others, but they lay waste the lineage in a way that can never be remedied. I thought of Bjørn and Aashild too—there stood this Munan, her son, covered in gold, sitting among the king’s councillors; he and his brothers have their maternal inheritance, and he has not greeted his mother in her poverty all these years. Yes, that was the man your friend chose as his spokesman.
+> “No, I say, no. You shall not enter that lineage while my head is above the soil.”
+> Kristin covered her face with her hands and burst into tears:
+> “Then I will pray to God night and day, night and day, that if you do not change your mind, He will take me away from here!”
+> “It is useless to speak more of this tonight,” her father said in torment. “You may not believe it, but I must govern you as I think I can answer for it. Go to rest now, child.”
+> He held out his hand to her, but she would not look at it and went sobbing from the room.
+> Her parents remained sitting for a while. Then Lavrans said to his wife:
+> “Will you fetch a drink of ale—no, bring in some wine,” he asked. “I am tired.”
+> Ragnfrid did as he asked. When she returned with the tall cup, her husband sat with his face buried in his hands. He looked up and glanced over her headdress and down her arms:
+> “Poor thing, now you are wet. Drink to me, Ragnfrid.”
+> She scarcely touched her lips to the cup.
+> “No, drink with me now,” said Lavrans fiercely, trying to draw his wife down onto his lap. Reluctantly she yielded. Lavrans said:
+> “You will stand with me in this matter, my wife? It will be best for Kristin herself if she understands from the beginning that she must put this man out of her mind.”
+> “It will be hard for the child,” said her mother.
+> “Yes, I understand that,” answered Lavrans.
+> They sat for a while; then Ragnfrid asked:
+> “What does he look like, this Erlend of Husaby?”
+> “Oh,” said Lavrans, drawing out the word. “He is a handsome fellow—in a way. But he does not look fit for much except beguiling women.”
+> They were silent again for a while; then Lavrans said:
+> “The great inheritance he received after Sir Nikulaus he has apparently managed so that it has greatly diminished. It was not for such a son-in-law that I labored and sought to secure my children.”
+> The mother paced restlessly up and down the floor. Lavrans continued:
+> “What I liked least was that he tried to entice Kolbein with silver—he was to carry a secret letter from him to Kristin.”
+> “Did you look at the letter?” asked Ragnfrid.
+> “No, I could not be bothered,” Lavrans said curtly. “I handed it back to Sir Munan and told him what I thought of such conduct. He had hung his seal from it too—I do not know what one is to say about such childish tricks. Sir Munan showed me the seal impression: it was King Skule’s privy seal, which Erlend inherited from his father. He must have thought I should be reminded that it was a great honor they were asking for my daughter. But I think Sir Munan would not have pursued Erlend’s cause with such warmth if he did not understand that with this man the power and honor of the Husaby lineage, won in the days of Sir Nikulaus and Sir Baard, are declining—Erlend can no longer expect to make a marriage befitting his birth.”
+> Ragnfrid stopped before her husband:
+> “Now I do not know, husband, whether you are right in this. First it must be said that, as times are, many men on the great estates have had to content themselves with less power and honor than their fathers before them. You know better than anyone that it is less easy for a man to gain wealth either from land or trade than it was formerly—”
+> “I know, I know,” the man interrupted impatiently; “all the more reason to manage prudently what one has inherited—”
+> But his wife continued:
+> “There is also this to say: it does not seem to me that Kristin would be an unequal match for Erlend. In Sweden your lineage ranks among the best; your grandfather and father bore the name of knight in this country. My ancestors were landed lords, son after father, for many hundreds of years down to old Ivar; my father and grandfather were royal district governors. It is true that neither you nor Trond has received titles or land from the Crown. But then it seems to me one could say that Erlend Nikulaussøn stands no differently from you.”
+> “It is not the same,” said Lavrans fiercely. “Power and knighthood lay ready to Erlend’s hand, and he turned away from them for adultery’s sake. But now I understand that you too are against me. Perhaps, like Aasmund and Trond, you think it an honor for me that these great lords want my daughter for one of their kinsmen—”
+> “I have told you,” said Ragnfrid, somewhat heatedly, “that I do not think you need be so sensitive that you fear Erlend’s kinsmen will believe they are demeaning themselves in this matter. But do you not understand anything—the gentle and yielding child had the courage to rise against us and reject Simon Darre—have you not seen that Kristin has been wholly unlike herself since she returned from Oslo? Do you not see that she walks as though she had come out from under an enchantment?
+> “Do you not understand that she loves this man so dearly that if you do not yield, a great misfortune may happen here?”
+> “What do you mean by that?” asked her father, looking sharply up.
+> “Many a man greets his son-in-law and does not know it,” said Ragnfrid.
+> The man seemed to stiffen; slowly his face turned white:
+> “You who are her mother!” he said hoarsely. “Have you—have you seen such certain signs that you dare accuse your own daughter of this—”
+> “No, no,” said Ragnfrid quickly. “I did not mean what you think. But no one can know what has happened or what may happen. She has no thought except that she loves this man—I have seen it—one day she may show us that she holds him dearer than honor—or life!”
+> Lavrans sprang up:
+> “Oh, you are mad! How can you think such things of our lovely, good child! She can hardly have gone about much where she was—among the nuns. She is no dairy wench, I should think, who lies down behind a rail fence. You must understand that she cannot have seen this man or spoken to him very many times—it will pass; it must be nothing but a young maiden’s fancy. God knows it seems heavy enough to me to see her grieve so, but surely you know this must pass with time!
+> “Life, you say, and honor. Here at home on my own farm I can surely guard my maiden. Nor do I believe that any maiden of good lineage, reared in Christianity and chastity, parts so readily with honor or life. Hah, those are things people make ballads about—but I think it is so that when a man or maiden is tempted to do such a thing, they make a ballad about it and are helped by that, and refrain from doing it.
+> “You yourself,” he said, stopping before his wife. “There was another whom you would rather have had when you and I were given to one another. What lot do you think you would have had if your father had allowed you to decide in that matter?”
+> Now Ragnfrid had turned deathly pale:
+> “Jesus, Mary! Who told you—”
+> “Sigurd at Loptsgaard said something about it—it was just after we had moved here to the valley,” said Lavrans. “But answer what I asked—do you think you would have been happier if Ivar had given you to that man?”
+> His wife stood with her head deeply bowed.
+> “That man,” she answered almost inaudibly, “did not want me.” A convulsion seemed to pass through her body—she struck out into the air with her clenched hand.
+> Then her husband gently placed his hands upon her shoulders.
+> “Is that it?” he asked, overwhelmed, and a deep and sorrowful wonder broke into his voice. “Is that it—all these years—have you grieved for him, Ragnfrid?”
+> She trembled violently but said nothing.
+> “Ragnfrid?” he asked as before. “But then, after Bjørgulf had died—and later—when you—when you wanted me—to behave toward you—in a way I could not. Were you thinking of the other man then?” he whispered, frightened, bewildered, and tormented.
+> “How can you think such thoughts?” she whispered through her tears.
+> Lavrans pressed his forehead to his wife’s and shook his head a little.
+> “I do not know. You are so strange—everything you said tonight. I grew afraid, Ragnfrid. Perhaps I do not understand a woman’s heart—”
+> Ragnfrid smiled wanly and put her hands around his neck:
+> “God knows, Lavrans—I begged you because I loved you more than is good for a human soul. And I hated the other man so that I felt the devil rejoiced in it.”
+> “I have loved you, my wife,” said Lavrans softly, and kissed her, “with all my heart. You know that? It seemed to me that we had lived well together—Ragnfrid?”
+> “You were the best of husbands,” she said with a small sob, hiding herself against him.
+> He clasped her fiercely:
+> “Tonight I should like to sleep with you, Ragnfrid. And if you would behave toward me as in the old days, then I should not be—such a fool—”
+> His wife stiffened in his arms and drew a little away:
+> “It is a fast now,” she said softly—with a strange hardness.
+> “So it is.” The man laughed a little. “You and I, Ragnfrid, have kept every fast and tried to live according to God’s commandments in all things. And now it almost seems to me—we might have been happier if we had had more to repent.”
+> “Do not speak so,” his wife begged despairingly, pressing her thin hands against his temples. “You know I do not want you to do anything except what you yourself think right.”
+> He drew her to him once more—he groaned aloud as he did so:
+> “God help her. God help us all, my Ragnfrid.
+> “I am tired,” he said, releasing her. “You will go to rest now too?”
+> He remained standing by the door and waited while she extinguished the hearth, blew out the little iron lamp by the loom, and pinched out the spark. Together they went through the rain toward the dwelling house.
+> Lavrans already had his foot on the loft stair when he returned to his wife, who still stood in the vestibule doorway. He drew her fiercely to him one last time and kissed her in the darkness. Then he made the sign of the cross over his wife’s face and went upstairs.
+> Ragnfrid flung off her clothes and crept into bed. For a while she lay listening to her husband’s footsteps above in the upper loft room—then the bed creaked overhead and all became still. Ragnfrid crossed her slender arms over her withered breasts.
+> Yes, God help me. What manner of woman was she, what manner of mother? Soon she would be old. And still she was the same. She no longer begged as when they were young, when she had stormed at and implored this man who closed himself off, shy and bashful, whenever she became ardent—grew cold when she wished to give him more than his rights as husband. So it had been—and so she had become pregnant time after time—humiliated, raging with shame because she could not content herself with his lukewarm married love. Then, when she went about needing kindness and tenderness, he had so much to give—the man’s tireless, gentle care for her when she was sick and troubled fell like dew upon her fevered spirit. He readily took up all her burdens and bore them—but there was something of his own that he would not give. She had loved her children so that it was as though her heart were torn out whenever she lost one—God, God, what manner of woman was she, that amid her anguish she had been able to taste this drop of sweetness: that he took her grief into himself and laid it close beside his own?
+> Kristin—she would gladly have walked through fire for her daughter—they did not believe it, neither Lavrans nor the child, but it was so. Yet she now felt an anger akin to hatred toward her—it had been in order to forget his grief over the child’s grief that tonight he had wished he could surrender himself to his wife.
+> Ragnfrid dared not rise, for she did not know whether Kristin might be lying awake in the other bed. But she rose soundlessly to her knees and, with her forehead bowed against the footboard, tried to pray. For her daughter, for her husband, and for herself. As the cold gradually stiffened her body, she once more set out upon one of her familiar night journeys, trying to force a path to a peaceful home for her heart.
+> 
+> III
+> 
+> Haugen lay high on the western slope of the valley. On this moonlit night the whole world was white. Wave after wave of white mountain swelled beneath the pale blue, star-poor sky. Even the shadows cast by peaks and ridges over the snowfields seemed strangely light and bright, for the moon sailed so high.
+> Down toward the valley, the forest stood loosely white with snow and hoarfrost around the white expanses of fields, with small tracery of fences and houses. But at the very bottom of the valley the shadows thickened into darkness.
+> Lady Aashild came out of the cowshed, closed the door behind her, and stood for a moment in the snow. The whole world was white, and yet it was more than three weeks until Advent began. Saint Clement’s Day cold—winter had surely come in earnest. Ah yes, that often accompanied a year of dearth.
+> The old woman sighed heavily into the wilderness. Winter again, and cold and loneliness. Then she picked up the milk pail and lantern and went toward the dwelling house. She looked out once more.
+> Four black specks came from the forest halfway down the slope. Four mounted men—the point of a spear flashed in the moonlight. They were making heavy progress uphill—no one had traveled there since the snowfall. Could they be coming here?
+> Four armed men. It seemed unlikely that anyone with lawful business with her would travel in such company. She thought of the chest containing her and Bjørn’s property. Should she hide in the outbuilding?
+> She looked out over the winter and the wilderness around her. Then she entered the room. The two old dogs that had lain before the smoke oven beat their tails against the floorboards. Bjørn had taken the young dogs into the mountains.
+> She blew upon the embers in the oven and put in wood, filled the iron pot with snow, and set it over the fire. She strained the milk into a wooden bowl and carried it into the chamber behind the room.
+> Aashild changed out of the dirty, undyed homespun dress that stank of cowshed and sweat, put on a dark-blue garment, and exchanged her coarse linen headcloth for a white linen cloth, which she arranged around her head and neck. She removed her fur-lined boots and put on silver-buckled shoes.
+> Then she began to set her room in order—smoothed the cushions and skins in the bed where Bjørn had lain during the day, wiped the long table, and straightened the bench cushions.
+> Lady Aashild stood before the oven stirring the evening porridge when the dogs gave warning. She heard horses in the yard; men came into the gallery, and someone struck the door with a spear. Aashild lifted the pot from the fire, adjusted her clothing, and, with the dogs beside her, went forward and opened the door.
+> Outside in the moonlit yard, three young men held four frost-covered horses. The man standing in the gallery cried gladly:
+> “Aunt Aashild, you come yourself to open the door! Then I must say, Bien trouvé!”
+> “Nephew—why, is it you! Then I say the same to you! Go into the room while I show your men to the stable.”
+> “Are you alone on the farm?” asked Erlend. He followed while she settled the men.
+> “Yes, Sir Bjørn and our farmhand went into the mountains with the sledge—they were to try to bring home some fodder we had gathered near the mountain pasture,” said Lady Aashild. “And I have no maidservant,” she added, laughing.
+> A little later the four young men sat on the outer bench, their backs to the table, watching the old lady as she quietly and busily set food before them.
+> She laid a cloth on the table and set out a lighted candle, brought butter, cheese, a bear ham, and a tall stack of thin, fine flatbreads. She fetched ale and mead from the cellar beneath the room, then ladled the porridge into a fine wooden bowl and asked them to sit down and begin.
+> “It is little enough for you young fellows,” she said, laughing. “I shall have to cook another pot of porridge. Tomorrow you shall fare better—but in winter I close the cookhouse except when I bake or brew. There are few of us on the farm, and I am beginning to grow old, kinsman.”
+> Erlend laughed and shook his head. He noticed that his retainers behaved toward the old woman with a courtesy and reverence he had never seen them show before.
+> “You are a strange woman, Aunt. Mother was ten years younger than you are, and she looked older the last time we were here than you do tonight.”
+> “Yes, youth left Magnhild quickly enough,” Lady Aashild said softly. “Where have you come from now?” she asked after a moment.
+> “I have been staying for a while at a farm north in Lesja,” said Erlend. “I had hired lodging there. I do not know whether you can guess what business brings me to these districts?”
+> “You mean whether I know that you have sued for Lavrans Bjørgulfsøn’s daughter down at Jørundgaard?” said Lady Aashild.
+> “Yes,” said Erlend. “I had her asked for in a seemly and honorable fashion, and Lavrans Bjørgulfsøn answered flatly no. Now I know no better course, since Kristin and I will not allow ourselves to be forced apart, than to carry her away by force. I have—I have had a scout here in the district, and I know that her mother was to be at Sundbu from Saint Clement’s Day onward for a time, and Lavrans is out at the headland with the other men who are to fetch the winter goods for Sil.”
+> Lady Aashild sat for a while.
+> “That plan, Erlend, you had better abandon,” she said. “Nor do I believe the maiden will follow you willingly, and surely you will not use force.”
+> “Yes, she will. We have spoken of this many times—she herself has asked me many times to carry her away.”
+> “Has Kristin!” said Lady Aashild. Then she laughed. “For all that, do not trust that you will get the maiden to go with you when you come to take her at her word.”
+> “Yes,” said Erlend. “And now I had thought, Aunt, that you should send word to Jørundgaard asking that Kristin be allowed to visit you—a week or so while her parents are away. Then we could be at Hamar before anyone notices she is gone,” he explained.
+> Lady Aashild answered, still smiling slightly:
+> “Have you also thought what Sir Bjørn and I are to answer when Lavrans comes and demands an accounting from us for his daughter?”
+> “Yes,” said Erlend. “We were four armed men, and the maiden was willing.”
+> “I will not help you with this,” the lady said fiercely. “Lavrans has been faithful to us for many years; he and his wife are honorable people, and I will not lend myself to betraying them or bringing shame upon her. Leave the maiden in peace, Erlend. It is high time your kinsmen heard of some deed from you other than your wandering in and out of the country with stolen women—”
+> “We must speak alone, Aunt,” Erlend said curtly.
+> Lady Aashild took a candle, went into the chamber, and closed the door behind her. She sat down on a flour bin; Erlend stood with his hands thrust into his belt and looked down at her.
+> “You may also tell Lavrans Bjørgulfsøn that Sira Jon at Gerdarud married us before we went on to Lady Ingebjørg Haakonsdatter in Sweden.”
+> “So,” said Lady Aashild. “Do you know whether Lady Ingebjørg will receive you kindly when you arrive?”
+> “I spoke with her in Tunsberg,” said Erlend. “She greeted me as her dear kinsman and thanked me for offering her my service here or in Sweden. And Munan has promised to give me letters to take to her.”
+> “Then you surely know,” said Lady Aashild, “that even if you can find a priest to marry you, Kristin will forfeit every right to property and inheritance from her father. And her children will not be your lawful heirs. It is uncertain whether she will be counted as your wife.”
+> “Perhaps not in this country. That is also why I am taking refuge in Sweden. Her forefather, Laurentius the Lawman, was never married to Maiden Bengta in any other way—they never gained her brother’s consent. Yet she was counted a lady—”
+> “There were no children,” said Lady Aashild. “Do you think my sons will keep their hands from your inheritance if Kristin is left a widow with children and it can be disputed whether they were lawfully born?”
+> “You wrong Munan,” said Erlend. “I know little of your other children—you have no reason to feel kindly toward them, I know. But Munan has always been wholly faithful to me—he very much wants me married; he sued for me with Lavrans. Otherwise I can adopt as heirs and into the lineage the children we have.”
+> “By that you mark their mother as a concubine,” said Lady Aashild. “Nor do I understand how that mild man Jon Helgesøn will dare risk a case with his bishop by marrying you against the law.”
+> “I confessed to him this summer,” Erlend said in a subdued voice. “Then he promised to marry us if every other course should fail.”
+> “So that is how it stands,” said Lady Aashild. “Then you have burdened yourself with a grievous sin, Erlend. Kristin lived well at home with her father and mother—a good marriage with a handsome and honorable man of good lineage had been arranged for her.”
+> “Kristin herself has said,” Erlend replied, “that you spoke of how she and I might suit one another well. And that Simon Andressøn was no husband for her.”
+> “Oh, I have said this and I have said that,” his aunt retorted. “I have said much in my time. Nor do I understand how you gained your will with Kristin so easily. You cannot have met many times. And I should not have thought her easy to win, that maiden.”
+> “We met in Oslo,” said Erlend. “Afterward she stayed with her uncle at Gerdarud. She came out and met me in the forest.” He looked down and said very softly: “I had her there alone to myself.”
+> Lady Aashild sprang up. Erlend bowed his head still lower.
+> “And after that she was—was friendly with you?” the lady asked incredulously.
+> “Yes.” Erlend smiled weakly and tremulously. “We were friends after that. And it was not so much against her will—but she is without blame. It was then that she wanted me to carry her away—she would not return to her kinsmen—”
+> “But you would not?”
+> “No, I wanted to try to gain her as wife with her father’s consent.”
+> “Was this long ago?” asked Lady Aashild.
+> “It was a year ago around Saint Lawrence’s Day,” answered Erlend.
+> “You have not been hasty in suing for her,” said the other.
+> “She had not been released from her previous betrothal,” answered Erlend.
+> “And since then you have not approached her improperly?” asked Aashild.
+> “We managed matters so that we met a few times”—again the tremulous smile passed over the man’s face—“at a house in the town.”
+> “In God’s name,” said Lady Aashild. “I shall help you and her as much as I can. I understand it must be too hard for Kristin to live with her parents while carrying such a thing. There is nothing more?” she asked.
+> “Not that I have heard,” said Erlend curtly.
+> “Have you thought,” the lady asked after a moment, “that Kristin has friends and kinsmen all down the valley?”
+> “We must travel secretly as best we can,” said Erlend. “Therefore it is important that we set out quickly, so that we are some distance away before her father returns. You must lend us your sledge, Aunt.”
+> Aashild shrugged.
+> “Then there is her uncle at Skog—what if he hears that you are celebrating his niece’s wedding at Gerdarud?”
+> “Aasmund spoke for me to Lavrans,” said Erlend. “It is true he cannot be privy to it, but he will surely close one eye—we must reach the priest at night and travel onward by night. Then I think Aasmund will afterward press upon Lavrans that it does not become a God-fearing man such as he to separate us once we have been married by a priest—he must instead give his consent so that we become lawful spouses. You must tell the man the same. He may impose whatever terms he wishes for a reconciliation between us and demand such compensation as he finds reasonable.”
+> “I do not think Lavrans Bjørgulfsøn will be easy to manage in this matter,” said Lady Aashild. “God and Saint Olav know that I dislike this undertaking, nephew. But I understand that it is the last course you can seize upon if you are to repair the harm you have done Kristin. I shall ride to Jørundgaard myself tomorrow, if you will lend me one of your retainers and I can persuade Ingrid north on the slope to tend my livestock.”
+> Lady Aashild reached Jørundgaard the next evening just as the moonlight mingled with the last gleam of day. She saw how pale and hollow-cheeked Kristin had become when the young woman came into the yard to receive the guest.
+> The lady sat by the oven and played with the two little girls. Secretly she studied Kristin, who was laying the table. Thin and quiet she looked. She had always been quiet, but there was a different kind of stillness over the girl now. Lady Aashild guessed at all the tension and stubborn defiance behind it.
+> “You have surely heard,” said Kristin, coming over to her, “what happened here this autumn?”
+> “Yes—that my nephew has sued for you?”
+> “Do you remember,” Kristin asked, “that you once said he and I might suit one another well? Except that he was far too rich and highborn for me?”
+> “I hear that Lavrans is of another opinion,” said the lady dryly.
+> Kristin’s eyes flashed and she smiled a little. She is good enough, thought Lady Aashild. However little she liked it, she must yield to Erlend and give him the assistance he had asked.
+> Kristin prepared the parents’ bed for the guest, and Lady Aashild asked the young woman to sleep with her. After they had gone to bed and the room had grown quiet, Lady Aashild delivered her message.
+> Her heart became strangely heavy when she saw that this child seemed to give no thought to the sorrow she would cause her parents. Yet I had lived in grief and torment with Baard for more than twenty years, thought the lady. But perhaps it is so with us all. Kristin did not even seem to have noticed how Ulvhild had declined that autumn—Aashild thought it unlikely that Kristin would ever see her little sister alive again. But she said nothing of it—the longer Kristin could sustain this wild joy and audacity, the better it might be.
+> Kristin rose, and in the darkness gathered her jewelry into a small casket, which she brought back to bed. Then Lady Aashild nevertheless said:
+> “Still it seems to me, Kristin, that it would be a better course for Erlend to ride down here when your father returns—to say openly that he has done you a great wrong—and place his case in Lavrans’s hands.”
+> “Then I think Father would kill Erlend,” said Kristin.
+> “Lavrans will not do that if Erlend refuses to draw sword against his father-in-law,” answered the lady.
+> “I will not have Erlend humbled in that way,” said Kristin. “And I will not have Father know that Erlend touched me before he asked for me with honor and good repute.”
+> “Do you think Lavrans will be less angry,” asked Aashild, “when he learns that you have fled the farm with him, and do you think it will be easier for him to bear? By law you will be nothing but Erlend’s concubine so long as you live with him without your father’s having given you away.”
+> “That is a different matter,” said Kristin, “if I become Erlend’s concubine because he could not have me as his lawful wife.”
+> Lady Aashild was silent. She thought of how she would have to face Lavrans Bjørgulfsøn when he returned and learned that his daughter had been stolen away.
+> Then Kristin said:
+> “I understand, Lady Aashild, that you think me a wicked child. But it has been so on this farm ever since Father returned from the assembly that every day has been torment for him as well as for me. It is best for everyone that this matter now reach an end.”
+> They rode from Jørundgaard in good time the next day and reached Haugen shortly after noon. Erlend met them in the yard, and Kristin threw herself into his arms without caring about the retainer who had accompanied Lady Aashild and her.
+> Inside the room she greeted Bjørn Gunnarsøn and then Erlend’s two retainers as if she had known them well before. Lady Aashild could see no sign that she was either shy or afraid. Later, when they sat at table and Erlend laid out his plan, Kristin joined in the counsel and advised concerning the road: they should ride from Haugen the next evening so late that they would reach Rosten when the moon went down, travel in darkness through Sil and past Loptsgaard, then up along the Otta River to the bridge and, on the west side of the Otta and the Laagen, follow deserted roads as far as the horses could endure. They could rest through the day at one of the spring shielings on the slope, “for as far as the Holledis assembly district extends, we may encounter people who know me.”
+> “Have you thought of fodder for the horses?” said Lady Aashild. “You cannot steal fodder from people’s spring shielings in a year such as this—if there is fodder there—and you know that no one in the valley has fodder to sell this year.”
+> “I have thought of it,” answered Kristin. “You must lend us fodder and food for three days. That is also one reason we should not travel in too large a company—Erlend must send Jon back to Husaby. The year has been better in Trøndelag, and surely a few loads can be brought over the mountain before Christmas. There are some poor people south in the district whom I should like you to help with alms from Erlend and me, Lady Aashild.”
+> Bjørn burst into a strange, joyless roar of laughter. Lady Aashild shook her head. But the retainer Ulv lifted his dark, sharp face and looked at Kristin with a peculiar bold smile:
+> “There is never abundance at Husaby, Kristin Lavransdatter, either in good years or years of dearth. But perhaps it will be different when you take command there. From your speech, you sound like the mistress Erlend needs.”
+> Kristin nodded calmly to the man and continued quickly. They must keep away from the main road as much as possible. And it seemed impossible to her to take the road through Hamar.
+> Erlend objected that Munan was there—there was the letter for the duchess.
+> “Then Ulv must leave us at Fagaberg and ride to Sir Munan, while we keep west of Lake Mjøsa and ride through Land and along the back roads across Hadeland down to Hakedal. From there, I have heard my uncle speak of a deserted road running south to Margretadal. It is impossible for us to ride through Raumarike at the time when the great wedding is to be held at Dyfrin,” she said, laughing.
+> Erlend went over and put his arm around her shoulder, and she leaned back against him without caring about all the people who sat watching. Lady Aashild said irritably:
+> “No one would think otherwise than that you had run away from home before.”
+> And Sir Bjørn roared with laughter as before.
+> A little later Lady Aashild rose to go to the cookhouse and prepare the food. She had kindled a fire there, for Erlend’s retainers were to sleep there that night. She asked Kristin to come along, “for I wish to be able to swear to Lavrans Bjørgulfsøn that you were not alone together for any length of time in my house,” she said angrily.
+> Kristin laughed and went with the lady. Shortly afterward Erlend came lounging in after them, pulled a three-legged stool up to the hearth, and sat there in the women’s way. He caught hold of Kristin whenever she came near him as she hurried about her work. At last he pulled her down onto his knee.
+> “It is true, as Ulv says, that you are the mistress I need.”
+> “Oh yes,” said Aashild, laughing and irritated, “you may be well served by her. She is the one staking everything on this adventure—you are not risking much.”
+> “That is true,” said Erlend. “But I have at least shown my willingness to approach her by the proper path. Do not be so angry, Aunt Aashild.”
+> “I must be angry,” said the lady. “No sooner had you put your affairs in order than you arranged matters so that you must run away from it all with a woman.”
+> “You must remember, Aunt,” said Erlend, “that it has always been so: it was not the worst of men who ruined their affairs for a woman’s sake—all the sagas say so.”
+> “Oh, God help us,” said Aashild. Her face became young and gentle. “I have heard that speech before, Erlend”—she put her hands around his head and tousled his hair.
+> At that same moment Ulv Haldorsøn tore the door open and quickly closed it behind him:
+> “Another guest has come to the farm, Erlend—the one you would least like to see, I think.”
+> “Is it Lavrans Bjørgulfsøn?” said Erlend, springing up.
+> “It is not so well,” said the retainer. “It is Eline Ormsdatter.”
+> The door was opened from outside; the woman who entered pushed Ulv aside and stepped forward into the light. Kristin looked at Erlend. At first it was as though he withered and collapsed; then he straightened, dark red in the face.
+> “Where the devil have you come from—what do you want here?”
+> Lady Aashild stepped forward and said:
+> “You must come up to the dwelling room, Eline Ormsdatter—we have at least so much custom on this farm that we do not receive our guests in the cookhouse.”
+> “I do not expect, Lady Aashild,” said the other, “that Erlend’s kinsmen will greet me as a guest. You asked where I came from—I come from Husaby, as you surely know. I bring greetings from Orm and Margret; they are well.”
+> Erlend did not answer.
+> “When I heard that you had had Gissur Arnfinsøn raise money for you and that you were going south again,” she continued, “I thought you would stop with your kinsmen in Gudbrandsdal this time. I knew you had had inquiries made about their neighbor’s daughter.”
+> She looked at Kristin for the first time and met the girl’s eyes. Kristin was very pale, but she looked calmly and searchingly at the other woman.
+> Kristin was as calm as stone. She had known from the instant she heard who had come—this was the thought from which she had always fled; she had tried to drown it with defiance, unrest, and impatience; all the while she had struggled not to think whether Erlend had wholly freed himself from his former concubine. Now it had overtaken her; it was useless to struggle any longer. But she did not plead for herself.
+> She saw that Eline Ormsdatter was beautiful. She was no longer young, but she was beautiful, and once she must have been radiantly beautiful. She had thrown back her hood; her head was round and firm, and her cheekbones protruded somewhat—but it was easy to see that once she had nevertheless been fair. The headcloth covered only the back of her head; as she spoke, Eline used her hands to smooth her golden, wavy front hair beneath the linen. Kristin had never seen a woman with such large eyes; they were dark brown, round, and hard, but beneath the narrow, coal-black brows and long lashes they were wonderfully beautiful against the golden hair. Her skin and lips were chafed from riding in the cold, but that could not mar her greatly; she was too beautiful. Her heavy traveling clothes enveloped her figure, but she carried herself in them as only a woman does who walks in the surest pride in the splendor of her body. She was scarcely as tall as Kristin, but she held herself so that she seemed taller than the slender, delicately limbed young woman.
+> “Has she been with you at Husaby all this time?” Kristin asked softly.
+> “I have not been at Husaby,” said Erlend curtly, reddening again. “I have been at Hestnæs most of this summer.”
+> “This is the news I came to bring you, Erlend,” said Eline. “You need no longer impose upon your kinsmen and test their hospitality because I manage your household. I became a widow this autumn.”
+> Erlend stood as before.
+> “It was not I who asked you to come to Husaby and manage it last year,” he said with difficulty.
+> “I heard that everything there lay neglected,” said Eline. “I retained so much affection for you from former days, Erlend, that I thought I should take your welfare in hand—although God knows you have not dealt well with our children or with me.”
+> “For the children I have done what I could,” said Erlend. “And you know very well that it was for their sake I endured your staying at Husaby. Surely you do not yourself believe you benefited them or me by it,” he said with a mocking smile. “Gissur could surely manage there without your help.”
+> “Yes, you have always trusted Gissur so much,” said Eline, laughing softly. “But this is the matter, Erlend—now I am free. If you wish it, you can now keep the promise you once made me.”
+> Erlend was silent.
+> “Do you remember,” asked Eline, “the night I bore your son? Then you promised you would marry me when Sigurd died.”
+> Erlend ran his hand beneath his sweat-wet hair.
+> “Yes, I remember,” he said.
+> “Will you keep that promise now?” asked Eline.
+> “No,” said Erlend.
+> Eline Ormsdatter looked over at Kristin—smiled a little and nodded. Then she looked at Erlend again.
+> “It is ten years ago, Eline,” said the man. “Since then we have lived together year after year like two damned souls in hell.”
+> “Not only that, surely!” she said with the same smile.
+> “It has been years and years since it was anything else,” said Erlend, exhausted. “It cannot help the children. And you know—you know that I can scarcely bear to be in the same room with you any longer,” he almost screamed.
+> “I noticed nothing of that when you were home this summer,” said Eline with a meaningful smile. “Then we were not enemies—always.”
+> “If you count that as our being friends, so be it,” said Erlend wearily.
+> “Are you going to stand here?” said Lady Aashild. She ladled from the pot into two large wooden bowls and gave one to Kristin. The girl took it. “Carry it over—and you, Ulv, take the other—set them on the table; we must have supper, however matters stand.”
+> Kristin and the retainer went with the dishes of food. Lady Aashild said to the other two:
+> “You come too; it is useless for you to stand here barking at one another.”
+> “It is better that Eline and I speak this through now,” said Erlend.
+> Lady Aashild made no further answer, but left.
+> In the dwelling room Kristin had set the table and fetched ale from the cellar. She sat on the outer bench, straight as a candle and calm in the face, but she did not eat. Neither Bjørn nor Erlend’s retainers had much appetite. Only the man who had come with Eline and Bjørn’s farmhand ate. Lady Aashild sat down and ate a little porridge. No one spoke a word.
+> At long last Eline Ormsdatter entered alone. Lady Aashild offered her a place between Kristin and herself; Eline sat down and ate something. Now and then a reflection of a hidden smile flitted over her face, and she glanced sideways at Kristin.
+> After a while Lady Aashild went out to the cookhouse.
+> The hearth had nearly burned out. Erlend sat there on the three-legged stool, huddled with his head down in his arms.
+> Lady Aashild went over and placed her hand on his shoulder:
+> “God forgive you, Erlend, for arranging matters like this!”
+> Erlend looked up; his face was blackened with misery.
+> “She is with child,” he said, closing his eyes.
+> Lady Aashild’s face flamed; she gripped his shoulder hard:
+> “Which one of them?” she asked coarsely and mockingly.
+> “Well, it is not mine,” said Erlend, as extinguished as before. “But you will not believe me—no one will—” He collapsed into himself again.
+> Lady Aashild sat down before him on the edge of the hearth.
+> “You must try to master yourself now, Erlend. It is not easy to believe you in this matter. Do you swear it is not yours?”
+> Erlend lifted his ravaged face:
+> “As surely as I need God’s mercy—as surely as I hope that—that God has comforted Mother with Him for all she had to endure down here—I have not touched Eline since the first time I saw Kristin!” He shouted it, so that Lady Aashild hushed him.
+> “Then I do not understand why this is such a misfortune. You must find out who the father is and pay him to marry her.”
+> “I think it is Gissur Arnfinsøn—my steward at Husaby,” said Erlend wearily. “We spoke of it last autumn—and later too. Sigurd’s death had been expected for some time. He was willing to marry her when she became a widow if I would give her a suitable dowry—”
+> “Yes,” said Lady Aashild. Erlend continued:
+> “She swears she will not have him. She will name me as the father. If I swear myself free—do you think anyone will believe anything except that I swear falsely—”
+> “You must be able to dissuade her,” said Lady Aashild. “There is no other course now: you must go home with her to Husaby tomorrow. Then you must be hard and firm and arrange this marriage between your steward and Eline.”
+> “Yes,” said Erlend. Then he threw himself forward and sobbed aloud.
+> “Do you not understand, Aunt—what do you think Kristin will believe—”
+> That night Erlend slept in the cookhouse with the retainers. In the room Kristin slept with Lady Aashild in her bed, and Eline Ormsdatter in the other bed. Bjørn went out and slept in the stable.
+> The next morning Kristin accompanied Lady Aashild to the cowshed. While the lady went to the cookhouse to prepare the morning meal, Kristin carried the milk up to the room.
+> A candle burned on the table. Eline was dressed and sat on the edge of her bed. Kristin greeted her quietly, fetched a sieve, and strained the milk.
+> “Will you give me a drink of milk?” asked Eline. Kristin took a wooden ladle and handed it to her; the other drank greedily and looked at Kristin over the rim.
+> “So you are that Kristin Lavransdatter who has parted me from Erlend’s friendship,” she said, returning the ladle.
+> “You yourself must know whether there was any friendship to part,” answered the young woman.
+> Eline bit her lip.
+> “What will you do,” she said, “if Erlend tires of you and one day proposes to marry you to his servant? Will you yield to Erlend in that too?”
+> Kristin did not answer. The other laughed and said:
+> “Now you yield to him in all things, I suppose. What do you say, Kristin—shall we cast dice for our man, we two, Erlend Nikulaussøn’s concubines?” When she received no answer, she laughed again and said: “Are you so simple that you do not deny you are a concubine?”
+> “I will not trouble to lie for your sake,” said Kristin.
+> “It would not profit you much either,” answered Eline as before. “I know the lad. He must have displayed himself before you like a blackcock the second time you were together, I suppose. You too are to be pitied, lovely child, standing there.”
+> Kristin’s cheeks whitened. Sick with disgust, she said softly:
+> “I will not speak with you—”
+> “Do you think he will deal better with you than with me?” Eline continued. Then Kristin answered sharply:
+> “I shall not complain of Erlend, whatever he does. I myself walked onto the wrong path—and I shall not whine or lament if it leads over the scree.”
+> Eline was silent for a moment. Then she said, red and uncertain:
+> “I too was a maiden when he had me, Kristin—although I had been called that old man’s wife for seven years. But perhaps you cannot understand what a wretched life it was.”
+> Kristin began to tremble violently. Eline looked at her. Then she took from the traveling chest beside her on the bed step a small horn. She broke the seal and said softly:
+> “You are young and I am old, Kristin. I know it is useless for me to contend against you—now it is your time. Will you drink with me, Kristin?”
+> Kristin did not move. Then the other raised the horn to her mouth. Kristin noticed that she did not drink. Eline said:
+> “You can surely show me the honor of drinking to me—and promise that you will not be a harsh stepmother to my children?”
+> Kristin took the horn. At that moment Erlend opened the door. He stood for a while, looking from one woman to the other.
+> “What is this?” he asked.
+> Then Kristin answered, her voice shrill and wild:
+> “We are drinking to one another, your concubines—”
+> He seized her wrist and took the horn. “Be silent,” he said harshly. “You shall not drink with her.”
+> “Why not?” said Kristin as before. “She was as pure as I was when you enticed her—”
+> “She has said that so often that I believe she believes it herself,” said Erlend. “Do you remember when you made me go to Sigurd with that tale, and he produced witnesses that he had caught you before with another man?”
+> White with revulsion, Kristin turned away. Eline had become dark red, and then said defiantly:
+> “She will hardly become leprous if she drinks with me.”
+> Erlend turned angrily toward Eline—then suddenly his face grew long and rigid; the man gasped in terror:
+> “Jesus!” he said almost inaudibly. He seized Eline by the arm.
+> “Drink to her, then,” he said harshly and trembling. “You drink first, and then she shall drink with you.”
+> Eline twisted away with a groan. She fled backward into the room; the man followed. “Drink,” he said. He tore the dagger from his belt and came after her with it in his hand. “Drink the drink you poured for Kristin.” He seized Eline by the arm and dragged her to the table, forcing her forward toward the horn.
+> Eline screamed once and hid her face in her arm. Erlend released her and stood trembling.
+> “I had a hell with Sigurd,” Eline screamed. “You—you promised—but you have been worse to me, Erlend!”
+> Then Kristin stepped forward and seized the horn:
+> “One of us two must drink—you cannot keep us both—”
+> Erlend took the horn from her and flung her across the floor so that she toppled over beside Lady Aashild’s bed. He thrust the drink toward Eline Ormsdatter’s mouth—stood with one knee on the bench beside her, and with his hand around her head tried to force the drink into her.
+> She reached beneath his arm, snatched the dagger from the table, and struck at the man. The thrust scarcely did more than graze his clothes. Then she turned the point against herself, and a moment later sagged sideways into his lap.
+> Kristin rose and came over. Erlend held Eline; her head hung backward over his arm. She began to rattle almost at once—there was blood in her throat, running from her mouth. She spat out a great deal and said:
+> “I had meant—that drink—for you—for all the times—you betrayed me—”
+> “Fetch Aunt Aashild,” said Erlend softly. Kristin stood motionless.
+> “She is dying,” Erlend repeated.
+> “Then she fares better than we do,” said Kristin. Erlend looked at her—the despair in his eyes softened her. She went out of the room.
+> “What is it?” asked Lady Aashild when Kristin called her out of the cookhouse.
+> “We have killed Eline Ormsdatter,” said Kristin. “She is dying—”
+> Lady Aashild began to run. But Eline breathed her last as the lady stepped through the door.
+> Lady Aashild laid the dead woman properly on the bench, washed the blood from her face, and covered it with the head linen. Erlend stood leaning against the wall behind the corpse.
+> “Do you understand,” said Lady Aashild, “that this was the worst thing that could have happened?”
+> She had filled the oven with wood and twigs; now she set the horn in the middle and blew the fire into flame.
+> “Can you trust your retainers?” the lady asked again. “I mean Ulv and Haftor. I know little of Jon and the man who came with Eline.”
+> “You understand,” said the lady, “if it becomes known that Kristin and you were here together and that you were alone with her when she died, you might just as well have let her drink Eline’s brew. And if there is talk of poison, people will remember what I was accused of before. Did she have any kinsmen or friends?”
+> “No,” said Erlend in a subdued voice. “She had no one but me.”
+> “Even so,” Lady Aashild continued, “it may be difficult to conceal this and carry the body away without the foulest suspicion falling upon you.”
+> “She shall lie in consecrated ground,” said Erlend, “even if it costs me Husaby. What do you say, Kristin?”
+> Kristin nodded.
+> Lady Aashild sat silent. The more she thought, the more impossible it seemed to find a way out. Four retainers sat in the cookhouse—even if Erlend could buy the silence of them all, even if one of them, Eline’s man, could be paid to leave the country, it would always remain uncertain. And at Jørundgaard they knew Kristin had been here—if Lavrans heard of this, she could not imagine what he would do. Then there was the matter of carrying the dead woman away. The mountain road westward was unthinkable now—there was the road to Raumsdal, or over the mountain to Trondheim, or south through the valley. And if the truth emerged, it would never be believed—even if it were accepted as true.
+> “I must consult Bjørn about this,” she said, rising and going out.
+> Bjørn Gunnarsøn listened to his wife’s account without moving a muscle and without taking his eyes from Erlend.
+> “Bjørn,” said Aashild despairingly. “Someone must swear that he saw her lay hands upon herself.”
+> Life slowly darkened in Bjørn’s eyes; he looked at his wife, and his mouth twisted into a crooked smile:
+> “You mean that this someone should be me?”
+> Lady Aashild wrung her hands and lifted them toward him. “Bjørn, you understand what is at stake for these two—”
+> “And so you think there is nothing left for me anyway?” he asked slowly. “Or do you think enough remains of the man I once was for me to dare swear falsely to save that lad from ruin?
+> “I who was dragged under myself—all those years ago. Dragged under, I said,” he insisted.
+> “You say that because I am old now,” whispered Aashild.
+> Kristin burst into tears so that the sound cut through the room. She had sat stiff and silent in the corner beside Aashild’s bed. Now she began to weep aloud. It was as though Lady Aashild’s voice had torn her heart open. It had been heavy with memories of love’s sweetness; it seemed that only this voice made Kristin fully comprehend what her and Erlend’s love had been. The memory of hot and ardent happiness washed over everything else—washed away the hard, despairing hatred of the last night. She knew only her love and her will to endure.
+> All three looked at her. Then Sir Bjørn went over, took her beneath the chin, and looked down at her:
+> “Do you say, Kristin, that she did it herself?”
+> “Every word you have heard is true,” said Kristin firmly. “We threatened her until she did this.”
+> “She had intended a worse fate for Kristin,” said Aashild.
+> Sir Bjørn released the girl. He went to the corpse, lifted it into the bed where Eline had lain the previous night, laid it against the wall, and drew the covers well over it.
+> “You must send Jon and the retainer you do not know home to Husaby with the message that Eline is going south with you. Let them ride at noon. Say that the women are sleeping in here; they can eat in the cookhouse. Then you must speak with Ulv and Haftor. Has she threatened to do this before? So that you can produce witnesses to it if questions are asked?”
+> “Every person who was on the farm during the last years we lived together there,” said Erlend wearily, “can testify that she threatened to take her own life—and mine too sometimes—whenever I spoke of leaving her.”
+> Bjørn laughed harshly:
+> “I thought so. This evening we must dress her in her traveling clothes and set her in the sledge. You must sit beside her—”
+> Erlend swayed where he stood:
+> “I cannot.”
+> “God knows how much man will remain in you when you have governed yourself for another twenty years,” said Bjørn. “Do you think you can drive the sledge, then? I shall sit beside her. We must travel by night and on deserted roads until we reach Fron. In this cold no one can know how long she has been dead. We shall drive to the monks’ hospice at Roaldstad. There you and I will testify that you quarreled in the back of the sledge. It is well attested that you have refused to live with her since you were released from the ban, and that you have sued for a maiden who is your equal. Ulv and Haftor must keep away from us the whole road, so they can swear if needed that she was alive when they last saw her. You can persuade them to that, surely? With the monks you can have her laid in a coffin—and then you must bargain with the priests for peace in the grave for her and peace for your own soul.
+> “Yes, it is not fair. But you have not arranged matters so that it can be fairer. Do not stand there like a woman in childbed about to faint. God help you, lad, you have surely never before felt the blade against the knot at your throat.”
+> A biting wind blew down from the mountain—the snowdrifts smoked fine and silver-bright toward the moon-blue air when the men were to depart.
+> Two horses had been harnessed tandem. Erlend sat at the front of the sledge. Kristin went over to him:
+> “This time, Erlend, you must try to send me word of how the journey fares and what becomes of you.”
+> He squeezed her hand so hard she thought the blood must burst from beneath her nails.
+> “Do you still dare hold fast to me, Kristin?”
+> “Yes, still,” she said, and after a moment: “In this deed we are both guilty—I goaded you, for I wanted her dead.”
+> Lady Aashild and Kristin stood watching the travelers. The sledge dipped up and down over the drifts. It disappeared into a hollow—appeared farther down on a white field. But then the men entered the shadow of a hill and vanished for good.
+> The two women sat before the oven, their backs to the empty bed from which Lady Aashild had carried the clothes and straw. Both felt it standing there empty and gaping behind them.
+> “Would you like us to sleep in the cookhouse tonight?” Lady Aashild asked once.
+> “It will surely be the same wherever we lie down,” said Kristin.
+> Lady Aashild went out to look at the weather.
+> “If the wind rises or a thaw comes, they will not get far before it is discovered,” said Kristin.
+> “It always blows here at Haugen,” answered Lady Aashild. “There is no sign of a change in the weather.”
+> Then they sat as before.
+> “You must not forget,” the lady said once, “what fate she intended for you.”
+> Kristin answered softly:
+> “I think I might have wished the same in her place.”
+> “You would never have wished to cause another person to become leprous,” said Lady Aashild fiercely.
+> “Do you remember, Aunt, that you once told me it is good when one does not dare do what one thinks unlovely? But it is not so good when one thinks a thing unlovely because one does not dare do it.”
+> “You would not have dared because of the sin,” said Lady Aashild.
+> “No, I do not believe so,” said Kristin. “It is true that I have already done much that I once should have thought I dared not do because of the sin. But then I did not see that sin brings with it the need to trample others down.”
+> “Erlend wanted to end his dissolute life long before he met you,” answered Aashild fiercely. “It was over between those two before then.”
+> “I know,” said Kristin. “But she had likely never had cause to believe Erlend’s resolutions were so firm that she could not shake them.”
+> “Kristin,” Lady Aashild begged anxiously, “you will not abandon Erlend now? Now you cannot be saved unless you save one another.”
+> “A priest would scarcely advise that,” said Kristin, smiling coldly. “But I know that I shall not abandon Erlend—not even if I must trample down my own father.”
+> Lady Aashild rose.
+> “We may as well find something to do instead of sitting like this,” she said. “It would be vain to try to go to rest.”
+> She fetched the butter churn from the chamber, carried in several vessels of milk and poured it in, then took her place to churn.
+> “Let me do this,” asked Kristin. “I have the younger back.”
+> They worked without speaking; Kristin stood by the chamber door churning, and Aashild carded wool by the hearth. Only after Kristin had strained the contents of the churn and was kneading the butter did the young woman suddenly ask:
+> “Aunt Aashild—are you never afraid of the day when you must stand before God’s judgment?”
+> Lady Aashild rose, came over, and stood before Kristin in the light:
+> “Perhaps I shall have the courage to ask Him who created me as I am whether He will have mercy upon me when His time comes. For I have never asked His mercy when I acted against His commandments. And I have never asked God or man to remit one penny of the penance I have paid here in this home.”
+> A little later she said softly:
+> “Munan, my eldest son, was twenty. He was not then as I know him to be now. They were not like that then, my children—”
+> Kristin answered quietly:
+> “Yet you have had Sir Bjørn at your side every day and every night through all these years.”
+> “Yes—I have had that too,” said Aashild.
+> A little later Kristin had finished making the butter. Lady Aashild said that they should try to lie down for a while.
+> Inside the dark bed she put her arm around Kristin’s shoulder and drew the young head close. It was not long before she heard from Kristin’s even, quiet breathing that she had fallen asleep.
+> 
+> IV
+> 
+> The frost persisted. In every cowshed in the district, the underfed animals bellowed and complained and suffered from the cold. But already the people were economizing on fodder as much as they possibly could.
+> There was little visiting during Christmas that year; people stayed at home, each on his own farm.
+> At Christmas the cold intensified—it was as though each day seemed colder than the one before. People could scarcely remember so hard a winter. No more snow fell, not even in the mountains, but the snow that had come around Saint Clement’s Day froze hard as stone. The sun shone from a clear sky now that the days had begun to lengthen. At night the northern lights crackled and flickered above the mountain ridges to the north; they flickered over half the sky—but brought no change of weather. On an occasional day the sky clouded over and a little dry snow sifted down; then came clear weather and killing cold again. The Laagen murmured and clucked dully beneath its bridges of ice.
+> Every morning Kristin thought that now she could bear no more, that she would not endure to the end of the day. For she felt each day to be like a single combat between her father and herself. And they were to stand opposed in this way while every living creature, human and beast, throughout the districts suffered under a trial. But when evening came, she had endured.
+> It was not that her father was unkind. They never spoke of what lay between them, but behind everything he did not say she felt that he was inflexibly determined to persist in his refusal.
+> And longing for his friendship burned within her. It burned so terribly because she knew how much else her father had to bear—and had things been as before, he would have spoken to her of it. It was true that they were better provided for at Jørundgaard than in most other places, but even there they felt the year of dearth every day and every hour. In other winters Lavrans had been accustomed to break and train his young horses, but that autumn he had sold them all in the south of the country. His daughter missed hearing his voice in the yard and seeing him wrestle with the slender, shaggy two-year-olds in the sport he loved so much. True, the storehouses, barns, and bins on the farm had not been bare after the previous harvest, but many people came to Jørundgaard asking for help, to buy or as a gift, and no one asked in vain.
+> Late one evening a huge old man dressed in skins came on skis. Lavrans spoke with him outside in the yard, and Halvdan carried food to him in the hearth-room. No one on the farm who saw him knew who he was—likely he was one of the people who lived in the mountains; perhaps Lavrans had encountered him there. But her father did not mention the visit, nor did Halvdan.
+> But one evening a man came with whom Lavrans Bjørgulfsøn had had a dispute for many years. Lavrans went to the storehouse with him. When he came back into the room, he said:
+> “All of them want help from me. But here on my farm you are all against me. You too, wife,” he said fiercely to Ragnfrid.
+> Then her mother turned upon Kristin.
+> “Do you hear what your father says to me! I am not against you, Lavrans. You know it too, Kristin, what happened down at Roaldstad late in the autumn, when he traveled down the valley with that other adulterer, his kinsman from Haugen—the unhappy woman he had enticed away from all her kinsmen took her own life.”
+> Rigid and hard, Kristin answered:
+> “I understand that you blame him as much for the years when he struggled to escape from sin as for the years when he lived in it.”
+> “Jesus, Mary!” cried Ragnfrid, striking her hands together. “What have you become! Has even this not caused you to change your mind?”
+> “No,” said Kristin. “I have not changed my mind.”
+> Then Lavrans looked up from the bench where he sat beside Ulvhild:
+> “Nor have I, Kristin,” he said quietly.
+> But Kristin knew in her heart that in one way she had changed, if not her mind, then her view. She had received word of how that calamitous journey had ended. It had gone more easily than one might have expected. Whether because cold had settled in the wound or for some other reason, the knife thrust Erlend had received in the chest had festered; he had lain ill for some time in the hospice at Roaldstad. Sir Bjørn had tended him during those days. But because Erlend was wounded, it had been easier to explain the other matter and be believed.
+> When he was able to travel on, he had taken the dead woman with him in a coffin all the way to Oslo. There, through Sira Jon’s intercession, he had apparently obtained a grave for her in the churchyard of the ruined Church of Saint Nicholas; then he had confessed to the Bishop of Oslo himself, who imposed upon him a pilgrimage to the Holy Blood in Schwerin. He had now left the country.
+> She could not make pilgrimage anywhere and find absolution. For her there was only sitting here, waiting and thinking and trying to persist in her resistance to her parents. A strange wintry light fell over all her memories of her meetings with Erlend. She thought of his violence—in love and in grief—and it seemed to her that if she too could have seized upon everything so abruptly and stormed with it at once, perhaps afterward it would have seemed smaller and easier to bear. At times she thought: perhaps Erlend will give me up. She believed she had always had a small fear that if matters became too difficult for them, he would give up. But she would not give him up unless he himself released her from every oath.
+> Thus the winter wore on. Kristin could no longer deceive herself; she had to see that the hardest trial now awaited them all, for Ulvhild did not have long to live. And amid her bitter grief over her sister, she saw with horror that her own soul had truly been led astray and consumed by sin. For with the dying child and her parents’ inexpressible grief before her eyes, she still thought this: if Ulvhild dies, how shall I endure looking at Father without throwing myself down before him, confessing everything, and begging him to forgive me and govern me?
+> They were in Lent. People slaughtered even the small herds they had hoped to keep alive, lest the animals die on their own. And people grew ill from living on fish and having so little and such wretched grain food. Sira Eirik released the entire district from the prohibition against milk foods. But the people scarcely had a drop of milk.
+> Ulvhild lay abed. She lay alone in the sisters’ bed, and someone watched over her every night. Sometimes her father and Kristin both sat with her. On one such night Lavrans said to his daughter:
+> “Do you remember what Brother Edvin said about Ulvhild’s fate? Even then I thought perhaps he meant this. But I thrust the thought from me.”
+> During those nights he sometimes spoke of one thing and another from the time when the children were small. Kristin sat white and despairing and understood that behind the words her father was begging her.
+> One day Lavrans went out with Kolbein to seek a bear’s den in the mountain forest to the north. They came home with a she-bear on a sledge, and Lavrans had a living cub inside his tunic. It amused Ulvhild a little when he showed it to her. But Ragnfrid said this was no time to take on such an animal, and what did he mean to do with it now?
+> “I shall rear it to tether before the storehouse for my maidens,” said Lavrans, laughing harshly.
+> But they could not procure the rich milk the cub needed, and so Lavrans killed it a few days later.
+> The sun gained enough strength that now and then water dripped from the roofs at midday. Tits clung and climbed on the sunward timber walls, pecking so that it rang as they searched for flies sleeping in the cracks between the logs. Across the fields the snow shone hard and bright as silver.
+> At last, one evening, clouds began to drift across the moon. In the morning they awoke at Jørundgaard in a swirling mass of snow through which they could see in no direction.
+> That day they understood that Ulvhild was going to die.
+> The whole household was inside, and Sira Eirik came over. Many candles burned in the room. Early in the evening Ulvhild quietly and peacefully expired in her mother’s arms.
+> Ragnfrid bore it better than anyone had expected. The parents sat together, both weeping very quietly. Everyone in the room wept. When Kristin went over to her father, he placed his arm around her shoulder. He felt how she shook and trembled, and then drew her close. But it seemed to her that he must feel she was farther removed from him than the little dead girl in the bed.
+> She did not understand how she endured. She scarcely remembered what she endured for, but dull and mute with pain, she remained upright and did not fall at his feet.
+> Then a pair of planks were broken up from the church floor before Saint Thomas’s altar, and a grave was hewn in the stone-hard earth beneath for Ulvhild Lavransdatter.
+> The snow fell thickly and quietly throughout the days the child lay in state; it snowed when she was carried to the earth, and it continued to snow almost without pause for an entire month afterward.
+> To the people who went about waiting for spring’s deliverance, it seemed it would never come. The days grew long and bright, and the valley lay in a vapor of melting snow while the sun shone. But the cold remained in the air, and the warmth gained no power. At night it froze hard—the ice cracked, booming sounds came from within the mountains, and wolves howled and foxes barked down in the settled district as at midwinter. People stripped bark for the livestock, but the animals fell in heaps in their stalls. No one understood how this would end.
+> Kristin went out on such a day, when water trickled in the wheel tracks and the snow glittered like silver over the fields. Facing the sun, the snowdrifts had been eaten hollow, so that the delicate lattice of ice along their crusted edges broke with a soft silver sound when she struck it with her foot. But everywhere, in the least shadow, the keen cold remained in the air and the snow was hard.
+> She went up toward the church—she did not know what she meant to do there, but she was drawn to it. Her father was there—she knew that some farmers, guild brothers, had a meeting in the gallery.
+> On the slope she met the group of farmers coming down. Sira Eirik was with them. All the men were on foot; they walked in a dark, shaggy cluster, hunched and not speaking together. They returned her greeting curtly as she passed.
+> Kristin thought it was long since the time when every person in the district had been her friend. Now they all surely knew she was a wicked daughter. Perhaps they knew more about her as well. Now they probably all believed there had been some truth in the old talk about her and Arne and Bentein. Perhaps she was in the worst repute. She raised her head and continued toward the church.
+> The door stood ajar. It was cold inside the church, yet something like warmth streamed into her mind from the dim brown space, with its soaring pillar trunks lifting the darkness toward the roof’s framework. No candles were lit on the altars, but a little sunlight fell through the opening of the door and glimmered faintly on images and vessels.
+> Before the Thomas altar she saw her father kneeling, his head bowed toward his folded hands, which pressed his cap against his breast.
+> Shy and sorrowful, Kristin slipped out and stood in the gallery. Framed by the arch between the two small pillars around which she clasped her hands, she saw Jørundgaard lying below, and behind her home the pale-blue haze over the valley. In the sun the river gleamed white with water and ice through the district. But the alder thickets along its course were golden brown with catkins, the spruce forest was spring-green after all up here by the church, and little birds chirped, twittered, and whistled in the grove nearby. Ah yes, there had been such birdsong every evening after sunset.
+> And she felt that the longing she had thought must now have been tormented out of her—the longing in her blood and body—was stirring again, frail and weak as it awakened from winter sleep.
+> Lavrans Bjørgulfsøn came out and locked the church door behind him. He went over and stood near his daughter, looking out through the next arch. She saw how that winter had ravaged her father. She did not understand how she could touch upon this now, but it burst from her nevertheless.
+> “Is it true, as Mother said the other day, that you told her—if it had been Arne Gyrdsøn, you would have yielded to me?”
+> “Yes,” said Lavrans, without looking at her.
+> “You did not say so while Arne lived,” answered Kristin.
+> “It was never discussed. I understood well enough that the lad loved you—but he said nothing—and he was young—and I never noticed that you thought of him in that way. You could hardly expect me to offer my daughter to a man who owned nothing.” He smiled fleetingly. “But I loved the lad,” he said softly. “And if I had seen you tormented by love for him—”
+> They remained standing and looking out. Kristin felt her father looking at her—she strove to keep her face calm, but felt herself turning white. Then her father came over, put both arms around her, and pressed her to him. He bent her head back, looked down into his daughter’s face, and hid it again against his shoulder.
+> “Jesus Christ, little Kristin, are you so unhappy—”
+> “I think I shall die of it, Father,” she said against him.
+> She burst into tears. But she wept because in his caress and in his eyes she had felt and seen that he was now so tormented that he could no longer hold fast to his resistance. She had conquered him.
+> In the night she awoke when her father touched her shoulder in the darkness:
+> “Rise,” he said softly. “Do you hear?”
+> Then she heard it singing around the corners of the house—the deep, full tone of a moisture-laden south wind. Water streamed from the roof; rain whispered as it fell into soft, thawing snow.
+> Kristin threw on her dress and followed her father to the outer door. Together they stood looking into the bright May night. Warm wind and rain struck them—the sky was a turmoil of tangled, racing rain clouds, the forests roared, the wind whistled between the houses, and from the mountains came the dull thunder of sliding snow.
+> Kristin sought her father’s hand and held it. He had called her and wanted to show her this. In former days it had been so between them that he would have done that.
+> And now it was so again.
+> When they went back inside to lie down, Lavrans said:
+> “The strange retainer who was here this week carried me a letter from Sir Munan Baardsøn. He intends to come up here this summer to visit his mother, and he asked whether he might find me and speak with me then.”
+> “What will you answer him, my father?” she whispered.
+> “I cannot tell you now,” answered Lavrans. “But I shall speak with him, and then I must decide as I think I can answer before God, my daughter.”
+> Kristin crept back into bed with Ramborg, and Lavrans went and lay down beside his sleeping wife. He lay thinking that if the flood came great and sudden, few farms in the district were as exposed as Jørundgaard. There was said to be a prophecy that one day the river would take it.
+> 
+> V
+> 
+> Spring came in a single rush. A few days after the thaw began, the district lay black-brown beneath the downpours. Water cascaded down the slopes, the river rose and lay like a lead-gray sea on the valley floor, with small groves swimming on its surface and a treacherous, bubbling furrow of current. At Jørundgaard the water stood far in over the fields.
+> Yet the damage everywhere was less than people had feared.
+> The spring work came late, and the people sowed their scant seed grain with prayer to God that He might spare it from night frost until autumn. And it seemed that He would now hear them and lighten their burdens somewhat. June came with shifting weather, the summer was good, and the people turned toward hope that the traces of the year of dearth would in time be erased.
+> The haymaking was over when, one evening, four mounted men came to Jørundgaard. They were two lords with two retainers: Sir Munan Baardsøn and Sir Baard Petersøn of Hestnæs.
+> Ragnfrid and Lavrans had the table laid in the upper loft room and beds prepared for the guests in the storehouse. But Lavrans asked the lords to wait until the next day, when they were rested from the journey, before presenting their business.
+> Sir Munan did most of the speaking during the meal; he often addressed Kristin and spoke as if they were well acquainted. She saw that her father disliked this.
+> Sir Munan was short and thickset, red-faced, ugly, talkative, and somewhat foolish in manner. People called him Munan Stump or Munan Dance. But despite his manner, Lady Aashild’s son was a prudent and capable man who had acted as the Crown’s agent in several matters and apparently had influence among those who governed the realm. He held his mother’s allodial estate in Skogheim district, was very rich, and had made a wealthy marriage. Lady Katrin, his wife, was remarkably ugly and seldom opened her mouth, but her husband always spoke of her as though she were the wisest of women, so people jokingly called her Lady Katrin the Wise in Counsel and Fair of Speech. They seemed to live well and affectionately together, although Sir Munan was notorious for his licentious conduct both before and after his marriage.
+> Sir Baard Petersøn was a handsome and imposing old man, though he was now somewhat heavy in the belly and limbs. His hair and beard had faded somewhat but were still as much yellow as white. Since King Magnus Haakonsøn’s death he had lived quietly and managed his great estates in Nordmøre. He was a widower after his second wife and had many children, all said to be handsome, well reared, and prosperous.
+> The next day Lavrans and his guests withdrew to speak in the loft. Lavrans asked his wife to be present, but she would not. “This must lie wholly in your hands. You know it will be the heaviest sorrow for our daughter if this matter does not proceed, but I see well that there is much that may be said against this marriage.”
+> Sir Munan presented a letter from Erlend Nikulaussøn. Erlend offered to let Lavrans determine all the terms himself if he would betroth his daughter Kristin to him. Erlend was willing to have his estates valued and his income examined by impartial men, and to give Kristin such bridal and morning gifts that she would own one-third of his property in addition to her own dowry and any inheritance she might receive from her kinsmen, should she survive him as a childless widow. He further offered to allow Kristin full authority over her portion of the estate, both what she owned from home and what she received from him. But if Lavrans wished other terms for the disposition of their property, Erlend would gladly hear them and abide by them. The only condition Kristin’s kinsmen were to bind themselves to in return was that, if they became guardians of children born to Erlend and her, they should never seek to overturn the gifts he had made to his children by Eline Ormsdatter, but should recognize that this property had passed out of his estate before his marriage to Kristin Lavransdatter. Finally, Erlend offered to hold the wedding with all seemly splendor at Husaby.
+> Lavrans spoke and said:
+> “This is a fair offer. I understand that your kinsman has greatly at heart an agreement with me. I see it also from the fact that he has persuaded you, Sir Munan, to travel a second time on such business to a man such as I, who is of little consequence outside this district, and that a lord such as you, Sir Baard, has taken the trouble to make this journey in support. But concerning Erlend’s offer, I will say that my daughter was not reared to govern property and wealth herself; I always intended to give her to a man such that I could safely place the maiden’s welfare in his hands. I do not know whether Kristin is fit to be given such authority, but I scarcely believe she would thrive with it. She is gentle and yielding of disposition—and one of the reasons I have borne in mind while opposing this marriage is that Erlend has shown folly in several matters. Had she been a woman eager to rule, bold and contentious, the case would at once have stood differently.”
+> Sir Munan burst into laughter and said:
+> “Dear Lavrans, do you complain that the maiden is not contentious enough?” And Sir Baard said with a small smile:
+> “It seems to me that your daughter has shown she does not lack will—in these two years she has held fast to Erlend directly against you.”
+> Lavrans said:
+> “I remember it well enough; nevertheless I know what I say. It has been painful for her herself during the time she has defied me, and she will not long be happy with a husband unless he can govern her.”
+> “The devil take that,” said Sir Munan. “Then your daughter must be very unlike every woman I have known, for I have never seen one who did not prefer to govern both herself and her husband.”
+> Lavrans shrugged and did not answer.
+> Baard Petersøn then said:
+> “I can imagine, Lavrans Bjørgulfsøn, that you have gained no greater desire for this marriage between your daughter and my foster son since matters ended so with the woman he kept. But you must know that it has come to light that this poor woman had allowed herself to be enticed by another man, Erlend’s steward at Husaby. Erlend knew of this when he traveled with her down the valley; he had offered to provide her with a suitable dowry if the man would marry her.”
+> “Are you certain this is so?” asked Lavrans. “Even so, I do not know that the matter is made fairer by it. It must be hard for a woman of good lineage to enter the farm on the master’s arm and be escorted out by the servant.”
+> Munan Baardsøn broke in:
+> “I understand this, Lavrans Bjørgulfsøn: what you chiefly hold against my cousin is that he had this misfortune with Sigurd Saksulvsøn’s wife. And it is true that it was not well. But remember, man, in God’s name—there was the young lad in the house with a young and beautiful wife, and she had an old, cold, impotent husband—and the night is half a year long up there; I do not think one could have expected much else unless Erlend had been an outright saint. It cannot be denied that Erlend has never had a monk’s flesh, but I do not think your young, beautiful daughter would thank you if you gave her to a monkish man. It is true that Erlend conducted himself foolishly and worse afterward. But this matter must come to an end sometime—we his kinsmen have labored to help the lad back onto his feet, the woman is dead, and Erlend has done all in his power for her body and soul; the Bishop of Oslo himself has absolved him of his sin, and now he has returned home, purified by the Holy Blood at Schwerin—will you be stricter than the Bishop of Oslo and the archbishop, or whoever it is down there who governs the precious blood?
+> “Dear Lavrans, chastity is a fair thing, but truly no grown man can manage it without a special gift of grace from God. By Saint Olav—you must remember that the holy king himself did not receive that gift until toward the end of his earthly life—likely it was God’s will that he should first beget the capable lad King Magnus, who cast down the heathens’ assault upon the northern lands. King Olav did not have that son with his queen, and yet he sits among the highest saints in Heaven. Yes, I can see from your face that you find this unseemly speech—”
+> Sir Baard interrupted:
+> “Lavrans Bjørgulfsøn, I liked this matter no better than you when Erlend first came to me and said he had set his heart upon a maiden promised to another. But since then I have understood that there is so strong a love between these two young people that it would be a great sin to sever their friendship. Erlend accompanied me to the last Christmas feast King Haakon held for his men; there they met, and as soon as they saw one another, your daughter fainted and lay as if dead for a long while—but I saw from my foster son that he would rather lose his life than her.”
+> Lavrans sat for a moment before answering:
+> “Yes, such things seem fair when one hears them in a romance of chivalry from the southern lands. But we are not in Britain, and you too would surely demand more of a man whom you were to take as son-in-law than that he had caused your daughter to faint from love before everyone’s eyes—”
+> The other two were silent. Then Lavrans continued:
+> “I think, good sirs, that if Erlend Nikulaussøn had not greatly diminished both his property and his reputation, you would not be sitting here entreating so earnestly a man of my station to give him my daughter. But I do not want it said of Kristin that she was honored when she married into Husaby with a man from one of the foremost lineages in the land—after the man had disgraced himself so that he could expect no better marriage or uphold his family’s standing.”
+> He rose abruptly, stepped onto the floor, and paced up and down.
+> But Sir Munan sprang up:
+> “No, Lavrans, if you speak of disgrace, then by God you must know you are far too proud—”
+> Sir Baard interrupted him and went over to Lavrans:
+> “Proud you are, Lavrans—you are like those farmers of old whom we have heard of who would not accept titles from kings, because their pride could not endure people saying they owed gratitude to anyone but themselves. I tell you, if Erlend possessed all the honor and wealth to which the lad was born, I still would not consider myself diminished by asking a well-born and prosperous man to give his daughter to my foster son, if I understood that the hearts of the two young people would break should they be parted. Especially,” he said softly, placing a hand on the other man’s shoulder, “if matters stood so that it was best for the salvation of both their souls that they marry one another.”
+> Lavrans drew away from the other man’s hand; his face closed and grew cold:
+> “I surely do not understand what you mean, sir.”
+> The two men looked at one another for a while; then Sir Baard said:
+> “I mean that Erlend has told me the two have sworn themselves to one another with the most solemn oaths. Perhaps you think you have authority to release your child, since she swore without your consent. But Erlend you cannot release. And I can see nothing except that what chiefly stands in the way is your pride—and your hatred of sin. But in that respect it seems to me that you would be stricter than God Himself, Lavrans Bjørgulfsøn!”
+> Lavrans answered somewhat uncertainly:
+> “Perhaps you have some right in what you tell me, Sir Baard. But I have chiefly opposed this because it seemed to me that Erlend was an unreliable man in whose hands to place my daughter.”
+> “I think I dare stand surety for my foster son now,” said Baard quietly. “He loves Kristin so dearly that I know, if you give her to him, he will conduct himself so that you will have no cause to complain of your son-in-law.”
+> Lavrans did not answer at once. Then Sir Baard said insistently, holding out his hand:
+> “In God’s name, Lavrans Bjørgulfsøn, give your consent!”
+> Lavrans placed his hand in Sir Baard’s:
+> “In God’s name!”
+> Ragnfrid and Kristin were called up to the loft, and Lavrans told them his decision. Sir Baard greeted the two women courteously; Sir Munan shook hands with Ragnfrid and spoke civilly to the mistress of the house, but Kristin he greeted in the foreign manner with a kiss, and he took his time over the greeting. Kristin felt her father watching her.
+> “How do you like your new kinsman, Sir Munan?” he asked mockingly when he was alone with her for a moment that evening.
+> Kristin looked imploringly at her father. Then he stroked her face several times and said no more.
+> When Sir Baard and Sir Munan retired, the latter said:
+> “I would give no little to see this Lavrans Bjørgulfsøn’s expression if he knew the truth about this precious daughter. Here you and I have had to beg on our knees that Erlend be allowed to marry a woman whom he has had with him in Brynhild’s house many times—”
+> “Hold your tongue,” answered Sir Baard bitterly. “That is the worst thing Erlend has done, enticing this child to such places—and never let Lavrans get wind of it; it is best for everyone that the two can now be reconciled.”
+> It was agreed that the betrothal ale should be drunk that same autumn. Lavrans said he could not make the feast very large because the previous year had been one of dearth in the valley; in return, he would himself bear the cost of the wedding and hold it at Jørundgaard with seemly splendor. He again cited the year of dearth as the reason he required the betrothal to last one year.
+> 
+> VI
+> 
+> The betrothal feast was postponed for various reasons and did not take place until the new year, but Lavrans agreed that the wedding should not therefore be delayed; it would be held just after Michaelmas, as the first agreement had stated.
+> Thus Kristin sat at Jørundgaard as Erlend’s lawful betrothed. Together with her mother she reviewed all the equipment that had been gathered for her and labored to increase the piles of bedding and clothing still further, for Lavrans would have nothing spared now that he had given his daughter to the master of Husaby.
+> Kristin herself wondered that she was not happier now. But despite all the bustle, there was no true joy at Jørundgaard.
+> Her parents sorely missed Ulvhild; she understood that. But she also understood that this was not the only reason they were so quiet and joyless. They were kind to her, but when they spoke to her about her betrothed, she understood that they made an effort and did it to please her and show her kindness; they did not do it because they themselves wished to speak of Erlend. They had not grown any more pleased with the marriage she was making now that they had become acquainted with the man. Erlend himself had also been quiet and reserved during the brief time he had spent at Jørundgaard for the betrothal—and it could hardly be otherwise, Kristin thought; he knew that her father had given his consent only reluctantly.
+> She and Erlend had scarcely exchanged ten words alone. It had been strange and unfamiliar for both of them to sit together under everyone’s gaze; then they had had little to speak about because they had shared so much in secret. An uncertain fear dawned in her, vague and dim but always present—that in one way or another matters might become difficult for them when they were married, because at first they had been far too intimate and afterward had been wholly separated for far too long.
+> But she tried to thrust the thought away. Erlend was to visit them at Jørundgaard around Whitsuntide; he had asked Lavrans and Ragnfrid whether they would object to his coming, and Lavrans had laughed a little and answered that Erlend ought to know he would receive his son-in-law kindly.
+> Around Whitsuntide they could walk outside together; then they could speak as in the old days, and the shadow that had come between them through their long separation, when each had gone alone and borne his own burden, would surely pass.
+> At Easter, Simon Andressøn and his wife were at Formo. Kristin saw them in church. Simon’s wife stood not far from her.
+> She must be much older than he, thought Kristin—nearly thirty. Lady Halfrid was slight, small, and thin, but she had a wonderfully lovely face. Even the pale brown color of her hair, which waved from beneath her linen cloth, was gentle, as it were, and her eyes were full of gentleness; they were large and gray, sprinkled with tiny golden flecks. Every feature of her face was fine and pure—but her skin was somewhat gray-pale, and when she opened her mouth one could see that her teeth were not good. She did not look strong and was said to be sickly—apparently she had already miscarried several times, Kristin heard. She wondered how Simon fared with this wife.
+> The people from Jørundgaard and those from Formo had greeted one another across the church slope several times, but had not spoken. On the third day Simon was at church without his wife. Then he went over to Lavrans, and they spoke for a while. Kristin heard Ulvhild mentioned between them. Afterward he spoke with Ragnfrid. Ramborg, who stood beside her mother, said quite loudly: “I remember you well—I know who you are.” Simon lifted the child and twirled her around. “It was kind of you, Ramborg, not to forget me.” He merely greeted Kristin from a distance.
+> And her parents did not mention the meeting afterward.
+> But Kristin thought a great deal about it. It had nevertheless been strange to see Simon Darre again as a married man. So much from the past became living through it: she remembered her own blind and submissive love for Erlend then. Now it was somewhat different. She wondered whether Simon had told his wife how he and she had parted—but she knew he had not done so, “for my father’s sake,” she thought mockingly. It was strangely paltry that she was still walking about unmarried at home with her parents. But they were betrothed; Simon could see that they had carried their defiance through. Whatever else Erlend had done, he had remained faithful to her, and she had not been loose or wanton.
+> One evening early in spring Ragnfrid needed to send a message south to Old Gunhild, the widow who sewed furs. The evening was so beautiful, and Kristin asked whether she might go; at last she received permission, since all the men were busy.
+> It was after sunset, and a fine white frost mist rose toward the gold-green sky. At every hoofbeat Kristin heard the brittle sound of evening ice breaking and scattering with a rustle. But from the thickets along the road, birdsong exulted softly and springlike into the dusk.
+> Kristin rode swiftly southward; she did not think much about anything, but merely felt how good it was to be alone outdoors again. She rode with her eyes fixed on the new moon, which was sinking toward the mountain ridge on the other side of the valley. Thus she nearly fell from her horse when it suddenly shied to one side and reared.
+> She saw a dark body lying huddled by the roadside—at first she was afraid. She had never rid herself of the ugly fear she had acquired of meeting people alone on the road. But she thought it might be a traveler who had fallen ill, so when she had regained control of the horse, she turned it and rode back, calling out whether anyone was there.
+> The bundle moved slightly, and a voice said:
+> “I believe it is you yourself, Kristin Lavransdatter—”
+> “Brother Edvin?” she asked softly. She was almost ready to believe this was an illusion or some devilry meant to deceive her. But she went over to him; it truly was the old man, and he could not rise without help.
+> “My dear father—are you out wandering at this season?” she said in astonishment.
+> “Praised be God who sent you along this road tonight,” said the monk. Kristin noticed that he trembled throughout his body. “I intended to go north to you, but now I could walk no farther tonight. I almost thought it was God’s will that I should lie and die on the roads where I have lain and wandered throughout my life. But I should have liked to receive confession and the last rites. And I should have liked to see you once more, my daughter—”
+> Kristin helped the monk onto her horse; she led it by the bridle and supported him. Between lamenting that she was getting her feet wet in the icy slush, he moaned softly with pain.
+> He told her he had been at Eyabu since Christmas; some rich farmers in the district had promised during the year of dearth to improve their church with new ornaments. But the work had progressed slowly; he had been ill during the winter—there was some ailment in his stomach, so that he vomited blood and could not endure food. He himself believed he did not have long to live, and he now yearned homeward to his monastery, preferring to die there among his brothers. But he had conceived a desire first to travel north through the valley one last time, and so he had accompanied the priest-monk from Hamar who was traveling north to become the new master of the pilgrims’ hospice at Roaldstad. From Fron he had continued alone.
+> “I heard that you had become betrothed,” he said, “to this man. And then I felt such a longing to see you. It grieved me that our last meeting should have been the one out in our church. It has lain so heavily upon my heart, Kristin, that you had entered upon the path of strife—”
+> Kristin kissed the monk’s hand and said:
+> “I do not understand, Father, what I have done or deserved that you show me such great love.”
+> The monk answered softly:
+> “I have often thought, Kristin, that if matters had come about so that we met more often, you might have become my spiritual daughter.”
+> “Do you mean that then you would have led me to turn my mind toward the convent life?” asked Kristin. A little later she said: “Sira Eirik imposed this upon me: if I could not gain my father’s consent and marry Erlend, then I must enter a devout sisterhood and atone for my sins—”
+> “I often prayed that you might feel longing for the convent life,” said Brother Edvin. “But not since you said what you know. I wanted you to come to God with your maiden’s wreath, Kristin—”
+> When they reached Jørundgaard, Brother Edvin had to be carried inside and put to bed. They laid him in the old winter room, the hearth-room, and cared for him as well as they could. He was very ill, and Sira Eirik came over and attended him with remedies for body and soul. But the priest said the old man suffered from cancer and could not have long to live. Brother Edvin himself believed that when he had regained a little strength he would travel south again and try to reach his monastery. Sira Eirik told the others that he did not think this possible.
+> Everyone at Jørundgaard felt that a great peace and joy had entered with the monk. People came and went in the hearth-room all day, and there was never any lack of someone willing to watch at night beside the sick man. As many as had time crowded in to sit and listen when Sira Eirik came over and read devotional books to the dying man, and when they spoke with Brother Edvin about spiritual matters. And although much of what he said was obscure and unclear, as he had always been accustomed to speak, people felt he strengthened and comforted their souls, because everyone could understand that Brother Edvin was wholly filled with love for God.
+> But the monk also liked to hear of everything else, asked for news from the districts, and had Lavrans tell him of the year of dearth. Some people had resorted to evil means in their distress and turned to helpers whom Christian men must shun. A little way into the ridge west of the valley there was a place in the mountain with several great white stones shaped like the private parts of human beings, and some men had fallen to sacrificing rams and kids at this abomination. Then Sira Eirik had taken some of the most devout and courageous farmers there one night, and they had smashed the stones. Lavrans had accompanied them and could testify that they were smeared all over with blood, with bones and such things lying about. Up in Heidal, people were said to have made an old woman sit outside on a fixed stone and chant old spells for three Thursday nights.
+> One night Kristin sat alone with Brother Edvin.
+> At midnight he awoke and seemed to suffer great pain. Then he asked Kristin to take the book of the Virgin Mary’s miracles, which Sira Eirik had lent Brother Edvin, and read to him.
+> Kristin was unused to reading aloud, but she sat on the bed step and placed the candle beside her; she laid the book on her knees and read as well as she could.
+> After a while she saw that the sick man lay clenching his teeth; he clenched his wasted hands during the bouts of pain.
+> “You suffer greatly, dear Father,” Kristin said sorrowfully.
+> “So it seems to me now. But I know it is God who has made me a child again and tosses me up and down.
+> “I remember once when I was small—I was four winters old—I slipped away from home into the forest. I lost my way there and was outside for many nights and days. My mother was among those who found me, and when she took me in her arms, I remember that she bit me on the neck. I thought it was because she was angry with me, but afterward I understood better.
+> “Now I myself long to go home from this forest. It is written: forsake all things and follow Me; but there has been far too much in this world that I had no desire to forsake—”
+> “You, Father?” said Kristin. “I have always heard everyone say that you were an example of chastity, poverty, and humility—”
+> The monk chuckled:
+> “Yes, you young child surely think there is nothing in the world that entices except pleasure, wealth, and power. I tell you, those are little things one finds by the roadside, and I—I loved the roads. It was not the world’s little things I loved, but the whole world. God gave me grace to love Lady Poverty and Lady Chastity from my youth, and therefore I thought I walked safely with these play-sisters, and so I wandered and walked, wishing I could travel every road on earth. And my heart and thoughts wandered and walked as well—I fear I often lost my way in my thoughts about the most obscure things. But now it is over, little Kristin; now I want to go home to my house and lay aside all my own thoughts, and hear the guardian’s clear words about what I am to believe and think concerning my sin and God’s grace—”
+> A little later he fell asleep. Kristin sat by the hearth and tended the fire. But toward morning, when she herself was beginning to doze, Brother Edvin suddenly spoke to her from the bed.
+> “I am glad, Kristin, that this matter between Erlend Nikulaussøn and you has been brought to a good end.”
+> Then Kristin burst into tears:
+> “We have done so much wrong before reaching this point. And what gnaws most at my heart is that I have caused my father so much sorrow. He is not happy about this even now. And yet he does not know—if he knew everything, he would surely withdraw his friendship from me entirely.”
+> “Kristin,” Brother Edvin said gently, “do you not understand, child, that this is why you must be silent toward him, and why you must not cause him more sorrow—because he will never demand atonement from you? Nothing you could do would change your father’s feeling toward you.”
+> A few days later Brother Edvin felt well enough to wish to travel south. Since this lay so heavily on his heart, Lavrans had a kind of litter made and suspended between two horses; in this way he escorted the sick man as far south as Lidstad. There Brother Edvin received fresh horses and a new escort, and in that way he was carried as far as Hamar. There he died in the monastery of the Preaching Friars and was buried in their church. Later the Barefoot Friars demanded that the body be surrendered to them, because many people in the surrounding districts considered him a holy man and spoke of him as Saint Even; farmers prayed to him throughout the Uplands and the Valleys as far north as Trondheim. There was therefore a long dispute between the two monasteries over the body.
+> Kristin did not hear of this until much later. But she grieved sorely when she parted from the monk. It seemed to her that he alone knew her life completely—he had known the innocent child she had been under her father’s protection. And he had known of her secret life with Erlend, so that he seemed like a clasp binding everything she had formerly held dear to what now filled her mind. Now she was wholly separated from the self she had been while she was a maiden.
+> 
+> VII
+> 
+> “I think,” said Ragnfrid, feeling the lukewarm brew in the vats, “that it is now cool enough for us to mix in the yeast.”
+> Kristin had sat in the brewhouse doorway spinning while she waited for the wort to cool. She laid the spindle on the threshold, unwrapped the pail of dissolved yeast from the coverlet, and measured it out.
+> “Close the door first,” asked her mother, “so that there is no draft. You walk as if asleep, Kristin,” she said irritably.
+> Kristin strained the yeast into the brewing vats while Ragnfrid stirred.
+> Geirhild Drivsdatter called upon Hatt, but it was Odin. Then he came and helped her brew ale; as payment he demanded what lay between the vat and her.
+> It was a tale Lavrans had told once when she was small.
+> What lay between the vat and her. Kristin felt sick and dizzy from the heat and sweet, spicy steam in the dark, closed brewhouse.
+> Outside in the yard Ramborg walked in a ring with a group of children, singing:
+> The eagle sits on the highest hall
+> and curves his golden claw—
+> Kristin followed her mother through the little vestibule, where empty ale casks and all manner of implements lay. From there a door led to a strip of ground between the rear wall of the brewhouse and the rail fence around the barley field. A group of pigs shoved one another, bit, and squealed as they fought over the warm spent grain thrown out to them.
+> Kristin shaded her eyes with her hand against the dazzling midday sunlight. Her mother looked at the pigs and said:
+> “We cannot manage with fewer than eighteen reindeer.”
+> “Do you think we need so many?” said her daughter distractedly.
+> “Yes, we must serve game with the pork every day,” answered her mother. “And we shall scarcely have more fowl and hare than will be consumed in the upper loft alone. Remember, nearly two hundred people will come here—with servants and children—and the poor who are to be fed. And even if you and Erlend depart on the fifth day, some of the guests will surely stay out the week—at least.”
+> “You must remain here and watch the ale, Kristin,” said Ragnfrid. “I must go and see to food for your father and the haymakers.”
+> Kristin fetched her spinning and sat in the back doorway. She tucked the distaff with its head of wool beneath her arm, but her hands sank into her lap with the spindle.
+> Beyond the rail fence, the ears of barley glittered like silver and silk in the sun. Above the roar of the river she now and then heard the sound of scythes in the meadows on the island—sometimes the iron struck a stone. Her father and the farm people toiled to finish the haymaking. There was so much to do for her wedding.
+> The smell of the warm spent grain and the rank stench of the pigs—she felt nauseated again. And the midday heat made her so dizzy and weak. White and rigid-backed, she sat waiting for it to pass—she would not be sick again.
+> She had never felt like this before. It was no use trying to comfort herself; it was no longer uncertain—she could not be mistaken. What lay between the vat and her.
+> Eighteen reindeer. Nearly two hundred wedding guests. People would have something to laugh at when it became known that all this commotion had merely been over a woman with child whom they had to see married in time.
+> Oh no. She flung aside her spinning and sprang up.
+> With her forehead against the brewhouse wall, she vomited into the nettles that grew thickly there. Brown caterpillars swarmed over the nettles—she grew still sicker at the sight.
+> Kristin stroked her hands over her sweat-wet temples.
+> Oh no—it was certain enough.
+> They were to be married on the second Sunday after Michaelmas, and then their wedding was to be celebrated for five days. More than two months remained. By then they would be able to see it on her—her mother and the other wives in the district. They were always so wise in such matters, always knew when a woman was with child months before Kristin could understand what signs they saw. Poor thing, she is fading so.
+> Impatiently Kristin rubbed her hands against her cheeks, for she felt that they were bloodlessly white.
+> Before, she had often thought this must happen someday. And she had not been so terribly afraid of it. But it would not have been the same then, when they could not and were not permitted to have each other lawfully. It was counted—yes, as a kind of shame, and as sin too—but when two young people would not allow themselves to be forced apart, people did not forget that and spoke of them with kindness. She would not have been ashamed. But when such a thing happened between betrothed people—it was merely laughed at and made the subject of coarse jokes. She herself understood—it was ridiculous; here they were brewing and mixing wine, slaughtering and baking and preparing a wedding of which people might speak—and she, the bride, grew nauseated at the mere smell of food, crept cold-sweating behind the outbuildings, and was sick.
+> Erlend. She clenched her teeth in anger. He should have spared her this. For she had not wanted it. He should have remembered that formerly, when everything had been so uncertain for her, when she had had nothing to trust except his love, then she had always, always gladly yielded to his will. He should have left her alone now when she tried to refuse, because she thought it unseemly for them to steal something after her father had joined their hands in the presence of both their kindreds. But he had taken her, half by force and with laughter and caresses, so that she had not been able to show him she had meant her resistance seriously.
+> She went inside to inspect the ale, returned, and leaned over the rail fence. The grain swayed faintly in a small breeze and glittered. She could not remember ever seeing the fields so dense and luxuriant as this year. The river flashed far away, and she heard her father’s voice calling—she could not distinguish the words, but the people out on the island laughed.
+> What if she went to her father and told him? It would be better to abandon all this labor, to unite her and Erlend quietly, without church wedding and great feast—now that all that mattered was that she gain the name of wife before it became visible to everyone that she already carried Erlend’s child beneath her heart.
+> Erlend would be mocked too, as much as she—or more; he was no young lad. But it was he who had wanted this wedding; he had wanted to see her stand as bride in silk and velvet and a tall golden crown—he had wanted that, and he had wanted to possess her during all the sweet, secret hours as well. She had yielded to him in everything. She would continue doing his will in the other matter too.
+> Then in the end he would see—no one could have both. He who had spoken of the great Christmas feast he would hold at Husaby during the first year she sat as mistress on his farm—then he would display to all his kinsmen and friends and people from the surrounding districts the beautiful wife he had gained. Kristin smiled mockingly. That would scarcely be fitting at Christmastime this year.
+> Around Saint Gregory’s Day it would be. Her thoughts seemed to begin swarming through her mind when she told herself that around Saint Gregory’s Day she would bear a child. She was a little afraid of that too—she remembered her mother’s screams ringing over the farm for two days when Ulvhild came into the world. At Ulvsvolden two young wives in succession had died in childbed—and so had Sigurd of Loptsgaard’s first two wives. And her own paternal grandmother, for whom she had been named.
+> But that was not what she feared most. During these years she had often thought, whenever she noticed anew that she was still not pregnant, that perhaps this would be the punishment upon her and Erlend: that she would remain barren. They would come to wait and wait in vain for what they had once feared; they would hope as futilely as once they had feared without need. Until at last they knew that one day they would be carried out from his ancestral farm and be gone—the brother was a priest, and the children Erlend already had could never inherit from him. Munan Stump and his sons would come in and take their seats, and Erlend would be erased from the lineage.
+> She pressed a hand hard against her lap. It was there—between the rail fence and her, between the vat and her. It was between her and the whole world—Erlend’s lawful son. She had already tried the means she had once heard Lady Aashild speak of, using blood from the right and left arms. It was a son she carried. Whatever he was to bring her. She remembered her little dead brothers, her parents’ sorrowful faces when they mentioned them; she remembered all the times she had seen them despair over Ulvhild—the night Ulvhild died. And she thought of all the sorrow she herself had caused them, of her father’s grief-ravaged face—and still there was no end to the sorrows she would bring upon Father and Mother.
+> Nevertheless, nevertheless. Kristin laid her head on her arm over the rail fence; her other hand still rested over her lap. If it brought her new sorrows, if it should force her to death—she would rather die bearing Erlend a son than have both of them one day die and the houses stand empty after them, and the grain sway over their fields for strangers.
+> Someone came into the vestibule. The ale! thought Kristin—I should have looked to it long ago. She straightened—then Erlend ducked beneath the doorframe and came out into the sunlight, radiantly glad:
+> “So this is where you stand,” he said. “And you do not come even one step to meet me?” He came over and embraced her.
+> “Dear one, have you come here?” she said in astonishment.
+> He seemed to have only just dismounted—he still had his cloak over his shoulder and his sword at his side—he was rumpled, dirty, and very dusty. He wore a red tunic that fell in folds from the neckline and was slit at the sides almost to the armpits. As they walked through the brewhouse and up across the yard, the garment swung around him so that his thighs were visible all the way to the waist. It was strange—she had never before noticed that he turned his feet slightly outward when he walked—formerly she had only seen that he had long, slender legs, delicate ankles, and small, well-shaped feet.
+> Erlend had come with a strong company—five retainers and four spare horses. He told Ragnfrid he had come to fetch Kristin’s property—surely it would be pleasanter for her to find her things at Husaby when she arrived? And so late in the autumn as the wedding was to be held, it might be harder to transport it—besides, it could easily be damaged by seawater aboard ship. Now the abbot of Nidarholm had offered to let him send it on the Laurentius ship—they expected it to sail from Veøy around the Feast of the Assumption. Therefore he had come to have the property driven through Raumsdal to the headland.
+> He sat in the cookhouse doorway drinking ale and talking while Ragnfrid and Kristin plucked the wild ducks Lavrans had brought home the day before. Mother and daughter were alone by the buildings; the women were in the meadow raking. He looked so happy—well pleased with himself for having come on such sensible business.
+> Her mother went out, and Kristin tended the spit with the birds. Through the open door she caught a glimpse of the retainers lying in the shade on the other side of the yard and passing the ale bowl among themselves. Erlend sat on the threshold, chatting and laughing—the sun shone directly on his bare, soot-black hair; she noticed a few gray strands in it. Yes, he was almost thirty-two, surely—but he behaved like a high-spirited boy. She knew she would not tell him of her difficulty—there would be time enough when he saw it himself. Laughing tenderness flowed through her mind over the small, hard anger at its bottom, like a glittering river over stones.
+> She loved him beyond all else—it filled her mind, although all the while she saw and remembered everything else. How little this courtly man in the fine red tunic, with silver spurs on his feet and a gold-adorned belt, suited the busy harvest work at Jørundgaard. She also noticed that her father did not come up to the farm, although her mother had sent Ramborg down to the river with word of what guest had arrived.
+> Erlend stood beside her and put his arms around her shoulders:
+> “Can you understand it?” he said radiantly. “Does it not seem strange to you—that all this labor is for our wedding?”
+> Kristin gave him a kiss and pushed him away—ladled fat over the birds and asked him not to stand in the way. No, she would not tell him.
+> Lavrans did not come up to the farm until supper—with the haymakers. He was dressed hardly differently from the laborers, in an undyed knee-length homespun tunic and ankle-length hose of the same cloth; he was barefoot and carried his scythe over his shoulder. The only respect in which his clothing differed from the servants’ was that he wore a leather shoulder guard for the falcon perched on his left shoulder. He led Ramborg by the hand.
+> Lavrans greeted his son-in-law rather warmly and asked him to excuse his not coming sooner—they had to drive themselves as hard as possible with the farm work, for he himself was obliged to make a journey to town between haymaking and harvest. But when Erlend presented his business at the meal, Lavrans grew rather curt.
+> It was impossible for him to spare wagons and horses now.
+> Erlend answered that he had brought four spare horses himself.
+> Lavrans believed there would be at least three wagonloads. Besides, the maiden must keep her everyday clothes here. And they would need the bedding Kristin was to take with her on the farm during the wedding, since they had so many guests to house.
+> No, no, Erlend agreed. Surely some means could be found to transport it in the autumn as well. But he had been pleased and had thought it sounded sensible when the abbot proposed that it could travel on the monastery ship. The abbot had reminded him of their kinship. “They all remember it now,” said Erlend with a smile. His father-in-law’s displeasure did not seem to affect him in the least.
+> Nevertheless, it was decided that Erlend should borrow one wagon and take away one load containing the things Kristin would need most immediately upon reaching her new home.
+> The next day they were busy packing. Her mother thought the large and small looms could go now—Kristin would scarcely have time to weave any more before the wedding. Ragnfrid and her daughter cut down the cloth that was on the loom. It was undyed homespun, but made of the finest, softest wool, with tufts spun in from black sheep to form regular spots. Kristin and her mother rolled up the cloth and placed it in the leather sack. Kristin thought it would be good for swaddling—beautiful too, with red or blue bands around it.
+> The sewing stand that Arne had once forged could also be sent. Kristin took from the casket all the things Erlend had given her from time to time. She showed her mother the blue velvet cloak with the red pattern that she was to wear on the bridal journey. Her mother turned it over and felt the fabric and fur lining.
+> “It was a very costly cloak,” said Ragnfrid. “When did Erlend give you this?”
+> “He gave it to me while I was at Nonneseter,” said her daughter.
+> Kristin’s bridal chest, which her mother had been filling since she was small, was repacked. It was carved in panels, each containing a leaping beast or bird among leaves. Ragnfrid placed her bridal gown in one of her own chests. It was not wholly finished; they had sewn on it during the winter. It was of scarlet silk and cut to fit very tightly to the body. Kristin thought it would now be far too tight across her breasts.
+> Toward evening the load stood ready, strapped beneath the wagon cover. Erlend was to leave early the next morning.
+> He stood with Kristin leaning over the farm gate, looking northward, where a blue-black storm darkness filled the valley. Thunder rolled within the mountains—but southward the fields and river lay in yellow, piercing sunlight.
+> “Do you remember the storm that day in the forest by Gerdarud?” he asked softly, playing with her fingers.
+> Kristin nodded and tried to smile. The air was so heavy and sultry—her head ached, and she sweated with every breath.
+> Lavrans came over to the two at the gate and spoke of the weather. It seldom caused damage down here in the settled valley—but God knew whether they might hear of disasters among the livestock and horses in the mountains.
+> It was black as night above the church on the hill. A flash of lightning revealed a herd of horses huddled uneasily in the field outside the churchyard gate. Lavrans did not think they belonged to this district—they were more likely horses from Dovre that had grazed in the mountains beneath Jetta; nevertheless, he might like to go up and look at them, he shouted through the thunder—in case any of his were among them.
+> A terrible bolt of lightning ripped apart the darkness above—the thunder cracked and crashed so that they could not hear themselves. The horses stampeded across the fields beneath the ridge. All three crossed themselves—
+> Then came another bolt; it was as if the sky split open directly overhead, a mighty snow-white blaze of fire swept down upon them—the three were thrown against one another, stood with closed, blinded eyes, and smelled something like scorched stone—and the thunderclap left their ears numb.
+> “Saint Olav, help us,” Lavrans said softly. “Look at the birch, look at the birch!” cried Erlend. The great birch in the field seemed to sway—then a huge branch separated and sank toward the ground, tearing a gash from the trunk.
+> “Do you think it will catch fire? Jesus Christ! The church roof is burning!” cried Lavrans.
+> They stood staring—no—yes! Red flames seeped from the shingles beneath the ridge turret.
+> Both men ran back across the yard. Lavrans tore open every door and shouted inside; people swarmed out.
+> “Take axes, take axes—the timber axes,” he cried, “and hooks—” He raced to the stable. A moment later he came out leading Guldsvein by the mane; he sprang onto the unsaddled horse and galloped northward, the great broad axe in his hand. Erlend rode directly after him—all the men followed; some were mounted, but some could not master the terrified animals, gave up, and ran after them. Last came Ragnfrid and the women of the farm with buckets and pails.
+> No one seemed to notice the storm any longer. In the flashes of lightning they saw people streaming from the houses farther down the district. Sira Eirik was already running up the hill, followed by his household. Horse hooves thundered on the bridge below—several men galloped past; they turned white, terrified faces toward their burning church.
+> A slight wind blew from the southeast. The fire had a good hold on the north wall; the west entrance was already blocked. But the south side and the rounded chancel had not yet caught.
+> Kristin and the women from Jørundgaard entered the graveyard south of the church where the fence had been broken down.
+> The mighty red glow illuminated the grove north of the church and the space with rails for tethering horses. No one could approach there because of the heat—the cross stood alone in front, bathed in the light of the flames. It looked as though it lived and moved.
+> Through the roaring and shrieking of the fire came the pounding of axes against the staves of the south wall. Men were in the gallery chopping and hammering, while others tried to tear down the gallery itself. Someone shouted to the women from Jørundgaard that Lavrans and a few other men had followed Sira Eirik into the church. They had to make an opening in the wall—small tongues of flame were already playing among the roof shingles on this side too. If the wind shifted or died away, the fire would close around the whole church.
+> It was useless to think of extinguishing it; there was no time to form a chain down to the river, but at Ragnfrid’s command the women lined up and passed water from the little stream running along the western edge of the road—it was enough to throw a little upon the south wall and upon the men working there. Many of them sobbed as they worked, from tension and fear for the people trapped inside the burning building, and from grief over their church.
+> Kristin stood at the very front of the line of women, passing buckets—she stared breathlessly at the church where both her father and Erlend were surely inside.
+> The gallery pillars lay torn down in a tangle of timber and flakes of shingles from the ambulatory roof. The men attacked the stave wall with all their strength—a whole group had lifted a log and charged with it.
+> Erlend and one of his retainers came out through the small door on the south side of the chancel; between them they carried the great chest from the vestry—the one on which Eirik was accustomed to sit when he heard confessions. Erlend and the man tipped the chest out into the churchyard.
+> Kristin could not hear what he shouted; he ran back into the gallery. He was supple as a cat as he ran—he had cast off his outer garments and wore only shirt, breeches, and hose.
+> The others repeated his cry—the vestry and chancel were burning; no one could pass from the nave to the south door any longer—the fire now blocked both exits. Several staves in the wall had been splintered; Erlend had taken a fire hook and tore and hauled at the wreckage of the staves—they stripped a hole in the church’s side while other people shouted that they must take care, for the roof could collapse and trap those inside. The shingled roof was now burning briskly on this side as well, and the heat began to become unbearable.
+> Erlend sprang into the opening and helped Sira Eirik out. The priest came with the skirt of his robe full of the sacred vessels from the altars.
+> A young lad followed with his hand over his face, carrying the tall processional cross before him. Lavrans came after. He kept his eyes closed against the smoke—he staggered beneath the heavy crucifix he carried in his arms; it was much taller than the man.
+> People ran forward and helped them down into the churchyard. Sira Eirik stumbled, fell to his knees, and the altar vessels rolled down the slope. The silver dove sprang open, and the Host fell out—the priest picked it up, brushed it off, and kissed it while sobbing aloud; he kissed the gilded man’s head that had stood above the altar, containing a little of Saint Olav’s hair and nails.
+> Lavrans Bjørgulfsøn still stood holding the rood. One arm lay along the arms of the cross; he leaned his head against the shoulder of the image of Christ. It looked as though the Savior bent His fair, sorrowful face comfortingly toward the man.
+> The roof had begun to collapse in pieces on the north side of the church—a burning section of beam was flung out and struck the great bell in the belfry by the churchyard gate. The bell sounded with a deep sobbing note that died in a long groan drowned by the roaring fire.
+> No one had paid heed to the weather during this—the whole thing had not lasted long, but people had likely not noticed that either. Now it thundered and flashed far south in the valley; the rain, which had been falling for some time, intensified, and the wind subsided.
+> But suddenly it was as though a sail of flame were raised from the sill—one instant, and with a howl the fire closed around the church from end to end.
+> People fled from the consuming heat. Erlend was suddenly beside Kristin and pulled her down the hill. His whole body smelled scorched—her hand came away full of burned hair when she stroked his head and face. They could not hear one another’s voices for the roaring of the fire. But she saw that his eyebrows had been burned to the roots, that he had burns on his face, and that there were scorched places in his shirt. He laughed as he drew her after the others.
+> The people followed the weeping old priest and Lavrans Bjørgulfsøn with the crucifix.
+> At the end of the churchyard Lavrans propped the rood against a tree and sank down onto the wreckage of the fence. Sira Eirik was already sitting there—he stretched his arms toward the burning church:
+> “Farewell, farewell, Church of Saint Olav. God bless you, my Church of Saint Olav; God bless you for every hour I have sung and celebrated Mass within you—Church of Saint Olav, good night, good night—”
+> The parishioners wept aloud with him. Rain streamed down over the clusters of people, but no one thought of leaving. It did not seem to lessen the heat in the tarred wood—burning fragments and glowing shingles were cast about. A moment later the ridge turret collapsed into the fire, sending a cloud of sparks into the air.
+> Lavrans sat with one hand over his face; his other arm lay across his lap, and Kristin saw that the sleeve was bloody from the shoulder all the way down, blood running over his fingers. She went over and touched him.
+> “It is probably nothing much—something fell on my shoulder,” he said, looking up. He was white to the lips. “Ulvhild,” he whispered in torment, looking into the blaze.
+> Sira Eirik heard him and placed a hand on his shoulder.
+> “It will not awaken your child, Lavrans—she sleeps just as well though it burns above her resting place,” he said. “She has not lost the home of her soul as the rest of us have tonight.”
+> Kristin hid her face against Erlend’s breast—stood so, feeling his arms around her shoulders. Then she heard her father ask for his wife.
+> Someone answered that a woman had gone into labor from the fright; they had carried her down to the parsonage. Ragnfrid had accompanied her there.
+> Kristin remembered again what she had wholly forgotten since they learned the church was burning. She should surely not have watched this. There was a man south in the district who had a red mark over half his face; they said he had become so because his mother had watched a wildfire while carrying him.
+> Dear holy Virgin Mary, she prayed inwardly, let my unborn child not have suffered harm from this.
+> The next day a district assembly was summoned on the church hill—the people were to deliberate upon rebuilding the church.
+> Before he went to the assembly, Kristin sought out Sira Eirik at Romundgaard. She asked the priest whether he thought she ought to take this as a sign. Perhaps it was God’s will that she tell her father she was unworthy to stand beneath the bridal crown; it would be more seemly for her to be given to Erlend Nikulaussøn in marriage without an honorable feast.
+> But Sira Eirik sprang up against her, his eyes flashing with anger:
+> “Do you think God cares so much about how you bitches run about and squander yourselves that He would burn down a fair and honorable church for your sake! Abandon your pride, and do not cause your mother and Lavrans a sorrow they will be slow to overcome. If you do not wear the crown with honor on your day of honor—that is ill for you, but you and Erlend need the consecration all the more when you are joined. Each person has his own sins to answer for; that is surely why this calamity has come upon us all. See that you amend your life, and help rebuild the church here, both you and Erlend.”
+> Kristin thought that she had not yet told him of this last thing that had happened—but she rested content with his answer.
+> She accompanied the men to the assembly. Lavrans came with his arm in a sling, and Erlend had many burns on his face; he looked dreadful, but laughed about it. None of the wounds was large, and he said he hoped they would not disfigure him when he was to be a bridegroom. He rose after Lavrans and promised to give the church four marks of silver, and on behalf of his betrothed, with Lavrans’s consent, a mark’s worth of Kristin’s land in the parish.
+> Erlend had to remain at Jørundgaard for a week because of his wounds. Kristin saw that Lavrans seemed to have come to like his son-in-law better after the night of the fire; the men now appeared to be good friends. Then she thought that perhaps her father might grow so fond of Erlend Nikulaussøn that he would judge indulgently and not take it as heavily as she had feared when the time came for him to understand that they had offended against him.
+> 
+> VIII
+> 
+> That year was exceptionally good throughout the northern valley. There was much hay, and it was brought in dry; people returned from the summer pastures with great stores of dairy produce and fat herds—and that year they had mercifully escaped the beasts of prey. The grain stood so fair that few could remember ever seeing it stand better—it ripened well and was full of substance, and the weather was the best possible. Between Saint Bartholomew’s Day and the Nativity of the Virgin, when night frosts were most to be feared, there was a little rain and the weather was mild and cloudy; afterward the harvest month passed with sun and wind and mild, misty nights. By the week after Michaelmas, most of the grain had been gathered throughout the district.
+> At Jørundgaard they labored and prepared for the great wedding. During the last two months Kristin had been so busy from morning to evening every day that she had little time to worry about anything but her work. She saw that she had grown full across the breast; the small pink nipples had turned brown, and they were tender as sores each morning when she had to rise in the cold—but that passed when she had worked herself warm, and then she thought only of everything she must accomplish before evening. When from time to time she had to straighten her back and stand resting, she felt that what she bore in her lap was beginning to grow heavy—but she still looked as narrow and slender as ever. She stroked her hands down her long, fine hips. No, she would not grieve over it now. At times she thought with a little tingling longing—in a month or so she would surely feel life. By then she would be at Husaby. Perhaps Erlend would be glad.
+> She closed her eyes and bit upon her betrothal ring—she saw before her Erlend’s face, pale with emotion, when he stood in the upper loft and pronounced the words of betrothal in a loud, clear voice:
+> “So may God and these men who stand here be my witnesses that I, Erlend Nikulaussøn, lawfully betroth myself to Kristin Lavransdatter according to God’s law and the law of men, upon such terms as have here been spoken before these witnesses who stand by. That I shall possess you as my wife and you shall possess me as your husband for as long as we both live, to dwell together in wedlock, with all such community as God’s law and the law of the land recognize.”
+> She ran on errands across the yard from house to house and stopped for a moment—the rowan was so full of berries that year; it would be a snowy winter. And the sun shone over the pale fields where the grain stood on drying poles. If only this weather would last through the wedding.
+> Lavrans held fast to his demand that his daughter be married in a church. It had therefore been decided that this should take place in the chapel at Sundbu. On Saturday the bridal company would ride over the mountain to Vaage; they would spend the night at Sundbu and the neighboring farms, then ride back on Sunday after the bridal Mass. That same evening after vespers, when the holy day had ended, the wedding would be celebrated and Lavrans would give his daughter to Erlend. After midnight the bride and bridegroom would be escorted together to bed.
+> On Friday afternoon Kristin stood in the gallery of the upper loft and watched the company riding from the north past the burned church on the hill. She strained her eyes to distinguish Erlend from the others. They must not see one another; no man was now permitted to see her before she was brought forth dressed as a bride the next day.
+> Where the road turned toward Jørundgaard, several women separated from the group. The men rode on to Laugarbru; they were to sleep there that night.
+> Kristin went down to meet those arriving. She felt so tired after the bath, and her scalp was sore—her mother had used such strong lye upon her hair to make it properly light for the next day.
+> Lady Aashild Gautesdatter slid from the saddle into Lavrans’s arms. How lightly and youthfully she carries herself, thought Kristin. Her daughter-in-law, Sir Munan’s wife Katrin, looked almost older; she was large and stout, colorless in skin and eyes. It is strange, thought Kristin, she is ugly and he is unfaithful, and yet people say they live well together.
+> There were also two daughters of Sir Baard Petersøn, one married and one unmarried. They were neither ugly nor beautiful, looked trustworthy and good, but behaved rather stiffly toward strangers. Lavrans courteously thanked them for wishing to do such honor to the wedding and traveling so far so late in autumn.
+> “Erlend was reared by our father when he was a boy,” said the elder, stepping forward and greeting Kristin.
+> Now two young men rode into the yard at a brisk trot—they jumped from their horses and ran laughing after Kristin, who fled indoors and hid. They were Trond Gjesling’s young sons, handsome and promising lads. They had brought the bridal crown from Sundbu in a casket. Trond and his wife would not accompany them to Jørundgaard until Sunday after Mass.
+> Kristin had fled into the hearth-room. Lady Aashild followed, placed her hands on Kristin’s shoulders, and drew her face down for a kiss.
+> “I am glad I shall live to see this day,” said Lady Aashild.
+> She saw how thin Kristin’s hands had become as she held them. She saw that the bride had grown thin otherwise as well, but was full across the breast. Every feature of her face had grown narrower and finer than before; her temples seemed slightly sunken beneath the shadow of her heavy, damp hair. Her cheeks were no longer rounded, and her fresh color had faded. But Kristin’s eyes had grown much larger and darker.
+> Lady Aashild kissed her again.
+> “I see you have had much labor, Kristin,” she said. “I shall give you a drink tonight so that you may be rested and fresh tomorrow.”
+> Kristin’s lips began to tremble.
+> “Hush,” said Lady Aashild, patting her hand. “I look forward to adorning you tomorrow—no one shall ever have seen a more beautiful bride than you will be.”
+> Lavrans rode over to Laugarbru to sit at table with the guests staying there.
+> The men could not sufficiently praise the food—one would not receive better Friday fare in the richest monastery. There was rye-flour porridge, boiled beans, white bread, and for fish they were served nothing but trout, salted and fresh, and rich strips of dried fish.
+> As the men drank more of the ale, they became increasingly merry and jested more and more coarsely with the bridegroom. All Erlend’s groomsmen were much younger than he—his own contemporaries and friends had all long since become married men. Now the men joked that he was so old and yet was going to a bridal bed for the first time. Some of Erlend’s older kinsmen, who were still fairly sober, sat afraid at every word that fell, lest the talk turn to subjects better left untouched. Sir Baard of Hestnæs watched Lavrans. Lavrans drank steadily, but the ale did not seem to make him happier as he sat in the high seat—his face grew more and more tense as his eyes became fixed. But Erlend, who sat at his father-in-law’s right, answered the jests merrily and laughed a great deal; his face was red and his eyes shone.
+> Suddenly Lavrans flared up:
+> “That wagon, son-in-law—while I remember it, what did you do with the wagon you borrowed from me this summer?”
+> “Wagon?” said Erlend.
+> “Do you no longer remember borrowing a wagon from me this summer? God knows it was such a good wagon that I shall never see a better, for I supervised it myself when it was forged here on the farm. You promised and swore—I call God as witness, and my household knows it—that you promised to bring it back to me, but you have not kept that word—”
+> Some of the guests cried that this was nothing to discuss now, but Lavrans struck the table and swore he would know what Erlend had done with his wagon.
+> “Oh, it is probably at the farm on the headland where we took a boat out to Veøy,” said Erlend indifferently. “I did not think it mattered so much. You see, Father-in-law, it was a long and arduous journey with the load down through the valleys, and when we reached the fjord none of my men wished to travel all that way back here with the wagon and then go over the mountain north to Trondheim. I thought it could remain there for the time being—”
+> “Now may the devil remove me from where I sit if I have ever heard your equal,” Lavrans broke in. “What custom do you keep in your house—is it you or your retainers who decide where they will or will not travel?”
+> Erlend shrugged:
+> “It is true that much at my home has been otherwise than it ought. I shall have that wagon sent south to you when Kristin and I travel through there. Dear Father-in-law,” he said, smiling and holding out his hand, “you know everything will now take on another order, and I with it, when I bring Kristin home as mistress. This matter with the wagon was ill done. But I promise you that this will be the last time you have cause to complain of me.”
+> “Dear Lavrans,” begged Baard Petersøn, “be reconciled with him over this small matter—”
+> “Small matter or greater matter,” Lavrans began. But then he checked himself and clasped hands with Erlend.
+> Shortly afterward he departed, and the guests at Laugarbru sought their sleeping places.
+> On Saturday before High Mass, wives and maidens were busy in the old loft. Some prepared the bridal bed, and others finished adorning the bride.
+> Ragnfrid had chosen this house as the bridal house partly because it was the smaller loft—they could lodge many more guests in the new storehouse loft. They themselves had used it as a summer sleeping room when Kristin was small, before Lavrans had built the large dwelling house in which they now lived both summer and winter. But the old storehouse was also almost the fairest building on the farm since Lavrans had restored it—it had been near collapse when they moved to Jørundgaard. It was adorned with the finest wood carving inside and out, and if the loft room was not large, it was all the easier to hang it beautifully with tapestries, coverlets, and skins.
+> The bridal bed stood ready, made with silk-covered pillows; beautiful hangings were suspended around it like a tent, and over the skins and quilts was spread embroidered silk. Ragnfrid and several other women were hanging coverlets over the wall logs and laying cushions on the benches.
+> Kristin sat in an armchair that had been carried upstairs. She wore her scarlet bridal gown. Great brooches held it together across the breast and closed the yellow silk shift at the neckline; golden bracelets glittered on the yellow silk sleeves. A gilded silver belt had been wound three times around her waist, and chain after chain lay around her neck and breast, the outermost being her father’s old golden chain with the great reliquary cross. Her hands in her lap were heavy with rings.
+> Lady Aashild stood behind her chair, brushing out her abundant golden-brown hair.
+> “Tomorrow you shall wear it loose for the last time,” she said, smiling, as she wound around Kristin’s head the red and green silk bands that were to support the crown. Then the women crowded around the bride.
+> Ragnfrid and Gyrid of Skog took the Gjesling lineage’s great bridal crown from the table. It was wholly gilded, its points ending alternately in crosses and clover leaves, and the circlet was set with rock crystals.
+> They pressed it down around the bride’s head. Ragnfrid was pale, and her hands trembled as she did so.
+> Kristin rose slowly. Jesus, how heavy all this gold and silver was to bear. Then Lady Aashild took her by the hand and led her to a large vessel of water, while the bridesmaids flung open the door to the sunlight so that the loft would be bright.
+> “Look at yourself now, Kristin,” said Lady Aashild, and Kristin bent over the vessel. She dimly saw her own face rise white from the water; it came so near that she saw the golden crown above it. All around, many light and dark shadows moved in the reflection—there was something she nearly remembered—then it seemed she was about to faint—she grasped the rim of the vessel. Lady Aashild placed her hand upon Kristin’s and dug her nails into the flesh so painfully that Kristin came to herself.
+> Horn calls sounded down by the bridge. From the farm people cried that the bridegroom was coming with his company.
+> The wives led Kristin out onto the storehouse gallery.
+> The yard below surged with horses in festive harness and people in holiday dress; everything glittered and flashed in the sun. Kristin looked outward, past it all, toward the valley. Her home district lay bright and still beneath a thin, mist-blue haze; from the haze rose mountains gray with scree and black with forest, and from a cloudless sky the sun poured its light into the valley’s bowl.
+> She had not noticed before, but all the leaves were gone from the trees; the groves shone silver-gray and bare. Only the alder thickets along the river retained a little faded green at their tops, and an occasional birch held fast to some whitish-yellow leaves at the ends of its twigs. But the trees were almost bare—except the rowan, which still shone with brown-red leaves around its blood-red berries. In the still, warm day there was a sharp autumn scent from the ash-colored covering of fallen leaves spread everywhere.
+> Had it not been for the rowan trees, it might have been early spring. And for the stillness—but it was autumn stillness, so very still. Whenever the horns fell silent, no sound came from the district except the clanging of bells in every stubble field and fallow where livestock grazed.
+> The river was shriveled and small, murmuring so quietly; only a few narrow streams of water ran between banks of sand and great expanses of white, rounded stones. No streams roared down the slopes—it had been such a dry autumn. Yet wetness glimmered everywhere in the fields—but it was only the damp that seeps from the earth in autumn, however warm the days and clear the air.
+> The crowd in the yard parted and made way for the bridegroom’s company. The young groomsmen were just riding forward; there was a stir among the women on the gallery.
+> Lady Aashild stood at the bride’s side:
+> “Bear up now, Kristin,” she said. “It will not be long before you are safe beneath a wife’s linen.”
+> Kristin nodded helplessly. She felt how terribly white her face must be.
+> “I am surely far too pale a bride,” she said softly.
+> “You are the most beautiful bride,” answered Aashild, “and there rides Erlend—one would have to search for two more beautiful than you.”
+> Erlend himself rode beneath the gallery. He sprang from the horse, light and unhindered by his heavy, many-folded garments. Kristin thought him so beautiful that pain passed through her whole body.
+> He was darkly dressed, in an ankle-length slit silk tunic, withered-brown in color and woven with black and white. Around his waist he wore a gold-adorned belt, and at his left hip a sword with gold on its hilt and scabbard. A heavy dark-blue velvet cloak fell behind his shoulders, and upon his black hair he wore a black French silk cap, gathered like wings at the sides and ending in two long tails; one had been thrown across his breast from his left shoulder and behind him.
+> Erlend greeted his bride above, went to her horse, and stood with his hand on the saddle bow while Lavrans came up the stairs. Kristin felt strange and dizzy amid all this splendor—her father looked unfamiliar in the solemn, ankle-length green velvet garment. But her mother was gray-pale beneath her linen in her red silk gown.
+> Ragnfrid came and placed the cloak around her daughter.
+> Then Lavrans took the bride’s hand and led her down to Erlend. He lifted her onto the horse and mounted himself.
+> The two waited side by side before the bridal loft while the procession began to ride out through the farm gate. First came the priests: Sira Eirik, Sira Tormod from Ulvsvolden, and a canon from Hamar who was her father’s friend. Then came the groomsmen and bridesmaids, pair by pair. And now Erlend and she were to ride forward. Behind them came the bride’s parents, kinsmen, friends, and guests in a long line between the rail fences to the district road. For a long way ahead the road was strewn with clusters of rowan berries, spruce branches, and the last white mayweed of autumn, and people stood along the road where the company would ride, greeting them with cries.
+> On Sunday just after sunset, the procession returned to Jørundgaard. Through the first shreds of twilight, the fires glowed red from the wedding farm’s yard. Entertainers and musicians sang and sounded fiddles and drums while the company rode toward the warm red light.
+> Kristin nearly collapsed when Erlend lifted her from the horse before the upper-loft gallery.
+> “I was so cold across the mountain,” she whispered. “I am so tired.” She stood for a moment—then, as she climbed the stairs to the loft, she swayed at every step.
+> In the upper loft room, the chilled wedding guests soon grew warm—heat came from all the candles burning in the room, steaming-hot food was carried about, and wine, mead, and strong ale circulated. The hum of voices and the sound of people eating droned distantly in Kristin’s ears.
+> She sat and could not become truly warm. After a while her cheeks began to burn, but her feet would not thaw, and shivers of cold ran down her back. All the heavy gold forced her forward as she sat in the high seat beside Erlend.
+> Each time the bridegroom drank to her, she had to look at the red blotches and spots that showed so sharply in his face now that he was growing hot after the ride through the cold. They were marks from the burns he had received that summer.
+> The terrible fear had come over her the previous evening while they sat at table at Sundbu. It came when she met Bjørn Gunnarsøn’s extinguished gaze resting upon her and Erlend—the eyes neither blinking nor shifting. They had dressed Sir Bjørn in a knight’s clothing—he looked like a dead man conjured back to life.
+> At night she lay with Lady Aashild—the bridegroom’s nearest female kinswoman present.
+> “What is the matter with you, Kristin?” said Lady Aashild somewhat impatiently. “You must remain firm to the end now and not be so despondent.”
+> “I am thinking,” said Kristin, shivering, “of all those we harmed so that we might live to see this day—”
+> “You have not had only good yourselves,” said Lady Aashild. “Not Erlend. And I think you have had it worse.”
+> “I am thinking of his defenseless children,” the bride continued. “I wonder whether they know their father is celebrating his wedding today—”
+> “Think of your own child,” said the lady. “Be glad that you celebrate your wedding with the man who is its father.”
+> Kristin lay for a while, sinking and dizzy. It was so strange to hear mentioned what had filled her mind every day for three months and more, while she had been unable to speak a word of it to a living soul. But it helped her only briefly.
+> “I am thinking of the woman who had to pay with her life because she loved Erlend,” she whispered, trembling.
+> “You may have to pay with your own life before you are six months older,” said Lady Aashild harshly. “Rejoice while you can.
+> “What am I to say to you, Kristin?” the old woman said in exasperation. “Have you wholly lost courage now? Soon enough it will be demanded that you pay for everything you have taken—have no fear of anything else.”
+> But Kristin felt as though landslide after landslide passed through her mind; everything she had built since that day of terror at Haugen was torn down. During the first period she had thought wildly and blindly only that she would endure; day after day she would endure. And she had endured until it became easier—and easy at last, when she had cast away every thought except this: that at last it would be their wedding, Erlend’s wedding at last.
+> She and Erlend knelt together during the bridal Mass. But it was all like an illusion—the candles, images, gleaming vessels, the priests in linen vestments and copes. All the people who had known her during her former life seemed like dream visions as they stood filling the church in their unfamiliar festive garments. But Sir Bjørn stood against a pillar and looked at them with his dead eyes, and she thought the other dead woman must have returned with him, in his arm.
+> She tried to look up at Saint Olav’s image—he stood red and white and fair, leaning upon his axe and trampling his own sinful human nature beneath his feet—but Sir Bjørn drew her gaze. And near him she saw Eline Ormsdatter’s dead face; indifferently she looked upon them. They had trampled over her to come here—and she did not begrudge it to them.
+> She had risen and thrown off all the stones Kristin had labored to lay upon the dead woman. Erlend’s squandered youth, his honor and welfare, his friends’ favor, the health of his soul. The dead woman shook them off. He wanted me and I wanted him; you wanted him and he wanted you, said Eline. I have paid and he must pay, and you must pay when your time comes. When sin is perfected, it brings forth death.
+> Kristin felt that she knelt with Erlend upon a cold stone. He knelt with the red burned patches upon his pale face; she knelt beneath the heavy bridal crown and felt the dull, crushing weight in her womb—the burden of sin she carried. She had played and sported with her sin, measured it as in a child’s game. Holy Virgin—soon the time would come when it would lie fully borne before her, look at her with living eyes, show her the brand marks of sin, the hideous deformity of sin, and strike hatefully with twisted hands against its mother’s breast.
+> When she had borne her child, when she saw the marks of her sin upon it and loved it as she had loved her sin, then the game would be played to the end.
+> Kristin thought that if she screamed now, so the sound cut through the singing and the deep chanting voices of the men and rang over the people—would she then be rid of Eline’s face? Would life enter the dead man’s eyes? But she clenched her teeth.
+> Holy King Olav, I call to you. Among all in Heaven I ask you for help, for I know you loved God’s justice above all things. I call upon you to take charge of the innocent one in my mother’s body. Turn God’s anger from the innocent one; turn it upon me, amen in the precious name of the Lord.
+> My children, said Eline, are surely innocent, and there is no place for them in a land where Christian people live. Your child was conceived in outlawry, as mine were. You can no more demand justice for it in the land you have left than I could demand it for mine.
+> Holy Olav, I ask for mercy nevertheless. Pray for grace for my son; take him under your protection, and I shall carry him to your church on my bare feet; I shall carry my golden circlet in to you and lay it upon your altar if you will help me, amen.
+> Her face was rigid as stone as she struggled to remain calm, but her body twitched and trembled while she knelt and was married to Erlend.
+> And now she sat beside him in the high seat at home, aware of everything around her only as a feverish mirage. The entertainers played harps and fiddles in the loft; music and singing sounded from the room below and from the yard. A gleam of red fire appeared outside whenever people passed through the door carrying things in and out.
+> They rose around the table; she stood between her father and Erlend. Her father announced in a loud voice that he had now given his daughter Kristin to Erlend Nikulaussøn as wife. Erlend thanked his father-in-law and all the good people who had gathered to honor him and his wife.
+> They told her to sit, and Erlend placed his bridal gifts in her lap. Sira Eirik and Sir Munan Baardsøn unrolled documents and read aloud the provisions concerning their joint property. Meanwhile the groomsmen stood with spears in their hands and struck the shafts against the floor from time to time during the reading and whenever gifts and purses of money were placed on the table.
+> The removable tables were cleared away; Erlend led her onto the floor, and they danced. Kristin thought: our groomsmen and bridesmaids are far too young for us—all those who were young with us have departed from these fields; how have we come back here?
+> “You are so strange, Kristin,” Erlend whispered during the dance. “I am becoming afraid of you, Kristin—are you not glad?”
+> They went from house to house and greeted their guests. Many candles burned in every room, and everywhere was full of people drinking, singing, and dancing. Kristin felt she no longer recognized her home—and she had lost all sense of time—the moments and images drifted strangely, detached from one another.
+> The autumn night was mild; musicians were playing in the yard as well, and people danced around the fire. They cried that the bride and bridegroom must honor them too, and she danced with Erlend in the cold, dew-wet yard. It was as though she awoke a little and her head became clearer.
+> Out in the darkness a pale band of mist floated over the murmur of the river. The mountains stood coal-black against the star-strewn sky.
+> Erlend led her from the dance and pressed her to him in the darkness beneath a gallery.
+> “I have not even had the chance to tell you—you are so fair, so fair and lovely. Your cheeks are as red as flames.” He pressed his cheek to hers. “Kristin, what is the matter with you?”
+> “I am so tired, so tired,” she whispered in return.
+> “Soon we shall go and sleep,” answered the bridegroom, looking up at the sky. The Milky Way had turned and now ran almost due north and south. “Do you remember that we have not slept together since the single night I was with you in your storehouse at Skog—”
+> A while later Sira Eirik called across the yard that it was now Monday. The wives came to lead the bride to bed—Kristin was so tired she scarcely had strength to resist them as propriety demanded. She allowed Lady Aashild and Gyrid of Skog to take her and lead her from the loft. The groomsmen stood at the foot of the stairs with burning candles and drawn swords; they formed a ring around the women and accompanied Kristin across the yard and up into the old loft.
+> The wives removed her bridal finery piece by piece and laid it away. Kristin saw that over the foot of the bed hung the violet-blue velvet gown she was to wear the next day, and upon it lay a long, snow-white, finely pleated linen cloth. It was the wife’s linen Erlend had brought for her; tomorrow she would bind her hair in a knot and fasten it over her head. It looked so fresh and cool and soothing.
+> At last she stood before the bridal bed with bare feet and bare arms, wearing only the ankle-length golden-yellow silk shift. They had placed the crown upon her again—the bridegroom was to remove it when the two were alone.
+> Ragnfrid placed her hands on her daughter’s shoulders and kissed her cheek—her mother’s face and hands were strangely cold, but it was as though weeping strained deep inside her breast. Then she opened the bed and told the bride to sit in it. Kristin obeyed and leaned back against the silk pillows piled at the headboard—she had to incline her head slightly forward to keep the crown on. Lady Aashild covered her to the waist, placed her hands upon the silk coverlet, and took the bride’s shining hair, drawing it forward over her breast and bare, slender upper arms.
+> The men brought the bridegroom into the loft. Munan Baardsøn unbuckled Erlend’s golden belt and sword—when he hung it on the wall above the bed, he whispered something to the bride. Kristin did not understand what he said, but she smiled as well as she could.
+> The groomsmen unlaced Erlend’s silk garment and lifted the heavy, long piece over his head. He sat in the armchair, and they helped him off with his spurs and boots.
+> Only once did the bride dare look up and meet his eyes.
+> Then the good-night farewells began. The loft emptied of wedding guests. Lavrans Bjørgulfsøn was the last to leave, closing the door of the bridal house.
+> Erlend rose, pulled off his undergarments, and flung them onto the bench. He stood before the bed, removed the crown and silk bands from her hair, and laid them on the table. Then he returned and climbed into bed. Kneeling beside her on the bed, he took her head in his hands and pressed it against his naked, hot breast while kissing her forehead all along the red line the crown had made.
+> She threw her arms around his shoulders and sobbed aloud—sweetly and wildly she felt that now the fear and ghostly visions were vanishing—now, now again there were only him and her. He lifted her face for a moment, looked down into it, and swept one hand over her face and body, strangely swift and rough, as though tearing away a covering:
+> “Forget,” he begged in a hot whisper, “forget everything, my Kristin—everything except that you are my own wife and I am your own husband—”
+> With his hand he struck out the last flame and cast himself down beside her in the darkness; he too sobbed:
+> “I never believed it, never during all these years, that we should live to see this day—”
+> Outside in the yard the noise gradually subsided. Weary from the ride earlier in the day and dazed by drink, the guests milled around a little longer for propriety’s sake—but more and more slipped away and found the places where they were to sleep.
+> Ragnfrid accompanied those who were to be most honored to their places and bade them good night. She could see nowhere the master of the house, who should have helped her with this.
+> Only a few small groups of young people—mostly servants—remained in the dark yard when at last she slipped out to find her husband and bring him to bed. She had seen that Lavrans had become very drunk as the evening wore on.
+> At last she stumbled over him while searching behind the storehouse buildings—he lay face down in the grass behind the bathhouse.
+> Feeling in the darkness, she recognized him. She thought he was asleep, took him by the shoulder, and tried to raise him from the ice-cold ground. But he was not asleep—not wholly, at least.
+> “What do you want?” he asked, his speech slurred.
+> “You cannot lie here,” said his wife. She supported him, for he stood swaying. With one hand she brushed down his velvet garment. “It is time we too went to bed, husband.” She took him by the arm and led the staggering man toward the farm; they walked behind the storehouse buildings.
+> “You did not look up, Ragnfrid, when you sat crowned in the bridal bed,” he said in the same manner. “Our daughter—she was less bashful; she was not bashful in her eyes when she looked at her bridegroom.”
+> “She has waited for him for three and a half years,” said her mother softly. “Then surely she might dare look up—”
+> “The devil she has waited!” the father screamed, and his wife hushed him in fear.
+> They were in the narrow passage between the rear of the privy and a rail fence. Lavrans struck his clenched fist against the lower timber of the privy.
+> “I laid you here for mockery and shame, you timber. I laid you here so that filth might eat you up. I laid you here as punishment because you struck down my lovely little maiden. I should have laid you above my loft door and honored and thanked you with fair carving because you saved her from shame and sorrow—because you caused my Ulvhild to die an innocent child—”
+> He turned, staggered against the rail fence, and fell forward over it. With his head upon his arms, he wept uncontrollably, long, deep groans breaking through.
+> His wife put her arms around his shoulders:
+> “Lavrans, Lavrans.” But she could not quiet him. “Husband.”
+> “Oh, never, never, never should I have given her to that man. God help me—I must have known it all along—he had broken down her youth and her fair honor. I did not believe it; no, should I believe such a thing of Kristin? But still I knew it. Even so, she is too good for that weak lad who has squandered himself and her—if he had enticed her ten times, I should not have given her to him so that he can squander more of her life and happiness—”
+> “What other course was there?” said her mother hopelessly. “You understand yourself that she was already his—”
+> “Yes, I need not have made such great ceremony of giving Erlend what he had already taken for himself,” said Lavrans. “A noble husband my Kristin has gained.” He tore at the rail fence. Then he wept again. Ragnfrid thought he had grown a little more sober, but now the drunkenness overcame him once more.
+> Since the man was both so drunk and so beside himself with despair, she did not think she could take him up to the hearth-room where they were to sleep—it was full of guests. She looked around—nearby stood a small barn where they stored the good hay for the horses during spring work. She went over and peered in—no one lay there. Then she led her husband inside and closed the door behind them.
+> Ragnfrid gathered hay around herself and him and covered them with their cloaks. Lavrans wept from time to time and said things, but his speech was so confused she could make no sense of it. After a while she lifted his head into her lap.
+> “My dear husband—when they have set such love upon one another—perhaps everything will be better than we think—”
+> Lavrans answered brokenly—he now seemed clearer again:
+> “Do you not understand—he now has complete power over her, he who has never been able to govern himself. She will find it difficult to summon the courage to oppose anything her husband wishes—and if one day she must, she will suffer so bitterly from it herself—my gentle child.
+> “Soon I no longer understand why God lays so many heavy sorrows upon me—I have labored faithfully to do His will. Why has He taken our children from us, Ragnfrid, one after another—first our sons, then little Ulvhild, and now I have given the one I loved most dearly, without honor, to an unreliable and foolish man. Now we have only the little one left, and it seems unwise to rejoice over her until I see how matters go with her—Ramborg.”
+> Ragnfrid trembled like a leaf. Then her husband put an arm around her shoulder:
+> “Lie down,” he asked. “Then we shall sleep.” With his head against his wife’s arm he lay for a while, sighing now and then, but at last he fell asleep.
+> It was still pitch-dark in the barn when Ragnfrid stirred—she wondered that she had slept. She reached out with her hand; Lavrans sat upright with his hands clasped around his knees.
+> “Are you already awake?” she asked in surprise. “Are you cold?”
+> “No,” he answered, his voice hoarse, “but I cannot fall asleep again.”
+> “Is it Kristin you are thinking of?” asked her mother. “It may go better than we think, Lavrans,” she repeated.
+> “Yes, that is what I am thinking of,” said the man. “Well, well. Maiden or wife, she came to the bridal bed with the one upon whom she had bestowed her love. Neither you nor I did that, my poor Ragnfrid.”
+> His wife gave a dull, deep groan and flung herself sideways into the hay. Lavrans moved one hand onto her shoulder.
+> “But I could not,” he said fiercely and painfully. “No, I could not—be as you wanted me to be—when we were young. I am not made so—”
+> After a while Ragnfrid said softly, weeping:
+> “We have lived well together nevertheless—Lavrans—all these years.”
+> “So I believed myself,” he answered darkly.
+> Thoughts tumbled and crowded within him. The single naked glance exchanged by bridegroom and bride, the two young faces flaming red—to him it seemed shamelessness. It had scorched him; this was his daughter. But he continued to see those eyes—and wildly and blindly he fought against the covering being torn away from something in his own heart, something he had never wished to know was there, something he had defended against his own wife when she sought it.
+> He had not been able, he insisted harshly to himself. In the devil’s name, he had been married off as a boy; he had not chosen for himself; she was older than he—he had not desired her; he had not wanted to learn this from her—love. He still grew hot with shame when he thought of it—that she had wanted him to love her when he had not wanted such love from her. That she had offered him all this which he had never asked for.
+> He had been a good husband to her, he had believed. He had shown her all the honor he could, given her full authority with him, sought her counsel in everything, been faithful to her—and they had had six children. He had only wanted to be allowed to live with her without her always grasping for that part of his heart which he himself did not wish to bare.
+> He had borne love for no one. Ingunn, Karl’s wife at Bru. Lavrans blushed in the pitch-darkness. He had always visited them when traveling down the valley. He had perhaps never even spoken alone with the mistress of the house. But when he saw her—when he merely thought of her—he sensed something like the first smell of the earth in spring, just after the snow has gone. He knew now that it could have happened to him too—he too could have loved.
+> But he had been married so young, and he had grown shy. Then he had come to thrive best out in the deserted forest—on the open mountain plateau, where every living creature wants wide space around it, room through which to flee, and shyly watches every stranger who seeks to steal near.
+> There was one season of the year when the animals in the forest and mountains forgot their shyness. Then they displayed themselves before their females. But his had been given to him. And she had offered him everything for which he had never sued.
+> But the young in the nest. They had been the small warm place in the wilderness, the innermost, sweetest delight of his life. The little fair heads of the girls beneath his hand.
+> Married—that was what he had become, almost without being asked. Friends—he had many, and he had none. War—that had been joy, but there was no more war—his armor hung upstairs in the loft, little used. He had become a farmer. But he had had his daughters—everything he lived had become dear because through it he kept safe the fine, soft little lives he had held in his hands. He remembered Kristin’s small two-year-old body on his shoulder, her flax-pale, soft hair against his cheek. Her little hands holding his belt while she butted her round, hard childish forehead against his shoulder blades when he rode out with her seated behind him on the horse.
+> And now she had those same hot eyes—and she had gained what was hers. She sat there in the half-shadow against the silk pillows of the bed. In the candlelight she was wholly golden—golden crown and golden shift and golden hair over bare golden arms. Her eyes were no longer bashful.
+> Her father groaned with shame.
+> And yet it was as though his heart burst and bled. For what he himself had not received. And for the wife beside him to whom he had not been able to give it.
+> Sick with compassion, he sought Ragnfrid’s hand in the darkness:
+> “Yes, I thought we lived well together,” he said. “I thought you grieved over our children. Yes, and that you had a heavy disposition. I never thought it might be I who was not a good husband to you—”
+> Ragnfrid shook as in a convulsion:
+> “You were always a good husband, Lavrans.”
+> “Hmm.” Lavrans sat with his chin all the way down upon his knees. “Still, perhaps you would have fared better if you had been married as our daughter was today—”
+> Ragnfrid sprang up and cried low and piercingly:
+> “You know! How did you learn—how long have you known—”
+> “I do not know what you are speaking of,” said Lavrans after a while, in a strangely crushed voice.
+> “I am speaking of this: that I was not a maiden when I became your wife,” answered Ragnfrid, her voice clear and ringing with despair.
+> After a while Lavrans answered as before:
+> “I never knew it until now.”
+> Ragnfrid lay down in the hay, shaken by sobs. When the fit had passed, she raised her head slightly. A little gray light had begun to seep through the opening in the wall. She could make out her husband sitting with his arms clasped around his knees, motionless as stone.
+> “Lavrans—speak to me—” she moaned.
+> “What do you want me to say?” he asked without moving.
+> “Oh, I do not know—that you should curse me—strike me—”
+> “It would be somewhat late now,” answered the man; there was something like the shadow of a mocking smile in his voice.
+> Ragnfrid wept again. “I did not think then that I was betraying you. I thought I myself had been so betrayed and so violated. No one had spared me. They came with you—I had seen you only three times before we were married—I thought you were merely a boy, red and white—so young and childish—”
+> “I was,” said Lavrans, and a little more resonance entered his voice. “And therefore I should have believed that you, being a woman, would be more afraid to—to betray one who was so young that he understood nothing—”
+> “That is how I came to think afterward,” said Ragnfrid, weeping. “When I had come to know you. Soon enough came the time when I would have given my soul twenty times over if I could have become guiltless toward you.”
+> Lavrans sat silent and motionless. Then his wife said again:
+> “You ask nothing?”
+> “What use would it be? It was he whose—whose funeral procession we met at Feginsbrekka when we carried Ulvhild into Nidaros—”
+> “Yes,” said Ragnfrid. “We had to leave the road and go into the meadow. I saw them carry his bier past—with priests and monks and armed retainers. I heard that he had died a good death—reconciled with God. As we stood there with Ulvhild’s bier between us, I prayed that my sin and my sorrow might be laid at his feet on the last day—”
+> “Yes, you would have done that,” said Lavrans, with the same shadow of mockery in his quiet voice.
+> “You do not know everything,” said Ragnfrid, cold with despair. “Do you remember that he came out to us at Skog during the first winter we were married—”
+> “Yes,” answered the man.
+> “When Bjørgulf lay dying. Oh, no one had spared me. He was drunk when he did it to me—afterward he said he had never loved me, that he did not want me—he asked me to forget it. My father did not know of this; he did not betray you—you must never believe that. But Trond—we were each other’s dearest friends then; I complained of it to him. He wanted to threaten the man into marrying me—but he was only a boy, and he was beaten. Afterward he advised me to remain silent and take you—”
+> She sat still for a while.
+> “When he came to Skog—a year had passed; I did not think of it so much. But he came there—he said he regretted it, that he would have had me now if I had been unmarried—that he loved me. So he said. God must judge whether he spoke the truth. After he had left—I did not dare go onto the fjord, I did not dare because of the sin, not with the child. And then I had—then I had begun to love you so much!” She screamed once, as in the wildest torment. Her husband quickly turned his head toward her.
+> “When Bjørgulf was born—oh, I thought I loved him more than my life. When he lay dying—I thought that if he was extinguished, I too would be extinguished. But I did not pray to God to spare the boy’s life—”
+> Lavrans sat for a very long time before asking, dead and heavy:
+> “Was it because I was not his father?”
+> “I did not know whether you were,” said Ragnfrid, stiffening.
+> For a long time both sat deathly still. Then the man suddenly asked fiercely:
+> “In Jesus’ name, Ragnfrid—why are you telling me this—now?”
+> “Oh, I do not know.” She twisted her hands until the finger joints cracked. “So that you may take revenge upon me. Drive me from your farm—”
+> “Do you think that would help me?” His voice trembled with mockery. “Then there are our daughters,” he said quietly. “Kristin—and the little one.”
+> Ragnfrid sat for a while.
+> “I remember how you judged Erlend Nikulaussøn,” she said softly. “What judgment do you pass upon me, then?”
+> A long shudder passed through the man’s body—loosening some of its rigidity.
+> “You have now—we have now lived together for nearly twenty-seven years. It is not the same as with a strange man. I understand that you have suffered worse than badly.”
+> Ragnfrid collapsed in sobs beneath his words. She dared reach for one of his hands. He did not move, but sat still as a dead man. Then she wept louder and louder—her husband sat just as motionless, looking toward the gray light around the door. At last she lay as though all her tears had flowed out.
+> Then he stroked her arm fleetingly. She began to weep again.
+> “Do you remember,” she said between sobs, “the man who once came to us while we were at Skog? The one who knew the old lays? Do you remember one about a dead man who returned from the world of torment and told his son what he had seen? Then a din sounded from hell’s deepest ground; for their husbands’ food, unfaithful wives ground earth. Bloody were the stones they drew, bloody hung the hearts from their breasts—”
+> Lavrans said nothing.
+> “I have thought of those words all these years,” said Ragnfrid. “Every day it was as though my heart bled, for every day I thought I was grinding earth for you to eat—”
+> Lavrans did not himself know why he answered as he did. He felt empty and hollow in the breast, like a man upon whose back they have carved the blood eagle. But he laid his hand heavily and wearily upon his wife’s head and said:
+> “Earth must surely be ground, my Ragnfrid, before food can grow.”
+> When she tried to take his hand and kiss it, he tore it fiercely away. Then he looked down at his wife, took one of her hands and placed it upon his knee, and bowed his cold, stiffened face toward it. And so they remained sitting, without moving and without speaking further to one another.
+
+
+Translation, where present, is an AI-generated analytical aid, not an authoritative edition.
+
+## Evidence cited by the annotator
+
+### ev1 — local text
+
+> “Det vet Gud, Lavrans — jeg tigget dig fordi jeg elsket dig mere end det er godt for et menneskes sjæl.”
+
+The invocation of God and explicit past-tense love predicate strongly support a sincere-seeming, truth-presenting avowal and retrospective explanation.
+
+### ev2 — local text
+
+> Immediately before the utterance, Lavrans asks whether Ragnfrid had been thinking of the other man; she then embraces him and answers his suspicion.
+
+The utterance principally supplies information about whom she loved and why she behaved as she did, reinforcing T rather than commitment-making P.
+
+### ev3 — local text
+
+> Ragnfrid continues: “Og jeg hådet den anden slik at jeg kjendte djævelen glædet sig ved det.”
+
+The explicit contrast between love for Lavrans and hatred for the other man clarifies the avowal's propositional and explanatory role.
+
+### ev4 — local text
+
+> The subsequent narration recalls that Ragnfrid had “stormet og tryglet” Lavrans and could not content herself with his “lunkne egtemandskjærlighet.”
+
+Her remembered pattern of ardent desire corroborates the loving state she avows, while showing that the present sentence reflects upon sustained past feeling rather than merely blurting out affect.
+
+### ev5 — supplied metadata
+
+> The membership review marks the occurrence KEEP with confidence 0.99 and reason “VALID_EXPLICIT_LOVE_I_YOU.”
+
+Confirms that the highlighted clause is intended as a valid explicit equivalent of “I love you.”
+
+## Background, status and source records
+
+Utterance status: **direct**. Ragnfrid speaks directly to her husband Lavrans; the equivalent of “I love you” occurs as the past-tense causal clause “fordi jeg elsket dig” within her explanation of her former pleading.
+
+Background knowledge reported as used: **False**. 
+
+Self-reported confidence: 0.97. Not a calibrated accuracy estimate.
+
+Ontology fit: natural. T naturally captures the utterance's central force as an explicit retrospective avowal of love. Its reassurance function, emotional intensity, and marital history are adequately represented as context and do not create residual pressure for E, P, or O.
+
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/undset-kristin-lavransdatter-e5e791f1a3c0031a/3780ef62a8a493fdf63b5ba2d7b3a852eab0fb2725b3f4bfe26d96a9c173b2aa/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/undset-kristin-lavransdatter-e5e791f1a3c0031a/3780ef62a8a493fdf63b5ba2d7b3a852eab0fb2725b3f4bfe26d96a9c173b2aa/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/undset-kristin-lavransdatter/canonical.txt)
+- Occurrence: undset-kristin-lavransdatter-e5e791f1a3c0031a
+- Model: gpt-5.6-sol
+- Classification prompt: 0.3.1
+- Historical run: canonical_31_v0_11_v0_3_1
+- Canonical SHA-256: 6400013e56dd14a00ebad42e137d7b7cc42cd7092299112be07f1a361ac8b0b8
+
+Rendered deterministically from the saved record. No rescoring or replacement explanation.

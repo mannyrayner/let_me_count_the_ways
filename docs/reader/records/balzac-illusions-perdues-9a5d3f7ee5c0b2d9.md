@@ -1,0 +1,265 @@
+# Illusions perdues
+
+Honoré de Balzac · French
+
+[All records](../README.md) · [HTML reading copy](../cases/balzac-illusions-perdues-9a5d3f7ee5c0b2d9.html)
+
+## Target
+
+> je vous ai aimée depuis le
+> premier jour
+
+
+| T: report / avowal | P: undertaking | E: expressive/reflexive | O: other |
+|---:|---:|---:|---:|
+| 4 / 4 | 0 / 4 | 0 / 4 | 0 / 4 |
+
+Scores are independent support judgments. T is not a sincerity score.
+
+## Original passage
+
+> —Vous êtes-vous aperçue, chère Ève, que je vous ai aimée depuis le
+> premier jour où je vous ai vue?
+
+
+## Original AI explanation
+
+David’s interrogative embeds a clear retrospective avowal: he presents it as true that he has loved Ève continuously since first seeing her. Although spoken during a marriage discussion, this particular clause reports an enduring emotional state rather than itself undertaking a commitment. Its measured, reflective formulation provides no independent expressive/reflexive force.
+
+## Ambiguity
+
+The interrogative framing asks whether Ève recognized his love, but it pragmatically presupposes and avows that love rather than genuinely questioning its existence.
+
+## Narrative situation (AI interpretation)
+
+The avowal occurs during an extended, reciprocal courtship conversation in which David proposes marriage and Ève agrees to become his wife. That setting establishes serious relational intentions, but the highlighted core utterance specifically discloses the duration of David’s already-existing love. Its reflective retrospective form, following detailed discussion of their prospective life, weighs against treating it as a reflex-like emotional discharge; the explicit commitments are expressed elsewhere in the exchange.
+
+## Original context supplied to the annotator
+
+> —Ève! Ève! répondit David, je voudrais être le frère de Lucien.
+> Vous seule pouvez me donner ce titre, qui lui permettrait de tout
+> accepter de moi, qui me donnerait le droit de me dévouer à lui avec
+> le saint amour que vous mettez à vos sacrifices, mais en y portant le
+> discernement du calculateur. Ève, cher enfant aimée, faites que Lucien
+> ait un trésor où il puisse puiser sans honte? La bourse d'un frère ne
+> sera-t-elle pas comme la sienne? si vous saviez toutes les réflexions
+> que m'a suggérées la position nouvelle de Lucien! S'il veut aller chez
+> madame de Bargeton, il ne doit plus être mon prote, il ne doit plus
+> loger à l'Houmeau, vous ne devez plus rester ouvrière, votre mère ne
+> doit plus faire son métier. Si vous consentiez à devenir ma femme,
+> tout s'aplanirait: Lucien pourrait demeurer au second chez moi pendant
+> que je lui bâtirais un appartement au-dessus de l'appentis au fond de
+> la cour, à moins que mon père ne veuille élever un second étage. Nous
+> lui arrangerions ainsi une vie sans soucis, une vie indépendante. Mon
+> désir de soutenir Lucien me donnera pour faire fortune un courage que
+> je n'aurais pas s'il ne s'agissait que de moi; mais il dépend de vous
+> d'autoriser mon dévouement. Peut-être un jour ira-t-il à Paris, le seul
+> théâtre où il puisse se produire, et où ses talents seront appréciés
+> et rétribués. La vie de Paris est chère, et nous ne serons pas trop
+> de trois pour l'y entretenir. D'ailleurs, à vous comme à votre mère,
+> ne faudra-t-il pas un appui? Chère Ève, épousez-moi par amour pour
+> Lucien. Plus tard vous m'aimerez peut-être en voyant les efforts que
+> je ferai pour le servir et pour vous rendre heureuse. Nous sommes tous
+> deux également modestes dans nos goûts, il nous faudra peu de chose; le
+> bonheur de Lucien sera notre grande affaire, et son cœur sera le trésor
+> où nous mettrons fortune, sentiments, sensations, tout!
+> 
+> —Les convenances nous séparent, dit Ève émue en voyant combien ce grand
+> amour se faisait petit. Vous êtes riche et je suis pauvre. Il faut
+> aimer beaucoup pour passer par-dessus une semblable difficulté.
+> 
+> —Vous ne m'aimez donc pas assez encore? s'écria David atterré.
+> 
+> —Mais votre père s'opposerait peut-être...
+> 
+> —Bien, bien, répondit David, s'il n'y a que mon père à consulter, vous
+> serez ma femme. Ève, ma chère Ève! vous venez de me rendre la vie bien
+> facile à porter en ce moment. J'avais, hélas! le cœur bien lourd de
+> sentiments que je ne pouvais ni ne savais exprimer. Dites-moi seulement
+> que vous m'aimez un peu, je prendrai le courage nécessaire pour vous
+> parler de tout le reste.
+> 
+> —En vérité, dit-elle, vous me rendez tout honteuse; mais puisque nous
+> nous confions nos sentiments, je vous dirai que je n'ai jamais de
+> ma vie pensé à un autre qu'à vous. J'ai vu en vous un de ces hommes
+> auxquels une femme peut se trouver fière d'appartenir, et je n'osais
+> espérer pour moi, pauvre ouvrière sans avenir, une si grande destinée.
+> 
+> —Assez, assez, dit-il en s'asseyant sur la traverse du barrage auprès
+> duquel ils étaient revenus, car ils allaient et venaient comme des fous
+> en parcourant le même espace.
+> 
+> —Qu'avez-vous? lui dit-elle en exprimant pour la première fois cette
+> inquiétude si gracieuse que les femmes éprouvent pour un être qui leur
+> appartient.
+> 
+> —Rien que de bon, dit-il. En apercevant toute une vie heureuse,
+> l'esprit est comme ébloui, l'âme est accablée. Pourquoi suis-je le plus
+> heureux? dit-il avec une expression de mélancolie. Mais je le sais.
+> 
+> Ève regarda David d'un air coquet et douteux qui voulait une
+> explication.
+> 
+> —Chère Ève, je reçois plus que je ne donne. Aussi vous aimerai-je
+> toujours mieux que vous ne m'aimerez, parce que j'ai plus de raison de
+> vous aimer: vous êtes un ange et je suis un homme.
+> 
+> —Je ne suis pas si savante, répondit Ève en souriant. Je vous aime
+> bien...
+> 
+> —Autant que vous aimez Lucien? dit-il en l'interrompant.
+> 
+> —Assez pour être votre femme, pour me consacrer à vous et tâcher de ne
+> vous donner aucune peine dans la vie, d'abord un peu pénible, que nous
+> mènerons.
+> 
+> —Vous êtes-vous aperçue, chère Ève, que je vous ai aimée depuis le
+> premier jour où je vous ai vue?
+> 
+> —Quelle est la femme qui ne se sent pas aimée? demanda-t-elle.
+> 
+> —Laissez-moi donc dissiper les scrupules que vous cause ma prétendue
+> fortune. Je suis pauvre, ma chère Ève. Oui, mon père a pris plaisir
+> à me ruiner, il a spéculé sur mon travail, il a fait comme beaucoup
+> de prétendus bienfaiteurs avec leurs obligés. Si je deviens riche
+> ce sera par vous. Ceci n'est pas une parole de l'amant, mais une
+> réflexion du penseur. Je dois vous faire connaître mes défauts, et ils
+> sont énormes chez un homme obligé de faire sa fortune. Mon caractère,
+> mes habitudes, les occupations qui me plaisent me rendent impropre à
+> tout ce qui est commerce et spéculation, et cependant nous ne pouvons
+> devenir riches que par l'exercice de quelque industrie. Si je suis
+> capable de découvrir une mine d'or, je suis singulièrement inhabile à
+> l'exploiter. Mais vous, qui, par amour pour votre frère, êtes descendue
+> aux plus petits détails, qui avez le génie de l'économie, la patiente
+> attention du vrai commerçant, vous récolterez la moisson que j'aurai
+> semée. Notre situation, car depuis long-temps je me suis mis au sein de
+> votre famille, m'oppresse si fort le cœur que j'ai consumé mes jours
+> et mes nuits à chercher une occasion de fortune. Mes connaissances en
+> chimie et l'observation des besoins du commerce m'ont mis sur la voie
+> d'une découverte lucrative. Je ne puis vous en rien dire encore, je
+> prévois trop de lenteurs. Nous souffrirons pendant quelques années
+> peut-être: mais je finirai par trouver les procédés industriels à la
+> piste desquels je suis depuis quelques jours, et qui nous procureront
+> une grande fortune. Je n'ai rien dit à Lucien, car son caractère ardent
+> gâterait tout, il convertirait mes espérances en réalités, il vivrait
+> en grand seigneur et s'endetterait peut-être. Ainsi gardez-moi le
+> secret. Votre douce et chère compagnie pourra seule me consoler pendant
+> ces longues épreuves, comme le désir de vous enrichir vous et Lucien me
+> donnera de la constance et de la ténacité...
+> 
+> —J'avais deviné aussi, lui dit Ève en l'interrompant, que vous étiez un
+> de ces inventeurs auxquels il faut, comme à mon pauvre père, une femme
+> qui prenne soin d'eux.
+> 
+> —Vous m'aimez donc! Ah! dites-le-moi sans crainte, à moi qui ai vu dans
+> votre nom un symbole de mon amour. Ève était la seule femme qu'il y
+> eût dans le monde, et ce qui était matériellement vrai pour Adam l'est
+> moralement pour moi. Mon Dieu! m'aimez-vous?
+> 
+> —Oui, dit-elle en allongeant cette simple syllabe par la manière dont
+> elle la prononça comme pour peindre l'étendue de ses sentiments.
+> 
+> —Hé! bien, asseyons-nous là, dit-il en conduisant Ève par la main vers
+> une longue poutre qui se trouvait au bas des roues d'une papeterie.
+> Laissez-moi respirer l'air du soir, entendre les cris des ranettes,
+> admirer les rayons de la lune qui tremblent sur les eaux; laissez-moi
+> m'emparer de cette nature où je crois voir mon bonheur écrit en toute
+> chose, et qui m'apparaît pour la première fois dans sa splendeur,
+> éclairée par l'amour, embellie par vous. Ève, chère aimée! voici le
+> premier moment de joie sans mélange que le sort m'ait donné! Je doute
+> que Lucien soit aussi heureux que moi!
+
+
+## English translation supplied to the annotator
+
+> “Ève! Ève!” David replied, “I wish I were Lucien’s brother. You alone can give me that title, which would allow him to accept everything from me, which would give me the right to devote myself to him with the holy love you bring to your sacrifices, but with the discernment of a calculating mind added to it. Ève, dear beloved child, see to it that Lucien has a treasure from which he may draw without shame. Will not a brother’s purse be as his own? If you knew all the thoughts Lucien’s new position has prompted in me! If he wishes to visit Madame de Bargeton, he must no longer be my foreman, he must no longer live in L’Houmeau, you must no longer remain a working girl, and your mother must no longer ply her trade. If you would consent to become my wife, every difficulty would be smoothed away: Lucien could live on the second floor of my house while I had an apartment built for him above the lean-to at the back of the courtyard, unless my father were willing to add another story. In this way we would arrange for him a life free of cares, an independent life. My desire to support Lucien will give me a courage to make my fortune that I would not have if only I myself were concerned; but it rests with you to authorize my devotion. Perhaps one day he will go to Paris, the only stage on which he can make his appearance, and where his talents will be appreciated and rewarded. Life in Paris is expensive, and the three of us will be none too many to maintain him there. Besides, will not you and your mother need support? Dear Ève, marry me for love of Lucien. Later, perhaps, you will love me when you see the efforts I shall make to serve him and to make you happy. We are both equally modest in our tastes; we shall need little; Lucien’s happiness will be our great concern, and his heart will be the treasure into which we shall put fortune, feelings, sensations—everything!
+> 
+> “Propriety separates us,” said Ève, moved to see how this great love made itself humble. “You are rich and I am poor. One must love very much to surmount such a difficulty.”
+> 
+> “Then you do not love me enough yet?” cried David, dismayed.
+> 
+> “But perhaps your father would object...”
+> 
+> “Good, good,” David replied, “if only my father need be consulted, you shall be my wife. Ève, my dear Ève! You have just made life very easy for me to bear at this moment. Alas, my heart was very heavy with feelings that I neither could nor knew how to express. Only tell me that you love me a little, and I shall summon the courage needed to speak to you of all the rest.”
+> 
+> “Truly,” she said, “you make me feel thoroughly ashamed; but since we are confiding our feelings to each other, I shall tell you that never in my life have I thought of anyone but you. I saw in you one of those men to whom a woman may feel proud to belong, and I dared not hope for myself, a poor working girl with no future, for so great a destiny.”
+> 
+> “Enough, enough,” he said, sitting down on the crossbeam of the weir to which they had returned, for they had been pacing back and forth like mad people over the same stretch.
+> 
+> “What is the matter?” she asked him, expressing for the first time that graceful concern women feel for a being who belongs to them.
+> 
+> “Nothing but good,” he said. “At the sight of an entire happy life, the mind is as though dazzled, the soul overwhelmed. Why am I the happier of us?” he said with an expression of melancholy. “But I know why.”
+> 
+> Ève looked at David with a coquettish and questioning air that demanded an explanation.
+> 
+> “Dear Ève, I receive more than I give. Therefore I shall always love you better than you will love me, because I have more reason to love you: you are an angel, and I am a man.”
+> 
+> “I am not learned enough to understand that,” Ève replied with a smile. “I do love you...”
+> 
+> “As much as you love Lucien?” he said, interrupting her.
+> 
+> “Enough to be your wife, to devote myself to you, and to try never to cause you any distress in the life, somewhat difficult at first, that we shall lead.”
+> 
+> “Have you noticed, dear Ève, that I have loved you since the first day I saw you?”
+> 
+> “What woman does not feel when she is loved?” she asked.
+> 
+> “Then let me dispel the scruples caused in you by my supposed fortune. I am poor, my dear Ève. Yes, my father took pleasure in ruining me; he speculated on my labor; he acted as many supposed benefactors do toward those beholden to them. If I become rich, it will be through you. This is not a lover’s declaration, but a thinker’s reflection. I must acquaint you with my faults, and they are enormous in a man obliged to make his fortune. My character, my habits, the occupations that please me make me unfit for anything involving business and speculation, and yet we can become rich only by pursuing some industry. Though I may be capable of discovering a gold mine, I am singularly inept at working it. But you, who, for love of your brother, have stooped to the smallest details, who possess the genius of economy and the patient attentiveness of the true merchant, will reap the harvest I have sown. Our situation—for a long time now I have placed myself within the bosom of your family—so oppresses my heart that I have consumed my days and nights in seeking an opportunity to make our fortune. My knowledge of chemistry and my observation of the needs of commerce have set me on the path of a lucrative discovery. I can tell you nothing about it yet; I foresee too many delays. We may suffer for several years, but I shall ultimately discover the industrial processes whose trail I have been following for the past few days and which will bring us a great fortune. I have said nothing to Lucien, for his ardent nature would spoil everything; he would turn my hopes into realities, live like a great lord, and perhaps fall into debt. So keep my secret for me. Your sweet and dear companionship alone will be able to console me during these long trials, just as the desire to enrich you and Lucien will give me constancy and tenacity...”
+> 
+> “I too had guessed,” Ève said, interrupting him, “that you were one of those inventors who, like my poor father, need a woman to take care of them.”
+> 
+> “Then you love me! Ah! Tell me so without fear—to me, who have seen in your name a symbol of my love. Eve was the only woman in the world, and what was materially true for Adam is morally true for me. My God! Do you love me?”
+> 
+> “Yes,” she said, lengthening that simple syllable by the way she pronounced it, as though to portray the extent of her feelings.
+> 
+> “Well, then, let us sit down there,” he said, leading Ève by the hand toward a long beam lying at the foot of the wheels of a paper mill. “Let me breathe the evening air, hear the cries of the tree frogs, admire the moonbeams trembling upon the waters; let me take possession of this natural world, in which I believe I see my happiness written in everything, and which appears to me for the first time in its splendor, illuminated by love, made beautiful by you. Ève, dear beloved! This is the first moment of unmixed joy fate has ever given me! I doubt that Lucien is as happy as I am!”
+
+
+Translation, where present, is an AI-generated analytical aid, not an authoritative edition.
+
+## Evidence cited by the annotator
+
+### e1 — local text
+
+> “Vous êtes-vous aperçue, chère Ève, que je vous ai aimée depuis le premier jour où je vous ai vue?”
+
+The embedded affirmative clause presents David’s enduring love for Ève as true, strongly supporting T.
+
+### e2 — local text
+
+> Immediately beforehand Ève says she loves David enough “pour être votre femme, pour me consacrer à vous,” after their discussion of marriage.
+
+The broader exchange is one of reciprocal courtship and commitment, while also showing that the actual undertaking is articulated outside the highlighted retrospective avowal.
+
+### e3 — local text
+
+> David later distinguishes “une parole de l’amant” from “une réflexion du penseur” and proceeds to discuss their circumstances and future deliberately.
+
+The scene frames his speech as sustained and reflective rather than as an involuntary or reflex-like verbal discharge, supporting E=0.
+
+### e4 — supplied metadata
+
+> The occurrence is marked affirmative and perfect in tense/aspect, with syntactic family “main_or_embedded.”
+
+The grammatical metadata accords with an embedded retrospective state avowal extending from the first meeting to the present.
+
+## Background, status and source records
+
+Utterance status: **direct**. David directly addresses Ève with a question containing the embedded first-person avowal “je vous ai aimée depuis le premier jour où je vous ai vue” (“I have loved you since the first day I saw you”).
+
+Background knowledge reported as used: **False**. 
+
+Self-reported confidence: 0.97. Not a calibrated accuracy estimate.
+
+Ontology fit: natural. T naturally captures the core force as a retrospective avowal of enduring love. The surrounding marriage undertaking is contextually important but need not be attributed to this clause as P, and there is no residual force requiring E or O.
+
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/balzac-illusions-perdues-9a5d3f7ee5c0b2d9/5bbd7b18caab8d43fd6fcd87176d1c0e9343e5058207c0da2502fbf222ee0244/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/balzac-illusions-perdues-9a5d3f7ee5c0b2d9/5bbd7b18caab8d43fd6fcd87176d1c0e9343e5058207c0da2502fbf222ee0244/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/balzac-illusions-perdues/canonical.txt)
+- Occurrence: balzac-illusions-perdues-9a5d3f7ee5c0b2d9
+- Model: gpt-5.6-sol
+- Classification prompt: 0.3.1
+- Historical run: canonical_31_v0_11_v0_3_1
+- Canonical SHA-256: 419f47435e440d4d44539f423bef3fbe9286f3bbbb359d4985ccb8436f6c0bcf
+
+Rendered deterministically from the saved record. No rescoring or replacement explanation.
