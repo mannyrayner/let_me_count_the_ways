@@ -271,3 +271,19 @@ def test_report_renderer_reads_unicode_model_output_as_utf8(tmp_path, monkeypatc
     summary = render_reports(tmp_path, [source], [key], {"status": "complete"})
 
     assert summary["cases"][0]["occurrence_id"] == "oid"
+
+
+def test_local_private_canonical_path_keeps_rights_guard(tmp_path):
+    corpus=tmp_path/'corpus'
+    source=fixture(corpus,'fr',policy='LIMITED_QUOTATION_ONLY')
+    work=corpus/'works/work';manifest=json.loads((work/'work.json').read_text())
+    local=tmp_path/'data/local_candidate_derived/example.txt';local.parent.mkdir(parents=True)
+    (work/'canonical.txt').rename(local)
+    manifest.update(canonical_storage='local_private',canonical_text=None,
+                    canonical_local_path='data/local_candidate_derived/example.txt')
+    (work/'work.json').write_text(json.dumps(manifest))
+    with pytest.raises(ValueError,match='rights policy'):
+        enrich(source,corpus)
+    result=enrich(source,corpus,allow_private_output=True)
+    assert result['context']['local']['text']==source['candidate']['context']
+    assert result['translation']['status']=='required'

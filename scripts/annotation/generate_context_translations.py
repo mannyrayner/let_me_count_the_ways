@@ -130,14 +130,14 @@ def generate(*, reviewed: Path, calibration: Path | None, output: Path, corpus: 
              model_alias: str, model_catalog: Path, endpoint: str,
              estimate_only: bool = False, api_key: str | None = None,
              caller: Callable = call_api, all_reviewed: bool = False,
-             timeout: float = 300) -> dict:
+             timeout: float = 300, allow_private_output: bool = False) -> dict:
     prompt = (ROOT / PROMPT_PATH).read_text(encoding="utf-8")
     schema_text = (ROOT / SCHEMA_PATH).read_text(encoding="utf-8")
     schema = json.loads(schema_text)
     prompt_hash, schema_hash = sha256_text(prompt), sha256_text(schema_text)
     model, pricing = resolve_model(model_catalog, model_alias, date.today())
     selected_rows = select_rows(reviewed, calibration, all_reviewed)
-    sources = [enrich(row, corpus) for row in selected_rows]
+    sources = [enrich(row, corpus, allow_private_output=allow_private_output) for row in selected_rows]
     pending = [row for row in sources if row["work_metadata"]["language"].lower() != "en"]
     estimated_pending = []
     for row in pending:
@@ -257,12 +257,19 @@ def main() -> None:
     parser.add_argument("--timeout", type=float, default=300,
                         help="API request timeout in seconds (default: 300)")
     parser.add_argument("--estimate-only", action="store_true")
+    parser.add_argument("--private-output", action="store_true",
+                        help="allow restricted contexts only in a Git-ignored output directory")
     args = parser.parse_args()
+    if args.private_output:
+        import subprocess
+        probe = args.output.resolve() / "privacy-check.json"
+        if subprocess.run(["git", "check-ignore", "-q", str(probe)], cwd=ROOT).returncode:
+            parser.error("--private-output requires a Git-ignored output directory")
     generate(reviewed=args.reviewed, calibration=args.calibration, output=args.output,
              corpus=args.corpus, model_alias=args.model, model_catalog=args.model_catalog,
              endpoint=args.endpoint, estimate_only=args.estimate_only,
              api_key=os.environ.get("OPENAI_API_KEY"), all_reviewed=args.all_reviewed,
-             timeout=args.timeout)
+             timeout=args.timeout, allow_private_output=args.private_output)
 
 
 if __name__ == "__main__":

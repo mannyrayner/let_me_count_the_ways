@@ -70,6 +70,10 @@ class BroadenedPatternTests(unittest.TestCase):
             base = Path(directory)
             expansion_ids = {work["work_id"] for work in
                              json.loads(EXPANSION_MANIFEST.read_text())["works"]}
+            # v0.7 predates these acquisitions, including its new Russian language.
+            for selector in ["commitment_extension_5_v1", "context_extension_3_v1"]:
+                path = ROOT / "data/acquisition" / selector / "selection.json"
+                expansion_ids.update(w["work_id"] for w in json.loads(path.read_text())["works"])
             original_ids = sorted(path.parent.name for path in
                                   (ROOT / "corpus/works").glob("*/work.json")
                                   if path.parent.name not in expansion_ids)

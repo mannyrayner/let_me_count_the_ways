@@ -1,0 +1,98 @@
+{
+  "run_id": "context_extension_3_v0_13",
+  "pattern_version": "0.13",
+  "extraction_tool_version": "1.0",
+  "canonical_offset_unit": "Unicode code points in the unmodified decoded canonical text",
+  "occurrence_identity": "SHA-256 prefix of NUL-joined work_id, canonical_sha256, start, end, matched surface, pattern version",
+  "works_discovered": 39,
+  "works_requested": 3,
+  "works_attempted": 3,
+  "works_extracted": 3,
+  "works_unavailable": 0,
+  "total_candidates": 42,
+  "known_case_assertions": {
+    "nora_negative_cessation": "not_applicable",
+    "rank_perfect_formal": "not_applicable",
+    "lawrence_surface_formula": "not_applicable"
+  },
+  "works": [
+    {
+      "work_id": "tolstoy-war-and-peace",
+      "language": "ru",
+      "canonical_sha256": "89c2922d192b9b90f34ed910a4b7680753fa72c6a03ae8bac685f1ff864eb929",
+      "public_render_policy": "PUBLIC_DOMAIN_FULL_CONTEXT_OK",
+      "analysis_allowed": true,
+      "canonical_storage": "repository",
+      "status": "extracted",
+      "candidate_count": 37,
+      "candidate_artifact": "public",
+      "private_output_available": false,
+      "counts_by_pattern": {
+        "ru_codeswitch_fr_present_past": 9,
+        "ru_continuative_love": 1,
+        "ru_coordinated_know_love": 1,
+        "ru_coordinated_target": 1,
+        "ru_future_object_first_affirmative": 1,
+        "ru_past_verb_first_affirmative": 1,
+        "ru_present_all_addressees": 3,
+        "ru_present_elliptical_pause": 1,
+        "ru_present_object_first_affirmative": 9,
+        "ru_present_soul_modifier": 1,
+        "ru_present_verb_first_affirmative": 9
+      },
+      "counts_by_form_family": {
+        "canonical_present": 26,
+        "future": 1,
+        "past": 1,
+        "present_or_imperfect": 9
+      },
+      "historical_candidate_count": null
+    },
+    {
+      "work_id": "shakespeare-king-lear",
+      "language": "en",
+      "canonical_sha256": "7af42d74a0657fb4f9b42d0ee03dcf176fbeab22a331185e001e9c44382472e0",
+      "public_render_policy": "PUBLIC_DOMAIN_FULL_CONTEXT_OK",
+      "analysis_allowed": true,
+      "canonical_storage": "repository",
+      "status": "extracted",
+      "candidate_count": 4,
+      "candidate_artifact": "public",
+      "private_output_available": false,
+      "counts_by_pattern": {
+        "en_obligation_modal_affirmative": 1,
+        "en_present": 2,
+        "en_royal_possessive_target": 1
+      },
+      "counts_by_form_family": {
+        "canonical_present": 1,
+        "modal": 1,
+        "present": 2
+      },
+      "historical_candidate_count": null
+    },
+    {
+      "work_id": "saint-exupery-le-petit-prince",
+      "language": "fr",
+      "canonical_sha256": "d87a714960737aaf9f40aa1c9df66d74beed2f42c5797b337ecd895d6b206b8d",
+      "public_render_policy": "LIMITED_QUOTATION_ONLY",
+      "analysis_allowed": true,
+      "canonical_storage": "local_private",
+      "status": "extracted",
+      "candidate_count": 1,
+      "candidate_artifact": "private_local",
+      "private_output_available": true,
+      "counts_by_pattern": {
+        "fr_present_past": 1
+      },
+      "counts_by_form_family": {
+        "present_or_imperfect": 1
+      },
+      "historical_candidate_count": null
+    }
+  ],
+  "diagnostics": {
+    "zero_yield_works": [],
+    "unusually_high_count_works": []
+  }
+}

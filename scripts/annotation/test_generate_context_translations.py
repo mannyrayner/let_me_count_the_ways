@@ -140,3 +140,16 @@ def test_custom_timeout_retries_failure_clears_stale_state_and_then_resumes(tmp_
     third = run(tmp_path, successful_caller, timeout=123)
     assert timeouts == [300, 600]
     assert third["api_calls_this_run"] == 0 and third["resumed"] == 1
+
+
+def test_private_translation_requires_explicit_function_flag(tmp_path):
+    reviewed,calibration=write_inputs(tmp_path)
+    work=tmp_path/'corpus/works/italian-work/work.json'
+    manifest=json.loads(work.read_text());manifest['rights']['public_render_policy']='LIMITED_QUOTATION_ONLY'
+    work.write_text(json.dumps(manifest))
+    args=dict(reviewed=reviewed,calibration=calibration,output=tmp_path/'private-output',
+              corpus=tmp_path/'corpus',model_alias='5.6',model_catalog=Path('config/api_models.json'),
+              endpoint='mock',estimate_only=True)
+    with pytest.raises(ValueError,match='rights policy'):generate(**args)
+    result=generate(**args,allow_private_output=True)
+    assert result['translation_calls_needed']==1

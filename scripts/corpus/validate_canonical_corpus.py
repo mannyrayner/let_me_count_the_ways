@@ -10,7 +10,7 @@ import re
 from pathlib import Path
 
 SCHEMA_VERSION = "1.0"
-SOURCE_TYPES = {"gutenberg_single", "gutenberg_multi", "runeberg", "nb_public_domain_ocr", "local_permissioned"}
+SOURCE_TYPES = {"gutenberg_single", "gutenberg_multi", "runeberg", "nb_public_domain_ocr", "local_permissioned", "tolstoy_online", "gutenberg_australia"}
 RIGHTS_POLICIES = {
     "PUBLIC_DOMAIN_FULL_CONTEXT_OK", "PERMISSIONED_CONTEXT_OK",
     "LIMITED_QUOTATION_ONLY", "NO_PUBLIC_RENDER",

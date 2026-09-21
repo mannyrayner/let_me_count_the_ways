@@ -1,0 +1,900 @@
+{
+  "schema_version": "0.13",
+  "matching": {
+    "engine": "Python Unicode regular expressions",
+    "default_flags": [
+      "IGNORECASE"
+    ],
+    "normalization": "None. Match canonical Unicode text exactly as decoded; offsets are Python character offsets into that unmodified text.",
+    "scope": "High-recall explicit lexical LOVE(first-person singular, second-person target) candidates; no pragmatic adjudication.",
+    "controlled_fields": {
+      "polarity": [
+        "affirmative",
+        "negative"
+      ],
+      "tense_aspect": [
+        "present",
+        "past",
+        "perfect",
+        "future",
+        "modal"
+      ],
+      "syntactic_family": [
+        "main_or_embedded",
+        "interrogative",
+        "subordinate"
+      ]
+    }
+  },
+  "languages": {
+    "en": {
+      "name": "English",
+      "patterns": [
+        {
+          "id": "en_exclusive_only_perfect",
+          "regex": "\\bI(?:\\s+(?:have|had)|[’']ve)\\s+loved\\s+only\\s+you\\b",
+          "case_sensitive": false,
+          "form_family": "exclusive_target",
+          "polarity": "affirmative",
+          "tense_aspect": "perfect",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "en_exclusive_only_past",
+          "regex": "\\bI\\s+(?:did\\s+love|loved)\\s+only\\s+you\\b",
+          "case_sensitive": false,
+          "form_family": "exclusive_target",
+          "polarity": "affirmative",
+          "tense_aspect": "past",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "en_exclusive_only",
+          "regex": "\\bI\\s+(?:do\\s+)?love\\s+only\\s+you\\b",
+          "case_sensitive": false,
+          "form_family": "exclusive_target",
+          "polarity": "affirmative",
+          "tense_aspect": "present",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "en_exclusive_none_but_perfect",
+          "regex": "\\bI(?:\\s+(?:have|had)|[’']ve)\\s+loved\\s+none\\s+but\\s+you\\b",
+          "case_sensitive": false,
+          "form_family": "exclusive_target",
+          "polarity": "affirmative",
+          "tense_aspect": "perfect",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "en_exclusive_none_but_past",
+          "regex": "\\bI\\s+(?:did\\s+love|loved)\\s+none\\s+but\\s+you\\b",
+          "case_sensitive": false,
+          "form_family": "exclusive_target",
+          "polarity": "affirmative",
+          "tense_aspect": "past",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "en_exclusive_none_but",
+          "regex": "\\bI\\s+(?:do\\s+)?love\\s+none\\s+but\\s+you\\b",
+          "case_sensitive": false,
+          "form_family": "exclusive_target",
+          "polarity": "affirmative",
+          "tense_aspect": "present",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "en_exclusive_no_one_but_perfect",
+          "regex": "\\bI(?:\\s+(?:have|had)|[’']ve)\\s+loved\\s+(?:no\\s+one|nobody)\\s+but\\s+you\\b",
+          "case_sensitive": false,
+          "form_family": "exclusive_target",
+          "polarity": "affirmative",
+          "tense_aspect": "perfect",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "en_exclusive_no_one_but_past",
+          "regex": "\\bI\\s+(?:did\\s+love|loved)\\s+(?:no\\s+one|nobody)\\s+but\\s+you\\b",
+          "case_sensitive": false,
+          "form_family": "exclusive_target",
+          "polarity": "affirmative",
+          "tense_aspect": "past",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "en_exclusive_no_one_but",
+          "regex": "\\bI\\s+(?:do\\s+)?love\\s+(?:no\\s+one|nobody)\\s+but\\s+you\\b",
+          "case_sensitive": false,
+          "form_family": "exclusive_target",
+          "polarity": "affirmative",
+          "tense_aspect": "present",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "en_negative_perfect",
+          "regex": "\\bI\\s+(?:have\\s+never|haven[’']t)\\s+loved\\s+you\\b",
+          "case_sensitive": false,
+          "form_family": "negative_perfect",
+          "polarity": "negative",
+          "tense_aspect": "perfect",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "en_perfect",
+          "regex": "\\bI(?:\\s+have|[’']ve)\\s+(?:(?:always|still|really|truly)\\s+){0,2}loved\\s+you\\b",
+          "case_sensitive": false,
+          "form_family": "perfect",
+          "polarity": "affirmative",
+          "tense_aspect": "perfect",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "en_cessative",
+          "regex": "\\bI\\s+(?:no\\s+longer\\s+love\\s+you|(?:do\\s+not|don[’']t)\\s+love\\s+you\\s+(?:any\\s+more|anymore))\\b",
+          "case_sensitive": false,
+          "form_family": "cessative",
+          "polarity": "negative",
+          "tense_aspect": "present",
+          "temporal_modifier": "no_longer",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "en_negative_present",
+          "regex": "\\bI\\s+(?:(?:really|truly)\\s+)?(?:do\\s+not|don[’']t|never)\\s+love\\s+you\\b|\\bI\\s+love\\s+you\\s+not\\b",
+          "case_sensitive": false,
+          "form_family": "negative_present",
+          "polarity": "negative",
+          "tense_aspect": "present",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "en_negative_past",
+          "regex": "\\bI\\s+(?:did\\s+not|didn[’']t|never)\\s+love(?:d)?\\s+you\\b|\\bI\\s+loved\\s+you\\s+not\\b",
+          "case_sensitive": false,
+          "form_family": "negative_past",
+          "polarity": "negative",
+          "tense_aspect": "past",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "en_emphatic_present",
+          "regex": "\\bI\\s+do\\s+(?:(?:really|truly|still)\\s+){0,2}love\\s+you\\b",
+          "case_sensitive": false,
+          "form_family": "emphatic_present",
+          "polarity": "affirmative",
+          "tense_aspect": "present",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "en_past",
+          "regex": "\\bI\\s+(?:did\\s+love|(?:(?:really|truly|once)\\s+){0,2}loved)\\s+you(?:\\s+once)?\\b",
+          "case_sensitive": false,
+          "form_family": "past",
+          "polarity": "affirmative",
+          "tense_aspect": "past",
+          "temporal_modifier": "optional_once",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "en_future",
+          "regex": "\\bI(?:\\s+will|[’']ll)\\s+(?:(?:always|still|really|truly)\\s+){0,2}love\\s+you\\b",
+          "case_sensitive": false,
+          "form_family": "future",
+          "polarity": "affirmative",
+          "tense_aspect": "future",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "en_modal",
+          "regex": "\\bI(?:\\s+(?:would|could|can)|[’']d)\\s+(?:(?:always|still|really|truly)\\s+){0,2}love\\s+you\\b",
+          "case_sensitive": false,
+          "form_family": "modal",
+          "polarity": "affirmative",
+          "tense_aspect": "modal",
+          "modality": "explicit",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "en_present",
+          "regex": "\\bI\\s+(?:(?:still|really|truly|always)\\s+){0,2}love\\s+you\\b",
+          "case_sensitive": false,
+          "form_family": "present",
+          "polarity": "affirmative",
+          "tense_aspect": "present",
+          "temporal_modifier": "optional",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "en_interrogative",
+          "regex": "\\b(?:why\\s+)?(?:do|don[’']t|did|didn[’']t|can|could|would|will)\\s+I\\s+(?:(?:not|still|really)\\s+)?love\\s+you\\b",
+          "case_sensitive": false,
+          "form_family": "interrogative",
+          "polarity": "negative_or_unspecified",
+          "tense_aspect": "present",
+          "syntactic_family": "interrogative"
+        },
+        {
+          "id": "en_emphasized_target",
+          "regex": "\\bI\\s+(?:do\\s+love|did\\s+love|love|loved)\\s+_you(?:[;:,.!?])?_",
+          "case_sensitive": false,
+          "form_family": "emphasized_target",
+          "polarity": "affirmative",
+          "tense_aspect": "past",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "en_royal_possessive_target",
+          "regex": "\\bI\\s+love\\s+your\\s+(?:Majesty|Highness)\\b",
+          "case_sensitive": false,
+          "form_family": "canonical_present",
+          "polarity": "affirmative",
+          "tense_aspect": "present",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "en_obligation_modal_affirmative",
+          "regex": "\\bI\\s+(?:must|should|ought\\s+to)\\s+love\\s+(?:you|thee)\\b",
+          "case_sensitive": false,
+          "form_family": "modal",
+          "polarity": "affirmative",
+          "tense_aspect": "modal",
+          "modality": "explicit",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "en_obligation_modal_negative",
+          "regex": "\\bI\\s+(?:must|should|ought\\s+to)\\s+not\\s+love\\s+(?:you|thee)\\b",
+          "case_sensitive": false,
+          "form_family": "modal",
+          "polarity": "negative",
+          "tense_aspect": "modal",
+          "modality": "explicit",
+          "syntactic_family": "main_or_embedded"
+        }
+      ]
+    },
+    "fr": {
+      "name": "French",
+      "patterns": [
+        {
+          "id": "fr_negative_perfect",
+          "regex": "\\bje\\s+n(?:e|[’']|')\\s*(?:t\\s*[’']\\s*|te\\s+|vous\\s+)(?:ai\\s+jamais|ai\\s+pas)\\s+aim[ée]\\b",
+          "case_sensitive": false,
+          "form_family": "negative_perfect",
+          "polarity": "negative",
+          "tense_aspect": "perfect",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "fr_perfect",
+          "regex": "\\bje\\s+(?:t\\s*[’']\\s*|te\\s+|vous\\s+)ai\\s+(?:(?:assez|beaucoup|tant|toujours|jamais|encore|vraiment)\\s+)?aim(?:é|ée)(?:\\s+depuis\\s+le\\s+premier\\s+jour)?\\b",
+          "case_sensitive": false,
+          "form_family": "perfect",
+          "polarity": "affirmative",
+          "tense_aspect": "perfect",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "fr_negative",
+          "regex": "\\bje\\s+n(?:e|[’']|')\\s*(?:t\\s*[’']\\s*|te\\s+|vous\\s+)aim(?:e|ais)\\s+(?:pas|jamais)\\b",
+          "case_sensitive": false,
+          "form_family": "negative_present",
+          "polarity": "negative",
+          "tense_aspect": "present",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "fr_cessative",
+          "regex": "\\bje\\s+n(?:e|[’']|')\\s*(?:t\\s*[’']\\s*|te\\s+|vous\\s+)aim(?:e|ais)\\s+plus\\b",
+          "case_sensitive": false,
+          "form_family": "cessative",
+          "polarity": "negative",
+          "tense_aspect": "present",
+          "temporal_modifier": "no_longer",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "fr_present_past",
+          "regex": "\\bje\\s+(?:t\\s*[’']\\s*|te\\s+|vous\\s+)aim(?:e|ais)(?:\\s+(?:encore|toujours|vraiment))?\\b",
+          "case_sensitive": false,
+          "form_family": "present_or_imperfect",
+          "polarity": "affirmative",
+          "tense_aspect": "present",
+          "temporal_modifier": "optional",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "fr_future",
+          "regex": "\\bje\\s+(?:t\\s*[’']\\s*|te\\s+|vous\\s+)aimerai\\b",
+          "case_sensitive": false,
+          "form_family": "future",
+          "polarity": "affirmative",
+          "tense_aspect": "future",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "fr_conditional",
+          "regex": "\\bje\\s+(?:t\\s*[’']\\s*|te\\s+|vous\\s+)aimerais\\b",
+          "case_sensitive": false,
+          "form_family": "conditional",
+          "polarity": "affirmative",
+          "tense_aspect": "modal",
+          "syntactic_family": "main_or_embedded",
+          "modality": "conditional"
+        }
+      ]
+    },
+    "de": {
+      "name": "German",
+      "patterns": [
+        {
+          "id": "de_negative_perfect",
+          "regex": "\\bich\\s+habe\\s+(?:dich|euch|(?-i:Sie))\\s+(?:nie\\s+)?geliebt\\b",
+          "case_sensitive": false,
+          "form_family": "negative_perfect",
+          "polarity": "negative_or_unspecified",
+          "tense_aspect": "perfect",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "de_perfect",
+          "regex": "\\bich\\s+habe\\s+(?:(?:dich|euch|(?-i:Sie))\\s+(?:noch|immer|wirklich)\\s+|(?:noch|immer|wirklich)\\s+(?:dich|euch|(?-i:Sie))\\s+)?geliebt\\b",
+          "case_sensitive": false,
+          "form_family": "perfect",
+          "polarity": "affirmative",
+          "tense_aspect": "perfect",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "de_main",
+          "regex": "\\bich\\s+(?:(?:noch|immer|wirklich)\\s+)?lieb(?:e|te)\\s+(?:dich|euch|(?-i:Sie))(?:\\s+nicht)?\\b",
+          "case_sensitive": false,
+          "form_family": "present_or_past",
+          "polarity": "surface_optional_negative",
+          "tense_aspect": "present",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "de_subordinate",
+          "regex": "\\bich\\s+(?:dich|euch|(?-i:Sie))\\s+(?:(?:noch|immer|wirklich)\\s+)?lieb(?:e|te)\\b",
+          "case_sensitive": false,
+          "form_family": "embedded",
+          "polarity": "affirmative",
+          "tense_aspect": "present",
+          "syntactic_family": "subordinate"
+        }
+      ]
+    },
+    "no": {
+      "name": "Norwegian (source-edition forms)",
+      "patterns": [
+        {
+          "id": "no_negative_perfect",
+          "regex": "\\bjeg\\s+har\\s+aldri\\s+elsket\\s+(?:deg|dig|dere|Dem)\\b",
+          "case_sensitive": false,
+          "form_family": "negative_perfect",
+          "polarity": "negative",
+          "tense_aspect": "perfect",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "no_perfect",
+          "regex": "\\bjeg\\s+har\\s+elsket\\s+(?:deg|dig|dere|Dem)(?:\\s+(?:alltid|ennu|virkelig|fullt\\s+så\\s+inderlig))?\\b",
+          "case_sensitive": false,
+          "form_family": "perfect",
+          "polarity": "affirmative",
+          "tense_aspect": "perfect",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "no_cessative",
+          "regex": "\\bjeg\\s+elsker\\s+(?:deg|dig|dere|Dem)\\s+ikke\\s+mer\\b",
+          "case_sensitive": false,
+          "form_family": "cessative",
+          "polarity": "negative",
+          "tense_aspect": "present",
+          "temporal_modifier": "no_longer",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "no_main",
+          "regex": "\\bjeg\\s+(?:(?:alltid|ennu|virkelig)\\s+)?elsk(?:er|et)\\s+(?:deg|dig|dere|Dem)(?:\\s+ikke)?\\b",
+          "case_sensitive": false,
+          "form_family": "present_or_past",
+          "polarity": "surface_optional_negative",
+          "tense_aspect": "present",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "no_also_main",
+          "regex": "\\bjeg\\s+(?:(?:alltid|ennu|virkelig)\\s+)?elsk(?:er|et)\\s+(?:også|ogsaa)\\s+(?:deg|dig|dere|Dem)(?:\\s+ikke)?\\b",
+          "case_sensitive": false,
+          "form_family": "present_or_past",
+          "polarity": "surface_optional_negative",
+          "tense_aspect": "present",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "no_historical_past",
+          "regex": "\\bjeg\\s+elskede\\s+(?:deg|dig|dere|Dem)\\b",
+          "case_sensitive": false,
+          "form_family": "past",
+          "polarity": "affirmative",
+          "tense_aspect": "past",
+          "syntactic_family": "main_or_embedded"
+        }
+      ]
+    },
+    "sv": {
+      "name": "Swedish (source-edition forms)",
+      "patterns": [
+        {
+          "id": "sv_negative_perfect",
+          "regex": "\\bjag\\s+har\\s+aldrig\\s+älskat\\s+(?:dig|dej|er|eder)\\b",
+          "case_sensitive": false,
+          "form_family": "negative_perfect",
+          "polarity": "negative",
+          "tense_aspect": "perfect",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "sv_perfect",
+          "regex": "\\bjag\\s+har\\s+älskat\\s+(?:dig|dej|er|eder)\\b",
+          "case_sensitive": false,
+          "form_family": "perfect",
+          "polarity": "affirmative",
+          "tense_aspect": "perfect",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "sv_main",
+          "regex": "\\bjag\\s+(?:(?:alltid|ännu|verkligen)\\s+)?älsk(?:ar|ade)\\s+(?:dig|dej|er|eder)(?:\\s+inte)?\\b",
+          "case_sensitive": false,
+          "form_family": "present_or_past",
+          "polarity": "surface_optional_negative",
+          "tense_aspect": "present",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "sv_exclusive_modal_perfect",
+          "regex": "\\bjag\\s+har\\s+aldrig\\s+kunnat\\s+älska\\s+(?:någon|ingen)\\s+annan\\s+än\\s+(?:dig|dej|er|eder)\\b",
+          "case_sensitive": false,
+          "form_family": "exclusive_target",
+          "polarity": "affirmative",
+          "tense_aspect": "perfect",
+          "modality": "ability",
+          "syntactic_family": "main_or_embedded"
+        }
+      ]
+    },
+    "da": {
+      "name": "Danish",
+      "patterns": [
+        {
+          "id": "da_cessative",
+          "regex": "\\bjeg\\s+elsker\\s+(?:dig|Dem|jer)\\s+ikke\\s+(?:mere|mer)\\b",
+          "case_sensitive": false,
+          "form_family": "cessative",
+          "polarity": "negative",
+          "tense_aspect": "present",
+          "temporal_modifier": "no_longer",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "da_negative_perfect",
+          "regex": "\\bjeg\\s+har\\s+aldrig\\s+elsket\\s+(?:dig|Dem|jer)\\b",
+          "case_sensitive": false,
+          "form_family": "negative_perfect",
+          "polarity": "negative",
+          "tense_aspect": "perfect",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "da_perfect",
+          "regex": "\\bjeg\\s+har\\s+(?:(?:altid|stadig|virkelig)\\s+)?elsket\\s+(?:dig|Dem|jer)\\b",
+          "case_sensitive": false,
+          "form_family": "perfect",
+          "polarity": "affirmative",
+          "tense_aspect": "perfect",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "da_modal",
+          "regex": "\\bjeg\\s+(?:vil|kunde|kunne)\\s+(?:(?:altid|stadig|virkelig)\\s+)?elske\\s+(?:dig|Dem|jer)\\b",
+          "case_sensitive": false,
+          "form_family": "modal",
+          "polarity": "affirmative",
+          "tense_aspect": "modal",
+          "modality": "future_or_hypothetical",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "da_negative_present",
+          "regex": "\\bjeg\\s+elsker\\s+(?:dig|Dem|jer)\\s+ikke\\b",
+          "case_sensitive": false,
+          "form_family": "negative_present",
+          "polarity": "negative",
+          "tense_aspect": "present",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "da_present",
+          "regex": "\\bjeg\\s+(?:(?:virkelig|altid|stadig)\\s+)?elsker\\s+(?:dig|Dem|jer)(?:\\s+(?:endnu|stadig|virkelig))?\\b",
+          "case_sensitive": false,
+          "form_family": "present",
+          "polarity": "affirmative",
+          "tense_aspect": "present",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "da_past",
+          "regex": "\\bjeg\\s+elskede\\s+(?:dig|Dem|jer)\\b",
+          "case_sensitive": false,
+          "form_family": "past",
+          "polarity": "affirmative",
+          "tense_aspect": "past",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "da_inverted",
+          "regex": "\\b(?:elsker|elskede)\\s+jeg\\s+(?:dig|Dem|jer)\\b",
+          "case_sensitive": false,
+          "form_family": "inverted_present_or_past",
+          "polarity": "affirmative",
+          "tense_aspect": "present",
+          "syntactic_family": "interrogative"
+        }
+      ]
+    },
+    "it": {
+      "name": "Italian",
+      "patterns": [
+        {
+          "id": "it_cessative",
+          "regex": "\\b(?:io\\s+)?non\\s+(?:(?:ti|vi)\\s+amo|t[’']amo)\\s+più\\b",
+          "case_sensitive": false,
+          "form_family": "cessative",
+          "polarity": "negative",
+          "tense_aspect": "present",
+          "temporal_modifier": "no_longer",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "it_negative_perfect",
+          "regex": "\\b(?:io\\s+)?non\\s+(?:ti|vi)\\s+ho\\s+mai\\s+amat[oaie]\\b",
+          "case_sensitive": false,
+          "form_family": "negative_perfect",
+          "polarity": "negative",
+          "tense_aspect": "perfect",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "it_perfect",
+          "regex": "\\b(?:io\\s+)?(?:ti|vi)\\s+ho\\s+(?:(?:sempre|davvero|veramente)\\s+)?amat[oaie]\\b",
+          "case_sensitive": false,
+          "form_family": "perfect",
+          "polarity": "affirmative",
+          "tense_aspect": "perfect",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "it_negative_present",
+          "regex": "\\b(?:io\\s+)?non\\s+(?:(?:ti|vi)\\s+amo|t[’']amo)\\b",
+          "case_sensitive": false,
+          "form_family": "negative_present",
+          "polarity": "negative",
+          "tense_aspect": "present",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "it_governed_infinitive",
+          "regex": "\\b(?:io\\s+)?(?:voglio|posso|vorrei|potrei|devo)\\s+amar(?:ti|vi)\\b",
+          "case_sensitive": false,
+          "form_family": "modal_infinitive",
+          "polarity": "affirmative",
+          "tense_aspect": "modal",
+          "modality": "volitional_or_ability",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "it_future",
+          "regex": "\\b(?:io\\s+)?(?:(?:ti|vi)\\s+amerò|t[’']amerò)\\b",
+          "case_sensitive": false,
+          "form_family": "future",
+          "polarity": "affirmative",
+          "tense_aspect": "future",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "it_conditional",
+          "regex": "\\b(?:io\\s+)?(?:(?:ti|vi)\\s+amerei|t[’']amerei)\\b",
+          "case_sensitive": false,
+          "form_family": "modal",
+          "polarity": "affirmative",
+          "tense_aspect": "modal",
+          "modality": "conditional",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "it_imperfect",
+          "regex": "\\b(?:io\\s+)?(?:(?:ti|vi)\\s+amavo|t[’']amavo)\\b",
+          "case_sensitive": false,
+          "form_family": "imperfect",
+          "polarity": "affirmative",
+          "tense_aspect": "past",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "it_remote_past",
+          "regex": "\\b(?:io\\s+)?(?:(?:ti|vi)\\s+amai|t[’']amai)\\b",
+          "case_sensitive": false,
+          "form_family": "past",
+          "polarity": "affirmative",
+          "tense_aspect": "past",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "it_present_elided",
+          "regex": "\\b(?:io\\s+)?t[’']amo(?:\\s+(?:ancora|sempre|veramente|tanto))?\\b",
+          "case_sensitive": false,
+          "form_family": "present",
+          "polarity": "affirmative",
+          "tense_aspect": "present",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "it_present",
+          "regex": "\\b(?:io\\s+)?(?:ti|vi)\\s+amo(?:\\s+(?:ancora|sempre|veramente|tanto))?\\b",
+          "case_sensitive": false,
+          "form_family": "present",
+          "polarity": "affirmative",
+          "tense_aspect": "present",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "it_emphatic_present",
+          "regex": "\\b(?:io\\s+)?amo\\s+te\\b",
+          "case_sensitive": false,
+          "form_family": "present",
+          "polarity": "affirmative",
+          "tense_aspect": "present",
+          "syntactic_family": "main_or_embedded"
+        }
+      ]
+    },
+    "ru": {
+      "name": "Russian (including French dialogue in the original)",
+      "patterns": [
+        {
+          "id": "ru_present_object_first_negative",
+          "regex": "\\b(?:я\\s+)?(?:тебя|вас)\\s+(?:(?:так|очень|всегда|больше|еще|ещё|только|по-прежнему|искренно|безумно|теперь|вовсе|никогда|нисколько)\\s+){0,3}не\\s+люблю\\b",
+          "case_sensitive": false,
+          "form_family": "negative_present",
+          "polarity": "negative",
+          "tense_aspect": "present",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "ru_present_verb_first_negative",
+          "regex": "\\b(?:я\\s+)?(?:(?:так|очень|всегда|больше|еще|ещё|только|по-прежнему|искренно|безумно|теперь|вовсе|никогда|нисколько)\\s+){0,3}не\\s+люблю\\s+(?:(?:так|очень|всегда|больше|еще|ещё|только|по-прежнему|искренно|безумно|теперь|вовсе|никогда|нисколько)\\s+){0,3}(?:тебя|вас)\\b",
+          "case_sensitive": false,
+          "form_family": "negative_present",
+          "polarity": "negative",
+          "tense_aspect": "present",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "ru_past_object_first_negative",
+          "regex": "\\bя\\s+(?:тебя|вас)\\s+(?:(?:так|очень|всегда|больше|еще|ещё|только|по-прежнему|искренно|безумно|теперь|вовсе|никогда|нисколько)\\s+){0,3}не\\s+любил[а]?\\b",
+          "case_sensitive": false,
+          "form_family": "negative_past",
+          "polarity": "negative",
+          "tense_aspect": "past",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "ru_past_verb_first_negative",
+          "regex": "\\bя\\s+(?:(?:так|очень|всегда|больше|еще|ещё|только|по-прежнему|искренно|безумно|теперь|вовсе|никогда|нисколько)\\s+){0,3}не\\s+любил[а]?\\s+(?:(?:так|очень|всегда|больше|еще|ещё|только|по-прежнему|искренно|безумно|теперь|вовсе|никогда|нисколько)\\s+){0,3}(?:тебя|вас)\\b",
+          "case_sensitive": false,
+          "form_family": "negative_past",
+          "polarity": "negative",
+          "tense_aspect": "past",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "ru_future_object_first_negative",
+          "regex": "\\b(?:я\\s+)?(?:тебя|вас)\\s+(?:(?:так|очень|всегда|больше|еще|ещё|только|по-прежнему|искренно|безумно|теперь|вовсе|никогда|нисколько)\\s+){0,3}не\\s+буду\\s+любить\\b",
+          "case_sensitive": false,
+          "form_family": "future",
+          "polarity": "negative",
+          "tense_aspect": "future",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "ru_future_verb_first_negative",
+          "regex": "\\b(?:я\\s+)?не\\s+буду\\s+(?:(?:так|очень|всегда|больше|еще|ещё|только|по-прежнему|искренно|безумно|теперь|вовсе|никогда|нисколько)\\s+){0,3}любить\\s+(?:(?:так|очень|всегда|больше|еще|ещё|только|по-прежнему|искренно|безумно|теперь|вовсе|никогда|нисколько)\\s+){0,3}(?:тебя|вас)\\b",
+          "case_sensitive": false,
+          "form_family": "future",
+          "polarity": "negative",
+          "tense_aspect": "future",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "ru_present_object_first_affirmative",
+          "regex": "\\b(?:я\\s+)?(?:тебя|вас)\\s+(?:(?:так|очень|всегда|больше|еще|ещё|только|по-прежнему|искренно|безумно|теперь|вовсе|никогда|нисколько)\\s+){0,3}люблю\\b",
+          "case_sensitive": false,
+          "form_family": "canonical_present",
+          "polarity": "affirmative",
+          "tense_aspect": "present",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "ru_present_verb_first_affirmative",
+          "regex": "\\b(?:я\\s+)?(?:(?:так|очень|всегда|больше|еще|ещё|только|по-прежнему|искренно|безумно|теперь|вовсе|никогда|нисколько)\\s+){0,3}люблю\\s+(?:(?:так|очень|всегда|больше|еще|ещё|только|по-прежнему|искренно|безумно|теперь|вовсе|никогда|нисколько)\\s+){0,3}(?:тебя|вас)\\b",
+          "case_sensitive": false,
+          "form_family": "canonical_present",
+          "polarity": "affirmative",
+          "tense_aspect": "present",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "ru_past_object_first_affirmative",
+          "regex": "\\bя\\s+(?:тебя|вас)\\s+(?:(?:так|очень|всегда|больше|еще|ещё|только|по-прежнему|искренно|безумно|теперь|вовсе|никогда|нисколько)\\s+){0,3}любил[а]?\\b",
+          "case_sensitive": false,
+          "form_family": "past",
+          "polarity": "affirmative",
+          "tense_aspect": "past",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "ru_past_verb_first_affirmative",
+          "regex": "\\bя\\s+(?:(?:так|очень|всегда|больше|еще|ещё|только|по-прежнему|искренно|безумно|теперь|вовсе|никогда|нисколько)\\s+){0,3}любил[а]?\\s+(?:(?:так|очень|всегда|больше|еще|ещё|только|по-прежнему|искренно|безумно|теперь|вовсе|никогда|нисколько)\\s+){0,3}(?:тебя|вас)\\b",
+          "case_sensitive": false,
+          "form_family": "past",
+          "polarity": "affirmative",
+          "tense_aspect": "past",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "ru_future_object_first_affirmative",
+          "regex": "\\b(?:я\\s+)?(?:тебя|вас)\\s+(?:(?:так|очень|всегда|больше|еще|ещё|только|по-прежнему|искренно|безумно|теперь|вовсе|никогда|нисколько)\\s+){0,3}буду\\s+любить\\b",
+          "case_sensitive": false,
+          "form_family": "future",
+          "polarity": "affirmative",
+          "tense_aspect": "future",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "ru_future_verb_first_affirmative",
+          "regex": "\\b(?:я\\s+)?буду\\s+(?:(?:так|очень|всегда|больше|еще|ещё|только|по-прежнему|искренно|безумно|теперь|вовсе|никогда|нисколько)\\s+){0,3}любить\\s+(?:(?:так|очень|всегда|больше|еще|ещё|только|по-прежнему|искренно|безумно|теперь|вовсе|никогда|нисколько)\\s+){0,3}(?:тебя|вас)\\b",
+          "case_sensitive": false,
+          "form_family": "future",
+          "polarity": "affirmative",
+          "tense_aspect": "future",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "ru_codeswitch_fr_negative_perfect",
+          "regex": "\\bje\\s+n(?:e|[’']|')\\s*(?:t\\s*[’']\\s*|te\\s+|vous\\s+)(?:ai\\s+jamais|ai\\s+pas)\\s+aim[ée]\\b",
+          "case_sensitive": false,
+          "form_family": "negative_perfect",
+          "polarity": "negative",
+          "tense_aspect": "perfect",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "ru_codeswitch_fr_perfect",
+          "regex": "\\bje\\s+(?:t\\s*[’']\\s*|te\\s+|vous\\s+)ai\\s+(?:(?:assez|beaucoup|tant|toujours|jamais|encore|vraiment)\\s+)?aim(?:é|ée)(?:\\s+depuis\\s+le\\s+premier\\s+jour)?\\b",
+          "case_sensitive": false,
+          "form_family": "perfect",
+          "polarity": "affirmative",
+          "tense_aspect": "perfect",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "ru_codeswitch_fr_negative",
+          "regex": "\\bje\\s+n(?:e|[’']|')\\s*(?:t\\s*[’']\\s*|te\\s+|vous\\s+)aim(?:e|ais)\\s+(?:pas|jamais)\\b",
+          "case_sensitive": false,
+          "form_family": "negative_present",
+          "polarity": "negative",
+          "tense_aspect": "present",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "ru_codeswitch_fr_cessative",
+          "regex": "\\bje\\s+n(?:e|[’']|')\\s*(?:t\\s*[’']\\s*|te\\s+|vous\\s+)aim(?:e|ais)\\s+plus\\b",
+          "case_sensitive": false,
+          "form_family": "cessative",
+          "polarity": "negative",
+          "tense_aspect": "present",
+          "temporal_modifier": "no_longer",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "ru_codeswitch_fr_present_past",
+          "regex": "\\bje\\s+(?:t\\s*[’']\\s*|te\\s+|vous\\s+)aim(?:e|ais)(?:\\s+(?:encore|toujours|vraiment))?\\b",
+          "case_sensitive": false,
+          "form_family": "present_or_imperfect",
+          "polarity": "affirmative",
+          "tense_aspect": "present",
+          "temporal_modifier": "optional",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "ru_codeswitch_fr_future",
+          "regex": "\\bje\\s+(?:t\\s*[’']\\s*|te\\s+|vous\\s+)aimerai\\b",
+          "case_sensitive": false,
+          "form_family": "future",
+          "polarity": "affirmative",
+          "tense_aspect": "future",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "ru_codeswitch_fr_conditional",
+          "regex": "\\bje\\s+(?:t\\s*[’']\\s*|te\\s+|vous\\s+)aimerais\\b",
+          "case_sensitive": false,
+          "form_family": "conditional",
+          "polarity": "affirmative",
+          "tense_aspect": "modal",
+          "syntactic_family": "main_or_embedded",
+          "modality": "conditional"
+        },
+        {
+          "id": "ru_present_all_addressees",
+          "regex": "\\bя\\s+вас\\s+всех\\s+люблю\\b",
+          "case_sensitive": false,
+          "form_family": "canonical_present",
+          "polarity": "affirmative",
+          "tense_aspect": "present",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "ru_present_soul_modifier",
+          "regex": "\\bя\\s+вас\\s+душой\\s+люблю\\b",
+          "case_sensitive": false,
+          "form_family": "canonical_present",
+          "polarity": "affirmative",
+          "tense_aspect": "present",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "ru_coordinated_know_love",
+          "regex": "\\bя\\s+вас\\s+давно\\s+знаю\\s+и\\s+люблю\\b",
+          "case_sensitive": false,
+          "form_family": "canonical_present",
+          "polarity": "affirmative",
+          "tense_aspect": "present",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "ru_coordinated_target",
+          "regex": "\\bя\\s+так\\s+люблю\\s+и\\s+ее,\\s+и\\s+всех\\s+вас\\b",
+          "case_sensitive": false,
+          "form_family": "canonical_present",
+          "polarity": "affirmative",
+          "tense_aspect": "present",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "ru_continuative_love",
+          "regex": "\\bя\\s+никогда\\s+не\\s+перестаю\\s+тебя\\s+любить\\b",
+          "case_sensitive": false,
+          "form_family": "canonical_present",
+          "polarity": "affirmative",
+          "tense_aspect": "present",
+          "syntactic_family": "main_or_embedded"
+        },
+        {
+          "id": "ru_present_elliptical_pause",
+          "regex": "\\bтебя\\.{3}\\s+люблю\\b",
+          "case_sensitive": false,
+          "form_family": "canonical_present",
+          "polarity": "affirmative",
+          "tense_aspect": "present",
+          "syntactic_family": "main_or_embedded"
+        }
+      ]
+    }
+  }
+}

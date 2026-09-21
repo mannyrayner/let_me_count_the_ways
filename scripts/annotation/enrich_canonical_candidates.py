@@ -72,10 +72,13 @@ def enrich(record: dict, corpus_root: Path, generated: dict | None = None,
     review = record.get("review", {})
     work_dir = corpus_root / "works" / occurrence["work_id"]
     work = json.loads((work_dir / "work.json").read_text(encoding="utf-8"))
-    canonical_bytes = (work_dir / work.get("canonical_text", "canonical.txt")).read_bytes()
+    canonical_path = (corpus_root.resolve().parent / work["canonical_local_path"]
+                      if work.get("canonical_storage") == "local_private"
+                      else work_dir / (work.get("canonical_text") or "canonical.txt"))
+    canonical_bytes = canonical_path.read_bytes()
     # Extraction used Path.read_text (universal-newline decoding); reproduce
     # that exact character coordinate system after hashing original bytes.
-    text = (work_dir / work.get("canonical_text", "canonical.txt")).read_text(encoding="utf-8")
+    text = canonical_path.read_text(encoding="utf-8")
     actual_hash = hashlib.sha256(canonical_bytes).hexdigest()
     expected_hash = occurrence["canonical_sha256"]
     if actual_hash != expected_hash or work.get("canonical_sha256") != actual_hash:

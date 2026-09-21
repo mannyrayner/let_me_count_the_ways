@@ -29,12 +29,15 @@ Generated from the canonical work manifests. Do not edit this table by hand.
 | `mcmillan-error-of-understanding` | Error of Understanding | Stella McMillan | en | `local_permissioned` | local/private | `LIMITED_QUOTATION_ONLY` |
 | `nansen-maria` | Maria: En Bog om Kærlighed | Peter Nansen | da | `gutenberg_single` | available | `PUBLIC_DOMAIN_FULL_CONTEXT_OK` |
 | `rostand-cyrano-de-bergerac` | Cyrano de Bergerac | Edmond Rostand | fr | `gutenberg_single` | available | `PUBLIC_DOMAIN_FULL_CONTEXT_OK` |
+| `saint-exupery-le-petit-prince` | Le Petit Prince | Antoine de Saint-Exupéry | fr | `gutenberg_australia` | local/private | `LIMITED_QUOTATION_ONLY` |
 | `sand-la-mare-au-diable` | La Mare au Diable | George Sand | fr | `gutenberg_single` | available | `PUBLIC_DOMAIN_FULL_CONTEXT_OK` |
+| `shakespeare-king-lear` | King Lear | William Shakespeare | en | `gutenberg_single` | available | `PUBLIC_DOMAIN_FULL_CONTEXT_OK` |
 | `skram-constance-ring` | Constance Ring | Amalie Skram | no | `nb_public_domain_ocr` | available | `PUBLIC_DOMAIN_FULL_CONTEXT_OK` |
 | `skram-lucie` | Lucie | Amalie Skram | no | `nb_public_domain_ocr` | available | `PUBLIC_DOMAIN_FULL_CONTEXT_OK` |
 | `stael-corinne` | Corinne; ou, l'Italie | Madame de Staël | fr | `gutenberg_single` | available | `PUBLIC_DOMAIN_FULL_CONTEXT_OK` |
 | `stendhal-le-rouge-et-le-noir` | Le Rouge et le Noir | Stendhal | fr | `gutenberg_single` | available | `PUBLIC_DOMAIN_FULL_CONTEXT_OK` |
 | `strindberg-froken-julie` | Fröken Julie | August Strindberg | sv | `runeberg` | available | `PUBLIC_DOMAIN_FULL_CONTEXT_OK` |
+| `tolstoy-war-and-peace` | Война и мир | Лев Толстой | ru | `tolstoy_online` | available | `PUBLIC_DOMAIN_FULL_CONTEXT_OK` |
 | `undset-kristin-lavransdatter` | Kristin Lavransdatter | Sigrid Undset | no | `runeberg` | available | `PUBLIC_DOMAIN_FULL_CONTEXT_OK` |
 | `verona-colei-che-non-si-deve-amare` | Colei che non si deve amare | Guido da Verona | it | `gutenberg_single` | available | `PUBLIC_DOMAIN_FULL_CONTEXT_OK` |
 | `von-arnim-vera` | Vera | Elizabeth von Arnim | en | `gutenberg_single` | available | `PUBLIC_DOMAIN_FULL_CONTEXT_OK` |
