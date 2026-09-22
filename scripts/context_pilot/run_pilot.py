@@ -20,6 +20,7 @@ from scripts.api.call_responses import calculate_cost, output_text, parse_json_o
 from scripts.annotation.annotate_canonical_candidates import call_api
 from scripts.corpus_acquisition.prepare_commitment_extension import stable_write, json_bytes
 
+VALIDATION_POLICY = 'literal_quote_whitespace_normalized_v1'
 PUBLIC = {'PUBLIC_DOMAIN_FULL_CONTEXT_OK', 'PERMISSIONED_CONTEXT_OK'}
 SELECTION = ROOT / 'data/context_pilot/selection_v1.json'
 PROMPT = ROOT / 'prompts/context_pilot/classify_v1.md'
@@ -92,6 +93,10 @@ def validate_shape(value, schema, where='output'):
         for i,item in enumerate(value):
             validate_shape(item,schema['items'],where+f'[{i}]')
 
+def quote_matches(quotation, block):
+    # Ignore layout whitespace only. Preserve case, spelling, punctuation and word order.
+    return bool(quotation.strip()) and ' '.join(quotation.split()) in ' '.join(block.split())
+
 def validate(result, prepared, schema):
     validate_shape(result,schema)
     blocks = {'target':prepared['TARGET'], **{b['block_id']:b['text'] for b in prepared['SOURCE_BLOCKS']}}
@@ -102,8 +107,8 @@ def validate(result, prepared, schema):
         if not dim['reason'].strip() or (not insufficient and not dim['evidence']):
             raise ValueError(name + ': missing reason/evidence')
         for item in dim['evidence']:
-            if not item['quotation'].strip() or item['quotation'] not in blocks.get(item['block_id'],''):
-                raise ValueError(name + ': evidence is not an exact quote from the named input block')
+            if not quote_matches(item['quotation'], blocks.get(item['block_id'],'')):
+                raise ValueError(name + ': evidence does not match the named input block (whitespace normalization only)')
 
 def result_for(call, schema):
     directory = call['directory']
@@ -204,17 +209,75 @@ def report(calls, base, schema, protocol):
     (base/'summary.md').write_text('\n'.join(lines)+'\n',encoding='utf-8')
     return result
 
+def compatible_attempt_request(actual, planned):
+    """Only an explicitly increased output ceiling may differ from the frozen plan."""
+    actual = dict(actual)
+    budget = actual.get('max_output_tokens')
+    minimum = planned.get('max_output_tokens')
+    if type(budget) is not int or type(minimum) is not int or budget < minimum:
+        return False
+    actual['max_output_tokens'] = minimum
+    return actual == planned
+
+def require_complete_response(response):
+    status = response.get('status', 'completed')
+    if status != 'completed':
+        reason = (response.get('incomplete_details') or {}).get('reason', status)
+        if reason == 'max_output_tokens':
+            raise ValueError('Response truncated at max_output_tokens. Original response saved; retry with a larger --max-output-tokens and --retry-failed. Completed judgments are preserved.')
+        raise ValueError('API response is not complete: ' + str(reason))
+
+def recover_saved(calls, schema):
+    recovered = 0
+    for call in calls:
+        if result_for(call, schema) is not None:
+            continue
+        for attempt in sorted(call['directory'].glob('attempt-*')):
+            if not (attempt/'response.json').exists():
+                continue
+            # Recovery uses the identical original request, never a response from another condition.
+            actual_request = read(attempt/'request.json')
+            if not compatible_attempt_request(actual_request, call['body']):
+                raise ValueError('Saved request differs from planned request: ' + str(attempt))
+            response = read(attempt/'response.json')
+            if response.get('status', 'completed') != 'completed':
+                continue
+            try:
+                parsed, _ = parse_json_output(output_text(response))
+                validate(parsed, call['prepared'], schema)
+            except (ValueError, KeyError, TypeError):
+                continue
+            stable_write(call['directory']/'provenance.json', json_bytes({
+                'fingerprint':call['fingerprint'], 'attempt':attempt.name,
+                'recorded_at':datetime.now(timezone.utc).isoformat(),
+                'validation_policy':VALIDATION_POLICY,
+                'recovered_from_saved_response':True,
+                'actual_request_sha256':sha(json_bytes(actual_request)),
+                'max_output_tokens':actual_request['max_output_tokens'],
+                'note':'Original response, request and any failure record retained unchanged; no API call.'}))
+            stable_write(call['directory']/'output.json', json_bytes(parsed))
+            recovered += 1
+            print(f"Recovered: {call['case_id']} {call['condition']} repeat {call['repeat']}", flush=True)
+            break
+    return recovered
+
 def run(args, caller=call_api):
     calls,base,pricing,schema,protocol=prepare(args.scope,args.model,args.cases)
+    if getattr(args, 'recover_saved', False):
+        print('Recovered saved responses: ' + str(recover_saved(calls, schema)))
     pending=[c for c in calls if result_for(c,schema) is None]
+    output_budget = getattr(args, 'max_output_tokens', 2400)
+    if output_budget < 2400:
+        raise ValueError('Output budget must be at least the original 2400-token ceiling')
     estimated_input=sum(math.ceil(len(c['body']['input'].encode('utf-8'))/3) for c in pending)
-    estimate=calculate_cost({'input_tokens':estimated_input,'output_tokens':2400*len(pending)},pricing)
+    estimate=calculate_cost({'input_tokens':estimated_input,'output_tokens':output_budget*len(pending)},pricing)
     preflight={'status':'prepared','scope':args.scope,'cases':len(protocol['cases']),'planned_calls':len(calls),
                'resumable':len(calls)-len(pending),'calls_needed':len(pending),
                'largest_input_characters':max((len(c['body']['input']) for c in calls),default=0),
                'api_key_configured':bool(os.environ.get('OPENAI_API_KEY')),'api_model':protocol['api_model'],
                'pricing_verified_on':pricing['pricing_verified_on'],'estimate_usd':estimate['estimated_total_cost'],
-               'estimate_method':'UTF-8 bytes / 3 input tokens (heuristic), 2400 output tokens per call; not a billing or context-capacity guarantee.'}
+               'max_output_tokens_for_new_attempts':output_budget,
+               'estimate_method':f'UTF-8 bytes / 3 input tokens (heuristic), {output_budget} output tokens per remaining call (ceiling, not predicted usage); not a billing or context-capacity guarantee.'}
     write(base/'preflight.json',preflight);print(json.dumps(preflight,indent=2))
     report(calls,base,schema,protocol)
     if not args.run or not pending:
@@ -233,16 +296,21 @@ def run(args, caller=call_api):
         if args.max_calls is not None and completed >= args.max_calls:
             break
         attempt=directory/f'attempt-{len(attempts)+1:03d}'
-        stable_write(attempt/'request.json',json_bytes(c['body']))
+        actual_request = dict(c['body'], max_output_tokens=output_budget)
+        stable_write(attempt/'request.json',json_bytes(actual_request))
         write(attempt/'pricing_snapshot.json',pricing)
         print(f"{completed+1}: {c['case_id']} {c['condition']} repeat {c['repeat']} — started",flush=True)
         try:
-            response=caller(c['body'],'https://api.openai.com/v1/responses',os.environ['OPENAI_API_KEY'],args.timeout)
+            response=caller(actual_request,'https://api.openai.com/v1/responses',os.environ['OPENAI_API_KEY'],args.timeout)
             write(attempt/'response.json',response)
             write(attempt/'cost.json',calculate_cost(response.get('usage',{}),pricing))
+            require_complete_response(response)
             parsed,_=parse_json_output(output_text(response));validate(parsed,c['prepared'],schema)
             stable_write(directory/'provenance.json',json_bytes({'fingerprint':c['fingerprint'],'attempt':attempt.name,
-                         'recorded_at':datetime.now(timezone.utc).isoformat()}))
+                         'recorded_at':datetime.now(timezone.utc).isoformat(),
+                         'validation_policy':VALIDATION_POLICY,
+                         'actual_request_sha256':sha(json_bytes(actual_request)),
+                         'max_output_tokens':output_budget}))
             stable_write(directory/'output.json',json_bytes(parsed))
             completed+=1
             print('  valid; P='+str(parsed['dimensions']['P']['score']),flush=True)
@@ -260,9 +328,12 @@ def main():
     p.add_argument('--cases',nargs='+',help='Optional case IDs; selection is recorded in the plan')
     p.add_argument('--max-estimate-usd',type=float,default=25)
     p.add_argument('--max-input-chars',type=int,default=250000)
+    p.add_argument('--max-output-tokens',type=int,default=2400,help='Output ceiling for new attempts only; completed judgments resume unchanged (minimum 2400)')
     p.add_argument('--max-calls',type=int);p.add_argument('--timeout',type=float,default=300)
     p.add_argument('--retry-failed',action='store_true')
+    p.add_argument('--recover-saved',action='store_true',help='Validate retained responses under the whitespace-tolerant quote check; no API calls unless --run is also given')
     args=p.parse_args()
+    if args.max_output_tokens<2400:p.error('--max-output-tokens must be at least 2400')
     if args.max_estimate_usd<=0 or args.max_input_chars<=0 or args.timeout<=0 or (args.max_calls is not None and args.max_calls<=0):
         p.error('Limits must be positive')
     try:run(args)

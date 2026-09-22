@@ -40,6 +40,54 @@ class PilotTests(unittest.TestCase):
         answer['dimensions']['P']['score']=None;p.validate(answer,prepared,self.schema)
         answer['dimensions']['T']['evidence'][0]['quotation']='Invented plot fact'
         with self.assertRaises(ValueError):p.validate(answer,prepared,self.schema)
+    def test_quote_matching_ignores_only_whitespace(self):
+        self.assertTrue(p.quote_matches('for lidt end for meget', 'for lidt\nend for meget'))
+        self.assertFalse(p.quote_matches('for lidt, end for meget', 'for lidt\nend for meget'))
+        self.assertFalse(p.quote_matches('for meget end for lidt', 'for lidt\nend for meget'))
+        self.assertFalse(p.quote_matches('For lidt end for meget', 'for lidt\nend for meget'))
+        self.assertFalse(p.quote_matches('   ', 'anything'))
+        prepared={'TARGET':'A', 'SOURCE_BLOCKS':[{'block_id':'scene','text':'for lidt\nend for meget'}, {'block_id':'prior_1','text':'different'}]}
+        answer=self.answer(prepared)
+        answer['dimensions']['T']['evidence']=[{'block_id':'scene','quotation':'for lidt end for meget'}]
+        p.validate(answer,prepared,self.schema)
+        answer['dimensions']['T']['evidence'][0]['block_id']='prior_1'
+        with self.assertRaises(ValueError):p.validate(answer,prepared,self.schema)
+
+    def test_recovery_keeps_original_attempt_and_is_resumable(self):
+        prepared={'TARGET':'for lidt\nend for meget', 'SOURCE_BLOCKS':[]}
+        answer=self.answer(prepared)
+        for dim in answer['dimensions'].values():
+            dim['evidence'][0]['quotation']='for lidt end for meget'
+        body={'model':'fixture','input':'synthetic fixture','max_output_tokens':2400}
+        with tempfile.TemporaryDirectory() as td:
+            directory=Path(td)/'call';attempt=directory/'attempt-001'
+            p.write(attempt/'request.json',body)
+            p.write(attempt/'response.json',{'status':'completed','output':[{'content':[{'type':'output_text','text':json.dumps(answer)}]}]})
+            p.write(attempt/'failure.json',{'message':'Old exact-quote validation failure'})
+            before={f.name:f.read_bytes() for f in attempt.iterdir()}
+            call={'directory':directory,'prepared':prepared,'body':body,'fingerprint':'test', 'case_id':'fixture','condition':'C','repeat':2}
+            with redirect_stdout(io.StringIO()):
+                self.assertEqual(1,p.recover_saved([call],self.schema))
+                self.assertEqual(0,p.recover_saved([call],self.schema))
+            self.assertEqual(before,{f.name:f.read_bytes() for f in attempt.iterdir()})
+            self.assertEqual(answer,p.result_for(call,self.schema))
+            self.assertTrue(p.read(directory/'provenance.json')['recovered_from_saved_response'])
+            self.assertFalse((directory/'attempt-002').exists())
+
+    def test_only_output_ceiling_increase_is_compatible(self):
+        planned={'model':'fixture','input':'same evidence','max_output_tokens':2400}
+        self.assertTrue(p.compatible_attempt_request(dict(planned,max_output_tokens=8000),planned))
+        self.assertFalse(p.compatible_attempt_request(dict(planned,max_output_tokens=1000),planned))
+        self.assertFalse(p.compatible_attempt_request(dict(planned,input='changed evidence',max_output_tokens=8000),planned))
+        self.assertFalse(p.compatible_attempt_request(dict(planned,model='other',max_output_tokens=8000),planned))
+
+    def test_truncated_response_has_actionable_error(self):
+        with self.assertRaisesRegex(ValueError,'Response truncated at max_output_tokens'):
+            p.require_complete_response({'status':'incomplete','incomplete_details':{'reason':'max_output_tokens'}})
+        with self.assertRaisesRegex(ValueError,'not complete'):
+            p.require_complete_response({'status':'failed'})
+        p.require_complete_response({'status':'completed'})
+
     def test_resume_sends_each_independent_request_once(self):
         prepared,_=p.inputs(self.config['cases'][0],'dossier')
         with tempfile.TemporaryDirectory() as td:
@@ -56,7 +104,10 @@ class PilotTests(unittest.TestCase):
                 result=self.answer(json.loads(body['input']))
                 return {'output':[{'content':[{'type':'output_text','text':json.dumps(result)}]}],'usage':{'input_tokens':10,'output_tokens':10}}
             with patch.object(p,'prepare',return_value=(calls,root,pricing,self.schema,protocol)),patch.dict('os.environ',{'OPENAI_API_KEY':'test-placeholder'}),redirect_stdout(io.StringIO()):
-                p.run(args,caller);p.run(args,caller);p.run(args,caller)
+                p.run(args,caller)
+                args.max_output_tokens=8000
+                p.run(args,caller);p.run(args,caller)
+            self.assertEqual([2400,8000],[body['max_output_tokens'] for body in sent])
             self.assertEqual(2,len(sent));self.assertEqual('complete',p.read(root/'summary.json')['status'])
             self.assertTrue((root/'A/attempt-001/cost.json').exists())
             self.assertFalse((root/'A/attempt-002').exists())
