@@ -437,9 +437,9 @@ Self-reported confidence: 0.93. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the emphatic avowal, while a low P score registers the oath-eliciting setting. Delivery and narrative suspicion are adequately handled as context; no important core force remains outside T/P/E.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-c0e0cc2bb62bdba5/8eeae4671fd015d7a7b5d51c1cdf6d73f2d6414d66722c6fd677bfd4bc3aac72/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-c0e0cc2bb62bdba5/8eeae4671fd015d7a7b5d51c1cdf6d73f2d6414d66722c6fd677bfd4bc3aac72/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/flaubert-madame-bovary/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-c0e0cc2bb62bdba5/8eeae4671fd015d7a7b5d51c1cdf6d73f2d6414d66722c6fd677bfd4bc3aac72/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-c0e0cc2bb62bdba5/8eeae4671fd015d7a7b5d51c1cdf6d73f2d6414d66722c6fd677bfd4bc3aac72/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/flaubert-madame-bovary/canonical.txt)
 - Occurrence: flaubert-madame-bovary-c0e0cc2bb62bdba5
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

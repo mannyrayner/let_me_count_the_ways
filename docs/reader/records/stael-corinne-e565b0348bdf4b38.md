@@ -243,9 +243,9 @@ Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core avowal. The surrounding devotion, urgency, social argument, and sincerity are contextual features and do not require P, E, or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stael-corinne-e565b0348bdf4b38/325fc441f5d4edea9a4ca72d2a7bd93549ac4967a3e453002144037b31dc1d57/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stael-corinne-e565b0348bdf4b38/325fc441f5d4edea9a4ca72d2a7bd93549ac4967a3e453002144037b31dc1d57/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/stael-corinne/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stael-corinne-e565b0348bdf4b38/325fc441f5d4edea9a4ca72d2a7bd93549ac4967a3e453002144037b31dc1d57/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stael-corinne-e565b0348bdf4b38/325fc441f5d4edea9a4ca72d2a7bd93549ac4967a3e453002144037b31dc1d57/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/stael-corinne/canonical.txt)
 - Occurrence: stael-corinne-e565b0348bdf4b38
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

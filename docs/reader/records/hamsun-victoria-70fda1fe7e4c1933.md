@@ -332,9 +332,9 @@ Self-reported confidence: 0.94. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the central avowal, while a low P score records its limited role in seeking relational reciprocation. Emotional intensity is adequately handled contextually without E or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-victoria-70fda1fe7e4c1933/224a44546dea05c0510afd2e7b1aa91855aa6ab81d43b47d326e528690c79b27/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-victoria-70fda1fe7e4c1933/224a44546dea05c0510afd2e7b1aa91855aa6ab81d43b47d326e528690c79b27/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/hamsun-victoria/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-victoria-70fda1fe7e4c1933/224a44546dea05c0510afd2e7b1aa91855aa6ab81d43b47d326e528690c79b27/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-victoria-70fda1fe7e4c1933/224a44546dea05c0510afd2e7b1aa91855aa6ab81d43b47d326e528690c79b27/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/hamsun-victoria/canonical.txt)
 - Occurrence: hamsun-victoria-70fda1fe7e4c1933
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

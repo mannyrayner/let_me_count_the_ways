@@ -210,9 +210,9 @@ Self-reported confidence: 0.97. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the reported representation of a no-longer-existing loving state. The strategic, deceptive, and epistolary framing belongs to context and leaves no residual core force requiring O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lafayette-la-princesse-de-cleves-0965af8efc2630ce/cf673c0fdeb1783e7df58846f86fbbfa56c2b7e6990c6baccab29edebcc727fa/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lafayette-la-princesse-de-cleves-0965af8efc2630ce/cf673c0fdeb1783e7df58846f86fbbfa56c2b7e6990c6baccab29edebcc727fa/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/lafayette-la-princesse-de-cleves/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lafayette-la-princesse-de-cleves-0965af8efc2630ce/cf673c0fdeb1783e7df58846f86fbbfa56c2b7e6990c6baccab29edebcc727fa/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lafayette-la-princesse-de-cleves-0965af8efc2630ce/cf673c0fdeb1783e7df58846f86fbbfa56c2b7e6990c6baccab29edebcc727fa/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/lafayette-la-princesse-de-cleves/canonical.txt)
 - Occurrence: lafayette-la-princesse-de-cleves-0965af8efc2630ce
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

@@ -350,9 +350,9 @@ Self-reported confidence: 0.98. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the considered avowal. P is unnecessary because Victoria undertakes no commitment and expressly rejects the relationship as impossible; E is unnecessary because emotional intensity and urgency do not outweigh the explicit framing as reflective, truth-asserting speech. No important core force remains outside T/P/E.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-victoria-4f6c4f26ac0c6d1e/de71f30eddbc3a5b209053b68e778d9619e6be6059bcda20d7ffdf39d85c7c41/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-victoria-4f6c4f26ac0c6d1e/de71f30eddbc3a5b209053b68e778d9619e6be6059bcda20d7ffdf39d85c7c41/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/hamsun-victoria/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-victoria-4f6c4f26ac0c6d1e/de71f30eddbc3a5b209053b68e778d9619e6be6059bcda20d7ffdf39d85c7c41/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-victoria-4f6c4f26ac0c6d1e/de71f30eddbc3a5b209053b68e778d9619e6be6059bcda20d7ffdf39d85c7c41/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/hamsun-victoria/canonical.txt)
 - Occurrence: hamsun-victoria-4f6c4f26ac0c6d1e
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

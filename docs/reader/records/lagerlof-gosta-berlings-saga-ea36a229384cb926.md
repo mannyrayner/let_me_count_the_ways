@@ -275,9 +275,9 @@ Self-reported confidence: 0.92. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the avowal of collective love, while a moderate E score captures its presentation as a dreamlike inward effusion. P is unnecessary because no undertaking is enacted, and no residual core force requires O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lagerlof-gosta-berlings-saga-ea36a229384cb926/ffd2799451b89b3952e0352b95a167c2cdff2c7c183dbda925b15794c5697ac8/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lagerlof-gosta-berlings-saga-ea36a229384cb926/ffd2799451b89b3952e0352b95a167c2cdff2c7c183dbda925b15794c5697ac8/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/lagerlof-gosta-berlings-saga/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lagerlof-gosta-berlings-saga-ea36a229384cb926/ffd2799451b89b3952e0352b95a167c2cdff2c7c183dbda925b15794c5697ac8/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lagerlof-gosta-berlings-saga-ea36a229384cb926/ffd2799451b89b3952e0352b95a167c2cdff2c7c183dbda925b15794c5697ac8/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/lagerlof-gosta-berlings-saga/canonical.txt)
 - Occurrence: lagerlof-gosta-berlings-saga-ea36a229384cb926
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

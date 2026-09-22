@@ -375,9 +375,9 @@ Self-reported confidence: 0.92. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the central avowal, with weak P support for its role in seeking relational restoration. The surrounding manipulation, possible insincerity, and emotional intensity are contextual features adequately described without O or an independent E score.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-constance-ring-bbe05d10a5783b37/28160994e00ef0cc4b0120b4a109e3e735d2002f07b47a07bb8e5885437a3936/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-constance-ring-bbe05d10a5783b37/28160994e00ef0cc4b0120b4a109e3e735d2002f07b47a07bb8e5885437a3936/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/skram-constance-ring/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-constance-ring-bbe05d10a5783b37/28160994e00ef0cc4b0120b4a109e3e735d2002f07b47a07bb8e5885437a3936/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-constance-ring-bbe05d10a5783b37/28160994e00ef0cc4b0120b4a109e3e735d2002f07b47a07bb8e5885437a3936/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/skram-constance-ring/canonical.txt)
 - Occurrence: skram-constance-ring-bbe05d10a5783b37
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

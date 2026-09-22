@@ -448,9 +448,9 @@ Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core force as an avowal presented through counterfactual reasoning. Reassurance, possible persuasion, and Loretta’s disbelief are contextual features and create no residual pressure beyond T/P/E.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-60501e05fb417875/f4249b788fa9ffc6a68e8fab6c85e1d9a30c9d799b5b52a4acbe6608ea13143e/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-60501e05fb417875/f4249b788fa9ffc6a68e8fab6c85e1d9a30c9d799b5b52a4acbe6608ea13143e/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/verona-colei-che-non-si-deve-amare/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-60501e05fb417875/f4249b788fa9ffc6a68e8fab6c85e1d9a30c9d799b5b52a4acbe6608ea13143e/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-60501e05fb417875/f4249b788fa9ffc6a68e8fab6c85e1d9a30c9d799b5b52a4acbe6608ea13143e/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/verona-colei-che-non-si-deve-amare/canonical.txt)
 - Occurrence: verona-colei-che-non-si-deve-amare-60501e05fb417875
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

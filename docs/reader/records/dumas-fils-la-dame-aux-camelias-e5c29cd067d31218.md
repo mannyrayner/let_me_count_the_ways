@@ -318,9 +318,9 @@ Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core avowal. The surrounding persuasion, reassurance, jealousy, and proposed shared future are contextual functions adequately described without adding P, E, or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/dumas-fils-la-dame-aux-camelias-e5c29cd067d31218/0315a5a985c61cb1c870db202737a90e41e745007ea39317c7f57da7855fbbd9/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/dumas-fils-la-dame-aux-camelias-e5c29cd067d31218/0315a5a985c61cb1c870db202737a90e41e745007ea39317c7f57da7855fbbd9/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/dumas-fils-la-dame-aux-camelias/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/dumas-fils-la-dame-aux-camelias-e5c29cd067d31218/0315a5a985c61cb1c870db202737a90e41e745007ea39317c7f57da7855fbbd9/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/dumas-fils-la-dame-aux-camelias-e5c29cd067d31218/0315a5a985c61cb1c870db202737a90e41e745007ea39317c7f57da7855fbbd9/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/dumas-fils-la-dame-aux-camelias/canonical.txt)
 - Occurrence: dumas-fils-la-dame-aux-camelias-e5c29cd067d31218
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

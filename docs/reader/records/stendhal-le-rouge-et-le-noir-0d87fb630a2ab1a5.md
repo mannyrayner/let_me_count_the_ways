@@ -265,9 +265,9 @@ Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core avowal. The letter’s emotional intensity, rhetorical escalation, and imagined revoicing are adequately handled as context and utterance-status complications; they do not create residual pressure for E or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stendhal-le-rouge-et-le-noir-0d87fb630a2ab1a5/bae0282197d30ec410a7db0d9f8d14fa571f810f69f53f9b113ed6d61bcc540c/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stendhal-le-rouge-et-le-noir-0d87fb630a2ab1a5/bae0282197d30ec410a7db0d9f8d14fa571f810f69f53f9b113ed6d61bcc540c/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/stendhal-le-rouge-et-le-noir/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stendhal-le-rouge-et-le-noir-0d87fb630a2ab1a5/bae0282197d30ec410a7db0d9f8d14fa571f810f69f53f9b113ed6d61bcc540c/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stendhal-le-rouge-et-le-noir-0d87fb630a2ab1a5/bae0282197d30ec410a7db0d9f8d14fa571f810f69f53f9b113ed6d61bcc540c/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/stendhal-le-rouge-et-le-noir/canonical.txt)
 - Occurrence: stendhal-le-rouge-et-le-noir-0d87fb630a2ab1a5
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

@@ -1,0 +1,164 @@
+# Война и мир
+
+Лев Толстой · Russian
+
+[All records](../README.md) · [HTML reading copy](../cases/tolstoy-war-and-peace-2697357f44814321.html)
+
+## Target
+
+> Я вас всех люблю
+
+
+| T: report / avowal | P: undertaking | E: expressive/reflexive | O: other |
+|---:|---:|---:|---:|
+| 4 / 4 | 0 / 4 | 0 / 4 | 0 / 4 |
+
+Scores are independent support judgments. T is not a sincerity score.
+
+## Original passage
+
+> «Я вас всех люблю и никому дурного не делала, и чтò вы со мной сделали?» говорило ее прелестное, жалкое, мертвое лицо. В углу комнаты хрюкнуло и пискнуло что-то маленькое, красное в белых трясущихся руках Марьи Богдановны.
+
+
+## Original AI explanation
+
+The dead princess’s face is narratively verbalised as saying “I love you all.” The love clause primarily presents her universal affection as true, while the surrounding clauses express innocence, suffering, and reproach. It neither undertakes a relational commitment nor functions as words reflexively blurted out under affective pressure.
+
+## Ambiguity
+
+The utterance is an interpretive verbalisation of a facial expression rather than spoken language, but its represented love-related force remains clearly truth-conditional.
+
+## Narrative situation (AI interpretation)
+
+After the princess dies in childbirth, her unchanged facial expression is personified as declaring love and innocence while accusing those around her of having wronged her. The formulation echoes the meaning previously attributed to her frightened expression while she was alive. This framing intensifies Prince Andrei’s guilt and the pathos of her death, but does not add commitment force or independent expressive/reflexive force to the love clause.
+
+## Original context supplied to the annotator
+
+> — Вы не получили моего письма? — спросил он, и не дожидаясь ответа, которого бы он и не получил, потому что княжна не могла говорить, он вернулся, и с акушером, который вошел вслед за ним (он съехался с ним на последней станции), быстрыми шагами опять вошел на лестницу и опять обнял сестру.
+> 
+> — Какая судьба! — проговорил он, — Маша милая! — И, скинув шубу и сапоги, пошел на половину княгини.
+> 
+> IX.
+> 
+> Маленькая княгиня лежала на подушках, в белом чепчике. (Страдания только что отпустили ее.) Черные волосы прядями вились у ее воспаленных, вспотевших щек; румяный, прелестный ротик с губкой, покрытою черными волосиками, был раскрыт, и она радостно улыбалась. Князь Андрей вошел в комнату и остановился перед ней, у изножья дивана, на котором она лежала. Блестящие глаза, смотревшие детски-испуганно и взволнованно, остановились на нем, не изменяя выражения. «Я вас всех люблю, я никому зла не делала, за чтò я страдаю? помогите мне», говорило ее выражение. Она видела мужа, но не понимала значения его появления теперь перед нею. Князь Андрей обошел диван и в лоб поцеловал ее.
+> 
+> — Душенька моя, — сказал он: слово, которое никогда не говорил ей. — Бог милостив... — Она вопросительно, детски-укоризненно посмотрела на него.
+> 
+> «Я от тебя ждала помощи, и ничего, ничего, и ты тоже!» сказали ее глаза. Она не удивилась, что он приехал; она не поняла того, что он приехал. Его приезд не имел никакого отношения до ее страданий и облегчения их. Муки вновь начались, и Марья Богдановна посоветовала князю Андрею выйти из комнаты.
+> 
+> Акушер вошел в комнату. Князь Андрей вышел и, встретив княжну Марью, опять подошел к ней. Они шопотом заговорили, но всякую минуту разговор замолкал. Они ждали и прислушивались.
+> 
+> — Allez, mon ami, — сказала княжна Марья. Князь Андрей опять пошел к жене, и в соседней комнате сел дожидаясь. Какая-то женщина вышла из ее комнаты с испуганным лицом и смутилась, увидав князя Андрея. Он закрыл лицо руками и просидел так несколько минут. Жалкие, беспомощно-животные стоны слышались из-за двери. Князь Андрей встал, подошел к двери и хотел отворить ее. Дверь держал кто-то.
+> 
+> — Нельзя, нельзя! — проговорил оттуда испуганный голос. — Он стал ходить по комнате. Крики замолкли, еще прошло несколько секунд. Вдруг страшный крик — не ее крик, она не могла так кричать, — раздался в соседней комнате. Князь Андрей подбежал к двери; крик замолк, послышался крик ребенка.
+> 
+> «Зачем принесли туда ребенка? подумал в первую секунду князь Андрей. — Ребенок? Какой?.. Зачем там ребенок? Или это родился ребенок?»
+> 
+> Когда он вдруг понял всё радостное значение этого крика, слезы задушили его, и он, облокотившись обеими руками на подоконник, всхлипывая, заплакал, как плачут дети. Дверь отворилась. Доктор, с засученными рукавами рубашки, без сюртука, бледный и с трясущеюся челюстью, вышел из комнаты. Князь Андрей обратился к нему, но доктор растерянно взглянул на него и, ни слова не сказав, прошел мимо. Женщина выбежала и, увидав князя Андрея, замялась на пороге. Он вошел в комнату жены. Она мертвая лежала в том же положении, в котором он видел ее пять минут тому назад, и то же выражение, несмотря на остановившиеся глаза и на бледность щек, было на этом прелестном, детском личике с губкой, покрытою черными волосиками.
+> 
+> «Я вас всех люблю и никому дурного не делала, и чтò вы со мной сделали?» говорило ее прелестное, жалкое, мертвое лицо. В углу комнаты хрюкнуло и пискнуло что-то маленькое, красное в белых трясущихся руках Марьи Богдановны.
+> 
+> Через два часа после этого князь Андрей тихими шагами вошел в кабинет к отцу. Старик всё уже знал. Он стоял у самой двери, и, как только она отворилась, старик молча старческими, жесткими руками, как тисками, обхватил шею сына и зарыдал как ребенок.
+> 
+> Через три дня отпевали маленькую княгиню, и, прощаясь с нею, князь Андрей взошел на ступени гроба. И в гробу было то же лицо, хотя и с закрытыми глазами. «Ах, чтò вы со мной сделали?» всё говорило оно, и князь Андрей почувствовал, что в душе его оторвалось что-то, что он виноват в вине, которую ему не поправить и не забыть. Он не мог плакать. Старик тоже вошел и поцеловал ее восковую ручку, спокойно и высоко лежавшую на другой, и ему ее лицо сказало: «Ах, чтò и за чтò вы это со мной сделали?» И старик сердито отвернулся, увидав это лицо.
+> 
+> Еще через пять дней крестили молодого князя Николая Андреича. Мамушка подбородком придерживала пеленки, в то время, как гусиным перышком священник мазал сморщенные красные ладòнки и ступеньки мальчика.
+> 
+> Крестный отец-дед, боясь уронить, вздрагивая, носил младенца вокруг жестяной помятой купели и передавал его крестной матери, княжне Марье. Князь Андрей, замирая от страха, чтоб не утопили ребенка, сидел в другой комнате, ожидая окончания таинства. Он радостно взглянул на ребенка, когда ему вынесла его нянюшка, и одобрительно кивнул головой, когда нянюшка сообщила ему, что брошенный в купель вощечок с волосками не потонул, а поплыл по купели.
+> 
+> X.
+> 
+> Участие Ростова в дуэли Долохова с Безуховым было замято стараниями старого графа, и Ростов вместо того, чтобы быть разжалованным, как он ожидал, был определен адъютантом к московскому генерал-губернатору. Вследствие этого он не мог ехать в деревню со всем семейством, а оставался при своей новой должности всё лето в Москве. Долохов выздоровел, и Ростов особенно сдружился с ним в это время его выздоровления. Долохов больной лежал у матери, страстно и нежно любившей его. Старушка Марья Ивановна, полюбившая Ростова за его дружбу к Феде, часто говорила ему про своего сына.
+> 
+> — Да, граф, он слишком благороден и чист душою, — говаривала она, — для нашего нынешнего, развращенного света. Добродетели никто не любит, она всем глаза колет. Ну, скажите, граф, справедливо это, честно это со стороны Безухова? А Федя по своему благородству любил его, и теперь никогда ничего дурного про него не говорит. В Петербурге эти шалости с квартальным, там что-то шутили, ведь они вместе делали? Что ж, Безухову ничего, а Федя всё на своих плечах перенес! Ведь чтò он перенес! Положим, возвратили, да ведь как же и не возвратить? Я думаю таких, как он, храбрецов и сынов отечества не много там было. Чтò ж теперь — эта дуэль? Есть ли чувство честь у этих людей! Зная, что он единственный сын, вызвать на дуэль и стрелять так прямо! Хорошо, что Бог помиловал нас. И за чтò же? Ну, кто же в наше время не имеет интриги? Что ж, коли он так ревнив? Я понимаю, ведь он прежде мог дать почувствовать, а то год ведь продолжалось. И чтò же, вызвал на дуэль, полагая, что Федя не будет драться, потому что он ему должен. Какая низость! Какая гадость! Я знаю, вы Федю поняли, мой милый граф, оттого-то я вас душой люблю, верьте мне. Его редкие понимают. Это такая высокая, небесная душа!
+
+
+## English translation supplied to the annotator
+
+> “Did you not receive my letter?” he asked, and, without waiting for an answer—which he would not have received in any case, because the princess could not speak—he went back and, together with the accoucheur, who entered behind him (he had met up with him at the last station), again went quickly up the stairs and again embraced his sister.
+> 
+> “What a fate!” he said. “Dear Masha!” And, taking off his fur coat and boots, he went to the little princess’s apartments.
+> 
+> IX.
+> 
+> The little princess lay on the pillows in a white cap. (The pains had only just released her.) Her black hair curled in strands about her inflamed, perspiring cheeks; her rosy, lovely little mouth, with its lip covered in dark down, was open, and she smiled joyfully. Prince Andrei entered the room and stopped before her, at the foot of the sofa on which she lay. Her shining eyes, gazing with childlike fear and agitation, came to rest on him without changing their expression. “I love you all; I have done no harm to anyone; why am I suffering? Help me,” her expression said. She saw her husband, but did not understand the significance of his appearing before her now. Prince Andrei walked around the sofa and kissed her on the forehead.
+> 
+> “My darling,” he said—a word he had never used to her. “God is merciful...” She looked at him questioningly, with childlike reproach.
+> 
+> “I expected help from you, and there is nothing, nothing—and you too!” said her eyes. She was not surprised that he had come; she did not understand that he had come. His arrival had no connection whatsoever with her sufferings or their relief. The torments began again, and Marya Bogdanovna advised Prince Andrei to leave the room.
+> 
+> The accoucheur entered the room. Prince Andrei went out and, meeting Princess Marya, approached her again. They began talking in whispers, but every moment their conversation fell silent. They waited and listened.
+> 
+> “Go, my friend,” said Princess Marya. Prince Andrei went back toward his wife and sat down in the adjoining room to wait. A woman came out of her room with a frightened face and became confused on seeing Prince Andrei. He covered his face with his hands and sat like that for several minutes. Piteous, helpless, animal-like moans could be heard from behind the door. Prince Andrei rose, went to the door, and tried to open it. Someone was holding the door shut.
+> 
+> “You cannot, you cannot!” a frightened voice said from within. He began pacing the room. The cries ceased; several more seconds passed. Suddenly a terrible scream—not her scream; she could not have screamed like that—rang out in the adjoining room. Prince Andrei rushed to the door; the scream ceased, and the cry of a child was heard.
+> 
+> “Why have they brought a child in there?” Prince Andrei thought in the first instant. “A child? What child?... Why is there a child in there? Or has a child been born?”
+> 
+> When he suddenly understood the full joyful significance of that cry, tears choked him, and, leaning with both hands on the windowsill, he began to sob and wept as children weep. The door opened. The doctor, his shirtsleeves rolled up, without his frock coat, pale and with a trembling jaw, came out of the room. Prince Andrei turned to him, but the doctor looked at him in bewilderment and, without saying a word, walked past. The woman ran out and, seeing Prince Andrei, faltered on the threshold. He entered his wife’s room. She lay dead in the same position in which he had seen her five minutes before, and the same expression, despite the sightless eyes and the pallor of her cheeks, remained on that lovely, childlike little face with its lip covered in dark down.
+> 
+> “I love you all and have done no harm to anyone, and what have you done to me?” said her lovely, pitiful, dead face. In a corner of the room, something small and red grunted and squeaked in Marya Bogdanovna’s trembling white hands.
+> 
+> Two hours after this, Prince Andrei entered his father’s study with quiet steps. The old man already knew everything. He was standing right by the door, and as soon as it opened, the old man silently clasped his son’s neck in his aged, hard hands, as though in a vise, and sobbed like a child.
+> 
+> Three days later the funeral service was held for the little princess, and, taking leave of her, Prince Andrei went up the steps to the coffin. And in the coffin was the same face, though its eyes were closed. “Ah, what have you done to me?” it still said, and Prince Andrei felt that something had been torn away in his soul, that he was guilty of a wrong he could neither set right nor forget. He could not weep. The old man also went up and kissed her waxen little hand, which lay calmly and loftily upon the other, and to him her face said: “Ah, what have you done to me, and why?” And the old man turned away angrily at the sight of that face.
+> 
+> Another five days later, the young prince Nikolai Andreitch was baptized. The nurse held the swaddling clothes in place with her chin while the priest, with a goose feather, anointed the boy’s wrinkled red little palms and feet.
+> 
+> The godfather-grandfather, trembling for fear of dropping him, carried the infant around the dented tin font and handed him to the godmother, Princess Marya. Prince Andrei, faint with fear that they might drown the child, sat in another room awaiting the end of the sacrament. He looked joyfully at the child when the nurse brought him out, and nodded his head approvingly when she told him that the bit of wax with the hairs, thrown into the font, had not sunk but had floated on the water.
+> 
+> X.
+> 
+> Rostov’s part in Dolokhov’s duel with Bezukhov was hushed up through the efforts of the old count, and instead of being reduced to the ranks, as he had expected, Rostov was appointed an aide-de-camp to the governor-general of Moscow. Consequently, he could not go to the country with the whole family, but remained at his new post in Moscow throughout the summer. Dolokhov recovered, and Rostov became especially close to him during this period of his convalescence. Dolokhov lay ill at the home of his mother, who loved him passionately and tenderly. The old lady, Marya Ivanovna, who had grown fond of Rostov because of his friendship with Fedya, often spoke to him about her son.
+> 
+> “Yes, Count, he is too noble and pure of soul,” she would say, “for our present-day, corrupt world. No one loves virtue; it is an eyesore to everyone. Well, tell me, Count, was that fair, was that honorable of Bezukhov? And Fedya, in his nobility, loved him, and even now he never says anything bad about him. In Petersburg, those pranks with the district police officer—they were up to some joke or other there; why, they did it together, did they not? Yet Bezukhov suffered nothing, while Fedya bore the whole burden on his shoulders! And what he had to endure! Granted, they restored him to his rank, but how could they not restore it? I should think there were not many brave men and sons of the fatherland like him there. And now—this duel? Have those people any sense of honor? Knowing that he is an only son, to challenge him to a duel and shoot so straight! It is a good thing God had mercy on us. And what was it for? Well, who in our time does not have an affair? What of it, if he is so jealous? I understand; he could have made his feelings known earlier, but he let it go on for a whole year. And then what did he do? He challenged him to a duel, supposing Fedya would not fight because he owed him money. What baseness! What vileness! I know you understood Fedya, my dear Count; that is why I love you with all my soul, believe me. Few people understand him. His is such a lofty, heavenly soul!”
+
+
+Translation, where present, is an AI-generated analytical aid, not an authoritative edition.
+
+## Evidence cited by the annotator
+
+### e1 — local text
+
+> «Я вас всех люблю и никому дурного не делала, и чтò вы со мной сделали?» говорило ее прелестное, жалкое, мертвое лицо.
+
+The explicit present-tense love clause presents her affection as true, while “говорило ... мертвое лицо” establishes that it is a verbalised facial expression rather than direct speech.
+
+### e2 — local text
+
+> Before her death, her expression is similarly rendered as: «Я вас всех люблю, я никому зла не делала, за чтò я страдаю? помогите мне».
+
+The earlier parallel establishes continuity: the later words interpret her enduring expression as affection joined to innocence, suffering, and reproach.
+
+### e3 — local text
+
+> At the funeral, the same face continues to communicate «Ах, чтò вы со мной сделали?», and Prince Andrei feels guilty of an irreparable wrong.
+
+The personified utterance functions narratively as an accusation that produces guilt; this is contextual framing rather than performative commitment or expressive verbal discharge in the core love clause.
+
+### e4 — supplied metadata
+
+> The occurrence is marked as affirmative, present-tense, canonical, and retained as a valid explicit “I love you” instance.
+
+Supports treating «Я вас всех люблю» as an explicit love avowal despite its nonverbal-verbalised presentation.
+
+## Background, status and source records
+
+Utterance status: **nonverbal verbalised**. The narrator renders the dead princess’s facial expression as the embedded utterance “I love you all”; no literal speech occurs at this moment.
+
+Background knowledge reported as used: **False**. 
+
+Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
+
+Ontology fit: natural. T naturally captures the represented avowal of affection. The unusual fact that a dead face is personified as speaking is adequately recorded by utterance status and context; it does not expose a missing dimension in the core T/P/E ontology.
+
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/context_extension_3_v0_13_v0_3_1/annotations/tolstoy-war-and-peace-2697357f44814321/30bc2cdd9ee1c413c8c3a3ecaf17ae670d92a08b87b32c81642bbda3e1fc3382/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/context_extension_3_v0_13_v0_3_1/annotations/tolstoy-war-and-peace-2697357f44814321/30bc2cdd9ee1c413c8c3a3ecaf17ae670d92a08b87b32c81642bbda3e1fc3382/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/tolstoy-war-and-peace/canonical.txt)
+- Occurrence: tolstoy-war-and-peace-2697357f44814321
+- Model: gpt-5.6-sol
+- Classification prompt: 0.3.1
+- Historical run: context_extension_3_v0_13_v0_3_1
+- Canonical SHA-256: 89c2922d192b9b90f34ed910a4b7680753fa72c6a03ae8bac685f1ff864eb929
+
+Rendered deterministically from the saved record. No rescoring or replacement explanation.

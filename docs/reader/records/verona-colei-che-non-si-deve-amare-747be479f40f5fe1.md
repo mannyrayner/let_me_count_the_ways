@@ -411,9 +411,9 @@ Self-reported confidence: 0.93. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T/P/E adequately represents the core event as a direct, emotionally intense avowal dominated by truth-conditional force. The surrounding guilt and bodily crisis are contextual features, and no residual core-force dimension requires O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-747be479f40f5fe1/418df055f600421867f2a7af321f318212aaa1e85f9ee9ea6b061885d82076c5/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-747be479f40f5fe1/418df055f600421867f2a7af321f318212aaa1e85f9ee9ea6b061885d82076c5/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/verona-colei-che-non-si-deve-amare/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-747be479f40f5fe1/418df055f600421867f2a7af321f318212aaa1e85f9ee9ea6b061885d82076c5/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-747be479f40f5fe1/418df055f600421867f2a7af321f318212aaa1e85f9ee9ea6b061885d82076c5/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/verona-colei-che-non-si-deve-amare/canonical.txt)
 - Occurrence: verona-colei-che-non-si-deve-amare-747be479f40f5fe1
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

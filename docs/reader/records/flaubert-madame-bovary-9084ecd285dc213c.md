@@ -346,9 +346,9 @@ Self-reported confidence: 0.94. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T and P naturally capture the clause’s joint avowal/prediction and vow-like undertaking. Emotional delivery, questionable sincerity, and narrative irony are adequately treated as context and create no residual core-force pressure.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-9084ecd285dc213c/7f728e9fdbe1f54f5d1be3be1b8128326c554ab9ec6722ad9f987d0bd6079119/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-9084ecd285dc213c/7f728e9fdbe1f54f5d1be3be1b8128326c554ab9ec6722ad9f987d0bd6079119/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/flaubert-madame-bovary/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-9084ecd285dc213c/7f728e9fdbe1f54f5d1be3be1b8128326c554ab9ec6722ad9f987d0bd6079119/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-9084ecd285dc213c/7f728e9fdbe1f54f5d1be3be1b8128326c554ab9ec6722ad9f987d0bd6079119/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/flaubert-madame-bovary/canonical.txt)
 - Occurrence: flaubert-madame-bovary-9084ecd285dc213c
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

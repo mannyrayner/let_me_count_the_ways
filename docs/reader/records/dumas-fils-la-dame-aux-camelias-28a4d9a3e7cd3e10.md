@@ -323,9 +323,9 @@ Self-reported confidence: 0.98. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T/P/E adequately distinguishes the avowal’s assertive force from both the surrounding transactional proposal and its deceptive motive. No residual core-force dimension requires O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/dumas-fils-la-dame-aux-camelias-28a4d9a3e7cd3e10/233e2b79dc30334fdbdab4adca295cf06c31fb79c3d0bb1708eacb17a1efee2c/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/dumas-fils-la-dame-aux-camelias-28a4d9a3e7cd3e10/233e2b79dc30334fdbdab4adca295cf06c31fb79c3d0bb1708eacb17a1efee2c/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/dumas-fils-la-dame-aux-camelias/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/dumas-fils-la-dame-aux-camelias-28a4d9a3e7cd3e10/233e2b79dc30334fdbdab4adca295cf06c31fb79c3d0bb1708eacb17a1efee2c/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/dumas-fils-la-dame-aux-camelias-28a4d9a3e7cd3e10/233e2b79dc30334fdbdab4adca295cf06c31fb79c3d0bb1708eacb17a1efee2c/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/dumas-fils-la-dame-aux-camelias/canonical.txt)
 - Occurrence: dumas-fils-la-dame-aux-camelias-28a4d9a3e7cd3e10
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

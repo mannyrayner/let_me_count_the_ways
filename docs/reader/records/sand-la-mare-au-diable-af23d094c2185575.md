@@ -254,9 +254,9 @@ Self-reported confidence: 0.9. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T captures the central avowal, while E captures the independently supported quality of emotional overflow and a low P score registers the wedding-related relational resonance. No important feature of the core force remains outside T/P/E.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/sand-la-mare-au-diable-af23d094c2185575/46adf4ed56178a1e2beaf6048e4cdc3ed846f7b79f504325976352843f932594/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/sand-la-mare-au-diable-af23d094c2185575/46adf4ed56178a1e2beaf6048e4cdc3ed846f7b79f504325976352843f932594/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/sand-la-mare-au-diable/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/sand-la-mare-au-diable-af23d094c2185575/46adf4ed56178a1e2beaf6048e4cdc3ed846f7b79f504325976352843f932594/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/sand-la-mare-au-diable-af23d094c2185575/46adf4ed56178a1e2beaf6048e4cdc3ed846f7b79f504325976352843f932594/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/sand-la-mare-au-diable/canonical.txt)
 - Occurrence: sand-la-mare-au-diable-af23d094c2185575
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

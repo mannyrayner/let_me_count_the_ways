@@ -312,9 +312,9 @@ Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the highlighted clause’s avowal of an enduring emotional state. The surrounding promise and emotional delivery can be described contextually without assigning P or E to the core clause, and no residual core force requires O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lagerlof-gosta-berlings-saga-61d2fc5156f37da4/386727b37a1f8b75cb613fa38fce0984a31918cdf2f36e75eede360a0758f95c/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lagerlof-gosta-berlings-saga-61d2fc5156f37da4/386727b37a1f8b75cb613fa38fce0984a31918cdf2f36e75eede360a0758f95c/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/lagerlof-gosta-berlings-saga/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lagerlof-gosta-berlings-saga-61d2fc5156f37da4/386727b37a1f8b75cb613fa38fce0984a31918cdf2f36e75eede360a0758f95c/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lagerlof-gosta-berlings-saga-61d2fc5156f37da4/386727b37a1f8b75cb613fa38fce0984a31918cdf2f36e75eede360a0758f95c/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/lagerlof-gosta-berlings-saga/canonical.txt)
 - Occurrence: lagerlof-gosta-berlings-saga-61d2fc5156f37da4
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

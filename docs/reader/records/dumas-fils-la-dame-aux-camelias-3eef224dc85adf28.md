@@ -328,9 +328,9 @@ Self-reported confidence: 0.95. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T/P/E/O naturally represents the core utterance as a strong truth-conditional avowal. Its persuasive use, the secret plan, and possible questions about sincerity belong to contextual interpretation and create no residual pressure on the ontology.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/dumas-fils-la-dame-aux-camelias-3eef224dc85adf28/9500a7f00a688ba5e2b2d825cb8cb1007c03bf4b3c55f7bc55a5527c164778ad/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/dumas-fils-la-dame-aux-camelias-3eef224dc85adf28/9500a7f00a688ba5e2b2d825cb8cb1007c03bf4b3c55f7bc55a5527c164778ad/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/dumas-fils-la-dame-aux-camelias/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/dumas-fils-la-dame-aux-camelias-3eef224dc85adf28/9500a7f00a688ba5e2b2d825cb8cb1007c03bf4b3c55f7bc55a5527c164778ad/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/dumas-fils-la-dame-aux-camelias-3eef224dc85adf28/9500a7f00a688ba5e2b2d825cb8cb1007c03bf4b3c55f7bc55a5527c164778ad/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/dumas-fils-la-dame-aux-camelias/canonical.txt)
 - Occurrence: dumas-fils-la-dame-aux-camelias-3eef224dc85adf28
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

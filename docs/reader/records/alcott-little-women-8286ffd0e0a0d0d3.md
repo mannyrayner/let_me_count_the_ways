@@ -217,9 +217,9 @@ Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T captures the central avowal, while a low P score reflects its secondary role in marital reassurance. Emotional intensity and affectionate conduct are contextual features adequately represented without E or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/alcott-little-women-8286ffd0e0a0d0d3/bf6bee39ba49ed0391856979fac536fc0b2000a0d43064c2272a5d7ea6ffbc69/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/alcott-little-women-8286ffd0e0a0d0d3/bf6bee39ba49ed0391856979fac536fc0b2000a0d43064c2272a5d7ea6ffbc69/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/alcott-little-women/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/alcott-little-women-8286ffd0e0a0d0d3/bf6bee39ba49ed0391856979fac536fc0b2000a0d43064c2272a5d7ea6ffbc69/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/alcott-little-women-8286ffd0e0a0d0d3/bf6bee39ba49ed0391856979fac536fc0b2000a0d43064c2272a5d7ea6ffbc69/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/alcott-little-women/canonical.txt)
 - Occurrence: alcott-little-women-8286ffd0e0a0d0d3
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

@@ -249,9 +249,9 @@ Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core force as a retrospective avowal of loving feeling. The reproachful, comparative, marital, and self-vindicating dimensions belong to contextual use and do not require either E or O; no undertaking force is independently present.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lafayette-la-princesse-de-cleves-63e18c98a4bf1337/d5a2280967574035e5fbd2fbe90148c1b908a0ed9b18f74cf3cdff7219445970/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lafayette-la-princesse-de-cleves-63e18c98a4bf1337/d5a2280967574035e5fbd2fbe90148c1b908a0ed9b18f74cf3cdff7219445970/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/lafayette-la-princesse-de-cleves/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lafayette-la-princesse-de-cleves-63e18c98a4bf1337/d5a2280967574035e5fbd2fbe90148c1b908a0ed9b18f74cf3cdff7219445970/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lafayette-la-princesse-de-cleves-63e18c98a4bf1337/d5a2280967574035e5fbd2fbe90148c1b908a0ed9b18f74cf3cdff7219445970/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/lafayette-la-princesse-de-cleves/canonical.txt)
 - Occurrence: lafayette-la-princesse-de-cleves-63e18c98a4bf1337
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

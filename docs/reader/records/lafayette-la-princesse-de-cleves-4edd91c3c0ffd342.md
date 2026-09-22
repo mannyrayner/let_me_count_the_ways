@@ -211,9 +211,9 @@ Self-reported confidence: 0.98. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the strategically asserted loving state. Calculation, insincerity, reassurance, and retaliatory manipulation are contextual features and create no residual core force requiring P, E, or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lafayette-la-princesse-de-cleves-4edd91c3c0ffd342/e5569f2fbddf222f8fc8102d4d2d7278ceb38a36bc8cc2bd28d25a9e7bed17c0/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lafayette-la-princesse-de-cleves-4edd91c3c0ffd342/e5569f2fbddf222f8fc8102d4d2d7278ceb38a36bc8cc2bd28d25a9e7bed17c0/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/lafayette-la-princesse-de-cleves/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lafayette-la-princesse-de-cleves-4edd91c3c0ffd342/e5569f2fbddf222f8fc8102d4d2d7278ceb38a36bc8cc2bd28d25a9e7bed17c0/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lafayette-la-princesse-de-cleves-4edd91c3c0ffd342/e5569f2fbddf222f8fc8102d4d2d7278ceb38a36bc8cc2bd28d25a9e7bed17c0/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/lafayette-la-princesse-de-cleves/canonical.txt)
 - Occurrence: lafayette-la-princesse-de-cleves-4edd91c3c0ffd342
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

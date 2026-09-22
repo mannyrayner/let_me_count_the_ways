@@ -275,9 +275,9 @@ Self-reported confidence: 0.9. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T captures the central avowal, P captures its limited participation in the surrounding marriage undertaking, and E captures the narrator’s explicit presentation of speech released by overwhelming tenderness. No important aspect of the core force remains outside T/P/E.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/sand-la-mare-au-diable-7ba1f4516fb0cdd9/9238e29f055092caea01867d26820545cf625ce2a4a909820ea93a76207c9f3c/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/sand-la-mare-au-diable-7ba1f4516fb0cdd9/9238e29f055092caea01867d26820545cf625ce2a4a909820ea93a76207c9f3c/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/sand-la-mare-au-diable/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/sand-la-mare-au-diable-7ba1f4516fb0cdd9/9238e29f055092caea01867d26820545cf625ce2a4a909820ea93a76207c9f3c/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/sand-la-mare-au-diable-7ba1f4516fb0cdd9/9238e29f055092caea01867d26820545cf625ce2a4a909820ea93a76207c9f3c/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/sand-la-mare-au-diable/canonical.txt)
 - Occurrence: sand-la-mare-au-diable-7ba1f4516fb0cdd9
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

@@ -125,9 +125,9 @@ Self-reported confidence: 0.97. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the sustained-state avowal, with slight P support for its relational significance. Contextual emotion and deliberation require neither E nor O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/cofield-nikkis-touch-824def700932c9b0/44b5ac539f2b30bfadc0924fa44588f52614d238c95e44bb617c6198dbc5f15f/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/cofield-nikkis-touch-824def700932c9b0/44b5ac539f2b30bfadc0924fa44588f52614d238c95e44bb617c6198dbc5f15f/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/cofield-nikkis-touch/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/cofield-nikkis-touch-824def700932c9b0/44b5ac539f2b30bfadc0924fa44588f52614d238c95e44bb617c6198dbc5f15f/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/cofield-nikkis-touch-824def700932c9b0/44b5ac539f2b30bfadc0924fa44588f52614d238c95e44bb617c6198dbc5f15f/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/cofield-nikkis-touch/canonical.txt)
 - Occurrence: cofield-nikkis-touch-824def700932c9b0
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

@@ -429,9 +429,9 @@ Self-reported confidence: 0.95. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the central avowal, with slight P support from its role in resisting a friends-only arrangement. E is unnecessary because the emotional delivery can be represented contextually without positing reflexive core force, and no residual aspect requires O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-constance-ring-c77676a179ffa750/213d67c725b11e9edce95f658b36dfa025da2438f0ca208c91bb4b9bfef2db9e/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-constance-ring-c77676a179ffa750/213d67c725b11e9edce95f658b36dfa025da2438f0ca208c91bb4b9bfef2db9e/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/skram-constance-ring/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-constance-ring-c77676a179ffa750/213d67c725b11e9edce95f658b36dfa025da2438f0ca208c91bb4b9bfef2db9e/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-constance-ring-c77676a179ffa750/213d67c725b11e9edce95f658b36dfa025da2438f0ca208c91bb4b9bfef2db9e/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/skram-constance-ring/canonical.txt)
 - Occurrence: skram-constance-ring-c77676a179ffa750
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

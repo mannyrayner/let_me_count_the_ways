@@ -694,9 +694,9 @@ Self-reported confidence: 0.88. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the avowal of affectionate fondness, while E captures its limited additional character as an immediate affectionate effusion. P is unnecessary, and the dramatic irony and gratitude belong to context rather than requiring O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-ff037eb9b728bd04/863ecc29e5a72b86d60a884f69e27f63a76eb3fcffd7aff320ec563f9d33ea15/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-ff037eb9b728bd04/863ecc29e5a72b86d60a884f69e27f63a76eb3fcffd7aff320ec563f9d33ea15/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/rostand-cyrano-de-bergerac/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-ff037eb9b728bd04/863ecc29e5a72b86d60a884f69e27f63a76eb3fcffd7aff320ec563f9d33ea15/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-ff037eb9b728bd04/863ecc29e5a72b86d60a884f69e27f63a76eb3fcffd7aff320ec563f9d33ea15/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/rostand-cyrano-de-bergerac/canonical.txt)
 - Occurrence: rostand-cyrano-de-bergerac-ff037eb9b728bd04
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

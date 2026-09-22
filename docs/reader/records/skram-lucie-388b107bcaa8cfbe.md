@@ -328,9 +328,9 @@ Self-reported confidence: 0.94. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the utterance as an emphatic avowal of an existing loving state. Its emotional intensity and relational context can be described contextually without adding E, P, or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-lucie-388b107bcaa8cfbe/eabc9cf37f9eb2466f228996ac1ba066ed284106a7a95505f8df29f734219fe9/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-lucie-388b107bcaa8cfbe/eabc9cf37f9eb2466f228996ac1ba066ed284106a7a95505f8df29f734219fe9/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/skram-lucie/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-lucie-388b107bcaa8cfbe/eabc9cf37f9eb2466f228996ac1ba066ed284106a7a95505f8df29f734219fe9/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-lucie-388b107bcaa8cfbe/eabc9cf37f9eb2466f228996ac1ba066ed284106a7a95505f8df29f734219fe9/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/skram-lucie/canonical.txt)
 - Occurrence: skram-lucie-388b107bcaa8cfbe
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

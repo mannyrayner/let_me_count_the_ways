@@ -285,9 +285,9 @@ Self-reported confidence: 0.93. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core avowal. Its erotic purpose, heightened delivery, and transgressive relationship are adequately treated as context, without requiring P, E, or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-fc3a71407483b37d/4a7c1508eba9a69f58c45bb9b631c92afd4e4158fc54378f0c016e26acb7e5c3/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-fc3a71407483b37d/4a7c1508eba9a69f58c45bb9b631c92afd4e4158fc54378f0c016e26acb7e5c3/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/verona-colei-che-non-si-deve-amare/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-fc3a71407483b37d/4a7c1508eba9a69f58c45bb9b631c92afd4e4158fc54378f0c016e26acb7e5c3/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-fc3a71407483b37d/4a7c1508eba9a69f58c45bb9b631c92afd4e4158fc54378f0c016e26acb7e5c3/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/verona-colei-che-non-si-deve-amare/canonical.txt)
 - Occurrence: verona-colei-che-non-si-deve-amare-fc3a71407483b37d
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

@@ -208,9 +208,9 @@ Self-reported confidence: 0.99. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the represented force of the imagined deceptive avowal. Its hypothetical status and falsity are contextual qualifications, not missing dimensions of core force.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-jane-eyre-a880a1f99d9b190d/b740b5fc008634171a8d00a8c3dace616820ade09891413ef49d17e670d4a4ae/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-jane-eyre-a880a1f99d9b190d/b740b5fc008634171a8d00a8c3dace616820ade09891413ef49d17e670d4a4ae/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/bronte-jane-eyre/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-jane-eyre-a880a1f99d9b190d/b740b5fc008634171a8d00a8c3dace616820ade09891413ef49d17e670d4a4ae/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-jane-eyre-a880a1f99d9b190d/b740b5fc008634171a8d00a8c3dace616820ade09891413ef49d17e670d4a4ae/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/bronte-jane-eyre/canonical.txt)
 - Occurrence: bronte-jane-eyre-a880a1f99d9b190d
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

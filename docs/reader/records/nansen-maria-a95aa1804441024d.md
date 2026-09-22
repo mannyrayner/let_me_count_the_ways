@@ -383,9 +383,9 @@ Self-reported confidence: 0.98. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T and P naturally capture the declaration’s dual force as sincere avowal and durable relational undertaking. Emotional intensity is adequately handled as context and does not create residual pressure for E or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/nansen-maria-a95aa1804441024d/6dbeb2f2a84e2012c634ccc046d6adc3bc5a745d7ade75aed3dd68ee5778a2b0/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/nansen-maria-a95aa1804441024d/6dbeb2f2a84e2012c634ccc046d6adc3bc5a745d7ade75aed3dd68ee5778a2b0/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/nansen-maria/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/nansen-maria-a95aa1804441024d/6dbeb2f2a84e2012c634ccc046d6adc3bc5a745d7ade75aed3dd68ee5778a2b0/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/nansen-maria-a95aa1804441024d/6dbeb2f2a84e2012c634ccc046d6adc3bc5a745d7ade75aed3dd68ee5778a2b0/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/nansen-maria/canonical.txt)
 - Occurrence: nansen-maria-a95aa1804441024d
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

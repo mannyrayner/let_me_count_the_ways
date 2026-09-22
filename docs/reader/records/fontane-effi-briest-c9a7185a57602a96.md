@@ -317,9 +317,9 @@ Self-reported confidence: 0.97. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T adequately captures the core avowal. Its familial, generalized, and evasive contextual functions require no additional core-force category beyond T/P/E.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/fontane-effi-briest-c9a7185a57602a96/ce8f372f2ae2f3f263e36ecd4fb3937c10242b8647caa2d349f34a74e3614e78/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/fontane-effi-briest-c9a7185a57602a96/ce8f372f2ae2f3f263e36ecd4fb3937c10242b8647caa2d349f34a74e3614e78/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/fontane-effi-briest/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/fontane-effi-briest-c9a7185a57602a96/ce8f372f2ae2f3f263e36ecd4fb3937c10242b8647caa2d349f34a74e3614e78/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/fontane-effi-briest-c9a7185a57602a96/ce8f372f2ae2f3f263e36ecd4fb3937c10242b8647caa2d349f34a74e3614e78/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/fontane-effi-briest/canonical.txt)
 - Occurrence: fontane-effi-briest-c9a7185a57602a96
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

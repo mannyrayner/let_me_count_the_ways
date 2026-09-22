@@ -325,9 +325,9 @@ Self-reported confidence: 0.87. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T captures the avowal, while moderate E captures the plausible affective outburst indicated by its form, timing, and narrative framing. No important core force remains outside T/P/E.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-644bf71bebd716da/07919839b89bf51b40f24993d2e5ff60ad3fad4afc583a1e6e4b659607aee149/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-644bf71bebd716da/07919839b89bf51b40f24993d2e5ff60ad3fad4afc583a1e6e4b659607aee149/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/verona-colei-che-non-si-deve-amare/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-644bf71bebd716da/07919839b89bf51b40f24993d2e5ff60ad3fad4afc583a1e6e4b659607aee149/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-644bf71bebd716da/07919839b89bf51b40f24993d2e5ff60ad3fad4afc583a1e6e4b659607aee149/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/verona-colei-che-non-si-deve-amare/canonical.txt)
 - Occurrence: verona-colei-che-non-si-deve-amare-644bf71bebd716da
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

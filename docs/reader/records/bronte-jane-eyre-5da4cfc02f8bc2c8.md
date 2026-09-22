@@ -223,9 +223,9 @@ Self-reported confidence: 0.98. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core avowal. The sisterly boundary and argumentative purpose are contextual qualifications rather than missing dimensions of core force; P, E, and O are unnecessary.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-jane-eyre-5da4cfc02f8bc2c8/c03369f533e2232b1ded4217e8d6f72de5f1facc2fc907eff489feec9fec6e1a/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-jane-eyre-5da4cfc02f8bc2c8/c03369f533e2232b1ded4217e8d6f72de5f1facc2fc907eff489feec9fec6e1a/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/bronte-jane-eyre/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-jane-eyre-5da4cfc02f8bc2c8/c03369f533e2232b1ded4217e8d6f72de5f1facc2fc907eff489feec9fec6e1a/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-jane-eyre-5da4cfc02f8bc2c8/c03369f533e2232b1ded4217e8d6f72de5f1facc2fc907eff489feec9fec6e1a/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/bronte-jane-eyre/canonical.txt)
 - Occurrence: bronte-jane-eyre-5da4cfc02f8bc2c8
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

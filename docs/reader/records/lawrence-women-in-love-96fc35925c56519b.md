@@ -267,9 +267,9 @@ Self-reported confidence: 0.92. Not a calibrated accuracy estimate.
 
 Ontology fit: strained. T/P/E captures the truthful surface avowal and slight relational resonance, but only O registers the passage’s explicit insistence that the formula means a transpersonal transformation beyond both ordinary love and separate personal identity.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lawrence-women-in-love-96fc35925c56519b/2bd6ba5b9158b1b4ede8ee93276693e77a37b8ed38f16482cfb232d807c38bab/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lawrence-women-in-love-96fc35925c56519b/2bd6ba5b9158b1b4ede8ee93276693e77a37b8ed38f16482cfb232d807c38bab/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/lawrence-women-in-love/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lawrence-women-in-love-96fc35925c56519b/2bd6ba5b9158b1b4ede8ee93276693e77a37b8ed38f16482cfb232d807c38bab/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lawrence-women-in-love-96fc35925c56519b/2bd6ba5b9158b1b4ede8ee93276693e77a37b8ed38f16482cfb232d807c38bab/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/lawrence-women-in-love/canonical.txt)
 - Occurrence: lawrence-women-in-love-96fc35925c56519b
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

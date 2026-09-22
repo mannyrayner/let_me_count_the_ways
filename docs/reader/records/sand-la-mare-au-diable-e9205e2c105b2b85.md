@@ -255,9 +255,9 @@ Self-reported confidence: 0.97. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T and P jointly capture the core force: Germain both presents future love as true and offers it as part of a marital undertaking. Emotional intensity and loss of inhibition remain contextual delivery features and create no residual need for E or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/sand-la-mare-au-diable-e9205e2c105b2b85/595a9f917271e30cf6e3fd65f5c54536c3b0f2bd473e25b15a4d94deebd100db/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/sand-la-mare-au-diable-e9205e2c105b2b85/595a9f917271e30cf6e3fd65f5c54536c3b0f2bd473e25b15a4d94deebd100db/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/sand-la-mare-au-diable/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/sand-la-mare-au-diable-e9205e2c105b2b85/595a9f917271e30cf6e3fd65f5c54536c3b0f2bd473e25b15a4d94deebd100db/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/sand-la-mare-au-diable-e9205e2c105b2b85/595a9f917271e30cf6e3fd65f5c54536c3b0f2bd473e25b15a4d94deebd100db/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/sand-la-mare-au-diable/canonical.txt)
 - Occurrence: sand-la-mare-au-diable-e9205e2c105b2b85
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

@@ -266,9 +266,9 @@ Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the avowal of a ceased emotional state, while a small P score registers its contextual role in effecting rejection. Intensity, pride, and cruelty are contextual features and create no need for E or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stendhal-le-rouge-et-le-noir-08929319066ffa4b/dd6a1672fb0d2fd20e01b504436e481ea328aee1472cf56cebb0639570443045/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stendhal-le-rouge-et-le-noir-08929319066ffa4b/dd6a1672fb0d2fd20e01b504436e481ea328aee1472cf56cebb0639570443045/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/stendhal-le-rouge-et-le-noir/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stendhal-le-rouge-et-le-noir-08929319066ffa4b/dd6a1672fb0d2fd20e01b504436e481ea328aee1472cf56cebb0639570443045/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stendhal-le-rouge-et-le-noir-08929319066ffa4b/dd6a1672fb0d2fd20e01b504436e481ea328aee1472cf56cebb0639570443045/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/stendhal-le-rouge-et-le-noir/canonical.txt)
 - Occurrence: stendhal-le-rouge-et-le-noir-08929319066ffa4b
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

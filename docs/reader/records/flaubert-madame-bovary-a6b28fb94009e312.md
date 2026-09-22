@@ -348,9 +348,9 @@ Self-reported confidence: 0.97. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T and P naturally capture the utterance’s combined assurance of future love and enactment of a relational promise. Emotional and narrative complexity remains contextual, with no residual core-force pressure requiring O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-a6b28fb94009e312/c75c1ea81ebaaae946502e5ad0035c53e87f9d0149a730849270addd475301de/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-a6b28fb94009e312/c75c1ea81ebaaae946502e5ad0035c53e87f9d0149a730849270addd475301de/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/flaubert-madame-bovary/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-a6b28fb94009e312/c75c1ea81ebaaae946502e5ad0035c53e87f9d0149a730849270addd475301de/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-a6b28fb94009e312/c75c1ea81ebaaae946502e5ad0035c53e87f9d0149a730849270addd475301de/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/flaubert-madame-bovary/canonical.txt)
 - Occurrence: flaubert-madame-bovary-a6b28fb94009e312
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

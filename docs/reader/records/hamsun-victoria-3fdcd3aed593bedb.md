@@ -365,9 +365,9 @@ Self-reported confidence: 0.95. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the remembered utterance as an avowal of love. Its emotional intensity and uncertain retrospective framing are adequately handled as context, with no residual pressure requiring O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-victoria-3fdcd3aed593bedb/85ee1a212e6925e284ddd0990f13799acc66a281b3345af928a27bad8ca7a596/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-victoria-3fdcd3aed593bedb/85ee1a212e6925e284ddd0990f13799acc66a281b3345af928a27bad8ca7a596/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/hamsun-victoria/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-victoria-3fdcd3aed593bedb/85ee1a212e6925e284ddd0990f13799acc66a281b3345af928a27bad8ca7a596/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-victoria-3fdcd3aed593bedb/85ee1a212e6925e284ddd0990f13799acc66a281b3345af928a27bad8ca7a596/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/hamsun-victoria/canonical.txt)
 - Occurrence: hamsun-victoria-3fdcd3aed593bedb
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

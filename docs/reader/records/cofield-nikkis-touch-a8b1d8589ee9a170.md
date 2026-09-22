@@ -169,9 +169,9 @@ Self-reported confidence: 0.97. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core reciprocal avowal. The surrounding intimacy, vulnerability, and relational consequences can be described contextually without requiring P, E, or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/cofield-nikkis-touch-a8b1d8589ee9a170/9c07d23a92ec3d56f1f9349d948419b8d8dda7be450ad712cbdb6eca2e75d877/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/cofield-nikkis-touch-a8b1d8589ee9a170/9c07d23a92ec3d56f1f9349d948419b8d8dda7be450ad712cbdb6eca2e75d877/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/cofield-nikkis-touch/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/cofield-nikkis-touch-a8b1d8589ee9a170/9c07d23a92ec3d56f1f9349d948419b8d8dda7be450ad712cbdb6eca2e75d877/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/cofield-nikkis-touch-a8b1d8589ee9a170/9c07d23a92ec3d56f1f9349d948419b8d8dda7be450ad712cbdb6eca2e75d877/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/cofield-nikkis-touch/canonical.txt)
 - Occurrence: cofield-nikkis-touch-a8b1d8589ee9a170
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

@@ -10426,9 +10426,9 @@ Self-reported confidence: 0.98. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core force as an avowal of undiminished love. The explanatory and reassuring context can be represented pragmatically without adding P, E, or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/undset-kristin-lavransdatter-efa06c87611829a4/dc09d0a4a0f31c4aa89c90ddbb06c45aa04b2e211e97271ae27e01386450944a/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/undset-kristin-lavransdatter-efa06c87611829a4/dc09d0a4a0f31c4aa89c90ddbb06c45aa04b2e211e97271ae27e01386450944a/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/undset-kristin-lavransdatter/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/undset-kristin-lavransdatter-efa06c87611829a4/dc09d0a4a0f31c4aa89c90ddbb06c45aa04b2e211e97271ae27e01386450944a/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/undset-kristin-lavransdatter-efa06c87611829a4/dc09d0a4a0f31c4aa89c90ddbb06c45aa04b2e211e97271ae27e01386450944a/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/undset-kristin-lavransdatter/canonical.txt)
 - Occurrence: undset-kristin-lavransdatter-efa06c87611829a4
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

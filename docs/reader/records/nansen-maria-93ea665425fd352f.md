@@ -371,9 +371,9 @@ Self-reported confidence: 0.97. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T and P naturally capture the core as both a truthful-state avowal and an enduring relational undertaking. The emotional delivery belongs in contextual interpretation and creates no residual need for E or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/nansen-maria-93ea665425fd352f/d5338f7ac0dbdd0b998461aa6ff8cd9fbc280d1a43db67ca5e57088f6d7d8c75/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/nansen-maria-93ea665425fd352f/d5338f7ac0dbdd0b998461aa6ff8cd9fbc280d1a43db67ca5e57088f6d7d8c75/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/nansen-maria/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/nansen-maria-93ea665425fd352f/d5338f7ac0dbdd0b998461aa6ff8cd9fbc280d1a43db67ca5e57088f6d7d8c75/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/nansen-maria-93ea665425fd352f/d5338f7ac0dbdd0b998461aa6ff8cd9fbc280d1a43db67ca5e57088f6d7d8c75/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/nansen-maria/canonical.txt)
 - Occurrence: nansen-maria-93ea665425fd352f
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

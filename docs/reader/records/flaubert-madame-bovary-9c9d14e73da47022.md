@@ -371,9 +371,9 @@ Self-reported confidence: 0.93. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T and E naturally capture the avowal of love and the narrator-supported overflowing of affect into language. The surrounding jealousy, dependency, cliché, and unequal relationship are contextual complexities rather than missing dimensions of the core force.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-9c9d14e73da47022/77d181c48ecebf02bc5d8daa7fa51177acb5ea992f5c08cf53a04eb6fb55d7e1/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-9c9d14e73da47022/77d181c48ecebf02bc5d8daa7fa51177acb5ea992f5c08cf53a04eb6fb55d7e1/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/flaubert-madame-bovary/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-9c9d14e73da47022/77d181c48ecebf02bc5d8daa7fa51177acb5ea992f5c08cf53a04eb6fb55d7e1/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-9c9d14e73da47022/77d181c48ecebf02bc5d8daa7fa51177acb5ea992f5c08cf53a04eb6fb55d7e1/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/flaubert-madame-bovary/canonical.txt)
 - Occurrence: flaubert-madame-bovary-9c9d14e73da47022
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

@@ -245,9 +245,9 @@ Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core comparative avowal, while a low P score records its secondary role in reinforcing the surrounding marital commitment. E is unnecessary because deliberation, explanation, and reassurance adequately characterize the event without positing reflex-like verbal discharge; no residual core force requires O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-jane-eyre-cddcbd01af3733b3/7d8e67ab151fe03a95af130bccc266eb7cbe5e86f1bed606d222241d068286c6/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-jane-eyre-cddcbd01af3733b3/7d8e67ab151fe03a95af130bccc266eb7cbe5e86f1bed606d222241d068286c6/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/bronte-jane-eyre/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-jane-eyre-cddcbd01af3733b3/7d8e67ab151fe03a95af130bccc266eb7cbe5e86f1bed606d222241d068286c6/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-jane-eyre-cddcbd01af3733b3/7d8e67ab151fe03a95af130bccc266eb7cbe5e86f1bed606d222241d068286c6/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/bronte-jane-eyre/canonical.txt)
 - Occurrence: bronte-jane-eyre-cddcbd01af3733b3
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

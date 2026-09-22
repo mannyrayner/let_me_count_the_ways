@@ -247,9 +247,9 @@ Self-reported confidence: 0.93. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core avowal. Bitterness, reproach, relational history, and Gerald’s scepticism are adequately represented as context; they create no residual core-force pressure requiring E, P, or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lawrence-women-in-love-ad55b92cc889a120/4375c6ed6b24ade6b4e5d4ee0d6ea6e0996930a465f60e47693efa208823c479/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lawrence-women-in-love-ad55b92cc889a120/4375c6ed6b24ade6b4e5d4ee0d6ea6e0996930a465f60e47693efa208823c479/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/lawrence-women-in-love/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lawrence-women-in-love-ad55b92cc889a120/4375c6ed6b24ade6b4e5d4ee0d6ea6e0996930a465f60e47693efa208823c479/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lawrence-women-in-love-ad55b92cc889a120/4375c6ed6b24ade6b4e5d4ee0d6ea6e0996930a465f60e47693efa208823c479/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/lawrence-women-in-love/canonical.txt)
 - Occurrence: lawrence-women-in-love-ad55b92cc889a120
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

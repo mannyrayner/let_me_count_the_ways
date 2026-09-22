@@ -233,9 +233,9 @@ Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the dominant avowal, with slight P support for invoked marital constancy. The strategic and potentially insincere context is adequately described contextually, and no important core force remains outside T/P/E.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-tenant-of-wildfell-hall-e78441fff281b5dc/c147fa908ce3693bbc8c596aaa75e12ec76e0698f19fee51804ef7f888d4f13a/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-tenant-of-wildfell-hall-e78441fff281b5dc/c147fa908ce3693bbc8c596aaa75e12ec76e0698f19fee51804ef7f888d4f13a/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/bronte-tenant-of-wildfell-hall/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-tenant-of-wildfell-hall-e78441fff281b5dc/c147fa908ce3693bbc8c596aaa75e12ec76e0698f19fee51804ef7f888d4f13a/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-tenant-of-wildfell-hall-e78441fff281b5dc/c147fa908ce3693bbc8c596aaa75e12ec76e0698f19fee51804ef7f888d4f13a/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/bronte-tenant-of-wildfell-hall/canonical.txt)
 - Occurrence: bronte-tenant-of-wildfell-hall-e78441fff281b5dc
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

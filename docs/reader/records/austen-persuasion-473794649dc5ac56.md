@@ -210,9 +210,9 @@ Self-reported confidence: 0.95. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T captures the sentence’s central avowal of exclusive, continuing love, while P captures its secondary role in renewing a relational undertaking. Emotional agitation can remain contextual because the passage supplies no independent reflexive force requiring E, and no core feature escapes T/P/E.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/austen-persuasion-473794649dc5ac56/da01e0aca4075dff2d35f51a87ae5ee7389719960022a5a19e050890f8763c33/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/austen-persuasion-473794649dc5ac56/da01e0aca4075dff2d35f51a87ae5ee7389719960022a5a19e050890f8763c33/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/austen-persuasion/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/austen-persuasion-473794649dc5ac56/da01e0aca4075dff2d35f51a87ae5ee7389719960022a5a19e050890f8763c33/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/austen-persuasion-473794649dc5ac56/da01e0aca4075dff2d35f51a87ae5ee7389719960022a5a19e050890f8763c33/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/austen-persuasion/canonical.txt)
 - Occurrence: austen-persuasion-473794649dc5ac56
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

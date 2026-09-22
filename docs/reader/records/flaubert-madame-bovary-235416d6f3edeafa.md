@@ -267,9 +267,9 @@ Self-reported confidence: 0.98. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core avowal. Its conciliatory purpose, emotional delivery, and unsuccessful reception are adequately represented as context and do not require P, E, or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-235416d6f3edeafa/9fc8f7a81096221518d2f52be6f005a6138257666485321b79ac76569f29ca75/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-235416d6f3edeafa/9fc8f7a81096221518d2f52be6f005a6138257666485321b79ac76569f29ca75/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/flaubert-madame-bovary/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-235416d6f3edeafa/9fc8f7a81096221518d2f52be6f005a6138257666485321b79ac76569f29ca75/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-235416d6f3edeafa/9fc8f7a81096221518d2f52be6f005a6138257666485321b79ac76569f29ca75/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/flaubert-madame-bovary/canonical.txt)
 - Occurrence: flaubert-madame-bovary-235416d6f3edeafa
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

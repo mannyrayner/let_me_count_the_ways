@@ -227,9 +227,9 @@ Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T/P/E adequately represents the core force as a direct truth-conditional denial. Emotional strain, possible self-deception, and its courtship-rejecting function are contextual complications rather than missing core-force dimensions.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/gissing-the-odd-women-7c5fd4b2db052397/0c5b864a2062cbe0d9cdbcb875aab31ba09f81ee2e2f2f57cd801754ce14c551/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/gissing-the-odd-women-7c5fd4b2db052397/0c5b864a2062cbe0d9cdbcb875aab31ba09f81ee2e2f2f57cd801754ce14c551/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/gissing-the-odd-women/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/gissing-the-odd-women-7c5fd4b2db052397/0c5b864a2062cbe0d9cdbcb875aab31ba09f81ee2e2f2f57cd801754ce14c551/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/gissing-the-odd-women-7c5fd4b2db052397/0c5b864a2062cbe0d9cdbcb875aab31ba09f81ee2e2f2f57cd801754ce14c551/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/gissing-the-odd-women/canonical.txt)
 - Occurrence: gissing-the-odd-women-7c5fd4b2db052397
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

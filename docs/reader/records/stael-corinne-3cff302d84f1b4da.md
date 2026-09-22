@@ -221,9 +221,9 @@ Self-reported confidence: 0.98. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core force as a reflective avowal of an existing loving state. The surrounding conflict and emotional intensity require contextual explanation but create no residual pressure beyond T/P/E.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stael-corinne-3cff302d84f1b4da/349269310424c1267d5cc123fc8ba78154bfdd56000f25cce049d95066ef3c10/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stael-corinne-3cff302d84f1b4da/349269310424c1267d5cc123fc8ba78154bfdd56000f25cce049d95066ef3c10/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/stael-corinne/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stael-corinne-3cff302d84f1b4da/349269310424c1267d5cc123fc8ba78154bfdd56000f25cce049d95066ef3c10/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stael-corinne-3cff302d84f1b4da/349269310424c1267d5cc123fc8ba78154bfdd56000f25cce049d95066ef3c10/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/stael-corinne/canonical.txt)
 - Occurrence: stael-corinne-3cff302d84f1b4da
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

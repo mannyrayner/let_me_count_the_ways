@@ -346,9 +346,9 @@ Self-reported confidence: 0.97. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core force as an avowal of continuing love. The surrounding relational rupture and Philippe's interpretation are adequately treated as context; they create no residual pressure for P, E, or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/colette-le-ble-en-herbe-2344cebfeaed45b2/ade95f34f267b5297439d3558c6dec06b6604ac9624130ba01be94d4481c7f3f/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/colette-le-ble-en-herbe-2344cebfeaed45b2/ade95f34f267b5297439d3558c6dec06b6604ac9624130ba01be94d4481c7f3f/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/colette-le-ble-en-herbe/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/colette-le-ble-en-herbe-2344cebfeaed45b2/ade95f34f267b5297439d3558c6dec06b6604ac9624130ba01be94d4481c7f3f/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/colette-le-ble-en-herbe-2344cebfeaed45b2/ade95f34f267b5297439d3558c6dec06b6604ac9624130ba01be94d4481c7f3f/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/colette-le-ble-en-herbe/canonical.txt)
 - Occurrence: colette-le-ble-en-herbe-2344cebfeaed45b2
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

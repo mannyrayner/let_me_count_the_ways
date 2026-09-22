@@ -664,9 +664,9 @@ Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core utterance as an avowal presented as true. Its hesitation, possible calculation, and class-bound relational tension are adequately treated as context; neither P, E, nor O is required.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/strindberg-froken-julie-f75e1e15f1a3e50c/04b5e2f644e707bce78560644b06857aa7ebca844feadb15662f0e9b067091e9/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/strindberg-froken-julie-f75e1e15f1a3e50c/04b5e2f644e707bce78560644b06857aa7ebca844feadb15662f0e9b067091e9/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/strindberg-froken-julie/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/strindberg-froken-julie-f75e1e15f1a3e50c/04b5e2f644e707bce78560644b06857aa7ebca844feadb15662f0e9b067091e9/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/strindberg-froken-julie-f75e1e15f1a3e50c/04b5e2f644e707bce78560644b06857aa7ebca844feadb15662f0e9b067091e9/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/strindberg-froken-julie/canonical.txt)
 - Occurrence: strindberg-froken-julie-f75e1e15f1a3e50c
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

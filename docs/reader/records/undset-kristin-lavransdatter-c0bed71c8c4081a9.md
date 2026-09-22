@@ -4998,9 +4998,9 @@ Self-reported confidence: 0.99. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core retrospective avowal. The emotional and reparative setting is adequately represented as context; it creates no residual pressure for P, E, or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/undset-kristin-lavransdatter-c0bed71c8c4081a9/7cc10e57f81b49077b9e05b21bc65d9e8079ee3b92df335e0f1d37bbffb43963/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/undset-kristin-lavransdatter-c0bed71c8c4081a9/7cc10e57f81b49077b9e05b21bc65d9e8079ee3b92df335e0f1d37bbffb43963/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/undset-kristin-lavransdatter/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/undset-kristin-lavransdatter-c0bed71c8c4081a9/7cc10e57f81b49077b9e05b21bc65d9e8079ee3b92df335e0f1d37bbffb43963/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/undset-kristin-lavransdatter-c0bed71c8c4081a9/7cc10e57f81b49077b9e05b21bc65d9e8079ee3b92df335e0f1d37bbffb43963/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/undset-kristin-lavransdatter/canonical.txt)
 - Occurrence: undset-kristin-lavransdatter-c0bed71c8c4081a9
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

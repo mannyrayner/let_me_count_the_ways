@@ -285,9 +285,9 @@ Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T and P naturally capture the written line as both an avowal of enduring love and a promise-like continuation of attachment. Its emotional and sacrificial context does not independently establish expressive/reflexive force, and no residual core function requires O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/zuccoli-lamore-di-loredana-a4e4816a1fbe18c5/839829e7521186337d1b7cbd27c490ebd6abcb4d78e49e073beda23185066852/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/zuccoli-lamore-di-loredana-a4e4816a1fbe18c5/839829e7521186337d1b7cbd27c490ebd6abcb4d78e49e073beda23185066852/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/zuccoli-lamore-di-loredana/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/zuccoli-lamore-di-loredana-a4e4816a1fbe18c5/839829e7521186337d1b7cbd27c490ebd6abcb4d78e49e073beda23185066852/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/zuccoli-lamore-di-loredana-a4e4816a1fbe18c5/839829e7521186337d1b7cbd27c490ebd6abcb4d78e49e073beda23185066852/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/zuccoli-lamore-di-loredana/canonical.txt)
 - Occurrence: zuccoli-lamore-di-loredana-a4e4816a1fbe18c5
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

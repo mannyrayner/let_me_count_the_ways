@@ -221,9 +221,9 @@ Self-reported confidence: 0.9. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T captures the avowed state, while E captures the involuntary manifestation of repressed affect. P is appropriately absent because the passage stresses St. John’s refusal to make a relational offer; no residual core force requires O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-jane-eyre-8d223e8c973ddc84/afa503382c40d1751604ad37af8fa33bf0cfd99cc42fbfe2674025d437bd27b2/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-jane-eyre-8d223e8c973ddc84/afa503382c40d1751604ad37af8fa33bf0cfd99cc42fbfe2674025d437bd27b2/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/bronte-jane-eyre/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-jane-eyre-8d223e8c973ddc84/afa503382c40d1751604ad37af8fa33bf0cfd99cc42fbfe2674025d437bd27b2/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-jane-eyre-8d223e8c973ddc84/afa503382c40d1751604ad37af8fa33bf0cfd99cc42fbfe2674025d437bd27b2/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/bronte-jane-eyre/canonical.txt)
 - Occurrence: bronte-jane-eyre-8d223e8c973ddc84
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

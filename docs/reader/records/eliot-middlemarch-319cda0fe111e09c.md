@@ -230,9 +230,9 @@ Self-reported confidence: 0.97. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T captures the central avowal, with slight P support from its engagement-confirming context. No important core force remains outside T/P/E.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/eliot-middlemarch-319cda0fe111e09c/aac53e380a62f263fa3669824063a613d40fdaf65fdd5dfcef4e198cc134e24a/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/eliot-middlemarch-319cda0fe111e09c/aac53e380a62f263fa3669824063a613d40fdaf65fdd5dfcef4e198cc134e24a/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/eliot-middlemarch/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/eliot-middlemarch-319cda0fe111e09c/aac53e380a62f263fa3669824063a613d40fdaf65fdd5dfcef4e198cc134e24a/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/eliot-middlemarch-319cda0fe111e09c/aac53e380a62f263fa3669824063a613d40fdaf65fdd5dfcef4e198cc134e24a/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/eliot-middlemarch/canonical.txt)
 - Occurrence: eliot-middlemarch-319cda0fe111e09c
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

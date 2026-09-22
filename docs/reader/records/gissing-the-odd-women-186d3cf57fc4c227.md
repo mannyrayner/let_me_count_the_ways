@@ -257,9 +257,9 @@ Self-reported confidence: 0.95. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T/P/E adequately represents the core force: it is predominantly a truth-conditional denial of continuing love, with minor relational-closing force. Possible insincerity, defensiveness, and narrative irony belong to contextual interpretation rather than requiring O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/gissing-the-odd-women-186d3cf57fc4c227/31ad12b6ee7a181e9b855b9d48885a481c26d94f1bbf16e44fc8fc53f23b6fef/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/gissing-the-odd-women-186d3cf57fc4c227/31ad12b6ee7a181e9b855b9d48885a481c26d94f1bbf16e44fc8fc53f23b6fef/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/gissing-the-odd-women/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/gissing-the-odd-women-186d3cf57fc4c227/31ad12b6ee7a181e9b855b9d48885a481c26d94f1bbf16e44fc8fc53f23b6fef/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/gissing-the-odd-women-186d3cf57fc4c227/31ad12b6ee7a181e9b855b9d48885a481c26d94f1bbf16e44fc8fc53f23b6fef/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/gissing-the-odd-women/canonical.txt)
 - Occurrence: gissing-the-odd-women-186d3cf57fc4c227
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

@@ -640,9 +640,9 @@ Self-reported confidence: 0.98. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally represents the core denial even though the audience and Roxane understand it to be false. Its deception and self-sacrificial motivation are contextual features rather than missing dimensions of core force.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-21458fa202306065/63349a6c3a6153079a59867b982c92df2af714fae3ae859b08cfe3f4ee38002f/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-21458fa202306065/63349a6c3a6153079a59867b982c92df2af714fae3ae859b08cfe3f4ee38002f/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/rostand-cyrano-de-bergerac/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-21458fa202306065/63349a6c3a6153079a59867b982c92df2af714fae3ae859b08cfe3f4ee38002f/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-21458fa202306065/63349a6c3a6153079a59867b982c92df2af714fae3ae859b08cfe3f4ee38002f/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/rostand-cyrano-de-bergerac/canonical.txt)
 - Occurrence: rostand-cyrano-de-bergerac-21458fa202306065
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

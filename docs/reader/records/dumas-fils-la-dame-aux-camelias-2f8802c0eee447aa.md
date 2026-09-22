@@ -389,9 +389,9 @@ Self-reported confidence: 0.98. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the clause’s principal force as an avowal presented as true. Its argumentative and reassuring contextual roles require no additional core category, and there is no independent evidence for P, E, or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/dumas-fils-la-dame-aux-camelias-2f8802c0eee447aa/177da841f8de9589e060392c48650a89e2813a288c5f19d58d1f760318cdb454/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/dumas-fils-la-dame-aux-camelias-2f8802c0eee447aa/177da841f8de9589e060392c48650a89e2813a288c5f19d58d1f760318cdb454/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/dumas-fils-la-dame-aux-camelias/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/dumas-fils-la-dame-aux-camelias-2f8802c0eee447aa/177da841f8de9589e060392c48650a89e2813a288c5f19d58d1f760318cdb454/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/dumas-fils-la-dame-aux-camelias-2f8802c0eee447aa/177da841f8de9589e060392c48650a89e2813a288c5f19d58d1f760318cdb454/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/dumas-fils-la-dame-aux-camelias/canonical.txt)
 - Occurrence: dumas-fils-la-dame-aux-camelias-2f8802c0eee447aa
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

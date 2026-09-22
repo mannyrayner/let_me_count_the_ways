@@ -429,9 +429,9 @@ Self-reported confidence: 0.97. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core avowal. The rhetorical-question form, deliberate confession, and awkward relational consequences are adequately represented as contextual features and create no residual pressure for P, E, or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/ibsen-et-dukkehjem-003dfd3f3df5ffc6/be28d317c457e521745f9278ed025a1ba7c36484cee27e43790c82a40991e4b3/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/ibsen-et-dukkehjem-003dfd3f3df5ffc6/be28d317c457e521745f9278ed025a1ba7c36484cee27e43790c82a40991e4b3/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/ibsen-et-dukkehjem/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/ibsen-et-dukkehjem-003dfd3f3df5ffc6/be28d317c457e521745f9278ed025a1ba7c36484cee27e43790c82a40991e4b3/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/ibsen-et-dukkehjem-003dfd3f3df5ffc6/be28d317c457e521745f9278ed025a1ba7c36484cee27e43790c82a40991e4b3/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/ibsen-et-dukkehjem/canonical.txt)
 - Occurrence: ibsen-et-dukkehjem-003dfd3f3df5ffc6
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

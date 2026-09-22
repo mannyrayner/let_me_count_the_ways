@@ -346,9 +346,9 @@ Self-reported confidence: 0.91. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the central avowal, while P captures the limited commitment-invoking contribution of the surrounding apology and promise. Emotional delivery and narrative irony are contextual complications rather than missing dimensions of core force.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-c1cc44972185af75/55d5b9bfe22daad6718dd3b0f05f34ab6e5aecd6e5d9c7c10ad1d56cc77c18e0/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-c1cc44972185af75/55d5b9bfe22daad6718dd3b0f05f34ab6e5aecd6e5d9c7c10ad1d56cc77c18e0/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/flaubert-madame-bovary/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-c1cc44972185af75/55d5b9bfe22daad6718dd3b0f05f34ab6e5aecd6e5d9c7c10ad1d56cc77c18e0/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-c1cc44972185af75/55d5b9bfe22daad6718dd3b0f05f34ab6e5aecd6e5d9c7c10ad1d56cc77c18e0/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/flaubert-madame-bovary/canonical.txt)
 - Occurrence: flaubert-madame-bovary-c1cc44972185af75
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

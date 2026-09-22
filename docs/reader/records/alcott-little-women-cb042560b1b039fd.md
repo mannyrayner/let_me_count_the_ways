@@ -222,9 +222,9 @@ Self-reported confidence: 0.94. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T captures the explicit avowal, while moderate P captures its role in a courtship undertaking. Emotional delivery is contextual rather than an independently necessary E force, and no residual core function requires O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/alcott-little-women-cb042560b1b039fd/942334af28e62ccf180f40669542c1d0003d1a72319ac3480bcd6f8497d31cf7/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/alcott-little-women-cb042560b1b039fd/942334af28e62ccf180f40669542c1d0003d1a72319ac3480bcd6f8497d31cf7/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/alcott-little-women/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/alcott-little-women-cb042560b1b039fd/942334af28e62ccf180f40669542c1d0003d1a72319ac3480bcd6f8497d31cf7/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/alcott-little-women-cb042560b1b039fd/942334af28e62ccf180f40669542c1d0003d1a72319ac3480bcd6f8497d31cf7/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/alcott-little-women/canonical.txt)
 - Occurrence: alcott-little-women-cb042560b1b039fd
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

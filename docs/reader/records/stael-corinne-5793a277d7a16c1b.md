@@ -226,9 +226,9 @@ Self-reported confidence: 0.98. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core force as a reflective, inferential avowal of continuing love. The emotional intensity and renunciatory context require contextual explanation but create no residual pressure beyond T/P/E.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stael-corinne-5793a277d7a16c1b/4a0c050b359743ae03651d13a97de1a50b71e175938ef9f3a9fdc95bf5e1ff65/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stael-corinne-5793a277d7a16c1b/4a0c050b359743ae03651d13a97de1a50b71e175938ef9f3a9fdc95bf5e1ff65/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/stael-corinne/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stael-corinne-5793a277d7a16c1b/4a0c050b359743ae03651d13a97de1a50b71e175938ef9f3a9fdc95bf5e1ff65/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stael-corinne-5793a277d7a16c1b/4a0c050b359743ae03651d13a97de1a50b71e175938ef9f3a9fdc95bf5e1ff65/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/stael-corinne/canonical.txt)
 - Occurrence: stael-corinne-5793a277d7a16c1b
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

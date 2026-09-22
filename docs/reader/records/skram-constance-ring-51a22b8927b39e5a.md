@@ -349,9 +349,9 @@ Self-reported confidence: 0.94. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the settled avowal, while a moderate P score captures its role in a relational overture. Deliberate written composition supplies no independent E force, and no aspect of the core utterance requires O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-constance-ring-51a22b8927b39e5a/ef2906b62b9f30ee004c6b1c0de4f199ff10e5817d4dc3f15ccad83d7f1c44b0/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-constance-ring-51a22b8927b39e5a/ef2906b62b9f30ee004c6b1c0de4f199ff10e5817d4dc3f15ccad83d7f1c44b0/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/skram-constance-ring/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-constance-ring-51a22b8927b39e5a/ef2906b62b9f30ee004c6b1c0de4f199ff10e5817d4dc3f15ccad83d7f1c44b0/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-constance-ring-51a22b8927b39e5a/ef2906b62b9f30ee004c6b1c0de4f199ff10e5817d4dc3f15ccad83d7f1c44b0/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/skram-constance-ring/canonical.txt)
 - Occurrence: skram-constance-ring-51a22b8927b39e5a
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

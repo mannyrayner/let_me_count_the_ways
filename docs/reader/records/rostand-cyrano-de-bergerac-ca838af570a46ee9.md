@@ -761,9 +761,9 @@ Self-reported confidence: 0.97. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T adequately captures the core avowal. Its romantic intensity, exclamatory punctuation, and comic inadequacy are contextual or delivery features and create no residual pressure for E or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-ca838af570a46ee9/45bda8dba9cf1b2c99d170d9f5cdbf74a51fe9ff9830975fcda37e3e6f74c975/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-ca838af570a46ee9/45bda8dba9cf1b2c99d170d9f5cdbf74a51fe9ff9830975fcda37e3e6f74c975/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/rostand-cyrano-de-bergerac/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-ca838af570a46ee9/45bda8dba9cf1b2c99d170d9f5cdbf74a51fe9ff9830975fcda37e3e6f74c975/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-ca838af570a46ee9/45bda8dba9cf1b2c99d170d9f5cdbf74a51fe9ff9830975fcda37e3e6f74c975/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/rostand-cyrano-de-bergerac/canonical.txt)
 - Occurrence: rostand-cyrano-de-bergerac-ca838af570a46ee9
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

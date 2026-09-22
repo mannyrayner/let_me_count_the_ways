@@ -268,9 +268,9 @@ Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core avowal. Its persuasive placement, emotional delivery, and possible self-serving character are contextual features rather than missing dimensions of core force.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/balzac-illusions-perdues-4694dece9a911c92/8386eccd16f9d964e33c651f4cc621358d96b5ebd5a6782479758f16b761b310/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/balzac-illusions-perdues-4694dece9a911c92/8386eccd16f9d964e33c651f4cc621358d96b5ebd5a6782479758f16b761b310/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/balzac-illusions-perdues/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/balzac-illusions-perdues-4694dece9a911c92/8386eccd16f9d964e33c651f4cc621358d96b5ebd5a6782479758f16b761b310/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/balzac-illusions-perdues-4694dece9a911c92/8386eccd16f9d964e33c651f4cc621358d96b5ebd5a6782479758f16b761b310/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/balzac-illusions-perdues/canonical.txt)
 - Occurrence: balzac-illusions-perdues-4694dece9a911c92
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

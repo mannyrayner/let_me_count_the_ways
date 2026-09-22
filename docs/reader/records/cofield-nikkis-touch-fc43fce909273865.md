@@ -138,9 +138,9 @@ Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T and P naturally represent the utterance as both a sincere-presented avowal and a promise-inflected affirmation of the couple’s engagement. Emotional delivery is adequately handled as context and does not require E or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/cofield-nikkis-touch-fc43fce909273865/22f6500b6e11b2f10b558c3ba35f72bae4b7d26d562ee19bdea1b721807ccad4/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/cofield-nikkis-touch-fc43fce909273865/22f6500b6e11b2f10b558c3ba35f72bae4b7d26d562ee19bdea1b721807ccad4/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/cofield-nikkis-touch/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/cofield-nikkis-touch-fc43fce909273865/22f6500b6e11b2f10b558c3ba35f72bae4b7d26d562ee19bdea1b721807ccad4/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/cofield-nikkis-touch-fc43fce909273865/22f6500b6e11b2f10b558c3ba35f72bae4b7d26d562ee19bdea1b721807ccad4/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/cofield-nikkis-touch/canonical.txt)
 - Occurrence: cofield-nikkis-touch-fc43fce909273865
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

@@ -207,9 +207,9 @@ Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the avowal, while a low P score records the limited invocation of maternal commitment. Contextual manipulation and possessiveness do not require another core-force category.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-tenant-of-wildfell-hall-80d98c28815cc254/159fbc8ab442d926d69abca2015e764493c750e1b473d132dceab08202db4ac4/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-tenant-of-wildfell-hall-80d98c28815cc254/159fbc8ab442d926d69abca2015e764493c750e1b473d132dceab08202db4ac4/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/bronte-tenant-of-wildfell-hall/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-tenant-of-wildfell-hall-80d98c28815cc254/159fbc8ab442d926d69abca2015e764493c750e1b473d132dceab08202db4ac4/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-tenant-of-wildfell-hall-80d98c28815cc254/159fbc8ab442d926d69abca2015e764493c750e1b473d132dceab08202db4ac4/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/bronte-tenant-of-wildfell-hall/canonical.txt)
 - Occurrence: bronte-tenant-of-wildfell-hall-80d98c28815cc254
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

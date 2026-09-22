@@ -1,0 +1,262 @@
+# Война и мир
+
+Лев Толстой · Russian
+
+[All records](../README.md) · [HTML reading copy](../cases/tolstoy-war-and-peace-236e475097c9ad71.html)
+
+## Target
+
+> Я вас люблю
+
+
+| T: report / avowal | P: undertaking | E: expressive/reflexive | O: other |
+|---:|---:|---:|---:|
+| 4 / 4 | 0 / 4 | 0 / 4 | 0 / 4 |
+
+Scores are independent support judgments. T is not a sincerity score.
+
+## Original passage
+
+> — Нет, я должен. Может быть это suffisance с моей стороны, но всё лучше сказать. Ежели вы откажетесь для меня, то я должен вам сказать всю правду. Я вас люблю, я думаю, больше всех...
+
+
+## Original AI explanation
+
+Nikolai explicitly presents the utterance as telling Sonya the truth about his feelings. Its core force is therefore a strongly truth-conditional avowal. He immediately distinguishes this love from recurrent infatuation and expressly says that he promises nothing, which defeats a performative reading. Nothing indicates that the words escape as a reflexive or expressive discharge rather than as a deliberate, difficult disclosure.
+
+## Ambiguity
+
+The hedge «я думаю» (“I think”) and Nikolai’s subsequent distinctions among infatuation, friendship, trust, and love complicate the exact nature and degree of his feeling, but not the utterance’s predominantly truth-conditional force.
+
+## Narrative situation (AI interpretation)
+
+Nikolai makes the avowal because he fears Sonya has refused an advantageous proposal for his sake and believes she must know the truth. The disclosure reassures her emotionally, but he simultaneously tries to prevent it from being understood as a pledge: he admits his changeable infatuations, cites his youth and his mother’s opposition, says «я ничего не обещаю» (“I promise nothing”), and asks her to reconsider Dolokhov. Thus the scene combines sincere-seeming affection with caution about misleading Sonya, without turning the core utterance into an undertaking.
+
+## Original context supplied to the annotator
+
+> Николай, как и всегда, замучив две пары лошадей и то не успев побывать во всех местах, где ему надо было быть и куда его звали, приехал домой перед самым обедом. Как только он вошел, он заметил и почувствовал напряженность любовной атмосферы в доме, но кроме того он заметил странное замешательство, царствующее между некоторыми из членов общества. Особенно взволнованы были Соня; Долохов, старая графиня и немного Наташа. Николай понял, что что-то должно было случиться до обеда между Соней и Долоховым и с свойственною ему чуткостью сердца был очень нежен и осторожен, во время обеда, в обращении с ними обоими. В этот же вечер третьего дня праздников должен был быть один из тех балов у Иогеля (танцовального учителя), которые он давал по праздникам для всех своих учеников и учениц.
+> 
+> — Николинька, ты поедешь к Иогелю? Пожалуста, поезжай, — сказала ему Наташа, — он тебя особенно просил, и Василий Дмитрич (это был Денисов) едет.
+> 
+> — Куда я не поеду по приказанию графини! — сказал Денисов, шутливо поставивший себя в доме Ростовых на ногу рыцаря Наташи, — pas de châle готов танцовать.
+> 
+> — Коли успею! Я обещал Архаровым, у них вечер, — сказал Николай.
+> 
+> — А ты?... — обратился он к Долохову. И только что спросил это, заметил, что этого не надо было спрашивать.
+> 
+> — Да, может быть... — холодно и сердито отвечал Долохов, взглянув на Соню и, нахмурившись, точно таким взглядом, каким он на клубном обеде смотрел на Пьера, опять взглянул на Николая.
+> 
+> «Что-нибудь есть», подумал Николай и еще более утвердился в этом предположении тем, что Долохов тотчас же после обеда уехал. Он вызвал Наташу и спросил, чтò такое?
+> 
+> — А я тебя искала, — сказала Наташа, выбежав к нему. — Я говорила, ты всё не хотел верить, — торжествующе сказала она, — он сделал предложение Соне.
+> 
+> Как ни мало занимался Николай Соней за это время, но что-то как бы оторвалось в нем, когда он услыхал это. Долохов был приличная и в некоторых отношениях блестящая партия для бесприданной сироты-Сони. С точки зрения старой графини и света нельзя было отказать ему. И потому первое чувство Николая, когда он услыхал это, было озлобление против Сони. Он приготавливался к тому, чтобы сказать: «И прекрасно, разумеется, надо забыть детские обещания и принять предложение»; но не успел он еще сказать этого...
+> 
+> — Можешь себе представить! она отказала, совсем отказала! — заговорила Наташа. — Она сказала, что любит другого, — прибавила она, помолчав немного.
+> 
+> «Да иначе и не могла поступить моя Соня!» подумал Николай.
+> 
+> — Сколько ее ни просила мама, она отказала, и я знаю, она не переменит, если чтò сказала...
+> 
+> — А мама просила ее! — с упреком сказал Николай.
+> 
+> — Да, — сказала Наташа. — Знаешь, Николинька, не сердись; но я знаю, что ты на ней не женишься. Я знаю, Бог знает отчего, я знаю верно, ты не женишься.
+> 
+> — Ну, этого ты никак не знаешь, — сказал Николай; — но мне надо поговорить с ней. Чтò за прелесть, эта Соня! — прибавил он улыбаясь.
+> 
+> — Это такая прелесть! Я тебе пришлю ее. — И Наташа, поцеловав брата, убежала.
+> 
+> Через минуту вошла Соня, испуганная, растерянная и виноватая. Николай подошел к ней и поцеловал ее руку. Это был первый раз, что они в этот приезд говорили с глазу на глаз и о своей любви.
+> 
+> — Sophie, — сказал он сначала робко, и потом всё смелее и смелее, — ежели вы хотите отказаться не только от блестящей, от выгодной партии; но он прекрасный, благородный человек... он мой друг...
+> 
+> Соня перебила его.
+> 
+> — Я уж отказалась, — сказала она поспешно.
+> 
+> — Ежели вы отказываетесь для меня, то я боюсь, что на мне...
+> 
+> Соня опять перебила его. Она умоляющим, испуганным взглядом посмотрела на него.
+> 
+> — Nicolas, не говорите мне этого, — сказала она.
+> 
+> — Нет, я должен. Может быть это suffisance с моей стороны, но всё лучше сказать. Ежели вы откажетесь для меня, то я должен вам сказать всю правду. Я вас люблю, я думаю, больше всех...
+> 
+> — Мне и довольно, — вспыхнув, сказала Соня.
+> 
+> — Нет, но я тысячу раз влюблялся и буду влюбляться, хотя такого чувства дружбы, доверия, любви, я ни к кому не имею, как к вам. Потом я молод. Maman не хочет этого. Ну, просто, я ничего не обещаю. И я прошу вас подумать о предложении Долохова, — сказал он, с трудом выговаривая фамилию своего друга.
+> 
+> — Не говорите мне этого. Я ничего не хочу. Я люблю вас, как брата, и всегда буду любить, и больше мне ничего не надо.
+> 
+> — Вы ангел, я вас не стòю, но я только боюсь обмануть вас. — Николай еще раз поцеловал ее руку.
+> 
+> XII.
+> 
+> У Иогеля были самые веселые балы в Москве. Это говорили матушки, глядя на своих adolescentes, выделывающих свои только что выученные пà; это говорили и сами adolescentes и adolescents, танцовавшие до упаду; это говорили взрослые девицы и молодые люди, приезжавшие на эти балы с мыслию снизойти до них и находя в них самое лучшее веселье. В этот же год на этих балах сделалось два брака. Две хорошенькие княжны Горчаковы нашли женихов и вышли замуж, и тем еще более пустили в славу эти балы. Особенного на этих балах было то, что не было хозяина и хозяйки: был, как пух летающий, по правилам искусства расшаркивающийся, добродушный Иогель, который принимал билетики за уроки от всех своих гостей; было то, что на эти балы еще езжали только те, кто хотел танцовать и веселиться, как хотят этого 13-ти и 14-ти-летние девочки, в первый раз надевающие длинные платья. Все, за редкими исключениями, были или казались хорошенькими: так восторженно они все улыбались и так разгорались их глазки. Иногда танцовывали даже pas de châle лучшие ученицы, из которых лучшая была Наташа, отличавшаяся своею грациозностью; но на этом, последнем бале танцовали только экосезы, англезы и только что входящую в моду мазурку. Зала была взята Иогелем в доме Безухова, и бал очень удался, как говорили все. Много было хорошеньких девочек, и Ростовы барышни были из лучших. Они обе были особенно счастливы и веселы. В этот вечер Соня, гордая предложением Долохова, своим отказом и объяснением с Николаем, кружилась еще дома, не давая девушке дочесать свои косы, и теперь насквозь светилась порывистою радостью.
+> 
+> Наташа, не менее гордая тем, что она в первый раз была в длинном платье, на настоящем бале, была еще счастливее. Они были в белых, кисейных платьях с розовыми лентами.
+> 
+> Наташа сделалась влюблена с самой той минуты, как она вошла на бал. Она не была влюблена ни в кого в особенности, но влюблена была во всех. В того, на кого она смотрела в ту минуту, как она смотрела, в того она и была влюблена.
+> 
+> — Ах, как хорошо! — всё говорила она, подбегая к Соне.
+> 
+> Николай с Денисовым ходили по залам, ласково и покровительственно оглядывая танцующих.
+> 
+> — Как она мила, красавица будет, — сказал Денисов.
+> 
+> — Кто?
+> 
+> — Графиня Наташа, — отвечал Денисов.
+> 
+> — И как она танцует, какая грация! — помолчав немного, опять сказал он.
+> 
+> — Да про кого ты говоришь?
+> 
+> — Про сестру про твою, — сердито крикнул Денисов.
+> 
+> Ростов усмехнулся.
+> 
+> — Mon cher comte; vous êtes l’un de mes meilleurs écoliers, il faut que vous dansiez, — сказал маленький Иогель, подходя к Николаю. — Voyez combien de jolies demoiselles. — Он с тою же просьбой обратился и к Денисову, тоже своему бывшему ученику.
+
+
+## English translation supplied to the annotator
+
+> Nikolai, as always, having worn out two pairs of horses and still not managed to visit all the places where he needed to be and to which he had been invited, arrived home just before dinner. As soon as he entered, he noticed and felt the tension of the amorous atmosphere in the house, but in addition he noticed the strange confusion prevailing among some members of the company. Sonya, Dolokhov, the old countess, and, to some extent, Natasha were particularly agitated. Nikolai realized that something must have happened before dinner between Sonya and Dolokhov and, with his characteristic sensitivity of heart, was very tender and cautious in his dealings with them both during dinner. That same evening, the third day of the holidays, there was to be one of those balls at Iogel’s—the dancing master’s—which he gave during the holidays for all his male and female pupils.
+> 
+> “Nikolenka, are you going to Iogel’s? Please go,” Natasha said to him. “He asked especially for you, and Vasily Dmitrich”—this was Denisov—“is going.”
+> 
+> “Where would I not go at the countess’s command!” said Denisov, who had jokingly placed himself in the Rostovs’ household on the footing of Natasha’s knight. “I am ready to dance the shawl dance.”
+> 
+> “If I have time! I promised the Arkharovs; they are having an evening,” said Nikolai.
+> 
+> “And you?…” he said, turning to Dolokhov. And no sooner had he asked than he realized that he should not have asked it.
+> 
+> “Yes, perhaps…” Dolokhov replied coldly and angrily, glancing at Sonya and then, frowning, looking again at Nikolai with exactly the same look with which he had regarded Pierre at the dinner at the club.
+> 
+> “There is something going on,” thought Nikolai, and he was still further confirmed in this supposition by the fact that Dolokhov left immediately after dinner. He called Natasha out and asked what it was.
+> 
+> “I was looking for you,” Natasha said, running out to him. “I told you, but you would never believe me,” she said triumphantly. “He proposed to Sonya.”
+> 
+> Little as Nikolai had concerned himself with Sonya during that time, something seemed to tear loose inside him when he heard this. Dolokhov was a respectable and, in some respects, brilliant match for Sonya, a penniless orphan. From the point of view of the old countess and society, she could not refuse him. And so Nikolai’s first feeling when he heard this was anger with Sonya. He was preparing to say, “And an excellent thing too; of course she must forget childhood promises and accept the proposal,” but before he had time to say it…
+> 
+> “Can you imagine! She refused him, refused him outright!” Natasha began. “She said that she loves someone else,” she added after a short silence.
+> 
+> “My Sonya could not have acted otherwise!” thought Nikolai.
+> 
+> “No matter how much Mama begged her, she refused, and I know she will not change her mind once she has said something…”
+> 
+> “And Mama begged her!” Nikolai said reproachfully.
+> 
+> “Yes,” said Natasha. “You know, Nikolenka, do not be angry; but I know that you will not marry her. I know—God knows why—but I know for certain that you will not marry her.”
+> 
+> “Well, you cannot possibly know that,” said Nikolai. “But I must talk to her. What a treasure that Sonya is!” he added with a smile.
+> 
+> “She is such a treasure! I shall send her to you.” And Natasha kissed her brother and ran away.
+> 
+> A minute later Sonya came in, frightened, confused, and guilty. Nikolai went up to her and kissed her hand. This was the first time during this visit that they had spoken face to face and about their love.
+> 
+> “Sophie,” he said, timidly at first and then more and more boldly, “if you wish to refuse not merely a brilliant and advantageous match; but he is a splendid, noble man… he is my friend…”
+> 
+> Sonya interrupted him.
+> 
+> “I have already refused him,” she said hurriedly.
+> 
+> “If you are refusing him for my sake, then I am afraid that I…”
+> 
+> Sonya interrupted him again. She looked at him with a pleading, frightened gaze.
+> 
+> “Nicolas, do not say this to me,” she said.
+> 
+> “No, I must. Perhaps it is presumption on my part, but it is better to say it. If you refuse him for my sake, then I must tell you the whole truth. I love you, I think, more than anyone…”
+> 
+> “That is enough for me,” Sonya said, flushing.
+> 
+> “No, but I have fallen in love a thousand times and shall fall in love again, although I have no such feeling of friendship, trust, and love for anyone as I have for you. Besides, I am young. Maman does not want it. Well, quite simply, I promise nothing. And I ask you to think about Dolokhov’s proposal,” he said, pronouncing his friend’s surname with difficulty.
+> 
+> “Do not say that to me. I want nothing. I love you as a brother, and I shall always love you, and I need nothing more.”
+> 
+> “You are an angel; I am not worthy of you, but I am only afraid of deceiving you.” Nikolai kissed her hand once more.
+> 
+> XII.
+> 
+> Iogel’s balls were the merriest in Moscow. So the mothers said as they watched their adolescent daughters performing the steps they had only just learned; so said the adolescent girls and boys themselves, who danced until they dropped; so said the grown young ladies and young men who came to these balls intending to condescend to them, only to find the very best entertainment there. That very year, two marriages resulted from these balls. Two pretty Princesses Gorchakov found bridegrooms and married, thereby adding still further to the fame of the balls. What was special about these balls was that there was no host or hostess: there was the good-natured Iogel, flitting about like thistledown and making bows according to all the rules of his art, who accepted lesson tickets from all his guests; and also that only those who wanted to dance and enjoy themselves as thirteen- and fourteen-year-old girls do when they put on long dresses for the first time still attended these balls. With rare exceptions, everyone was, or seemed, pretty: so rapturously did they all smile and so brightly did their little eyes glow. Sometimes the best female pupils even danced the shawl dance, and the best of them was Natasha, who was distinguished by her gracefulness; but at this, the last ball, they danced only écossaises, anglaises, and the mazurka, which had only just begun to come into fashion. Iogel had hired a ballroom in Bezukhov’s house, and the ball was a great success, as everyone said. There were many pretty girls, and the young Rostov ladies were among the prettiest. Both of them were particularly happy and merry. That evening Sonya, proud of Dolokhov’s proposal, of her refusal, and of her explanation with Nikolai, had been whirling about even at home, not letting the maid finish plaiting her hair, and now she shone through and through with impetuous joy.
+> 
+> Natasha, no less proud that for the first time she was wearing a long dress at a real ball, was even happier. They were both wearing white muslin dresses with pink ribbons.
+> 
+> Natasha fell in love from the very moment she entered the ball. She was not in love with anyone in particular, but she was in love with everyone. Whoever she happened to be looking at at any given moment, she was in love with that person.
+> 
+> “Oh, how wonderful!” she kept saying as she ran up to Sonya.
+> 
+> Nikolai and Denisov walked through the rooms, looking affectionately and protectively at the dancers.
+> 
+> “How sweet she is; she will be a beauty,” said Denisov.
+> 
+> “Who?”
+> 
+> “Countess Natasha,” Denisov replied.
+> 
+> “And how she dances—what grace!” he said again after a short silence.
+> 
+> “Who are you talking about?”
+> 
+> “Your sister,” Denisov shouted angrily.
+> 
+> Rostov smiled.
+> 
+> “My dear Count, you are one of my best pupils; you must dance,” little Iogel said as he approached Nikolai. “See how many pretty young ladies there are.” He addressed the same request to Denisov, who had also formerly been his pupil.
+
+
+Translation, where present, is an AI-generated analytical aid, not an authoritative edition.
+
+## Evidence cited by the annotator
+
+### e1 — local text
+
+> «Ежели вы откажетесь для меня, то я должен вам сказать всю правду. Я вас люблю, я думаю, больше всех...»
+
+Nikolai frames “I love you” as disclosure of the whole truth, strongly supporting T; the considered lead-in also weighs against reflex-like E.
+
+### e2 — local text
+
+> «Ну, просто, я ничего не обещаю.» (“Quite simply, I promise nothing.”)
+
+The explicit denial of any promise strongly weighs against performative or undertaking force.
+
+### e3 — local text
+
+> Nikolai says he has fallen in love many times and will do so again, but has feelings of friendship, trust, and love for no one as he does for Sonya.
+
+This elaborates the emotional state he is avowing while qualifying its romantic implications, reinforcing T rather than P.
+
+### e4 — local text
+
+> The narration says this is their first private conversation during the visit “about their love,” and Nikolai speaks first timidly and then increasingly boldly.
+
+The scene presents a deliberate interpersonal disclosure, not an involuntary verbal outburst.
+
+### e5 — local text
+
+> Sonya answers «Мне и довольно» (“That is enough for me”) and flushes.
+
+Her response shows that the avowal provides the emotional acknowledgment she wanted, though its effect on her does not itself create performative force.
+
+## Background, status and source records
+
+Utterance status: **direct**. Nikolai directly tells Sonya «Я вас люблю» during a private conversation about her refusal of Dolokhov.
+
+Background knowledge reported as used: **False**. 
+
+Self-reported confidence: 0.98. Not a calibrated accuracy estimate.
+
+Ontology fit: natural. T/P/E adequately captures the core utterance as a deliberate truth-directed avowal with no promise and no independently evidenced expressive/reflexive discharge. The surrounding tension between affection, caution, and Sonya’s hopes is contextual rather than residual core force.
+
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/context_extension_3_v0_13_v0_3_1/annotations/tolstoy-war-and-peace-236e475097c9ad71/9a0bd66013150f939f9f41b167d34fc6c917736855ce3ed58cf2c7429d18e96b/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/context_extension_3_v0_13_v0_3_1/annotations/tolstoy-war-and-peace-236e475097c9ad71/9a0bd66013150f939f9f41b167d34fc6c917736855ce3ed58cf2c7429d18e96b/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/tolstoy-war-and-peace/canonical.txt)
+- Occurrence: tolstoy-war-and-peace-236e475097c9ad71
+- Model: gpt-5.6-sol
+- Classification prompt: 0.3.1
+- Historical run: context_extension_3_v0_13_v0_3_1
+- Canonical SHA-256: 89c2922d192b9b90f34ed910a4b7680753fa72c6a03ae8bac685f1ff864eb929
+
+Rendered deterministically from the saved record. No rescoring or replacement explanation.

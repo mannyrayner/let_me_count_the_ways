@@ -220,9 +220,9 @@ Self-reported confidence: 0.98. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core force as an avowal of romantic feeling. The jealousy, marital status, and emotional violence belong to contextual interpretation and create no residual pressure for P, E, or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lafayette-la-princesse-de-cleves-c8c3a813b2c46e4b/bf9ac9443d135495e21e703766922d7c72e666895c22e34b9e6798a32503dd12/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lafayette-la-princesse-de-cleves-c8c3a813b2c46e4b/bf9ac9443d135495e21e703766922d7c72e666895c22e34b9e6798a32503dd12/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/lafayette-la-princesse-de-cleves/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lafayette-la-princesse-de-cleves-c8c3a813b2c46e4b/bf9ac9443d135495e21e703766922d7c72e666895c22e34b9e6798a32503dd12/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lafayette-la-princesse-de-cleves-c8c3a813b2c46e4b/bf9ac9443d135495e21e703766922d7c72e666895c22e34b9e6798a32503dd12/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/lafayette-la-princesse-de-cleves/canonical.txt)
 - Occurrence: lafayette-la-princesse-de-cleves-c8c3a813b2c46e4b
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

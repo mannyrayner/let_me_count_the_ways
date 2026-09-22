@@ -224,9 +224,9 @@ Self-reported confidence: 0.97. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core avowal. Its argumentative use, emotional intensity, and placement within an engagement scene are contextual features rather than missing dimensions of core force.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-jane-eyre-41b2d0196e9af2ce/edc210b21ec33cf59ba0ee6d7dd0cd6da5329b38ed6267e8c8e1cb5156a571f6/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-jane-eyre-41b2d0196e9af2ce/edc210b21ec33cf59ba0ee6d7dd0cd6da5329b38ed6267e8c8e1cb5156a571f6/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/bronte-jane-eyre/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-jane-eyre-41b2d0196e9af2ce/edc210b21ec33cf59ba0ee6d7dd0cd6da5329b38ed6267e8c8e1cb5156a571f6/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-jane-eyre-41b2d0196e9af2ce/edc210b21ec33cf59ba0ee6d7dd0cd6da5329b38ed6267e8c8e1cb5156a571f6/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/bronte-jane-eyre/canonical.txt)
 - Occurrence: bronte-jane-eyre-41b2d0196e9af2ce
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

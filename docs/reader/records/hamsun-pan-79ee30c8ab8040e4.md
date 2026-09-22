@@ -355,9 +355,9 @@ Self-reported confidence: 0.93. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T/P/E adequately represents the core force: a strong avowal with weak context-dependent relational-undertaking pressure and no independently established reflexive discharge. The narrator’s divided attachment and possible manipulation belong to contextual interpretation rather than requiring O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-pan-79ee30c8ab8040e4/d129c2c7dbf73ad12da054f6095d6930f673420b91dc8ada47bbc82d945bee11/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-pan-79ee30c8ab8040e4/d129c2c7dbf73ad12da054f6095d6930f673420b91dc8ada47bbc82d945bee11/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/hamsun-pan/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-pan-79ee30c8ab8040e4/d129c2c7dbf73ad12da054f6095d6930f673420b91dc8ada47bbc82d945bee11/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-pan-79ee30c8ab8040e4/d129c2c7dbf73ad12da054f6095d6930f673420b91dc8ada47bbc82d945bee11/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/hamsun-pan/canonical.txt)
 - Occurrence: hamsun-pan-79ee30c8ab8040e4
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

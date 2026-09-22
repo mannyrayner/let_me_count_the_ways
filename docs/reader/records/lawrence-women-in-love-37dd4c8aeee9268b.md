@@ -258,9 +258,9 @@ Self-reported confidence: 0.9. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T/P/E adequately classifies the utterance’s core force as a sincere avowal with slight relational-undertaking resonance. The passage’s insistence that the formula cannot express self-transcending oneness is important contextual and semantic pressure, but not a distinct recurrent force that requires O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lawrence-women-in-love-37dd4c8aeee9268b/fa13761d9f8a1b20f645d9b50c2c13026b490d5545b23f28eca5181eb135f42c/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lawrence-women-in-love-37dd4c8aeee9268b/fa13761d9f8a1b20f645d9b50c2c13026b490d5545b23f28eca5181eb135f42c/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/lawrence-women-in-love/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lawrence-women-in-love-37dd4c8aeee9268b/fa13761d9f8a1b20f645d9b50c2c13026b490d5545b23f28eca5181eb135f42c/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lawrence-women-in-love-37dd4c8aeee9268b/fa13761d9f8a1b20f645d9b50c2c13026b490d5545b23f28eca5181eb135f42c/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/lawrence-women-in-love/canonical.txt)
 - Occurrence: lawrence-women-in-love-37dd4c8aeee9268b
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

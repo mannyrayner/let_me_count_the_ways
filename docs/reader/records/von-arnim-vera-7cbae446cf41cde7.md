@@ -232,9 +232,9 @@ Self-reported confidence: 0.98. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T adequately captures the direct avowal of a loving state. Its affectionate delivery and narratively ironic context require no additional core-force category; P and E lack independent support.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/von-arnim-vera-7cbae446cf41cde7/48882b13c6c4623a6fdec5ffa3a4e087918b5be901f31837c0158274ac0399cb/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/von-arnim-vera-7cbae446cf41cde7/48882b13c6c4623a6fdec5ffa3a4e087918b5be901f31837c0158274ac0399cb/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/von-arnim-vera/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/von-arnim-vera-7cbae446cf41cde7/48882b13c6c4623a6fdec5ffa3a4e087918b5be901f31837c0158274ac0399cb/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/von-arnim-vera-7cbae446cf41cde7/48882b13c6c4623a6fdec5ffa3a4e087918b5be901f31837c0158274ac0399cb/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/von-arnim-vera/canonical.txt)
 - Occurrence: von-arnim-vera-7cbae446cf41cde7
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

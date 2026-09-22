@@ -220,9 +220,9 @@ Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T/P/E gives a natural account: the utterance is dominantly truth-conditional, with slight commitment resonance from the anticipated shared life, and no independent evidence for expressive/reflexive force. No important aspect of the core force falls outside T/P/E.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-jane-eyre-091b963d938b794f/701efa23b043672c4bd054b2579d1f255c138b63d6cdedfd72dcd6811fc24886/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-jane-eyre-091b963d938b794f/701efa23b043672c4bd054b2579d1f255c138b63d6cdedfd72dcd6811fc24886/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/bronte-jane-eyre/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-jane-eyre-091b963d938b794f/701efa23b043672c4bd054b2579d1f255c138b63d6cdedfd72dcd6811fc24886/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-jane-eyre-091b963d938b794f/701efa23b043672c4bd054b2579d1f255c138b63d6cdedfd72dcd6811fc24886/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/bronte-jane-eyre/canonical.txt)
 - Occurrence: bronte-jane-eyre-091b963d938b794f
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

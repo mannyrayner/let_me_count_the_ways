@@ -694,9 +694,9 @@ Self-reported confidence: 0.97. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the avowal of friendly affection. Gratitude, dramatic irony, and emotional coloring belong to contextual interpretation and create no residual pressure beyond T/P/E.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-93e334d0b46b4412/d0613135ff3235f7ea706f0b28419f3828a91100cc9488c5d7507391cbdef282/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-93e334d0b46b4412/d0613135ff3235f7ea706f0b28419f3828a91100cc9488c5d7507391cbdef282/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/rostand-cyrano-de-bergerac/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-93e334d0b46b4412/d0613135ff3235f7ea706f0b28419f3828a91100cc9488c5d7507391cbdef282/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-93e334d0b46b4412/d0613135ff3235f7ea706f0b28419f3828a91100cc9488c5d7507391cbdef282/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/rostand-cyrano-de-bergerac/canonical.txt)
 - Occurrence: rostand-cyrano-de-bergerac-93e334d0b46b4412
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

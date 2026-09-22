@@ -342,9 +342,9 @@ Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T and P naturally capture the deliberate emotional avowal and its role in proposing a committed lovers’ relationship. Intensity, taboo, sexuality, and persuasion are adequately handled as context; there is no residual core-force pressure requiring O, and no positive evidence for E.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-739102cf42485872/faace4842f7b273207f5d3e16940f3ce81e4254842328c41b17600929fe7c3d4/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-739102cf42485872/faace4842f7b273207f5d3e16940f3ce81e4254842328c41b17600929fe7c3d4/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/verona-colei-che-non-si-deve-amare/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-739102cf42485872/faace4842f7b273207f5d3e16940f3ce81e4254842328c41b17600929fe7c3d4/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-739102cf42485872/faace4842f7b273207f5d3e16940f3ce81e4254842328c41b17600929fe7c3d4/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/verona-colei-che-non-si-deve-amare/canonical.txt)
 - Occurrence: verona-colei-che-non-si-deve-amare-739102cf42485872
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

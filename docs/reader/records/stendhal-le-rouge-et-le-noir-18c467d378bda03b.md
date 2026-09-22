@@ -259,9 +259,9 @@ Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the embedded avowal, while the emotional and sacrificial context can be described without assigning independent P, E, or O force.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stendhal-le-rouge-et-le-noir-18c467d378bda03b/cdca4813c01910bc6bb3820327f4e20b7d4a96adaf0cc0c08ff00f56dff3d4e8/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stendhal-le-rouge-et-le-noir-18c467d378bda03b/cdca4813c01910bc6bb3820327f4e20b7d4a96adaf0cc0c08ff00f56dff3d4e8/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/stendhal-le-rouge-et-le-noir/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stendhal-le-rouge-et-le-noir-18c467d378bda03b/cdca4813c01910bc6bb3820327f4e20b7d4a96adaf0cc0c08ff00f56dff3d4e8/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stendhal-le-rouge-et-le-noir-18c467d378bda03b/cdca4813c01910bc6bb3820327f4e20b7d4a96adaf0cc0c08ff00f56dff3d4e8/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/stendhal-le-rouge-et-le-noir/canonical.txt)
 - Occurrence: stendhal-le-rouge-et-le-noir-18c467d378bda03b
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

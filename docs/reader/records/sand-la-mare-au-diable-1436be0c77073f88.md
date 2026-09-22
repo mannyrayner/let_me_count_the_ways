@@ -274,9 +274,9 @@ Self-reported confidence: 0.93. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the explicit avowal, while P captures its implicit acceptance function in the proposal scene. Emotional delivery can be recorded contextually without adding E, and no residual core force requires O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/sand-la-mare-au-diable-1436be0c77073f88/2289a9e7408eff621b67f4014c0c7610caa351318a42bb96f88b5dff0c848293/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/sand-la-mare-au-diable-1436be0c77073f88/2289a9e7408eff621b67f4014c0c7610caa351318a42bb96f88b5dff0c848293/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/sand-la-mare-au-diable/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/sand-la-mare-au-diable-1436be0c77073f88/2289a9e7408eff621b67f4014c0c7610caa351318a42bb96f88b5dff0c848293/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/sand-la-mare-au-diable-1436be0c77073f88/2289a9e7408eff621b67f4014c0c7610caa351318a42bb96f88b5dff0c848293/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/sand-la-mare-au-diable/canonical.txt)
 - Occurrence: sand-la-mare-au-diable-1436be0c77073f88
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

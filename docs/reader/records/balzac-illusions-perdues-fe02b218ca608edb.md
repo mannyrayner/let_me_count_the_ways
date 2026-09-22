@@ -259,9 +259,9 @@ Self-reported confidence: 0.94. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core avowal, with a small P score preserving its pledge-like assurance of constancy. Delivery and narrative intensity remain contextual because nothing important is lost by declining to posit independent E or O force.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/balzac-illusions-perdues-fe02b218ca608edb/b8d017ce125debd1e86f4a628ae996f6537410ff72fe68d3003ab412726a329b/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/balzac-illusions-perdues-fe02b218ca608edb/b8d017ce125debd1e86f4a628ae996f6537410ff72fe68d3003ab412726a329b/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/balzac-illusions-perdues/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/balzac-illusions-perdues-fe02b218ca608edb/b8d017ce125debd1e86f4a628ae996f6537410ff72fe68d3003ab412726a329b/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/balzac-illusions-perdues-fe02b218ca608edb/b8d017ce125debd1e86f4a628ae996f6537410ff72fe68d3003ab412726a329b/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/balzac-illusions-perdues/canonical.txt)
 - Occurrence: balzac-illusions-perdues-fe02b218ca608edb
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

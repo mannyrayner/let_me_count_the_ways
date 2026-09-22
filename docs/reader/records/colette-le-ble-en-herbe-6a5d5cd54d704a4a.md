@@ -318,9 +318,9 @@ Self-reported confidence: 0.97. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core avowal. Its pleading, emotionally intense setting is adequately handled as context; no additional core-force category is required.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/colette-le-ble-en-herbe-6a5d5cd54d704a4a/6e1cf500bcd6df85fcbe0918b8344f9691a00cbf4b3932eb2cbad404a3b871a7/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/colette-le-ble-en-herbe-6a5d5cd54d704a4a/6e1cf500bcd6df85fcbe0918b8344f9691a00cbf4b3932eb2cbad404a3b871a7/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/colette-le-ble-en-herbe/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/colette-le-ble-en-herbe-6a5d5cd54d704a4a/6e1cf500bcd6df85fcbe0918b8344f9691a00cbf4b3932eb2cbad404a3b871a7/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/colette-le-ble-en-herbe-6a5d5cd54d704a4a/6e1cf500bcd6df85fcbe0918b8344f9691a00cbf4b3932eb2cbad404a3b871a7/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/colette-le-ble-en-herbe/canonical.txt)
 - Occurrence: colette-le-ble-en-herbe-6a5d5cd54d704a4a
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

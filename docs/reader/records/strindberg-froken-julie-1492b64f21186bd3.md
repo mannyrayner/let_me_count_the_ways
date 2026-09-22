@@ -575,9 +575,9 @@ Self-reported confidence: 0.94. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T captures the represented loving-state proposition, while the status and contextual account capture its attribution to Jean and Julie’s repudiation. P and E lack independent support, and no residual core force requires O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/strindberg-froken-julie-1492b64f21186bd3/69f514c5c7614afaedafaf686242a7e26dec38246171e6e867b26ec1a9a101de/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/strindberg-froken-julie-1492b64f21186bd3/69f514c5c7614afaedafaf686242a7e26dec38246171e6e867b26ec1a9a101de/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/strindberg-froken-julie/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/strindberg-froken-julie-1492b64f21186bd3/69f514c5c7614afaedafaf686242a7e26dec38246171e6e867b26ec1a9a101de/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/strindberg-froken-julie-1492b64f21186bd3/69f514c5c7614afaedafaf686242a7e26dec38246171e6e867b26ec1a9a101de/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/strindberg-froken-julie/canonical.txt)
 - Occurrence: strindberg-froken-julie-1492b64f21186bd3
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

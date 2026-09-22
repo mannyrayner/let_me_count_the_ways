@@ -265,9 +265,9 @@ Self-reported confidence: 0.92. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T captures the conditional presentation of affection’s cessation, while a low P score registers limited undertaking-like pressure from the threat. Strategic motivation and agitation are contextual and create no residual need for O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stendhal-le-rouge-et-le-noir-e77cc1cde2107c64/eaa1f925178880b5843c0da55999c3f984c40ea817d20e4e6faa46e9ec80e17d/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stendhal-le-rouge-et-le-noir-e77cc1cde2107c64/eaa1f925178880b5843c0da55999c3f984c40ea817d20e4e6faa46e9ec80e17d/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/stendhal-le-rouge-et-le-noir/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stendhal-le-rouge-et-le-noir-e77cc1cde2107c64/eaa1f925178880b5843c0da55999c3f984c40ea817d20e4e6faa46e9ec80e17d/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stendhal-le-rouge-et-le-noir-e77cc1cde2107c64/eaa1f925178880b5843c0da55999c3f984c40ea817d20e4e6faa46e9ec80e17d/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/stendhal-le-rouge-et-le-noir/canonical.txt)
 - Occurrence: stendhal-le-rouge-et-le-noir-e77cc1cde2107c64
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

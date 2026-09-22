@@ -292,9 +292,9 @@ Self-reported confidence: 0.95. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the embedded avowal. The proposal, emotional delivery, and pressure for reciprocation are adequately treated as context and create no residual core-force dimension beyond T/P/E.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/zuccoli-lamore-di-loredana-0b61bc5e855a3829/309ad89ba19cb691258c20c29a010538c2a1572af61bfbb50ae70c843d9cc4c8/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/zuccoli-lamore-di-loredana-0b61bc5e855a3829/309ad89ba19cb691258c20c29a010538c2a1572af61bfbb50ae70c843d9cc4c8/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/zuccoli-lamore-di-loredana/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/zuccoli-lamore-di-loredana-0b61bc5e855a3829/309ad89ba19cb691258c20c29a010538c2a1572af61bfbb50ae70c843d9cc4c8/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/zuccoli-lamore-di-loredana-0b61bc5e855a3829/309ad89ba19cb691258c20c29a010538c2a1572af61bfbb50ae70c843d9cc4c8/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/zuccoli-lamore-di-loredana/canonical.txt)
 - Occurrence: zuccoli-lamore-di-loredana-0b61bc5e855a3829
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

@@ -132,9 +132,9 @@ Self-reported confidence: 0.98. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T and P naturally capture the core utterance as both an avowal of love and a commitment-bearing declaration within an engagement ritual. Emotional delivery is adequately treated as context, so neither E nor O is needed.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/cofield-nikkis-touch-e8f41998f78aeecc/bc322cd5a8df3d1ad66a40d8e6ee9dfdc6e54974623401c2f7cb51efecc249c2/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/cofield-nikkis-touch-e8f41998f78aeecc/bc322cd5a8df3d1ad66a40d8e6ee9dfdc6e54974623401c2f7cb51efecc249c2/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/cofield-nikkis-touch/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/cofield-nikkis-touch-e8f41998f78aeecc/bc322cd5a8df3d1ad66a40d8e6ee9dfdc6e54974623401c2f7cb51efecc249c2/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/cofield-nikkis-touch-e8f41998f78aeecc/bc322cd5a8df3d1ad66a40d8e6ee9dfdc6e54974623401c2f7cb51efecc249c2/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/cofield-nikkis-touch/canonical.txt)
 - Occurrence: cofield-nikkis-touch-e8f41998f78aeecc
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

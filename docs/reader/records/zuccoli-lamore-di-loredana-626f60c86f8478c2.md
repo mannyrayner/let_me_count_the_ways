@@ -294,9 +294,9 @@ Self-reported confidence: 0.95. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T alone naturally captures the core force as a direct avowal of love. Passion, repetition, desperate circumstances, and later coercion are important contextual features but create no residual core-force pressure beyond T/P/E.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/zuccoli-lamore-di-loredana-626f60c86f8478c2/3b828dc2810ccfd7f841c99b20737e5a7e6eeca89a1dac7d1f0cbdf027fb5991/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/zuccoli-lamore-di-loredana-626f60c86f8478c2/3b828dc2810ccfd7f841c99b20737e5a7e6eeca89a1dac7d1f0cbdf027fb5991/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/zuccoli-lamore-di-loredana/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/zuccoli-lamore-di-loredana-626f60c86f8478c2/3b828dc2810ccfd7f841c99b20737e5a7e6eeca89a1dac7d1f0cbdf027fb5991/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/zuccoli-lamore-di-loredana-626f60c86f8478c2/3b828dc2810ccfd7f841c99b20737e5a7e6eeca89a1dac7d1f0cbdf027fb5991/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/zuccoli-lamore-di-loredana/canonical.txt)
 - Occurrence: zuccoli-lamore-di-loredana-626f60c86f8478c2
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

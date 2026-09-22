@@ -403,9 +403,9 @@ Self-reported confidence: 0.97. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core retrospective avowal. The passage’s tenderness, reassurance, and marital history are contextual effects adequately described without adding P, E, or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-constance-ring-7122280fbf634f60/e7dade970b392ed4a599a3ff6aaf694103758e55de69914d2c32e1db11acca0d/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-constance-ring-7122280fbf634f60/e7dade970b392ed4a599a3ff6aaf694103758e55de69914d2c32e1db11acca0d/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/skram-constance-ring/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-constance-ring-7122280fbf634f60/e7dade970b392ed4a599a3ff6aaf694103758e55de69914d2c32e1db11acca0d/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-constance-ring-7122280fbf634f60/e7dade970b392ed4a599a3ff6aaf694103758e55de69914d2c32e1db11acca0d/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/skram-constance-ring/canonical.txt)
 - Occurrence: skram-constance-ring-7122280fbf634f60
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

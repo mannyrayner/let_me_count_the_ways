@@ -4976,9 +4976,9 @@ Self-reported confidence: 0.97. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the occurrence’s propositional representation of maternal love, including its embedding under negation and attributed belief. P and E are not independently supported, and no residual core force requires O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/undset-kristin-lavransdatter-c040d12637cd30e0/00f5d372541d292723498ee485d0161680c9bde7e4dc1d2a3075db40092263f7/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/undset-kristin-lavransdatter-c040d12637cd30e0/00f5d372541d292723498ee485d0161680c9bde7e4dc1d2a3075db40092263f7/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/undset-kristin-lavransdatter/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/undset-kristin-lavransdatter-c040d12637cd30e0/00f5d372541d292723498ee485d0161680c9bde7e4dc1d2a3075db40092263f7/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/undset-kristin-lavransdatter-c040d12637cd30e0/00f5d372541d292723498ee485d0161680c9bde7e4dc1d2a3075db40092263f7/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/undset-kristin-lavransdatter/canonical.txt)
 - Occurrence: undset-kristin-lavransdatter-c040d12637cd30e0
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

@@ -541,9 +541,9 @@ Self-reported confidence: 0.94. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T and E naturally capture the core event as both an avowal of love and an explicitly unfiltered, affect-driven outpouring. The mistaken attribution to Christian is an important contextual deception but does not expose a missing dimension in the core-force ontology.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-3b669bca4a2a7f06/bec1f84d2e7a640764d4fac18356497b95bd65af732a9705c137d7eaae4da797/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-3b669bca4a2a7f06/bec1f84d2e7a640764d4fac18356497b95bd65af732a9705c137d7eaae4da797/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/rostand-cyrano-de-bergerac/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-3b669bca4a2a7f06/bec1f84d2e7a640764d4fac18356497b95bd65af732a9705c137d7eaae4da797/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-3b669bca4a2a7f06/bec1f84d2e7a640764d4fac18356497b95bd65af732a9705c137d7eaae4da797/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/rostand-cyrano-de-bergerac/canonical.txt)
 - Occurrence: rostand-cyrano-de-bergerac-3b669bca4a2a7f06
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

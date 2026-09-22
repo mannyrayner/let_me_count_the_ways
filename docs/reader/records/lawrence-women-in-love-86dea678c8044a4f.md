@@ -246,9 +246,9 @@ Self-reported confidence: 0.91. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T and P naturally capture the utterance as both avowal and relationship-affirming undertaking. Lawrence’s account of a self-transcending oneness exceeds the literal formula’s representational content, but this is adequately treated as contextual interpretation rather than an additional core-force category.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lawrence-women-in-love-86dea678c8044a4f/c4dfafbe453c344111cfa4a80a4c089ae7bea503bb8690dccd520e6bd201bcbd/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lawrence-women-in-love-86dea678c8044a4f/c4dfafbe453c344111cfa4a80a4c089ae7bea503bb8690dccd520e6bd201bcbd/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/lawrence-women-in-love/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lawrence-women-in-love-86dea678c8044a4f/c4dfafbe453c344111cfa4a80a4c089ae7bea503bb8690dccd520e6bd201bcbd/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lawrence-women-in-love-86dea678c8044a4f/c4dfafbe453c344111cfa4a80a4c089ae7bea503bb8690dccd520e6bd201bcbd/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/lawrence-women-in-love/canonical.txt)
 - Occurrence: lawrence-women-in-love-86dea678c8044a4f
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

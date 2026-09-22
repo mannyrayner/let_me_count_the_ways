@@ -271,9 +271,9 @@ Self-reported confidence: 0.98. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core retrospective avowal. The shame, moral framing, marital context, and emotional delivery are adequately represented as contextual features and do not require P, E, or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lagerlof-gosta-berlings-saga-d15ddf5744cb0103/0184d51148e78bd260cd9fc8576022247e41587db4a00de0287d72761bdf8e53/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lagerlof-gosta-berlings-saga-d15ddf5744cb0103/0184d51148e78bd260cd9fc8576022247e41587db4a00de0287d72761bdf8e53/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/lagerlof-gosta-berlings-saga/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lagerlof-gosta-berlings-saga-d15ddf5744cb0103/0184d51148e78bd260cd9fc8576022247e41587db4a00de0287d72761bdf8e53/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lagerlof-gosta-berlings-saga-d15ddf5744cb0103/0184d51148e78bd260cd9fc8576022247e41587db4a00de0287d72761bdf8e53/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/lagerlof-gosta-berlings-saga/canonical.txt)
 - Occurrence: lagerlof-gosta-berlings-saga-d15ddf5744cb0103
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

@@ -545,9 +545,9 @@ Self-reported confidence: 0.97. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T/P/E/O is adequate when combined with the hypothetical utterance status: the embedded clause contains ordinary truth-conditional love-state content, while its counterfactual syntax and context explain why it is not an avowal. No residual core force requires O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-920ae26958d61661/65add50ff86ab6a7de1aab7891554cdd277c166104396addb6143ea84f744bfd/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-920ae26958d61661/65add50ff86ab6a7de1aab7891554cdd277c166104396addb6143ea84f744bfd/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/rostand-cyrano-de-bergerac/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-920ae26958d61661/65add50ff86ab6a7de1aab7891554cdd277c166104396addb6143ea84f744bfd/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-920ae26958d61661/65add50ff86ab6a7de1aab7891554cdd277c166104396addb6143ea84f744bfd/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/rostand-cyrano-de-bergerac/canonical.txt)
 - Occurrence: rostand-cyrano-de-bergerac-920ae26958d61661
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

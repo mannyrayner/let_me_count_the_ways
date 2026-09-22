@@ -215,9 +215,9 @@ Self-reported confidence: 0.97. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core avowal. Arthur's tenderness, reassurance, and self-serving minimization are contextual features rather than independent performative, expressive/reflexive, or residual core forces.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-tenant-of-wildfell-hall-49290568c97acfb4/15b2af06472b384f696f60251c0d951bb089080c4288d1e6d70e1f0627bb31fb/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-tenant-of-wildfell-hall-49290568c97acfb4/15b2af06472b384f696f60251c0d951bb089080c4288d1e6d70e1f0627bb31fb/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/bronte-tenant-of-wildfell-hall/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-tenant-of-wildfell-hall-49290568c97acfb4/15b2af06472b384f696f60251c0d951bb089080c4288d1e6d70e1f0627bb31fb/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-tenant-of-wildfell-hall-49290568c97acfb4/15b2af06472b384f696f60251c0d951bb089080c4288d1e6d70e1f0627bb31fb/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/bronte-tenant-of-wildfell-hall/canonical.txt)
 - Occurrence: bronte-tenant-of-wildfell-hall-49290568c97acfb4
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

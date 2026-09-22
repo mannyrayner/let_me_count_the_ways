@@ -376,9 +376,9 @@ Self-reported confidence: 0.97. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the explanatory avowal. Emotional delivery and consequential context are adequately recorded contextually; they create no residual pressure requiring E, P, or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-pan-bc3c8d656c175af9/3ef416aa5116277dfd061a1642b6365515af293d95fb8ab6a06c097fb39d0093/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-pan-bc3c8d656c175af9/3ef416aa5116277dfd061a1642b6365515af293d95fb8ab6a06c097fb39d0093/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/hamsun-pan/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-pan-bc3c8d656c175af9/3ef416aa5116277dfd061a1642b6365515af293d95fb8ab6a06c097fb39d0093/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-pan-bc3c8d656c175af9/3ef416aa5116277dfd061a1642b6365515af293d95fb8ab6a06c097fb39d0093/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/hamsun-pan/canonical.txt)
 - Occurrence: hamsun-pan-bc3c8d656c175af9
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

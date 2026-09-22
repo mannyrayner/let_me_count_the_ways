@@ -201,9 +201,9 @@ Self-reported confidence: 0.9. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T captures the avowal, while P captures the limited undertaking force supplied by the accompanying private vows. Emotional intensity and repetition can remain contextual delivery information without requiring E, and no important aspect of the utterance's core force falls outside T/P/E.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/von-arnim-vera-2ec5625a94895d2d/80ae94ece0a69269808a4baa0172b8bb3db889290dab4a2d22dc3c68ad341a64/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/von-arnim-vera-2ec5625a94895d2d/80ae94ece0a69269808a4baa0172b8bb3db889290dab4a2d22dc3c68ad341a64/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/von-arnim-vera/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/von-arnim-vera-2ec5625a94895d2d/80ae94ece0a69269808a4baa0172b8bb3db889290dab4a2d22dc3c68ad341a64/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/von-arnim-vera-2ec5625a94895d2d/80ae94ece0a69269808a4baa0172b8bb3db889290dab4a2d22dc3c68ad341a64/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/von-arnim-vera/canonical.txt)
 - Occurrence: von-arnim-vera-2ec5625a94895d2d
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

@@ -229,9 +229,9 @@ Self-reported confidence: 0.95. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core avowal. Its consoling purpose, passionate delivery, and use as moral testimony are contextual features that do not require P, E, or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stael-corinne-862bf46287163d7f/08c7332bff4b901c80ba75094efac7c64c2076b722e055873ff4897451eafe79/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stael-corinne-862bf46287163d7f/08c7332bff4b901c80ba75094efac7c64c2076b722e055873ff4897451eafe79/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/stael-corinne/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stael-corinne-862bf46287163d7f/08c7332bff4b901c80ba75094efac7c64c2076b722e055873ff4897451eafe79/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stael-corinne-862bf46287163d7f/08c7332bff4b901c80ba75094efac7c64c2076b722e055873ff4897451eafe79/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/stael-corinne/canonical.txt)
 - Occurrence: stael-corinne-862bf46287163d7f
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

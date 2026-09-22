@@ -262,9 +262,9 @@ Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T and P naturally capture the declaration’s future-state presentation and promise-like undertaking. Coercion, insincerity, and humiliation are contextual qualifications, not missing dimensions of core force; intensity and agony do not independently establish E.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lawrence-women-in-love-133276800ca1b0fd/30ae440422922f2218496ca764213af8c6f2e5a7a86029aad6879ed99d040f6c/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lawrence-women-in-love-133276800ca1b0fd/30ae440422922f2218496ca764213af8c6f2e5a7a86029aad6879ed99d040f6c/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/lawrence-women-in-love/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lawrence-women-in-love-133276800ca1b0fd/30ae440422922f2218496ca764213af8c6f2e5a7a86029aad6879ed99d040f6c/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lawrence-women-in-love-133276800ca1b0fd/30ae440422922f2218496ca764213af8c6f2e5a7a86029aad6879ed99d040f6c/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/lawrence-women-in-love/canonical.txt)
 - Occurrence: lawrence-women-in-love-133276800ca1b0fd
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

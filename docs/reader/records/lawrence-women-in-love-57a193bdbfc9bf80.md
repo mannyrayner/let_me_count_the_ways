@@ -228,9 +228,9 @@ Self-reported confidence: 0.93. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T and P naturally capture the core force: an avowal of love combined with a qualified relational undertaking. Irony, solicitation, and emotional delivery are adequately represented as contextual qualifications, leaving no important residual core force.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lawrence-women-in-love-57a193bdbfc9bf80/046c872939f2a75ddf0c86170ff879be4b77b164a17149e3af7c24f2aec8c5b1/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lawrence-women-in-love-57a193bdbfc9bf80/046c872939f2a75ddf0c86170ff879be4b77b164a17149e3af7c24f2aec8c5b1/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/lawrence-women-in-love/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lawrence-women-in-love-57a193bdbfc9bf80/046c872939f2a75ddf0c86170ff879be4b77b164a17149e3af7c24f2aec8c5b1/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lawrence-women-in-love-57a193bdbfc9bf80/046c872939f2a75ddf0c86170ff879be4b77b164a17149e3af7c24f2aec8c5b1/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/lawrence-women-in-love/canonical.txt)
 - Occurrence: lawrence-women-in-love-57a193bdbfc9bf80
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

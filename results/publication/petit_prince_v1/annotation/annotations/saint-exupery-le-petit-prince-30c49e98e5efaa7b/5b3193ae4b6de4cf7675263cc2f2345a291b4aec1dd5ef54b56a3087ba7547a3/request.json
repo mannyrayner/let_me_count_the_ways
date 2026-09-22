@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"saint-exupery-le-petit-prince-30c49e98e5efaa7b\", \"SOURCE_TEXT\": {\"exact_match\": \"je t'aime\", \"local_text\": {\"context_start\": 28048, \"context_end\": 28252, \"text\": \"-Mais oui, je t'aime, lui dit la fleur. Tu n'en a rien su, par ma faute. Cela n'a aucune importance. Mais tu as été aussi sot que moi. Tâche d'être heureux...Laisse ce globe tranquille. Je n'en veux plus.\"}, \"wider_canonical_context\": {\"context_start\": 25020, \"context_end\": 31071, \"text\": \"-Je ne suis pas une herbe, avait doucement répondu la fleur.\\n\\n-Pardonnez-moi...\\n\\n-Je ne crains rien des tigres, mais j'ai horreur des courants d'air. Vous n'auriez pas un paravent?\\n\\n\\\"Horreur des courants d'air...ce n'est pas de chance, pour une plante, avait remarqué le petit prince. Cette fleur est bien compliquée...\\\"\\n\\n-Le soir vous me mettrez sous globe. Il fait très froid chez vous. C'est mal installé. Là d'ou je viens...\\n\\nMais elle s'était interrompue. Elle était venue sous forme de graine. Elle n'avait rien pu connaître des autres mondes. Humiliée de s'être laissé surprendre à préparer un mensonge aussi naïf, elle avait toussé deux ou trois fois, pour mettre le petit prince dans son tort:\\n\\n-Ce paravent?...\\n\\n-J'allais le chercher mais vous me parliez!\\n\\nAlors elle avait forcé sa toux pour lui infliger quand même des remords.\\n\\nAinsi le petit prince, malgré la bonne volonté de son amour, avait vite douté d'elle. Il avait pris au sérieux des mots sans importance, et était devenu très malheureux.\\n\\n\\\"J'aurais dû ne pas l'écouter, me confia-t-il un jour, il ne faut jamais écouter les fleurs. Il faut les regarder et les respirer. La mienne embaumait ma planète, mais je ne savais pas m'en réjouir. Cette histoire de griffes, qui m'avait tellement agacé, eût dû m'attendrir...\\\"\\n\\nIl me confia encore:\\n\\n\\\"Je n'ai alors rien su comprendre! J'aurais dû la juger sur les actes et non sur les mots. Elle m'embaumait et m'éclairait. Je n'aurais jamais dû m'enfuir! J'aurais dû deviner sa tendresse derrière ses pauvres ruses. Les fleurs sont si contradictoires! Mais j'étais trop jeune pour savoir l'aimer.\\\"\\n\\nCHAPITRE IX\\n\\nJe crois qu'il profita, pour son évasion, d'une migration d'oiseaux sauvages. Au matin du départ il mit sa planète bien en ordre. Il ramona soigneusement ses volcans en activité. Il possédait deux volcans en activité. Et c'était bien commode pour faire chauffer le petit déjeuner du matin. Il possédait aussi un volcan éteint. Mais, comme il disait, \\\"On ne sait jamais!\\\" Il ramona donc également le volcan éteint. S'ils sont bien ramonés, les volcans brûlent doucement et régulièrement, sans éruptions. Les éruptions volcaniques sont comme des feux de cheminée. Evidemment sur notre terre nous sommes beaucoup trop petits pour ramoner nos volcans. C'est pourquoi ils nous causent des tas d'ennuis.\\n\\nLe petit prince arracha aussi, avec un peu de mélancolie, les dernières pousses de baobabs. Il croyait ne jamais devoir revenir. Mais tout ces travaux familiers lui parurent, ce matin-là, extrêmement doux. Et, quand il arrosa une dernière fois la fleur, et se prépara à la mettre à l'abri sous son globe, il se découvrit l'envie de pleurer.\\n\\n-Adieu, dit-il à la fleur.\\n\\nMais elle ne lui répondit pas.\\n\\n-Adieu, répéta-t-il.\\n\\nLa fleur toussa. Mais ce n'était pas à cause de son rhume.\\n\\n-J'ai été sotte, lui dit-elle enfin. Je te demande pardon. Tâche d'être heureux.\\n\\nIl fut surpris par l'absence de reproches. Il restait là tout déconcentré, le globe en l'air. Il ne comprenait pas cette douceur calme.\\n\\n-Mais oui, je t'aime, lui dit la fleur. Tu n'en a rien su, par ma faute. Cela n'a aucune importance. Mais tu as été aussi sot que moi. Tâche d'être heureux...Laisse ce globe tranquille. Je n'en veux plus.\\n\\n-Mais le vent...\\n\\n-Je ne suis pas si enrhumée que ça...L'air frais de la nuit me fera du bien. Je suis une fleur.\\n\\n-Mais les bêtes...\\n\\n-Il faut bien que je supporte deux ou trois chenilles si je veux connaître les papillons. Il paraît que c'est tellement beau. Sinon qui me rendra visite? Tu seras loin, toi. Quant aux grosses bêtes, je ne crains rien. J'ai mes griffes.\\n\\nEt elle montrait naïvement ses quatre épines. Puis elle ajouta:\\n\\n-Ne traîne pas comme ça, c'est agaçant. Tu as décidé de partir. Va-t'en.\\n\\nCar elle ne voulait pas qu'il la vît pleurer. C'était une fleur tellement orgueilleuse...\\n\\nCHAPITRE X\\n\\nIl se trouvait dans la région des astéroïdes 325, 326, 327, 328, 329 et 330. Il commença donc par les visiter pour y chercher une occupation et pour s'instruire.\\n\\nLa première était habitée par un roi. Le roi siégeait, habillé de pourpre et d'hermine, sur un trône très simple et cependant majestueux.\\n\\n-Ah! Voilà un sujet, s'écria le roi quand il aperçut le petit prince.\\n\\nEt le petit prince se demanda:\\n\\n-Comment peut-il me reconnaître puisqu'il ne m'a encore jamais vu!\\n\\nIl ne savait pas que, pour les rois, le monde est très simplifié. Tous les hommes sont des sujets.\\n\\n-Approche-toi que je te voie mieux, lui dit le roi qui était tout fier d'être enfin roi pour quelqu'un.\\n\\nLe petit prince chercha des yeux où s'asseoir, mais la planète était toute encombrée par le magnifique manteau d'hermine. Il resta donc debout, et, comme il était fatigué, il bâilla.\\n\\n-Il est contraire à l'étiquette de bâiller en présence d'un roi, lui dit le monarque. Je te l'interdis.\\n\\n-Je ne peux pas m'en empêcher, répondit le petit prince tout confus. J'ai fait un long voyage et je n'ai pas dormi...\\n\\n-Alors, lui dit le roi, je t'ordonne de bâiller. Je n'ai vu personne bâiller depuis des années. Les bâillements sont pour moi des curiosités. Allons! bâille encore. C'est un ordre.\\n\\n-Ça m'intimide...je ne peux plus...fit le petit prince tout rougissant.\\n\\n-Hum! Hum! répondit le roi. Alors je...je t'ordonne tantôt de bâiller et tantôt de...\\n\\nIl bredouillait un peu et paraissait vexé.\\n\\nCar le roi tenait essentiellement à ce que son autorité fût respectée. Il ne tolérait pas la désobéissance. C'était un monarque absolu. Mais, comme il était très bon, il donnait des ordres raisonnables.\\n\\n\\\"Si j'ordonnais, disait-il couramment, si j'ordonnais à un général de se changer en oiseau de mer, et si le général n'obéissait pas, ce ne serait pas la faute du général. Ce serait ma faute.\\\"\\n\\n-Puis-je m'asseoir? s'enquit timidement le petit prince.\\n\\n-Je t'ordonne de t'asseoir, lui répondit le roi, qui ramena majestueusement un pan de son manteau d'hermine.\\n\\nMais le petit prince s'étonnait. La planète était minuscule. Sur quoi le roi pouvait-il bien régner?\\n\\n-Sire, lui dit-il...je vous demande pardon de vous interroger...\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"“I am not a weed,” the flower had replied gently.\\n\\n“Forgive me...”\\n\\n“I am not afraid of tigers, but I have a horror of drafts. Wouldn't you happen to have a screen?”\\n\\n“‘A horror of drafts’...that is unfortunate for a plant,” the little prince had remarked. “This flower is certainly complicated...”\\n\\n“In the evening you will put me under a glass globe. It is very cold where you live. It is poorly set up here. Where I come from...”\\n\\nBut she had broken off. She had come in the form of a seed. She could not have known anything of other worlds. Humiliated at having let herself be caught preparing so naïve a lie, she had coughed two or three times, to put the little prince in the wrong:\\n\\n“That screen?...”\\n\\n“I was just going to get it, but you were talking to me!”\\n\\nThen she had forced her cough so as to make him feel guilty all the same.\\n\\nThus the little prince, despite the goodwill of his love, had quickly begun to doubt her. He had taken unimportant words seriously and had become very unhappy.\\n\\n“I should not have listened to her,” he confided to me one day. “One must never listen to flowers. One must look at them and breathe in their fragrance. Mine filled my planet with fragrance, but I did not know how to take pleasure in it. That business about the claws, which had annoyed me so much, should have moved me...”\\n\\nHe confided further:\\n\\n“I did not understand anything then! I should have judged her by her actions and not by her words. She filled my world with fragrance and light. I should never have run away! I should have guessed her tenderness behind her poor little tricks. Flowers are so contradictory! But I was too young to know how to love her.”\\n\\nCHAPTER IX\\n\\nI believe that, for his escape, he took advantage of a migration of wild birds. On the morning of his departure, he put his planet carefully in order. He thoroughly swept out his active volcanoes. He had two active volcanoes. And they were very convenient for heating breakfast in the morning. He also had an extinct volcano. But, as he said, “You never know!” So he swept out the extinct volcano as well. If they are well swept out, volcanoes burn gently and regularly, without eruptions. Volcanic eruptions are like chimney fires. Obviously, here on our Earth we are much too small to sweep out our volcanoes. That is why they cause us all sorts of trouble.\\n\\nThe little prince also pulled up, with a little melancholy, the last baobab shoots. He believed that he was never to return. But all these familiar tasks seemed extremely sweet to him that morning. And when he watered the flower one last time and prepared to shelter her under her glass globe, he found himself wanting to cry.\\n\\n“Goodbye,” he said to the flower.\\n\\nBut she did not answer him.\\n\\n“Goodbye,” he repeated.\\n\\nThe flower coughed. But it was not because of her cold.\\n\\n“I have been foolish,” she finally said to him. “I ask your forgiveness. Try to be happy.”\\n\\nHe was surprised by the absence of reproaches. He remained there, completely bewildered, holding the glass globe in the air. He did not understand this calm gentleness.\\n\\n“But of course I love you,” the flower said to him. “You knew nothing of it, through my fault. That is of no importance. But you have been as foolish as I have. Try to be happy...Leave that glass globe alone. I do not want it anymore.”\\n\\n“But the wind...”\\n\\n“My cold is not as bad as all that...The cool night air will do me good. I am a flower.”\\n\\n“But the animals...”\\n\\n“I must put up with two or three caterpillars if I want to know the butterflies. They say they are so beautiful. Otherwise, who will visit me? You will be far away. As for large animals, I am not afraid of anything. I have my claws.”\\n\\nAnd she naïvely displayed her four thorns. Then she added:\\n\\n“Do not linger like this; it is irritating. You have decided to leave. Go away.”\\n\\nFor she did not want him to see her cry. She was such a proud flower...\\n\\nCHAPTER X\\n\\nHe was in the region of asteroids 325, 326, 327, 328, 329, and 330. So he began by visiting them, to look for something to do there and to educate himself.\\n\\nThe first was inhabited by a king. The king sat, dressed in purple and ermine, upon a very simple yet majestic throne.\\n\\n“Ah! Here is a subject!” cried the king when he caught sight of the little prince.\\n\\nAnd the little prince wondered:\\n\\n“How can he recognize me when he has never seen me before?”\\n\\nHe did not know that, for kings, the world is greatly simplified. All men are subjects.\\n\\n“Come closer so that I may see you better,” said the king, who was very proud to be king over someone at last.\\n\\nThe little prince looked around for somewhere to sit, but the planet was entirely encumbered by the magnificent ermine robe. So he remained standing, and, as he was tired, he yawned.\\n\\n“It is contrary to etiquette to yawn in the presence of a king,” the monarch told him. “I forbid you to do so.”\\n\\n“I cannot help it,” replied the little prince, utterly embarrassed. “I have made a long journey, and I have not slept...”\\n\\n“Then,” said the king, “I order you to yawn. I have not seen anyone yawn for years. Yawns are curiosities to me. Come now! Yawn again. That is an order.”\\n\\n“It makes me self-conscious...I cannot do it anymore...” said the little prince, blushing deeply.\\n\\n“Hum! Hum!” replied the king. “Then I...I order you sometimes to yawn and sometimes to...”\\n\\nHe stammered a little and seemed offended.\\n\\nFor the king considered it essential that his authority be respected. He tolerated no disobedience. He was an absolute monarch. But, since he was very good, he gave reasonable orders.\\n\\n“If I ordered,” he would commonly say, “if I ordered a general to turn himself into a seabird, and if the general did not obey, it would not be the general's fault. It would be my fault.”\\n\\n“May I sit down?” the little prince asked timidly.\\n\\n“I order you to sit down,” the king replied, majestically gathering up one side of his ermine robe.\\n\\nBut the little prince was puzzled. The planet was tiny. What could the king possibly rule over?\\n\\n“Sire,” he said to him...“I beg your pardon for questioning you...”\", \"source_occurrence_id\": \"saint-exupery-le-petit-prince-30c49e98e5efaa7b\", \"source_language\": \"fr\", \"source_language_text_sha256\": \"f173b10b74f6bd2977c3fec4a356539516d301333984bea645a65a4add4ca67d\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-21T23:33:43.194304+00:00\", \"model_usage\": {\"input_tokens\": 1899, \"cached_input_tokens\": 0, \"output_tokens\": 1630}, \"estimated_cost_usd\": 0.040195999999999996, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"saint-exupery-le-petit-prince\", \"title\": \"Le Petit Prince\", \"author\": \"Antoine de Saint-Exupéry\", \"language\": \"fr\", \"source_type\": \"gutenberg_australia\", \"rights\": {\"public_render_policy\": \"LIMITED_QUOTATION_ONLY\"}}, \"location\": {\"chapter_or_section\": \"CHAPITRE IX\", \"relative_position\": 0.337227, \"source_start\": 28059, \"source_end\": 28068, \"source_length\": 83205}, \"form\": {\"form_family\": \"present_or_imperfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": \"optional\", \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"fr_present_past\", \"pattern_version\": \"0.13\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 1.0, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

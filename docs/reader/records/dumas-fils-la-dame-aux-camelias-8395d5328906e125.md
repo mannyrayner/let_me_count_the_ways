@@ -282,9 +282,9 @@ Self-reported confidence: 0.94. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the dominant avowal, while a moderate P score captures its role in ratifying a consequential relational choice. Emotional delivery can remain contextual without requiring E, and no important core-force residue requires O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/dumas-fils-la-dame-aux-camelias-8395d5328906e125/677472e3071279beaae476c5ff30fa7058321a64054fa0ee4f5f448bdd01bd67/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/dumas-fils-la-dame-aux-camelias-8395d5328906e125/677472e3071279beaae476c5ff30fa7058321a64054fa0ee4f5f448bdd01bd67/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/dumas-fils-la-dame-aux-camelias/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/dumas-fils-la-dame-aux-camelias-8395d5328906e125/677472e3071279beaae476c5ff30fa7058321a64054fa0ee4f5f448bdd01bd67/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/dumas-fils-la-dame-aux-camelias-8395d5328906e125/677472e3071279beaae476c5ff30fa7058321a64054fa0ee4f5f448bdd01bd67/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/dumas-fils-la-dame-aux-camelias/canonical.txt)
 - Occurrence: dumas-fils-la-dame-aux-camelias-8395d5328906e125
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

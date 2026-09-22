@@ -240,9 +240,9 @@ Self-reported confidence: 0.97. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T/P/E adequately represents the core force: it is strongly truth-conditional, with its courtship strategy, emotional intensity, and coercive framing captured contextually rather than as additional core categories.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/gissing-the-odd-women-9b3bdf36989af8ba/ca0b78d6234c782deba8c8d600d7734f1fe03f31f64db5ab03398d21f8b10935/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/gissing-the-odd-women-9b3bdf36989af8ba/ca0b78d6234c782deba8c8d600d7734f1fe03f31f64db5ab03398d21f8b10935/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/gissing-the-odd-women/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/gissing-the-odd-women-9b3bdf36989af8ba/ca0b78d6234c782deba8c8d600d7734f1fe03f31f64db5ab03398d21f8b10935/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/gissing-the-odd-women-9b3bdf36989af8ba/ca0b78d6234c782deba8c8d600d7734f1fe03f31f64db5ab03398d21f8b10935/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/gissing-the-odd-women/canonical.txt)
 - Occurrence: gissing-the-odd-women-9b3bdf36989af8ba
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

@@ -305,9 +305,9 @@ Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core as an emphatic avowal. Its defensive purpose, questionable sincerity, and emotionally exclamatory delivery are contextual features adequately described without adding P, E, or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/balzac-illusions-perdues-6f5451dc60a8ce78/5ed78b366fba9e9699450ffd2c4b2db2c167c557a210073c4864ce95ab5f6b42/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/balzac-illusions-perdues-6f5451dc60a8ce78/5ed78b366fba9e9699450ffd2c4b2db2c167c557a210073c4864ce95ab5f6b42/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/balzac-illusions-perdues/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/balzac-illusions-perdues-6f5451dc60a8ce78/5ed78b366fba9e9699450ffd2c4b2db2c167c557a210073c4864ce95ab5f6b42/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/balzac-illusions-perdues-6f5451dc60a8ce78/5ed78b366fba9e9699450ffd2c4b2db2c167c557a210073c4864ce95ab5f6b42/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/balzac-illusions-perdues/canonical.txt)
 - Occurrence: balzac-illusions-perdues-6f5451dc60a8ce78
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

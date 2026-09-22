@@ -217,9 +217,9 @@ Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core avowal. Its vehemence, questionable sincerity, and manipulative conversational use are adequately represented as contextual features rather than additional core-force categories.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-tenant-of-wildfell-hall-c336f2320abd7806/11aa43ce72ee2d471c1582ebb07f47f836b060d45355ace6a21f8cc0f96b36e8/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-tenant-of-wildfell-hall-c336f2320abd7806/11aa43ce72ee2d471c1582ebb07f47f836b060d45355ace6a21f8cc0f96b36e8/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/bronte-tenant-of-wildfell-hall/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-tenant-of-wildfell-hall-c336f2320abd7806/11aa43ce72ee2d471c1582ebb07f47f836b060d45355ace6a21f8cc0f96b36e8/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-tenant-of-wildfell-hall-c336f2320abd7806/11aa43ce72ee2d471c1582ebb07f47f836b060d45355ace6a21f8cc0f96b36e8/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/bronte-tenant-of-wildfell-hall/canonical.txt)
 - Occurrence: bronte-tenant-of-wildfell-hall-c336f2320abd7806
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

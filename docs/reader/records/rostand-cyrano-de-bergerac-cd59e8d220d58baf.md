@@ -560,9 +560,9 @@ Self-reported confidence: 0.92. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T captures the explicit avowal, and P captures the accompanying declaration of belonging or commitment. Emotional intensity and the mistaken identity are adequately handled as contextual features, so neither E nor O is needed.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-cd59e8d220d58baf/263955d40ea9fde36568a26e4e156129093a5171ad7b815322907ae7d80b86b6/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-cd59e8d220d58baf/263955d40ea9fde36568a26e4e156129093a5171ad7b815322907ae7d80b86b6/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/rostand-cyrano-de-bergerac/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-cd59e8d220d58baf/263955d40ea9fde36568a26e4e156129093a5171ad7b815322907ae7d80b86b6/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-cd59e8d220d58baf/263955d40ea9fde36568a26e4e156129093a5171ad7b815322907ae7d80b86b6/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/rostand-cyrano-de-bergerac/canonical.txt)
 - Occurrence: rostand-cyrano-de-bergerac-cd59e8d220d58baf
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

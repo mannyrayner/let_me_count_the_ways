@@ -145,9 +145,9 @@ Self-reported confidence: 0.94. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T captures the central avowal, with slight P support from its use in seeking renewed relationship and no independent basis for E or O. The surrounding emotional pressure and relational conflict are adequately handled as context.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/cofield-nikkis-touch-5950ab1bef9393e9/a6607822e30fed6403662272435debef17c6183628e6d1a8397ad1cf9c565409/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/cofield-nikkis-touch-5950ab1bef9393e9/a6607822e30fed6403662272435debef17c6183628e6d1a8397ad1cf9c565409/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/cofield-nikkis-touch/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/cofield-nikkis-touch-5950ab1bef9393e9/a6607822e30fed6403662272435debef17c6183628e6d1a8397ad1cf9c565409/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/cofield-nikkis-touch-5950ab1bef9393e9/a6607822e30fed6403662272435debef17c6183628e6d1a8397ad1cf9c565409/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/cofield-nikkis-touch/canonical.txt)
 - Occurrence: cofield-nikkis-touch-5950ab1bef9393e9
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

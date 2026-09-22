@@ -378,9 +378,9 @@ Self-reported confidence: 0.97. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core force as an avowal of a loving state. The passage’s taboo, fear, jealousy, possessiveness, and remorse are important contextual features but create no residual core force requiring P, E, or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-24f5fc557c485832/5535723d98963eade0e5676e021a8856af2d0320b2e73bf438c03d4ea6f264c5/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-24f5fc557c485832/5535723d98963eade0e5676e021a8856af2d0320b2e73bf438c03d4ea6f264c5/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/verona-colei-che-non-si-deve-amare/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-24f5fc557c485832/5535723d98963eade0e5676e021a8856af2d0320b2e73bf438c03d4ea6f264c5/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-24f5fc557c485832/5535723d98963eade0e5676e021a8856af2d0320b2e73bf438c03d4ea6f264c5/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/verona-colei-che-non-si-deve-amare/canonical.txt)
 - Occurrence: verona-colei-che-non-si-deve-amare-24f5fc557c485832
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

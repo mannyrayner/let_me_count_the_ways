@@ -306,9 +306,9 @@ Self-reported confidence: 0.95. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally represents the core avowal. Its calculation, contested sincerity, and delayed emotional recognition are contextual complexities rather than missing kinds of core force; neither P, E, nor O is needed.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lagerlof-gosta-berlings-saga-baef76cd44bc6283/2f3d27b79060d241ea9bab7bb7db947b61771002c239216cf55b056001f11a77/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lagerlof-gosta-berlings-saga-baef76cd44bc6283/2f3d27b79060d241ea9bab7bb7db947b61771002c239216cf55b056001f11a77/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/lagerlof-gosta-berlings-saga/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lagerlof-gosta-berlings-saga-baef76cd44bc6283/2f3d27b79060d241ea9bab7bb7db947b61771002c239216cf55b056001f11a77/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lagerlof-gosta-berlings-saga-baef76cd44bc6283/2f3d27b79060d241ea9bab7bb7db947b61771002c239216cf55b056001f11a77/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/lagerlof-gosta-berlings-saga/canonical.txt)
 - Occurrence: lagerlof-gosta-berlings-saga-baef76cd44bc6283
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

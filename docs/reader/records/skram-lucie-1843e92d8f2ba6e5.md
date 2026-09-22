@@ -410,9 +410,9 @@ Self-reported confidence: 0.91. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T and P naturally represent the core force: a reciprocal avowal embedded in acceptance of a marital relationship. Emotional intensity is adequately treated as contextual delivery evidence and does not create residual pressure for E or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-lucie-1843e92d8f2ba6e5/268f9d493906123556796da41b2f448c1137d48b559d837a82b6e2896ecb4fb8/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-lucie-1843e92d8f2ba6e5/268f9d493906123556796da41b2f448c1137d48b559d837a82b6e2896ecb4fb8/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/skram-lucie/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-lucie-1843e92d8f2ba6e5/268f9d493906123556796da41b2f448c1137d48b559d837a82b6e2896ecb4fb8/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-lucie-1843e92d8f2ba6e5/268f9d493906123556796da41b2f448c1137d48b559d837a82b6e2896ecb4fb8/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/skram-lucie/canonical.txt)
 - Occurrence: skram-lucie-1843e92d8f2ba6e5
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

@@ -209,9 +209,9 @@ Self-reported confidence: 0.95. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core avowal, with modest P resonance from its immediate commitment context. Intensity and sudden delivery can be represented contextually without E or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stael-corinne-b2623292ecb28893/8dc39f3e6e8df7b2239984276e7a07e5c45172b3eef4caf7706178cf1ba971c6/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stael-corinne-b2623292ecb28893/8dc39f3e6e8df7b2239984276e7a07e5c45172b3eef4caf7706178cf1ba971c6/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/stael-corinne/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stael-corinne-b2623292ecb28893/8dc39f3e6e8df7b2239984276e7a07e5c45172b3eef4caf7706178cf1ba971c6/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stael-corinne-b2623292ecb28893/8dc39f3e6e8df7b2239984276e7a07e5c45172b3eef4caf7706178cf1ba971c6/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/stael-corinne/canonical.txt)
 - Occurrence: stael-corinne-b2623292ecb28893
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

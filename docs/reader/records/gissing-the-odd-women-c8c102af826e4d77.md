@@ -265,9 +265,9 @@ Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the retrospective avowal. The surrounding dispute over sincerity, proposal, and later conduct is contextual and creates no residual core force requiring P, E, or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/gissing-the-odd-women-c8c102af826e4d77/79244ddf97669fa1cb8c4eadf5c54985503a64c40f56adb50d12d0ef592b8973/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/gissing-the-odd-women-c8c102af826e4d77/79244ddf97669fa1cb8c4eadf5c54985503a64c40f56adb50d12d0ef592b8973/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/gissing-the-odd-women/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/gissing-the-odd-women-c8c102af826e4d77/79244ddf97669fa1cb8c4eadf5c54985503a64c40f56adb50d12d0ef592b8973/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/gissing-the-odd-women-c8c102af826e4d77/79244ddf97669fa1cb8c4eadf5c54985503a64c40f56adb50d12d0ef592b8973/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/gissing-the-odd-women/canonical.txt)
 - Occurrence: gissing-the-odd-women-c8c102af826e4d77
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

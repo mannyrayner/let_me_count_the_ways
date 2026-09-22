@@ -404,9 +404,9 @@ Self-reported confidence: 0.97. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T alone naturally captures the core force. The marital reassurance, retrospective idealisation, and pressure for reciprocity are contextual effects adequately described outside the compact ontology.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-constance-ring-eff8f54f2ce7f7bd/1ad2ec4ed1eba62266dd2f45ce2c10f330b65b5392b1f92b5fa6e2e234fa7eb6/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-constance-ring-eff8f54f2ce7f7bd/1ad2ec4ed1eba62266dd2f45ce2c10f330b65b5392b1f92b5fa6e2e234fa7eb6/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/skram-constance-ring/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-constance-ring-eff8f54f2ce7f7bd/1ad2ec4ed1eba62266dd2f45ce2c10f330b65b5392b1f92b5fa6e2e234fa7eb6/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-constance-ring-eff8f54f2ce7f7bd/1ad2ec4ed1eba62266dd2f45ce2c10f330b65b5392b1f92b5fa6e2e234fa7eb6/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/skram-constance-ring/canonical.txt)
 - Occurrence: skram-constance-ring-eff8f54f2ce7f7bd
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

@@ -599,9 +599,9 @@ Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core as a direct avowal. The attached imperative and tragic intensity are adequately handled as context and do not create residual pressure for P, E, or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-5e7e790fa3b03be7/3ff4158004c7987a176295292c6c39af413ca0d1911cbbc935769ea4a7075f0c/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-5e7e790fa3b03be7/3ff4158004c7987a176295292c6c39af413ca0d1911cbbc935769ea4a7075f0c/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/rostand-cyrano-de-bergerac/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-5e7e790fa3b03be7/3ff4158004c7987a176295292c6c39af413ca0d1911cbbc935769ea4a7075f0c/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-5e7e790fa3b03be7/3ff4158004c7987a176295292c6c39af413ca0d1911cbbc935769ea4a7075f0c/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/rostand-cyrano-de-bergerac/canonical.txt)
 - Occurrence: rostand-cyrano-de-bergerac-5e7e790fa3b03be7
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

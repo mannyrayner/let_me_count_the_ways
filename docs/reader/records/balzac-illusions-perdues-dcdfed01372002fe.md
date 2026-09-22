@@ -253,9 +253,9 @@ Self-reported confidence: 0.95. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the avowal, while P captures its secondary role in accepting a marital relationship. Delivery and romantic intensity remain contextual, and no residual core force requires E or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/balzac-illusions-perdues-dcdfed01372002fe/1b23dc6dda1472bd5a7699bf062bfd9f314616ffb1c90ddc5830a6cac304fcc5/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/balzac-illusions-perdues-dcdfed01372002fe/1b23dc6dda1472bd5a7699bf062bfd9f314616ffb1c90ddc5830a6cac304fcc5/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/balzac-illusions-perdues/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/balzac-illusions-perdues-dcdfed01372002fe/1b23dc6dda1472bd5a7699bf062bfd9f314616ffb1c90ddc5830a6cac304fcc5/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/balzac-illusions-perdues-dcdfed01372002fe/1b23dc6dda1472bd5a7699bf062bfd9f314616ffb1c90ddc5830a6cac304fcc5/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/balzac-illusions-perdues/canonical.txt)
 - Occurrence: balzac-illusions-perdues-dcdfed01372002fe
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

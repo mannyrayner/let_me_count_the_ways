@@ -277,9 +277,9 @@ Self-reported confidence: 0.89. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T captures the central avowal, E captures the explicitly framed quality of a despairing emotional cry, and a small P score records limited commitment resonance. The valedictory and tragic framing is contextual nuance rather than a failure of the compact ontology.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/colette-le-ble-en-herbe-aa5c7bfe3b6367b5/ad7d78d014d68c8c3c4b514a19dbb26672153fa8ea744200a1fa508e2ea19727/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/colette-le-ble-en-herbe-aa5c7bfe3b6367b5/ad7d78d014d68c8c3c4b514a19dbb26672153fa8ea744200a1fa508e2ea19727/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/colette-le-ble-en-herbe/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/colette-le-ble-en-herbe-aa5c7bfe3b6367b5/ad7d78d014d68c8c3c4b514a19dbb26672153fa8ea744200a1fa508e2ea19727/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/colette-le-ble-en-herbe-aa5c7bfe3b6367b5/ad7d78d014d68c8c3c4b514a19dbb26672153fa8ea744200a1fa508e2ea19727/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/colette-le-ble-en-herbe/canonical.txt)
 - Occurrence: colette-le-ble-en-herbe-aa5c7bfe3b6367b5
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

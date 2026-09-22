@@ -367,9 +367,9 @@ Self-reported confidence: 0.98. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core avowal of a ceased emotional state. The breakup, sorrow, and explanatory narrative are contextual features, while the separate decision to leave need not be imported into the core utterance as P or E.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/ibsen-et-dukkehjem-22aa549e55c520e4/d6ccdcad59be3fd7f845ef49fa1b1b5cdbd9f46d8e8d001b4dd544b0aa2be3cd/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/ibsen-et-dukkehjem-22aa549e55c520e4/d6ccdcad59be3fd7f845ef49fa1b1b5cdbd9f46d8e8d001b4dd544b0aa2be3cd/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/ibsen-et-dukkehjem/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/ibsen-et-dukkehjem-22aa549e55c520e4/d6ccdcad59be3fd7f845ef49fa1b1b5cdbd9f46d8e8d001b4dd544b0aa2be3cd/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/ibsen-et-dukkehjem-22aa549e55c520e4/d6ccdcad59be3fd7f845ef49fa1b1b5cdbd9f46d8e8d001b4dd544b0aa2be3cd/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/ibsen-et-dukkehjem/canonical.txt)
 - Occurrence: ibsen-et-dukkehjem-22aa549e55c520e4
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

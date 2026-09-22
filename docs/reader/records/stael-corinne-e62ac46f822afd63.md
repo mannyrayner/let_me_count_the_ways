@@ -260,9 +260,9 @@ Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the clause as an avowal of loving feeling. The emotionally charged delivery and nearby promise are adequately treated as context and as a distinct subsequent undertaking; they create no residual pressure requiring E or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stael-corinne-e62ac46f822afd63/402cae7767f2c50a93158b6e78234264fcd3332a9aa44b10d7a65cc85cf44137/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stael-corinne-e62ac46f822afd63/402cae7767f2c50a93158b6e78234264fcd3332a9aa44b10d7a65cc85cf44137/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/stael-corinne/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stael-corinne-e62ac46f822afd63/402cae7767f2c50a93158b6e78234264fcd3332a9aa44b10d7a65cc85cf44137/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stael-corinne-e62ac46f822afd63/402cae7767f2c50a93158b6e78234264fcd3332a9aa44b10d7a65cc85cf44137/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/stael-corinne/canonical.txt)
 - Occurrence: stael-corinne-e62ac46f822afd63
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

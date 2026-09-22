@@ -279,9 +279,9 @@ Self-reported confidence: 0.97. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core clause as an avowal of a loving state. The surrounding renunciatory commitment and intense tragic framing can be described contextually without assigning P, E, or O to the core utterance.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-dcc5f7f385040843/b78b8178ed0cd4d8e503965a28dc09bd5689e71a95aec6cb06ca7610d2222033/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-dcc5f7f385040843/b78b8178ed0cd4d8e503965a28dc09bd5689e71a95aec6cb06ca7610d2222033/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/verona-colei-che-non-si-deve-amare/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-dcc5f7f385040843/b78b8178ed0cd4d8e503965a28dc09bd5689e71a95aec6cb06ca7610d2222033/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-dcc5f7f385040843/b78b8178ed0cd4d8e503965a28dc09bd5689e71a95aec6cb06ca7610d2222033/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/verona-colei-che-non-si-deve-amare/canonical.txt)
 - Occurrence: verona-colei-che-non-si-deve-amare-dcc5f7f385040843
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

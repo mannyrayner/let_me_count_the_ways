@@ -315,9 +315,9 @@ Self-reported confidence: 0.93. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core avowal, while a small P score registers the vow-like resonance of loving “unto death.” Delivery and narrative intensity can remain contextual without requiring E or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-victoria-6e2952ea15b26d6d/17459b6143ceda9d68fe6850353ebc5276f461451482ad8fceb2f9579c90f805/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-victoria-6e2952ea15b26d6d/17459b6143ceda9d68fe6850353ebc5276f461451482ad8fceb2f9579c90f805/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/hamsun-victoria/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-victoria-6e2952ea15b26d6d/17459b6143ceda9d68fe6850353ebc5276f461451482ad8fceb2f9579c90f805/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-victoria-6e2952ea15b26d6d/17459b6143ceda9d68fe6850353ebc5276f461451482ad8fceb2f9579c90f805/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/hamsun-victoria/canonical.txt)
 - Occurrence: hamsun-victoria-6e2952ea15b26d6d
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

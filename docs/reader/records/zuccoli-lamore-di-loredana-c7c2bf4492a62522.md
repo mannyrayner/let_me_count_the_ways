@@ -294,9 +294,9 @@ Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the utterance's central force as a sincere-seeming avowal. Its pleading context and emotional delivery can be described contextually without adding P, E, or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/zuccoli-lamore-di-loredana-c7c2bf4492a62522/a06210814c3e1f62c57f8f7c09689a795ed39d7f9fbd51db72919aac59fcebd5/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/zuccoli-lamore-di-loredana-c7c2bf4492a62522/a06210814c3e1f62c57f8f7c09689a795ed39d7f9fbd51db72919aac59fcebd5/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/zuccoli-lamore-di-loredana/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/zuccoli-lamore-di-loredana-c7c2bf4492a62522/a06210814c3e1f62c57f8f7c09689a795ed39d7f9fbd51db72919aac59fcebd5/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/zuccoli-lamore-di-loredana-c7c2bf4492a62522/a06210814c3e1f62c57f8f7c09689a795ed39d7f9fbd51db72919aac59fcebd5/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/zuccoli-lamore-di-loredana/canonical.txt)
 - Occurrence: zuccoli-lamore-di-loredana-c7c2bf4492a62522
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

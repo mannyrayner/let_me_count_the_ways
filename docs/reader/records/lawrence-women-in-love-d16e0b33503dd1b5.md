@@ -228,9 +228,9 @@ Self-reported confidence: 0.94. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the concessive avowal. The surrounding relational struggle and grim delivery can be represented contextually without adding P, E, or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lawrence-women-in-love-d16e0b33503dd1b5/2c36143c49d9ffbbfff1c8e691a85b009c6ddcac8a7e7ca56aa5d1bf164a02bc/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lawrence-women-in-love-d16e0b33503dd1b5/2c36143c49d9ffbbfff1c8e691a85b009c6ddcac8a7e7ca56aa5d1bf164a02bc/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/lawrence-women-in-love/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lawrence-women-in-love-d16e0b33503dd1b5/2c36143c49d9ffbbfff1c8e691a85b009c6ddcac8a7e7ca56aa5d1bf164a02bc/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lawrence-women-in-love-d16e0b33503dd1b5/2c36143c49d9ffbbfff1c8e691a85b009c6ddcac8a7e7ca56aa5d1bf164a02bc/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/lawrence-women-in-love/canonical.txt)
 - Occurrence: lawrence-women-in-love-d16e0b33503dd1b5
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

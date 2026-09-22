@@ -261,9 +261,9 @@ Self-reported confidence: 0.98. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core utterance as a qualified avowal of love. Rhoda’s passion, hesitation, and conflict over marriage are adequately treated as context; no residual core force requires P, E, or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/gissing-the-odd-women-912b570ed81fd9e9/2e4a6bc03c1777eb92f6d9fb84369fa6cdf6d5a94873511aeb5406bf99b8040f/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/gissing-the-odd-women-912b570ed81fd9e9/2e4a6bc03c1777eb92f6d9fb84369fa6cdf6d5a94873511aeb5406bf99b8040f/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/gissing-the-odd-women/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/gissing-the-odd-women-912b570ed81fd9e9/2e4a6bc03c1777eb92f6d9fb84369fa6cdf6d5a94873511aeb5406bf99b8040f/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/gissing-the-odd-women-912b570ed81fd9e9/2e4a6bc03c1777eb92f6d9fb84369fa6cdf6d5a94873511aeb5406bf99b8040f/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/gissing-the-odd-women/canonical.txt)
 - Occurrence: gissing-the-odd-women-912b570ed81fd9e9
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

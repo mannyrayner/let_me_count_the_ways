@@ -694,9 +694,9 @@ Self-reported confidence: 0.98. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core as a retrospective avowal of love. The mistaken attribution and dramatic irony are adequately treated as context, with no residual core force requiring P, E, or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-019f33d6fc3682ce/003ab1bbfc32792d7004cbcd5cb7adc8effd59a214979912771ee67d4f0ec5ed/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-019f33d6fc3682ce/003ab1bbfc32792d7004cbcd5cb7adc8effd59a214979912771ee67d4f0ec5ed/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/rostand-cyrano-de-bergerac/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-019f33d6fc3682ce/003ab1bbfc32792d7004cbcd5cb7adc8effd59a214979912771ee67d4f0ec5ed/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-019f33d6fc3682ce/003ab1bbfc32792d7004cbcd5cb7adc8effd59a214979912771ee67d4f0ec5ed/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/rostand-cyrano-de-bergerac/canonical.txt)
 - Occurrence: rostand-cyrano-de-bergerac-019f33d6fc3682ce
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

@@ -425,9 +425,9 @@ Self-reported confidence: 0.92. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T and P naturally capture the hedged prospective avowal and conditional relational undertaking. The negotiation, possible calculation, and emotional undercurrent belong in contextual interpretation and create no residual core-force pressure.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/dumas-fils-la-dame-aux-camelias-30f4d3add98b26eb/9c00e8791d5235d1e56c1f60d224840c6a2196d709c8f56b3a79afb342024c75/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/dumas-fils-la-dame-aux-camelias-30f4d3add98b26eb/9c00e8791d5235d1e56c1f60d224840c6a2196d709c8f56b3a79afb342024c75/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/dumas-fils-la-dame-aux-camelias/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/dumas-fils-la-dame-aux-camelias-30f4d3add98b26eb/9c00e8791d5235d1e56c1f60d224840c6a2196d709c8f56b3a79afb342024c75/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/dumas-fils-la-dame-aux-camelias-30f4d3add98b26eb/9c00e8791d5235d1e56c1f60d224840c6a2196d709c8f56b3a79afb342024c75/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/dumas-fils-la-dame-aux-camelias/canonical.txt)
 - Occurrence: dumas-fils-la-dame-aux-camelias-30f4d3add98b26eb
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

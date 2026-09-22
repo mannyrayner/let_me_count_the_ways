@@ -286,9 +286,9 @@ Self-reported confidence: 0.93. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the direct avowal. The apologetic, self-exculpatory, passionate, and unreciprocated context can be described separately without adding P, E, or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/zuccoli-lamore-di-loredana-9e24d1a23b93eff0/1a81a60209a874cc52e49c935c9bc41d0859215dd888cf44cf9aa9fa1f9fd57d/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/zuccoli-lamore-di-loredana-9e24d1a23b93eff0/1a81a60209a874cc52e49c935c9bc41d0859215dd888cf44cf9aa9fa1f9fd57d/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/zuccoli-lamore-di-loredana/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/zuccoli-lamore-di-loredana-9e24d1a23b93eff0/1a81a60209a874cc52e49c935c9bc41d0859215dd888cf44cf9aa9fa1f9fd57d/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/zuccoli-lamore-di-loredana-9e24d1a23b93eff0/1a81a60209a874cc52e49c935c9bc41d0859215dd888cf44cf9aa9fa1f9fd57d/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/zuccoli-lamore-di-loredana/canonical.txt)
 - Occurrence: zuccoli-lamore-di-loredana-9e24d1a23b93eff0
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

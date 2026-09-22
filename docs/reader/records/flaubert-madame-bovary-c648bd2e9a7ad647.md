@@ -292,9 +292,9 @@ Self-reported confidence: 0.93. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T captures the avowal and E captures the narrator-supported overflow of affect into conventional language. The utterance itself contains no important residual force requiring O, and its surrounding jealousy, idealization, and Rodolphe’s exploitation are contextual rather than missing core categories.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-c648bd2e9a7ad647/fbfa1810e090f58e0094985a122d76b8cda1aa061d117e1a0cddc8476e2bbb99/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-c648bd2e9a7ad647/fbfa1810e090f58e0094985a122d76b8cda1aa061d117e1a0cddc8476e2bbb99/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/flaubert-madame-bovary/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-c648bd2e9a7ad647/fbfa1810e090f58e0094985a122d76b8cda1aa061d117e1a0cddc8476e2bbb99/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-c648bd2e9a7ad647/fbfa1810e090f58e0094985a122d76b8cda1aa061d117e1a0cddc8476e2bbb99/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/flaubert-madame-bovary/canonical.txt)
 - Occurrence: flaubert-madame-bovary-c648bd2e9a7ad647
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

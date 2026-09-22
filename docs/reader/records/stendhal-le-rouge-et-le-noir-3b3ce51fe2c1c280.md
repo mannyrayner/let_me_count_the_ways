@@ -287,9 +287,9 @@ Self-reported confidence: 0.97. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the retrospective avowal; its use as leverage and its authoritative delivery are adequately handled as context, with no residual core force requiring O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stendhal-le-rouge-et-le-noir-3b3ce51fe2c1c280/251bcd06f2f43f2352815e5181c7e39e8b69ffd58efeded65d1c1a447eb1443a/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stendhal-le-rouge-et-le-noir-3b3ce51fe2c1c280/251bcd06f2f43f2352815e5181c7e39e8b69ffd58efeded65d1c1a447eb1443a/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/stendhal-le-rouge-et-le-noir/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stendhal-le-rouge-et-le-noir-3b3ce51fe2c1c280/251bcd06f2f43f2352815e5181c7e39e8b69ffd58efeded65d1c1a447eb1443a/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stendhal-le-rouge-et-le-noir-3b3ce51fe2c1c280/251bcd06f2f43f2352815e5181c7e39e8b69ffd58efeded65d1c1a447eb1443a/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/stendhal-le-rouge-et-le-noir/canonical.txt)
 - Occurrence: stendhal-le-rouge-et-le-noir-3b3ce51fe2c1c280
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

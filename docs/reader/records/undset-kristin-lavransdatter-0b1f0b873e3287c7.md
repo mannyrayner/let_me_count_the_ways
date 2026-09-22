@@ -12117,9 +12117,9 @@ Self-reported confidence: 0.98. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core force as a deliberate avowal of a longstanding emotional state. Neither commitment-taking P, independently expressive/reflexive E, nor residual O is needed.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/undset-kristin-lavransdatter-0b1f0b873e3287c7/53f874bf53b0f346d321fbda35d8b76149d6bf04cc008cfbeb8a0f04fc667155/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/undset-kristin-lavransdatter-0b1f0b873e3287c7/53f874bf53b0f346d321fbda35d8b76149d6bf04cc008cfbeb8a0f04fc667155/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/undset-kristin-lavransdatter/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/undset-kristin-lavransdatter-0b1f0b873e3287c7/53f874bf53b0f346d321fbda35d8b76149d6bf04cc008cfbeb8a0f04fc667155/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/undset-kristin-lavransdatter-0b1f0b873e3287c7/53f874bf53b0f346d321fbda35d8b76149d6bf04cc008cfbeb8a0f04fc667155/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/undset-kristin-lavransdatter/canonical.txt)
 - Occurrence: undset-kristin-lavransdatter-0b1f0b873e3287c7
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

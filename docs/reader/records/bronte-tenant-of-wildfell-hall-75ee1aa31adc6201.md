@@ -219,9 +219,9 @@ Self-reported confidence: 0.93. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T/P/E adequately handles the embedded love-state content: moderate T records its representational character, while the hypothetical status and contextual interpretation capture its nonassertoric argumentative use. No residual core force requires O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-tenant-of-wildfell-hall-75ee1aa31adc6201/f832760b996b16a98be1f7891c421e6c66803cce1ea4e38dee360b76ef4a9dda/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-tenant-of-wildfell-hall-75ee1aa31adc6201/f832760b996b16a98be1f7891c421e6c66803cce1ea4e38dee360b76ef4a9dda/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/bronte-tenant-of-wildfell-hall/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-tenant-of-wildfell-hall-75ee1aa31adc6201/f832760b996b16a98be1f7891c421e6c66803cce1ea4e38dee360b76ef4a9dda/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-tenant-of-wildfell-hall-75ee1aa31adc6201/f832760b996b16a98be1f7891c421e6c66803cce1ea4e38dee360b76ef4a9dda/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/bronte-tenant-of-wildfell-hall/canonical.txt)
 - Occurrence: bronte-tenant-of-wildfell-hall-75ee1aa31adc6201
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

@@ -700,9 +700,9 @@ Self-reported confidence: 0.97. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core as a sincere avowal of a present loving state. The mistaken attribution of the beloved ‘soul’ is contextual dramatic irony, not a missing kind of utterance force; neither P, E, nor O is independently needed.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-124093752774e040/32d61104fdc3414bef538d981ad13433631c55442981ae4e39af8ded50128b48/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-124093752774e040/32d61104fdc3414bef538d981ad13433631c55442981ae4e39af8ded50128b48/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/rostand-cyrano-de-bergerac/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-124093752774e040/32d61104fdc3414bef538d981ad13433631c55442981ae4e39af8ded50128b48/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-124093752774e040/32d61104fdc3414bef538d981ad13433631c55442981ae4e39af8ded50128b48/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/rostand-cyrano-de-bergerac/canonical.txt)
 - Occurrence: rostand-cyrano-de-bergerac-124093752774e040
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

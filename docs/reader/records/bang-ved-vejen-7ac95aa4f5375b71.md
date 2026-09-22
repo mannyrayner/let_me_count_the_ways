@@ -454,9 +454,9 @@ Self-reported confidence: 0.93. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the represented lyric avowal. The performance framing and emotional styling are adequately handled as context and do not reveal a core force omitted by T/P/E.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bang-ved-vejen-7ac95aa4f5375b71/157b576dec2974618c7bcd4d9e9532b67eb651cbf0e6633e3eb0c0fb5d83d242/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bang-ved-vejen-7ac95aa4f5375b71/157b576dec2974618c7bcd4d9e9532b67eb651cbf0e6633e3eb0c0fb5d83d242/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/bang-ved-vejen/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bang-ved-vejen-7ac95aa4f5375b71/157b576dec2974618c7bcd4d9e9532b67eb651cbf0e6633e3eb0c0fb5d83d242/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bang-ved-vejen-7ac95aa4f5375b71/157b576dec2974618c7bcd4d9e9532b67eb651cbf0e6633e3eb0c0fb5d83d242/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/bang-ved-vejen/canonical.txt)
 - Occurrence: bang-ved-vejen-7ac95aa4f5375b71
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

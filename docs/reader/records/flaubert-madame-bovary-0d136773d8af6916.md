@@ -276,9 +276,9 @@ Self-reported confidence: 0.97. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the avowal’s core force. Rodolphe’s routinization, reassurance, and doubtful sincerity are contextual features adequately described without adding P, E, or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-0d136773d8af6916/f2c2e4ab8534546a8a6abd0bda7765ad629ec184b50be80178266a1bbefdbc0f/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-0d136773d8af6916/f2c2e4ab8534546a8a6abd0bda7765ad629ec184b50be80178266a1bbefdbc0f/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/flaubert-madame-bovary/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-0d136773d8af6916/f2c2e4ab8534546a8a6abd0bda7765ad629ec184b50be80178266a1bbefdbc0f/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-0d136773d8af6916/f2c2e4ab8534546a8a6abd0bda7765ad629ec184b50be80178266a1bbefdbc0f/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/flaubert-madame-bovary/canonical.txt)
 - Occurrence: flaubert-madame-bovary-0d136773d8af6916
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

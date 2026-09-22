@@ -139,9 +139,9 @@ Self-reported confidence: 0.94. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the central avowal, with slight P support for its appeal to the existing relationship. No important core force remains outside T/P/E; the surrounding distress and narrative complications are contextual.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/cofield-nikkis-touch-3d842b8be44c455a/1f388425abfa240cc227d560423cba65fd4df9e2cd5597e4370839c92a3dc481/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/cofield-nikkis-touch-3d842b8be44c455a/1f388425abfa240cc227d560423cba65fd4df9e2cd5597e4370839c92a3dc481/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/cofield-nikkis-touch/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/cofield-nikkis-touch-3d842b8be44c455a/1f388425abfa240cc227d560423cba65fd4df9e2cd5597e4370839c92a3dc481/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/cofield-nikkis-touch-3d842b8be44c455a/1f388425abfa240cc227d560423cba65fd4df9e2cd5597e4370839c92a3dc481/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/cofield-nikkis-touch/canonical.txt)
 - Occurrence: cofield-nikkis-touch-3d842b8be44c455a
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

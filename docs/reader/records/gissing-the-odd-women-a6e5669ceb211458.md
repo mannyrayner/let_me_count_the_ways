@@ -268,9 +268,9 @@ Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the hedged avowal. Its persuasive relationship context and disputed sincerity require contextual explanation but reveal no missing dimension in the core ontology.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/gissing-the-odd-women-a6e5669ceb211458/89b9d69e5d89bd9198900ebb891f583d9f06906650cd8c09f521ef4aa20f254a/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/gissing-the-odd-women-a6e5669ceb211458/89b9d69e5d89bd9198900ebb891f583d9f06906650cd8c09f521ef4aa20f254a/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/gissing-the-odd-women/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/gissing-the-odd-women-a6e5669ceb211458/89b9d69e5d89bd9198900ebb891f583d9f06906650cd8c09f521ef4aa20f254a/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/gissing-the-odd-women-a6e5669ceb211458/89b9d69e5d89bd9198900ebb891f583d9f06906650cd8c09f521ef4aa20f254a/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/gissing-the-odd-women/canonical.txt)
 - Occurrence: gissing-the-odd-women-a6e5669ceb211458
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

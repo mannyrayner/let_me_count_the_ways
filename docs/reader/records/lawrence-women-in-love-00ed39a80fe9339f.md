@@ -269,9 +269,9 @@ Self-reported confidence: 0.95. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the utterance’s presuppositional admission concerning Gerald’s lack of love. The interrogative request for a cause and the surrounding antagonism require contextual explanation but do not expose a missing core-force category.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lawrence-women-in-love-00ed39a80fe9339f/12130fe56ca1ac3c7dc2fb39f8aa284f1e733c2f70b11891c320b20717be7410/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lawrence-women-in-love-00ed39a80fe9339f/12130fe56ca1ac3c7dc2fb39f8aa284f1e733c2f70b11891c320b20717be7410/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/lawrence-women-in-love/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lawrence-women-in-love-00ed39a80fe9339f/12130fe56ca1ac3c7dc2fb39f8aa284f1e733c2f70b11891c320b20717be7410/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lawrence-women-in-love-00ed39a80fe9339f/12130fe56ca1ac3c7dc2fb39f8aa284f1e733c2f70b11891c320b20717be7410/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/lawrence-women-in-love/canonical.txt)
 - Occurrence: lawrence-women-in-love-00ed39a80fe9339f
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

@@ -290,9 +290,9 @@ Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T/P/E adequately captures the core force as a direct but theatrically borrowed avowal. Literary imitation, probable insincerity, and courtship strategy are contextual qualifications rather than missing core-force dimensions.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stendhal-le-rouge-et-le-noir-78daff51c5dcf1c7/bd32bc7109f24fa71e574e98c7aaee623babe341aa6cab10ebd8c46f635177c1/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stendhal-le-rouge-et-le-noir-78daff51c5dcf1c7/bd32bc7109f24fa71e574e98c7aaee623babe341aa6cab10ebd8c46f635177c1/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/stendhal-le-rouge-et-le-noir/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stendhal-le-rouge-et-le-noir-78daff51c5dcf1c7/bd32bc7109f24fa71e574e98c7aaee623babe341aa6cab10ebd8c46f635177c1/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stendhal-le-rouge-et-le-noir-78daff51c5dcf1c7/bd32bc7109f24fa71e574e98c7aaee623babe341aa6cab10ebd8c46f635177c1/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/stendhal-le-rouge-et-le-noir/canonical.txt)
 - Occurrence: stendhal-le-rouge-et-le-noir-78daff51c5dcf1c7
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

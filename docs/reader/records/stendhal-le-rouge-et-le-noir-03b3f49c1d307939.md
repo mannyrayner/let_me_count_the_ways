@@ -260,9 +260,9 @@ Self-reported confidence: 0.93. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core avowal of present affection. Its attenuated wording, persuasive use, and emotional delivery are adequately handled as contextual qualifications rather than as P, E, or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stendhal-le-rouge-et-le-noir-03b3f49c1d307939/b373d6b7a1f550ca12f3133e6b13c5ce624fc62f5c459926aaa0c829ae8ff538/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stendhal-le-rouge-et-le-noir-03b3f49c1d307939/b373d6b7a1f550ca12f3133e6b13c5ce624fc62f5c459926aaa0c829ae8ff538/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/stendhal-le-rouge-et-le-noir/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stendhal-le-rouge-et-le-noir-03b3f49c1d307939/b373d6b7a1f550ca12f3133e6b13c5ce624fc62f5c459926aaa0c829ae8ff538/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stendhal-le-rouge-et-le-noir-03b3f49c1d307939/b373d6b7a1f550ca12f3133e6b13c5ce624fc62f5c459926aaa0c829ae8ff538/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/stendhal-le-rouge-et-le-noir/canonical.txt)
 - Occurrence: stendhal-le-rouge-et-le-noir-03b3f49c1d307939
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

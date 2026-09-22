@@ -240,9 +240,9 @@ Self-reported confidence: 0.97. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T/P/E adequately captures the core force: a deliberate avowal of love, without independent undertaking force or expressive/reflexive discharge. The metafictional framing is contextual rather than a missing core-force category.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-victoria-5fa7bf1d366f41a3/93f65c284d120a9776ae3a14d6f12f2b336978371e2057bd0460df9bff7fda52/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-victoria-5fa7bf1d366f41a3/93f65c284d120a9776ae3a14d6f12f2b336978371e2057bd0460df9bff7fda52/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/hamsun-victoria/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-victoria-5fa7bf1d366f41a3/93f65c284d120a9776ae3a14d6f12f2b336978371e2057bd0460df9bff7fda52/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-victoria-5fa7bf1d366f41a3/93f65c284d120a9776ae3a14d6f12f2b336978371e2057bd0460df9bff7fda52/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/hamsun-victoria/canonical.txt)
 - Occurrence: hamsun-victoria-5fa7bf1d366f41a3
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

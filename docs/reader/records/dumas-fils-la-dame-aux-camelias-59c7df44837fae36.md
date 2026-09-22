@@ -407,9 +407,9 @@ Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the utterance’s core force. The scene’s passion, intimacy, courtship, and later promises are adequately represented as contextual features or separate acts; no residual dimension requires E or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/dumas-fils-la-dame-aux-camelias-59c7df44837fae36/e0127b97cdea163f403e9fc6c1751c4b38ac224b62a07739c0a781c4deb50c55/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/dumas-fils-la-dame-aux-camelias-59c7df44837fae36/e0127b97cdea163f403e9fc6c1751c4b38ac224b62a07739c0a781c4deb50c55/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/dumas-fils-la-dame-aux-camelias/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/dumas-fils-la-dame-aux-camelias-59c7df44837fae36/e0127b97cdea163f403e9fc6c1751c4b38ac224b62a07739c0a781c4deb50c55/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/dumas-fils-la-dame-aux-camelias-59c7df44837fae36/e0127b97cdea163f403e9fc6c1751c4b38ac224b62a07739c0a781c4deb50c55/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/dumas-fils-la-dame-aux-camelias/canonical.txt)
 - Occurrence: dumas-fils-la-dame-aux-camelias-59c7df44837fae36
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

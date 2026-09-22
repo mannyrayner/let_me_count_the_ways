@@ -247,9 +247,9 @@ Self-reported confidence: 0.94. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T captures the avowal, and a moderate P score captures its commitment-inflected placement after a promise of steadfast devotion. Contextual urgency and passion can be described separately; no important core force remains outside T/P/E.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stendhal-le-rouge-et-le-noir-17563a9e79376c8c/d48856e453e21851fa8c52a5a97bac9c91c1fcd54bc6f7f16b1d17d98de83315/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stendhal-le-rouge-et-le-noir-17563a9e79376c8c/d48856e453e21851fa8c52a5a97bac9c91c1fcd54bc6f7f16b1d17d98de83315/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/stendhal-le-rouge-et-le-noir/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stendhal-le-rouge-et-le-noir-17563a9e79376c8c/d48856e453e21851fa8c52a5a97bac9c91c1fcd54bc6f7f16b1d17d98de83315/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stendhal-le-rouge-et-le-noir-17563a9e79376c8c/d48856e453e21851fa8c52a5a97bac9c91c1fcd54bc6f7f16b1d17d98de83315/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/stendhal-le-rouge-et-le-noir/canonical.txt)
 - Occurrence: stendhal-le-rouge-et-le-noir-17563a9e79376c8c
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

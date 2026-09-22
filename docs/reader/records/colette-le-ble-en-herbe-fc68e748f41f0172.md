@@ -312,9 +312,9 @@ Self-reported confidence: 0.94. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the imagined avowal, while a low P score records its participation in a larger scene of relational surrender. Delivery intensity or reflex-like production is not represented, so E is unwarranted; no important core force remains outside T/P/E.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/colette-le-ble-en-herbe-fc68e748f41f0172/2326f8e32a3d6c5c992375baaa1f06bcb40095e095357ab2b18746fa4a130ebe/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/colette-le-ble-en-herbe-fc68e748f41f0172/2326f8e32a3d6c5c992375baaa1f06bcb40095e095357ab2b18746fa4a130ebe/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/colette-le-ble-en-herbe/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/colette-le-ble-en-herbe-fc68e748f41f0172/2326f8e32a3d6c5c992375baaa1f06bcb40095e095357ab2b18746fa4a130ebe/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/colette-le-ble-en-herbe-fc68e748f41f0172/2326f8e32a3d6c5c992375baaa1f06bcb40095e095357ab2b18746fa4a130ebe/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/colette-le-ble-en-herbe/canonical.txt)
 - Occurrence: colette-le-ble-en-herbe-fc68e748f41f0172
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

@@ -5007,9 +5007,9 @@ Self-reported confidence: 0.97. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the utterance's central force as an explicit retrospective avowal of love. Its reassurance function, emotional intensity, and marital history are adequately represented as context and do not create residual pressure for E, P, or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/undset-kristin-lavransdatter-e5e791f1a3c0031a/3780ef62a8a493fdf63b5ba2d7b3a852eab0fb2725b3f4bfe26d96a9c173b2aa/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/undset-kristin-lavransdatter-e5e791f1a3c0031a/3780ef62a8a493fdf63b5ba2d7b3a852eab0fb2725b3f4bfe26d96a9c173b2aa/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/undset-kristin-lavransdatter/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/undset-kristin-lavransdatter-e5e791f1a3c0031a/3780ef62a8a493fdf63b5ba2d7b3a852eab0fb2725b3f4bfe26d96a9c173b2aa/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/undset-kristin-lavransdatter-e5e791f1a3c0031a/3780ef62a8a493fdf63b5ba2d7b3a852eab0fb2725b3f4bfe26d96a9c173b2aa/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/undset-kristin-lavransdatter/canonical.txt)
 - Occurrence: undset-kristin-lavransdatter-e5e791f1a3c0031a
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

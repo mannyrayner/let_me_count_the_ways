@@ -230,9 +230,9 @@ Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the highlighted clause as an avowal of a loving state. Its emotional, possessive, suicidal, and religious framing can be recorded contextually without adding P, E, or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/goethe-die-leiden-des-jungen-werther-0321a31ffd0dd044/3c3f9f88a6ba23ee0d7340af95427c953c638a683344243ca25ee02aa5ac9b95/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/goethe-die-leiden-des-jungen-werther-0321a31ffd0dd044/3c3f9f88a6ba23ee0d7340af95427c953c638a683344243ca25ee02aa5ac9b95/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/goethe-die-leiden-des-jungen-werther/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/goethe-die-leiden-des-jungen-werther-0321a31ffd0dd044/3c3f9f88a6ba23ee0d7340af95427c953c638a683344243ca25ee02aa5ac9b95/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/goethe-die-leiden-des-jungen-werther-0321a31ffd0dd044/3c3f9f88a6ba23ee0d7340af95427c953c638a683344243ca25ee02aa5ac9b95/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/goethe-die-leiden-des-jungen-werther/canonical.txt)
 - Occurrence: goethe-die-leiden-des-jungen-werther-0321a31ffd0dd044
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

@@ -1,0 +1,182 @@
+# Война и мир
+
+Лев Толстой · Russian
+
+[All records](../README.md) · [HTML reading copy](../cases/tolstoy-war-and-peace-e030d49aa60c49ae.html)
+
+## Target
+
+> Я вас всех люблю
+
+
+| T: report / avowal | P: undertaking | E: expressive/reflexive | O: other |
+|---:|---:|---:|---:|
+| 4 / 4 | 0 / 4 | 3 / 4 | 0 / 4 |
+
+Scores are independent support judgments. T is not a sincerity score.
+
+## Original passage
+
+> Маленькая княгиня лежала на подушках, в белом чепчике. (Страдания только что отпустили ее.) Черные волосы прядями вились у ее воспаленных, вспотевших щек; румяный, прелестный ротик с губкой, покрытою черными волосиками, был раскрыт, и она радостно улыбалась. Князь Андрей вошел в комнату и остановился перед ней, у изножья дивана, на котором она лежала. Блестящие глаза, смотревшие детски-испуганно и взволнованно, остановились на нем, не изменяя выражения. «Я вас всех люблю, я никому зла не делала, за чтò я страдаю? помогите мне», говорило ее выражение. Она видела мужа, но не понимала значения его появления теперь перед нею. Князь Андрей обошел диван и в лоб поцеловал ее.
+
+
+## Original AI explanation
+
+The princess’s expression is narratively verbalised as saying “I love all of you.” It strongly presents universal loving feeling as true (T). Because this is an involuntary facial manifestation arising amid fear, pain, and impaired comprehension rather than a deliberate spoken avowal, it also has independently substantial expressive/reflexive force (E). It neither undertakes nor renews a relational commitment (P).
+
+## Ambiguity
+
+The narrator interprets a facial expression rather than transcribing speech, so the exact balance between an attributed avowal (T) and affective manifestation (E) is uncertain; this does not create ontology failure.
+
+## Narrative situation (AI interpretation)
+
+During a brief respite from childbirth agony, the princess looks at her husband with joy, fear, and agitation but cannot understand the significance of his arrival. The narrator interprets her expression as simultaneously communicating love for everyone, her innocence, bewilderment at undeserved suffering, and a plea for help. Thus the love clause works both as a sincere presentation of benevolent feeling and as part of an involuntary affective appeal, not as a promise or relational undertaking. Its later attribution to her dead face reinforces the passage’s framing of her as loving, harmless, and wronged.
+
+## Original context supplied to the annotator
+
+> Княжна Марья уже давно оставила книгу: она сидела молча, устремив лучистые глаза на сморщенное, до малейших подробностей знакомое, лицо няни: на прядку седых волос, выбившуюся из под платка, на висящий мешочек кожи под подбородком.
+> 
+> Няня-Савишна, с чулком в руках, тихим голосом рассказывала, сама не слыша и не понимая своих слов, сотни раз рассказанное о том, как покойница-княгиня в Кишиневе рожала княжну Марью, с крестьянскою бабой-молдаванкой, вместо бабушки.
+> 
+> — Бог помилует, никогда дохтура не нужны, — говорила она. Вдруг порыв ветра налег на одну из выставленных рам комнаты (по воле князя всегда с жаворонками выставлялось по одной раме в каждой комнате) и, отбив плохо задвинутую задвижку, затрепал штофною гардиной, и пахнув холодом, снегом, задул свечу. Княжна Марья вздрогнула; няня, положив чулок, подошла к окну и высунувшись стала ловить откинутую раму. Холодный ветер трепал концами ее платка и седыми, выбившимися прядями волос.
+> 
+> — Княжна, матушка, едут по прешпекту кто-то! — сказала она, держа раму и не затворяя ее. — С фонарями, должно, дохтур...
+> 
+> — Ах, Боже мой! Слава Богу! — сказала княжна Марья, — надо пойти встретить его: он не знает по-русски.
+> 
+> Княжна Марья накинула шаль и побежала навстречу ехавшим. Когда она проходила переднюю, она в окно видела, что какой-то экипаж и фонари стояли у подъезда. Она вышла на лестницу. На столбике перил стояла сальная свеча и текла от ветра. Официант Филипп, с испуганным лицом и с другою свечей в руке, стоял ниже, на первой площадке лестницы. Еще пониже, за поворотом, по лестнице, слышны были подвигавшиеся шаги в теплых сапогах. И какой-то знакомый, как показалось княжне Марье, голос, говорил что-то.
+> 
+> — Слава Богу! — сказал голос. — А батюшка?
+> 
+> — Почивать легли, — отвечал голос дворецкого Демьяна, бывшего уже внизу.
+> 
+> Потом еще что-то сказал голос, что-то ответил Демьян, и шаги в теплых сапогах стали быстрее приближаться по невидному повороту лестницы. «Это Андрей! — подумала княжна Марья. Нет, это не может быть, это было бы слишком необыкновенно», подумала она, и в ту же минуту, как она думала это, на площадке, на которой стоял официант со свечой, показались лицо и фигура князя Андрея в шубе с воротником, обсыпанным снегом. Да, это был он, но бледный и худой, и с измененным, странно-смягченным, но тревожным выражением лица. Он вошел на лестницу и обнял сестру.
+> 
+> — Вы не получили моего письма? — спросил он, и не дожидаясь ответа, которого бы он и не получил, потому что княжна не могла говорить, он вернулся, и с акушером, который вошел вслед за ним (он съехался с ним на последней станции), быстрыми шагами опять вошел на лестницу и опять обнял сестру.
+> 
+> — Какая судьба! — проговорил он, — Маша милая! — И, скинув шубу и сапоги, пошел на половину княгини.
+> 
+> IX.
+> 
+> Маленькая княгиня лежала на подушках, в белом чепчике. (Страдания только что отпустили ее.) Черные волосы прядями вились у ее воспаленных, вспотевших щек; румяный, прелестный ротик с губкой, покрытою черными волосиками, был раскрыт, и она радостно улыбалась. Князь Андрей вошел в комнату и остановился перед ней, у изножья дивана, на котором она лежала. Блестящие глаза, смотревшие детски-испуганно и взволнованно, остановились на нем, не изменяя выражения. «Я вас всех люблю, я никому зла не делала, за чтò я страдаю? помогите мне», говорило ее выражение. Она видела мужа, но не понимала значения его появления теперь перед нею. Князь Андрей обошел диван и в лоб поцеловал ее.
+> 
+> — Душенька моя, — сказал он: слово, которое никогда не говорил ей. — Бог милостив... — Она вопросительно, детски-укоризненно посмотрела на него.
+> 
+> «Я от тебя ждала помощи, и ничего, ничего, и ты тоже!» сказали ее глаза. Она не удивилась, что он приехал; она не поняла того, что он приехал. Его приезд не имел никакого отношения до ее страданий и облегчения их. Муки вновь начались, и Марья Богдановна посоветовала князю Андрею выйти из комнаты.
+> 
+> Акушер вошел в комнату. Князь Андрей вышел и, встретив княжну Марью, опять подошел к ней. Они шопотом заговорили, но всякую минуту разговор замолкал. Они ждали и прислушивались.
+> 
+> — Allez, mon ami, — сказала княжна Марья. Князь Андрей опять пошел к жене, и в соседней комнате сел дожидаясь. Какая-то женщина вышла из ее комнаты с испуганным лицом и смутилась, увидав князя Андрея. Он закрыл лицо руками и просидел так несколько минут. Жалкие, беспомощно-животные стоны слышались из-за двери. Князь Андрей встал, подошел к двери и хотел отворить ее. Дверь держал кто-то.
+> 
+> — Нельзя, нельзя! — проговорил оттуда испуганный голос. — Он стал ходить по комнате. Крики замолкли, еще прошло несколько секунд. Вдруг страшный крик — не ее крик, она не могла так кричать, — раздался в соседней комнате. Князь Андрей подбежал к двери; крик замолк, послышался крик ребенка.
+> 
+> «Зачем принесли туда ребенка? подумал в первую секунду князь Андрей. — Ребенок? Какой?.. Зачем там ребенок? Или это родился ребенок?»
+> 
+> Когда он вдруг понял всё радостное значение этого крика, слезы задушили его, и он, облокотившись обеими руками на подоконник, всхлипывая, заплакал, как плачут дети. Дверь отворилась. Доктор, с засученными рукавами рубашки, без сюртука, бледный и с трясущеюся челюстью, вышел из комнаты. Князь Андрей обратился к нему, но доктор растерянно взглянул на него и, ни слова не сказав, прошел мимо. Женщина выбежала и, увидав князя Андрея, замялась на пороге. Он вошел в комнату жены. Она мертвая лежала в том же положении, в котором он видел ее пять минут тому назад, и то же выражение, несмотря на остановившиеся глаза и на бледность щек, было на этом прелестном, детском личике с губкой, покрытою черными волосиками.
+> 
+> «Я вас всех люблю и никому дурного не делала, и чтò вы со мной сделали?» говорило ее прелестное, жалкое, мертвое лицо. В углу комнаты хрюкнуло и пискнуло что-то маленькое, красное в белых трясущихся руках Марьи Богдановны.
+> 
+> Через два часа после этого князь Андрей тихими шагами вошел в кабинет к отцу. Старик всё уже знал. Он стоял у самой двери, и, как только она отворилась, старик молча старческими, жесткими руками, как тисками, обхватил шею сына и зарыдал как ребенок.
+> 
+> Через три дня отпевали маленькую княгиню, и, прощаясь с нею, князь Андрей взошел на ступени гроба. И в гробу было то же лицо, хотя и с закрытыми глазами. «Ах, чтò вы со мной сделали?» всё говорило оно, и князь Андрей почувствовал, что в душе его оторвалось что-то, что он виноват в вине, которую ему не поправить и не забыть. Он не мог плакать. Старик тоже вошел и поцеловал ее восковую ручку, спокойно и высоко лежавшую на другой, и ему ее лицо сказало: «Ах, чтò и за чтò вы это со мной сделали?» И старик сердито отвернулся, увидав это лицо.
+
+
+## English translation supplied to the annotator
+
+> Princess Mary had long since put down her book: she sat silently, fixing her radiant eyes on the nurse’s wrinkled face, familiar to her down to its smallest details: on the lock of gray hair that had escaped from beneath her headscarf, on the hanging pouch of skin beneath her chin.
+> 
+> Nurse Savishna, with a stocking in her hands, was recounting in a quiet voice, without herself hearing or understanding her own words, the story she had told hundreds of times of how the late princess had given birth to Princess Mary in Kishinev, with a Moldavian peasant woman instead of a midwife.
+> 
+> “God will have mercy; doctors are never needed,” she was saying. Suddenly a gust of wind pressed against one of the room’s removable window frames (by the prince’s orders, one frame in every room was always taken out when the larks returned) and, knocking back the poorly fastened latch, set the damask curtain flapping and, blowing in cold and snow, extinguished the candle. Princess Mary shuddered; the nurse put down the stocking, went over to the window, leaned out, and began trying to catch the frame that had swung open. The cold wind fluttered the ends of her headscarf and the escaped gray locks of her hair.
+> 
+> “Princess, dearie, someone’s coming along the avenue!” she said, holding the frame without closing it. “With lanterns; it must be the doctor...”
+> 
+> “Oh, my God! Thank God!” said Princess Mary. “I must go and meet him: he does not know Russian.”
+> 
+> Princess Mary threw on a shawl and ran to meet the arrivals. As she passed through the anteroom, she saw through the window that some carriage and lanterns were standing at the entrance. She went out onto the stairs. A tallow candle stood on the newel post, running in the wind. The footman Philip, with a frightened face and another candle in his hand, stood lower down, on the first landing. Lower still, around the turn in the stairs, approaching footsteps in warm boots could be heard. And a voice that seemed familiar to Princess Mary was saying something.
+> 
+> “Thank God!” said the voice. “And Father?”
+> 
+> “He has retired for the night,” answered the voice of the steward Demyan, who was already downstairs.
+> 
+> Then the voice said something else, Demyan answered something, and the footsteps in warm boots began approaching more quickly around the unseen turn of the staircase. “It is Andrei!” thought Princess Mary. “No, it cannot be; it would be too extraordinary,” she thought, and at the very moment she was thinking this, the face and figure of Prince Andrei, wearing a fur coat with a collar sprinkled with snow, appeared on the landing where the footman stood with the candle. Yes, it was he, but pale and thin, with a changed expression on his face, strangely softened yet anxious. He came up the stairs and embraced his sister.
+> 
+> “You did not receive my letter?” he asked; and without waiting for an answer—which he would not have received in any case, because the princess could not speak—he turned back, and then, with the obstetrician who had come in after him (he had met up with him at the last posting station), he again mounted the stairs with quick steps and again embraced his sister.
+> 
+> “What a stroke of fate!” he said. “Dear Masha!” And, taking off his fur coat and boots, he went to the princess’s apartments.
+> 
+> IX.
+> 
+> The little princess lay on the pillows in a white cap. (Her pains had only just subsided.) Strands of black hair curled beside her inflamed, perspiring cheeks; her lovely little rosy mouth, with its upper lip covered in tiny black hairs, was open, and she smiled joyfully. Prince Andrei entered the room and stopped before her at the foot of the sofa on which she lay. Her shining eyes, gazing with childlike fear and agitation, came to rest on him without changing their expression. “I love all of you; I have done no harm to anyone; why am I suffering? Help me,” her expression said. She saw her husband but did not understand the significance of his appearing before her now. Prince Andrei walked around the sofa and kissed her on the forehead.
+> 
+> “My darling,” he said—a phrase he had never used to her. “God is merciful...” She looked at him questioningly, with childlike reproach.
+> 
+> “I expected help from you, and there is none, none—and you too!” her eyes said. She was not surprised that he had come; she did not understand that he had come. His arrival had no connection at all with her suffering or with relieving it. The agonies began again, and Marya Bogdanovna advised Prince Andrei to leave the room.
+> 
+> The obstetrician entered the room. Prince Andrei went out and, meeting Princess Mary, approached her again. They began speaking in whispers, but every moment their conversation fell silent. They waited and listened.
+> 
+> “Go, my friend,” said Princess Mary. Prince Andrei went back toward his wife and sat down in the adjoining room to wait. A woman came out of her room with a frightened face and became confused on seeing Prince Andrei. He covered his face with his hands and sat that way for several minutes. Pitiful, helplessly animal moans could be heard from behind the door. Prince Andrei stood up, went to the door, and tried to open it. Someone was holding the door shut.
+> 
+> “No, no, you cannot!” said a frightened voice from inside. He began pacing the room. The screams ceased; several more seconds passed. Suddenly a terrible scream—not her scream, she could not have screamed like that—rang out in the adjoining room. Prince Andrei ran to the door; the scream ceased, and the cry of a baby was heard.
+> 
+> “Why have they brought a baby in there?” Prince Andrei thought in the first instant. “A baby? What baby?... Why is there a baby in there? Or has a baby been born?”
+> 
+> When he suddenly understood the full joyful meaning of that cry, tears choked him, and, leaning both hands on the windowsill, he sobbed and wept as children weep. The door opened. The doctor, with his shirtsleeves rolled up, without his frock coat, pale and with a trembling jaw, came out of the room. Prince Andrei turned to him, but the doctor looked at him in bewilderment and, without saying a word, passed by. The woman ran out and, on seeing Prince Andrei, faltered on the threshold. He entered his wife’s room. She lay dead in the same position in which he had seen her five minutes before, and the same expression, despite the motionless eyes and the pallor of the cheeks, remained on that lovely, childlike little face with its upper lip covered in tiny black hairs.
+> 
+> “I love all of you and have done nothing bad to anyone, and what have you done to me?” said her lovely, pitiful, dead face. In the corner of the room, something small and red grunted and squeaked in Marya Bogdanovna’s trembling white hands.
+> 
+> Two hours later Prince Andrei entered his father’s study with quiet steps. The old man already knew everything. He was standing right by the door, and as soon as it opened, the old man silently clasped his son’s neck with his aged, hard hands, like a vise, and sobbed like a child.
+> 
+> Three days later the funeral service was held for the little princess, and, taking leave of her, Prince Andrei mounted the steps beside the coffin. And in the coffin was the same face, though the eyes were closed. “Oh, what have you done to me?” it still said, and Prince Andrei felt that something had been torn away in his soul, that he was guilty of a wrong he could neither make right nor forget. He could not weep. The old man also went up and kissed her waxen little hand, which lay calmly and loftily upon the other, and to him her face said: “Oh, what have you done to me, and why?” And the old man turned away angrily when he saw that face.
+
+
+Translation, where present, is an AI-generated analytical aid, not an authoritative edition.
+
+## Evidence cited by the annotator
+
+### e1 — local text
+
+> «Я вас всех люблю, я никому зла не делала, за чтò я страдаю? помогите мне», говорило ее выражение.
+
+The explicit love proposition supports high T, while “her expression said” establishes that it is a nonverbal manifestation and supports independent E.
+
+### e2 — local text
+
+> Her eyes are described as childishly frightened and agitated, and she sees her husband without understanding the significance of his appearance.
+
+The impaired, affect-driven condition favors an involuntary expressive manifestation rather than a calculated declaration or undertaking.
+
+### e3 — local text
+
+> After her death, the narrator again renders her unchanged facial expression as saying that she loved everyone and had harmed no one.
+
+The recurrence confirms that the wording is the narrator’s interpretation of her characteristic affective expression and moral innocence, not a performative commitment.
+
+### e4 — supplied metadata
+
+> The occurrence is marked as affirmative present-tense «Я вас всех люблю» with the pattern “ru_present_all_addressees.”
+
+Confirms that the highlighted semantic core presents current love directed broadly to all present or implicated addressees.
+
+## Background, status and source records
+
+Utterance status: **nonverbal verbalised**. The princess does not literally speak the highlighted words; the narrator renders what her frightened, agitated facial expression communicates.
+
+Background knowledge reported as used: **False**. 
+
+Self-reported confidence: 0.92. Not a calibrated accuracy estimate.
+
+Ontology fit: natural. T and E naturally capture the attributed loving state and its involuntary expressive manifestation; P is absent, and the nonverbal narrative mediation is adequately recorded by utterance status and context rather than requiring O.
+
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/context_extension_3_v0_13_v0_3_1/annotations/tolstoy-war-and-peace-e030d49aa60c49ae/a85f16935e37d1f00a809fd5f738b1112a1895b22af802e052e9ad01eb0cf5cc/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/context_extension_3_v0_13_v0_3_1/annotations/tolstoy-war-and-peace-e030d49aa60c49ae/a85f16935e37d1f00a809fd5f738b1112a1895b22af802e052e9ad01eb0cf5cc/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/tolstoy-war-and-peace/canonical.txt)
+- Occurrence: tolstoy-war-and-peace-e030d49aa60c49ae
+- Model: gpt-5.6-sol
+- Classification prompt: 0.3.1
+- Historical run: context_extension_3_v0_13_v0_3_1
+- Canonical SHA-256: 89c2922d192b9b90f34ed910a4b7680753fa72c6a03ae8bac685f1ff864eb929
+
+Rendered deterministically from the saved record. No rescoring or replacement explanation.
+
+Saved notes: Classification concerns the first living facial-expression attribution of «Я вас всех люблю», while the later postmortem revoicing is used only as corroborating context.

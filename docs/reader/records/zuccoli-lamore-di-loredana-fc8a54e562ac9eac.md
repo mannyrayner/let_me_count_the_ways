@@ -320,9 +320,9 @@ Self-reported confidence: 0.93. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T captures the explicit avowal, while P captures its secondary role within Filippo’s proposed relational undertaking. Delivery and emotion do not require E, and no important core force remains outside T/P/E.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/zuccoli-lamore-di-loredana-fc8a54e562ac9eac/c9914c3b0e8f4cdb2e6fe411d74aaa3521a765a41b2df496c6bff8a546910852/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/zuccoli-lamore-di-loredana-fc8a54e562ac9eac/c9914c3b0e8f4cdb2e6fe411d74aaa3521a765a41b2df496c6bff8a546910852/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/zuccoli-lamore-di-loredana/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/zuccoli-lamore-di-loredana-fc8a54e562ac9eac/c9914c3b0e8f4cdb2e6fe411d74aaa3521a765a41b2df496c6bff8a546910852/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/zuccoli-lamore-di-loredana-fc8a54e562ac9eac/c9914c3b0e8f4cdb2e6fe411d74aaa3521a765a41b2df496c6bff8a546910852/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/zuccoli-lamore-di-loredana/canonical.txt)
 - Occurrence: zuccoli-lamore-di-loredana-fc8a54e562ac9eac
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

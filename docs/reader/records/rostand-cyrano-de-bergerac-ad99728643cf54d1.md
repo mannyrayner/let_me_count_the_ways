@@ -743,9 +743,9 @@ Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures both the sentence's assertion-like mode and its contextually recovered avowal of stronger love. The scalar correction and comic failure belong in contextual interpretation; they do not require O. Neither commitment force nor independently evidenced expressive discharge is present.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-ad99728643cf54d1/737ee3a4f2ae437605164016f864636d2389e9b5f38399dc714fefa33fb8523c/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-ad99728643cf54d1/737ee3a4f2ae437605164016f864636d2389e9b5f38399dc714fefa33fb8523c/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/rostand-cyrano-de-bergerac/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-ad99728643cf54d1/737ee3a4f2ae437605164016f864636d2389e9b5f38399dc714fefa33fb8523c/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-ad99728643cf54d1/737ee3a4f2ae437605164016f864636d2389e9b5f38399dc714fefa33fb8523c/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/rostand-cyrano-de-bergerac/canonical.txt)
 - Occurrence: rostand-cyrano-de-bergerac-ad99728643cf54d1
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

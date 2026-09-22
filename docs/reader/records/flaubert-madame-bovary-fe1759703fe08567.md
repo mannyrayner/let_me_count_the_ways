@@ -368,9 +368,9 @@ Self-reported confidence: 0.92. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the avowal, while P captures its limited oath-like force under Emma’s demand. Emotional repetition and romantic atmosphere can remain contextual delivery evidence, so neither E nor O is needed.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-fe1759703fe08567/d6b80d23dc9840f1f62e3397dea17f6fee8bc359aab864d0681078b433d9cd89/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-fe1759703fe08567/d6b80d23dc9840f1f62e3397dea17f6fee8bc359aab864d0681078b433d9cd89/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/flaubert-madame-bovary/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-fe1759703fe08567/d6b80d23dc9840f1f62e3397dea17f6fee8bc359aab864d0681078b433d9cd89/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-fe1759703fe08567/d6b80d23dc9840f1f62e3397dea17f6fee8bc359aab864d0681078b433d9cd89/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/flaubert-madame-bovary/canonical.txt)
 - Occurrence: flaubert-madame-bovary-fe1759703fe08567
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

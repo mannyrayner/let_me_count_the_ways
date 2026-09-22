@@ -294,9 +294,9 @@ Self-reported confidence: 0.91. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the avowal, while E captures the textually marked affective outburst. The surrounding courtship, desire, and attempted reassurance are contextual features rather than evidence of a missing core-force category.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/zuccoli-lamore-di-loredana-07cd774bb417707e/8f97b08f77890342814ca5750b8a2f2865df26d39ba0f225d8b1d7a50972291a/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/zuccoli-lamore-di-loredana-07cd774bb417707e/8f97b08f77890342814ca5750b8a2f2865df26d39ba0f225d8b1d7a50972291a/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/zuccoli-lamore-di-loredana/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/zuccoli-lamore-di-loredana-07cd774bb417707e/8f97b08f77890342814ca5750b8a2f2865df26d39ba0f225d8b1d7a50972291a/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/zuccoli-lamore-di-loredana-07cd774bb417707e/8f97b08f77890342814ca5750b8a2f2865df26d39ba0f225d8b1d7a50972291a/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/zuccoli-lamore-di-loredana/canonical.txt)
 - Occurrence: zuccoli-lamore-di-loredana-07cd774bb417707e
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

@@ -297,9 +297,9 @@ Self-reported confidence: 0.95. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T/P/E adequately represents the core utterance as a written, emphatic assertion of love. Its possible falsity, manipulation, conditionality, and formulaic reuse are contextual qualifications rather than missing dimensions of core force.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-constance-ring-9bfcf6a516241001/b78e2f472d98da6cd31111de334b94243defb3b8c499889a13ed4fe18e6f5ba3/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-constance-ring-9bfcf6a516241001/b78e2f472d98da6cd31111de334b94243defb3b8c499889a13ed4fe18e6f5ba3/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/skram-constance-ring/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-constance-ring-9bfcf6a516241001/b78e2f472d98da6cd31111de334b94243defb3b8c499889a13ed4fe18e6f5ba3/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-constance-ring-9bfcf6a516241001/b78e2f472d98da6cd31111de334b94243defb3b8c499889a13ed4fe18e6f5ba3/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/skram-constance-ring/canonical.txt)
 - Occurrence: skram-constance-ring-9bfcf6a516241001
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

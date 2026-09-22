@@ -277,9 +277,9 @@ Self-reported confidence: 0.94. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T captures the direct maternal avowal and E captures the independently evidenced exclamative outpouring. No commitment force or residual core function requires P or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-fb5efdc59deab9a7/386a3696a740d338f3882192b63a045f9f3d4f7b217a499a4d5093894b70dc9e/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-fb5efdc59deab9a7/386a3696a740d338f3882192b63a045f9f3d4f7b217a499a4d5093894b70dc9e/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/flaubert-madame-bovary/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-fb5efdc59deab9a7/386a3696a740d338f3882192b63a045f9f3d4f7b217a499a4d5093894b70dc9e/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-fb5efdc59deab9a7/386a3696a740d338f3882192b63a045f9f3d4f7b217a499a4d5093894b70dc9e/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/flaubert-madame-bovary/canonical.txt)
 - Occurrence: flaubert-madame-bovary-fb5efdc59deab9a7
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

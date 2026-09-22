@@ -305,9 +305,9 @@ Self-reported confidence: 0.94. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T captures the principal avowal, with slight P support for relational invocation. E is unnecessary because sensual intensity and immediate delivery do not independently show reflex-like expressive force, and no residual core function requires O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-24c0f2a24dedefd8/674d6f6f482295b10e410f2c3a9a3d4a9a64500390cb652d9e1c5027ef2b1717/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-24c0f2a24dedefd8/674d6f6f482295b10e410f2c3a9a3d4a9a64500390cb652d9e1c5027ef2b1717/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/verona-colei-che-non-si-deve-amare/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-24c0f2a24dedefd8/674d6f6f482295b10e410f2c3a9a3d4a9a64500390cb652d9e1c5027ef2b1717/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-24c0f2a24dedefd8/674d6f6f482295b10e410f2c3a9a3d4a9a64500390cb652d9e1c5027ef2b1717/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/verona-colei-che-non-si-deve-amare/canonical.txt)
 - Occurrence: verona-colei-che-non-si-deve-amare-24c0f2a24dedefd8
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

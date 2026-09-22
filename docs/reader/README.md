@@ -1,6 +1,6 @@
 # Reading the evidence
 
-252 annotated occurrences from 35 complete works in 7 languages.
+293 annotated occurrences from 38 complete works in 8 languages.
 
 These are human-readable versions of the original annotations, including context, translation, explanation and evidence. No model calls or new scoring were used.
 
@@ -100,6 +100,10 @@ Open [index.html](index.html) in a browser after downloading the reader for sear
 | Jane Eyre | I love you | 4/0/3/0 | [Read](records/bronte-jane-eyre-8d223e8c973ddc84.md) |
 | Jane Eyre | I love you | 4/0/0/0 | [Read](records/bronte-jane-eyre-5da4cfc02f8bc2c8.md) |
 | Jane Eyre | I love you | 4/1/0/0 | [Read](records/bronte-jane-eyre-cddcbd01af3733b3.md) |
+| King Lear | I must love you | 1/3/0/0 | [Read](records/shakespeare-king-lear-1c492e4522915225.md) |
+| King Lear | I love you | 4/0/0/0 | [Read](records/shakespeare-king-lear-afbd3a1978a723e3.md) |
+| King Lear | I love you | 4/0/0/0 | [Read](records/shakespeare-king-lear-cf26d564136c4590.md) |
+| King Lear | I love your majesty | 4/3/0/0 | [Read](records/shakespeare-king-lear-97d3418f54f0370b.md) |
 | Kristin Lavransdatter | jeg elsket dig | 4/0/0/0 | [Read](records/undset-kristin-lavransdatter-c040d12637cd30e0.md) |
 | Kristin Lavransdatter | jeg elsket dig | 4/0/0/0 | [Read](records/undset-kristin-lavransdatter-c0bed71c8c4081a9.md) |
 | Kristin Lavransdatter | jeg elsket dig | 4/0/0/0 | [Read](records/undset-kristin-lavransdatter-e5e791f1a3c0031a.md) |
@@ -155,6 +159,7 @@ Open [index.html](index.html) in a browser after downloading the reader for sear
 | Le blé en herbe | je t'aime | 4/0/0/0 | [Read](records/colette-le-ble-en-herbe-6a5d5cd54d704a4a.md) |
 | Le blé en herbe | Je t'aime | 4/1/2/0 | [Read](records/colette-le-ble-en-herbe-aa5c7bfe3b6367b5.md) |
 | Le blé en herbe | je t'aime toujours | 4/0/0/0 | [Read](records/colette-le-ble-en-herbe-2344cebfeaed45b2.md) |
+| Le Petit Prince | je t'aime | 4/0/0/0 | [Read](records/saint-exupery-le-petit-prince-30c49e98e5efaa7b.md) |
 | Le Rouge et le Noir | je vous aime | 4/0/0/0 | [Read](records/stendhal-le-rouge-et-le-noir-6670377ac73b1e36.md) |
 | Le Rouge et le Noir | je t'aime | 4/0/0/0 | [Read](records/stendhal-le-rouge-et-le-noir-18c467d378bda03b.md) |
 | Le Rouge et le Noir | je t'aime | 4/0/0/0 | [Read](records/stendhal-le-rouge-et-le-noir-0d87fb630a2ab1a5.md) |
@@ -260,3 +265,39 @@ Open [index.html](index.html) in a browser after downloading the reader for sear
 | Women in Love | I’ve loved you | 4/0/0/0 | [Read](records/lawrence-women-in-love-ad55b92cc889a120.md) |
 | Women in Love | Why don’t I love you | 4/0/0/0 | [Read](records/lawrence-women-in-love-00ed39a80fe9339f.md) |
 | Women in Love | I will love you | 3/4/0/0 | [Read](records/lawrence-women-in-love-133276800ca1b0fd.md) |
+| Война и мир | я люблю вас | 4/1/0/0 | [Read](records/tolstoy-war-and-peace-2657bf026adaa944.md) |
+| Война и мир | я люблю тебя | 4/0/0/0 | [Read](records/tolstoy-war-and-peace-8dd4aaa6bea98c65.md) |
+| Война и мир | я люблю вас | 4/1/0/0 | [Read](records/tolstoy-war-and-peace-59b432fefb8e03fe.md) |
+| Война и мир | я тебя люблю | 4/0/0/0 | [Read](records/tolstoy-war-and-peace-825337cf31d56b81.md) |
+| Война и мир | я так люблю и ее, и всех вас | 4/0/0/0 | [Read](records/tolstoy-war-and-peace-2a9b6c844f229aa3.md) |
+| Война и мир | Я вас всех люблю | 4/0/0/0 | [Read](records/tolstoy-war-and-peace-06d71e5250469d71.md) |
+| Война и мир | je vous aime | 4/0/0/0 | [Read](records/tolstoy-war-and-peace-8607fd3b759f0ca3.md) |
+| Война и мир | Je vous aime | 4/2/0/0 | [Read](records/tolstoy-war-and-peace-1cfaf0f75c6018e9.md) |
+| Война и мир | Je vous aime | 4/0/0/0 | [Read](records/tolstoy-war-and-peace-c99d416e0700fb47.md) |
+| Война и мир | Je vous aime | 4/3/0/0 | [Read](records/tolstoy-war-and-peace-5d3a51a3a6151f31.md) |
+| Война и мир | Je vous aime | 4/3/0/0 | [Read](records/tolstoy-war-and-peace-c18f05ddcf9c2d48.md) |
+| Война и мир | Je vous aime | 4/3/0/0 | [Read](records/tolstoy-war-and-peace-52d0036c945261b8.md) |
+| Война и мир | Я вас всех люблю | 4/0/3/0 | [Read](records/tolstoy-war-and-peace-e030d49aa60c49ae.md) |
+| Война и мир | Я вас всех люблю | 4/0/0/0 | [Read](records/tolstoy-war-and-peace-2697357f44814321.md) |
+| Война и мир | я вас душой люблю | 4/0/0/0 | [Read](records/tolstoy-war-and-peace-17abcfdad026ed90.md) |
+| Война и мир | Я вас люблю | 4/0/0/0 | [Read](records/tolstoy-war-and-peace-236e475097c9ad71.md) |
+| Война и мир | Я люблю вас | 4/1/0/0 | [Read](records/tolstoy-war-and-peace-84d11ba0fe45ba21.md) |
+| Война и мир | я вас всегда буду любить | 4/2/0/0 | [Read](records/tolstoy-war-and-peace-73d98923c166b6da.md) |
+| Война и мир | я вас очень люблю | 4/0/0/0 | [Read](records/tolstoy-war-and-peace-e29b4455dd5ee9fc.md) |
+| Война и мир | я вас давно знаю и люблю | 4/0/0/0 | [Read](records/tolstoy-war-and-peace-0c29fdb355707ad8.md) |
+| Война и мир | я вас люблю | 4/0/3/0 | [Read](records/tolstoy-war-and-peace-4266b8d63fd3c12f.md) |
+| Война и мир | Я безумно люблю вас | 4/0/0/0 | [Read](records/tolstoy-war-and-peace-f4a49ebc495938ce.md) |
+| Война и мир | я тебя люблю | 4/0/0/0 | [Read](records/tolstoy-war-and-peace-c0d16fe3e0bd1e4c.md) |
+| Война и мир | Я вас люблю | 4/0/0/0 | [Read](records/tolstoy-war-and-peace-97bb0f3373ee85cf.md) |
+| Война и мир | Я вас люблю | 4/1/0/0 | [Read](records/tolstoy-war-and-peace-6c979cc65fb66878.md) |
+| Война и мир | Я люблю тебя | 4/1/0/0 | [Read](records/tolstoy-war-and-peace-dbc4d1aefac8b7ce.md) |
+| Война и мир | je vous aime | 4/0/0/0 | [Read](records/tolstoy-war-and-peace-1aa794a7bd4e9735.md) |
+| Война и мир | люблю вас | 4/1/0/0 | [Read](records/tolstoy-war-and-peace-6e44b2fdfbdbaa1d.md) |
+| Война и мир | я вас люблю | 3/0/4/0 | [Read](records/tolstoy-war-and-peace-3264c6d1a54a8a65.md) |
+| Война и мир | Я люблю тебя | 4/2/0/0 | [Read](records/tolstoy-war-and-peace-ea55392da1ec1d5f.md) |
+| Война и мир | тебя... люблю | 4/2/0/0 | [Read](records/tolstoy-war-and-peace-744e2a3bb39d2399.md) |
+| Война и мир | я тебя люблю | 4/1/2/0 | [Read](records/tolstoy-war-and-peace-c93b9ce1720ccfb5.md) |
+| Война и мир | je vous aime | 4/2/0/0 | [Read](records/tolstoy-war-and-peace-63c8aa43804f6006.md) |
+| Война и мир | люблю тебя | 4/0/0/0 | [Read](records/tolstoy-war-and-peace-4fdc0eb6f1d52e8e.md) |
+| Война и мир | Я никогда не перестаю тебя любить | 4/0/0/0 | [Read](records/tolstoy-war-and-peace-4fe2d8d695be8d2e.md) |
+| Война и мир | Я любил вас | 4/0/0/0 | [Read](records/tolstoy-war-and-peace-688622e2fb7fe83d.md) |

@@ -223,9 +223,9 @@ Self-reported confidence: 0.94. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T captures the avowal and P captures the qualified relational undertaking implicit in “Let love be enough then.” Delivery, irony, and ambivalence are adequately represented as context, with no residual core force requiring E or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lawrence-women-in-love-e355c9c0c8a97c91/0bcd0e47eab6e03b7c33d5c5356bbdb5efea462ddacbc2c7b433a549cf273bcf/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lawrence-women-in-love-e355c9c0c8a97c91/0bcd0e47eab6e03b7c33d5c5356bbdb5efea462ddacbc2c7b433a549cf273bcf/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/lawrence-women-in-love/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lawrence-women-in-love-e355c9c0c8a97c91/0bcd0e47eab6e03b7c33d5c5356bbdb5efea462ddacbc2c7b433a549cf273bcf/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lawrence-women-in-love-e355c9c0c8a97c91/0bcd0e47eab6e03b7c33d5c5356bbdb5efea462ddacbc2c7b433a549cf273bcf/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/lawrence-women-in-love/canonical.txt)
 - Occurrence: lawrence-women-in-love-e355c9c0c8a97c91
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

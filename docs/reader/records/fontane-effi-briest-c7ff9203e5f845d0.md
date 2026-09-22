@@ -244,9 +244,9 @@ Self-reported confidence: 0.97. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T/P/E/O represents the core force naturally: a strong truth-conditional avowal with no independent undertaking, reflexive-discharge, or residual other force. The surrounding teasing and possible uncertainty about sincerity are contextual rather than ontological problems.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/fontane-effi-briest-c7ff9203e5f845d0/71d6f2d898f35d8ab70f5332e13012f12c6e512aaabbb00db23557f618547776/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/fontane-effi-briest-c7ff9203e5f845d0/71d6f2d898f35d8ab70f5332e13012f12c6e512aaabbb00db23557f618547776/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/fontane-effi-briest/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/fontane-effi-briest-c7ff9203e5f845d0/71d6f2d898f35d8ab70f5332e13012f12c6e512aaabbb00db23557f618547776/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/fontane-effi-briest-c7ff9203e5f845d0/71d6f2d898f35d8ab70f5332e13012f12c6e512aaabbb00db23557f618547776/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/fontane-effi-briest/canonical.txt)
 - Occurrence: fontane-effi-briest-c7ff9203e5f845d0
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

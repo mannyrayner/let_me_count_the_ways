@@ -223,9 +223,9 @@ Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the affectionate avowal; its light-hearted, conventional, and topic-closing functions are contextual nuances rather than missing dimensions of core force. There is no independent evidence for P, E, or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/wharton-age-of-innocence-5363417821cd58b8/d16c2672dc5de424a89780963a7b9040af0e1079da57c19bed367d358ab9f929/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/wharton-age-of-innocence-5363417821cd58b8/d16c2672dc5de424a89780963a7b9040af0e1079da57c19bed367d358ab9f929/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/wharton-age-of-innocence/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/wharton-age-of-innocence-5363417821cd58b8/d16c2672dc5de424a89780963a7b9040af0e1079da57c19bed367d358ab9f929/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/wharton-age-of-innocence-5363417821cd58b8/d16c2672dc5de424a89780963a7b9040af0e1079da57c19bed367d358ab9f929/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/wharton-age-of-innocence/canonical.txt)
 - Occurrence: wharton-age-of-innocence-5363417821cd58b8
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

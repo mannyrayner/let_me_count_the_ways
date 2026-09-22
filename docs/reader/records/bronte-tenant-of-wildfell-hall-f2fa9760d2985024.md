@@ -220,9 +220,9 @@ Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the rhetorical avowal. Its passionate delivery and surrounding manipulation can be described contextually without adding E, P, or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-tenant-of-wildfell-hall-f2fa9760d2985024/40fe8164ec4f6081c3db682bab96a2ed72656f5a4b70331f7164be47d977f332/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-tenant-of-wildfell-hall-f2fa9760d2985024/40fe8164ec4f6081c3db682bab96a2ed72656f5a4b70331f7164be47d977f332/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/bronte-tenant-of-wildfell-hall/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-tenant-of-wildfell-hall-f2fa9760d2985024/40fe8164ec4f6081c3db682bab96a2ed72656f5a4b70331f7164be47d977f332/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/bronte-tenant-of-wildfell-hall-f2fa9760d2985024/40fe8164ec4f6081c3db682bab96a2ed72656f5a4b70331f7164be47d977f332/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/bronte-tenant-of-wildfell-hall/canonical.txt)
 - Occurrence: bronte-tenant-of-wildfell-hall-f2fa9760d2985024
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

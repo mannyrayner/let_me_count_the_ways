@@ -242,9 +242,9 @@ Self-reported confidence: 0.95. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the avowal, while P captures its secondary role in an enacted marriage suit. Intensity and impetuosity remain contextual features, so neither E nor O is needed.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/eliot-middlemarch-5b8f9f1880f46aef/379488692beadbb8f41c3a390b6bb371ae00334e884d96f99981a2792c4ac15c/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/eliot-middlemarch-5b8f9f1880f46aef/379488692beadbb8f41c3a390b6bb371ae00334e884d96f99981a2792c4ac15c/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/eliot-middlemarch/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/eliot-middlemarch-5b8f9f1880f46aef/379488692beadbb8f41c3a390b6bb371ae00334e884d96f99981a2792c4ac15c/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/eliot-middlemarch-5b8f9f1880f46aef/379488692beadbb8f41c3a390b6bb371ae00334e884d96f99981a2792c4ac15c/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/eliot-middlemarch/canonical.txt)
 - Occurrence: eliot-middlemarch-5b8f9f1880f46aef
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

@@ -22,7 +22,7 @@ class Elements(HTMLParser):
 class ReaderTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.records,cls.inventory,_=load_collection()
+        cls.records,cls.inventory,_=load_collection(config=read(ROOT/"data/reader/collection_v1.json"))
         cls.generated=generate(ROOT,read(ROOT/'data/reader/collection_v1.json'))
     def test_windows_relative_paths_reproduce_every_saved_reader_file(self):
         original = Path.relative_to

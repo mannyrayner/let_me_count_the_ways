@@ -245,9 +245,9 @@ Self-reported confidence: 0.94. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the conventional force of the invoked formula. Its hypothetical negation and philosophical inadequacy are fully representable through utterance status and context; they do not create residual core-force pressure requiring O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lawrence-women-in-love-bdddeb99cc17cb63/bcd922eaaa72613cec7aa383ee940c1eb6c5e00a6a7310fa44c30a5856b9835f/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lawrence-women-in-love-bdddeb99cc17cb63/bcd922eaaa72613cec7aa383ee940c1eb6c5e00a6a7310fa44c30a5856b9835f/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/lawrence-women-in-love/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lawrence-women-in-love-bdddeb99cc17cb63/bcd922eaaa72613cec7aa383ee940c1eb6c5e00a6a7310fa44c30a5856b9835f/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lawrence-women-in-love-bdddeb99cc17cb63/bcd922eaaa72613cec7aa383ee940c1eb6c5e00a6a7310fa44c30a5856b9835f/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/lawrence-women-in-love/canonical.txt)
 - Occurrence: lawrence-women-in-love-bdddeb99cc17cb63
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

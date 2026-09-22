@@ -298,9 +298,9 @@ Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the written avowal. Its potentially deceptive or placatory use is contextual and does not require O; neither commitment force nor reflex-like discharge has independent support.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/dumas-fils-la-dame-aux-camelias-8072d693aa62fa51/b8568ba21e9de4e5e3b1caf67b04ce8822dfafb30123f9059d3f101176cc0112/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/dumas-fils-la-dame-aux-camelias-8072d693aa62fa51/b8568ba21e9de4e5e3b1caf67b04ce8822dfafb30123f9059d3f101176cc0112/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/dumas-fils-la-dame-aux-camelias/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/dumas-fils-la-dame-aux-camelias-8072d693aa62fa51/b8568ba21e9de4e5e3b1caf67b04ce8822dfafb30123f9059d3f101176cc0112/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/dumas-fils-la-dame-aux-camelias-8072d693aa62fa51/b8568ba21e9de4e5e3b1caf67b04ce8822dfafb30123f9059d3f101176cc0112/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/dumas-fils-la-dame-aux-camelias/canonical.txt)
 - Occurrence: dumas-fils-la-dame-aux-camelias-8072d693aa62fa51
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

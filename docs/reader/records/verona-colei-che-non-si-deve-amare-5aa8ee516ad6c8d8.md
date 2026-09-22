@@ -328,9 +328,9 @@ Self-reported confidence: 0.94. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the utterance’s dominant avowal, with a small allowance for commitment-invoking courtship force under P. Passion, strategic persuasion, and coercive context can be described contextually without E or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-5aa8ee516ad6c8d8/315fe5263bffe1e1043c5259464f2052dc06b396cc57ee1877a5295c5a188c0b/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-5aa8ee516ad6c8d8/315fe5263bffe1e1043c5259464f2052dc06b396cc57ee1877a5295c5a188c0b/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/verona-colei-che-non-si-deve-amare/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-5aa8ee516ad6c8d8/315fe5263bffe1e1043c5259464f2052dc06b396cc57ee1877a5295c5a188c0b/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-5aa8ee516ad6c8d8/315fe5263bffe1e1043c5259464f2052dc06b396cc57ee1877a5295c5a188c0b/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/verona-colei-che-non-si-deve-amare/canonical.txt)
 - Occurrence: verona-colei-che-non-si-deve-amare-5aa8ee516ad6c8d8
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

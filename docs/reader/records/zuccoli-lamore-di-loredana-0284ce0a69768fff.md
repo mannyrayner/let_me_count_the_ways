@@ -290,9 +290,9 @@ Self-reported confidence: 0.97. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the categorical avowal/prediction of non-love, while a small P score captures its secondary function as a firm relational refusal. Contextual agitation can be described without assigning E, and no important aspect of the core force falls outside T/P/E.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/zuccoli-lamore-di-loredana-0284ce0a69768fff/96fb1f9bf7204b31ab643bc8967c7a31c7d02b0de7c60d1269710dbf6f719059/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/zuccoli-lamore-di-loredana-0284ce0a69768fff/96fb1f9bf7204b31ab643bc8967c7a31c7d02b0de7c60d1269710dbf6f719059/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/zuccoli-lamore-di-loredana/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/zuccoli-lamore-di-loredana-0284ce0a69768fff/96fb1f9bf7204b31ab643bc8967c7a31c7d02b0de7c60d1269710dbf6f719059/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/zuccoli-lamore-di-loredana-0284ce0a69768fff/96fb1f9bf7204b31ab643bc8967c7a31c7d02b0de7c60d1269710dbf6f719059/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/zuccoli-lamore-di-loredana/canonical.txt)
 - Occurrence: zuccoli-lamore-di-loredana-0284ce0a69768fff
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

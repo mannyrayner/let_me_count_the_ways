@@ -333,9 +333,9 @@ Self-reported confidence: 0.94. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T captures the core avowal, with a small allowance for commitment-invoking use under P. Passion, persuasion, and coercive context can be described contextually without requiring E or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-f8f4b1a45a0f8e15/49f14e2693b7a1b0b9b52cf835f7d4b09dc81655e773aa688ecc74f2ece894f9/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-f8f4b1a45a0f8e15/49f14e2693b7a1b0b9b52cf835f7d4b09dc81655e773aa688ecc74f2ece894f9/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/verona-colei-che-non-si-deve-amare/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-f8f4b1a45a0f8e15/49f14e2693b7a1b0b9b52cf835f7d4b09dc81655e773aa688ecc74f2ece894f9/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-f8f4b1a45a0f8e15/49f14e2693b7a1b0b9b52cf835f7d4b09dc81655e773aa688ecc74f2ece894f9/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/verona-colei-che-non-si-deve-amare/canonical.txt)
 - Occurrence: verona-colei-che-non-si-deve-amare-f8f4b1a45a0f8e15
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

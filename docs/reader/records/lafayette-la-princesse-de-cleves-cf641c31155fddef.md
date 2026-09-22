@@ -253,9 +253,9 @@ Self-reported confidence: 0.98. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T alone naturally captures the core force as a retrospective written avowal of a loving state; the strategic surrounding context requires no additional core category.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lafayette-la-princesse-de-cleves-cf641c31155fddef/44f3b5e16b8df79d3626b1b9e37ca872f89b2c9a8bf7ec9a49c0313dc111bd6a/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lafayette-la-princesse-de-cleves-cf641c31155fddef/44f3b5e16b8df79d3626b1b9e37ca872f89b2c9a8bf7ec9a49c0313dc111bd6a/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/lafayette-la-princesse-de-cleves/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lafayette-la-princesse-de-cleves-cf641c31155fddef/44f3b5e16b8df79d3626b1b9e37ca872f89b2c9a8bf7ec9a49c0313dc111bd6a/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lafayette-la-princesse-de-cleves-cf641c31155fddef/44f3b5e16b8df79d3626b1b9e37ca872f89b2c9a8bf7ec9a49c0313dc111bd6a/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/lafayette-la-princesse-de-cleves/canonical.txt)
 - Occurrence: lafayette-la-princesse-de-cleves-cf641c31155fddef
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

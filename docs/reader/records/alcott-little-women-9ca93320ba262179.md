@@ -226,9 +226,9 @@ Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T straightforwardly captures the core avowal, with slight P support for relational reassurance. Emotional farewell details remain contextual, so neither E nor O is needed.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/alcott-little-women-9ca93320ba262179/7a14976cc90e9f671539632569919d9bfcae8e686f71795cfe06ae8ad6da6c06/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/alcott-little-women-9ca93320ba262179/7a14976cc90e9f671539632569919d9bfcae8e686f71795cfe06ae8ad6da6c06/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/alcott-little-women/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/alcott-little-women-9ca93320ba262179/7a14976cc90e9f671539632569919d9bfcae8e686f71795cfe06ae8ad6da6c06/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/alcott-little-women-9ca93320ba262179/7a14976cc90e9f671539632569919d9bfcae8e686f71795cfe06ae8ad6da6c06/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/alcott-little-women/canonical.txt)
 - Occurrence: alcott-little-women-9ca93320ba262179
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

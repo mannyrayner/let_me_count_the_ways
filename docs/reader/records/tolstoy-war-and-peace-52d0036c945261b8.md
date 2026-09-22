@@ -1,0 +1,170 @@
+# Война и мир
+
+Лев Толстой · Russian
+
+[All records](../README.md) · [HTML reading copy](../cases/tolstoy-war-and-peace-52d0036c945261b8.html)
+
+## Target
+
+> Je vous aime
+
+
+| T: report / avowal | P: undertaking | E: expressive/reflexive | O: other |
+|---:|---:|---:|---:|
+| 4 / 4 | 3 / 4 | 0 / 4 | 0 / 4 |
+
+Scores are independent support judgments. T is not a sincerity score.
+
+## Original passage
+
+> «Людовика XVI казнили за то, что они говорили, что он был бесчестен и преступник (пришло Пьеру в голову), и они были правы с своей точки зрения, так же как правы и те, которые за него умирали мученическою смертью и причисляли его к лику святых. Потом Робеспьера казнили за то, что он был деспот. Кто прав, кто виноват? Никто. А жив и живи: завтра умрешь, как мог я умереть час тому назад. И стòит ли того мучиться, когда жить остается одну секунду в сравнении с вечностью?» — Но в ту минуту, как он считал себя успокоенным такого рода рассуждениями, ему вдруг представлялась она и в те минуты, когда он сильнее всего выказывал ей свою неискреннюю любовь, и он чувствовал прилив крови к сердцу, и должен был опять вставать, двигаться, и ломать, и рвать попадающиеся ему под руки вещи. «Зачем я сказал ей: «Je vous aime?» все повторял он сам себе. И повторив десятый раз этот вопрос, ему пришло в голову Мольерово: mais que diable allait il faire dans cette galère? и он засмеялся сам над собою.
+
+
+## Original AI explanation
+
+The remembered original “Je vous aime” presented Pierre as loving Hélène and therefore strongly realizes T even though he now calls it a lie. It also helped enact the courtship or marital bond he regrets, giving substantial P support. Nothing indicates that the original words functioned as a reflex-like affective discharge; Pierre instead characterizes them as an insincere display.
+
+## Ambiguity
+
+The passage strongly connects the declaration with Pierre’s binding himself to Hélène, but it does not reproduce the entire original conversational occasion, so the exact degree of performative force remains somewhat uncertain.
+
+## Narrative situation (AI interpretation)
+
+After the duel, Pierre retrospectively condemns the declaration as false and “worse than a lie.” He associates it with having bound himself to Hélène and with later displays of insincere love. His agitated repetition of the quotation expresses present remorse, but that framing does not turn the original love declaration into an expressive/reflexive utterance.
+
+## Original context supplied to the annotator
+
+> «А сколько раз я гордился ею, гордился ее величавою красотой, ее светским тактом, думал он; гордился тем своим домом, в котором она принимала весь Петербург, гордился ее неприступностию и красотой. Так вот чем я гордился?! Я тогда думал, что не понимаю ее. Как часто, вдумываясь в ее характер, я говорил себе, что я виноват, что не понимаю ее, не понимаю этого всегдашнего спокойствия, удовлетворенности и отсутствия всяких пристрастий и желаний, а вся разгадка была в том страшном слове, что она развратная женщина: сказал себе это страшное слово, и всё стало ясно!
+> 
+> «Анатоль ездил к ней занимать у нее денег и целовал ее в голые плечи. Она не давала ему денег, но позволяла целовать себя. Отец, шутя, возбуждал ее ревность; она с спокойною улыбкой говорила, что она не так глупа, чтобы быть ревнивою: пусть делает, чтò хочет, говорила она про меня. Я спросил у нее однажды, не чувствует ли она признаков беременности. Она засмеялась презрительно и сказала, что она не дура, чтобы желать иметь детей, и что от меня детей у нее не будет».
+> 
+> Потом он вспомнил грубость, ясность ее мыслей и вульгарность выражений, свойственных ей, несмотря на ее воспитание в высшем аристократическом кругу. «Я не какая-нибудь дура... поди сам попробуй... allez vous promener», говорила она. Часто, глядя на ее успех в глазах старых и молодых мужчин и женщин, Пьер не мог понять, отчего он не любил ее. Да я никогда не любил ее, говорил себе Пьер; я знал, что она развратная женщина, повторял он сам себе, но не смел признаться в этом.
+> 
+> «И теперь Долохов, вот он сидит на снегу и насильно улыбается, и умирает, может быть, притворным каким-то молодечеством отвечая на мое раскаяние!»
+> 
+> Пьер был один из тех людей, которые, несмотря на свою внешнюю, так называемую слабость характера, не ищут поверенного для своего горя. Он перерабатывал один в себе свое горе.
+> 
+> «Она во всем, во всем она одна виновата, — говорил он сам себе; — но чтò ж из этого? Зачем я себя связал с нею, зачем я ей сказал этот: «Je vous aime», которое было ложь и еще хуже чем ложь, говорил он сам себе. Я виноват и должен нести... Чтò? Позор имени, несчастие жизни? Э, всё вздор, — подумал он, — и позор имени, и честь, всё условно, всё независимо от меня.
+> 
+> «Людовика XVI казнили за то, что они говорили, что он был бесчестен и преступник (пришло Пьеру в голову), и они были правы с своей точки зрения, так же как правы и те, которые за него умирали мученическою смертью и причисляли его к лику святых. Потом Робеспьера казнили за то, что он был деспот. Кто прав, кто виноват? Никто. А жив и живи: завтра умрешь, как мог я умереть час тому назад. И стòит ли того мучиться, когда жить остается одну секунду в сравнении с вечностью?» — Но в ту минуту, как он считал себя успокоенным такого рода рассуждениями, ему вдруг представлялась она и в те минуты, когда он сильнее всего выказывал ей свою неискреннюю любовь, и он чувствовал прилив крови к сердцу, и должен был опять вставать, двигаться, и ломать, и рвать попадающиеся ему под руки вещи. «Зачем я сказал ей: «Je vous aime?» все повторял он сам себе. И повторив десятый раз этот вопрос, ему пришло в голову Мольерово: mais que diable allait il faire dans cette galère? и он засмеялся сам над собою.
+> 
+> Ночью он позвал камердинера и велел укладываться, чтоб ехать в Петербург. Он не мог оставаться с ней под одной кровлей. Он не мог представить себе, как бы он стал теперь говорить с ней. Он решил, что завтра он уедет и оставит ей письмо, в котором объявит ей свое намерение навсегда разлучиться с нею.
+> 
+> Утром, когда камердинер, внося кофей, вошел в кабинет, Пьер лежал на отоманке и с раскрытою книгой в руке спал.
+> 
+> Он очнулся и долго испуганно оглядывался не в силах понять, где он находится.
+> 
+> — Графиня приказала спросить, дома ли ваше сиятельство, — спросил камердинер.
+> 
+> Но не успел еще Пьер решиться на ответ, который он сделает, как сама графиня в белом, атласном халате, шитом серебром, и в простых волосах (две огромные косы en diadème огибали два раза ее прелестную голову) вошла в комнату спокойно и величественно; только на мраморном несколько выпуклом лбе ее была морщинка гнева. Она с своим всёвыдерживающим спокойствием не стала говорить при камердинере. Она знала о дуэли и пришла говорить о ней. Она дождалась, пока камердинер уставил кофей и вышел. Пьер робко чрез очки посмотрел на нее, и, как заяц, окруженный собаками, прижимая уши, продолжает лежать в виду своих врагов, так и он попробовал продолжать читать: но чувствовал, что это бессмысленно и невозможно и опять робко взглянул на нее. Она не села, и с презрительною улыбкой смотрела на него, ожидая пока выйдет камердинер.
+> 
+> — Это еще чтò? Чтò вы наделали, я вас спрашиваю, — сказала она строго.
+> 
+> — Я? чтò я? — сказал Пьер.
+> 
+> — Вот храбрец отыскался! Ну, отвечайте, чтò это за дуэль? Чтò вы хотели этим доказать! Чтò? Я вас спрашиваю. — Пьер тяжело повернулся на диване, открыл рот, но не мог ответить.
+> 
+> — Коли вы не отвечаете, то я вам скажу... — продолжала Элен. — Вы верите всему, чтò вам скажут. Вам сказали... — Элен засмеялась, — что Долохов мой любовник, — сказала она по-французски, с своею грубою точностью речи, выговаривая слово «любовник», как и всякое другое слово, — и вы поверили! Но чтò же вы этим доказали? Чтò вы доказали этою дуэлью? То, что вы дурак, que vous êtes un sot, так это все знали! К чему это поведет? К тому, чтоб я сделалась посмешищем всей Москвы; к тому, чтобы всякий сказал, что вы в пьяном виде, не помня себя, вызвали на дуэль человека, которого вы без основания ревнуете, — Элен всё более и более возвышала голос и одушевлялась, — который лучше вас во всех отношениях...
+> 
+> — Гм... гм... — мычал Пьер, морщась, не глядя на нее и не шевелясь ни одним членом.
+> 
+> — И почему вы могли поверить, что он мой любовник?... Почему? Потому что я люблю его общество? Ежели бы вы были умнее и приятнее, то я бы предпочитала ваше.
+> 
+> — Не говорите со мной... умоляю, — хрипло прошептал Пьер.
+> 
+> — Отчего мне не говорить! Я могу говорить и смело скажу, что редкая та жена, которая с таким мужем, как вы, не взяла бы себе любовников (des amants), а я этого не сделала, — сказала она. Пьер хотел что-то сказать, взглянул на нее странными глазами, которых выражения она не поняла, и опять лег. Он физически страдал в эту минуту: грудь его стесняло, и он не мог дышать. Он знал, что ему надо что-то сделать, чтобы прекратить это страдание, но то, чтò он хотел сделать, было слишком страшно.
+
+
+## English translation supplied to the annotator
+
+> “And how many times I was proud of her, proud of her stately beauty, her social tact,” he thought; “proud of that home of mine in which she received all Petersburg, proud of her unapproachability and beauty. So this is what I was proud of! At the time I thought I did not understand her. How often, pondering her character, I told myself that I was to blame for not understanding her, for not understanding that perpetual calm, contentment, and absence of any passions or desires; but the whole answer lay in that terrible phrase: she was a depraved woman. I said that terrible phrase to myself, and everything became clear!
+> 
+> “Anatole used to go to her to borrow money from her and kiss her bare shoulders. She did not give him money, but she allowed him to kiss her. Her father, in jest, tried to arouse her jealousy; with a calm smile she said that she was not so foolish as to be jealous: let him do whatever he wants, she said of me. Once I asked her whether she felt any signs of pregnancy. She laughed contemptuously and said that she was not a fool who would want to have children, and that she would have no children by me.”
+> 
+> Then he recalled the coarseness and bluntness of her thoughts and the vulgarity of expression characteristic of her despite her upbringing in the highest aristocratic circle. “I am not some sort of fool... go and try it yourself... go take a walk,” she used to say. Often, looking at her success in the eyes of old and young men and women, Pierre could not understand why he did not love her. Why, I never loved her, Pierre told himself; I knew that she was a depraved woman, he repeated to himself, but had not dared admit it.
+> 
+> “And now Dolokhov—there he sits in the snow, forcing a smile, and perhaps dying, answering my remorse with some sort of feigned bravado!”
+> 
+> Pierre was one of those people who, despite their outward, so-called weakness of character, do not seek a confidant for their grief. He worked through his grief alone, within himself.
+> 
+> “She alone is to blame for everything, for everything,” he told himself; “but what of it? Why did I bind myself to her, why did I say to her that ‘I love you,’ which was a lie and even worse than a lie?” he told himself. “I am guilty and must bear... What? The disgrace to my name, the misery of my life? Bah, it is all nonsense,” he thought, “the disgrace to my name, and honor—everything is conventional, everything is independent of me.
+> 
+> “Louis XVI was executed because they said that he was dishonorable and a criminal,” it occurred to Pierre, “and they were right from their point of view, just as those who died a martyr’s death for him and numbered him among the saints were also right. Then Robespierre was executed because he was a despot. Who is right, who is guilty? No one. You are alive, so live: tomorrow you will die, just as I might have died an hour ago. And is it worth suffering when one has only a single second left to live in comparison with eternity?” But at the very moment when he considered himself soothed by reasoning of this kind, he would suddenly picture her at those moments when he had most strongly displayed his insincere love for her, and he felt a rush of blood to his heart and had to get up again, move about, and break and tear whatever objects came to hand. “Why did I say to her, ‘I love you’?” he kept repeating to himself. And after repeating this question for the tenth time, Molière’s phrase came into his mind: “But what the devil was he doing in that galley?” and he laughed at himself.
+> 
+> At night he summoned his valet and ordered him to pack for the journey to Petersburg. He could not remain under the same roof with her. He could not imagine how he would now speak to her. He decided that the next day he would leave and leave her a letter in which he would announce his intention of separating from her forever.
+> 
+> In the morning, when the valet entered the study carrying coffee, Pierre was lying on the ottoman, asleep with an open book in his hand.
+> 
+> He woke and looked around in alarm for a long time, unable to understand where he was.
+> 
+> “The countess ordered me to ask whether Your Excellency is at home,” said the valet.
+> 
+> But before Pierre had time to decide what answer he would give, the countess herself entered the room, calmly and majestically, wearing a white satin dressing gown embroidered with silver and with her hair simply arranged—two enormous braids wound twice around her lovely head like a diadem; only on her marble, slightly prominent forehead was a wrinkle of anger. With her imperturbable calm, she did not begin speaking in the valet’s presence. She knew about the duel and had come to speak about it. She waited until the valet had set out the coffee and left. Pierre looked timidly at her through his spectacles and, as a hare surrounded by dogs, flattening its ears, continues to lie in full view of its enemies, so he tried to continue reading; but he felt that this was senseless and impossible, and again looked timidly at her. She did not sit down, but looked at him with a contemptuous smile, waiting for the valet to leave.
+> 
+> “What is this now? What have you done, I ask you?” she said sternly.
+> 
+> “Me? What have I done?” said Pierre.
+> 
+> “Here is a brave man indeed! Well, answer me: what was this duel about? What did you mean to prove by it? What? I am asking you.” Pierre turned over heavily on the sofa, opened his mouth, but could not answer.
+> 
+> “If you will not answer, then I shall tell you...” Hélène continued. “You believe everything you are told. You were told...” Hélène laughed, “that Dolokhov is my lover,” she said in French, with her coarse precision of speech, pronouncing the word “lover” just like any other word, “and you believed it! But what did you prove by it? What did you prove by this duel? That you are a fool, that you are a fool—everyone already knew that! Where will this lead? To my becoming the laughingstock of all Moscow; to everyone saying that, while drunk and not knowing what you were doing, you challenged a man of whom you are jealous without cause”—Hélène raised her voice more and more and grew increasingly animated—“a man who is better than you in every respect...”
+> 
+> “Hmm... hmm...” Pierre grunted, wincing, not looking at her and not moving a single limb.
+> 
+> “And why could you believe that he was my lover?... Why? Because I enjoy his company? If you were more intelligent and agreeable, I would prefer yours.”
+> 
+> “Do not speak to me... I beg you,” Pierre whispered hoarsely.
+> 
+> “Why should I not speak? I can speak, and I will say boldly that there is scarcely a wife who, with a husband like you, would not take lovers for herself, and I did not,” she said. Pierre wanted to say something, looked at her with strange eyes whose expression she did not understand, and lay down again. At that moment he was suffering physically: his chest was constricted, and he could not breathe. He knew that he had to do something to put an end to this suffering, but what he wanted to do was too terrible.
+
+
+Translation, where present, is an AI-generated analytical aid, not an authoritative edition.
+
+## Evidence cited by the annotator
+
+### e1 — local text
+
+> Pierre asks why he bound himself to her and why he told her “Je vous aime,” explicitly calling it “a lie and even worse than a lie.”
+
+The original utterance had truth-conditional avowal form despite being judged false, and it was associated with entering a consequential relational bond.
+
+### e2 — local text
+
+> Pierre remembers the moments when he most strongly displayed his “insincere love” toward Hélène.
+
+The declaration belongs to a pattern of presented but insincere avowal rather than evidence of reflex-like verbal discharge.
+
+### e3 — local text
+
+> He repeatedly asks himself, “Why did I say to her, ‘Je vous aime’?” while physically agitated and remorseful.
+
+The occurrence is a present self-quotation of an earlier utterance; the agitation characterizes Pierre’s later recollection, not independently the core force of the original declaration.
+
+### e4 — supplied metadata
+
+> The exact matched expression is the affirmative French present-tense form “Je vous aime” embedded in a predominantly Russian passage.
+
+Identifies an explicit first-person love avowal and the code-switched wording being classified.
+
+## Background, status and source records
+
+Utterance status: **quoted or revoiced**. Pierre repeatedly quotes in interior monologue the words he previously addressed to Hélène; the classification concerns that remembered original declaration rather than a new declaration to her.
+
+Background knowledge reported as used: **False**. 
+
+Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
+
+Ontology fit: natural. T captures the declaration’s avowal force even though it was false, while P captures its role in relational self-binding. The later remorse, self-quotation, and agitation are adequately handled as context; no residual core force requires O.
+
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/context_extension_3_v0_13_v0_3_1/annotations/tolstoy-war-and-peace-52d0036c945261b8/5832a29a8c59239ee6e76c7419c53054147b87bebe27ba391429e0ac88cb8dda/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/context_extension_3_v0_13_v0_3_1/annotations/tolstoy-war-and-peace-52d0036c945261b8/5832a29a8c59239ee6e76c7419c53054147b87bebe27ba391429e0ac88cb8dda/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/tolstoy-war-and-peace/canonical.txt)
+- Occurrence: tolstoy-war-and-peace-52d0036c945261b8
+- Model: gpt-5.6-sol
+- Classification prompt: 0.3.1
+- Historical run: context_extension_3_v0_13_v0_3_1
+- Canonical SHA-256: 89c2922d192b9b90f34ed910a4b7680753fa72c6a03ae8bac685f1ff864eb929
+
+Rendered deterministically from the saved record. No rescoring or replacement explanation.
+
+Saved notes: The emotional intensity belongs primarily to Pierre’s retrospective crisis and does not supply independent E support for the earlier declaration.

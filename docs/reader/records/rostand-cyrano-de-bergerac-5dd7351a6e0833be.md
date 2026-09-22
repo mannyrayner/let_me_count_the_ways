@@ -747,9 +747,9 @@ Self-reported confidence: 0.97. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T captures the utterance’s avowal force naturally. Its courtship setting, intimacy, and repetition are contextual features and create no residual pressure requiring P, E, or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-5dd7351a6e0833be/860c452ee840e3dbfcda8b960b62ceecee347f9c655d434cb52f8cd436bae797/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-5dd7351a6e0833be/860c452ee840e3dbfcda8b960b62ceecee347f9c655d434cb52f8cd436bae797/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/rostand-cyrano-de-bergerac/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-5dd7351a6e0833be/860c452ee840e3dbfcda8b960b62ceecee347f9c655d434cb52f8cd436bae797/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-5dd7351a6e0833be/860c452ee840e3dbfcda8b960b62ceecee347f9c655d434cb52f8cd436bae797/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/rostand-cyrano-de-bergerac/canonical.txt)
 - Occurrence: rostand-cyrano-de-bergerac-5dd7351a6e0833be
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

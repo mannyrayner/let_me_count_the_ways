@@ -312,9 +312,9 @@ Self-reported confidence: 0.9. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T captures the avowal, while moderate E captures the narratively marked eruption of desire into speech. The coercive, opportunistic, and possibly insincere context does not require a separate core-force category, and there is no clear performative undertaking.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-d3ce852d259a04be/8f8424ca127ae4b42f93013197295648eed6d1a221e80a5abf8538bd737e493e/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-d3ce852d259a04be/8f8424ca127ae4b42f93013197295648eed6d1a221e80a5abf8538bd737e493e/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/flaubert-madame-bovary/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-d3ce852d259a04be/8f8424ca127ae4b42f93013197295648eed6d1a221e80a5abf8538bd737e493e/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-d3ce852d259a04be/8f8424ca127ae4b42f93013197295648eed6d1a221e80a5abf8538bd737e493e/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/flaubert-madame-bovary/canonical.txt)
 - Occurrence: flaubert-madame-bovary-d3ce852d259a04be
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

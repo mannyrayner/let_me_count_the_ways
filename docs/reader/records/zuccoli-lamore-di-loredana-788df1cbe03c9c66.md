@@ -313,9 +313,9 @@ Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the categorical presentation of future non-love. The rejection, hostility, and emotional vehemence are contextual functions and delivery features rather than residual aspects of core force requiring P, E, or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/zuccoli-lamore-di-loredana-788df1cbe03c9c66/71c485997a22c8275244d682591ab7fc744d5c25d5caba57f69ac809c30c6636/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/zuccoli-lamore-di-loredana-788df1cbe03c9c66/71c485997a22c8275244d682591ab7fc744d5c25d5caba57f69ac809c30c6636/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/zuccoli-lamore-di-loredana/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/zuccoli-lamore-di-loredana-788df1cbe03c9c66/71c485997a22c8275244d682591ab7fc744d5c25d5caba57f69ac809c30c6636/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/zuccoli-lamore-di-loredana-788df1cbe03c9c66/71c485997a22c8275244d682591ab7fc744d5c25d5caba57f69ac809c30c6636/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/zuccoli-lamore-di-loredana/canonical.txt)
 - Occurrence: zuccoli-lamore-di-loredana-788df1cbe03c9c66
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

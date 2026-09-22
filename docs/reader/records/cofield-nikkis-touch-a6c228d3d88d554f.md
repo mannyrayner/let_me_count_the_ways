@@ -140,9 +140,9 @@ Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T and P naturally capture the core avowal and its proposal-linked undertaking. Emotional intensity is adequately represented as contextual delivery evidence without adding E, and no important residual core force requires O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/cofield-nikkis-touch-a6c228d3d88d554f/d10a188058a84d5814fc81f23a8da1af6e8c8d6064e640a5471603b8ca336b5f/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/cofield-nikkis-touch-a6c228d3d88d554f/d10a188058a84d5814fc81f23a8da1af6e8c8d6064e640a5471603b8ca336b5f/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/cofield-nikkis-touch/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/cofield-nikkis-touch-a6c228d3d88d554f/d10a188058a84d5814fc81f23a8da1af6e8c8d6064e640a5471603b8ca336b5f/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/cofield-nikkis-touch-a6c228d3d88d554f/d10a188058a84d5814fc81f23a8da1af6e8c8d6064e640a5471603b8ca336b5f/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/cofield-nikkis-touch/canonical.txt)
 - Occurrence: cofield-nikkis-touch-a6c228d3d88d554f
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

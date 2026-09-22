@@ -325,9 +325,9 @@ Self-reported confidence: 0.94. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core avowal, with slight P support from its role in the immediately surrounding relational proposal. Intensity, suddenness, pallor, and trembling are contextual delivery evidence and do not create independent E force. No important aspect of the core utterance falls outside T/P/E.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/zuccoli-lamore-di-loredana-1cdb57ab6bc9ed25/05fe8d28479d05f5f96ceff45194490792adbfa7742e9732dd38f848a445da93/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/zuccoli-lamore-di-loredana-1cdb57ab6bc9ed25/05fe8d28479d05f5f96ceff45194490792adbfa7742e9732dd38f848a445da93/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/zuccoli-lamore-di-loredana/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/zuccoli-lamore-di-loredana-1cdb57ab6bc9ed25/05fe8d28479d05f5f96ceff45194490792adbfa7742e9732dd38f848a445da93/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/zuccoli-lamore-di-loredana-1cdb57ab6bc9ed25/05fe8d28479d05f5f96ceff45194490792adbfa7742e9732dd38f848a445da93/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/zuccoli-lamore-di-loredana/canonical.txt)
 - Occurrence: zuccoli-lamore-di-loredana-1cdb57ab6bc9ed25
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

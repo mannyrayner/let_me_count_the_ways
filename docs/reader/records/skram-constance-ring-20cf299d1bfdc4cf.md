@@ -371,9 +371,9 @@ Self-reported confidence: 0.97. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core avowal. Lorck's pressure, defensiveness, possible self-deception, and Constance's alienation are adequately treated as contextual features; no residual core force requires P, E, or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-constance-ring-20cf299d1bfdc4cf/01096532afc0aaac7252f2214b7842071c319ec92cd9e445005c6d8081bb9f0f/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-constance-ring-20cf299d1bfdc4cf/01096532afc0aaac7252f2214b7842071c319ec92cd9e445005c6d8081bb9f0f/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/skram-constance-ring/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-constance-ring-20cf299d1bfdc4cf/01096532afc0aaac7252f2214b7842071c319ec92cd9e445005c6d8081bb9f0f/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-constance-ring-20cf299d1bfdc4cf/01096532afc0aaac7252f2214b7842071c319ec92cd9e445005c6d8081bb9f0f/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/skram-constance-ring/canonical.txt)
 - Occurrence: skram-constance-ring-20cf299d1bfdc4cf
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

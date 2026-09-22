@@ -294,9 +294,9 @@ Self-reported confidence: 0.91. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the declaration’s avowal force, with only minor P pressure from the courtship setting. There is no independently supported E force and no residual core property requiring O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lagerlof-gosta-berlings-saga-eaa5b6e6c7027b76/22283bb8d2bd9f523218f9f4645e0ede8d658012f2ccfdbe9c101f241395e0ba/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lagerlof-gosta-berlings-saga-eaa5b6e6c7027b76/22283bb8d2bd9f523218f9f4645e0ede8d658012f2ccfdbe9c101f241395e0ba/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/lagerlof-gosta-berlings-saga/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lagerlof-gosta-berlings-saga-eaa5b6e6c7027b76/22283bb8d2bd9f523218f9f4645e0ede8d658012f2ccfdbe9c101f241395e0ba/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lagerlof-gosta-berlings-saga-eaa5b6e6c7027b76/22283bb8d2bd9f523218f9f4645e0ede8d658012f2ccfdbe9c101f241395e0ba/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/lagerlof-gosta-berlings-saga/canonical.txt)
 - Occurrence: lagerlof-gosta-berlings-saga-eaa5b6e6c7027b76
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

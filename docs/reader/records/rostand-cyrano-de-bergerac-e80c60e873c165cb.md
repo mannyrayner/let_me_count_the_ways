@@ -735,9 +735,9 @@ Self-reported confidence: 0.97. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core force as a direct avowal. The scene’s courtship, desire for reciprocation, and comic failure of eloquence are contextual features that do not require P, E, or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-e80c60e873c165cb/88fb5c38f408d1e751d81bc9e236b4964628ffd06fd2369b7e41648e65522b3a/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-e80c60e873c165cb/88fb5c38f408d1e751d81bc9e236b4964628ffd06fd2369b7e41648e65522b3a/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/rostand-cyrano-de-bergerac/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-e80c60e873c165cb/88fb5c38f408d1e751d81bc9e236b4964628ffd06fd2369b7e41648e65522b3a/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-e80c60e873c165cb/88fb5c38f408d1e751d81bc9e236b4964628ffd06fd2369b7e41648e65522b3a/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/rostand-cyrano-de-bergerac/canonical.txt)
 - Occurrence: rostand-cyrano-de-bergerac-e80c60e873c165cb
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

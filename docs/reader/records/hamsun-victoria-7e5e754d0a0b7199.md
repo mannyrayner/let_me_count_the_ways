@@ -344,9 +344,9 @@ Self-reported confidence: 0.95. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the dominant avowal, with slight P support for its reciprocal relational function. The intense physical and emotional delivery is adequately represented contextually without assigning E or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-victoria-7e5e754d0a0b7199/6b56833748bb3b5dd11e0eccc12331162a77b9d4f95e5e1f8d2ce6746871f175/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-victoria-7e5e754d0a0b7199/6b56833748bb3b5dd11e0eccc12331162a77b9d4f95e5e1f8d2ce6746871f175/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/hamsun-victoria/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-victoria-7e5e754d0a0b7199/6b56833748bb3b5dd11e0eccc12331162a77b9d4f95e5e1f8d2ce6746871f175/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-victoria-7e5e754d0a0b7199/6b56833748bb3b5dd11e0eccc12331162a77b9d4f95e5e1f8d2ce6746871f175/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/hamsun-victoria/canonical.txt)
 - Occurrence: hamsun-victoria-7e5e754d0a0b7199
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

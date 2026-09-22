@@ -410,9 +410,9 @@ Self-reported confidence: 0.92. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core avowal. The surrounding emotional intensity is contextually important but creates no residual core-force pressure requiring E or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-pan-0ca06d8ebe15d3db/f08c17e62020cb4752b228eca3c9f53445b4976d19aab2daf7c50632975b1c2d/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-pan-0ca06d8ebe15d3db/f08c17e62020cb4752b228eca3c9f53445b4976d19aab2daf7c50632975b1c2d/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/hamsun-pan/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-pan-0ca06d8ebe15d3db/f08c17e62020cb4752b228eca3c9f53445b4976d19aab2daf7c50632975b1c2d/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-pan-0ca06d8ebe15d3db/f08c17e62020cb4752b228eca3c9f53445b4976d19aab2daf7c50632975b1c2d/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/hamsun-pan/canonical.txt)
 - Occurrence: hamsun-pan-0ca06d8ebe15d3db
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

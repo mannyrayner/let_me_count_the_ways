@@ -651,9 +651,9 @@ Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the deliberate written avowal. The surrounding calculation, unwanted pursuit, and Roxane’s later forged reading are contextual complications rather than missing dimensions of the core utterance.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-91f387f6909ed7e5/8d9ffa63c232f6b7abd3df83638cc7911936c5aeffa93b2c55f3dd63d0e60853/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-91f387f6909ed7e5/8d9ffa63c232f6b7abd3df83638cc7911936c5aeffa93b2c55f3dd63d0e60853/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/rostand-cyrano-de-bergerac/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-91f387f6909ed7e5/8d9ffa63c232f6b7abd3df83638cc7911936c5aeffa93b2c55f3dd63d0e60853/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-91f387f6909ed7e5/8d9ffa63c232f6b7abd3df83638cc7911936c5aeffa93b2c55f3dd63d0e60853/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/rostand-cyrano-de-bergerac/canonical.txt)
 - Occurrence: rostand-cyrano-de-bergerac-91f387f6909ed7e5
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

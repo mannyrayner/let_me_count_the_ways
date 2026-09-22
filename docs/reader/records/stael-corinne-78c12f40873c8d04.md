@@ -240,9 +240,9 @@ Self-reported confidence: 0.95. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T/P/E adequately represents the core force: a strong avowal with at most a weak undertone of relational dedication. The scene’s urgency, ominous symbolism, and reassuring purpose are contextual rather than missing dimensions of core force.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stael-corinne-78c12f40873c8d04/71e93f714919c683defe41740ad49cba9916cdb2dcfc0da6d6d94709a646114b/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stael-corinne-78c12f40873c8d04/71e93f714919c683defe41740ad49cba9916cdb2dcfc0da6d6d94709a646114b/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/stael-corinne/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stael-corinne-78c12f40873c8d04/71e93f714919c683defe41740ad49cba9916cdb2dcfc0da6d6d94709a646114b/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stael-corinne-78c12f40873c8d04/71e93f714919c683defe41740ad49cba9916cdb2dcfc0da6d6d94709a646114b/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/stael-corinne/canonical.txt)
 - Occurrence: stael-corinne-78c12f40873c8d04
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

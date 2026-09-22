@@ -399,9 +399,9 @@ Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T/P/E adequately represents the core utterance as a strongly truth-conditional avowal delivered with distress. Its defensive, potentially manipulative use and Constance’s hostile reception belong to contextual interpretation rather than requiring another core-force category.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-constance-ring-41aff011684db92f/b4c9d648e7a61b44212652947f4714a1d5cf5ec7496d12704b33aa1ffeced87e/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-constance-ring-41aff011684db92f/b4c9d648e7a61b44212652947f4714a1d5cf5ec7496d12704b33aa1ffeced87e/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/skram-constance-ring/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-constance-ring-41aff011684db92f/b4c9d648e7a61b44212652947f4714a1d5cf5ec7496d12704b33aa1ffeced87e/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-constance-ring-41aff011684db92f/b4c9d648e7a61b44212652947f4714a1d5cf5ec7496d12704b33aa1ffeced87e/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/skram-constance-ring/canonical.txt)
 - Occurrence: skram-constance-ring-41aff011684db92f
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

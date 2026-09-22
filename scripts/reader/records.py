@@ -20,17 +20,40 @@ def text_digest(path):
     # JSON-file line endings may differ on Windows; source-text bytes are hashed separately.
     return hashlib.sha256(Path(path).read_text(encoding="utf-8").encode("utf-8")).hexdigest()
 
-def canonical(root, work):
-    path = root / "corpus/works" / work["work_id"] / "canonical.txt"
+def repository_path(root, relative):
+    path = Path(relative)
+    if path.is_absolute() or ".." in path.parts or "\\" in str(relative) or ":" in str(relative):
+        raise ValueError("Expected a repository-relative POSIX path")
+    result = root / path
+    if not result.resolve().is_relative_to(root.resolve()):
+        raise ValueError("Path escapes repository")
+    return result
+
+def publication_approved(root, config, work, hashes):
+    relative = config.get("publication_decisions", {}).get(work["work_id"])
+    if not relative:
+        return False
+    path = repository_path(root, relative)
+    decision = read(path)
+    if (decision.get("decision") != "PROJECT_PUBLICATION_APPROVED"
+            or decision.get("work_id") != work["work_id"]
+            or decision.get("canonical_sha256") != work["canonical_sha256"]):
+        raise ValueError("Publication decision does not match work and source hash")
+    hashes[relative] = text_digest(path)
+    return True
+
+def canonical(root, work, relative=None):
+    path = repository_path(root, relative or f"corpus/works/{work['work_id']}/canonical.txt")
     if digest(path) != work["canonical_sha256"]:
         raise ValueError("Canonical source hash changed: " + work["work_id"])
     return path.read_text(encoding="utf-8")
 
 def load_collection(root=ROOT, config=None):
-    config = config or read(root / "data/reader/collection_v1.json")
+    config = config or read(root / "data/reader/collection_v2.json")
     records, seen, hashes, texts, works = [], set(), {}, {}, {}
+    approvals = {}
     for run in config["annotation_runs"]:
-        base = root / "results/annotation" / run
+        base = repository_path(root, config.get("run_paths", {}).get(run, "results/annotation/" + run))
         summary = read(base / "summary.json")
         if summary["status"] != "complete" or summary["failed"]:
             raise ValueError("Incomplete annotation run: " + run)
@@ -57,11 +80,14 @@ def load_collection(root=ROOT, config=None):
                 wp = root / "corpus/works" / wid / "work.json"
                 works[wid] = read(wp)
                 # Fail closed on a more restrictive current policy.
-                if works[wid]["rights"]["public_render_policy"] not in PUBLIC:
+                approvals[wid] = publication_approved(root, config, works[wid], hashes)
+                policy = works[wid]["rights"]["public_render_policy"]
+                if policy not in PUBLIC and not (policy == "LIMITED_QUOTATION_ONLY" and approvals[wid]):
                     raise ValueError("Public rendering not allowed: " + wid)
-                texts[wid] = canonical(root, works[wid])
+                texts[wid] = canonical(root, works[wid], config.get("canonical_paths", {}).get(wid))
                 hashes[wp.relative_to(root).as_posix()] = text_digest(wp)
-            if prepared["METADATA"]["work"]["rights"]["public_render_policy"] not in PUBLIC:
+            saved_policy = prepared["METADATA"]["work"]["rights"]["public_render_policy"]
+            if saved_policy not in PUBLIC and not (saved_policy == "LIMITED_QUOTATION_ONLY" and approvals[wid]):
                 raise ValueError("Saved input cannot be publicly rendered: " + oid)
             text, source = texts[wid], prepared["SOURCE_TEXT"]
             location = prepared["METADATA"]["location"]
@@ -77,7 +103,7 @@ def load_collection(root=ROOT, config=None):
                 raise ValueError("Missing saved translation: " + oid)
             for path in [request_path, output_path, provenance_path]:
                 hashes[path.relative_to(root).as_posix()] = text_digest(path)
-            prefix = "https://github.com/mannyrayner/let_me_count_the_ways/blob/" + config["data_commit"] + "/"
+            prefix = "https://github.com/mannyrayner/let_me_count_the_ways/blob/" + config.get("run_data_commits", {}).get(run, config["data_commit"]) + "/"
             records.append({"occurrence_id":oid, "work":works[wid], "source":source, "location":location,
                 "translation":translation, "output":output, "provenance":provenance,
                 "scores":{k:case["scores"][v] for k,v in FIELDS.items()},
@@ -85,10 +111,14 @@ def load_collection(root=ROOT, config=None):
                 "output_path":output_path.relative_to(root).as_posix(),
                 "request_url":prefix+request_path.relative_to(root).as_posix(),
                 "output_url":prefix+output_path.relative_to(root).as_posix(),
-                "canonical_url":prefix+f"corpus/works/{wid}/canonical.txt",
+                "canonical_url":prefix+config.get("canonical_paths", {}).get(wid, f"corpus/works/{wid}/canonical.txt"),
+                "publication_note": read(repository_path(root, config["publication_decisions"][wid]))["qualification"] if approvals[wid] else None,
                 "source_summary":prepared.get("MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY")})
             seen.add(oid)
     inventory = read(root / config["work_inventory"])["works"]
+    for wid in config.get("additional_works", []):
+        work = read(root / "corpus/works" / wid / "work.json")
+        inventory[wid] = {k: work[k] for k in ("title", "author", "language")}
     if set(works) - set(inventory):
         raise ValueError("Work inventory does not cover annotation set")
     return sorted(records,key=lambda r:(r["work"]["title"].casefold(),r["location"]["source_start"])), inventory, hashes

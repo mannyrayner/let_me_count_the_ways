@@ -377,9 +377,9 @@ Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core avowal. Its solicitation, doubtful sincerity, self-deceptive framing, repetition, and heightened physical delivery are adequately treated as contextual features rather than additional core forces.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-constance-ring-342b3cad3e79af40/c3dab5fcf6ba007a29018da029714f02cbdacd832d72dc9dbd5090e1fa90bad6/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-constance-ring-342b3cad3e79af40/c3dab5fcf6ba007a29018da029714f02cbdacd832d72dc9dbd5090e1fa90bad6/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/skram-constance-ring/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-constance-ring-342b3cad3e79af40/c3dab5fcf6ba007a29018da029714f02cbdacd832d72dc9dbd5090e1fa90bad6/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-constance-ring-342b3cad3e79af40/c3dab5fcf6ba007a29018da029714f02cbdacd832d72dc9dbd5090e1fa90bad6/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/skram-constance-ring/canonical.txt)
 - Occurrence: skram-constance-ring-342b3cad3e79af40
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

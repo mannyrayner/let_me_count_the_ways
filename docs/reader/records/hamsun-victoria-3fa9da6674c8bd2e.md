@@ -344,9 +344,9 @@ Self-reported confidence: 0.9. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T captures the explicit avowal of enduring love, while a moderate E score captures the self-directed expressive overflow. P is unnecessary, and no important aspect of the core force falls outside T/P/E.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-victoria-3fa9da6674c8bd2e/216179fb8fc378e3f19d022fe58084cab3afa20f2273fd6950a724f148346012/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-victoria-3fa9da6674c8bd2e/216179fb8fc378e3f19d022fe58084cab3afa20f2273fd6950a724f148346012/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/hamsun-victoria/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-victoria-3fa9da6674c8bd2e/216179fb8fc378e3f19d022fe58084cab3afa20f2273fd6950a724f148346012/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-victoria-3fa9da6674c8bd2e/216179fb8fc378e3f19d022fe58084cab3afa20f2273fd6950a724f148346012/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/hamsun-victoria/canonical.txt)
 - Occurrence: hamsun-victoria-3fa9da6674c8bd2e
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

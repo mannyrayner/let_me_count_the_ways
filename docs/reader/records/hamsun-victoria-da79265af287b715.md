@@ -304,9 +304,9 @@ Self-reported confidence: 0.97. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core as a retrospective avowal of a loving state. The letter’s emotional intensity and farewell function are adequately handled as context; no independent P, E, or residual O dimension is required.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-victoria-da79265af287b715/20cc13f8926f0682af84dc628092409b9f96f3de66f77657c6c0d9827a6c744e/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-victoria-da79265af287b715/20cc13f8926f0682af84dc628092409b9f96f3de66f77657c6c0d9827a6c744e/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/hamsun-victoria/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-victoria-da79265af287b715/20cc13f8926f0682af84dc628092409b9f96f3de66f77657c6c0d9827a6c744e/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-victoria-da79265af287b715/20cc13f8926f0682af84dc628092409b9f96f3de66f77657c6c0d9827a6c744e/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/hamsun-victoria/canonical.txt)
 - Occurrence: hamsun-victoria-da79265af287b715
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

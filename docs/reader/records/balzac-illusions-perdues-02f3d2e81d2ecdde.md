@@ -276,9 +276,9 @@ Self-reported confidence: 0.91. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T and moderate P naturally capture the prospective avowal and its assurance-like role. The surrounding triangle, possible calculation, and compromised sincerity are contextual matters rather than missing dimensions of core force.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/balzac-illusions-perdues-02f3d2e81d2ecdde/b4c415df112982c934cc7c0c2fea869055cbba708edf4298169cabff0e92624e/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/balzac-illusions-perdues-02f3d2e81d2ecdde/b4c415df112982c934cc7c0c2fea869055cbba708edf4298169cabff0e92624e/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/balzac-illusions-perdues/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/balzac-illusions-perdues-02f3d2e81d2ecdde/b4c415df112982c934cc7c0c2fea869055cbba708edf4298169cabff0e92624e/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/balzac-illusions-perdues-02f3d2e81d2ecdde/b4c415df112982c934cc7c0c2fea869055cbba708edf4298169cabff0e92624e/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/balzac-illusions-perdues/canonical.txt)
 - Occurrence: balzac-illusions-perdues-02f3d2e81d2ecdde
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

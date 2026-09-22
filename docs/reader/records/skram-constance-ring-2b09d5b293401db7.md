@@ -423,9 +423,9 @@ Self-reported confidence: 0.97. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T and P naturally capture the core force as both a serious avowal of love and an attempted relational offering. Emotional intensity and coercive delivery are adequately handled as context and do not establish E or create residual pressure for O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-constance-ring-2b09d5b293401db7/2f475252a00424783a58e13cc6446a3983579650bcdd4589d6adf88e6b797fc4/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-constance-ring-2b09d5b293401db7/2f475252a00424783a58e13cc6446a3983579650bcdd4589d6adf88e6b797fc4/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/skram-constance-ring/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-constance-ring-2b09d5b293401db7/2f475252a00424783a58e13cc6446a3983579650bcdd4589d6adf88e6b797fc4/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-constance-ring-2b09d5b293401db7/2f475252a00424783a58e13cc6446a3983579650bcdd4589d6adf88e6b797fc4/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/skram-constance-ring/canonical.txt)
 - Occurrence: skram-constance-ring-2b09d5b293401db7
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

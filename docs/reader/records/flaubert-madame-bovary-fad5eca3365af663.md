@@ -245,9 +245,9 @@ Self-reported confidence: 0.9. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T/P/E naturally represents the utterance: it is dominantly an avowal, with weak commitment coloring and slight possible expressive overflow. Emma’s literary self-fashioning and the novel’s irony belong to contextual interpretation rather than requiring O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-fad5eca3365af663/6549bfb1ec3372469cf4511e9d63f6625165bd58cc8eb77bf0a8129580941d16/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-fad5eca3365af663/6549bfb1ec3372469cf4511e9d63f6625165bd58cc8eb77bf0a8129580941d16/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/flaubert-madame-bovary/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-fad5eca3365af663/6549bfb1ec3372469cf4511e9d63f6625165bd58cc8eb77bf0a8129580941d16/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-fad5eca3365af663/6549bfb1ec3372469cf4511e9d63f6625165bd58cc8eb77bf0a8129580941d16/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/flaubert-madame-bovary/canonical.txt)
 - Occurrence: flaubert-madame-bovary-fad5eca3365af663
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

@@ -327,9 +327,9 @@ Self-reported confidence: 0.95. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core force as an avowal of a loving state. The surrounding emotional instability, possible strategic framing, and later retraction affect sincerity and interpretation but do not require P, E, or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-pan-8d02dd8f6f4cc486/e7db5a421c0709ac03010133d68322c974ec826edf5129f350b299f5dc14050b/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-pan-8d02dd8f6f4cc486/e7db5a421c0709ac03010133d68322c974ec826edf5129f350b299f5dc14050b/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/hamsun-pan/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-pan-8d02dd8f6f4cc486/e7db5a421c0709ac03010133d68322c974ec826edf5129f350b299f5dc14050b/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-pan-8d02dd8f6f4cc486/e7db5a421c0709ac03010133d68322c974ec826edf5129f350b299f5dc14050b/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/hamsun-pan/canonical.txt)
 - Occurrence: hamsun-pan-8d02dd8f6f4cc486
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

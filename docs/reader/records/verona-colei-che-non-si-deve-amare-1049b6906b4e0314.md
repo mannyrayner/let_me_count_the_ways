@@ -379,9 +379,9 @@ Self-reported confidence: 0.95. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core avowal; a low P score registers its limited role in implying constancy within Rafa's proposal. Intensity, persuasion, and coercive context require contextual description but reveal no missing dimension of core force.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-1049b6906b4e0314/57c2cf0bb5d3f3a2283e0e927c4b6c0dbeb29f72742881640f0956c7dae314cc/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-1049b6906b4e0314/57c2cf0bb5d3f3a2283e0e927c4b6c0dbeb29f72742881640f0956c7dae314cc/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/verona-colei-che-non-si-deve-amare/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-1049b6906b4e0314/57c2cf0bb5d3f3a2283e0e927c4b6c0dbeb29f72742881640f0956c7dae314cc/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-1049b6906b4e0314/57c2cf0bb5d3f3a2283e0e927c4b6c0dbeb29f72742881640f0956c7dae314cc/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/verona-colei-che-non-si-deve-amare/canonical.txt)
 - Occurrence: verona-colei-che-non-si-deve-amare-1049b6906b4e0314
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

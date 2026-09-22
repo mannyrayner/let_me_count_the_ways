@@ -222,9 +222,9 @@ Self-reported confidence: 0.97. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core retrospective avowal. The deathbed emotion, jealousy, accusation, and marital setting are adequately handled as context and create no residual pressure requiring P, E, or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lafayette-la-princesse-de-cleves-b3b031f06d32fc7b/356b6cacf9da2a78a5a3c79dcda2c9bcc4615a5e922e335b598f9884220fff29/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lafayette-la-princesse-de-cleves-b3b031f06d32fc7b/356b6cacf9da2a78a5a3c79dcda2c9bcc4615a5e922e335b598f9884220fff29/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/lafayette-la-princesse-de-cleves/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lafayette-la-princesse-de-cleves-b3b031f06d32fc7b/356b6cacf9da2a78a5a3c79dcda2c9bcc4615a5e922e335b598f9884220fff29/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lafayette-la-princesse-de-cleves-b3b031f06d32fc7b/356b6cacf9da2a78a5a3c79dcda2c9bcc4615a5e922e335b598f9884220fff29/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/lafayette-la-princesse-de-cleves/canonical.txt)
 - Occurrence: lafayette-la-princesse-de-cleves-b3b031f06d32fc7b
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

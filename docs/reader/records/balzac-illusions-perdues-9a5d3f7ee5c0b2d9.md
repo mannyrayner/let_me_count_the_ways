@@ -253,9 +253,9 @@ Self-reported confidence: 0.97. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core force as a retrospective avowal of enduring love. The surrounding marriage undertaking is contextually important but need not be attributed to this clause as P, and there is no residual force requiring E or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/balzac-illusions-perdues-9a5d3f7ee5c0b2d9/5bbd7b18caab8d43fd6fcd87176d1c0e9343e5058207c0da2502fbf222ee0244/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/balzac-illusions-perdues-9a5d3f7ee5c0b2d9/5bbd7b18caab8d43fd6fcd87176d1c0e9343e5058207c0da2502fbf222ee0244/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/balzac-illusions-perdues/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/balzac-illusions-perdues-9a5d3f7ee5c0b2d9/5bbd7b18caab8d43fd6fcd87176d1c0e9343e5058207c0da2502fbf222ee0244/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/balzac-illusions-perdues-9a5d3f7ee5c0b2d9/5bbd7b18caab8d43fd6fcd87176d1c0e9343e5058207c0da2502fbf222ee0244/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/balzac-illusions-perdues/canonical.txt)
 - Occurrence: balzac-illusions-perdues-9a5d3f7ee5c0b2d9
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

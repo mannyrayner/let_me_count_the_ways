@@ -271,9 +271,9 @@ Self-reported confidence: 0.97. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core as a retrospective written avowal. Its emotional intensity, posthumous delivery, and desire for closeness are adequately treated as contextual features; they do not require E, P, or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-victoria-14724dfffdb48ab5/7c514b9f29ad879b25c472ee5541628391d99b9c2a98f99675130ef5562c8300/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-victoria-14724dfffdb48ab5/7c514b9f29ad879b25c472ee5541628391d99b9c2a98f99675130ef5562c8300/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/hamsun-victoria/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-victoria-14724dfffdb48ab5/7c514b9f29ad879b25c472ee5541628391d99b9c2a98f99675130ef5562c8300/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/hamsun-victoria-14724dfffdb48ab5/7c514b9f29ad879b25c472ee5541628391d99b9c2a98f99675130ef5562c8300/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/hamsun-victoria/canonical.txt)
 - Occurrence: hamsun-victoria-14724dfffdb48ab5
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

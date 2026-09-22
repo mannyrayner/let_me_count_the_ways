@@ -347,9 +347,9 @@ Self-reported confidence: 0.94. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the avowal of an existing loving state. The metaphorical nonverbal framing and courtship circumstances are adequately represented through utterance status and context; they create no residual need for E, P, or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/sand-la-mare-au-diable-29846ede358130e4/312ef33362d877618654cde2c98b57896579fea3b5b6d7e64e97ffa66fb58f71/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/sand-la-mare-au-diable-29846ede358130e4/312ef33362d877618654cde2c98b57896579fea3b5b6d7e64e97ffa66fb58f71/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/sand-la-mare-au-diable/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/sand-la-mare-au-diable-29846ede358130e4/312ef33362d877618654cde2c98b57896579fea3b5b6d7e64e97ffa66fb58f71/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/sand-la-mare-au-diable-29846ede358130e4/312ef33362d877618654cde2c98b57896579fea3b5b6d7e64e97ffa66fb58f71/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/sand-la-mare-au-diable/canonical.txt)
 - Occurrence: sand-la-mare-au-diable-29846ede358130e4
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

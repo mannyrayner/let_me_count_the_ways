@@ -320,9 +320,9 @@ Self-reported confidence: 0.98. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core force as a direct avowal of enduring love. Emotional intensity is adequately represented contextually, without requiring E, and no commitment force or residual category is needed.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stendhal-le-rouge-et-le-noir-3c83d5dfba3137c8/ca405f310216c0510e5911c0b7b1427dbd333cd8eecbaf38a0d0112bc23c37e6/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stendhal-le-rouge-et-le-noir-3c83d5dfba3137c8/ca405f310216c0510e5911c0b7b1427dbd333cd8eecbaf38a0d0112bc23c37e6/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/stendhal-le-rouge-et-le-noir/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stendhal-le-rouge-et-le-noir-3c83d5dfba3137c8/ca405f310216c0510e5911c0b7b1427dbd333cd8eecbaf38a0d0112bc23c37e6/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stendhal-le-rouge-et-le-noir-3c83d5dfba3137c8/ca405f310216c0510e5911c0b7b1427dbd333cd8eecbaf38a0d0112bc23c37e6/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/stendhal-le-rouge-et-le-noir/canonical.txt)
 - Occurrence: stendhal-le-rouge-et-le-noir-3c83d5dfba3137c8
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

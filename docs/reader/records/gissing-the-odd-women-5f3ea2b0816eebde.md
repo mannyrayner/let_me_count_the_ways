@@ -230,9 +230,9 @@ Self-reported confidence: 0.88. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T captures the dominant avowal, with modest P and E representing respectively its courtship-related relational invocation and its explicitly presented affect-driven production. No important aspect of the core force requires O; boundary pressure and possible manipulation belong to contextual interpretation.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/gissing-the-odd-women-5f3ea2b0816eebde/fca86181733c4b0dabffb82e18ccb3f9ef087a1eaadd46748096558c5ba49a4f/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/gissing-the-odd-women-5f3ea2b0816eebde/fca86181733c4b0dabffb82e18ccb3f9ef087a1eaadd46748096558c5ba49a4f/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/gissing-the-odd-women/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/gissing-the-odd-women-5f3ea2b0816eebde/fca86181733c4b0dabffb82e18ccb3f9ef087a1eaadd46748096558c5ba49a4f/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/gissing-the-odd-women-5f3ea2b0816eebde/fca86181733c4b0dabffb82e18ccb3f9ef087a1eaadd46748096558c5ba49a4f/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/gissing-the-odd-women/canonical.txt)
 - Occurrence: gissing-the-odd-women-5f3ea2b0816eebde
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

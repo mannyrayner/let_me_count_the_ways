@@ -266,9 +266,9 @@ Self-reported confidence: 0.88. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the avowal of maternal love, while E captures the partially independent force of the sudden affective outpouring. No important aspect of the core utterance requires O; the episode’s transience and psychological framing belong to contextual interpretation.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-176b95833345dab6/48b27c1bf065d9e4892070669f33a8a96cb8b29ee63bdc5c8b35a1c8c3e1b952/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-176b95833345dab6/48b27c1bf065d9e4892070669f33a8a96cb8b29ee63bdc5c8b35a1c8c3e1b952/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/flaubert-madame-bovary/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-176b95833345dab6/48b27c1bf065d9e4892070669f33a8a96cb8b29ee63bdc5c8b35a1c8c3e1b952/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-176b95833345dab6/48b27c1bf065d9e4892070669f33a8a96cb8b29ee63bdc5c8b35a1c8c3e1b952/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/flaubert-madame-bovary/canonical.txt)
 - Occurrence: flaubert-madame-bovary-176b95833345dab6
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

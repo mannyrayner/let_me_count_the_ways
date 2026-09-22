@@ -6431,9 +6431,9 @@ Self-reported confidence: 0.98. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core avowal. The quarrel, self-justification, attraction, and possible pressure on Kristin belong to contextual interpretation; no important core force remains outside T/P/E.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/undset-kristin-lavransdatter-474c248d414ae19a/08352ea8e3d750adf7d2889239c85a9b1bff6cf38dc7bcf9dce19ac833235c30/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/undset-kristin-lavransdatter-474c248d414ae19a/08352ea8e3d750adf7d2889239c85a9b1bff6cf38dc7bcf9dce19ac833235c30/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/undset-kristin-lavransdatter/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/undset-kristin-lavransdatter-474c248d414ae19a/08352ea8e3d750adf7d2889239c85a9b1bff6cf38dc7bcf9dce19ac833235c30/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/undset-kristin-lavransdatter-474c248d414ae19a/08352ea8e3d750adf7d2889239c85a9b1bff6cf38dc7bcf9dce19ac833235c30/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/undset-kristin-lavransdatter/canonical.txt)
 - Occurrence: undset-kristin-lavransdatter-474c248d414ae19a
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

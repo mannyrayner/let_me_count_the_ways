@@ -586,9 +586,9 @@ Self-reported confidence: 0.98. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T adequately captures the core force as a deliberate avowal. Nervousness, secrecy, written mediation, and courtship framing are contextual features and create no residual pressure beyond T/P/E.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-f19e9e1f744ddbdb/fa635214b5dc4f9f089396575fb5b88d1b81a02393e4d06247356dbbbcd498d7/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-f19e9e1f744ddbdb/fa635214b5dc4f9f089396575fb5b88d1b81a02393e4d06247356dbbbcd498d7/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/rostand-cyrano-de-bergerac/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-f19e9e1f744ddbdb/fa635214b5dc4f9f089396575fb5b88d1b81a02393e4d06247356dbbbcd498d7/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-f19e9e1f744ddbdb/fa635214b5dc4f9f089396575fb5b88d1b81a02393e4d06247356dbbbcd498d7/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/rostand-cyrano-de-bergerac/canonical.txt)
 - Occurrence: rostand-cyrano-de-bergerac-f19e9e1f744ddbdb
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

@@ -439,9 +439,9 @@ Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core as an emphatic avowal of love. Its strategic, jealous, and courtship functions belong to contextual interpretation and create no residual core force requiring E or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/dumas-fils-la-dame-aux-camelias-47275cd93e72e11f/337a51077dcfb871fcd22b0a2853a30117c8e6fa722a8e7bc1e259757a8f5910/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/dumas-fils-la-dame-aux-camelias-47275cd93e72e11f/337a51077dcfb871fcd22b0a2853a30117c8e6fa722a8e7bc1e259757a8f5910/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/dumas-fils-la-dame-aux-camelias/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/dumas-fils-la-dame-aux-camelias-47275cd93e72e11f/337a51077dcfb871fcd22b0a2853a30117c8e6fa722a8e7bc1e259757a8f5910/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/dumas-fils-la-dame-aux-camelias-47275cd93e72e11f/337a51077dcfb871fcd22b0a2853a30117c8e6fa722a8e7bc1e259757a8f5910/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/dumas-fils-la-dame-aux-camelias/canonical.txt)
 - Occurrence: dumas-fils-la-dame-aux-camelias-47275cd93e72e11f
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

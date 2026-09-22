@@ -173,9 +173,9 @@ Self-reported confidence: 0.98. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T and E jointly capture the core force: a loving state is avowed, and that state is presented as directly producing the words. Contextual intimacy, vulnerability, and relational consequences require no additional core category.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/cofield-nikkis-touch-be393a6a3d4f0015/8748d81cfb9633467c173fee77c0531c152cc38672ab0895b0905c7fcc4efccd/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/cofield-nikkis-touch-be393a6a3d4f0015/8748d81cfb9633467c173fee77c0531c152cc38672ab0895b0905c7fcc4efccd/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/cofield-nikkis-touch/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/cofield-nikkis-touch-be393a6a3d4f0015/8748d81cfb9633467c173fee77c0531c152cc38672ab0895b0905c7fcc4efccd/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/cofield-nikkis-touch-be393a6a3d4f0015/8748d81cfb9633467c173fee77c0531c152cc38672ab0895b0905c7fcc4efccd/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/cofield-nikkis-touch/canonical.txt)
 - Occurrence: cofield-nikkis-touch-be393a6a3d4f0015
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

@@ -372,9 +372,9 @@ Self-reported confidence: 0.88. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the dominant avowal, while a low E score records limited evidence of affective discharge. The taboo relationship, bodily crisis, and guilt are contextual complications rather than missing dimensions of core force.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-45ae0a8dbe76cf1b/c197773024c9fa379952dcc29f94dedd332e91b577cb1da20e0c056d3b033e54/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-45ae0a8dbe76cf1b/c197773024c9fa379952dcc29f94dedd332e91b577cb1da20e0c056d3b033e54/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/verona-colei-che-non-si-deve-amare/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-45ae0a8dbe76cf1b/c197773024c9fa379952dcc29f94dedd332e91b577cb1da20e0c056d3b033e54/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-45ae0a8dbe76cf1b/c197773024c9fa379952dcc29f94dedd332e91b577cb1da20e0c056d3b033e54/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/verona-colei-che-non-si-deve-amare/canonical.txt)
 - Occurrence: verona-colei-che-non-si-deve-amare-45ae0a8dbe76cf1b
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

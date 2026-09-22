@@ -318,9 +318,9 @@ Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T/P/E/O, combined with the separate hypothetical status, adequately represents the event: it is a counterfactual representation of love with no undertaking or expressive discharge. Hypothetical embedding does not create residual O pressure.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lagerlof-gosta-berlings-saga-9e68f79ef768e813/50135faed0f605f6e67a9e19bcc384a405e025c18732fa42b14d92ac1350a7c1/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lagerlof-gosta-berlings-saga-9e68f79ef768e813/50135faed0f605f6e67a9e19bcc384a405e025c18732fa42b14d92ac1350a7c1/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/lagerlof-gosta-berlings-saga/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lagerlof-gosta-berlings-saga-9e68f79ef768e813/50135faed0f605f6e67a9e19bcc384a405e025c18732fa42b14d92ac1350a7c1/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lagerlof-gosta-berlings-saga-9e68f79ef768e813/50135faed0f605f6e67a9e19bcc384a405e025c18732fa42b14d92ac1350a7c1/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/lagerlof-gosta-berlings-saga/canonical.txt)
 - Occurrence: lagerlof-gosta-berlings-saga-9e68f79ef768e813
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

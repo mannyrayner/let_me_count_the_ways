@@ -355,9 +355,9 @@ Self-reported confidence: 0.92. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T and especially P adequately capture the core utterance: a prospective representation of love functioning principally as a contingent relational reward. Manipulation and desperation belong in contextual interpretation, and emphatic delivery does not require E or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-baeec739adc7a033/1287a4d6fc09b57c5bf533b7ac91e3606f3244da9ec34d17e1b44476a01c4bac/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-baeec739adc7a033/1287a4d6fc09b57c5bf533b7ac91e3606f3244da9ec34d17e1b44476a01c4bac/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/flaubert-madame-bovary/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-baeec739adc7a033/1287a4d6fc09b57c5bf533b7ac91e3606f3244da9ec34d17e1b44476a01c4bac/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/flaubert-madame-bovary-baeec739adc7a033/1287a4d6fc09b57c5bf533b7ac91e3606f3244da9ec34d17e1b44476a01c4bac/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/flaubert-madame-bovary/canonical.txt)
 - Occurrence: flaubert-madame-bovary-baeec739adc7a033
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

@@ -205,9 +205,9 @@ Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the reported proposition about a ceased emotional state. The embedding, deliberate deception, and epistolary presentation require contextual explanation but reveal no residual core force outside T/P/E.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lafayette-la-princesse-de-cleves-d85bf4a3587cc1b3/ff7e5cd8dc9aaf7f1ca50286920a4ce0bd267661778bf97594a49d6f3d7a6222/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lafayette-la-princesse-de-cleves-d85bf4a3587cc1b3/ff7e5cd8dc9aaf7f1ca50286920a4ce0bd267661778bf97594a49d6f3d7a6222/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/lafayette-la-princesse-de-cleves/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lafayette-la-princesse-de-cleves-d85bf4a3587cc1b3/ff7e5cd8dc9aaf7f1ca50286920a4ce0bd267661778bf97594a49d6f3d7a6222/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/lafayette-la-princesse-de-cleves-d85bf4a3587cc1b3/ff7e5cd8dc9aaf7f1ca50286920a4ce0bd267661778bf97594a49d6f3d7a6222/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/lafayette-la-princesse-de-cleves/canonical.txt)
 - Occurrence: lafayette-la-princesse-de-cleves-d85bf4a3587cc1b3
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

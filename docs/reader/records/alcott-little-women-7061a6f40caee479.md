@@ -211,9 +211,9 @@ Self-reported confidence: 0.95. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T/P/E adequately represents the core utterance: it is overwhelmingly an avowal, with slight courtship-related undertaking force and no independently evidenced expressive/reflexive discharge.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/alcott-little-women-7061a6f40caee479/b34ff86561ba3904dabc603a02f9f2e40307f509e8f67c732091c646d6c01269/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/alcott-little-women-7061a6f40caee479/b34ff86561ba3904dabc603a02f9f2e40307f509e8f67c732091c646d6c01269/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/alcott-little-women/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/alcott-little-women-7061a6f40caee479/b34ff86561ba3904dabc603a02f9f2e40307f509e8f67c732091c646d6c01269/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/alcott-little-women-7061a6f40caee479/b34ff86561ba3904dabc603a02f9f2e40307f509e8f67c732091c646d6c01269/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/alcott-little-women/canonical.txt)
 - Occurrence: alcott-little-women-7061a6f40caee479
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

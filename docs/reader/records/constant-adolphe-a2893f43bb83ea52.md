@@ -235,9 +235,9 @@ Self-reported confidence: 0.93. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T/P/E adequately represents the core force: a likely insincere avowal with some relationship-renewing force and emotionally urgent, but not independently reflexive, delivery. Deception and narrative irony belong to contextual interpretation rather than requiring O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/constant-adolphe-a2893f43bb83ea52/304307ecdd3afc60f29e2456d9911b7ab3a80d0924f70fd6c85950bd29ce3135/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/constant-adolphe-a2893f43bb83ea52/304307ecdd3afc60f29e2456d9911b7ab3a80d0924f70fd6c85950bd29ce3135/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/constant-adolphe/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/constant-adolphe-a2893f43bb83ea52/304307ecdd3afc60f29e2456d9911b7ab3a80d0924f70fd6c85950bd29ce3135/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/constant-adolphe-a2893f43bb83ea52/304307ecdd3afc60f29e2456d9911b7ab3a80d0924f70fd6c85950bd29ce3135/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/constant-adolphe/canonical.txt)
 - Occurrence: constant-adolphe-a2893f43bb83ea52
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

@@ -324,9 +324,9 @@ Self-reported confidence: 0.97. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T alone naturally captures the core force as a retrospective avowal of love. The dramatic irony, sacrificial motive, conversational dismissal, and impending collapse of the marriage are contextual complexities rather than missing dimensions of core utterance force.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/ibsen-et-dukkehjem-730c4a81efa614e1/40861f39107147506c3a747e6dbf84c09f4c18a8c76c45bd67865def4ed0f261/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/ibsen-et-dukkehjem-730c4a81efa614e1/40861f39107147506c3a747e6dbf84c09f4c18a8c76c45bd67865def4ed0f261/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/ibsen-et-dukkehjem/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/ibsen-et-dukkehjem-730c4a81efa614e1/40861f39107147506c3a747e6dbf84c09f4c18a8c76c45bd67865def4ed0f261/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/ibsen-et-dukkehjem-730c4a81efa614e1/40861f39107147506c3a747e6dbf84c09f4c18a8c76c45bd67865def4ed0f261/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/ibsen-et-dukkehjem/canonical.txt)
 - Occurrence: ibsen-et-dukkehjem-730c4a81efa614e1
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

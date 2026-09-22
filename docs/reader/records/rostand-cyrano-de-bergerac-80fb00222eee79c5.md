@@ -757,9 +757,9 @@ Self-reported confidence: 0.98. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core avowal. Christian’s sincerity, desire, rhetorical incompetence, and the comic mismatch with Roxane’s expectations are contextual features and create no residual pressure beyond T/P/E.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-80fb00222eee79c5/502d7bec75040b8a5cd400a79002cdae7fda601ec658bd519e751d56eb5b69eb/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-80fb00222eee79c5/502d7bec75040b8a5cd400a79002cdae7fda601ec658bd519e751d56eb5b69eb/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/rostand-cyrano-de-bergerac/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-80fb00222eee79c5/502d7bec75040b8a5cd400a79002cdae7fda601ec658bd519e751d56eb5b69eb/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-80fb00222eee79c5/502d7bec75040b8a5cd400a79002cdae7fda601ec658bd519e751d56eb5b69eb/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/rostand-cyrano-de-bergerac/canonical.txt)
 - Occurrence: rostand-cyrano-de-bergerac-80fb00222eee79c5
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

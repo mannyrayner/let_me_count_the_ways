@@ -436,9 +436,9 @@ Self-reported confidence: 0.94. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the declaration’s dominant avowal of an enduring emotional state, while a low P score records its limited reassurance or relational implication. Passion, repetition, persuasion, and coercive context can be described contextually without requiring E or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-5ec5a5c11bc4771e/2d9218cd7e506b0433accca70c2d4819364af70a99ec1d0b8e2dac59f316d612/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-5ec5a5c11bc4771e/2d9218cd7e506b0433accca70c2d4819364af70a99ec1d0b8e2dac59f316d612/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/verona-colei-che-non-si-deve-amare/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-5ec5a5c11bc4771e/2d9218cd7e506b0433accca70c2d4819364af70a99ec1d0b8e2dac59f316d612/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/verona-colei-che-non-si-deve-amare-5ec5a5c11bc4771e/2d9218cd7e506b0433accca70c2d4819364af70a99ec1d0b8e2dac59f316d612/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/verona-colei-che-non-si-deve-amare/canonical.txt)
 - Occurrence: verona-colei-che-non-si-deve-amare-5ec5a5c11bc4771e
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

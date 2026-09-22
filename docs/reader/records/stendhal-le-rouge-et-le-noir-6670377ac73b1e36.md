@@ -269,9 +269,9 @@ Self-reported confidence: 0.95. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core avowal. Julien’s strategic motives, uncertain sincerity, and conflicted psychology are adequately treated as contextual qualifications; they do not require O, while the passage supplies neither an undertaking sufficient for P nor independent reflexive-discharge evidence for E.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stendhal-le-rouge-et-le-noir-6670377ac73b1e36/d75a92111548061f947292026c3d8175a1f6cbf7242699051947d24a87bfd355/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stendhal-le-rouge-et-le-noir-6670377ac73b1e36/d75a92111548061f947292026c3d8175a1f6cbf7242699051947d24a87bfd355/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/stendhal-le-rouge-et-le-noir/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stendhal-le-rouge-et-le-noir-6670377ac73b1e36/d75a92111548061f947292026c3d8175a1f6cbf7242699051947d24a87bfd355/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/stendhal-le-rouge-et-le-noir-6670377ac73b1e36/d75a92111548061f947292026c3d8175a1f6cbf7242699051947d24a87bfd355/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/stendhal-le-rouge-et-le-noir/canonical.txt)
 - Occurrence: stendhal-le-rouge-et-le-noir-6670377ac73b1e36
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

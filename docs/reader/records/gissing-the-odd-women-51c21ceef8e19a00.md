@@ -248,9 +248,9 @@ Self-reported confidence: 0.95. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T/P/E adequately represents the core force: a strong avowal with at most weak undertaking pressure from the attached refusal to abandon hope. Possessiveness and disregard of Rhoda’s boundary are contextual features rather than missing core-force dimensions.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/gissing-the-odd-women-51c21ceef8e19a00/a9f1185999cbe40e6ac13ff6fd29c8286bac743a4540ef60cc4a0d018420ed7b/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/gissing-the-odd-women-51c21ceef8e19a00/a9f1185999cbe40e6ac13ff6fd29c8286bac743a4540ef60cc4a0d018420ed7b/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/gissing-the-odd-women/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/gissing-the-odd-women-51c21ceef8e19a00/a9f1185999cbe40e6ac13ff6fd29c8286bac743a4540ef60cc4a0d018420ed7b/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/gissing-the-odd-women-51c21ceef8e19a00/a9f1185999cbe40e6ac13ff6fd29c8286bac743a4540ef60cc4a0d018420ed7b/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/gissing-the-odd-women/canonical.txt)
 - Occurrence: gissing-the-odd-women-51c21ceef8e19a00
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

@@ -65,6 +65,7 @@ def case_html(r,prev_oid,next_oid):
         if v:body+=paragraphs(v)
     if o.get("notes"):body+=paragraphs(o["notes"])
     body+='<p><a href="'+r["request_url"]+'">Saved input</a> · <a href="'+r["output_url"]+'">Saved annotation</a> · <a href="'+r["canonical_url"]+'">Canonical work</a> · <a href="../records/'+r["occurrence_id"]+'.md">Markdown record</a></p><p>Occurrence: <code>'+esc(r["occurrence_id"])+"</code></p>"
+    if r.get("publication_note"): body+=paragraphs(r["publication_note"])
     body+="<p>Source offsets: "+str(r["location"]["source_start"])+"–"+str(r["location"]["source_end"])+". Canonical SHA-256: <code>"+w["canonical_sha256"]+"</code>.</p>"
     body+="<p>Historical run: <code>"+esc(r["run"])+"</code>. Model request fingerprint: <code>"+r["provenance"]["fingerprint_sha256"]+"</code>.</p></details>"
     body+='<nav class="nav" aria-label="Occurrence navigation">'+('<a href="'+prev_oid+'.html">← Previous occurrence</a>' if prev_oid else "<span></span>")+('<a href="'+next_oid+'.html">Next occurrence →</a>' if next_oid else "<span></span>")+"</nav>"
@@ -103,6 +104,7 @@ def case_markdown(r):
         "- Classification prompt: "+r["provenance"]["annotation_version"],
         "- Historical run: "+r["run"],"- Canonical SHA-256: "+w["canonical_sha256"],"",
         "Rendered deterministically from the saved record. No rescoring or replacement explanation."]
+    if r.get("publication_note"): lines += ["", "Publication: " + r["publication_note"]]
     for value in o.get("other_diagnosis",{}).values():
         if value: lines += ["", "Other-function diagnosis: "+value]
     if o.get("notes"):lines+=["","Saved notes: "+o["notes"]]
@@ -146,7 +148,7 @@ def generate(root,config):
     return outputs
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument("--output",type=Path,default=ROOT/"docs/reader")
-    p.add_argument("--config",type=Path,default=ROOT/"data/reader/collection_v1.json");p.add_argument("--check",action="store_true")
+    p.add_argument("--config",type=Path,default=ROOT/"data/reader/collection_v2.json");p.add_argument("--check",action="store_true")
     args=p.parse_args();outputs=generate(ROOT,read(args.config));differences=[]
     for name,content in outputs.items():
         path=args.output/name

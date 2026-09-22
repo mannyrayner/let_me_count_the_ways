@@ -460,9 +460,9 @@ Self-reported confidence: 0.98. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core as an explicit written avowal of enduring love. Its emotional and narrative complexity can be represented contextually without adding P, E, or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-constance-ring-82ad004cd50823dc/bb97be24e4ccb9b35f382a03e9a11dd5cc8c513038a9fc22ce8dac53a23f12f1/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-constance-ring-82ad004cd50823dc/bb97be24e4ccb9b35f382a03e9a11dd5cc8c513038a9fc22ce8dac53a23f12f1/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/skram-constance-ring/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-constance-ring-82ad004cd50823dc/bb97be24e4ccb9b35f382a03e9a11dd5cc8c513038a9fc22ce8dac53a23f12f1/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/commitment_extension_5_v0_12_v0_3_1/annotations/skram-constance-ring-82ad004cd50823dc/bb97be24e4ccb9b35f382a03e9a11dd5cc8c513038a9fc22ce8dac53a23f12f1/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/skram-constance-ring/canonical.txt)
 - Occurrence: skram-constance-ring-82ad004cd50823dc
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

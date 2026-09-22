@@ -237,9 +237,9 @@ Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T naturally captures the core retrospective avowal. Emotional intensity and strained delivery are adequately represented as context, while later commitment-oriented speech is distinct from the classified utterance. No residual core force requires E or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/wharton-age-of-innocence-2753251fa3a6ed86/4327098541a1585edb7afeddfa4f5384dfa9d89d49e4dac6120cd97262f394a4/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/wharton-age-of-innocence-2753251fa3a6ed86/4327098541a1585edb7afeddfa4f5384dfa9d89d49e4dac6120cd97262f394a4/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/wharton-age-of-innocence/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/wharton-age-of-innocence-2753251fa3a6ed86/4327098541a1585edb7afeddfa4f5384dfa9d89d49e4dac6120cd97262f394a4/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/wharton-age-of-innocence-2753251fa3a6ed86/4327098541a1585edb7afeddfa4f5384dfa9d89d49e4dac6120cd97262f394a4/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/wharton-age-of-innocence/canonical.txt)
 - Occurrence: wharton-age-of-innocence-2753251fa3a6ed86
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

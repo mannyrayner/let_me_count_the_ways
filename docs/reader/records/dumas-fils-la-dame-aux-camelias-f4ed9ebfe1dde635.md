@@ -389,9 +389,9 @@ Self-reported confidence: 0.94. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T captures the avowal of a distinct and genuine loving state, while P captures the limited oath-like and relational force of presenting it as a sworn assurance. Delivery and context require no independent E or O component.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/dumas-fils-la-dame-aux-camelias-f4ed9ebfe1dde635/e51f7311a3cf5209526af13bab9893b0f6c2225a7d19167fa564d80fcc2a0aff/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/dumas-fils-la-dame-aux-camelias-f4ed9ebfe1dde635/e51f7311a3cf5209526af13bab9893b0f6c2225a7d19167fa564d80fcc2a0aff/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/dumas-fils-la-dame-aux-camelias/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/dumas-fils-la-dame-aux-camelias-f4ed9ebfe1dde635/e51f7311a3cf5209526af13bab9893b0f6c2225a7d19167fa564d80fcc2a0aff/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/dumas-fils-la-dame-aux-camelias-f4ed9ebfe1dde635/e51f7311a3cf5209526af13bab9893b0f6c2225a7d19167fa564d80fcc2a0aff/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/dumas-fils-la-dame-aux-camelias/canonical.txt)
 - Occurrence: dumas-fils-la-dame-aux-camelias-f4ed9ebfe1dde635
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

@@ -547,9 +547,9 @@ Self-reported confidence: 0.94. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T captures the sincere avowal and E captures the textually foregrounded release of previously screened feeling. The concealed identity and mistaken attribution are contextual complications rather than missing dimensions of core force; no residual O pressure remains.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-ababfd1f03dfe1fa/fdfe882f6e9bd414a73c4a1d229e6c360c5c8725a98bc82ef7495666013d3617/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-ababfd1f03dfe1fa/fdfe882f6e9bd414a73c4a1d229e6c360c5c8725a98bc82ef7495666013d3617/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/rostand-cyrano-de-bergerac/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-ababfd1f03dfe1fa/fdfe882f6e9bd414a73c4a1d229e6c360c5c8725a98bc82ef7495666013d3617/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-ababfd1f03dfe1fa/fdfe882f6e9bd414a73c4a1d229e6c360c5c8725a98bc82ef7495666013d3617/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/rostand-cyrano-de-bergerac/canonical.txt)
 - Occurrence: rostand-cyrano-de-bergerac-ababfd1f03dfe1fa
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

@@ -125,9 +125,9 @@ Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T captures the central avowal, while a low P score records limited reciprocal relational ratification. Emotional delivery is contextual evidence rather than independent E force, and no residual core function requires O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/cofield-nikkis-touch-c148b6e111b58278/c1e606879b5853ff07f3063dfcfc189114384753570413ad7e30205f9bb6a851/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/cofield-nikkis-touch-c148b6e111b58278/c1e606879b5853ff07f3063dfcfc189114384753570413ad7e30205f9bb6a851/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/cofield-nikkis-touch/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/cofield-nikkis-touch-c148b6e111b58278/c1e606879b5853ff07f3063dfcfc189114384753570413ad7e30205f9bb6a851/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/cofield-nikkis-touch-c148b6e111b58278/c1e606879b5853ff07f3063dfcfc189114384753570413ad7e30205f9bb6a851/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/cofield-nikkis-touch/canonical.txt)
 - Occurrence: cofield-nikkis-touch-c148b6e111b58278
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

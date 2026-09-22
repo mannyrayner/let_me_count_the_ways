@@ -628,9 +628,9 @@ Self-reported confidence: 0.96. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T/P/E adequately represents the core utterance as a truth-conditional, pragmatically inverted avowal. Its deception, dramatic irony, and self-sacrificing motive are contextual complexities rather than missing dimensions of core force.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-bf47f87364ef0a5a/ddffd7b5437c7e1cb9b41df5af2be7e490f5614406b9a84721cb2bbad671f3d4/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-bf47f87364ef0a5a/ddffd7b5437c7e1cb9b41df5af2be7e490f5614406b9a84721cb2bbad671f3d4/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/rostand-cyrano-de-bergerac/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-bf47f87364ef0a5a/ddffd7b5437c7e1cb9b41df5af2be7e490f5614406b9a84721cb2bbad671f3d4/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/rostand-cyrano-de-bergerac-bf47f87364ef0a5a/ddffd7b5437c7e1cb9b41df5af2be7e490f5614406b9a84721cb2bbad671f3d4/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/rostand-cyrano-de-bergerac/canonical.txt)
 - Occurrence: rostand-cyrano-de-bergerac-bf47f87364ef0a5a
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1

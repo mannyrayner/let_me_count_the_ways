@@ -12028,9 +12028,9 @@ Self-reported confidence: 0.97. Not a calibrated accuracy estimate.
 
 Ontology fit: natural. T gives a natural and sufficient account of the core utterance as an avowal of enduring love. Its persuasive setting and emotional intensity can be represented contextually without adding P, E, or O.
 
-- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/undset-kristin-lavransdatter-85c5da838a1e222d/2c1df7583b76463eb2a71f2598d537628cb95e99114e267b7bc16602a328cc35/request.json)
-- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/results/annotation/canonical_31_v0_11_v0_3_1/annotations/undset-kristin-lavransdatter-85c5da838a1e222d/2c1df7583b76463eb2a71f2598d537628cb95e99114e267b7bc16602a328cc35/output.json)
-- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/ef7ea7933d8aa02b176d8fbddc496e55a41a7144/corpus/works/undset-kristin-lavransdatter/canonical.txt)
+- [Saved input](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/undset-kristin-lavransdatter-85c5da838a1e222d/2c1df7583b76463eb2a71f2598d537628cb95e99114e267b7bc16602a328cc35/request.json)
+- [Saved annotation](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/results/annotation/canonical_31_v0_11_v0_3_1/annotations/undset-kristin-lavransdatter-85c5da838a1e222d/2c1df7583b76463eb2a71f2598d537628cb95e99114e267b7bc16602a328cc35/output.json)
+- [Canonical source](https://github.com/mannyrayner/let_me_count_the_ways/blob/7eb1dbb/corpus/works/undset-kristin-lavransdatter/canonical.txt)
 - Occurrence: undset-kristin-lavransdatter-85c5da838a1e222d
 - Model: gpt-5.6-sol
 - Classification prompt: 0.3.1
