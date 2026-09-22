@@ -12,6 +12,7 @@ import sys
 ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT))
 from scripts.api.call_responses import resolve_model
+from scripts.annotation.private_output import require_ignored_output
 from scripts.review.scholarly_candidate_review import candidates
 from scripts.corpus.validate_canonical_corpus import validate_work
 
@@ -25,8 +26,7 @@ GROUPS=[{'name':'public','extraction':'results/extraction/context_extension_3_v0
 def read(p):return json.loads((ROOT/p).read_text(encoding='utf-8'))
 def command(script,*args):subprocess.run([sys.executable,'-u',script,*map(str,args)],cwd=ROOT,check=True)
 def checked_private(path):
-    if subprocess.run(['git','check-ignore','-q',str(ROOT/path/'privacy-check.json')],cwd=ROOT).returncode:
-        raise ValueError('Private output is not Git-ignored: '+str(path))
+    require_ignored_output(ROOT/path, ROOT)
 
 def preflight(model):
     selection=read('data/acquisition/context_extension_3_v1/selection.json')

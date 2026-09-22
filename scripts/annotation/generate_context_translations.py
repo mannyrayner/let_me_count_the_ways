@@ -20,6 +20,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from scripts.annotation.enrich_canonical_candidates import enrich, read_jsonl, sha256_text
+from scripts.annotation.private_output import require_ignored_output
 from scripts.api.call_responses import (
     calculate_cost,
     output_text,
@@ -261,10 +262,10 @@ def main() -> None:
                         help="allow restricted contexts only in a Git-ignored output directory")
     args = parser.parse_args()
     if args.private_output:
-        import subprocess
-        probe = args.output.resolve() / "privacy-check.json"
-        if subprocess.run(["git", "check-ignore", "-q", str(probe)], cwd=ROOT).returncode:
-            parser.error("--private-output requires a Git-ignored output directory")
+        try:
+            require_ignored_output(args.output, ROOT)
+        except ValueError as exc:
+            parser.error(str(exc))
     generate(reviewed=args.reviewed, calibration=args.calibration, output=args.output,
              corpus=args.corpus, model_alias=args.model, model_catalog=args.model_catalog,
              endpoint=args.endpoint, estimate_only=args.estimate_only,

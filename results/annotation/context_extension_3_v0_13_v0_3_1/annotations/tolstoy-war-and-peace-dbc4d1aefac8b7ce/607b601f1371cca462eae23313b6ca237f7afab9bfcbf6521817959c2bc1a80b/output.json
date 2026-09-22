@@ -1,0 +1,72 @@
+{
+  "occurrence_id": "tolstoy-war-and-peace-dbc4d1aefac8b7ce",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 1,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.96,
+    "analysis": "Prince Andrei directly avows that he now loves Natasha more and in a better way than before. The comparative wording presents his transformed, enduring love as true, making T dominant. In this scene of forgiveness and renewed intimacy, the avowal weakly invokes relational reconciliation, but it does not explicitly undertake or renew their former engagement, so P receives only limited support. The utterance is deliberate and anticipated rather than a reflex-like affective discharge, so E is unsupported.",
+    "ambiguity": "There is slight uncertainty over whether the avowal itself enacts a renewed relational commitment; the narration explicitly says that neither character discusses resuming the engagement, favoring low rather than substantial P."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "Prince Andrei directly addresses Natasha with “Я люблю тебя больше, лучше чем прежде” (“I love you more, better than before”)."
+  },
+  "contextual_interpretation": "The utterance follows Natasha’s plea for forgiveness and expresses Andrei’s compassionate reconciliation with her. His preceding reflections distinguish mutable human love from pure, unchanging divine love, framing “better than before” as a claim that his love has been transformed rather than merely intensified. Although their former status as an engaged couple gives the words relational significance, the narration expressly withholds any discussion of restoring that engagement. His earlier wish to see Natasha once more and tell her, followed by an initial “Я вас люблю,” also shows that the highlighted repetition is purposeful, not an involuntary outburst.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "“Я люблю тебя больше, лучше чем прежде” (“I love you more, better than before”).",
+      "supports": "The first-person present-tense avowal and explicit comparison with his former love strongly support T.",
+      "confidence": 1.0
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "Before Natasha arrives, Andrei wishes to see her once more, look into her eyes, and say what he has been contemplating; during the encounter he first says “Я вас люблю” and then deliberately repeats the expanded avowal while raising her face to meet her eyes.",
+      "supports": "The advance contemplation and controlled repetition indicate a deliberate avowal rather than expressive/reflexive discharge, supporting E=0.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "Andrei reflects that he wants to love Natasha with the newly revealed “чистою, божескою любовью” and that divine love cannot change or be destroyed, even by death.",
+      "supports": "This frames “better than before” as an avowal of transformed and enduring love; it also gives limited support to an enduring relational stance without establishing an explicit undertaking.",
+      "confidence": 0.97
+    },
+    {
+      "evidence_id": "e4",
+      "source": "local_text",
+      "quotation_or_description": "The narration says that although others imagine the former relationship of bridegroom and bride might resume if Andrei recovers, neither Natasha nor Andrei speaks of it.",
+      "supports": "This limits P: the love avowal reconciles and reassures, but does not clearly renew their engagement or make a future commitment.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e5",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is identified as an affirmative, present-tense, canonical explicit I–love–you construction in Tolstoy’s Война и мир.",
+      "supports": "Corroborates that the highlighted clause is a direct affirmative love avowal rather than a negated, hypothetical, or metalinguistic use.",
+      "confidence": 0.99
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the principal avowal, while low P records limited reconciliatory or enduring relational force. Delivery and emotion remain contextual and do not require E, and no important aspect of the core force falls outside T/P/E.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

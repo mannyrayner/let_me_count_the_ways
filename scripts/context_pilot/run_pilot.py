@@ -178,7 +178,7 @@ def report(calls, base, schema, protocol):
             rows.append({'case_id':call['case_id'],'condition':call['condition'],'repeat':call['repeat'],
                          'scores':{k:d['score'] for k,d in result['dimensions'].items()},
                          'recognised_work':result['recognised_work'],
-                         'artifact':str((call['directory']/'output.json').relative_to(ROOT)) if call['public'] else 'local-only'})
+                         'artifact':(call['directory']/'output.json').relative_to(ROOT).as_posix() if call['public'] else 'local-only'})
     cases=[]
     for case in protocol['cases']:
         by={c:[r for r in rows if r['case_id']==case['case_id'] and r['condition']==c] for c in 'ABCD'}

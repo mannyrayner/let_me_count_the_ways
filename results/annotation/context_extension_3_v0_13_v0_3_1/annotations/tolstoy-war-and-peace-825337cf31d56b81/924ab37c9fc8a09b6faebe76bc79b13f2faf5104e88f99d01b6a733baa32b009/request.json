@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"tolstoy-war-and-peace-825337cf31d56b81\", \"SOURCE_TEXT\": {\"exact_match\": \"я тебя люблю\", \"local_text\": {\"context_start\": 142801, \"context_end\": 143359, \"text\": \"— Тебе хорошо... я не завидую... я тебя люблю, и Бориса тоже, — говорила она, собравшись немного с силами, — он милый... для вас нет препятствий. А Николай мне cousin... надобно... сам митрополит... и то нельзя. И потом, ежели маменьке... (Соня графиню и считала и называла матерью)... она скажет, что я порчу карьеру Николая, у меня нет сердца, что я неблагодарная, а право... вот ей-Богу... (она перекрестилась) я так люблю и ее, и всех вас, только Вера одна... За чтó? Чтó я ей сделала? Я так благодарна вам, что рада бы всем пожертвовать, да мне нечем...\"}, \"wider_canonical_context\": {\"context_start\": 139787, \"context_end\": 145855, \"text\": \"— Мороженое, только тебе не дадут, — сказала Марья Дмитриевна.\\n\\nНаташа видела, что бояться нечего, и потому не побоялась и Марьи Дмитриевны.\\n\\n— Марья Дмитриевна? какое мороженое! Я сливочное не люблю.\\n\\n— Морковное.\\n\\n— Нет, какое? Марья Дмитриевна, какое? — почти кричала она. — Я хочу знать!\\n\\nМарья Дмитриевна и графиня засмеялись, и за ними все гости. Все смеялись не ответу Марьи Дмитриевны, но непостижимой смелости и ловкости этой девочки, умевшей и смевшей так обращаться с Марьей Дмитриевной.\\n\\nНаташа отстала только тогда, когда ей сказали, что будет ананасное. Перед мороженым подали шампанское. Опять заиграла музыка, граф поцеловался с графинюшкою, и гости, вставая, поздравляли графиню, через стол чокались с графом, детьми и друг с другом. Опять забегали официанты, загремели стулья, и в том же порядке, но с более красными лицами, гости вернулись в гостиную и кабинет графа.\\n\\nXVII.\\n\\nРаздвинули бостонные столы, составились партии, и гости графа разместились в двух гостиных, диванной и библиотеке.\\n\\nГраф, распустив карты веером, с трудом удерживался от привычки послеобеденного сна и всему смеялся. Молодежь, подстрекаемая графиней, собралась около клавикорд и арфы. Жюли первая, по просьбе всех, сыграла на арфе пиеску с варияциями и вместе с другими девицами стала просить Наташу и Николая, известных своею музыкальностью, спеть что-нибудь. Наташа, к которой обратились как к большой, была, видимо, этим очень горда, но вместе с тем и робела.\\n\\n— Чтó будем петь? — спросила она.\\n\\n— «Ключ», — отвечал Николай.\\n\\n— Ну, давайте скорее. Борис, идите сюда, — сказала Наташа. — А где же Соня?\\n\\nОна оглянулась и, увидав, что ее друга нет в комнате, побежала за ней.\\n\\nВбежав в Сонину комнату и не найдя там своей подруги, Наташа пробежала в детскую — и там не было Сони. Наташа поняла, что Соня была в коридоре на сундуке. Сундук в коридоре был место печалей женского молодого поколения дома Ростовых. Действительно, Соня в своем воздушном розовом платьице, приминая его, лежала ничком на грязной полосатой няниной перине, на сундуке и, закрыв лицо пальчиками, навзрыд плакала, подрагивая своими оголенными плечиками. Лицо Наташи, оживленное, целый день именинное, вдруг изменилось: глаза ее остановились, потом содрогнулась ее широкая шея, углы губ опустились.\\n\\n— Соня! чтò ты?.. Чтó, чтó с тобой? У-у-у!...\\n\\nИ Наташа, распустив свой большой рот и сделавшись совершенно дурною, заревела, как ребенок, не зная причины и только оттого, что Соня плакала. Соня хотела поднять голову, хотела отвечать, но не могла и еще больше спряталась. Наташа плакала, присев на синей перине и обнимая друга. Собравшись с силами, Соня приподнялась, начала утирать слезы и рассказывать.\\n\\n— Николинька едет через неделю, его... бумага... вышла... он сам мне сказал... Да я бы всё не плакала... (она показала бумажку, которую держала в руке: то были стихи, написанные Николаем) я бы всё не плакала, но ты не можешь... никто не может понять... какая у него душа.\\n\\nИ она опять принялась плакать о том, что душа его была так хороша.\\n\\n— Тебе хорошо... я не завидую... я тебя люблю, и Бориса тоже, — говорила она, собравшись немного с силами, — он милый... для вас нет препятствий. А Николай мне cousin... надобно... сам митрополит... и то нельзя. И потом, ежели маменьке... (Соня графиню и считала и называла матерью)... она скажет, что я порчу карьеру Николая, у меня нет сердца, что я неблагодарная, а право... вот ей-Богу... (она перекрестилась) я так люблю и ее, и всех вас, только Вера одна... За чтó? Чтó я ей сделала? Я так благодарна вам, что рада бы всем пожертвовать, да мне нечем...\\n\\nСоня не могла больше говорить и опять спрятала голову в руках и перине. Наташа начинала успокоиваться, но по лицу ее видно было, что она понимала всю важность горя своего друга.\\n\\n— Соня! —сказала она вдруг, как будто догадавшись о настоящей причине огорчения кузины, — верно, Вера с тобой говорила после обеда? Да?\\n\\n— Да, эти стихи сам Николай написал, а я списала еще другие; она и нашла их у меня на столе и сказала, что покажет их маменьке, и еще говорила, что я неблагодарная, что маменька никогда не позволит ему жениться на мне, а он женится на Жюли. Ты видишь, как он с ней целый день... Наташа! За чтó?...\\n\\nИ опять она заплакала горьче прежнего. Наташа приподняла ее, обняла и, улыбаясь сквозь слезы, стала ее успокоивать.\\n\\n— Соня, ты не верь ей, душенька, не верь. Помнишь, как мы все втроем говорили с Николинькой в диванной; помнишь, после ужина? Ведь мы всё решили, как будет. Я уже не помню как, но, помнишь, как было всё хорошо и всё можно. Вот дяденьки Шиншина брат женат же на двоюродной сестре, а мы ведь троюродные. И Борис говорил, что это очень можно. Ты знаешь, я ему всё сказала. А он такой умный и такой хороший, — говорила Наташа... — Ты, Соня, не плачь, голубчик милый, душенька, Соня. — И она целовала ее, смеясь. — Вера злая, Бог с ней! А всё будет хорошо и маменьке она не скажет; Николинька сам скажет, и он и не думал об Жюли.\\n\\nИ она целовала ее в голову. Соня приподнялась, и котеночек оживился, глазки заблистали, и он готов был, казалось, вот-вот взмахнуть хвостом, вспрыгнуть на мягкие лапки и опять заиграть с клубком, как ему и было прилично.\\n\\n— Ты думаешь? Право? Ей-Богу? — сказала она, быстро оправляя платье и прическу.\\n\\n— Право, ей-Богу! — отвечала Наташа, оправляя своему другу под косой выбившуюся прядь жестких волос.\\n\\nИ они обе засмеялись.\\n\\n— Ну, пойдем петь «Ключ».\\n\\n— Пойдем.\\n\\n— А знаешь, этот толстый Пьер, что против меня сидел, такой смешной! — сказала вдруг Наташа, останавливаясь. — Мне очень весело!\\n\\nИ Наташа побежала по коридору.\\n\\nСоня, отряхнув пух и спрятав стихи за пазуху, к шейке с выступавшими костями груди, легкими, веселыми шагами, с раскрасневшимся лицом, побежала вслед за Наташей по коридору в диванную. По просьбе гостей молодые люди спели квартет «Ключ», который всем очень понравился; потом Николай спел вновь выученную им песню:\\n\\nВ приятну ночь, при лунном свете\\n\\nПредставить счастливо себе,\\n\\nЧто некто есть еще на свете\\n\\nКто думает и о тебе!\\n\\nЧто и она, рукой прекрасной,\\n\\nПо арфе золотой бродя,\\n\\nСвоей гармониею страстной\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"“Ice cream, only you won’t be given any,” said Marya Dmitrievna.\\n\\nNatasha saw that there was nothing to be afraid of, and so she was not afraid of Marya Dmitrievna either.\\n\\n“Marya Dmitrievna? What kind of ice cream? I don’t like cream ice cream.”\\n\\n“Carrot.”\\n\\n“No, what kind? Marya Dmitrievna, what kind?” she almost shouted. “I want to know!”\\n\\nMarya Dmitrievna and the countess laughed, and all the guests followed them. Everyone laughed not at Marya Dmitrievna’s answer, but at the incomprehensible boldness and adroitness of this little girl, who knew how and dared to address Marya Dmitrievna in such a way.\\n\\nNatasha desisted only when she was told that there would be pineapple ice cream. Champagne was served before the ice cream. The music began playing again, the count kissed his dear countess, and the guests rose and congratulated the countess, clinked glasses across the table with the count, the children, and one another. Once again the waiters began bustling about, the chairs clattered, and in the same order, but with redder faces, the guests returned to the drawing room and the count’s study.\\n\\nXVII.\\n\\nThe Boston tables were unfolded, parties were formed, and the count’s guests settled themselves in the two drawing rooms, the sofa room, and the library.\\n\\nThe count, spreading his cards out in a fan, could barely restrain himself from his habitual after-dinner nap and laughed at everything. The young people, urged on by the countess, gathered around the clavichord and the harp. Julie, at everyone’s request, was the first to play a little piece with variations on the harp, and then joined the other young ladies in asking Natasha and Nikolai, who were known for their musicality, to sing something. Natasha, who had been addressed as though she were grown up, was visibly very proud of this, but at the same time felt shy.\\n\\n“What shall we sing?” she asked.\\n\\n“‘The Brook,’” Nikolai replied.\\n\\n“Well, let’s do it quickly. Boris, come here,” said Natasha. “But where is Sonya?”\\n\\nShe looked around and, seeing that her friend was not in the room, ran off to find her.\\n\\nRunning into Sonya’s room and not finding her friend there, Natasha ran through to the nursery—and Sonya was not there either. Natasha realized that Sonya was in the corridor, on the trunk. The trunk in the corridor was the place of sorrows for the younger female generation of the Rostov household. And indeed Sonya, in her airy pink dress, crushing it beneath her, lay facedown on the dirty striped feather bed belonging to the nurse, atop the trunk, and, covering her face with her little fingers, sobbed violently, her bare little shoulders trembling. Natasha’s face, animated and festive all day for her name day, suddenly changed: her eyes became fixed, then her broad neck quivered and the corners of her lips drooped.\\n\\n“Sonya! What is it?… What, what’s the matter with you? Oo-oo-oo!…”\\n\\nAnd Natasha, opening her large mouth wide and becoming completely ugly, began bawling like a child, not knowing the reason and only because Sonya was crying. Sonya tried to raise her head, tried to answer, but could not and hid herself still more deeply. Natasha wept, sitting down on the blue feather bed and embracing her friend. Gathering her strength, Sonya raised herself a little, began wiping away her tears, and started to tell her.\\n\\n“Nikolenka is leaving in a week, his… paper… has come through… he told me himself… But I wouldn’t cry at all… (she showed the little sheet of paper she was holding in her hand: they were verses written by Nikolai) I wouldn’t cry at all, but you can’t… no one can understand… what a soul he has.”\\n\\nAnd she began crying again because his soul was so good.\\n\\n“It’s all right for you… I’m not envious… I love you, and Boris too,” she said, having gathered a little strength. “He’s sweet… there are no obstacles for you. But Nikolai is my cousin… it would take… the Metropolitan himself… and even then it can’t be done. And then, if Mamma… (Sonya both regarded and called the countess her mother)… she will say that I’m ruining Nikolai’s career, that I have no heart, that I’m ungrateful, but truly… by God… (she crossed herself) I love her so much, and all of you too; only Vera… Why? What have I done to her? I’m so grateful to all of you that I would gladly sacrifice everything, but I have nothing to sacrifice…”\\n\\nSonya could say no more and once again hid her head in her hands and the feather bed. Natasha was beginning to calm down, but her face showed that she understood the full gravity of her friend’s sorrow.\\n\\n“Sonya!” she said suddenly, as though she had guessed the true cause of her cousin’s distress. “Vera spoke to you after dinner, didn’t she? Yes?”\\n\\n“Yes, Nikolai wrote these verses himself, and I copied out some others too; she found them on my table and said that she would show them to Mamma, and she also said that I was ungrateful, that Mamma would never allow him to marry me, and that he would marry Julie. You see how he is with her all day… Natasha! Why?…”\\n\\nAnd once again she began crying more bitterly than before. Natasha raised her up, embraced her, and, smiling through her tears, began to comfort her.\\n\\n“Sonya, don’t believe her, darling, don’t believe her. Do you remember how the three of us talked with Nikolenka in the sofa room; remember, after supper? Why, we settled everything, how it would be. I no longer remember how, but do you remember how everything was all right and everything was possible? Why, Uncle Shinshin’s brother is married to his first cousin, and we’re only second cousins. And Boris said that it’s quite possible. You know, I told him everything. And he’s so clever and so good,” Natasha said. “Sonya, don’t cry, my precious darling, sweetheart, Sonya.” And she kissed her, laughing. “Vera is wicked, God be with her! But everything will be all right, and she won’t tell Mamma; Nikolenka will tell her himself, and he hasn’t even thought about Julie.”\\n\\nAnd she kissed her on the head. Sonya raised herself, and the little kitten came back to life, her little eyes began to sparkle, and it seemed that at any moment she was ready to flick her tail, spring up on her soft paws, and begin playing with the ball of yarn again, as was proper for her.\\n\\n“You think so? Truly? By God?” she said, quickly straightening her dress and hair.\\n\\n“Truly, by God!” Natasha replied, tucking back beneath her friend’s braid a stray lock of coarse hair.\\n\\nAnd they both laughed.\\n\\n“Well, let’s go and sing ‘The Brook.’”\\n\\n“Let’s go.”\\n\\n“And you know, that fat Pierre who was sitting opposite me is so funny!” Natasha said suddenly, stopping. “I’m having such fun!”\\n\\nAnd Natasha ran down the corridor.\\n\\nSonya, brushing off the down and hiding the verses in the bosom of her dress, beside her little neck where the bones of her chest protruded, ran after Natasha down the corridor into the sofa room with light, cheerful steps and a flushed face. At the guests’ request the young people sang the quartet ‘The Brook,’ which everyone liked very much; then Nikolai sang a song he had recently learned:\\n\\nOn a pleasant night, by moonlight,\\n\\nHow happy to imagine\\n\\nThat there is someone else in the world\\n\\nWho thinks of you as well!\\n\\nThat she too, with her lovely hand,\\n\\nWandering over the golden harp,\\n\\nWith her passionate harmony\", \"source_occurrence_id\": \"tolstoy-war-and-peace-825337cf31d56b81\", \"source_language\": \"ru\", \"source_language_text_sha256\": \"9d855f120fa3f6ebf0cf982f6b11cdf409ac71cb7a02a8f2d285b645497f74c7\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-21T23:12:46.757825+00:00\", \"model_usage\": {\"input_tokens\": 2198, \"cached_input_tokens\": 0, \"output_tokens\": 1947}, \"estimated_cost_usd\": 0.047732000000000004, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"tolstoy-war-and-peace\", \"title\": \"Война и мир\", \"author\": \"Лев Толстой\", \"language\": \"ru\", \"source_type\": \"tolstoy_online\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.049096, \"source_start\": 142834, \"source_end\": 142846, \"source_length\": 2909261}, \"form\": {\"form_family\": \"canonical_present\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"ru_present_object_first_affirmative\", \"pattern_version\": \"0.13\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

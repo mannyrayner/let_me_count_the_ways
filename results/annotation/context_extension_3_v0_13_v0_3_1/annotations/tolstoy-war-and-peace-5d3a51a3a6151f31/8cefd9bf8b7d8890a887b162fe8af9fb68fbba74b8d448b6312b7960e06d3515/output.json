@@ -1,0 +1,65 @@
+{
+  "occurrence_id": "tolstoy-war-and-peace-5d3a51a3a6151f31",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 3,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.96,
+    "analysis": "Pierre’s original “Je vous aime” presents love as a true state and thus has maximal truth-conditional force even though he retrospectively judges it false. In its courtship setting it also helps bind him to Hélène and advance the relationship toward marriage, giving it substantial undertaking force. The text directly negates expressive/reflexive force by describing the words as not coming from within him.",
+    "ambiguity": "The degree of performative force is somewhat uncertain: the words are not an explicit promise or proposal, but Pierre treats saying them as an act that bound him relationally and led into marriage."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "quoted_or_revoiced",
+    "description": "A past direct utterance by Pierre to Hélène is quoted in French as Pierre vividly remembers and condemns it during an interior monologue."
+  },
+  "contextual_interpretation": "Pierre retrospectively interprets the avowal as “a lie and worse than a lie”: he married Hélène without loving her and believes the words deceived both her and himself. Their insincerity does not diminish their truth-conditional mode, while his description of having bound himself through them supports performative force. The remembered utterance is socially consequential but not an affective discharge.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "Pierre remembers the moment when he said “these words that had not come from within him: ‘Je vous aime.’”",
+      "supports": "The exact love utterance is a remembered quotation, and “not from within him” strongly weighs against expressive/reflexive force.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "The inner voice accuses Pierre of having “married her without loving her” and of deceiving both himself and her.",
+      "supports": "The utterance falsely avowed a loving state; falsity concerns sincerity or truth, not its truth-conditional force.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "Pierre asks, “Why did I bind myself to her, why did I say to her that ‘I love you,’ which was a lie and worse than a lie?”",
+      "supports": "His association of saying the words with binding himself to Hélène supports substantial relational-undertaking force alongside T.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "e4",
+      "source": "local_text",
+      "quotation_or_description": "Pierre recalls feeling even then that “it was not right” and that he “had no right” to say it.",
+      "supports": "The wording indicates awareness that the avowal was unwarranted rather than a reflex-like emission of affect.",
+      "confidence": 0.96
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T and P naturally represent the false avowal and its relationship-binding force; E is excluded by explicit evidence, and no important aspect of the core force remains outside T/P/E.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": "The later repetitions of “Je vous aime” are Pierre’s self-questioning recollections of the same original courtship utterance, not new declarations to Hélène."
+}

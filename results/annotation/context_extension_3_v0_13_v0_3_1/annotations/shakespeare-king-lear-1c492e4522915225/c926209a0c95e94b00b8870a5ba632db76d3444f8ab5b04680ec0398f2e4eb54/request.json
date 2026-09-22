@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"shakespeare-king-lear-1c492e4522915225\", \"SOURCE_TEXT\": {\"exact_match\": \"I must love you\", \"local_text\": {\"context_start\": 3122, \"context_end\": 3172, \"text\": \"KENT.\\nI must love you, and sue to know you better.\"}, \"wider_canonical_context\": {\"context_start\": 63, \"context_end\": 6146, \"text\": \"ACT I\\nScene I. A Room of State in King Lear’s Palace\\nScene II. A Hall in the Earl of Gloucester’s Castle\\nScene III. A Room in the Duke of Albany’s Palace\\nScene IV. A Hall in Albany’s Palace\\nScene V. Court before the Duke of Albany’s Palace\\n\\nACT II\\nScene I. A court within the Castle of the Earl of Gloucester\\nScene II. Before Gloucester’s Castle\\nScene III. The open Country\\nScene IV. Before Gloucester’s Castle\\n\\nACT III\\nScene I. A Heath\\nScene II. Another part of the heath\\nScene III. A Room in Gloucester’s Castle\\nScene IV. A part of the Heath with a Hovel\\nScene V. A Room in Gloucester’s Castle\\nScene VI. A Chamber in a Farmhouse adjoining the Castle\\nScene VII. A Room in Gloucester’s Castle\\n\\nACT IV\\nScene I. The heath\\nScene II. Before the Duke of Albany’s Palace\\nScene III. The French camp near Dover\\nScene IV. The French camp. A Tent\\nScene V. A Room in Gloucester’s Castle\\nScene VI. The country near Dover\\nScene VII. A Tent in the French Camp\\n\\nACT V\\nScene I. The Camp of the British Forces near Dover\\nScene II. A field between the two Camps\\nScene III. The British Camp near Dover\\n\\n\\n\\n\\n Dramatis Personæ \\n\\nLEAR, King of Britain.\\nGONERIL, eldest daughter to Lear.\\nREGAN, second daughter to Lear.\\nCORDELIA, youngest daughter to Lear.\\nDUKE of ALBANY, married to Goneril.\\nDUKE of CORNWALL, married to Regan.\\nKING of FRANCE.\\nDUKE of BURGUNDY.\\nEARL of GLOUCESTER.\\nEDGAR, elder son to Gloucester.\\nEDMUND, younger bastard son to Gloucester.\\nEARL of KENT.\\nFOOL.\\nOSWALD, steward to Goneril.\\nCURAN, a Courtier.\\nOLD MAN, Tenant to Gloucester.\\nPhysician.\\nAn Officer employed by Edmund.\\nGentleman, attendant on Cordelia.\\nA Herald.\\nServants to Cornwall.\\n\\nKnights attending on the King, Officers, Messengers, Soldiers and\\nAttendants.\\n\\nSCENE: Britain\\n\\n\\n\\n\\nACT I\\n\\nSCENE I. A Room of State in King Lear’s Palace\\n\\n\\n Enter Kent, Gloucester and Edmund.\\n\\nKENT.\\nI thought the King had more affected the Duke of Albany than Cornwall.\\n\\nGLOUCESTER.\\nIt did always seem so to us; but now, in the division of the kingdom,\\nit appears not which of the Dukes he values most, for qualities are so\\nweighed that curiosity in neither can make choice of either’s moiety.\\n\\nKENT.\\nIs not this your son, my lord?\\n\\nGLOUCESTER.\\nHis breeding, sir, hath been at my charge: I have so often\\nblush’d to acknowledge him that now I am braz’d to’t.\\n\\nKENT.\\nI cannot conceive you.\\n\\nGLOUCESTER.\\nSir, this young fellow’s mother could; whereupon she grew\\nround-wombed, and had indeed, sir, a son for her cradle ere she\\nhad a husband for her bed. Do you smell a fault?\\n\\nKENT.\\nI cannot wish the fault undone, the issue of it being so proper.\\n\\nGLOUCESTER.\\nBut I have a son, sir, by order of law, some year elder than\\nthis, who yet is no dearer in my account: though this knave came\\nsomething saucily to the world before he was sent for, yet was\\nhis mother fair; there was good sport at his making, and the\\nwhoreson must be acknowledged. Do you know this noble gentleman,\\nEdmund?\\n\\nEDMUND.\\nNo, my lord.\\n\\nGLOUCESTER.\\nMy Lord of Kent: remember him hereafter as my honourable friend.\\n\\nEDMUND.\\nMy services to your lordship.\\n\\nKENT.\\nI must love you, and sue to know you better.\\n\\nEDMUND.\\nSir, I shall study deserving.\\n\\nGLOUCESTER.\\nHe hath been out nine years, and away he shall again. The King\\nis coming.\\n\\n [_Sennet within._]\\n\\n Enter Lear, Cornwall, Albany, Goneril, Regan, Cordelia and Attendants.\\n\\nLEAR.\\nAttend the lords of France and Burgundy,\\nGloucester.\\n\\nGLOUCESTER.\\nI shall, my lord.\\n\\n [_Exeunt Gloucester and Edmund._]\\n\\nLEAR.\\nMeantime we shall express our darker purpose.\\nGive me the map there. Know that we have divided\\nIn three our kingdom: and ’tis our fast intent\\nTo shake all cares and business from our age;\\nConferring them on younger strengths, while we\\nUnburden’d crawl toward death. Our son of Cornwall,\\nAnd you, our no less loving son of Albany,\\nWe have this hour a constant will to publish\\nOur daughters’ several dowers, that future strife\\nMay be prevented now. The princes, France and Burgundy,\\nGreat rivals in our youngest daughter’s love,\\nLong in our court have made their amorous sojourn,\\nAnd here are to be answer’d. Tell me, my daughters,—\\nSince now we will divest us both of rule,\\nInterest of territory, cares of state,—\\nWhich of you shall we say doth love us most?\\nThat we our largest bounty may extend\\nWhere nature doth with merit challenge.—Goneril,\\nOur eldest born, speak first.\\n\\nGONERIL.\\nSir, I love you more than word can wield the matter;\\nDearer than eyesight, space, and liberty;\\nBeyond what can be valu’d, rich or rare;\\nNo less than life, with grace, health, beauty, honour;\\nAs much as child e’er lov’d, or father found;\\nA love that makes breath poor and speech unable;\\nBeyond all manner of so much I love you.\\n\\nCORDELIA.\\n[_Aside._] What shall Cordelia speak? Love, and be silent.\\n\\nLEAR.\\nOf all these bounds, even from this line to this,\\nWith shadowy forests and with champains rich’d,\\nWith plenteous rivers and wide-skirted meads,\\nWe make thee lady: to thine and Albany’s issue\\nBe this perpetual.—What says our second daughter,\\nOur dearest Regan, wife of Cornwall? Speak.\\n\\nREGAN.\\nSir, I am made of the self mettle as my sister,\\nAnd prize me at her worth. In my true heart\\nI find she names my very deed of love;\\nOnly she comes too short, that I profess\\nMyself an enemy to all other joys\\nWhich the most precious square of sense possesses,\\nAnd find I am alone felicitate\\nIn your dear highness’ love.\\n\\nCORDELIA.\\n[_Aside._] Then poor Cordelia,\\nAnd yet not so; since, I am sure, my love’s\\nMore ponderous than my tongue.\\n\\nLEAR.\\nTo thee and thine hereditary ever\\nRemain this ample third of our fair kingdom;\\nNo less in space, validity, and pleasure\\nThan that conferr’d on Goneril.—Now, our joy,\\nAlthough the last and least; to whose young love\\nThe vines of France and milk of Burgundy\\nStrive to be interess’d; what can you say to draw\\nA third more opulent than your sisters? Speak.\\n\\nCORDELIA.\\nNothing, my lord.\\n\\nLEAR.\\nNothing?\\n\\nCORDELIA.\\nNothing.\\n\\nLEAR.\\nNothing will come of nothing: speak again.\\n\\nCORDELIA.\\nUnhappy that I am, I cannot heave\\nMy heart into my mouth: I love your majesty\\nAccording to my bond; no more nor less.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": null, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"shakespeare-king-lear\", \"title\": \"King Lear\", \"author\": \"William Shakespeare\", \"language\": \"en\", \"source_type\": \"gutenberg_single\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.020135, \"source_start\": 3128, \"source_end\": 3143, \"source_length\": 155355}, \"form\": {\"form_family\": \"modal\", \"polarity\": \"affirmative\", \"tense_aspect\": \"modal\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"en_obligation_modal_affirmative\", \"pattern_version\": \"0.13\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

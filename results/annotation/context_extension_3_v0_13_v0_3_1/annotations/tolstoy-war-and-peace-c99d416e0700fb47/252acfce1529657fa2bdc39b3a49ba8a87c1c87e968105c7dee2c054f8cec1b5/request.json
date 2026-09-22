@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"tolstoy-war-and-peace-c99d416e0700fb47\", \"SOURCE_TEXT\": {\"exact_match\": \"Je vous aime\", \"local_text\": {\"context_start\": 530453, \"context_end\": 530595, \"text\": \"— Pourquoi? Je vous aime plus, que jamais, — говорила княжна Марья, et je tâcherai de faire tout ce qui est en mon pouvoir pour votre bonheur.\"}, \"wider_canonical_context\": {\"context_start\": 527318, \"context_end\": 533488, \"text\": \"— Как понимать! — сердито крикнул отец. — Князь Василий находит тебя по своему вкусу для невестки и делает тебе пропозицию за своего воспитанника. Вот как понимать. Как понимать?!... А я у тебя спрашиваю.\\n\\n— Я не знаю, как вы, mon père, — шопотом проговорила княжна.\\n\\n— Я? я? чтò ж я-то? меня-то оставьте в стороне. Не я пойду замуж. Чтò вы? вот это желательно знать.\\n\\nКняжна видела, что отец недоброжелательно смотрел на это дело, но ей в ту же минуту пришла мысль, что теперь или никогда решится судьба ее жизни. Она опустила глаза, чтобы не видеть взгляда, под влиянием которого она чувствовала, что не могла думать, а могла по привычке только повиноваться, и сказала:\\n\\n— Я желаю только одного — исполнить вашу волю, — сказала она, — но ежели бы мое желание нужно было выразить...\\n\\nОна не успела договорить. Князь перебил ее.\\n\\n— И прекрасно! — закричал он. — Он тебя возьмет с приданым, да кстати захватит m-lle Bourienne. Та будет женой, а ты...\\n\\nКнязь остановился. Он заметил впечатление, произведенное этими словами на дочь. Она опустила голову и собиралась плакать.\\n\\n— Ну, ну, шучу, шучу, — сказал он. — Помни одно, княжна: я держусь тех правил, что девица имеет полное право выбирать. И даю тебе свободу. Помни одно: от твоего решения зависит счастье жизни твоей. Обо мне нечего говорить.\\n\\n— Да я не знаю... mon père.\\n\\n— Нечего говорить! Ему велят, он не только на тебе, на ком хочешь женится; а ты свободна выбирать... Поди к себе, обдумай и через час приди ко мне и при нем скажи: да или нет.\\n\\nЯ знаю, ты станешь молиться. Ну, пожалуй, молись. Только лучше подумай. Ступай.\\n\\n— Да или нет, да или нет, да или нет! — кричал он еще в то время, как княжна, как в тумане, шатаясь, уже вышла из кабинета.\\n\\nСудьба ее решилась и решилась счастливо. Но чтò отец сказал о m-lle Bourienne, — этот намек был ужасен. Неправда, положим, но всё-таки это было ужасно, она не могла не думать об этом. Она шла прямо перед собой через зимний сад, ничего не видя и не слыша, как вдруг знакомый шопот m-lle Bourienne разбудил ее. Она подняла глаза и в двух шагах от себя увидала Анатоля, который обнимал француженку и что-то шептал ей. Анатоль с страшным выражением на красивом лице оглянулся на княжну Марью и не выпустил в первую секунду талии m-lle Bourienne, которая не видала ее.\\n\\n«Кто тут? Зачем? Подождите!» как будто говорило лицо Анатоля. Княжна Марья молча глядела на них. Она не могла понять этого. Наконец, m-lle Bourienne вскрикнула и убежала. Анатоль с веселою улыбкой поклонился княжне Марье, как будто приглашая ее посмеяться над этим странным случаем, и, пожав плечами, прошел в дверь, ведшую на его половину.\\n\\nЧерез час Тихон пришел звать княжну Марью. Он звал ее к князю и прибавил, что и князь Василий Сергеич там. Княжна, в то время как пришел Тихон, сидела на диване в своей комнате и держала в своих объятиях плачущую m-lle Bourienne. Княжна Марья тихо гладила ее по голове. Прекрасные глаза княжны, со всем своим прежним спокойствием и лучистостью, смотрели с нежною любовью и сожалением на хорошенькое личико m-lle Bourienne.\\n\\n— Non, princesse, je suis perdue pour toujours dans votre coeur, — говорила m-lle Bourienne.\\n\\n— Pourquoi? Je vous aime plus, que jamais, — говорила княжна Марья, et je tâcherai de faire tout ce qui est en mon pouvoir pour votre bonheur.\\n\\n— Mais vous me méprisez, vous si pure, vous ne comprendrez jamais cet égarement de la passion. Ah, ce n’est que ma pauvre mère...\\n\\n— Je comprends tout, — отвечала княжна Марья, грустно улыбаясь. — Успокойтесь, мой друг. Я пойду к отцу, — сказала она и вышла.\\n\\nКнязь Василий, загнув высоко ногу, с табакеркой в руках и как бы расчувствованный донельзя, как бы сам сожалея и смеясь над своею чувствительностью, сидел с улыбкой умиления на лице, когда вошла княжна Марья. Он поспешно поднес щепоть табаку к носу.\\n\\n— Ah, ma bonne, ma bonne, — сказал он, вставая и взяв ее за обе руки. Он вздохнул и прибавил: — Le sort de mon fils est en vos mains. Décidez, ma bonne, ma chère, ma douce Marie, qui j’ai toujours aimée, comme ma fille.\\n\\nОн отошел. Действительная слеза показалась на его глазах.\\n\\n— Фр... фр... — фыркал князь Николай Андреич.\\n\\n— Князь от имени своего воспитанника... сына, тебе делает пропозицию. Хочешь ли ты или нет быть женою князя Анатоля Курагина? Ты говори: да или нет! — закричал он, — а потом я удерживаю за собой право сказать и свое мнение. Да, мое мнение и только свое мнение, — прибавил князь Николай Андреич, обращаясь к князю Василью и отвечая на его умоляющее выражение. — Да или нет?\\n\\n— Мое желание, mon père, никогда не покидать вас, никогда не разделять своей жизни с вашею. Я не хочу выходить замуж, — сказала она решительно, взглянув своими прекрасными глазами на князя Василья и на отца.\\n\\n— Вздор, глупости! Вздор, вздор, вздор! — нахмурившись, закричал князь Николай Андреич, взял дочь за руку, пригнул к себе и не поцеловал, но только пригнув свой лоб к ее лбу, дотронулся до нее и так сжал руку, которую он держал, что она поморщилась и вскрикнула.\\n\\nКнязь Василий встал.\\n\\n— Ma chère, je vous dirai, que c’est un moment que je n’oubliеrаі jamais, jamais; mais, ma bonne, est-ce que vous ne nous donnerez pas un peu d’espérance de toucher ce coeur si bon, si généreux. Dites, que peut-être... L’avenir est si grand. Dites: peut-être.\\n\\n— Князь, то, чтò я сказала, есть всё, чтò есть в моем сердце. Я благодарю за честь, но никогда не буду женой вашего сына.\\n\\n— Ну, и кончено, мой милый. Очень рад тебя видеть, очень рад тебя видеть. Поди к себе, княжна, поди, — говорил старый князь. — Очень, очень рад тебя видеть, — повторял он, обнимая князя Василья.\\n\\n«Мое призвание другое, — думала про себя княжна Марья, мое призвание — быть счастливою другим счастием, счастьем любви и самопожертвования. И чего бы мне это ни стоило, я сделаю счастие бедной Amélie. Она так страстно его любит. Она так страстно раскаивается. Я всё сделаю, чтоб устроить ее брак с ним. Ежели он не богат, я дам ей средства, я попрошу отца, я попрошу Андрея. Я так буду счастлива, когда она будет его женою. Она так несчастлива, чужая, одинокая, без помощи! И Боже мой, как страстно она его любит, ежели она так могла забыть себя. Может быть, и я сделала бы то же!...» думала княжна Марья\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"“How am I to understand it!” her father cried angrily. “Prince Vasili finds you to his taste as a daughter-in-law and makes you a proposal on behalf of his ward. That is how you are to understand it. ‘How am I to understand it?!’... And I am asking you.”\\n\\n“I do not know what you think, Father,” the princess said in a whisper.\\n\\n“I? I? What have I to do with it? Leave me out of it. I am not the one who is going to marry. What do you think? That is what I should like to know.”\\n\\nThe princess saw that her father regarded the matter unfavorably, but at that very moment the thought came to her that now or never the fate of her life would be decided. She lowered her eyes so as not to see the gaze under whose influence she felt that she could not think, but could only obey out of habit, and said:\\n\\n“I desire only one thing—to carry out your will,” she said, “but if my own desire had to be expressed...”\\n\\nShe did not have time to finish. The prince interrupted her.\\n\\n“And splendid!” he shouted. “He will take you with your dowry, and pick up Mlle Bourienne into the bargain. She will be the wife, and you...”\\n\\nThe prince stopped. He noticed the effect these words had produced on his daughter. She lowered her head and was about to cry.\\n\\n“Come, come, I am joking, I am joking,” he said. “Remember one thing, Princess: I adhere to the rule that a maiden has a perfect right to choose. And I give you freedom. Remember one thing: the happiness of your life depends on your decision. There is no need to speak of me.”\\n\\n“But I do not know... Father.”\\n\\n“There is no need to speak! He is ordered to; he will marry not only you, but anyone they please; while you are free to choose... Go to your room, think it over, and in an hour come to me and say in his presence: yes or no.\\n\\n“I know you will pray. Well, pray if you like. Only it would be better to think. Go.”\\n\\n“Yes or no, yes or no, yes or no!” he was still shouting as the princess, as though in a fog, already staggered out of the study.\\n\\nHer fate was decided, and decided happily. But what her father had said about Mlle Bourienne—that insinuation was terrible. Granted, it was not true, but still it was terrible; she could not help thinking about it. She was walking straight ahead through the conservatory, seeing and hearing nothing, when suddenly Mlle Bourienne’s familiar whisper roused her. She raised her eyes and, two paces away, saw Anatole embracing the Frenchwoman and whispering something to her. With a terrible expression on his handsome face, Anatole looked round at Princess Marya and, during the first instant, did not release the waist of Mlle Bourienne, who had not seen her.\\n\\n“Who is there? Why? Wait!” Anatole’s face seemed to say. Princess Marya looked at them in silence. She could not understand it. At last Mlle Bourienne gave a cry and ran away. With a cheerful smile, Anatole bowed to Princess Marya, as though inviting her to laugh at this strange incident, and, shrugging his shoulders, went through the door leading to his quarters.\\n\\nAn hour later Tikhon came to summon Princess Marya. He summoned her to the prince and added that Prince Vasili Sergeyevich was there as well. When Tikhon came, the princess was sitting on the sofa in her room, holding the weeping Mlle Bourienne in her arms. Princess Marya was gently stroking her head. The princess’s beautiful eyes, with all their former serenity and radiance, looked with tender love and pity at Mlle Bourienne’s pretty little face.\\n\\n“No, Princess, I am lost forever in your heart,” said Mlle Bourienne.\\n\\n“Why? I love you more than ever,” said Princess Marya, “and I shall try to do everything in my power for your happiness.”\\n\\n“But you despise me; you, who are so pure, will never understand this aberration of passion. Ah, it is only my poor mother...”\\n\\n“I understand everything,” Princess Marya replied with a sad smile. “Calm yourself, my friend. I shall go to my father,” she said, and went out.\\n\\nPrince Vasili, with one leg crossed high and a snuffbox in his hands, looking as though he were moved beyond measure, as though he himself both pitied and laughed at his own sensitivity, was sitting with a smile of tender emotion on his face when Princess Marya entered. He hastily raised a pinch of snuff to his nose.\\n\\n“Ah, my dear, my dear,” he said, rising and taking her by both hands. He sighed and added, “My son’s fate is in your hands. Decide, my dear, my darling, my sweet Marie, whom I have always loved as my own daughter.”\\n\\nHe stepped away. A genuine tear appeared in his eyes.\\n\\n“Frr... frr...” Prince Nikolai Andreyevich snorted.\\n\\n“The prince, on behalf of his ward... his son, is making you a proposal. Do you or do you not wish to be the wife of Prince Anatole Kuragin? You say yes or no!” he shouted. “And afterward I reserve the right to state my own opinion as well. Yes, my opinion, and only my own opinion,” Prince Nikolai Andreyevich added, turning to Prince Vasili and responding to his imploring expression. “Yes or no?”\\n\\n“My desire, Father, is never to leave you, never to separate my life from yours. I do not wish to marry,” she said resolutely, looking with her beautiful eyes at Prince Vasili and at her father.\\n\\n“Nonsense, foolishness! Nonsense, nonsense, nonsense!” Prince Nikolai Andreyevich shouted with a frown. He took his daughter by the hand, bent her toward him, and did not kiss her, but merely bent his forehead to hers and touched her; and he squeezed the hand he was holding so hard that she winced and cried out.\\n\\nPrince Vasili rose.\\n\\n“My dear, I shall tell you that this is a moment I shall never, never forget; but, my dear, will you not give us a little hope of moving this heart, so kind, so generous? Say that perhaps... The future is so vast. Say: perhaps.”\\n\\n“Prince, what I have said is all that is in my heart. I thank you for the honor, but I shall never be your son’s wife.”\\n\\n“Well, that is settled, my dear fellow. Very glad to see you, very glad to see you. Go to your room, Princess, go,” said the old prince. “Very, very glad to see you,” he repeated, embracing Prince Vasili.\\n\\n“My calling is a different one,” Princess Marya thought to herself. “My calling is to be happy with another kind of happiness, the happiness of love and self-sacrifice. And whatever it may cost me, I shall make poor Amélie happy. She loves him so passionately. She repents so passionately. I shall do everything to arrange her marriage to him. If he is not rich, I shall give her the means; I shall ask Father, I shall ask Andrei. I shall be so happy when she is his wife. She is so unhappy, a stranger, alone, without help! And, my God, how passionately she loves him, if she could so forget herself. Perhaps I would have done the same!...” thought Princess Marya.\", \"source_occurrence_id\": \"tolstoy-war-and-peace-c99d416e0700fb47\", \"source_language\": \"ru\", \"source_language_text_sha256\": \"2f7d97f2b383efe8b67d8578206c01b8d5450fddad6a0e9ff761ec4d7ab04530\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-21T23:16:56.350847+00:00\", \"model_usage\": {\"input_tokens\": 2152, \"cached_input_tokens\": 0, \"output_tokens\": 2309}, \"estimated_cost_usd\": 0.054787999999999996, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"tolstoy-war-and-peace\", \"title\": \"Война и мир\", \"author\": \"Лев Толстой\", \"language\": \"ru\", \"source_type\": \"tolstoy_online\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.182337, \"source_start\": 530465, \"source_end\": 530477, \"source_length\": 2909261}, \"form\": {\"form_family\": \"present_or_imperfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": \"optional\", \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"ru_codeswitch_fr_present_past\", \"pattern_version\": \"0.13\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

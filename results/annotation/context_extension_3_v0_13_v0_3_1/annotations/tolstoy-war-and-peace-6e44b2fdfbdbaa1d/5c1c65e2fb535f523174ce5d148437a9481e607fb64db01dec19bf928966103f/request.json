@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"tolstoy-war-and-peace-6e44b2fdfbdbaa1d\", \"SOURCE_TEXT\": {\"exact_match\": \"люблю вас\", \"local_text\": {\"context_start\": 2344489, \"context_end\": 2344542, \"text\": \"— Наташа, я слишком люблю вас. Больше всего на свете.\"}, \"wider_canonical_context\": {\"context_start\": 2341357, \"context_end\": 2347574, \"text\": \"Но после той ночи в Мытищах, когда в полу-бреду перед ним явилась та, которую он желал и когда он, прижав к своим губам ее руку, заплакал тихими, радостными слезами, любовь к одной женщине незаметно закралась в его сердце и опять привязала его к жизни. И радостные, и тревожные мысли стали приходить ему. Вспоминая ту минуту на перевязочном пункте, когда он увидал Курагина, он теперь не мог возвратиться к тому чувству: его теперь мучил вопрос о том, жив ли он? И он не смел спросить это.\\n\\nБолезнь его шла своим физическим порядком, но то, чтò Наташа называла: это сделалось с ним, случилось с ним два дня перед приездом княжны Марьи. Это была та последняя, нравственная борьба между жизнью и смертью, в которой смерть одержала победу. Это было неожиданное сознание того, что он еще дорожил жизнью, представлявшеюся ему в любви к Наташе, и последний, покоренный припадок ужаса перед неведомым.\\n\\nЭто было вечером. Он был, как обыкновенно после обеда, в легком, лихорадочном состоянии, и мысли его были чрезвычайно ясны. Соня сидела у стола. Он задремал. Вдруг ощущение счастья охватило его.\\n\\n«А, это она вошла!» подумал он.\\n\\nДействительно, на месте Сони сидела только-что неслышными шагами вошедшая Наташа.\\n\\nС тех пор как она стала ходить за ним, он всегда испытывал это физическое ощущение ее близости. Она сидела на кресле, боком к нему, заслоняя собой от него свет свечи, и вязала чулок.\\n\\n(Она выучилась вязать чулки с тех пор, как раз князь Андрей сказал ей, что никто так не умеет ходить за больными, как старые няни, которые вяжут чулки, и что в вязании чулка есть что-то успокоительное). Тонкие пальцы ее быстро перебирали изредка сталкивающиеся спицы, и задумчивый профиль ее опущенного лица был ясно виден ему. Она сделала движенье — клубок скатился с ее колен. Она вздрогнула, оглянулась на него и, заслоняя свечу рукой, осторожным, гибким и точным движением изогнулась, подняла клубок и села в прежнее положение.\\n\\nОн смотрел на нее не шевелясь и видел, что ей нужно было после своего движения вздохнуть во всю грудь, но она не решалась этого сделать и осторожно переводила дыханье.\\n\\nВ Троицкой Лавре они говорили о прошедшем, и он сказал ей, что ежели бы он был жив, он благодарил бы вечно Бога за свою рану, которая свела его опять с нею; но с тех пор они никогда не говорили о будущем.\\n\\n«Могло или не могло это быть?» думал он теперь, глядя на нее и прислушиваясь к легкому стальному звуку спиц. «Неужели только за тем так странно свела меня с нею судьба, чтобы мне умереть?.. Неужели мне открылась истина жизни только для того, чтоб я жил во лжи? Я люблю ее больше всего в мире. Но чтó же делать мне, ежели я люблю ее?» сказал он, и он вдруг невольно застонал по привычке, которую он приобрел во время своих страданий.\\n\\nУслыхав этот звук, Наташа положила чулок, перегнулась ближе к нему, и вдруг, заметив его светящиеся глаза, подошла к нему легким шагом и нагнулась.\\n\\n— Вы не спите?\\n\\n— Нет, я давно смотрю на вас; я почувствовал, когда вы вошли. Никто, как вы, не дает мне той мягкой тишины... того света. Мне так и хочется плакать от радости.\\n\\nНаташа ближе придвинулась к нему. Лицо ее сияло восторженною радостью.\\n\\n— Наташа, я слишком люблю вас. Больше всего на свете.\\n\\n— А я? — Она отвернулась на мгновение. — Отчего же слишком? — сказала она.\\n\\n— Отчего слишком?.. Ну, как вы думаете, как вы чувствуете по душе, по всей душе, буду я жив? Как вам кажется?\\n\\n— Я уверена, я уверена! — почти вскрикнула Наташа, страстным движением взяв его за обе руки.\\n\\nОн помолчал.\\n\\n— Как бы хорошо! — И, взяв ее руку, он поцеловал ее.\\n\\nНаташа была счастлива и взволнована; и тотчас же она вспомнила, что этого нельзя, что ему нужно спокойствие. —\\n\\n— Однако вы не спали, — сказала она, подавляя свою радость. — Постарайтесь заснуть... пожалуста.\\n\\nОн выпустил, пожав, ее руку, и она перешла к свече и опять села в прежнее положение. Два раза она оглянулась на него, глаза его светились ей навстречу. Она задала себе урок на чулке и сказала себе, что до тех пор она не оглянется, пока не кончит его.\\n\\nДействительно, скоро после этого он закрыл глаза и заснул. Он спал недолго и вдруг в холодном поту тревожно проснулся.\\n\\nЗасыпая он думал всё о том же, о чем он думал всё это время — о жизни и смерти. И больше о смерти. Он чувствовал себя ближе к ней.\\n\\n«Любовь? Чтó такое любовь?» думал он.\\n\\n«Любовь мешает смерти. Любовь есть жизнь. Всё, всё, чтò я понимаю, я понимаю только потому, что люблю. Всё есть, всё существует только потому, что я люблю. Всё связано одною ею. Любовь есть Бог, и умереть, — значит мне, частице любви, вернуться к общему и вечному источнику». Мысли эти показались ему утешительны. Но это были только мысли. Чего-то не доставало в них, что-то было односторонне-личное, умственное — не было очевидности. И было то же беспокойство и неясность. Он заснул.\\n\\nОн видел во сне, что он лежит в той же комнате, в которой он лежал в действительности, но что он не ранен, а здоров. Много разных лиц, ничтожных, равнодушных, является перед князем Андреем. Он говорит с ними, спорит о чем-то ненужном. Они сбираются ехать куда-то. Князь. Андрей смутно припоминает, что всё это ничтожно и что у него есть другие важнейшие заботы, но продолжает говорить, удивляя их, какие-то пустые, остроумные слова. Понемногу, незаметно, все эти лица начинают исчезать, и всё заменяется одним вопросом о затворенной двери. Он встает и идет к двери, чтобы задвинуть задвижку и запереть ее. От того, что он успеет или не успеет запереть ее, зависит все. Он идет, спешит, но ноги его не двигаются, и он знает, что не успеет запереть дверь, но всё-таки болезненно напрягает все свои силы. И мучительный страх охватывает его. И этот страх есть страх смерти: за дверью стоит оно. Но в то же время, как он бессильно-неловко подползает к двери, это что-то ужасное, уже надавливая с другой стороны, ломится в нее. Что-то не человеческое — смерть — ломится в дверь, и надо удержать ее. Он ухватывается за дверь, напрягает последние усилия — запереть уже нельзя — хоть удержать ее; но силы его слабы, неловки, и надавливаемая ужасным, дверь отворяется и опять затворяется.\\n\\nЕще раз оно надавило оттуда. Последние, сверхъестественные усилия тщетны, и обе половинки отворились беззвучно. Оно вошло, и оно есть смерть. И князь Андрей умер.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"But after that night in Mytishchi, when, in a half-delirium, the woman he longed for appeared before him and when, pressing her hand to his lips, he wept quiet, joyful tears, love for one woman imperceptibly stole into his heart and bound him to life again. Both joyful and anxious thoughts began to come to him. Recalling that moment at the dressing station when he had seen Kuragin, he could no longer return to that feeling: he was now tormented by the question of whether he was alive. And he did not dare ask.\\n\\nHis illness followed its physical course, but what Natasha called “this happened to him” occurred two days before Princess Marya’s arrival. It was that last moral struggle between life and death in which death was victorious. It was the unexpected realization that he still cherished life, which appeared to him in his love for Natasha, and a final, vanquished fit of terror before the unknown.\\n\\nIt was evening. As usual after dinner, he was in a mildly feverish state, and his thoughts were extraordinarily clear. Sonya was sitting at the table. He dozed off. Suddenly a feeling of happiness enveloped him.\\n\\n“Ah, she has come in!” he thought.\\n\\nIndeed, in Sonya’s place sat Natasha, who had just entered with inaudible steps.\\n\\nEver since she had begun tending him, he had always experienced this physical sensation of her nearness. She sat in an armchair, turned sideways to him, shielding the candlelight from him with her body, and knitted a stocking.\\n\\n(She had learned to knit stockings after Prince Andrei once told her that no one knew how to tend the sick as well as old nurses who knitted stockings, and that there was something soothing in knitting a stocking.) Her slender fingers rapidly worked the needles, which occasionally clicked against each other, and the pensive profile of her lowered face was clearly visible to him. She made a movement—the ball rolled off her knees. She started, glanced at him, and, shielding the candle with her hand, bent with a careful, supple, precise movement, picked up the ball, and sat down in her former position.\\n\\nHe looked at her without moving and saw that after her movement she needed to draw a full breath, but she did not dare do so and breathed carefully.\\n\\nAt the Trinity Lavra they had spoken of the past, and he had told her that if he lived, he would thank God forever for his wound, which had brought him together with her again; but since then they had never spoken of the future.\\n\\n“Could it or could it not have been?” he now thought, looking at her and listening to the light metallic sound of the needles. “Can it really be that fate brought me together with her so strangely only for me to die? Can it really be that the truth of life was revealed to me only so that I might live a lie? I love her more than anything in the world. But what am I to do if I love her?” he said, and suddenly, involuntarily, he groaned, from a habit he had acquired during his sufferings.\\n\\nHearing the sound, Natasha put down the stocking, leaned closer to him, and suddenly, noticing his shining eyes, went up to him with a light step and bent over him.\\n\\n“Are you not asleep?”\\n\\n“No, I have been looking at you for a long time; I felt it when you came in. No one gives me, as you do, that gentle stillness... that light. I feel so much like weeping for joy.”\\n\\nNatasha moved closer to him. Her face shone with rapturous joy.\\n\\n“Natasha, I love you too much. More than anything in the world.”\\n\\n“And I?” She turned away for a moment. “Why too much?” she said.\\n\\n“Why too much?... Well, what do you think, what do you feel in your soul, in your whole soul—will I live? What does it seem to you?”\\n\\n“I am sure, I am sure!” Natasha almost cried out, taking both his hands with a passionate movement.\\n\\nHe was silent for a while.\\n\\n“How good that would be!” And, taking her hand, he kissed it.\\n\\nNatasha was happy and agitated; and at once she remembered that this was not allowed, that he needed quiet.\\n\\n“But you have not slept,” she said, suppressing her joy. “Try to fall asleep... please.”\\n\\nHe released her hand after pressing it, and she moved over to the candle and again sat down in her former position. Twice she looked back at him; his eyes shone in response to hers. She assigned herself a certain amount of the stocking and told herself that she would not look back until she had finished it.\\n\\nIndeed, soon afterward he closed his eyes and fell asleep. He did not sleep long and suddenly awoke anxiously, in a cold sweat.\\n\\nAs he fell asleep, he kept thinking about the same thing he had been thinking about all that time—about life and death. And more about death. He felt himself closer to it.\\n\\n“Love? What is love?” he thought.\\n\\n“Love stands in the way of death. Love is life. Everything, everything I understand, I understand only because I love. Everything is, everything exists, only because I love. Everything is bound together by love alone. Love is God, and to die means for me, a particle of love, to return to the universal and eternal source.” These thoughts seemed comforting to him. But they were only thoughts. Something was lacking in them; there was something one-sidedly personal and intellectual—there was no certainty. And there was the same uneasiness and obscurity. He fell asleep.\\n\\nHe dreamed that he was lying in the same room in which he was actually lying, but that he was not wounded and was healthy. Many different faces, insignificant and indifferent, appeared before Prince Andrei. He talked with them, argued about something unnecessary. They were preparing to go somewhere. Prince Andrei vaguely remembered that all this was insignificant and that he had other, more important concerns, but he continued talking, astonishing them with empty, witty words. Little by little, imperceptibly, all these faces began to disappear, and everything was replaced by a single question concerning the closed door. He got up and went to the door to slide the bolt and lock it. Everything depended on whether or not he managed to lock it. He walked, he hurried, but his legs would not move, and he knew that he would not manage to lock the door, yet he still painfully strained all his strength. And a tormenting fear seized him. And this fear was the fear of death: it was standing behind the door. But at the very moment when he was crawling helplessly and awkwardly toward the door, that dreadful something, already pressing from the other side, was forcing its way through it. Something not human—death—was forcing its way through the door, and he had to hold it back. He seized the door and strained in a final effort—it was no longer possible to lock it—at least to hold it shut; but his strength was weak and clumsy, and, pressed by the dreadful thing, the door opened and closed again.\\n\\nOnce more it pressed from the other side. His last, superhuman efforts were in vain, and both halves opened soundlessly. It entered, and it was death. And Prince Andrei died.\", \"source_occurrence_id\": \"tolstoy-war-and-peace-6e44b2fdfbdbaa1d\", \"source_language\": \"ru\", \"source_language_text_sha256\": \"cf52a49f831742ff32929cdd906482e2ec9da41d2f456013d83de2d5cbeb173a\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-21T23:11:21.911740+00:00\", \"model_usage\": {\"input_tokens\": 2090, \"cached_input_tokens\": 0, \"output_tokens\": 1881}, \"estimated_cost_usd\": 0.04598, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"tolstoy-war-and-peace\", \"title\": \"Война и мир\", \"author\": \"Лев Толстой\", \"language\": \"ru\", \"source_type\": \"tolstoy_online\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.805878, \"source_start\": 2344509, \"source_end\": 2344518, \"source_length\": 2909261}, \"form\": {\"form_family\": \"canonical_present\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"ru_present_verb_first_affirmative\", \"pattern_version\": \"0.13\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 1.0, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

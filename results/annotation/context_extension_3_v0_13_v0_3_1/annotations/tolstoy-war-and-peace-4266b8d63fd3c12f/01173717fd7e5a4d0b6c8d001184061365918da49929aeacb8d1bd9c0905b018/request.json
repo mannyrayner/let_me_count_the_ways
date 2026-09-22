@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"tolstoy-war-and-peace-4266b8d63fd3c12f\", \"SOURCE_TEXT\": {\"exact_match\": \"я вас люблю\", \"local_text\": {\"context_start\": 1119880, \"context_end\": 1120001, \"text\": \"— Голубушка, мамаша, как я вас люблю, как мне хорошо! — крикнула Наташа, плача слезами счастья и волнения и обнимая мать.\"}, \"wider_canonical_context\": {\"context_start\": 1116736, \"context_end\": 1123030, \"text\": \"Берг был доволен и счастлив. Улыбка радости не сходила с его лица. Вечер был очень хорош и совершенно такой, как и другие вечера, которые он видел. Всё было похоже. И дамские, тонкие разговоры, и карты, и за картами генерал, возвышающий голос, и самовар, и печенье; но одного еще недоставало, того, чтò он всегда видел на вечерах, которым он желал подражать. Недоставало громкого разговора между мужчинами и спора о чем-нибудь важном и умном. Генерал начал этот разговор и к нему-то Берг привлек Пьера.\\n\\nXXII.\\n\\nНа другой день князь Андрей поехал к Ростовым обедать, так как его звал граф Илья Андреич, и провел у них целый день.\\n\\nВсе в доме чувствовали для кого ездил князь Андрей, и он, не скрывая, целый день старался быть с Наташей. Не только в душе Наташи испуганной, но счастливой и восторженной, но во всем доме чувствовался страх перед чем-то важным, имеющим совершиться. Графиня печальными и серьезно-строгими глазами смотрела на князя Андрея, когда он говорил с Наташей, и робко и притворно начинала какой-нибудь ничтожный разговор, как скоро он оглядывался на нее. Соня боялась уйти от Наташи и боялась быть помехой, когда она была с ними. Наташа бледнела от страха ожидания, когда она на минуту оставалась с ним с глазу на глаз. Князь Андрей поражал ее своею робостью. Она чувствовала, что ему нужно было сказать ей что-то, но что он не мог на это решиться.\\n\\nКогда вечером князь Андрей уехал, графиня подошла к Наташе и шопотом сказала:\\n\\n— Ну чтò?\\n\\n— Мама, ради Бога ничего не спрашивайте у меня теперь. Это нельзя говорить, — сказала Наташа.\\n\\nНо несмотря на то, в этот вечер Наташа, то взволнованная, то испуганная, с останавливающимися глазами лежала долго в постели матери. То она рассказывала ей, как он хвалил ее, то как он говорил, что поедет за-границу, то, что он спрашивал, где они будут жить это лето, то как он спрашивал ее про Бориса.\\n\\n— Но такого, такого... со мной никогда не бывало! — говорила она. — Только мне страшно при нем, мне всегда страшно при нем, что это значит? Значит, что это настоящее, да? Мама, вы спите?\\n\\n— Нет, душа моя, мне самой страшно, — отвечала мать. — Иди.\\n\\n— Все равно я не буду спать. Чтò за глупости спать! Мамаша, мамаша, такого со мной никогда не бывало! — говорила она с удивлением и испугом перед тем чувством, которое она сознавала в себе. — И могли ли мы думать!...\\n\\nНаташе казалось, что еще когда она в первый раз увидала князя Андрея в Отрадном, она влюбилась в него. Ее как будто пугало это странное, неожиданное счастье, что тот, кого она выбрала еще тогда (она твердо была уверена в этом), что тот самый теперь опять встретился ей, и, как кажется, неравнодушен к ней. «И надо было ему нарочно теперь, когда мы здесь, приехать в Петербург. И надо было нам встретиться на этом бале. Всё это судьба. Ясно, что это судьба, что всё это велось к этому. Еще тогда, как только я увидала его, я почувствовала что-то особенное».\\n\\n— Чтò ж он тебе еще говорил? Какие стихи-то эти? Прочти... — задумчиво сказала мать, спрашивая про стихи, которые князь Андрей написал в альбом Наташе.\\n\\n— Мама, это не стыдно, что он вдовец?\\n\\n— Полно, Наташа. Молись Богу. Les mariages se font dans les cieux.\\n\\n— Голубушка, мамаша, как я вас люблю, как мне хорошо! — крикнула Наташа, плача слезами счастья и волнения и обнимая мать.\\n\\nВ это же самое время князь Андрей сидел у Пьера и говорил ему о своей любви к Наташе и о твердо-взятом намерении жениться на ней.\\n\\n—————\\n\\nВ этот день у графини Елены Васильевны был раут, был французский посланник, был принц, сделавшийся с недавнего времени частым посетителем дома графини, и много блестящих дам и мужчин. Пьер был внизу, прошелся по залам, и поразил всех гостей своим сосредоточенно-рассеянным и мрачным видом.\\n\\nПьер со времени бала чувствовал в себе приближение припадков ипохондрии и с отчаянным усилием старался бороться против них. Со времени сближения принца с его женою, Пьер неожиданно был пожалован в камергеры, и с этого времени он стал чувствовать тяжесть и стыд в большом обществе, и чаще ему стали приходить прежние мрачные мысли о тщете всего человеческого. В это же время замеченное им чувство между покровительствуемою им Наташей и князем Андреем, своею противуположностью между его положением и положением его друга, еще усиливало это мрачное настроение. Он одинаково старался избегать мыслей о своей жене и о Наташе и князе Андрее. Опять всё ему казалось ничтожно в сравнении с вечностью, опять представлялся вопрос: «к чему?». И он дни и ночи заставлял себя трудиться над масонскими работами, надеясь отогнать приближение злого духа. Пьер в 12-м часу, выйдя из покоев графини, сидел у себя наверху перед столом в накуренной, низкой комнате, в затасканном халате и переписывал подлинные шотландские акты, когда кто-то вошел к нему в комнату. Это был князь Андрей.\\n\\n— А, это вы, — сказал Пьер с рассеянным и недовольным видом. — А я вот работаю, — сказал он, указывая на тетрадь с тем видом спасения от невзгод жизни, с которым смотрят несчастливые люди на свою работу.\\n\\nКнязь Андрей с сияющим, восторженным и обновленным к жизни лицом остановился перед Пьером и, не замечая его печального лица, с эгоизмом счастия улыбнулся ему.\\n\\n— Ну, душа моя, — сказал он, — я вчера хотел сказать тебе и нынче за этим приехал к тебе. Никогда не испытывал ничего подобного. Я влюблен, мой друг.\\n\\nПьер вдруг тяжело вздохнул и повалился своим тяжелым телом на диван, подле князя Андрея.\\n\\n— В Наташу Ростову, да? — сказал он.\\n\\n— Да, да, в кого же? Никогда не поверил бы, но это чувство сильнее меня. Вчера я мучился, страдал, но и мученья этого я не отдам ни за чтò в мире. Я не жил прежде. Теперь только я живу, но я не могу жить без нее. Но может ли она любить меня?... Я стар для нее... Что ты не говоришь?...\\n\\n— Я? Я? Чтò я говорил вам, — вдруг сказал Пьер, вставая и начиная ходить по комнате. — Я всегда это думал... Эта девушка такое сокровище, такое... Это редкая девушка... Милый друг, я вас прошу, вы не умствуйте, не сомневайтесь, женитесь, женитесь и женитесь... И я уверен, что счастливее вас не будет человека.\\n\\n— Но она?\\n\\n— Она любит вас.\\n\\n— Не говори вздору... — сказал князь Андрей, улыбаясь и глядя в глаза Пьеру.\\n\\n— Любит, я знаю, — сердито закричал Пьер.\\n\\n— Нет, слушай, — сказал князь Андрей, останавливая его за руку. — Ты знаешь ли, в каком я положении? Мне нужно сказать всё кому-нибудь.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"Berg was contented and happy. The smile of joy never left his face. The evening was very good and exactly like the other evenings he had seen. Everything was similar: the ladies’ refined conversations, the cards, the general at the card table raising his voice, the samovar, and the biscuits; but one thing was still lacking, something he had always seen at the evenings he wished to imitate. There was no loud conversation among the men, nor any argument about something important and intelligent. The general began such a conversation, and it was to this that Berg drew Pierre.\\n\\nXXII.\\n\\nThe next day Prince Andrei went to dine with the Rostovs, having been invited by Count Ilya Andreich, and spent the entire day with them.\\n\\nEveryone in the house knew for whom Prince Andrei had come, and, without concealing it, he tried all day to be with Natasha. Not only in Natasha’s soul—frightened, but happy and enraptured—but throughout the house, there was a sense of fear before something important that was about to happen. The countess looked at Prince Andrei with sad and gravely stern eyes when he spoke with Natasha, and timidly and with feigned casualness began some trivial conversation as soon as he glanced at her. Sonya was afraid to leave Natasha and afraid of being in the way when she was with them. Natasha turned pale with the fear of expectation whenever she was left alone with him for a moment. Prince Andrei astonished her with his timidity. She felt that he needed to tell her something, but that he could not bring himself to do so.\\n\\nWhen Prince Andrei left that evening, the countess went up to Natasha and said in a whisper:\\n\\n“Well?”\\n\\n“Mama, for God’s sake, don’t ask me anything now. It cannot be spoken of,” said Natasha.\\n\\nBut despite that, Natasha spent a long time that evening lying in her mother’s bed, now agitated, now frightened, her eyes becoming fixed. At one moment she told her how he had praised her; then how he had said that he would go abroad; then that he had asked where they would be living that summer; then how he had asked her about Boris.\\n\\n“But nothing like this, like this... has ever happened to me!” she said. “Only I am frightened when I am with him; I am always frightened when I am with him. What does that mean? It means that this is the real thing, doesn’t it? Mama, are you asleep?”\\n\\n“No, my darling, I am frightened myself,” her mother replied. “Go.”\\n\\n“I won’t sleep anyway. What nonsense it is to sleep! Mama, Mama, nothing like this has ever happened to me!” she said, in wonder and alarm at the feeling of which she was conscious within herself. “And could we ever have imagined it!...”\\n\\nIt seemed to Natasha that she had fallen in love with Prince Andrei the very first time she saw him at Otradnoye. She seemed frightened by this strange, unexpected happiness: that the very man she had chosen even then (she was firmly convinced of this) had now met her again and, it seemed, was not indifferent to her. “And he had to come to Petersburg now, of all times, when we are here. And we had to meet at that ball. All this is fate. It is clear that this is fate, that all of it has been leading to this. Even then, the moment I saw him, I felt something special.”\\n\\n“What else did he say to you? What are those verses? Read them...” her mother said thoughtfully, asking about the verses Prince Andrei had written in Natasha’s album.\\n\\n“Mama, it isn’t shameful that he is a widower, is it?”\\n\\n“That will do, Natasha. Pray to God. Marriages are made in heaven.”\\n\\n“My darling Mama, how I love you, how happy I am!” Natasha cried, weeping tears of happiness and agitation and embracing her mother.\\n\\nAt that very time Prince Andrei was sitting with Pierre and telling him of his love for Natasha and of his firm resolve to marry her.\\n\\n—————\\n\\nThat day Countess Hélène Vasilyevna was holding a reception; the French ambassador was there, as was the prince, who had recently become a frequent visitor to the countess’s house, and many brilliant ladies and gentlemen. Pierre had been downstairs, had walked through the drawing rooms, and had struck all the guests with his preoccupied, distracted, and gloomy appearance.\\n\\nEver since the ball, Pierre had felt attacks of melancholy approaching and had tried with desperate effort to struggle against them. Since the prince had become close to his wife, Pierre had unexpectedly been appointed a chamberlain, and from that time on he began to feel burdened and ashamed in high society, and his former gloomy thoughts about the futility of all human things began to come to him more often. At the same time, the feeling he had noticed between Natasha, his protégée, and Prince Andrei, by the contrast between his own position and that of his friend, intensified this gloomy mood still further. He tried equally to avoid thoughts of his wife and of Natasha and Prince Andrei. Again everything seemed insignificant to him in comparison with eternity; again the question presented itself: “What for?” And day and night he forced himself to work on Masonic writings, hoping to drive away the approaching evil spirit. At eleven o’clock, having left the countess’s apartments, Pierre was sitting upstairs in his own low, smoke-filled room, wearing a threadbare dressing gown and copying out the authentic Scottish statutes, when someone entered his room. It was Prince Andrei.\\n\\n“Ah, it is you,” said Pierre with a distracted and displeased look. “And here I am, working,” he said, pointing to the notebook with that expression of seeking refuge from life’s adversities with which unhappy people look upon their work.\\n\\nPrince Andrei, his face radiant, enraptured, and renewed to life, stopped before Pierre and, failing to notice his sad face, smiled at him with the selfishness of happiness.\\n\\n“Well, my dear fellow,” he said, “I wanted to tell you yesterday, and I have come to you today for that very purpose. I have never experienced anything like it. I am in love, my friend.”\\n\\nPierre suddenly sighed heavily and let his ponderous body fall onto the sofa beside Prince Andrei.\\n\\n“With Natasha Rostova, yes?” he said.\\n\\n“Yes, yes; who else? I would never have believed it, but this feeling is stronger than I am. Yesterday I was tormented, I suffered, but I would not give up that torment for anything in the world. I did not live before. Only now am I alive, but I cannot live without her. But can she love me?... I am old for her... Why don’t you say anything?...”\\n\\n“I? I? What did I tell you?” Pierre suddenly said, rising and beginning to pace the room. “I always thought so... That girl is such a treasure, such a... She is a rare girl... My dear friend, I beg you, do not reason too much, do not doubt; marry, marry, and marry... And I am certain that there will be no happier man than you.”\\n\\n“But she?”\\n\\n“She loves you.”\\n\\n“Don’t talk nonsense...” said Prince Andrei, smiling and looking into Pierre’s eyes.\\n\\n“She loves you, I know she does,” Pierre shouted angrily.\\n\\n“No, listen,” said Prince Andrei, stopping him by taking his hand. “Do you know what position I am in? I need to tell someone everything.”\", \"source_occurrence_id\": \"tolstoy-war-and-peace-4266b8d63fd3c12f\", \"source_language\": \"ru\", \"source_language_text_sha256\": \"03e154725597dd0e5d50d9dfd9d9afc7d10a5b0653fed600b9551c3c309ca39b\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-21T23:07:01.442781+00:00\", \"model_usage\": {\"input_tokens\": 2115, \"cached_input_tokens\": 0, \"output_tokens\": 1864}, \"estimated_cost_usd\": 0.04574, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"tolstoy-war-and-peace\", \"title\": \"Война и мир\", \"author\": \"Лев Толстой\", \"language\": \"ru\", \"source_type\": \"tolstoy_online\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.384945, \"source_start\": 1119905, \"source_end\": 1119916, \"source_length\": 2909261}, \"form\": {\"form_family\": \"canonical_present\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"ru_present_object_first_affirmative\", \"pattern_version\": \"0.13\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

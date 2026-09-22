@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"tolstoy-war-and-peace-17abcfdad026ed90\", \"SOURCE_TEXT\": {\"exact_match\": \"я вас душой люблю\", \"local_text\": {\"context_start\": 766361, \"context_end\": 767446, \"text\": \"о света. Добродетели никто не любит, она всем глаза колет. Ну, скажите, граф, справедливо это, честно это со стороны Безухова? А Федя по своему благородству любил его, и теперь никогда ничего дурного про него не говорит. В Петербурге эти шалости с квартальным, там что-то шутили, ведь они вместе делали? Что ж, Безухову ничего, а Федя всё на своих плечах перенес! Ведь чтò он перенес! Положим, возвратили, да ведь как же и не возвратить? Я думаю таких, как он, храбрецов и сынов отечества не много там было. Чтò ж теперь — эта дуэль? Есть ли чувство честь у этих людей! Зная, что он единственный сын, вызвать на дуэль и стрелять так прямо! Хорошо, что Бог помиловал нас. И за чтò же? Ну, кто же в наше время не имеет интриги? Что ж, коли он так ревнив? Я понимаю, ведь он прежде мог дать почувствовать, а то год ведь продолжалось. И чтò же, вызвал на дуэль, полагая, что Федя не будет драться, потому что он ему должен. Какая низость! Какая гадость! Я знаю, вы Федю поняли, мой милый граф, оттого-то я вас душой люблю, верьте мне. Его редкие понимают. Это такая высокая, небесная душа!\"}, \"wider_canonical_context\": {\"context_start\": 764232, \"context_end\": 770557, \"text\": \"Через два часа после этого князь Андрей тихими шагами вошел в кабинет к отцу. Старик всё уже знал. Он стоял у самой двери, и, как только она отворилась, старик молча старческими, жесткими руками, как тисками, обхватил шею сына и зарыдал как ребенок.\\n\\nЧерез три дня отпевали маленькую княгиню, и, прощаясь с нею, князь Андрей взошел на ступени гроба. И в гробу было то же лицо, хотя и с закрытыми глазами. «Ах, чтò вы со мной сделали?» всё говорило оно, и князь Андрей почувствовал, что в душе его оторвалось что-то, что он виноват в вине, которую ему не поправить и не забыть. Он не мог плакать. Старик тоже вошел и поцеловал ее восковую ручку, спокойно и высоко лежавшую на другой, и ему ее лицо сказало: «Ах, чтò и за чтò вы это со мной сделали?» И старик сердито отвернулся, увидав это лицо.\\n\\nЕще через пять дней крестили молодого князя Николая Андреича. Мамушка подбородком придерживала пеленки, в то время, как гусиным перышком священник мазал сморщенные красные ладòнки и ступеньки мальчика.\\n\\nКрестный отец-дед, боясь уронить, вздрагивая, носил младенца вокруг жестяной помятой купели и передавал его крестной матери, княжне Марье. Князь Андрей, замирая от страха, чтоб не утопили ребенка, сидел в другой комнате, ожидая окончания таинства. Он радостно взглянул на ребенка, когда ему вынесла его нянюшка, и одобрительно кивнул головой, когда нянюшка сообщила ему, что брошенный в купель вощечок с волосками не потонул, а поплыл по купели.\\n\\nX.\\n\\nУчастие Ростова в дуэли Долохова с Безуховым было замято стараниями старого графа, и Ростов вместо того, чтобы быть разжалованным, как он ожидал, был определен адъютантом к московскому генерал-губернатору. Вследствие этого он не мог ехать в деревню со всем семейством, а оставался при своей новой должности всё лето в Москве. Долохов выздоровел, и Ростов особенно сдружился с ним в это время его выздоровления. Долохов больной лежал у матери, страстно и нежно любившей его. Старушка Марья Ивановна, полюбившая Ростова за его дружбу к Феде, часто говорила ему про своего сына.\\n\\n— Да, граф, он слишком благороден и чист душою, — говаривала она, — для нашего нынешнего, развращенного света. Добродетели никто не любит, она всем глаза колет. Ну, скажите, граф, справедливо это, честно это со стороны Безухова? А Федя по своему благородству любил его, и теперь никогда ничего дурного про него не говорит. В Петербурге эти шалости с квартальным, там что-то шутили, ведь они вместе делали? Что ж, Безухову ничего, а Федя всё на своих плечах перенес! Ведь чтò он перенес! Положим, возвратили, да ведь как же и не возвратить? Я думаю таких, как он, храбрецов и сынов отечества не много там было. Чтò ж теперь — эта дуэль? Есть ли чувство честь у этих людей! Зная, что он единственный сын, вызвать на дуэль и стрелять так прямо! Хорошо, что Бог помиловал нас. И за чтò же? Ну, кто же в наше время не имеет интриги? Что ж, коли он так ревнив? Я понимаю, ведь он прежде мог дать почувствовать, а то год ведь продолжалось. И чтò же, вызвал на дуэль, полагая, что Федя не будет драться, потому что он ему должен. Какая низость! Какая гадость! Я знаю, вы Федю поняли, мой милый граф, оттого-то я вас душой люблю, верьте мне. Его редкие понимают. Это такая высокая, небесная душа!\\n\\nСам Долохов часто во время своего выздоровления говорил Ростову такие слова, которых никак нельзя было ожидать от него.\\n\\n— Меня считают злым человеком, я знаю, — говорил он, — и пускай. Я никого знать не хочу кроме тех, кого люблю; но кого я люблю, того люблю так, что жизнь отдам, а остальных передавлю всех, коли станут на дороге. У меня есть обожаемая, неоцененная мать, два-три друга, ты в том числе, а на остальных я обращаю внимание только на столько, на сколько они полезны или вредны. И все почти вредны, в особенности женщины. Да, душа моя, — продолжал он, — мужчин я встречал любящих, благородных, возвышенных; но женщин, кроме продажных тварей — графинь или кухарок, всё равно, — я не встречал еще. Я не встречал еще той небесной чистоты, преданности, которых я ищу в женщине. Ежели бы я нашел такую женщину, я бы жизнь отдал за нее. А эти!... — Он сделал презрительный жест. — И веришь ли мне, ежели я еще дорожу жизнью, то дорожу только потому, что надеюсь еще встретить такое небесное существо, которое бы возродило, очистило и возвысило меня. Но ты не понимаешь этого.\\n\\n— Нет, я очень понимаю, — отвечал Ростов, находившийся под влиянием своего нового друга.\\n\\n—————\\n\\nОсенью семейство Ростовых вернулось в Москву. В начале зимы вернулся и Денисов и остановился у Ростовых. Это первое время зимы 1806 года, проведенное Николаем Ростовым в Москве, было одно из самых счастливых и веселых для него и для всего его семейства. Николай привлек с собой в дом родителей много молодых людей. Вера была двадцатилетняя, красивая девица; Соня шестнадцатилетняя девушка во всей прелести только что распустившегося цветка; Наташа полу-барышня, полу-девочка, то детски смешная, то девически обворожительная.\\n\\nВ доме Ростовых завелась в это время какая-то особенная атмосфера любовности, как это бывает в доме, где очень милые и очень молодые девушки. Всякий молодой человек, приезжавший в дом Ростовых, глядя на эти молодые, восприимчивые, чему-то (вероятно своему счастию) улыбающиеся, девические лица, на эту оживленную беготню, слушая этот непоследовательный, но ласковый ко всем, на всё готовый, исполненный надежды лепет женской молодежи, слушая эти непоследовательные звуки, то пенья, то музыки, испытывал одно и то же чувство готовности к любви и ожидания счастья, которое испытывала и сама молодежь дома Ростовых.\\n\\nВ числе молодых людей, введенных Ростовым, был одним из первых — Долохов, который понравился всем в доме, исключая Наташи. За Долохова она чуть не поссорилась с братом. Она настаивала на том, что он злой человек, что в дуэли с Безуховым Пьер был прав, а Долохов виноват, что он неприятен и неестествен.\\n\\n— Нèчего мне понимать! — с упорным своевольством кричала Наташа, — он злой и без чувств. Вот ведь я же люблю твоего Денисова, он и кутила, и всё, а я всё-таки его люблю, стало быть я понимаю. Не умею, как тебе сказать; у него всё назначено, а я этого не люблю. Денисова...\\n\\n— Ну, Денисов другое дело, — отвечал Николай, давая чувствовать, что в сравнении с Долоховым даже и Денисов был ничто, — надо понимать, какая душа у этого Долохова, надо видеть его с матерью, это такое сердце!\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"Two hours after this, Prince Andrei entered his father’s study with quiet steps. The old man already knew everything. He was standing right by the door, and as soon as it opened, the old man silently clasped his son’s neck with his aged, hard hands, like a vise, and sobbed like a child.\\n\\nThree days later the funeral service was held for the little princess, and, taking leave of her, Prince Andrei mounted the steps to the coffin. And in the coffin was the same face, though with closed eyes. “Ah, what have you done to me?” it kept saying, and Prince Andrei felt that something had been torn away in his soul, that he was guilty of a wrong he could neither make amends for nor forget. He could not weep. The old man also went up and kissed her waxen little hand, which lay calmly and loftily upon the other, and to him her face said: “Ah, what have you done to me, and why?” And the old man turned away angrily when he saw that face.\\n\\nFive days later, the young Prince Nikolai Andreich was baptized. The nurse held the swaddling clothes in place with her chin while the priest, with a goose feather, anointed the boy’s wrinkled red little palms and soles.\\n\\nThe godfather—the grandfather—afraid of dropping him and trembling, carried the infant around the dented tin font and handed him to the godmother, Princess Marya. Prince Andrei, faint with fear lest they drown the child, sat in another room awaiting the end of the sacrament. He looked joyfully at the child when the nurse brought him out to him, and nodded approvingly when the nurse informed him that the little piece of wax with hairs on it, which had been thrown into the font, had not sunk but had floated upon the water.\\n\\nX.\\n\\nRostov’s involvement in Dolokhov’s duel with Bezukhov was hushed up through the efforts of the old count, and instead of being reduced to the ranks, as he had expected, Rostov was appointed an aide-de-camp to the governor-general of Moscow. Consequently, he could not go to the country with the whole family, but remained at his new post in Moscow throughout the summer. Dolokhov recovered, and Rostov became especially close to him during the period of his recovery. Dolokhov lay ill at the home of his mother, who loved him passionately and tenderly. The old lady, Marya Ivanovna, who had grown fond of Rostov because of his friendship with Fedya, often spoke to him about her son.\\n\\n“Yes, Count, he is too noble and pure in soul,” she would say, “for our present, corrupt world. No one loves virtue; it is an eyesore to everyone. Now tell me, Count, was that fair, was that honorable on Bezukhov’s part? And Fedya, in his nobility, loved him, and even now never says anything bad about him. In Petersburg, those escapades with the district police superintendent—they were playing some prank there, weren’t they, and they did it together? Yet nothing happened to Bezukhov, while Fedya bore the whole burden on his shoulders! And what he endured! Granted, they reinstated him, but how could they not reinstate him? I should think there were not many brave men and sons of the fatherland like him there. And now—this duel? Have those people any sense of honor? Knowing that he is an only son, to challenge him to a duel and shoot so straight! It is a good thing God had mercy on us. And what for? Well, who in our time does not have an affair? What of it, if he is so jealous? I understand—he could have made him feel it before, but it had gone on for a whole year. And then what does he do but challenge him to a duel, assuming that Fedya would not fight because he owed him money. What baseness! What vileness! I know that you understood Fedya, my dear Count; that is why I love you with all my soul, believe me. Few people understand him. His is such a lofty, heavenly soul!”\\n\\nDuring his recovery, Dolokhov himself often said things to Rostov that no one could possibly have expected from him.\\n\\n“They consider me a wicked man, I know,” he said, “and let them. I want to know no one except those whom I love; but whomever I love, I love so much that I would give my life for him, while all the rest I will crush if they stand in my way. I have an adored, inestimable mother, two or three friends, including you, and I pay attention to the rest only insofar as they are useful or harmful. And almost all of them are harmful, especially women. Yes, my dear,” he continued, “I have met loving, noble, exalted men; but women—apart from venal creatures, countesses or kitchen maids, it makes no difference—I have not yet met. I have not yet encountered that heavenly purity and devotion which I seek in a woman. If I found such a woman, I would give my life for her. But these!” He made a contemptuous gesture. “And will you believe me, if I still value life, I value it only because I still hope to meet such a heavenly being, one who would regenerate, purify, and exalt me. But you do not understand this.”\\n\\n“No, I understand very well,” replied Rostov, who was under the influence of his new friend.\\n\\n—————\\n\\nIn the autumn, the Rostov family returned to Moscow. At the beginning of winter, Denisov returned as well and stayed with the Rostovs. This first part of the winter of 1806, which Nikolai Rostov spent in Moscow, was one of the happiest and merriest times for him and for his whole family. Nikolai brought many young men with him to his parents’ house. Vera was a beautiful young woman of twenty; Sonya was a sixteen-year-old girl in all the loveliness of a flower that had only just opened; Natasha was half young lady, half child, now childishly amusing, now girlishly enchanting.\\n\\nAt that time a certain special atmosphere of amorousness arose in the Rostovs’ house, as happens in a house where there are very charming and very young girls. Every young man who came to the Rostovs’ house, looking at those young, impressionable, maidenly faces smiling at something—probably at their own happiness—at all that lively running to and fro, listening to the disjointed yet affectionate prattle of the young women, friendly to everyone, ready for anything, and full of hope, listening to those disjointed sounds, now of singing, now of music, experienced the same feeling of readiness for love and expectation of happiness that the young people of the Rostov household themselves experienced.\\n\\nAmong the young men introduced by Rostov, one of the foremost was Dolokhov, who pleased everyone in the house except Natasha. She nearly quarreled with her brother over Dolokhov. She insisted that he was a wicked man, that in the duel with Bezukhov, Pierre had been in the right and Dolokhov in the wrong, and that Dolokhov was unpleasant and unnatural.\\n\\n“There is nothing for me to understand!” Natasha cried with stubborn willfulness. “He is wicked and has no feelings. Why, I love your Denisov; he is a carouser and everything, but I love him all the same, so that means I do understand. I don’t know how to explain it to you; everything about him is calculated, and I don’t like that. But Denisov...”\\n\\n“Well, Denisov is another matter,” Nikolai replied, making it clear that, compared with Dolokhov, even Denisov was nothing. “You have to understand what kind of soul this Dolokhov has; you have to see him with his mother. What a heart!”\", \"source_occurrence_id\": \"tolstoy-war-and-peace-17abcfdad026ed90\", \"source_language\": \"ru\", \"source_language_text_sha256\": \"d9b339f2e0c0e03a0c789eed3b78106ca1fadc645be8fd27139a9a1c517f5cae\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-21T23:03:14.894914+00:00\", \"model_usage\": {\"input_tokens\": 2095, \"cached_input_tokens\": 0, \"output_tokens\": 1994}, \"estimated_cost_usd\": 0.04826, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"tolstoy-war-and-peace\", \"title\": \"Война и мир\", \"author\": \"Лев Толстой\", \"language\": \"ru\", \"source_type\": \"tolstoy_online\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.263765, \"source_start\": 767361, \"source_end\": 767378, \"source_length\": 2909261}, \"form\": {\"form_family\": \"canonical_present\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"ru_present_soul_modifier\", \"pattern_version\": \"0.13\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

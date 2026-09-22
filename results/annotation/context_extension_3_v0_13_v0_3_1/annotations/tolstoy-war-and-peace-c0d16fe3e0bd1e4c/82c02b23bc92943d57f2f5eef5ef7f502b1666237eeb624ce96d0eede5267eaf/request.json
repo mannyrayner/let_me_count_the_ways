@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"tolstoy-war-and-peace-c0d16fe3e0bd1e4c\", \"SOURCE_TEXT\": {\"exact_match\": \"я тебя люблю\", \"local_text\": {\"context_start\": 1601876, \"context_end\": 1601979, \"text\": \"«Оттого, что я тебя люблю!» хотел он сказать, но он не сказал этого, до слез покраснел и опустил глаза.\"}, \"wider_canonical_context\": {\"context_start\": 1598442, \"context_end\": 1605486, \"text\": \"Прочтя об опасностях, угрожающих России, о надеждах, возлагаемых государем на Москву, и в особенности на знаменитое дворянство, Соня с дрожанием голоса, происходившим преимущественно от внимания, с которым ее слушали, прочла последние слова: «Мы не умедлим сами стать посреди народа своего в сей столице и в других государства нашего местах для совещания и руководствования всеми нашими ополчениями, как ныне преграждающими пути врагу, так и вновь устроенными на поражение оного везде, где только появится. Да обратится погибель, в которую он мнит низринуть нас, на главу его, и освобожденная от рабства Европа да возвеличит имя России!»\\n\\n— Вот это так! — вскрикнул граф, открывая мокрые глаза и несколько раз прерываясь от сопенья, как будто к носу ему подносили стклянку с крепкою уксусною солью. — Только скажи государь, мы всем пожертвуем и ничего не пожалеем.\\n\\nШиншин еще не успел сказать приготовленную им шутку на патриотизм графа, как Наташа вскочила с своего места и подбежала к отцу.\\n\\n— Чтό за прелесть, этот папа! — проговорила она, целуя его, и она опять взглянула на Пьера с тем бессознательным кокетством, которое вернулось к ней вместе с ее оживлением.\\n\\n— Вот так патриотка! — сказал Шиншин.\\n\\n— Совсем не патриотка, а просто... — обиженно отвечала Наташа. — Вам всё смешно, а это совсем не шутка...\\n\\n— Какие шутки! — повторил граф. — Только скажи он слово, мы все пойдем... Мы не немцы какие-нибудь...\\n\\n— А заметили вы, — сказал Пьер, что сказано: «для совещания».\\n\\n— Ну уж там для чего бы ни было...\\n\\nВ это время Петя, на которого никто не обращал внимания, подошел к отцу и, весь красный, ломающимся, то грубым, то тонким голосом, сказал:\\n\\n— Ну теперь, папенька, я решительно скажу — и маменька тоже, как хотите — я решительно скажу, что вы пустите меня в военную службу, потому что я не могу... вот и всё...\\n\\nГрафиня с ужасом подняла глаза к небу, всплеснула руками и сердито обратилась к мужу:\\n\\n— Вот и договорился! — сказала она.\\n\\nНо граф в ту же минуту оправился от волнения.\\n\\n— Ну, ну, — сказал он. — Вот воин еще! Глупости-то оставь: учиться надо.\\n\\n— Это не глупости, папенька. Оболенский Федя моложе меня и тоже идет, а главное, всё равно, я ничему не могу учиться теперь, когда... — Петя остановился, покраснел до поту и проговорил-таки: — когда отечество в опасности.\\n\\n— Полно, полно, глупости...\\n\\n— Да ведь вы сами сказали, что всем пожертвуем.\\n\\n— Петя! Я тебе говорю, замолчи, — крикнул граф, оглядываясь на жену, которая, побледнев, смотрела остановившимися глазами на меньшого сына.\\n\\n— А я вам говорю. Вот и Петр Кириллович скажет...\\n\\n— Я тебе говорю — вздор, еще молоко не обсохло, а в военную службу хочет! Ну, ну, я тебе говорю, — и граф, взяв с собой бумаги, вероятно чтоб еще раз прочесть в кабинете перед отдыхом, пошел из комнаты.\\n\\n— Петр Кириллович, чтό ж, пойдем покурить...\\n\\nПьер находился в смущении и нерешительности. Непривычно-блестящие и оживленные глаза Наташи беспрестанно, больше чем ласково обращавшиеся на него, привели его в это состояние.\\n\\n— Нет, я, кажется, домой поеду...\\n\\n— Как домой, да вы вечер у нас хотели... И то редко стали бывать. А эта моя... — сказал добродушно граф, указывая на Наташу, — только при вас и весела...\\n\\n— Да, я забыл... Мне непременно надо домой... Дела... — поспешно сказал Пьер.\\n\\n— Ну так до свидания, — сказал граф, совсем уходя из комнаты.\\n\\n— Отчего вы уезжаете? Отчего вы расстроены? Отчего?... — спросила Пьера Наташа, вызывающе глядя ему в глаза.\\n\\n«Оттого, что я тебя люблю!» хотел он сказать, но он не сказал этого, до слез покраснел и опустил глаза.\\n\\n— Оттого, что мне лучше реже бывать у вас... Оттого... нет, просто у меня дела...\\n\\n— Отчего? нет, скажите, — решительно начала было Наташа и вдруг замолчала. Они оба испуганно и смущенно смотрели друг на друга. Он попытался усмехнуться, но не мог: улыбка его выразила страдание, и он молча поцеловал ее руку и вышел.\\n\\nПьер решил сам с собою не бывать больше у Ростовых.\\n\\nXXI.\\n\\nПетя, после полученного им решительного отказа, ушел в свою комнату и там, запершись от всех, горько плакал. Все сделали как будто ничего не заметили, когда он к чаю пришел молчаливым и мрачным с заплаканными глазами.\\n\\nНа другой день приехал государь. Несколько человек дворовых Ростовых отпросились пойти поглядеть царя. В это утро Петя долго одевался, причесывался и устраивал воротнички так, как у больших. Он хмурился перед зеркалом, делал жесты, пожимал плечами, и наконец, никому не сказавши, надел фуражку и вышел из дома с заднего крыльца, стараясь быть незамеченным. Петя решился итти прямо к тому месту, где был государь, и прямо объяснить какому-нибудь камергеру (Пете казалось, что государя всегда окружают камергеры), что он, граф Ростов, несмотря на свою молодость, желает служить отечеству, что молодость не может быть препятствием для преданности, и что он готов... Петя, в то время как он собирался, приготовил много прекрасных слов, которые он скажет камергеру.\\n\\nПетя рассчитывал на успех своего представления государю именно потому, что он ребенок (Петя думал даже, как все удивятся его молодости), а вместе с тем в устройстве своих воротничков, в прическе и в степенной медлительной походке, он хотел представить из себя старого человека. Но чем дальше он шел, чем больше он развлекался всё прибывающим и прибывающим у Кремля народом, тем больше он забывал соблюдение степенности и медлительности, свойственных взрослым людям. Подходя к Кремлю, он уже стал заботиться о том, чтоб его не затолкали, и решительно, с угрожающим видом выставил по бокам локти. Но в Троицких воротах, несмотря на всю его решительность, люди, которые вероятно не знали, с какою патриотическою целью он шел в Кремль, так прижали его к стене, что он должен был покориться и остановиться, пока в ворота с гудящим под сводами звуком проезжали экипажи. Около Пети стояла баба с лакеем, два купца и отставной солдат. Постояв несколько времени в воротах, Петя, не дождавшись того, чтобы все экипажи проехали, прежде других хотел тронуться дальше и начал решительно работать локтями; но баба, стоявшая против него, на которую он первую направил свои локти, сердито крикнула на него:\\n\\n— Чтό, барчук, толкаешься, видишь — все стоят. Чтό ж лезть-то!\\n\\n— Так и все полезут, — сказал лакей и, тоже начав работать локтями, затискал Петю в вонючий угол ворот.\\n\\nПетя отер руками пот, покрывавший его лицо, и поправил размочившиеся от пота воротнички, которые он так хорошо, как у больших, устроил дома.\\n\\nПетя чувствовал, что он имеет непрезентабельный вид, и боялся, что ежели таким он представится камергерам, то его не допустят до государя. Но оправиться и перейти в другое место не было никакой возможности от тесноты. Один из проезжающих генералов был знакомый Ростовых. Петя хотел просить его помощи, но счел, что это было бы противно мужеству. Когда все экипажи проехали, толпа хлынула и вынесла и Петю на площадь, которая была вся занята народом. Не только по площади, но на откосах, на крышах, везде был народ. Только что Петя очутился на площади, он явственно услыхал наполнявшие весь Кремль звуки колоколов и радостного, народного говора.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"After reading about the dangers threatening Russia, about the hopes placed by the sovereign in Moscow, and especially in its renowned nobility, Sonya, with a tremor in her voice arising chiefly from the attention with which she was being listened to, read the final words: “We shall not delay in coming personally into the midst of our people in this capital and in other places of our realm, to confer and to direct all our levies, both those now barring the enemy’s way and those newly raised to strike him down wherever he may appear. May the destruction into which he thinks to cast us recoil upon his own head, and may Europe, freed from bondage, magnify the name of Russia!”\\n\\n“There, now! That’s the way!” cried the count, opening his moist eyes and pausing several times to snuffle, as though a bottle of strong vinegar salts were being held to his nose. “The sovereign need only say the word, and we shall sacrifice everything and begrudge nothing.”\\n\\nShinshin had not yet had time to make the joke he had prepared about the count’s patriotism when Natasha sprang up from her seat and ran over to her father.\\n\\n“What a darling this papa is!” she said, kissing him, and she looked at Pierre again with that unconscious coquetry which had returned to her together with her animation.\\n\\n“There’s a patriot for you!” said Shinshin.\\n\\n“I’m not a patriot at all, but simply...” Natasha replied, offended. “Everything is a joke to you, but this is no joke at all...”\\n\\n“What jokes!” the count repeated. “He need only say the word, and we shall all go... We’re not some sort of Germans...”\\n\\n“But did you notice,” said Pierre, “that it says, ‘to confer’?”\\n\\n“Well, whatever it may be for...”\\n\\nAt that moment Petya, to whom no one was paying any attention, went up to his father and, red all over, said in a breaking voice, now deep, now shrill:\\n\\n“Well, now, Papa, I shall say it once and for all—and Mama too, as you please—I shall say it once and for all: you must let me enter military service, because I cannot... that is all...”\\n\\nThe countess raised her eyes to heaven in horror, threw up her hands, and turned angrily to her husband.\\n\\n“There, that’s what your talk has led to!” she said.\\n\\nBut the count recovered from his emotion that very moment.\\n\\n“Come, come,” he said. “Here’s another warrior! Stop this nonsense: you must study.”\\n\\n“It is not nonsense, Papa. Fedya Obolensky is younger than I am and he is going too, and most importantly, it makes no difference, I cannot learn anything now, when...” Petya stopped, flushed until he broke into a sweat, and said after all, “when the fatherland is in danger.”\\n\\n“That will do, that will do—nonsense...”\\n\\n“But you yourself said that we would sacrifice everything.”\\n\\n“Petya! I am telling you to be quiet,” shouted the count, glancing at his wife, who had gone pale and was staring fixedly at her younger son.\\n\\n“And I am telling you. Pyotr Kirillovich will say so too...”\\n\\n“I am telling you—it is rubbish; the milk is not yet dry on your lips, and you want to enter military service! Come, come, I am telling you,” and the count, taking the papers with him, probably to read them once more in his study before resting, left the room.\\n\\n“Pyotr Kirillovich, well then, let us go and have a smoke...”\\n\\nPierre was in a state of confusion and indecision. Natasha’s unaccustomedly shining and animated eyes, constantly turning toward him with more than tenderness, had brought him into this state.\\n\\n“No, I think I shall go home...”\\n\\n“Home? But you meant to spend the evening with us... And you have begun coming so rarely as it is. And this girl of mine...” said the count good-naturedly, pointing to Natasha, “is cheerful only when you are here...”\\n\\n“Yes, I had forgotten... I absolutely must go home... Business...” Pierre said hurriedly.\\n\\n“Well then, good-bye,” said the count, finally leaving the room.\\n\\n“Why are you leaving? Why are you upset? Why?...” Natasha asked Pierre, looking challengingly into his eyes.\\n\\n“Because I love you!” he wanted to say, but he did not say it; he flushed to the point of tears and lowered his eyes.\\n\\n“Because it is better for me to visit you less often... Because... no, I simply have business...”\\n\\n“Why? No, tell me,” Natasha began resolutely, and suddenly fell silent. They both looked at each other in fear and confusion. He tried to smile, but could not: his smile expressed suffering, and he silently kissed her hand and went out.\\n\\nPierre resolved within himself not to visit the Rostovs anymore.\\n\\nXXI.\\n\\nAfter receiving this categorical refusal, Petya went to his room and there, having locked himself away from everyone, wept bitterly. Everyone behaved as though they had noticed nothing when he came to tea, silent and gloomy, with tear-stained eyes.\\n\\nThe next day the sovereign arrived. Several of the Rostovs’ household servants asked leave to go and see the Tsar. That morning Petya spent a long time dressing, combing his hair, and arranging his collars the way grown men did. He frowned at himself in the mirror, made gestures, shrugged his shoulders, and finally, without telling anyone, put on his forage cap and left the house by the back steps, trying not to be noticed. Petya had resolved to go straight to the place where the sovereign was and to explain directly to some chamberlain (Petya imagined that the sovereign was always surrounded by chamberlains) that he, Count Rostov, despite his youth, wished to serve the fatherland, that youth could be no obstacle to devotion, and that he was ready... While getting dressed, Petya had prepared many splendid words that he would say to the chamberlain.\\n\\nPetya counted on the success of his presentation to the sovereign precisely because he was a child (Petya even thought how everyone would marvel at his youth), while at the same time, in the arrangement of his collars, in his hairstyle, and in his sedate, deliberate gait, he wanted to present himself as an old man. But the farther he walked, and the more he was distracted by the ever-growing crowds arriving at the Kremlin, the more he forgot to maintain the sedateness and deliberateness proper to grown men. As he approached the Kremlin, he began to concern himself with not being jostled and resolutely thrust out his elbows on either side with a menacing air. But at the Trinity Gate, despite all his resolution, people who probably did not know the patriotic purpose for which he was going to the Kremlin pressed him so hard against the wall that he had to submit and stop while carriages passed through the gate with a rumbling sound echoing beneath the arches. Beside Petya stood a peasant woman with a footman, two merchants, and a retired soldier. After standing in the gate for some time, Petya, without waiting for all the carriages to pass, wanted to move on before the others and began resolutely working with his elbows; but the woman standing opposite him, at whom he first directed his elbows, shouted at him angrily:\\n\\n“Why are you pushing, young master? You can see everyone is standing still. Why must you shove your way through?”\\n\\n“Then everyone will start shoving through,” said the footman, and, also beginning to work with his elbows, he squeezed Petya into a stinking corner of the gateway.\\n\\nPetya wiped away with his hands the sweat covering his face and straightened his collars, which had gone limp with sweat and which he had arranged so well at home, the way grown men did.\\n\\nPetya felt that he looked unpresentable and was afraid that if he appeared before the chamberlains in such a state, he would not be admitted to the sovereign. But there was no possibility of tidying himself up or moving to another place because of the crush. One of the generals passing by was an acquaintance of the Rostovs. Petya wanted to ask for his help, but considered that this would be contrary to courage. When all the carriages had passed, the crowd surged forward and swept Petya out into the square, which was completely filled with people. There were people not only in the square, but on the slopes, on the roofs—everywhere. No sooner had Petya found himself in the square than he distinctly heard the sounds of bells and the joyful murmur of the people filling the entire Kremlin.\", \"source_occurrence_id\": \"tolstoy-war-and-peace-c0d16fe3e0bd1e4c\", \"source_language\": \"ru\", \"source_language_text_sha256\": \"092adfde3fdcd54f7f768d2ce280613f2124d77d60baaf2a2b4303233226eb11\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-21T23:15:23.337803+00:00\", \"model_usage\": {\"input_tokens\": 2359, \"cached_input_tokens\": 0, \"output_tokens\": 2097}, \"estimated_cost_usd\": 0.051376, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"tolstoy-war-and-peace\", \"title\": \"Война и мир\", \"author\": \"Лев Толстой\", \"language\": \"ru\", \"source_type\": \"tolstoy_online\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.550617, \"source_start\": 1601889, \"source_end\": 1601901, \"source_length\": 2909261}, \"form\": {\"form_family\": \"canonical_present\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"ru_present_object_first_affirmative\", \"pattern_version\": \"0.13\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 1.0, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

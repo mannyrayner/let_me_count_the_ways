@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"tolstoy-war-and-peace-c93b9ce1720ccfb5\", \"SOURCE_TEXT\": {\"exact_match\": \"я тебя люблю\", \"local_text\": {\"context_start\": 2576410, \"context_end\": 2576569, \"text\": \"— Маша, — сказала она, робко притянув к себе ее руку. — Маша, ты не думай, что я дурная. Нет? Маша, голубушка. Как я тебя люблю. Будем совсем, совсем друзьями.\"}, \"wider_canonical_context\": {\"context_start\": 2573437, \"context_end\": 2579609, \"text\": \"Наташа не помнила, как прошел этот день, ночь, следующий день и следующая ночь. Она не спала и не отходила от матери. Любовь Наташи, упорная, терпеливая, не как объяснение, не как утешение, а как призыв к жизни, всякую секунду как будто со всех сторон обнимала графиню. На третью ночь графиня затихла на несколько минут, и Наташа закрыла глаза, облокотив голову на ручку кресла. Кровать скрипнула, Наташа открыла глаза. Графиня сидела на кровати и тихо говорила.\\n\\n— Как я рада, что ты приехал. Ты устал, хочешь чаю? — Наташа подошла к ней. — Ты похорошел и возмужал, — продолжала графиня, взяв дочь за руку.\\n\\n— Маменька, чтò вы говорите!..\\n\\n— Наташа, его нет, нет больше! — И, обняв дочь, в первый раз графиня начала плакать.\\n\\nIII.\\n\\nКняжна Марья отложила свой отъезд. Соня, граф старались заменить Наташу, но не могли. Они видели, что она одна могла удерживать мать от безумного отчаяния. Три недели Наташа безвыходно жила при матери, спала на кресле в ее комнате, поила, кормила ее и, не переставая, говорила с ней, говорила, потому что один нежный, ласкающий голос ее успокоивал графиню.\\n\\nДушевная рана матери не могла залечиться. Смерть Пети оторвала половину ее жизни. Через месяц после известия о смерти Пети, заставшего ее свежею и бодрою пятидесятилетнею женщиной, она вышла из своей комнаты полумертвою и не принимающею участия в жизни — старухой. Но та же рана, которая наполовину убила графиню, эта новая рана вызвала Наташу к жизни.\\n\\nДушевная рана, происходящая от разрыва духовного существа, как ни странно это кажется, понемногу закрывается, точно так же, как и рана физическая. И после того как глубокая рана зажила и кажется сошедшеюся своими краями, рана душевная, как и физическая, заживает только изнутри выпирающею силой жизни.\\n\\nТак же зажила рана Наташи. Она думала, что жизнь ее кончена. Но вдруг любовь к матери показала ей, что сущность ее жизни — любовь — еще жива в ней. Проснулась любовь, и проснулась жизнь.\\n\\nПоследние дни князя Андрея связали Наташу с княжной Марьей. Новое несчастье еще более сблизило их. Княжна Марья отложила свой отъезд и последние три недели, как за больным ребенком, ухаживала за Наташей. Последние недели, проведенные Наташей в комнате матери, надорвали ее физические силы.\\n\\nОднажды в середине дня княжна Марья, заметив, что Наташа дрожит в лихорадочном ознобе, увела ее к себе и уложила на своей постели. Наташа легла, но когда княжна Марья, опустив сторы, хотела выйти, Наташа подозвала ее к себе.\\n\\n— Мне не хочется спать. Мари, посиди со мной.\\n\\n— Ты устала — постарайся заснуть.\\n\\n— Нет, нет. Зачем ты увела меня? Она спросит.\\n\\n— Ей гораздо лучше. Она нынче так хорошо говорила, — сказала княжна Марья.\\n\\nНаташа лежала в постели и в полутьме комнаты рассматривала лицо княжны Марьи.\\n\\n«Похожа она на него?» — думала Наташа. «Да, похожа и не похожа. Но она особенная, чужая, совсем новая, неизвестная. И она любит меня. Чтò у ней на душе? Всё доброе. Но как? Как она думает? Как она на меня смотрит? Да, она прекрасная».\\n\\n— Маша, — сказала она, робко притянув к себе ее руку. — Маша, ты не думай, что я дурная. Нет? Маша, голубушка. Как я тебя люблю. Будем совсем, совсем друзьями.\\n\\nИ Наташа, обнимая, стала целовать руки и лицо княжны Марьи. Княжна Марья стыдилась и радовалась этому выражению чувств Наташи.\\n\\nС этого дня между княжной Марьей и Наташей установилась та страстная и нежная дружба, которая бывает только между женщинами. — Они беспрестанно целовались, говорили друг другу нежные слова и большую часть времени проводили вместе. Если одна выходила, то другая была беспокойна и спешила присоединиться к ней. Они вдвоем чувствовали бòльшее согласие между собой, чем порознь, каждая сама с собою. Между ними установилось чувство сильнейшее, чем дружба: это было исключительное чувство возможности жизни только в присутствии друг друга.\\n\\nИногда они молчали целые часы; иногда, уже лежа в постелях, они начинали говорить и говорили до утра. Они говорили большею частию о давнем прошедшем. Княжна Марья рассказывала про свое детство, про свою мать, про своего отца, про свои мечтания; и Наташа, прежде с спокойным непониманием отворачивавшаяся от этой жизни преданности, покорности, от поэзии христианского самоотвержения, теперь, чувствуя себя связанною любовью с княжной Марьей, полюбила и прошедшее княжны Марьи и поняла непонятную ей прежде сторону жизни. Она не думала прилагать к своей жизни покорность и самоотвержение, потому что она привыкла искать других радостей, но она поняла и полюбила в другой эту прежде непонятную ей добродетель. Для княжны Марьи, слушавшей рассказы о детстве и первой молодости Наташи, тоже открылась прежде непонятная сторона жизни, вера в жизнь, в наслаждения жизни.\\n\\nОни всё точно так же не говорили про него с тем, чтобы не нарушать словами, как им казалось, той высоты чувства, которая была в них, а это умолчание о нем делало то, что понемногу, не веря этому, они забывали его.\\n\\nНаташа похудела, побледнела и физически так стала слаба, что все постоянно говорили о ее здоровье, и ей это приятно было. Но иногда на нее неожиданно находил не только страх смерти, но страх болезни, слабости, потери красоты, и невольно она иногда внимательно разглядывала свою голую руку, удивляясь на худобу, или заглядывалась по утрам в зеркало на свое вытянувшееся, жалкое, как ей казалось, лицо. Ей казалось, что это так должно быть и вместе с тем становилось страшно и грустно.\\n\\nОдин раз она скоро взошла наверх и тяжело запыхалась. Тотчас же невольно она придумала себе дело внизу и оттуда вбежала опять вверх, пробуя силы и наблюдая за собой.\\n\\nДругой раз она позвала Дуняшу и голос ее задребезжал. Она еще раз кликнула ее, несмотря на то, что она слышала ее шаги, — кликнула тем грудным голосом, которым она певала, и прислушалась к нему.\\n\\nОна не знала этого, не поверила бы, но под казавшимся ей непроницаемым слоем ила, застлавшим ее душу, уже пробивались тонкие, нежные молодые иглы травы, которые должны были укорениться и так застлать своими жизненными побегами задавившее ее горе, что его скоро будет не видно и не заметно. Рана заживала изнутри.\\n\\nВ конце января княжна Марья уехала в Москву и граф настоял на том, чтобы Наташа ехала с нею, с тем чтобы посоветоваться с докторами.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"Natasha did not remember how that day passed, or the night, or the next day and the next night. She did not sleep and did not leave her mother’s side. Natasha’s love, steadfast and patient, not as an explanation, not as consolation, but as a summons to life, seemed every second to embrace the countess from all sides. On the third night the countess grew quiet for several minutes, and Natasha closed her eyes, resting her head on the arm of the chair. The bed creaked; Natasha opened her eyes. The countess was sitting up in bed and speaking softly.\\n\\n“How glad I am that you have come. You are tired; would you like some tea?” Natasha went over to her. “You have grown more handsome and manly,” the countess continued, taking her daughter by the hand.\\n\\n“Mamma, what are you saying!…”\\n\\n“Natasha, he is gone, gone forever!” And, embracing her daughter, the countess began to weep for the first time.\\n\\nIII.\\n\\nPrincess Marya postponed her departure. Sonya and the count tried to take Natasha’s place, but they could not. They saw that she alone could keep her mother from mad despair. For three weeks Natasha remained constantly at her mother’s side, slept in an armchair in her room, gave her drink and food, and talked to her without ceasing—talked because her tender, caressing voice alone soothed the countess.\\n\\nThe mother’s spiritual wound could not heal. Petya’s death had torn away half her life. A month after the news of Petya’s death, which had found her a fresh and vigorous woman of fifty, she emerged from her room half dead and taking no part in life—an old woman. But the same wound that had half killed the countess, this new wound, called Natasha back to life.\\n\\nA spiritual wound caused by the rending of a spiritual being, strange though it may seem, closes little by little, just like a physical wound. And after a deep wound has healed and its edges seem to have come together, a spiritual wound, like a physical one, heals only through the force of life pushing outward from within.\\n\\nNatasha’s wound healed in the same way. She thought that her life was over. But suddenly her love for her mother showed her that the essence of her life—love—was still alive within her. Love awoke, and life awoke.\\n\\nPrince Andrei’s last days had bound Natasha to Princess Marya. The new misfortune brought them still closer together. Princess Marya postponed her departure and, for the last three weeks, tended Natasha as though she were a sick child. The final weeks Natasha had spent in her mother’s room had undermined her physical strength.\\n\\nOne day in the middle of the day, Princess Marya, noticing that Natasha was trembling with a feverish chill, took her to her own room and put her to bed. Natasha lay down, but when Princess Marya, after lowering the blinds, was about to leave, Natasha called her over.\\n\\n“I do not want to sleep. Marie, sit with me.”\\n\\n“You are tired—try to fall asleep.”\\n\\n“No, no. Why did you take me away? She will ask for me.”\\n\\n“She is much better. She spoke so well today,” said Princess Marya.\\n\\nNatasha lay in bed and, in the room’s half-darkness, studied Princess Marya’s face.\\n\\n“Does she look like him?” Natasha thought. “Yes, she does and she does not. But she is special, a stranger, entirely new, unknown. And she loves me. What is in her soul? Everything good. But how? How does she think? How does she look at me? Yes, she is beautiful.”\\n\\n“Masha,” she said, timidly drawing her hand toward her. “Masha, do not think that I am bad. No? Masha, darling. How I love you. Let us be completely, completely friends.”\\n\\nAnd Natasha, embracing her, began kissing Princess Marya’s hands and face. Princess Marya was embarrassed and delighted by this expression of Natasha’s feelings.\\n\\nFrom that day onward, there arose between Princess Marya and Natasha that passionate and tender friendship which exists only between women. They kissed constantly, said tender words to each other, and spent most of their time together. If one went out, the other became anxious and hurried to join her. Together they felt greater harmony with each other than they did apart, each alone with herself. A feeling stronger than friendship arose between them: it was the exclusive feeling that life was possible only in each other’s presence.\\n\\nSometimes they were silent for hours at a time; sometimes, already lying in their beds, they began to talk and talked until morning. They spoke mostly of the distant past. Princess Marya told of her childhood, of her mother, of her father, of her dreams; and Natasha, who before had turned away with calm incomprehension from this life of devotion and submission, from the poetry of Christian self-renunciation, now, feeling herself bound to Princess Marya by love, came to love Princess Marya’s past as well and understood the aspect of life that had previously been incomprehensible to her. She did not think of applying submission and self-renunciation to her own life, because she was accustomed to seeking other joys, but she understood and came to love in another this virtue that had previously been incomprehensible to her. For Princess Marya, who listened to stories of Natasha’s childhood and early youth, a previously incomprehensible aspect of life was likewise revealed: faith in life, in the pleasures of life.\\n\\nStill, just as before, they did not speak of him, so as not to disturb with words what seemed to them the loftiness of the feeling within them; and this silence about him caused them, little by little and without believing it, to forget him.\\n\\nNatasha grew thin and pale and became so physically weak that everyone constantly spoke about her health, and this pleased her. But sometimes she was unexpectedly seized not only by fear of death, but by fear of illness, weakness, and loss of beauty; and at times she involuntarily examined her bare arm attentively, amazed at its thinness, or in the mornings stared in the mirror at her elongated, pitiful face, as it seemed to her. It seemed to her that this was how it had to be, and at the same time she grew frightened and sad.\\n\\nOnce she went upstairs quickly and became heavily out of breath. At once, involuntarily, she invented an errand for herself downstairs, and from there ran upstairs again, testing her strength and observing herself.\\n\\nAnother time she called Dunyasha, and her voice quavered. She called her once more, even though she could hear her footsteps—called in that full, deep voice in which she used to sing, and listened to it.\\n\\nShe did not know it and would not have believed it, but beneath the layer of silt that seemed to her impenetrable and had covered her soul, slender, tender young blades of grass were already pushing through; they were destined to take root and so cover with their living shoots the grief that had crushed her that it would soon be neither visible nor noticeable. The wound was healing from within.\\n\\nAt the end of January Princess Marya left for Moscow, and the count insisted that Natasha go with her in order to consult the doctors.\", \"source_occurrence_id\": \"tolstoy-war-and-peace-c93b9ce1720ccfb5\", \"source_language\": \"ru\", \"source_language_text_sha256\": \"6e42dbb2b8094072f84417edfed44a22b613d71a44056f4f6bf614801711bd77\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-21T23:16:24.977526+00:00\", \"model_usage\": {\"input_tokens\": 2084, \"cached_input_tokens\": 0, \"output_tokens\": 1867}, \"estimated_cost_usd\": 0.045675999999999994, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"tolstoy-war-and-peace\", \"title\": \"Война и мир\", \"author\": \"Лев Толстой\", \"language\": \"ru\", \"source_type\": \"tolstoy_online\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.885629, \"source_start\": 2576525, \"source_end\": 2576537, \"source_length\": 2909261}, \"form\": {\"form_family\": \"canonical_present\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"ru_present_object_first_affirmative\", \"pattern_version\": \"0.13\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"tolstoy-war-and-peace-1cfaf0f75c6018e9\", \"SOURCE_TEXT\": {\"exact_match\": \"Je vous aime\", \"local_text\": {\"context_start\": 490162, \"context_end\": 490308, \"text\": \"— Je vous aime! — сказал он, вспомнив то, чтó нужно было говорить в этих случаях; но слова эти прозвучали так бедно, что ему стало стыдно за себя.\"}, \"wider_canonical_context\": {\"context_start\": 486951, \"context_end\": 493228, \"text\": \"Пьер улыбнулся, но по его улыбке видно было, что он понимал, что не анекдот Сергея Кузьмича интересовал в это время князя Василья; и князь Василий понял, что Пьер понимал это. Князь Василий вдруг пробурлил что-то и вышел. Пьеру показалось, что даже князь Василий был смущен. Вид смущенья этого старого светского человека тронул Пьера; он оглянулся на Элен — и она, казалось, была смущена и взглядом говорила: «чтó ж, вы сами виноваты».\\n\\n«Надо неизбежно перешагнуть, но не могу, я не могу», думал Пьер, и заговорил опять о постороннем, о Сергее Кузьмиче, спрашивая, в чем состоял этот анекдот, так как он его не расслышал. Элен с улыбкой отвечала, что она тоже не знает.\\n\\nКогда князь Василий вошел в гостиную, княгиня тихо говорила с пожилой дамой о Пьере.\\n\\n— Конечно, c’est un parti très brillant, mais le bonheur, ma chère...\\n\\n— Les mariages se font dans les cieux, — отвечала пожилая дама.\\n\\nКнязь Василий, как бы не слушая дам, прошел в дальний угол и сел на диван. Он закрыл глаза и как будто дремал. Голова его было упала, и он очнулся.\\n\\n— Aline, — сказал он жене, — allez voir ce qu’ils font.\\n\\nКнягиня подошла к двери, прошлась мимо нее с значительным, равнодушным видом и заглянула в гостиную. Пьер и Элен так же сидели и разговаривали.\\n\\n— Всё то же, — отвечала она мужу.\\n\\nКнязь Василий нахмурился, сморщил рот на сторону, щеки его запрыгали с свойственным ему неприятным, грубым выражением; он, встряхнувшись, встал, закинул назад голову и решительными шагами, мимо дам, прошел в маленькую гостиную. Он скорыми шагами, радостно подошел к Пьеру. Лицо князя было так необыкновенно-торжественно, что Пьер испуганно встал, увидав его.\\n\\n— Слава Богу! — сказал он. — Жена мне всё сказала! — Он обнял одною рукой Пьера, другою — дочь. — Друг мой Леля! Я очень, очень рад. — Голос его задрожал. — Я любил твоего отца... и она будет тебе хорошая жена... Бог да благословит вас!...\\n\\nОн обнял дочь, потом опять Пьера и поцеловал его своим старческим ртом. Слезы, действительно, омочили его щеки.\\n\\n— Княгиня, иди же сюда, — прокричал он.\\n\\nКнягиня вышла и заплакала тоже. Пожилая дама тоже утиралась платком. Пьера целовали, и он несколько раз целовал руку прекрасной Элен. Через несколько времени их опять оставили одних.\\n\\n«Всё это так должно было быть и не могло быть иначе, — думал Пьер, — поэтому нечего спрашивать, хорошо ли это или дурно? Хорошо, потому что определенно, и нет прежнего мучительного сомнения». Пьер молча держал руку своей невесты и смотрел на ее поднимающуюся и опускающуюся прекрасную грудь.\\n\\n— Элен! — сказал он вслух и остановился.\\n\\n«Что-то такое особенное говорят в этих случаях», думал он, но никак не мог вспомнить, чтò такое именно говорят в этих случаях. Он взглянул в ее лицо. Она придвинулась к нему ближе. Лицо ее зарумянилось.\\n\\n— Ах, снимите эти... как эти... — она указывала на очки.\\n\\nПьер снял очки, и глаза его сверх общей странности глаз людей, снявших очки, глаза его смотрели испуганно-вопросительно. Он хотел нагнуться над ее рукой и поцеловать ее; но она быстрым и грубым движением головы перехватила его губы и свела их с своими. Лицо ее поразило Пьера своим изменившимся, неприятно-растерянным выражением.\\n\\n«Теперь уж поздно, всё кончено; да и я люблю ее», подумал Пьер.\\n\\n— Je vous aime! — сказал он, вспомнив то, чтó нужно было говорить в этих случаях; но слова эти прозвучали так бедно, что ему стало стыдно за себя.\\n\\nЧерез полтора месяца он был обвенчан и поселился, как говорили, счастливым обладателем красавицы-жены и миллионов, в большом петербургском заново отделанном доме графов Безуховых.\\n\\nIII.\\n\\nСтарый князь Николай Андреич Болконский в декабре 1805 года получил письмо от князя Василия, извещавшего его о своем приезде вместе с сыном. («Я еду на ревизию, и, разумеется, мне 100 верст не крюк, чтобы посетить вас, многоуважаемый благодетель, — писал он, — и Анатоль мой провожает меня и едет в армию; и я надеюсь, что вы позволите ему лично выразить вам то глубокое уважение, которое он, подражая отцу, питает к вам».)\\n\\n— Вот Мари и вывозить не нужно: женихи сами к нам едут, — неосторожно сказала маленькая княгиня, услыхав про это.\\n\\nКнязь Николай Андреич поморщился и ничего не сказал.\\n\\nЧерез две недели после получения письма, вечером, приехали вперед люди князя Василья, а на другой день приехал и он сам с сыном.\\n\\nСтарик Болконский всегда был невысокого мнения о характере князя Василья, и тем более в последнее время, когда князь Василий в новые царствования при Павле и Александре далеко пошел в чинах и почестях. Теперь же, по намекам письма и маленькой княгини, он понял, в чем дело, и невысокое мнение о князе Василье перешло в душе князя Николая Андреича в чувство недоброжелательного презрения. Он постоянно фыркал, говоря про него. В тот день, как приехать князю Василию, князь Николай Андреич был особенно недоволен и не в духе. Оттого ли он был не в духе, что приезжал князь Василий, или оттого он был особенно недоволен приездом князя Василья, что был не в духе; но он был не в духе, и Тихон еще утром отсоветывал архитектору входить с докладом к князю.\\n\\n— Слышите, как ходит, — сказал Тихон, обращая внимание архитектора на звуки шагов князя. — На всю пятку ступает — уж мы знаем...\\n\\nОднако, как обыкновенно, в 9-м часу князь вышел гулять в своей бархатной шубке с собольим воротником и такой же шапке. Накануне выпал снег. Дорожка, по которой хаживал князь Николай Андреич к оранжерее, была расчищена, следы метлы виднелись на разметанном снегу, и лопата была воткнута в рыхлую насыпь снега, шедшую с обеих сторон дорожки. Князь прошел по оранжереям, по дворне и постройкам, нахмуренный и молчаливый.\\n\\n— А проехать в санях можно? — спросил он провожавшего его до дома почтенного, похожего лицом и манерами на хозяина, управляющего.\\n\\n— Глубок снег, ваше сиятельство. Я уже по прешпекту разметать велел.\\n\\nКнязь наклонил голову и подошел к крыльцу. «Слава тебе, Господи, — подумал управляющий, — пронеслась туча!»\\n\\n— Проехать трудно было, ваше сиятельство, — прибавил управляющий. — Как слышно было, ваше сиятельство, что министр пожалует к вашему сиятельству?\\n\\nКнязь повернулся к управляющему и нахмуренными глазами уставился на него.\\n\\n— Чтó? Министр? Какой министр? Кто велел? — заговорил он своим пронзительным, жестким голосом. — Для княжны, моей дочери, не расчистили, а для министра! У меня нет министров!\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"Pierre smiled, but from his smile it was evident that he understood that it was not the anecdote about Sergei Kuzmich that interested Prince Vasili at that moment; and Prince Vasili understood that Pierre understood this. Prince Vasili suddenly muttered something and went out. It seemed to Pierre that even Prince Vasili was embarrassed. The sight of this old man of the world’s embarrassment touched Pierre; he looked back at Hélène—and she, it seemed, was embarrassed and said with her look, “Well, it is your own fault.”\\n\\n“I must inevitably cross the threshold, but I cannot, I cannot,” thought Pierre, and once again began talking about something extraneous, about Sergei Kuzmich, asking what the anecdote was, since he had not heard it. Hélène replied with a smile that she did not know either.\\n\\nWhen Prince Vasili entered the drawing room, the princess was speaking quietly to an elderly lady about Pierre.\\n\\n“Of course, it is a very brilliant match, but happiness, my dear...”\\n\\n“Marriages are made in heaven,” replied the elderly lady.\\n\\nPrince Vasili, as though not listening to the ladies, walked to a far corner and sat down on a sofa. He closed his eyes and seemed to doze. His head had begun to droop, and he woke up.\\n\\n“Aline,” he said to his wife, “go and see what they are doing.”\\n\\nThe princess approached the door, walked past it with a significant, indifferent air, and looked into the drawing room. Pierre and Hélène were still sitting and talking in the same way.\\n\\n“Still the same,” she replied to her husband.\\n\\nPrince Vasili frowned and twisted his mouth to one side; his cheeks began to twitch with the unpleasant, coarse expression peculiar to him. Shaking himself, he rose, threw back his head, and, with resolute steps, passed the ladies and went into the small drawing room. With quick steps he approached Pierre joyfully. The prince’s face was so extraordinarily solemn that Pierre rose in alarm when he saw him.\\n\\n“Thank God!” he said. “My wife has told me everything!” He embraced Pierre with one arm and his daughter with the other. “My dear Lelya! I am very, very glad.” His voice trembled. “I loved your father... and she will be a good wife to you... May God bless you!”\\n\\nHe embraced his daughter, then Pierre again, and kissed him with his old man’s mouth. Tears actually moistened his cheeks.\\n\\n“Princess, come here,” he shouted.\\n\\nThe princess came out and began to weep too. The elderly lady was also wiping her eyes with her handkerchief. Pierre was kissed, and several times he kissed the hand of the beautiful Hélène. After a while they were left alone again.\\n\\n“All this was bound to happen and could not have happened otherwise,” thought Pierre, “so there is no point in asking whether it is good or bad. It is good because it is settled, and the former agonizing doubt is gone.” Pierre silently held his fiancée’s hand and looked at her beautiful bosom as it rose and fell.\\n\\n“Hélène!” he said aloud, and stopped.\\n\\n“Something special is said on these occasions,” he thought, but he could not for the life of him remember exactly what was said on these occasions. He looked into her face. She moved closer to him. Her face flushed.\\n\\n“Oh, take off those... what are they...” She pointed at his spectacles.\\n\\nPierre took off his spectacles, and his eyes, in addition to the general strangeness of the eyes of people who have removed their spectacles, looked frightened and questioning. He wanted to bend over her hand and kiss it; but with a swift and rough movement of her head she intercepted his lips and brought them together with her own. Her face struck Pierre by its changed, unpleasantly bewildered expression.\\n\\n“Now it is too late, it is all over; and besides, I love her,” thought Pierre.\\n\\n“I love you!” he said, remembering what had to be said on these occasions; but the words sounded so feeble that he felt ashamed of himself.\\n\\nA month and a half later he was married in church and took up residence, as people said, the happy possessor of a beautiful wife and millions, in the large, newly refurbished St. Petersburg house of the Counts Bezukhov.\\n\\nIII.\\n\\nIn December 1805, old Prince Nikolai Andreich Bolkonsky received a letter from Prince Vasili informing him of his arrival together with his son. (“I am traveling on an inspection, and of course a detour of sixty miles is nothing to me in order to visit you, my most esteemed benefactor,” he wrote, “and my Anatole is accompanying me and is going to the army; and I hope that you will permit him personally to express to you the profound respect which, in imitation of his father, he bears for you.”)\\n\\n“So there is no need even to take Marie out into society: the suitors come to us themselves,” the little princess said incautiously when she heard about it.\\n\\nPrince Nikolai Andreich grimaced and said nothing.\\n\\nTwo weeks after the letter was received, Prince Vasili’s servants arrived ahead of him one evening, and the next day he himself arrived with his son.\\n\\nOld Bolkonsky had always had a low opinion of Prince Vasili’s character, and all the more so in recent years, when Prince Vasili had risen far in rank and honors during the new reigns of Paul and Alexander. Now, from the hints in the letter and from the little princess, he understood what the matter was, and his low opinion of Prince Vasili turned in Prince Nikolai Andreich’s soul into a feeling of hostile contempt. He constantly snorted when speaking of him. On the day Prince Vasili was to arrive, Prince Nikolai Andreich was especially displeased and out of humor. Whether he was out of humor because Prince Vasili was coming, or especially displeased by Prince Vasili’s arrival because he was out of humor, he was out of humor; and that very morning Tikhon had advised the architect against going in to make his report to the prince.\\n\\n“Do you hear how he is walking?” said Tikhon, drawing the architect’s attention to the sound of the prince’s footsteps. “He comes down on the whole heel—we know what that means...”\\n\\nNevertheless, as usual, during the ninth hour the prince went out for his walk in his velvet fur coat with a sable collar and a matching cap. Snow had fallen the day before. The path along which Prince Nikolai Andreich used to walk to the conservatory had been cleared, the marks of the broom were visible in the scattered snow, and a shovel had been thrust into the loose bank of snow running along both sides of the path. The prince walked through the conservatories, the servants’ quarters, and the outbuildings, frowning and silent.\\n\\n“Can a sleigh get through?” he asked the steward, a dignified man who resembled his master in face and manner and had accompanied him back to the house.\\n\\n“The snow is deep, Your Excellency. I have already ordered them to clear it along the avenue.”\\n\\nThe prince bowed his head and approached the front steps. “Glory be to You, O Lord,” thought the steward, “the storm cloud has passed!”\\n\\n“It was difficult to get through, Your Excellency,” the steward added. “We heard, Your Excellency, that a minister would be pleased to call upon Your Excellency?”\\n\\nThe prince turned to the steward and fixed him with frowning eyes.\\n\\n“What? A minister? What minister? Who gave the order?” he began in his piercing, harsh voice. “They did not clear it for the princess, my daughter, but they did for a minister! I have no ministers!”\", \"source_occurrence_id\": \"tolstoy-war-and-peace-1cfaf0f75c6018e9\", \"source_language\": \"ru\", \"source_language_text_sha256\": \"f1bb75414ed784464fa5bc6378a58c3cbeb08a0566969047aa9230ed353daf1b\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-21T23:04:08.223059+00:00\", \"model_usage\": {\"input_tokens\": 2240, \"cached_input_tokens\": 0, \"output_tokens\": 1795}, \"estimated_cost_usd\": 0.04486, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"tolstoy-war-and-peace\", \"title\": \"Война и мир\", \"author\": \"Лев Толстой\", \"language\": \"ru\", \"source_type\": \"tolstoy_online\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.168484, \"source_start\": 490164, \"source_end\": 490176, \"source_length\": 2909261}, \"form\": {\"form_family\": \"present_or_imperfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": \"optional\", \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"ru_codeswitch_fr_present_past\", \"pattern_version\": \"0.13\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

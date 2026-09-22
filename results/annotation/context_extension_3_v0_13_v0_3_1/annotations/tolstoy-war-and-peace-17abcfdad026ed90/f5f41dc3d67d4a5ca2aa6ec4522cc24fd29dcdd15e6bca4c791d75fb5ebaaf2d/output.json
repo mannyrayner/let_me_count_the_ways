@@ -1,0 +1,65 @@
+{
+  "occurrence_id": "tolstoy-war-and-peace-17abcfdad026ed90",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.95,
+    "analysis": "Marya Ivanovna directly avows affectionate love for Rostov, presenting it as arising from his understanding of her son. The explanatory construction and “believe me” reinforce an assertion of a loving state. Nothing in the utterance undertakes a commitment, and its emotional warmth does not independently establish expressive/reflexive discharge.",
+    "ambiguity": "The phrase “with all my soul” intensifies the avowal but does not by itself give the words reflex-like expressive force."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "Direct speech by Marya Ivanovna to Count Nikolai Rostov, presented within the narrator’s account of things she often said to him."
+  },
+  "contextual_interpretation": "Marya Ivanovna has grown fond of Rostov because of his friendship with and sympathetic understanding of her son, Dolokhov. Her declaration expresses affectionate gratitude and relational approval in the course of an impassioned defense of Dolokhov. Its sincerity may be colored by maternal partiality, but that does not alter its primarily truth-conditional force.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "«Я знаю, вы Федю поняли, мой милый граф, оттого-то я вас душой люблю, верьте мне.»",
+      "supports": "The first-person present-tense declaration, strengthened by “believe me,” explicitly presents Marya Ivanovna’s love for Rostov as true, strongly supporting T.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "The narrator says that Marya Ivanovna had grown fond of Rostov because of his friendship with Fedya and often spoke to him about her son.",
+      "supports": "Establishes an ongoing affectionate attitude and explains the declaration as an avowal rather than a momentary verbal reflex.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "«оттого-то» links her love to Rostov’s having understood Fedya; the declaration occurs amid her extended defense and praise of her son.",
+      "supports": "Shows that the utterance is reason-giving and relationally appreciative, while supplying no distinct commitment or undertaking that would support P.",
+      "confidence": 0.96
+    },
+    {
+      "evidence_id": "e4",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is identified as an affirmative present-tense explicit “I love you” form in Tolstoy’s «Война и мир».",
+      "supports": "Corroborates identification of the highlighted core event as an explicit present avowal of love.",
+      "confidence": 0.99
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the avowal. The surrounding maternal passion and the intensifier “with all my soul” are adequately treated as context and manner of delivery; they create no independent need for E or O.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

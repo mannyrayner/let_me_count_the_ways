@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"tolstoy-war-and-peace-f4a49ebc495938ce\", \"SOURCE_TEXT\": {\"exact_match\": \"Я безумно люблю вас\", \"local_text\": {\"context_start\": 1364988, \"context_end\": 1365148, \"text\": \"— Я не могу к вам ездить, но неужели я никогда не увижу вас? Я безумно люблю вас. Неужели никогда?... — и он, заслоняя ей дорогу, приближал свое лицо к ее лицу.\"}, \"wider_canonical_context\": {\"context_start\": 1361890, \"context_end\": 1368097, \"text\": \"M-lle Georges строго и мрачно оглянула публику и начала говорить по-французски какие-то стихи, где речь шла о ее преступной любви к своему сыну. Она местами возвышала голос, местами шептала, торжественно поднимая голову, местами останавливалась и хрипела, выкатывая глаза.\\n\\n— Adorable, divin, délicieux! — слышалось со всех сторон.\\n\\nНаташа смотрела на толстую Georges, но ничего не слышала, не видела и не понимала ничего из того, чтò делалось перед ней; она только чувствовала себя опять вполне безвозвратно в том странном, безумном мире, столь далеком от прежнего, в том мире, в котором нельзя было знать, чтò хорошо, чтò дурно, чтò разумно и чтò безумно. Позади ее сидел Анатоль, и она, чувствуя его близость, испуганно ждала чего-то.\\n\\nПосле первого монолога всё общество встало и окружило m-lle Georges, выражая ей свой восторг.\\n\\n— Как она хороша! — сказала Наташа отцу, который вместе с другими встал и сквозь толпу подвигался к актрисе.\\n\\n— Я не нахожу, глядя на вас, — сказал Анатоль, следуя за Наташей. Он сказал это в такое время, когда она одна могла его слышать. — Вы прелестны... с той минуты, как я увидал вас, я не переставал...\\n\\n— Пойдем, пойдем, Наташа, — сказал граф, возвращаясь за дочерью. — Как хороша!\\n\\nНаташа ничего не говоря подошла к отцу и вопросительно-удивленными глазами смотрела на него.\\n\\nПосле нескольких приемов декламации m-lle Georges уехала и графиня Безухова попросила общество в залу.\\n\\nГраф хотел уехать, но Элен умоляла не испортить ее импровизированного бала. Ростовы остались. Анатоль пригласил Наташу на вальс и во время вальса он, пожимая ее стан и руку, сказал ей, что она ravissante и что он любит ее. Во время экосеза, который она опять танцовала с Курагиным, когда они остались одни, Анатоль ничего не говорил ей и только смотрел на нее. Наташа была в сомнении, не во сне ли она видела то, чтò он сказал ей во время вальса. В конце первой фигуры он опять пожал ей руку. Наташа подняла на него испуганные глаза, но такое самоуверенно-нежное выражение было в его ласковом взгляде и улыбке, что она не могла глядя на него сказать того, чтò она имела сказать ему. Она опустила глаза.\\n\\n— Не говорите мне таких вещей, я обручена и люблю другого, — проговорила она быстро... — Она взглянула на него. Анатоль не смутился и не огорчился тем, чтò она сказала.\\n\\n— Не говорите мне про это. Чтò мне за дело? — сказал он. — Я говорю, что безумно, безумно влюблен в вас. Разве я виноват, что вы восхитительны?.. Нам начинать.\\n\\nНаташа, оживленная и тревожная, широко-раскрытыми, испуганными глазами смотрела вокруг себя и казалась веселее чем обыкновенно. Она почти ничего не помнила из того, чтò было в этот вечер. Танцовали экосез и грос-фатер, отец приглашал ее уехать, она просила остаться. Где бы она ни была, с кем бы ни говорила, она чувствовала на себе его взгляд. Потом она помнила, что попросила у отца позволения выйти в уборную оправить платье, что Элен вышла за ней, говорила ей смеясь о любви ее брата и что в маленькой диванной ей опять встретился Анатоль, что Элен куда-то исчезла, они остались вдвоем и Анатоль, взяв ее за руку, нежным голосом сказал:\\n\\n— Я не могу к вам ездить, но неужели я никогда не увижу вас? Я безумно люблю вас. Неужели никогда?... — и он, заслоняя ей дорогу, приближал свое лицо к ее лицу.\\n\\nБлестящие, большие, мужские глаза его так близки были от ее глаз, что она не видела ничего кроме этих глаз.\\n\\n— Натали?! — прошептал вопросительно его голос, и кто-то больно сжимал ее руки. — Натали?!\\n\\n«Я ничего не понимаю, мне нечего говорить», сказал ее взгляд.\\n\\nГорячие губы прижались к ее губам и в ту же минуту она почувствовала себя опять свободною и в комнате послышался шум шагов и платья Элен. Наташа оглянулась на Элен, потом, красная и дрожащая, взглянула на него испуганно-вопросительно и пошла к двери.\\n\\n— Un mot, un seul, au nom de Dieu, — говорил Анатоль.\\n\\nОна остановилась. Ей так нужно было, чтоб он сказал это слово, которое бы объяснило ей то, чтò случилось и на которое она бы ему ответила.\\n\\n— Nathalie, un mot, un seul, — всё повторял он, видимо не зная, чтò сказать и повторял его до тех пор, пока к ним подошла Элен.\\n\\nЭлен вместе с Наташей опять вышла в гостиную. Не оставшись ужинать, Ростовы уехали.\\n\\nВернувшись домой, Наташа не спала всю ночь: ее мучил неразрешимый вопрос, кого она любила, Анатоля или князя Андрея? Князя Андрея она любила — она помнила ясно, как сильно она любила его. Но Анатоля она любила тоже, это было несомненно. «Иначе, разве бы всё это могло быть?» думала она. «Ежели я могла после этого, прощаясь с ним, могла улыбкой ответить на его улыбку, ежели я могла допустить до этого, то значит, что я с первой минуты полюбила его. Значит, он добр, благороден и прекрасен, и нельзя было не полюбить его. Чтò же мне делать, когда я люблю его и люблю другого?» говорила она себе, не находя ответов на эти страшные вопросы.\\n\\nXIV.\\n\\nПришло утро с его заботами и суетой. Все встали, задвигались, заговорили, опять пришли модистки, опять вышла Марья Дмитриевна и позвали к чаю. Наташа широко раскрытыми глазами, как будто она хотела перехватить всякий устремленный на нее взгляд, беспокойно оглядывалась на всех и старалась казаться такою же, какою она была всегда.\\n\\nПосле завтрака Марья Дмитриевна (это было лучшее время ее), сев на свое кресло, подозвала к себе Наташу и старого графа.\\n\\n— Ну-с, друзья мои, теперь я всё дело обдумала и вот вам мой совет, — начала она. — Вчера, как вы знаете, была я у князя Николая; ну-с и поговорила с ним... Он кричать вздумал. Да меня не перекричишь! Я всё ему выпела!\\n\\n— Да чтò же он? — спросил граф.\\n\\n— Он-то что? сумасброд... слышать не хочет; ну, да чтò говорить, и так мы бедную девочку измучили, — сказала Марья Дмитриевна. — А совет мой вам, чтобы дела покончить и ехать домой, в Отрадное... и там ждать...\\n\\n— Ах, нет! — вскрикнула Наташа.\\n\\n— Нет, ехать, — сказала Марья Дмитриевна. — И там ждать. — Если жених теперь сюда приедет — без ссоры не обойдется, а он тут один на один с стариком всё переговорит и потом к вам приедет.\\n\\nИлья Андреич одобрил это предложение, тотчас поняв всю разумность его. Ежели старик смягчится, то тем лучше будет приехать к нему в Москву или Лысые Горы, уже после; если нет, то венчаться против его воли можно будет только в Отрадном.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"Mademoiselle Georges looked sternly and gloomily over the audience and began to recite in French some verses that spoke of her criminal love for her son. At times she raised her voice, at times she whispered, solemnly lifting her head; at times she paused and rasped, rolling her eyes.\\n\\n“Adorable, divine, delicious!” was heard on all sides.\\n\\nNatasha looked at the stout Georges, but heard nothing, saw nothing, and understood nothing of what was taking place before her; she only felt herself once again wholly and irrevocably in that strange, mad world, so remote from her former world, in that world in which it was impossible to know what was good, what was bad, what was reasonable, and what was mad. Anatole was sitting behind her, and, feeling his nearness, she waited fearfully for something.\\n\\nAfter the first monologue, the whole company rose and surrounded Mademoiselle Georges, expressing their delight to her.\\n\\n“How good she is!” Natasha said to her father, who had risen with the others and was making his way through the crowd toward the actress.\\n\\n“I do not think so, looking at you,” said Anatole, following Natasha. He said this at a moment when she alone could hear him. “You are enchanting... From the moment I saw you, I have not ceased...”\\n\\n“Come, come, Natasha,” said the count, returning for his daughter. “How good she is!”\\n\\nWithout saying anything, Natasha went up to her father and looked at him with questioning, astonished eyes.\\n\\nAfter several more recitations, Mademoiselle Georges left, and Countess Bezukhov asked the company to go into the ballroom.\\n\\nThe count wanted to leave, but Hélène begged him not to spoil her improvised ball. The Rostovs stayed. Anatole asked Natasha to waltz, and during the waltz, as he pressed her waist and hand, he told her that she was ravishing and that he loved her. During the écossaise, which she again danced with Kuragin, when they were alone, Anatole said nothing to her and merely looked at her. Natasha was in doubt as to whether she had dreamed what he had said to her during the waltz. At the end of the first figure, he pressed her hand again. Natasha raised frightened eyes to him, but there was such a self-assuredly tender expression in his affectionate gaze and smile that, looking at him, she could not say what she had meant to say to him. She lowered her eyes.\\n\\n“Do not say such things to me; I am engaged and I love another,” she said quickly... She glanced at him. Anatole was neither disconcerted nor distressed by what she had said.\\n\\n“Do not speak to me about that. What do I care?” he said. “I tell you that I am madly, madly in love with you. Is it my fault that you are enchanting?... We must begin.”\\n\\nAnimated and anxious, Natasha looked around her with wide-open, frightened eyes and seemed merrier than usual. She remembered almost nothing of what happened that evening. They danced the écossaise and the Grossvater; her father asked her to leave, and she begged to stay. Wherever she was and whoever she spoke to, she felt his gaze upon her. Later she remembered that she had asked her father’s permission to go to the dressing room to straighten her dress, that Hélène had followed her, laughing as she spoke to her about her brother’s love, and that in the small sitting room she had met Anatole again, that Hélène had disappeared somewhere, that they had been left alone, and that Anatole, taking her hand, had said in a tender voice:\\n\\n“I cannot visit you, but is it possible that I shall never see you? I love you madly. Never?...” And, blocking her way, he brought his face closer to hers.\\n\\nHis large, shining, masculine eyes were so close to her eyes that she saw nothing but those eyes.\\n\\n“Natalie?!” his voice whispered questioningly, and someone was painfully squeezing her hands. “Natalie?!”\\n\\n“I understand nothing; I have nothing to say,” said her gaze.\\n\\nHot lips pressed against her lips, and at that same moment she felt herself free again, and the sound of Hélène’s footsteps and rustling dress was heard in the room. Natasha looked around at Hélène, then, red and trembling, looked at him fearfully and questioningly and went toward the door.\\n\\n“One word, just one, in God’s name,” Anatole was saying.\\n\\nShe stopped. She so needed him to say that word which would explain to her what had happened and to which she would give him an answer.\\n\\n“Nathalie, one word, just one,” he kept repeating, evidently not knowing what to say, and he repeated it until Hélène came up to them.\\n\\nHélène and Natasha returned to the drawing room together. The Rostovs left without staying for supper.\\n\\nAfter returning home, Natasha did not sleep all night: she was tormented by the insoluble question of whom she loved, Anatole or Prince Andrei. She loved Prince Andrei—she clearly remembered how strongly she loved him. But she loved Anatole too; that was beyond doubt. “Otherwise, could all this have happened?” she thought. “If, after this, when saying good-bye to him, I could answer his smile with a smile, if I could allow it to come to this, it means that I loved him from the first moment. It means that he is kind, noble, and splendid, and it was impossible not to love him. What am I to do when I love him and love another?” she said to herself, finding no answers to these terrible questions.\\n\\nXIV.\\n\\nMorning came with its cares and bustle. Everyone got up, began moving about and talking; the dressmakers came again, Marya Dmitrievna appeared again, and they were called to tea. With her eyes wide open, as though she wished to intercept every gaze directed at her, Natasha looked uneasily at everyone and tried to seem just as she had always been.\\n\\nAfter breakfast, Marya Dmitrievna—this was her best time—sat down in her armchair and called Natasha and the old count over to her.\\n\\n“Well now, my friends, I have thought the whole matter over, and here is my advice,” she began. “Yesterday, as you know, I went to Prince Nikolai; well, and I talked to him... He took it into his head to shout. But he cannot outshout me! I told him everything!”\\n\\n“But what did he say?” asked the count.\\n\\n“What did he say? The madcap... He will not listen; but what is the use of talking? As it is, we have tormented the poor girl enough,” said Marya Dmitrievna. “And my advice to you is to finish your business and go home, to Otradnoe... and wait there...”\\n\\n“Oh, no!” Natasha cried out.\\n\\n“No, you must go,” said Marya Dmitrievna. “And wait there. If the bridegroom comes here now, there is bound to be a quarrel; but there, alone with the old man, he will discuss everything, and then he will come to you.”\\n\\nIlya Andreyevich approved of this proposal, immediately understanding all its reasonableness. If the old man softened, it would be all the better to visit him in Moscow or at Bald Hills afterward; if not, they could marry against his will only at Otradnoe.\", \"source_occurrence_id\": \"tolstoy-war-and-peace-f4a49ebc495938ce\", \"source_language\": \"ru\", \"source_language_text_sha256\": \"031ed25c20e12beb02c41bca34087be7b59fa7be16739a0b7b3fb3da734c2230\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-21T23:19:33.684329+00:00\", \"model_usage\": {\"input_tokens\": 2121, \"cached_input_tokens\": 0, \"output_tokens\": 1963}, \"estimated_cost_usd\": 0.047744, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"tolstoy-war-and-peace\", \"title\": \"Война и мир\", \"author\": \"Лев Толстой\", \"language\": \"ru\", \"source_type\": \"tolstoy_online\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.469208, \"source_start\": 1365049, \"source_end\": 1365068, \"source_length\": 2909261}, \"form\": {\"form_family\": \"canonical_present\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"ru_present_verb_first_affirmative\", \"pattern_version\": \"0.13\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 1.0, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

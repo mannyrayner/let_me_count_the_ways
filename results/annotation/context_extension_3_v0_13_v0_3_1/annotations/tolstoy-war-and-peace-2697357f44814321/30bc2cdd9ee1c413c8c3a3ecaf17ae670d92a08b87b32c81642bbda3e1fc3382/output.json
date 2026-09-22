@@ -1,0 +1,65 @@
+{
+  "occurrence_id": "tolstoy-war-and-peace-2697357f44814321",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.96,
+    "analysis": "The dead princess’s face is narratively verbalised as saying “I love you all.” The love clause primarily presents her universal affection as true, while the surrounding clauses express innocence, suffering, and reproach. It neither undertakes a relational commitment nor functions as words reflexively blurted out under affective pressure.",
+    "ambiguity": "The utterance is an interpretive verbalisation of a facial expression rather than spoken language, but its represented love-related force remains clearly truth-conditional."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "nonverbal_verbalised",
+    "description": "The narrator renders the dead princess’s facial expression as the embedded utterance “I love you all”; no literal speech occurs at this moment."
+  },
+  "contextual_interpretation": "After the princess dies in childbirth, her unchanged facial expression is personified as declaring love and innocence while accusing those around her of having wronged her. The formulation echoes the meaning previously attributed to her frightened expression while she was alive. This framing intensifies Prince Andrei’s guilt and the pathos of her death, but does not add commitment force or independent expressive/reflexive force to the love clause.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "«Я вас всех люблю и никому дурного не делала, и чтò вы со мной сделали?» говорило ее прелестное, жалкое, мертвое лицо.",
+      "supports": "The explicit present-tense love clause presents her affection as true, while “говорило ... мертвое лицо” establishes that it is a verbalised facial expression rather than direct speech.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "Before her death, her expression is similarly rendered as: «Я вас всех люблю, я никому зла не делала, за чтò я страдаю? помогите мне».",
+      "supports": "The earlier parallel establishes continuity: the later words interpret her enduring expression as affection joined to innocence, suffering, and reproach.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "At the funeral, the same face continues to communicate «Ах, чтò вы со мной сделали?», and Prince Andrei feels guilty of an irreparable wrong.",
+      "supports": "The personified utterance functions narratively as an accusation that produces guilt; this is contextual framing rather than performative commitment or expressive verbal discharge in the core love clause.",
+      "confidence": 0.97
+    },
+    {
+      "evidence_id": "e4",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is marked as affirmative, present-tense, canonical, and retained as a valid explicit “I love you” instance.",
+      "supports": "Supports treating «Я вас всех люблю» as an explicit love avowal despite its nonverbal-verbalised presentation.",
+      "confidence": 0.99
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the represented avowal of affection. The unusual fact that a dead face is personified as speaking is adequately recorded by utterance status and context; it does not expose a missing dimension in the core T/P/E ontology.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

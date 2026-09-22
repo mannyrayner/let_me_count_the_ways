@@ -1,0 +1,58 @@
+{
+  "occurrence_id": "tolstoy-war-and-peace-e29b4455dd5ee9fc",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.97,
+    "analysis": "The verbalised content of Princess Marya’s gaze presents as true her strong affectionate regard for Pierre. It neither undertakes a relational commitment nor functions as a reflex-like verbal discharge; indeed, the words are the narrator’s rendering of nonverbal expression rather than something she blurts out.",
+    "ambiguity": "The affection is warm, personal liking rather than necessarily romantic love, and the sentence is an inferred paraphrase of a look rather than an audible utterance."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "nonverbal_verbalised",
+    "description": "Princess Marya does not literally speak the highlighted words; the narrator says that her radiant gaze seemed to communicate them to Pierre."
+  },
+  "contextual_interpretation": "Princess Marya has been favourably disposed toward Pierre by childhood familiarity, his connections with Andrei and Andrei’s wife, and especially his kind, simple face. Her look communicates both affectionate welcome and an anxious request that he not ridicule the religious wanderers she protects. The latter concern qualifies the social situation but does not change the love clause’s principally truth-conditional force.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "«Она смотрела на него своими прекрасными, лучистыми глазами и, казалось, говорила: “я вас очень люблю…”»",
+      "supports": "The narrator explicitly renders Marya’s gaze as communicating an avowal of strong affection, supporting T and the nonverbal-verbalised status.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "«Она знала его ребенком, и теперь дружба его с Андреем, его с женою, а главное, его доброе, простое лицо расположили ее к нему.»",
+      "supports": "Her history with Pierre and favourable response to his character ground the love statement as sincere affectionate regard rather than an undertaking or empty token.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "The inferred message continues: «но пожалуйста не смейтесь над моими».",
+      "supports": "The gaze also asks Pierre not to mock Marya’s religious guests, explaining the immediate interpersonal purpose without adding performative commitment or expressive/reflexive force to the love clause.",
+      "confidence": 0.97
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the affectionate state presented by the narrator’s verbalisation. The unusual nonverbal mode is adequately recorded by utterance status and creates no residual pressure requiring O.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

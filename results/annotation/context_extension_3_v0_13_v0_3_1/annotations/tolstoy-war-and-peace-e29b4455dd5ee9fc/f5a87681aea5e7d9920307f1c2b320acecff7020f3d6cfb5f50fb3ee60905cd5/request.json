@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"tolstoy-war-and-peace-e29b4455dd5ee9fc\", \"SOURCE_TEXT\": {\"exact_match\": \"я вас очень люблю\", \"local_text\": {\"context_start\": 917464, \"context_end\": 917898, \"text\": \"— Charmée de vous voir. Je suis très contente de vous voir, — сказала она Пьеру, в то время, как он целовал ее руку. Она знала его ребенком, и теперь дружба его с Андреем, его с женою, а главное, его доброе, простое лицо расположили ее к нему. Она смотрела на него своими прекрасными, лучистыми глазами и, казалось, говорила: «я вас очень люблю, но пожалуйста не смейтесь над моими». Обменявшись первыми фразами приветствия, они сели.\"}, \"wider_canonical_context\": {\"context_start\": 914179, \"context_end\": 920823, \"text\": \"— Ежели есть Бог и есть будущая жизнь, то есть истина, есть добродетель; и высшее счастье человека состоит в том, чтобы стремиться к достижению их. Надо жить, надо любить, надо верить, — говорил Пьер, — что живем не нынче только на этом клочке земли, а жили и будем жить вечно там во всем (он указал на небо). Князь Андрей стоял, облокотившись на перила парома и, слушая Пьера, не спуская глаз, смотрел на красный отблеск солнца по синеющему разливу. Пьер замолк. Было совершенно тихо. Паром давно пристал, и только волны теченья с слабым звуком ударялись о дно парома. Князю Андрею казалось, что это полосканье волн к словам Пьера приговаривало: «правда, верь этому».\\n\\nКнязь Андрей вздохнул, и лучистым, детским, нежным взглядом взглянул в раскрасневшееся восторженное, но всё робкое перед первенствующим другом, лицо Пьера.\\n\\n— Да, коли бы это так было! — сказал он. — Однако пойдем садиться, — прибавил князь Андрей, и выходя с парома, он поглядел на небо, на которое указал ему Пьер, и в первый раз, после Аустерлица, он увидал то высокое, вечное небо, которое он видел лежа на Аустерлицком поле, и что-то давно заснувшее, что-то лучшее чтò было в нем, вдруг радостно и молодо проснулось в его душе. Чувство это исчезло, как скоро князь Андрей вступил опять в привычные условия жизни, но он знал, что это чувство, которое он не умел развить, жило в нем. Свидание с Пьером было для князя Андрея эпохой, с которой началась хотя во внешности и та же самая, но во внутреннем мире его новая жизнь.\\n\\nXIII.\\n\\nУже смеркалось, когда князь Андрей и Пьер подъехали к главному подъезду Лысогорского дома. В то время как они подъезжали, князь Андрей с улыбкой обратил внимание Пьера на суматоху, происшедшую у заднего крыльца. Согнутая старушка с котомкой на спине, и невысокий мужчина в черном одеянии и с длинными волосами, увидав въезжавшую коляску, бросились бежать назад в ворота. Две женщины выбежали за ними, и все четверо, оглядываясь на коляску, испуганно вбежали на заднее крыльцо.\\n\\n— Это Машины божьи люди, — сказал князь Андрей. — Они приняли нас за отца. А это единственно, в чем она не повинуется ему: он велит гонять этих странников, а она принимает их.\\n\\n— Да чтò такое божьи люди? — спросил Пьер.\\n\\nКнязь Андрей не успел отвечать ему. Слуги вышли навстречу, и он расспрашивал о том, где был старый князь и скоро ли ждут его.\\n\\nСтарый князь был еще в городе, и его ждали каждую минуту.\\n\\nКнязь Андрей провел Пьера на свою половину, всегда в полной исправности ожидавшую его в доме его отца, и сам пошел в детскую.\\n\\n— Пойдем к сестре, — сказал князь Андрей, возвратившись к Пьеру; — я еще не видал ее, она теперь прячется и сидит с своими божьими людьми. Поделом ей, она сконфузится, а ты увидишь божьих людей. C’est curieux, ma parole.\\n\\n— Qu’est ce que c’est que божьи люди? — спросил Пьер.\\n\\n— А вот увидишь.\\n\\nКняжна Марья действительно сконфузилась и покраснела пятнами, когда вошли к ней. В ее уютной комнате с лампадами перед киотами, на диване, за самоваром сидел рядом с ней молодой мальчик с длинным носом и длинными волосами и в монашеской рясе.\\n\\nНа кресле, подле, сидела сморщенная, худая старушка с кротким выражением детского лица.\\n\\n— André, pourquoi ne pas m’avoir prévenu? — сказала она с кротким упреком, становясь перед своими странниками, как наседка перед цыплятами.\\n\\n— Charmée de vous voir. Je suis très contente de vous voir, — сказала она Пьеру, в то время, как он целовал ее руку. Она знала его ребенком, и теперь дружба его с Андреем, его с женою, а главное, его доброе, простое лицо расположили ее к нему. Она смотрела на него своими прекрасными, лучистыми глазами и, казалось, говорила: «я вас очень люблю, но пожалуйста не смейтесь над моими». Обменявшись первыми фразами приветствия, они сели.\\n\\n— А, и Иванушка тут, — сказал князь Андрей, указывая улыбкой на молодого странника.\\n\\n— André! — умоляюще сказала княжна Марья.\\n\\n— Il faut que vous sachiez que c’est une femme, — сказал Андрей Пьеру.\\n\\n— André, au nom de Dieu! — повторила княжна Марья.\\n\\nВидно было, что насмешливое отношение князя Андрея к странникам и бесполезное заступничество за них княжны Марьи были привычные, установившиеся между ними отношения. —\\n\\n— Mais, ma bonne amie, — сказал князь Андрей, — vous devriez au contraire m’être reconaissante de ce que j’explique à Pierre votre intimité avec ce jeune homme.\\n\\n— Vraiment? — сказал Пьер любопытно и серьезно (за чтò особенно ему благодарна была княжна Марья) вглядываясь через очки в лицо Иванушки, который, поняв, что речь шла о нем, хитрыми глазами оглядывал всех.\\n\\nКняжна Марья совершенно напрасно смутилась за своих. Они нисколько не робели. Старушка, опустив глаза, но искоса поглядывая на вошедших, опрокинув чашку вверх дном на блюдечко и положив подле обкусанный кусочек сахара, спокойно и неподвижно сидела на своем кресле, ожидая, чтоб ей предложили еще чаю. Иванушка, попивая из блюдечка, исподлобья лукавыми, женскими глазами смотрел на молодых людей.\\n\\n— Где, в Киеве была? — спросил старуху князь Андрей.\\n\\n— Была, отец, — отвечала словоохотливо старуха, — на самое Рожество удостоилась у угодников сообщиться святых, небесных таин. А теперь из Колязина, отец, благодать великая открылась...\\n\\n— Чтò ж, Иванушка с тобой?\\n\\n— Я сам по себе иду, кормилец, — стараясь говорить басом, сказал Иванушка. — Только в Юхнове с Пелагеюшкой сошлись...\\n\\nПелагеюшка перебила своего товарища; ей видно хотелось рассказать то, чтò она видела.\\n\\n— В Колязине, отец, великая благодать открылась.\\n\\n— Чтò ж, мощи новые? — спросил князь Андрей.\\n\\n— Полно, Андрей, — сказала княжна Марья. — Не рассказывай, Пелагеюшка.\\n\\n— Ни... что ты, мать, отчего не рассказывать? Я его люблю. Он добрый. Богом взысканный, он мне, благодетель, 10 рублей дал, я помню. Как была я в Киеве и говорит мне Кирюша, юродивый — истинно божий человек, зиму и лето босòй ходит. Что ходить, говорит, не по своему месту, в Колязин иди, там икона чудотворная, матушка пресвятая Богородица открылась. Я с тех слов простилась с угодниками и пошла...\\n\\nВсе молчали, одна странница говорила мерным голосом, втягивая в себя воздух.\\n\\n— Пришла, отец мой, мне народ и говорит: благодать великая открылась, у матушки пресвятой Богородицы миро из щечки каплет...\\n\\n— Ну, хорошо, хорошо, после расскажешь, — краснея сказала княжна Марья.\\n\\n— Позвольте у нее спросить, — сказал Пьер. — Ты сама видела? — спросил он.\\n\\n— Как же, отец, сама удостоилась. Сияние такое на лике-то, как свет небесный, и из щечки у матушки так и каплет, так и каплет...\\n\\n— Да ведь это обман, — наивно сказал Пьер, внимательно слушавший странницу.\\n\\n— Ах, отец, чтò говоришь! — с ужасом сказала Пелагеюшка, за защитой обращаясь к княжне Марье.\\n\\n— Это обманывают народ, — повторил он.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"“If there is a God and there is a future life, then there is truth, there is virtue; and man’s highest happiness consists in striving to attain them. One must live, one must love, one must believe,” Pierre was saying, “that we do not live only now on this patch of earth, but that we have lived and shall live eternally there, in the whole of it” (he pointed to the sky). Prince Andrei stood leaning on the railing of the ferry and, as he listened to Pierre, gazed, without taking his eyes from it, at the red reflection of the sun on the water, which was turning blue. Pierre fell silent. It was completely quiet. The ferry had long since reached the bank, and only the waves of the current struck the bottom of the ferry with a faint sound. It seemed to Prince Andrei that this lapping of the waves added a refrain to Pierre’s words: “It is true; believe it.”\\n\\nPrince Andrei sighed and looked with a radiant, childlike, tender gaze into Pierre’s flushed, ecstatic, yet still timid face—the face of a friend who held the leading place.\\n\\n“Yes, if only it were so!” he said. “But let us go and sit down,” Prince Andrei added, and as he left the ferry, he looked at the sky to which Pierre had pointed, and for the first time since Austerlitz he saw that lofty, eternal sky which he had seen while lying on the field at Austerlitz; and something long dormant, something better that was within him, suddenly awoke joyfully and youthfully in his soul. This feeling vanished as soon as Prince Andrei once more entered the customary conditions of life, but he knew that this feeling, which he did not know how to develop, lived within him. His meeting with Pierre marked an epoch for Prince Andrei from which began a new life for him—outwardly the same as before, but new in his inner world.\\n\\nXIII.\\n\\nIt was already growing dark when Prince Andrei and Pierre drove up to the main entrance of the house at Bald Hills. As they approached, Prince Andrei smilingly drew Pierre’s attention to the commotion that had arisen by the back porch. A bent old woman with a bundle on her back and a short man in a black garment, with long hair, saw the carriage driving in and rushed back toward the gate. Two women ran out after them, and all four, glancing back at the carriage, ran in fright onto the back porch.\\n\\n“Those are Masha’s people of God,” said Prince Andrei. “They mistook us for Father. And this is the one thing in which she disobeys him: he orders these wanderers to be driven away, while she receives them.”\\n\\n“But what are people of God?” Pierre asked.\\n\\nPrince Andrei had no time to answer him. The servants came out to meet them, and he questioned them about where the old prince was and whether he was expected soon.\\n\\nThe old prince was still in town, and they expected him at any moment.\\n\\nPrince Andrei took Pierre to his own suite of rooms, which was always kept in perfect order awaiting him in his father’s house, and went himself to the nursery.\\n\\n“Let us go to my sister,” Prince Andrei said when he returned to Pierre. “I have not seen her yet; she is hiding now and sitting with her people of God. It serves her right: she will be embarrassed, and you will see the people of God. It is curious, upon my word.”\\n\\n“What are people of God?” Pierre asked.\\n\\n“You shall see.”\\n\\nPrincess Marya was indeed embarrassed and flushed in patches when they entered her room. In her cozy room, with icon lamps before the icon cases, a young boy with a long nose and long hair, wearing a monk’s cassock, sat beside her on the sofa behind the samovar.\\n\\nNearby, in an armchair, sat a wrinkled, thin old woman with a meek expression on her childlike face.\\n\\n“André, why did you not warn me?” she said with gentle reproach, placing herself before her wanderers like a mother hen before her chicks.\\n\\n“Delighted to see you. I am very glad to see you,” she said to Pierre as he kissed her hand. She had known him as a child, and now his friendship with Andrei, his friendship with Andrei’s wife, and, above all, his kind, simple face disposed her favorably toward him. She looked at him with her beautiful, radiant eyes and seemed to say, “I love you very much, but please do not laugh at my people.” After exchanging their first words of greeting, they sat down.\\n\\n“Ah, so Ivanushka is here too,” said Prince Andrei, pointing with a smile to the young wanderer.\\n\\n“André!” Princess Marya said imploringly.\\n\\n“You must know that she is a woman,” Andrei said to Pierre.\\n\\n“André, in God’s name!” Princess Marya repeated.\\n\\nIt was evident that Prince Andrei’s mocking attitude toward the wanderers and Princess Marya’s futile defense of them were customary, established relations between them.\\n\\n“But, my dear friend,” said Prince Andrei, “you ought, on the contrary, to be grateful to me for explaining to Pierre your intimacy with this young man.”\\n\\n“Really?” Pierre said curiously and seriously—which made Princess Marya particularly grateful to him—peering through his spectacles into the face of Ivanushka, who, realizing that they were speaking about him, looked around at everyone with sly eyes.\\n\\nPrincess Marya was embarrassed for her people quite needlessly. They were not at all timid. The old woman, with her eyes lowered but glancing sidelong at those who had entered, had turned her cup upside down on its saucer and placed a bitten piece of sugar beside it; she sat calmly and motionlessly in her armchair, waiting to be offered more tea. Ivanushka, sipping from his saucer, looked at the young men from under his brows with sly, feminine eyes.\\n\\n“Where were you—in Kiev?” Prince Andrei asked the old woman.\\n\\n“I was, Father,” the talkative old woman replied. “At Christmas itself I was vouchsafed, at the saints’ shrines, to partake of the holy, heavenly mysteries. And now I come from Kolyazin, Father; a great grace has been revealed there...”\\n\\n“And is Ivanushka with you?”\\n\\n“I travel on my own, provider,” Ivanushka said, trying to speak in a bass voice. “It was only in Yukhnov that Pelageyushka and I met...”\\n\\nPelageyushka interrupted her companion; she evidently wanted to tell what she had seen.\\n\\n“In Kolyazin, Father, a great grace has been revealed.”\\n\\n“What, some new relics?” Prince Andrei asked.\\n\\n“That is enough, Andrei,” said Princess Marya. “Do not tell it, Pelageyushka.”\\n\\n“No... what are you saying, Mother? Why should I not tell it? I love him. He is kind. He is chosen by God; he, my benefactor, gave me ten rubles—I remember. When I was in Kiev, Kiryusha, the holy fool—a true man of God, who goes barefoot winter and summer—says to me: ‘Why do you go where you ought not? Go to Kolyazin; a miracle-working icon has been revealed there, the most holy Mother of God.’ At those words I bade farewell to the saints and set out...”\\n\\nEveryone was silent; the wanderer alone spoke in a measured voice, drawing in her breath.\\n\\n“I arrived, my dear father, and the people say to me: ‘A great grace has been revealed; holy oil is dripping from the cheek of the most holy Mother of God...’”\\n\\n“Very well, very well, you can tell it later,” Princess Marya said, blushing.\\n\\n“Allow me to ask her,” said Pierre. “Did you see it yourself?” he asked.\\n\\n“Of course, Father, I was vouchsafed to see it myself. There was such a radiance upon the countenance, like the light of heaven, and from the Mother’s cheek it kept dripping and dripping...”\\n\\n“But that is a deception,” Pierre said ingenuously, having listened attentively to the wanderer.\\n\\n“Oh, Father, what are you saying!” Pelageyushka said in horror, turning to Princess Marya for protection.\\n\\n“They are deceiving the people,” he repeated.\", \"source_occurrence_id\": \"tolstoy-war-and-peace-e29b4455dd5ee9fc\", \"source_language\": \"ru\", \"source_language_text_sha256\": \"b03e4009e1d34771560e82ef55d99374c9f1075816ba74994001257110cce7c1\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-21T23:18:33.439219+00:00\", \"model_usage\": {\"input_tokens\": 2348, \"cached_input_tokens\": 0, \"output_tokens\": 2678}, \"estimated_cost_usd\": 0.06295200000000001, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"tolstoy-war-and-peace\", \"title\": \"Война и мир\", \"author\": \"Лев Толстой\", \"language\": \"ru\", \"source_type\": \"tolstoy_online\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.315472, \"source_start\": 917791, \"source_end\": 917808, \"source_length\": 2909261}, \"form\": {\"form_family\": \"canonical_present\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"ru_present_object_first_affirmative\", \"pattern_version\": \"0.13\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"tolstoy-war-and-peace-52d0036c945261b8\", \"SOURCE_TEXT\": {\"exact_match\": \"Je vous aime\", \"local_text\": {\"context_start\": 741605, \"context_end\": 742598, \"text\": \"«Людовика XVI казнили за то, что они говорили, что он был бесчестен и преступник (пришло Пьеру в голову), и они были правы с своей точки зрения, так же как правы и те, которые за него умирали мученическою смертью и причисляли его к лику святых. Потом Робеспьера казнили за то, что он был деспот. Кто прав, кто виноват? Никто. А жив и живи: завтра умрешь, как мог я умереть час тому назад. И стòит ли того мучиться, когда жить остается одну секунду в сравнении с вечностью?» — Но в ту минуту, как он считал себя успокоенным такого рода рассуждениями, ему вдруг представлялась она и в те минуты, когда он сильнее всего выказывал ей свою неискреннюю любовь, и он чувствовал прилив крови к сердцу, и должен был опять вставать, двигаться, и ломать, и рвать попадающиеся ему под руки вещи. «Зачем я сказал ей: «Je vous aime?» все повторял он сам себе. И повторив десятый раз этот вопрос, ему пришло в голову Мольерово: mais que diable allait il faire dans cette galère? и он засмеялся сам над собою.\"}, \"wider_canonical_context\": {\"context_start\": 739396, \"context_end\": 745774, \"text\": \"«А сколько раз я гордился ею, гордился ее величавою красотой, ее светским тактом, думал он; гордился тем своим домом, в котором она принимала весь Петербург, гордился ее неприступностию и красотой. Так вот чем я гордился?! Я тогда думал, что не понимаю ее. Как часто, вдумываясь в ее характер, я говорил себе, что я виноват, что не понимаю ее, не понимаю этого всегдашнего спокойствия, удовлетворенности и отсутствия всяких пристрастий и желаний, а вся разгадка была в том страшном слове, что она развратная женщина: сказал себе это страшное слово, и всё стало ясно!\\n\\n«Анатоль ездил к ней занимать у нее денег и целовал ее в голые плечи. Она не давала ему денег, но позволяла целовать себя. Отец, шутя, возбуждал ее ревность; она с спокойною улыбкой говорила, что она не так глупа, чтобы быть ревнивою: пусть делает, чтò хочет, говорила она про меня. Я спросил у нее однажды, не чувствует ли она признаков беременности. Она засмеялась презрительно и сказала, что она не дура, чтобы желать иметь детей, и что от меня детей у нее не будет».\\n\\nПотом он вспомнил грубость, ясность ее мыслей и вульгарность выражений, свойственных ей, несмотря на ее воспитание в высшем аристократическом кругу. «Я не какая-нибудь дура... поди сам попробуй... allez vous promener», говорила она. Часто, глядя на ее успех в глазах старых и молодых мужчин и женщин, Пьер не мог понять, отчего он не любил ее. Да я никогда не любил ее, говорил себе Пьер; я знал, что она развратная женщина, повторял он сам себе, но не смел признаться в этом.\\n\\n«И теперь Долохов, вот он сидит на снегу и насильно улыбается, и умирает, может быть, притворным каким-то молодечеством отвечая на мое раскаяние!»\\n\\nПьер был один из тех людей, которые, несмотря на свою внешнюю, так называемую слабость характера, не ищут поверенного для своего горя. Он перерабатывал один в себе свое горе.\\n\\n«Она во всем, во всем она одна виновата, — говорил он сам себе; — но чтò ж из этого? Зачем я себя связал с нею, зачем я ей сказал этот: «Je vous aime», которое было ложь и еще хуже чем ложь, говорил он сам себе. Я виноват и должен нести... Чтò? Позор имени, несчастие жизни? Э, всё вздор, — подумал он, — и позор имени, и честь, всё условно, всё независимо от меня.\\n\\n«Людовика XVI казнили за то, что они говорили, что он был бесчестен и преступник (пришло Пьеру в голову), и они были правы с своей точки зрения, так же как правы и те, которые за него умирали мученическою смертью и причисляли его к лику святых. Потом Робеспьера казнили за то, что он был деспот. Кто прав, кто виноват? Никто. А жив и живи: завтра умрешь, как мог я умереть час тому назад. И стòит ли того мучиться, когда жить остается одну секунду в сравнении с вечностью?» — Но в ту минуту, как он считал себя успокоенным такого рода рассуждениями, ему вдруг представлялась она и в те минуты, когда он сильнее всего выказывал ей свою неискреннюю любовь, и он чувствовал прилив крови к сердцу, и должен был опять вставать, двигаться, и ломать, и рвать попадающиеся ему под руки вещи. «Зачем я сказал ей: «Je vous aime?» все повторял он сам себе. И повторив десятый раз этот вопрос, ему пришло в голову Мольерово: mais que diable allait il faire dans cette galère? и он засмеялся сам над собою.\\n\\nНочью он позвал камердинера и велел укладываться, чтоб ехать в Петербург. Он не мог оставаться с ней под одной кровлей. Он не мог представить себе, как бы он стал теперь говорить с ней. Он решил, что завтра он уедет и оставит ей письмо, в котором объявит ей свое намерение навсегда разлучиться с нею.\\n\\nУтром, когда камердинер, внося кофей, вошел в кабинет, Пьер лежал на отоманке и с раскрытою книгой в руке спал.\\n\\nОн очнулся и долго испуганно оглядывался не в силах понять, где он находится.\\n\\n— Графиня приказала спросить, дома ли ваше сиятельство, — спросил камердинер.\\n\\nНо не успел еще Пьер решиться на ответ, который он сделает, как сама графиня в белом, атласном халате, шитом серебром, и в простых волосах (две огромные косы en diadème огибали два раза ее прелестную голову) вошла в комнату спокойно и величественно; только на мраморном несколько выпуклом лбе ее была морщинка гнева. Она с своим всёвыдерживающим спокойствием не стала говорить при камердинере. Она знала о дуэли и пришла говорить о ней. Она дождалась, пока камердинер уставил кофей и вышел. Пьер робко чрез очки посмотрел на нее, и, как заяц, окруженный собаками, прижимая уши, продолжает лежать в виду своих врагов, так и он попробовал продолжать читать: но чувствовал, что это бессмысленно и невозможно и опять робко взглянул на нее. Она не села, и с презрительною улыбкой смотрела на него, ожидая пока выйдет камердинер.\\n\\n— Это еще чтò? Чтò вы наделали, я вас спрашиваю, — сказала она строго.\\n\\n— Я? чтò я? — сказал Пьер.\\n\\n— Вот храбрец отыскался! Ну, отвечайте, чтò это за дуэль? Чтò вы хотели этим доказать! Чтò? Я вас спрашиваю. — Пьер тяжело повернулся на диване, открыл рот, но не мог ответить.\\n\\n— Коли вы не отвечаете, то я вам скажу... — продолжала Элен. — Вы верите всему, чтò вам скажут. Вам сказали... — Элен засмеялась, — что Долохов мой любовник, — сказала она по-французски, с своею грубою точностью речи, выговаривая слово «любовник», как и всякое другое слово, — и вы поверили! Но чтò же вы этим доказали? Чтò вы доказали этою дуэлью? То, что вы дурак, que vous êtes un sot, так это все знали! К чему это поведет? К тому, чтоб я сделалась посмешищем всей Москвы; к тому, чтобы всякий сказал, что вы в пьяном виде, не помня себя, вызвали на дуэль человека, которого вы без основания ревнуете, — Элен всё более и более возвышала голос и одушевлялась, — который лучше вас во всех отношениях...\\n\\n— Гм... гм... — мычал Пьер, морщась, не глядя на нее и не шевелясь ни одним членом.\\n\\n— И почему вы могли поверить, что он мой любовник?... Почему? Потому что я люблю его общество? Ежели бы вы были умнее и приятнее, то я бы предпочитала ваше.\\n\\n— Не говорите со мной... умоляю, — хрипло прошептал Пьер.\\n\\n— Отчего мне не говорить! Я могу говорить и смело скажу, что редкая та жена, которая с таким мужем, как вы, не взяла бы себе любовников (des amants), а я этого не сделала, — сказала она. Пьер хотел что-то сказать, взглянул на нее странными глазами, которых выражения она не поняла, и опять лег. Он физически страдал в эту минуту: грудь его стесняло, и он не мог дышать. Он знал, что ему надо что-то сделать, чтобы прекратить это страдание, но то, чтò он хотел сделать, было слишком страшно.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"“And how many times I was proud of her, proud of her stately beauty, her social tact,” he thought; “proud of that home of mine in which she received all Petersburg, proud of her unapproachability and beauty. So this is what I was proud of! At the time I thought I did not understand her. How often, pondering her character, I told myself that I was to blame for not understanding her, for not understanding that perpetual calm, contentment, and absence of any passions or desires; but the whole answer lay in that terrible phrase: she was a depraved woman. I said that terrible phrase to myself, and everything became clear!\\n\\n“Anatole used to go to her to borrow money from her and kiss her bare shoulders. She did not give him money, but she allowed him to kiss her. Her father, in jest, tried to arouse her jealousy; with a calm smile she said that she was not so foolish as to be jealous: let him do whatever he wants, she said of me. Once I asked her whether she felt any signs of pregnancy. She laughed contemptuously and said that she was not a fool who would want to have children, and that she would have no children by me.”\\n\\nThen he recalled the coarseness and bluntness of her thoughts and the vulgarity of expression characteristic of her despite her upbringing in the highest aristocratic circle. “I am not some sort of fool... go and try it yourself... go take a walk,” she used to say. Often, looking at her success in the eyes of old and young men and women, Pierre could not understand why he did not love her. Why, I never loved her, Pierre told himself; I knew that she was a depraved woman, he repeated to himself, but had not dared admit it.\\n\\n“And now Dolokhov—there he sits in the snow, forcing a smile, and perhaps dying, answering my remorse with some sort of feigned bravado!”\\n\\nPierre was one of those people who, despite their outward, so-called weakness of character, do not seek a confidant for their grief. He worked through his grief alone, within himself.\\n\\n“She alone is to blame for everything, for everything,” he told himself; “but what of it? Why did I bind myself to her, why did I say to her that ‘I love you,’ which was a lie and even worse than a lie?” he told himself. “I am guilty and must bear... What? The disgrace to my name, the misery of my life? Bah, it is all nonsense,” he thought, “the disgrace to my name, and honor—everything is conventional, everything is independent of me.\\n\\n“Louis XVI was executed because they said that he was dishonorable and a criminal,” it occurred to Pierre, “and they were right from their point of view, just as those who died a martyr’s death for him and numbered him among the saints were also right. Then Robespierre was executed because he was a despot. Who is right, who is guilty? No one. You are alive, so live: tomorrow you will die, just as I might have died an hour ago. And is it worth suffering when one has only a single second left to live in comparison with eternity?” But at the very moment when he considered himself soothed by reasoning of this kind, he would suddenly picture her at those moments when he had most strongly displayed his insincere love for her, and he felt a rush of blood to his heart and had to get up again, move about, and break and tear whatever objects came to hand. “Why did I say to her, ‘I love you’?” he kept repeating to himself. And after repeating this question for the tenth time, Molière’s phrase came into his mind: “But what the devil was he doing in that galley?” and he laughed at himself.\\n\\nAt night he summoned his valet and ordered him to pack for the journey to Petersburg. He could not remain under the same roof with her. He could not imagine how he would now speak to her. He decided that the next day he would leave and leave her a letter in which he would announce his intention of separating from her forever.\\n\\nIn the morning, when the valet entered the study carrying coffee, Pierre was lying on the ottoman, asleep with an open book in his hand.\\n\\nHe woke and looked around in alarm for a long time, unable to understand where he was.\\n\\n“The countess ordered me to ask whether Your Excellency is at home,” said the valet.\\n\\nBut before Pierre had time to decide what answer he would give, the countess herself entered the room, calmly and majestically, wearing a white satin dressing gown embroidered with silver and with her hair simply arranged—two enormous braids wound twice around her lovely head like a diadem; only on her marble, slightly prominent forehead was a wrinkle of anger. With her imperturbable calm, she did not begin speaking in the valet’s presence. She knew about the duel and had come to speak about it. She waited until the valet had set out the coffee and left. Pierre looked timidly at her through his spectacles and, as a hare surrounded by dogs, flattening its ears, continues to lie in full view of its enemies, so he tried to continue reading; but he felt that this was senseless and impossible, and again looked timidly at her. She did not sit down, but looked at him with a contemptuous smile, waiting for the valet to leave.\\n\\n“What is this now? What have you done, I ask you?” she said sternly.\\n\\n“Me? What have I done?” said Pierre.\\n\\n“Here is a brave man indeed! Well, answer me: what was this duel about? What did you mean to prove by it? What? I am asking you.” Pierre turned over heavily on the sofa, opened his mouth, but could not answer.\\n\\n“If you will not answer, then I shall tell you...” Hélène continued. “You believe everything you are told. You were told...” Hélène laughed, “that Dolokhov is my lover,” she said in French, with her coarse precision of speech, pronouncing the word “lover” just like any other word, “and you believed it! But what did you prove by it? What did you prove by this duel? That you are a fool, that you are a fool—everyone already knew that! Where will this lead? To my becoming the laughingstock of all Moscow; to everyone saying that, while drunk and not knowing what you were doing, you challenged a man of whom you are jealous without cause”—Hélène raised her voice more and more and grew increasingly animated—“a man who is better than you in every respect...”\\n\\n“Hmm... hmm...” Pierre grunted, wincing, not looking at her and not moving a single limb.\\n\\n“And why could you believe that he was my lover?... Why? Because I enjoy his company? If you were more intelligent and agreeable, I would prefer yours.”\\n\\n“Do not speak to me... I beg you,” Pierre whispered hoarsely.\\n\\n“Why should I not speak? I can speak, and I will say boldly that there is scarcely a wife who, with a husband like you, would not take lovers for herself, and I did not,” she said. Pierre wanted to say something, looked at her with strange eyes whose expression she did not understand, and lay down again. At that moment he was suffering physically: his chest was constricted, and he could not breathe. He knew that he had to do something to put an end to this suffering, but what he wanted to do was too terrible.\", \"source_occurrence_id\": \"tolstoy-war-and-peace-52d0036c945261b8\", \"source_language\": \"ru\", \"source_language_text_sha256\": \"064e85009c286a724ec697c0ad88a967dfeacbd35a9f137f0db0a36edc5171f2\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-21T23:08:41.328714+00:00\", \"model_usage\": {\"input_tokens\": 2131, \"cached_input_tokens\": 0, \"output_tokens\": 1931}, \"estimated_cost_usd\": 0.047144000000000005, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"tolstoy-war-and-peace\", \"title\": \"Война и мир\", \"author\": \"Лев Толстой\", \"language\": \"ru\", \"source_type\": \"tolstoy_online\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.255189, \"source_start\": 742410, \"source_end\": 742422, \"source_length\": 2909261}, \"form\": {\"form_family\": \"present_or_imperfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": \"optional\", \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"ru_codeswitch_fr_present_past\", \"pattern_version\": \"0.13\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

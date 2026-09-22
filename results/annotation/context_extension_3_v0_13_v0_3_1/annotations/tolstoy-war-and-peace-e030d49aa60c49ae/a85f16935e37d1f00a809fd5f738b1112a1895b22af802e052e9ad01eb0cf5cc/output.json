@@ -1,0 +1,65 @@
+{
+  "occurrence_id": "tolstoy-war-and-peace-e030d49aa60c49ae",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 3,
+      "other": 0
+    },
+    "confidence": 0.92,
+    "analysis": "The princess’s expression is narratively verbalised as saying “I love all of you.” It strongly presents universal loving feeling as true (T). Because this is an involuntary facial manifestation arising amid fear, pain, and impaired comprehension rather than a deliberate spoken avowal, it also has independently substantial expressive/reflexive force (E). It neither undertakes nor renews a relational commitment (P).",
+    "ambiguity": "The narrator interprets a facial expression rather than transcribing speech, so the exact balance between an attributed avowal (T) and affective manifestation (E) is uncertain; this does not create ontology failure."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "nonverbal_verbalised",
+    "description": "The princess does not literally speak the highlighted words; the narrator renders what her frightened, agitated facial expression communicates."
+  },
+  "contextual_interpretation": "During a brief respite from childbirth agony, the princess looks at her husband with joy, fear, and agitation but cannot understand the significance of his arrival. The narrator interprets her expression as simultaneously communicating love for everyone, her innocence, bewilderment at undeserved suffering, and a plea for help. Thus the love clause works both as a sincere presentation of benevolent feeling and as part of an involuntary affective appeal, not as a promise or relational undertaking. Its later attribution to her dead face reinforces the passage’s framing of her as loving, harmless, and wronged.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "«Я вас всех люблю, я никому зла не делала, за чтò я страдаю? помогите мне», говорило ее выражение.",
+      "supports": "The explicit love proposition supports high T, while “her expression said” establishes that it is a nonverbal manifestation and supports independent E.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "Her eyes are described as childishly frightened and agitated, and she sees her husband without understanding the significance of his appearance.",
+      "supports": "The impaired, affect-driven condition favors an involuntary expressive manifestation rather than a calculated declaration or undertaking.",
+      "confidence": 0.96
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "After her death, the narrator again renders her unchanged facial expression as saying that she loved everyone and had harmed no one.",
+      "supports": "The recurrence confirms that the wording is the narrator’s interpretation of her characteristic affective expression and moral innocence, not a performative commitment.",
+      "confidence": 0.95
+    },
+    {
+      "evidence_id": "e4",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is marked as affirmative present-tense «Я вас всех люблю» with the pattern “ru_present_all_addressees.”",
+      "supports": "Confirms that the highlighted semantic core presents current love directed broadly to all present or implicated addressees.",
+      "confidence": 0.98
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T and E naturally capture the attributed loving state and its involuntary expressive manifestation; P is absent, and the nonverbal narrative mediation is adequately recorded by utterance status and context rather than requiring O.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": "Classification concerns the first living facial-expression attribution of «Я вас всех люблю», while the later postmortem revoicing is used only as corroborating context."
+}

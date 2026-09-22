@@ -1,0 +1,65 @@
+{
+  "occurrence_id": "tolstoy-war-and-peace-c0d16fe3e0bd1e4c",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.97,
+    "analysis": "Pierre’s internally formulated but unspoken “я тебя люблю” presents his love for Natasha as true and would answer her question about his behavior. It is therefore strongly truth-conditional. Nothing in the core utterance undertakes a commitment, and his intense physical reaction does not make the words an expressive/reflex-like discharge: he consciously wants to say them but withholds them.",
+    "ambiguity": "There is a minor boundary ambiguity between imagined speech and an unspoken intended avowal, but this does not affect its dominant truth-conditional force."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "imagined",
+    "description": "Pierre internally formulates the answer “Because I love you!” as something he wants to say, but the narration explicitly states that he does not say it."
+  },
+  "contextual_interpretation": "Natasha’s unusually tender attention leaves Pierre confused, and her direct questions prompt the imagined confession. He suppresses it, flushes nearly to tears, substitutes an excuse, kisses her hand, and resolves to visit less often. These actions support the sincerity and painful relational stakes of the avowal, while also showing inhibition rather than reflex-like verbal discharge or a performed commitment.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "«Оттого, что я тебя люблю!» хотел он сказать, но он не сказал этого (“‘Because I love you!’ he wanted to say, but he did not say it”).",
+      "supports": "Identifies an imagined or intended avowal that directly presents Pierre’s love as the explanation for his conduct; it also establishes that no spoken performative act occurs.",
+      "confidence": 1.0
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "Natasha asks why Pierre is leaving and upset, looking directly into his eyes.",
+      "supports": "The imagined words function as a propositional answer explaining Pierre’s emotional state and withdrawal, strongly supporting T.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "Pierre flushes nearly to tears, lowers his eyes, gives an evasive answer, cannot smile, silently kisses Natasha’s hand, and leaves.",
+      "supports": "Supports the emotional sincerity and intensity surrounding the imagined avowal, but the explicit withholding of the words supplies no independent evidence for expressive/reflexive discharge or relational undertaking.",
+      "confidence": 0.96
+    },
+    {
+      "evidence_id": "e4",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is marked as affirmative, present-tense, canonical explicit love language.",
+      "supports": "Corroborates that the core semantic form is a present avowal of love rather than a negated, conditional, or temporally displaced statement.",
+      "confidence": 0.99
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T adequately captures the core force as an unspoken but fully formulated avowal. Pierre’s inhibition, distress, and the relational consequences belong to contextual interpretation; they create no residual pressure for E or O.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

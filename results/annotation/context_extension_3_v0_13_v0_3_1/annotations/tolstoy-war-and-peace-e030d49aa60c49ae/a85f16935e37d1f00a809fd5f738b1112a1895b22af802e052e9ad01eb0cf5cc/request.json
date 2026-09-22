@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"tolstoy-war-and-peace-e030d49aa60c49ae\", \"SOURCE_TEXT\": {\"exact_match\": \"Я вас всех люблю\", \"local_text\": {\"context_start\": 761174, \"context_end\": 761851, \"text\": \"Маленькая княгиня лежала на подушках, в белом чепчике. (Страдания только что отпустили ее.) Черные волосы прядями вились у ее воспаленных, вспотевших щек; румяный, прелестный ротик с губкой, покрытою черными волосиками, был раскрыт, и она радостно улыбалась. Князь Андрей вошел в комнату и остановился перед ней, у изножья дивана, на котором она лежала. Блестящие глаза, смотревшие детски-испуганно и взволнованно, остановились на нем, не изменяя выражения. «Я вас всех люблю, я никому зла не делала, за чтò я страдаю? помогите мне», говорило ее выражение. Она видела мужа, но не понимала значения его появления теперь перед нею. Князь Андрей обошел диван и в лоб поцеловал ее.\"}, \"wider_canonical_context\": {\"context_start\": 758426, \"context_end\": 765026, \"text\": \"Княжна Марья уже давно оставила книгу: она сидела молча, устремив лучистые глаза на сморщенное, до малейших подробностей знакомое, лицо няни: на прядку седых волос, выбившуюся из под платка, на висящий мешочек кожи под подбородком.\\n\\nНяня-Савишна, с чулком в руках, тихим голосом рассказывала, сама не слыша и не понимая своих слов, сотни раз рассказанное о том, как покойница-княгиня в Кишиневе рожала княжну Марью, с крестьянскою бабой-молдаванкой, вместо бабушки.\\n\\n— Бог помилует, никогда дохтура не нужны, — говорила она. Вдруг порыв ветра налег на одну из выставленных рам комнаты (по воле князя всегда с жаворонками выставлялось по одной раме в каждой комнате) и, отбив плохо задвинутую задвижку, затрепал штофною гардиной, и пахнув холодом, снегом, задул свечу. Княжна Марья вздрогнула; няня, положив чулок, подошла к окну и высунувшись стала ловить откинутую раму. Холодный ветер трепал концами ее платка и седыми, выбившимися прядями волос.\\n\\n— Княжна, матушка, едут по прешпекту кто-то! — сказала она, держа раму и не затворяя ее. — С фонарями, должно, дохтур...\\n\\n— Ах, Боже мой! Слава Богу! — сказала княжна Марья, — надо пойти встретить его: он не знает по-русски.\\n\\nКняжна Марья накинула шаль и побежала навстречу ехавшим. Когда она проходила переднюю, она в окно видела, что какой-то экипаж и фонари стояли у подъезда. Она вышла на лестницу. На столбике перил стояла сальная свеча и текла от ветра. Официант Филипп, с испуганным лицом и с другою свечей в руке, стоял ниже, на первой площадке лестницы. Еще пониже, за поворотом, по лестнице, слышны были подвигавшиеся шаги в теплых сапогах. И какой-то знакомый, как показалось княжне Марье, голос, говорил что-то.\\n\\n— Слава Богу! — сказал голос. — А батюшка?\\n\\n— Почивать легли, — отвечал голос дворецкого Демьяна, бывшего уже внизу.\\n\\nПотом еще что-то сказал голос, что-то ответил Демьян, и шаги в теплых сапогах стали быстрее приближаться по невидному повороту лестницы. «Это Андрей! — подумала княжна Марья. Нет, это не может быть, это было бы слишком необыкновенно», подумала она, и в ту же минуту, как она думала это, на площадке, на которой стоял официант со свечой, показались лицо и фигура князя Андрея в шубе с воротником, обсыпанным снегом. Да, это был он, но бледный и худой, и с измененным, странно-смягченным, но тревожным выражением лица. Он вошел на лестницу и обнял сестру.\\n\\n— Вы не получили моего письма? — спросил он, и не дожидаясь ответа, которого бы он и не получил, потому что княжна не могла говорить, он вернулся, и с акушером, который вошел вслед за ним (он съехался с ним на последней станции), быстрыми шагами опять вошел на лестницу и опять обнял сестру.\\n\\n— Какая судьба! — проговорил он, — Маша милая! — И, скинув шубу и сапоги, пошел на половину княгини.\\n\\nIX.\\n\\nМаленькая княгиня лежала на подушках, в белом чепчике. (Страдания только что отпустили ее.) Черные волосы прядями вились у ее воспаленных, вспотевших щек; румяный, прелестный ротик с губкой, покрытою черными волосиками, был раскрыт, и она радостно улыбалась. Князь Андрей вошел в комнату и остановился перед ней, у изножья дивана, на котором она лежала. Блестящие глаза, смотревшие детски-испуганно и взволнованно, остановились на нем, не изменяя выражения. «Я вас всех люблю, я никому зла не делала, за чтò я страдаю? помогите мне», говорило ее выражение. Она видела мужа, но не понимала значения его появления теперь перед нею. Князь Андрей обошел диван и в лоб поцеловал ее.\\n\\n— Душенька моя, — сказал он: слово, которое никогда не говорил ей. — Бог милостив... — Она вопросительно, детски-укоризненно посмотрела на него.\\n\\n«Я от тебя ждала помощи, и ничего, ничего, и ты тоже!» сказали ее глаза. Она не удивилась, что он приехал; она не поняла того, что он приехал. Его приезд не имел никакого отношения до ее страданий и облегчения их. Муки вновь начались, и Марья Богдановна посоветовала князю Андрею выйти из комнаты.\\n\\nАкушер вошел в комнату. Князь Андрей вышел и, встретив княжну Марью, опять подошел к ней. Они шопотом заговорили, но всякую минуту разговор замолкал. Они ждали и прислушивались.\\n\\n— Allez, mon ami, — сказала княжна Марья. Князь Андрей опять пошел к жене, и в соседней комнате сел дожидаясь. Какая-то женщина вышла из ее комнаты с испуганным лицом и смутилась, увидав князя Андрея. Он закрыл лицо руками и просидел так несколько минут. Жалкие, беспомощно-животные стоны слышались из-за двери. Князь Андрей встал, подошел к двери и хотел отворить ее. Дверь держал кто-то.\\n\\n— Нельзя, нельзя! — проговорил оттуда испуганный голос. — Он стал ходить по комнате. Крики замолкли, еще прошло несколько секунд. Вдруг страшный крик — не ее крик, она не могла так кричать, — раздался в соседней комнате. Князь Андрей подбежал к двери; крик замолк, послышался крик ребенка.\\n\\n«Зачем принесли туда ребенка? подумал в первую секунду князь Андрей. — Ребенок? Какой?.. Зачем там ребенок? Или это родился ребенок?»\\n\\nКогда он вдруг понял всё радостное значение этого крика, слезы задушили его, и он, облокотившись обеими руками на подоконник, всхлипывая, заплакал, как плачут дети. Дверь отворилась. Доктор, с засученными рукавами рубашки, без сюртука, бледный и с трясущеюся челюстью, вышел из комнаты. Князь Андрей обратился к нему, но доктор растерянно взглянул на него и, ни слова не сказав, прошел мимо. Женщина выбежала и, увидав князя Андрея, замялась на пороге. Он вошел в комнату жены. Она мертвая лежала в том же положении, в котором он видел ее пять минут тому назад, и то же выражение, несмотря на остановившиеся глаза и на бледность щек, было на этом прелестном, детском личике с губкой, покрытою черными волосиками.\\n\\n«Я вас всех люблю и никому дурного не делала, и чтò вы со мной сделали?» говорило ее прелестное, жалкое, мертвое лицо. В углу комнаты хрюкнуло и пискнуло что-то маленькое, красное в белых трясущихся руках Марьи Богдановны.\\n\\nЧерез два часа после этого князь Андрей тихими шагами вошел в кабинет к отцу. Старик всё уже знал. Он стоял у самой двери, и, как только она отворилась, старик молча старческими, жесткими руками, как тисками, обхватил шею сына и зарыдал как ребенок.\\n\\nЧерез три дня отпевали маленькую княгиню, и, прощаясь с нею, князь Андрей взошел на ступени гроба. И в гробу было то же лицо, хотя и с закрытыми глазами. «Ах, чтò вы со мной сделали?» всё говорило оно, и князь Андрей почувствовал, что в душе его оторвалось что-то, что он виноват в вине, которую ему не поправить и не забыть. Он не мог плакать. Старик тоже вошел и поцеловал ее восковую ручку, спокойно и высоко лежавшую на другой, и ему ее лицо сказало: «Ах, чтò и за чтò вы это со мной сделали?» И старик сердито отвернулся, увидав это лицо.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"Princess Mary had long since put down her book: she sat silently, fixing her radiant eyes on the nurse’s wrinkled face, familiar to her down to its smallest details: on the lock of gray hair that had escaped from beneath her headscarf, on the hanging pouch of skin beneath her chin.\\n\\nNurse Savishna, with a stocking in her hands, was recounting in a quiet voice, without herself hearing or understanding her own words, the story she had told hundreds of times of how the late princess had given birth to Princess Mary in Kishinev, with a Moldavian peasant woman instead of a midwife.\\n\\n“God will have mercy; doctors are never needed,” she was saying. Suddenly a gust of wind pressed against one of the room’s removable window frames (by the prince’s orders, one frame in every room was always taken out when the larks returned) and, knocking back the poorly fastened latch, set the damask curtain flapping and, blowing in cold and snow, extinguished the candle. Princess Mary shuddered; the nurse put down the stocking, went over to the window, leaned out, and began trying to catch the frame that had swung open. The cold wind fluttered the ends of her headscarf and the escaped gray locks of her hair.\\n\\n“Princess, dearie, someone’s coming along the avenue!” she said, holding the frame without closing it. “With lanterns; it must be the doctor...”\\n\\n“Oh, my God! Thank God!” said Princess Mary. “I must go and meet him: he does not know Russian.”\\n\\nPrincess Mary threw on a shawl and ran to meet the arrivals. As she passed through the anteroom, she saw through the window that some carriage and lanterns were standing at the entrance. She went out onto the stairs. A tallow candle stood on the newel post, running in the wind. The footman Philip, with a frightened face and another candle in his hand, stood lower down, on the first landing. Lower still, around the turn in the stairs, approaching footsteps in warm boots could be heard. And a voice that seemed familiar to Princess Mary was saying something.\\n\\n“Thank God!” said the voice. “And Father?”\\n\\n“He has retired for the night,” answered the voice of the steward Demyan, who was already downstairs.\\n\\nThen the voice said something else, Demyan answered something, and the footsteps in warm boots began approaching more quickly around the unseen turn of the staircase. “It is Andrei!” thought Princess Mary. “No, it cannot be; it would be too extraordinary,” she thought, and at the very moment she was thinking this, the face and figure of Prince Andrei, wearing a fur coat with a collar sprinkled with snow, appeared on the landing where the footman stood with the candle. Yes, it was he, but pale and thin, with a changed expression on his face, strangely softened yet anxious. He came up the stairs and embraced his sister.\\n\\n“You did not receive my letter?” he asked; and without waiting for an answer—which he would not have received in any case, because the princess could not speak—he turned back, and then, with the obstetrician who had come in after him (he had met up with him at the last posting station), he again mounted the stairs with quick steps and again embraced his sister.\\n\\n“What a stroke of fate!” he said. “Dear Masha!” And, taking off his fur coat and boots, he went to the princess’s apartments.\\n\\nIX.\\n\\nThe little princess lay on the pillows in a white cap. (Her pains had only just subsided.) Strands of black hair curled beside her inflamed, perspiring cheeks; her lovely little rosy mouth, with its upper lip covered in tiny black hairs, was open, and she smiled joyfully. Prince Andrei entered the room and stopped before her at the foot of the sofa on which she lay. Her shining eyes, gazing with childlike fear and agitation, came to rest on him without changing their expression. “I love all of you; I have done no harm to anyone; why am I suffering? Help me,” her expression said. She saw her husband but did not understand the significance of his appearing before her now. Prince Andrei walked around the sofa and kissed her on the forehead.\\n\\n“My darling,” he said—a phrase he had never used to her. “God is merciful...” She looked at him questioningly, with childlike reproach.\\n\\n“I expected help from you, and there is none, none—and you too!” her eyes said. She was not surprised that he had come; she did not understand that he had come. His arrival had no connection at all with her suffering or with relieving it. The agonies began again, and Marya Bogdanovna advised Prince Andrei to leave the room.\\n\\nThe obstetrician entered the room. Prince Andrei went out and, meeting Princess Mary, approached her again. They began speaking in whispers, but every moment their conversation fell silent. They waited and listened.\\n\\n“Go, my friend,” said Princess Mary. Prince Andrei went back toward his wife and sat down in the adjoining room to wait. A woman came out of her room with a frightened face and became confused on seeing Prince Andrei. He covered his face with his hands and sat that way for several minutes. Pitiful, helplessly animal moans could be heard from behind the door. Prince Andrei stood up, went to the door, and tried to open it. Someone was holding the door shut.\\n\\n“No, no, you cannot!” said a frightened voice from inside. He began pacing the room. The screams ceased; several more seconds passed. Suddenly a terrible scream—not her scream, she could not have screamed like that—rang out in the adjoining room. Prince Andrei ran to the door; the scream ceased, and the cry of a baby was heard.\\n\\n“Why have they brought a baby in there?” Prince Andrei thought in the first instant. “A baby? What baby?... Why is there a baby in there? Or has a baby been born?”\\n\\nWhen he suddenly understood the full joyful meaning of that cry, tears choked him, and, leaning both hands on the windowsill, he sobbed and wept as children weep. The door opened. The doctor, with his shirtsleeves rolled up, without his frock coat, pale and with a trembling jaw, came out of the room. Prince Andrei turned to him, but the doctor looked at him in bewilderment and, without saying a word, passed by. The woman ran out and, on seeing Prince Andrei, faltered on the threshold. He entered his wife’s room. She lay dead in the same position in which he had seen her five minutes before, and the same expression, despite the motionless eyes and the pallor of the cheeks, remained on that lovely, childlike little face with its upper lip covered in tiny black hairs.\\n\\n“I love all of you and have done nothing bad to anyone, and what have you done to me?” said her lovely, pitiful, dead face. In the corner of the room, something small and red grunted and squeaked in Marya Bogdanovna’s trembling white hands.\\n\\nTwo hours later Prince Andrei entered his father’s study with quiet steps. The old man already knew everything. He was standing right by the door, and as soon as it opened, the old man silently clasped his son’s neck with his aged, hard hands, like a vise, and sobbed like a child.\\n\\nThree days later the funeral service was held for the little princess, and, taking leave of her, Prince Andrei mounted the steps beside the coffin. And in the coffin was the same face, though the eyes were closed. “Oh, what have you done to me?” it still said, and Prince Andrei felt that something had been torn away in his soul, that he was guilty of a wrong he could neither make right nor forget. He could not weep. The old man also went up and kissed her waxen little hand, which lay calmly and loftily upon the other, and to him her face said: “Oh, what have you done to me, and why?” And the old man turned away angrily when he saw that face.\", \"source_occurrence_id\": \"tolstoy-war-and-peace-e030d49aa60c49ae\", \"source_language\": \"ru\", \"source_language_text_sha256\": \"2e72cb82aeed1559a652744fc70c5b00673b58a213934a47adaadcd64dd9f91a\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-21T23:18:01.804806+00:00\", \"model_usage\": {\"input_tokens\": 2342, \"cached_input_tokens\": 0, \"output_tokens\": 2275}, \"estimated_cost_usd\": 0.054868, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"tolstoy-war-and-peace\", \"title\": \"Война и мир\", \"author\": \"Лев Толстой\", \"language\": \"ru\", \"source_type\": \"tolstoy_online\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.261796, \"source_start\": 761633, \"source_end\": 761649, \"source_length\": 2909261}, \"form\": {\"form_family\": \"canonical_present\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"ru_present_all_addressees\", \"pattern_version\": \"0.13\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -2,7 +2,9 @@
 from html.parser import HTMLParser
 import json
 import os
-from pathlib import Path
+import posixpath
+from unittest.mock import patch
+from pathlib import Path, PurePosixPath, PureWindowsPath
 import shutil
 import subprocess
 import unittest
@@ -22,6 +24,14 @@ class ReaderTests(unittest.TestCase):
     def setUpClass(cls):
         cls.records,cls.inventory,_=load_collection()
         cls.generated=generate(ROOT,read(ROOT/'data/reader/collection_v1.json'))
+    def test_windows_relative_paths_reproduce_every_saved_reader_file(self):
+        original = Path.relative_to
+        def windows_relative(path, *args, **kwargs):
+            return PureWindowsPath(original(path, *args, **kwargs).as_posix())
+        # Exercise Windows path serialization while file I/O remains on the test host.
+        with patch.object(Path, 'relative_to', windows_relative):
+            generated = generate(ROOT, read(ROOT/'data/reader/collection_v1.json'))
+        self.assertEqual(self.generated, generated)
     def test_all_saved_records_and_zero_yield_work(self):
         self.assertEqual(252,len(self.records));self.assertEqual(35,len(self.inventory))
         self.assertIn('benedictsson-pengar',self.inventory)
@@ -32,7 +42,7 @@ class ReaderTests(unittest.TestCase):
             parser=Elements();parser.feed(text)
             for link in parser.links:
                 if link.startswith(('http:','https:','#','mailto:')):continue
-                path=os.path.normpath(str(Path(name).parent/link.split('#')[0]))
+                path=posixpath.normpath(str(PurePosixPath(name).parent/link.split('#')[0]))
                 self.assertIn(path,self.generated,(name,link))
     def test_only_exact_target_highlighted_and_markup_escaped(self):
         r={'location':{'source_start':2,'source_end':5}}

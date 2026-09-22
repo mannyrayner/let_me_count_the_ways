@@ -1,0 +1,72 @@
+{
+  "occurrence_id": "tolstoy-war-and-peace-97bb0f3373ee85cf",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.96,
+    "analysis": "Rastopchin directly presents his affectionate, benevolent regard for Pierre as true: “Я вас люблю” (“I love you”). The phrase primarily supports the warning by assuring Pierre that the advice is supposedly well meant. It does not itself undertake a commitment, and there is no evidence that it is an affect-driven verbal discharge.",
+    "ambiguity": "The avowal may be strategically paternalistic or partly insincere, but sincerity does not alter its strongly truth-conditional mode."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "Rastopchin directly addresses Pierre during a private, increasingly coercive conversation."
+  },
+  "contextual_interpretation": "Rastopchin places the avowal between an account of Pierre’s suspicious associations and a demand that he sever them and leave Moscow. “I love you and wish you no harm” frames his warning as paternal solicitude, while his later anger and description of the advice as potentially an order reveal its coercive political setting. That framing may be manipulative, but the core utterance remains an avowal of benevolent affection rather than a commitment or expressive outburst.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "“Я вас люблю и не желаю вам зла” (“I love you and wish you no harm”).",
+      "supports": "The coordinated statement explicitly presents Rastopchin’s affection and benevolent intention as true, strongly supporting T.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "“как отец, советую вам” (“I advise you, as a father”).",
+      "supports": "The utterance is used to establish a paternal, well-meaning frame for advice rather than to enact a reciprocal romantic bond or explicit undertaking.",
+      "confidence": 0.97
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "Rastopchin tells Pierre to end relations with Klyucharev and leave; he later calls this “совет или приказанье” (“advice—or an order”).",
+      "supports": "The surrounding exchange is politically coercive and potentially manipulative, but that force belongs to the warning/order rather than supplying performative force to the love avowal itself.",
+      "confidence": 0.96
+    },
+    {
+      "evidence_id": "e4",
+      "source": "local_text",
+      "quotation_or_description": "The avowal occurs in a controlled explanatory sentence, without narration of blurting, involuntary speech, or affective discharge.",
+      "supports": "There is no positive evidence for expressive/reflexive E force.",
+      "confidence": 0.95
+    },
+    {
+      "evidence_id": "e5",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is marked as affirmative, present-tense, and a valid explicit “I love you” construction.",
+      "supports": "Confirms that the highlighted Russian phrase is a canonical present-tense love avowal.",
+      "confidence": 0.99
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the core avowal. Its paternalistic, strategic, and coercive setting can be represented contextually without adding P, E, or O.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

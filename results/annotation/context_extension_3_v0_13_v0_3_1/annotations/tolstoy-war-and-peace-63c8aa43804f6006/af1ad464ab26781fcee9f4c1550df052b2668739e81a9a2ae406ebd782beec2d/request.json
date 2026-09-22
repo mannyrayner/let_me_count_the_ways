@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"tolstoy-war-and-peace-63c8aa43804f6006\", \"SOURCE_TEXT\": {\"exact_match\": \"je vous aime\", \"local_text\": {\"context_start\": 2679839, \"context_end\": 2680617, \"text\": \"Он не повторял, как тогда, с болезненным стыдом слов сказанных им, не говорил себе: «ах, зачем я не сказал этого, и зачем, зачем я сказал тогда «je vous aime?». Теперь, напротив, каждое слово ее, свое, он повторял в своем воображении со всеми подробностями лица, улыбки и ничего не хотел ни убавить, ни прибавить: хотелось только повторять. Сомнений в том, хорошо ли или дурно то, чтò он предпринял, — теперь не было и тени. Одно только страшное сомнение иногда приходило ему в голову. Не во сне ли всё это? Не ошиблась ли княжна Марья? Не слишком ли я горд и самонадеян? Я верю; а вдруг, чтò и должно случиться, княжна Марья скажет ей, а она улыбнется и ответит: «как странно! Он верно ошибся. Разве он не знает, что он человек, просто человек, а я?.. Я совсем другое, высшее».\"}, \"wider_canonical_context\": {\"context_start\": 2676778, \"context_end\": 2683061, \"text\": \"— Ну, вот, — продолжал он, видимо сделав усилие над собой, чтобы говорить связно. — Я не знаю, с каких пор я люблю ее. Но я одну только ее, одну любил во всю мою жизнь и люблю так, что без нее не могу себе представить жизнь. Просить руки ее теперь, я не решаюсь; но мысль о том, что, может быть, она могла бы быть моею и что я упущу эту возможность... возможность... ужасна. Скажите, могу я надеяться? Скажите, что мне делать? Милая княжна, — сказал он, помолчав немного и тронув ее за руку, так как она не отвечала.\\n\\n— Я думаю о том, чтò вы мне сказали, — отвечала княжна Марья. — Вот чтò я скажу вам. Вы правы, что теперь говорить ей о любви... — Княжна остановилась. Она хотела сказать: говорить ей о любви теперь невозможно; но она остановилась, потому что она третий день видела, по вдруг переменившейся Наташе, что не только Наташа не оскорбилась бы, еслиб ей Пьер высказал свою любовь, но что она одного только этого и желала.\\n\\n— Говорить ей теперь... нельзя, — всё-таки сказала княжна Марья.\\n\\n— Но чтò же мне делать?\\n\\n— Поручите это мне, — сказала княжна Марья. — Я знаю...\\n\\nПьер смотрел в глаза княжне Марье.\\n\\n— Ну, ну... — говорил он.\\n\\n— Я знаю, что она любит... полюбит вас, — поправилась княжна Марья.\\n\\nНе успела она сказать эти словà, как Пьер вскочил и с испуганным лицом схватил за руку княжну Марью.\\n\\n— Отчего вы думаете? Вы думаете, что я могу надеяться? Вы думаете?!...\\n\\n— Да, думаю, — улыбаясь сказала княжна Марья. — Напишите родителям. И поручите мне. Я скажу ей, когда будет можно. Я желаю этого. И сердце мое чувствует, что это будет.\\n\\n— Нет, этого не может быть! Как я счастлив! Но это не может быть... Как я счастлив! Нет, не может быть! — говорил Пьер, целуя руки княжны Марьи.\\n\\n— Вы поезжайте в Петербург; это лучше. А я напишу вам, — сказала она.\\n\\n— В Петербург? ехать? Да, хорошо, ехать. Но завтра я могу приехать к вам?\\n\\nНа другой день Пьер приехал проститься. Наташа была менее оживлена, чем в прежние дни; но в этот день, иногда взглянув ей в глаза, Пьер чувствовал, что он исчезает, что ни его, ни ее нет больше, а есть одно чувство счастья. «Неужели? Нет, не может быть», говорил он себе при каждом ее взгляде, жесте, слове, наполнявших его душу радостью.\\n\\nКогда он, прощаясь с нею, взял ее тонкую, худую руку, он невольно несколько дольше удержал ее в своей.\\n\\n«Неужели эта рука, это лицо, эти глаза, всё это чуждое мне сокровище женской прелести, неужели это всё будет вечно мое, привычное, такое же, каким я сам для себя? Нет, это невозможно!..»\\n\\n— Прощайте, граф, — сказала она ему громко. — Я очень буду ждать вас, — прибавила она шопотом.\\n\\nИ эти простые слова, взгляд и выражение лица, сопровождавшие их, в продолжение двух месяцев составляли предмет неистощимых воспоминаний, объяснений и счастливых мечтаний Пьера. «Я очень буду ждать вас... Да, да, как она сказала? Да, я очень буду ждать вас. Ах, как я счастлив! Чтò ж это такое, как я счастлив!» — говорил себе Пьер.\\n\\nXIX.\\n\\nВ душе Пьера теперь не происходило ничего подобного тому, чтò происходило в ней в подобных же обстоятельствах во время его сватовства с Элен.\\n\\nОн не повторял, как тогда, с болезненным стыдом слов сказанных им, не говорил себе: «ах, зачем я не сказал этого, и зачем, зачем я сказал тогда «je vous aime?». Теперь, напротив, каждое слово ее, свое, он повторял в своем воображении со всеми подробностями лица, улыбки и ничего не хотел ни убавить, ни прибавить: хотелось только повторять. Сомнений в том, хорошо ли или дурно то, чтò он предпринял, — теперь не было и тени. Одно только страшное сомнение иногда приходило ему в голову. Не во сне ли всё это? Не ошиблась ли княжна Марья? Не слишком ли я горд и самонадеян? Я верю; а вдруг, чтò и должно случиться, княжна Марья скажет ей, а она улыбнется и ответит: «как странно! Он верно ошибся. Разве он не знает, что он человек, просто человек, а я?.. Я совсем другое, высшее».\\n\\nТолько это сомнение часто приходило Пьеру. Планов он тоже не делал теперь никаких. Ему казалось так невероятно предстоящее счастье, что стоило этому совершиться, и уж дальше ничего не могло быть. Всё кончалось.\\n\\nРадостное, неожиданное сумасшествие, к которому Пьер считал себя неспособным, овладело им. Весь смысл жизни, не для него одного, но для всего мира, казался ему заключающимся только в его любви и в возможности ее любви к нему. Иногда все люди казались ему занятыми только одним, — его будущим счастьем. Ему казалось иногда, что все они радуются так же, как и он сам, и только стараются скрыть эту радость, притворяясь занятыми другими интересами. В каждом слове и движении он видел намеки на свое счастие. Он часто удивлял людей, встречавшихся с ним, своими значительными, выражавшими тайное согласие, счастливыми взглядами и улыбками. Но когда он понимал, что люди могли не знать про его счастье, он от всей души жалел их и испытывал желание как-нибудь объяснить им, что всё то, чем они заняты, есть совершенный вздор и пустяки, не стоющие внимания.\\n\\nКогда ему предлагали служить, или когда обсуждали какие-нибудь общие, государственные дела и войну, предполагая, что от такого или такого-то исхода события зависит счастие всех людей, он слушал с кроткою соболезнующею улыбкой и удивлял говоривших с ним людей своими странными замечаниями. Но как те люди, которые казались Пьеру понимающими настоящий смысл жизни, т. е. его чувство, так и те несчастные, которые очевидно не понимали этого, — все люди в этот период времени представлялись ему в таком ярком свете сиявшего в нем чувства, что он без малейшего усилия, сразу, встречаясь с каким бы то ни было человеком, видел в нем всё, чтò было хорошего и достойного любви.\\n\\nРассматривая делà и бумаги своей покойной жены, он к ее памяти не испытывал никакого чувства, кроме жалости о том, что она не знала того счастья, которое он знал теперь. Князь Василий, особенно гордый теперь получением нового места и звезды, представлялся ему трогательным, добрым и жалким стариком.\\n\\nПьер часто потом вспоминал это время счастливого безумия. Все суждения, которые он составил себе о людях и обстоятельствах за этот период времени, остались для него навсегда верными. Он не только не отрекался впоследствии от этих взглядов на людей и вещи, но напротив, во внутренних сомнениях и противоречиях, прибегал к тому взгляду, который имел в это время безумия, и взгляд этот всегда оказывался верен.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"“Well, then,” he continued, evidently making an effort to speak coherently. “I do not know how long I have loved her. But she alone, she alone, is the one I have loved all my life, and I love her so much that without her I cannot imagine life for myself. I do not dare ask for her hand now; but the thought that perhaps she might be mine and that I shall miss this chance... this chance... is terrible. Tell me, may I hope? Tell me, what am I to do? Dear Princess,” he said after a short silence, touching her hand, since she did not answer.\\n\\n“I am thinking about what you have told me,” replied Princess Marya. “This is what I will say to you. You are right that to speak to her of love now...” The princess stopped. She had wanted to say that to speak to her of love now was impossible; but she stopped because for three days she had seen, from Natasha’s sudden transformation, that not only would Natasha not be offended if Pierre declared his love to her, but that this was the one thing she desired.\\n\\n“To speak to her now... is impossible,” Princess Marya nevertheless said.\\n\\n“But what am I to do?”\\n\\n“Entrust it to me,” said Princess Marya. “I know...”\\n\\nPierre looked into Princess Marya’s eyes.\\n\\n“Well, well...” he said.\\n\\n“I know that she loves... will come to love you,” Princess Marya corrected herself.\\n\\nNo sooner had she said these words than Pierre sprang up and, with a frightened look, seized Princess Marya by the hand.\\n\\n“Why do you think so? You think I may hope? You think so?!...”\\n\\n“Yes, I do,” Princess Marya said with a smile. “Write to your parents. And entrust it to me. I will tell her when it is possible. I desire it. And my heart feels that it will be so.”\\n\\n“No, that cannot be! How happy I am! But it cannot be... How happy I am! No, it cannot be!” Pierre kept saying, kissing Princess Marya’s hands.\\n\\n“You should go to Petersburg; that is better. And I will write to you,” she said.\\n\\n“To Petersburg? Go? Yes, all right, I’ll go. But may I come to see you tomorrow?”\\n\\nThe next day Pierre came to say goodbye. Natasha was less animated than on the preceding days; but that day, whenever he looked into her eyes, Pierre felt that he was vanishing, that neither he nor she existed any longer, but only a single feeling of happiness. “Can it really be? No, it cannot be,” he said to himself at every glance, gesture, and word of hers that filled his soul with joy.\\n\\nWhen, as he said goodbye to her, he took her slender, thin hand, he involuntarily held it in his own a little longer.\\n\\n“Can it really be that this hand, this face, these eyes, all this treasure of feminine loveliness that is foreign to me—can all this be mine forever, familiar to me, just as I am to myself? No, it is impossible!...”\\n\\n“Goodbye, Count,” she said to him aloud. “I shall be waiting for you very much,” she added in a whisper.\\n\\nAnd for two months these simple words, and the look and expression that accompanied them, formed the subject of Pierre’s inexhaustible recollections, interpretations, and happy dreams. “‘I shall be waiting for you very much’... Yes, yes, how did she say it? Yes, ‘I shall be waiting for you very much.’ Oh, how happy I am! What is this? How happy I am!” Pierre said to himself.\\n\\nXIX.\\n\\nNothing was now taking place in Pierre’s soul like what had taken place in it under similar circumstances during his courtship of Hélène.\\n\\nHe did not repeat, as he had then, with painful shame, the words he had spoken; he did not say to himself, “Oh, why did I not say that, and why, why did I then say, ‘I love you’?” Now, on the contrary, he repeated every word of hers and his own in his imagination, with every detail of her face and smile, and wanted neither to subtract nor to add anything: he wanted only to repeat it. There was now not a shadow of doubt as to whether what he had undertaken was good or bad. Only one terrible doubt sometimes came into his mind. Was all this not a dream? Had Princess Marya not been mistaken? Am I not too proud and self-confident? I believe; but suppose, as is bound to happen, Princess Marya tells her, and she smiles and replies: “How strange! He must be mistaken. Does he not know that he is a man, merely a man, while I?... I am something quite different, something higher.”\\n\\nThis was the only doubt that often came to Pierre. Nor did he now make any plans. The happiness before him seemed so incredible that once it came to pass, there could be nothing beyond it. Everything ended there.\\n\\nA joyful, unexpected madness, of which Pierre had thought himself incapable, took possession of him. The whole meaning of life, not for him alone but for the entire world, seemed to him to lie solely in his love and in the possibility of her love for him. Sometimes all people seemed to him to be occupied with only one thing—his future happiness. It sometimes seemed to him that they were all rejoicing just as he himself was and were merely trying to conceal that joy by pretending to be occupied with other interests. In every word and movement he saw hints of his happiness. He often surprised the people he met with his significant, happy glances and smiles, expressive of a secret understanding. But when he realized that people might not know about his happiness, he pitied them with all his heart and felt a desire somehow to explain to them that everything occupying them was utter nonsense and trifles unworthy of attention.\\n\\nWhen he was offered a position in the service, or when some general affairs of state and the war were discussed on the assumption that the happiness of all people depended on one outcome or another, he listened with a gentle, commiserating smile and surprised those who spoke with him by his strange remarks. But both those people who seemed to Pierre to understand the true meaning of life—that is, his feeling—and those unfortunate people who obviously did not understand it—all people during this period appeared to him in such a bright light from the feeling shining within him that, without the slightest effort, the moment he met anyone at all, he saw in him everything that was good and worthy of love.\\n\\nWhen he looked through the affairs and papers of his late wife, he felt no emotion toward her memory except pity that she had not known the happiness he now knew. Prince Vasili, particularly proud now of having received a new appointment and a star, seemed to him a touching, kind, and pitiful old man.\\n\\nPierre often recalled afterward this time of happy madness. All the judgments he formed about people and circumstances during this period remained forever true for him. Not only did he not later renounce these views of people and things, but, on the contrary, in moments of inner doubt and contradiction he had recourse to the view he had held during this time of madness, and that view always proved correct.\", \"source_occurrence_id\": \"tolstoy-war-and-peace-63c8aa43804f6006\", \"source_language\": \"ru\", \"source_language_text_sha256\": \"35b2dc76c260c707a976e05e2b6f1059091abca7ee101ad0b57ebf1f9a16faf1\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-21T23:09:56.861204+00:00\", \"model_usage\": {\"input_tokens\": 2022, \"cached_input_tokens\": 0, \"output_tokens\": 1726}, \"estimated_cost_usd\": 0.042608, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"tolstoy-war-and-peace\", \"title\": \"Война и мир\", \"author\": \"Лев Толстой\", \"language\": \"ru\", \"source_type\": \"tolstoy_online\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.921191, \"source_start\": 2679984, \"source_end\": 2679996, \"source_length\": 2909261}, \"form\": {\"form_family\": \"present_or_imperfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": \"optional\", \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"ru_codeswitch_fr_present_past\", \"pattern_version\": \"0.13\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

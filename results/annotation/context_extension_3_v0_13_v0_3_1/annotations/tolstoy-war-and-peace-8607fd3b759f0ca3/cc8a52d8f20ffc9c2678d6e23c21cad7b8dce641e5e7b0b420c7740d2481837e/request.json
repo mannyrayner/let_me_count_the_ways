@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"tolstoy-war-and-peace-8607fd3b759f0ca3\", \"SOURCE_TEXT\": {\"exact_match\": \"je vous aime\", \"local_text\": {\"context_start\": 203754, \"context_end\": 204237, \"text\": \"«Mais assez de bavardage comme cela. Je finis mon second feuillet, et maman me fait chercher pour aller dîner chez les Apraksines. Lisez le livre mystique que je vous envoie et qui fait fureur chez nous. Quoiqu’il y ait des choses dans ce livre difficiles à atteindre avec la faible conception humaine, c’est un livre admirable dont la lecture calme et élève l’âme. Adieu. Mes respects à monsieur votre père et mes compliments à m-elle Bourienne. Je vous embrasse comme je vous aime.\"}, \"wider_canonical_context\": {\"context_start\": 200169, \"context_end\": 208142, \"text\": \"«Tout Moscou ne parle que guerre. L’un de mes deux frères est déjà à l’étranger, l’autre est avec la garde, qui se met en marche vers la frontière. Notre cher empereur a quitté Pétersbourg et, à ce qu’on prétend, compte lui-même exposer sa précieuse existence aux chances de la guerre. Dieu veuille que le monstre corsicain, qui détruit le repos de l’Europe, soit terrassé par l’ange que le Tout-Puissant, dans Sa miséricorde, nous a donné pour souverain. Sans parler de mes frères, cette guerre m’a privée d’une relation des plus chères à mon coeur. Je parle du jeune Nicolas Rostoff, qui avec son enthousiasme n’a pu supporter l’inaction et a quitté l’université pour aller s’enrôler dans l’armée. Eh bien, chère Marie, je vous avouerai, que, malgré son extrême jeunesse, son départ pour l’armée a été un grand chagrin pour moi. Le jeune homme, dont je vous parlais cet été, a tant de noblesse, de véritable jeunesse qu’on rencontre si rarement dans le siècle ou nous vivons parmi nos vieillards de vingt ans. Il a surtout tant de franchise et de coeur. Il est tellement pur et poétique, que mes relations avec lui, quelque passagères qu’elles fussent, ont été l’une des plus douces jouissances de mon pauvre coeur, qui a déjà tant souffert. Je vous raconterai un jour nos adieux et tout ce qui s’est dit en partant. Tout cela est encore trop frais. Ah! chère amie, vous êtes heureuse de ne pas connaître ces jouissances et ces peines si poignantes. Vous êtes heureuse, puisque les dernières sont ordinairement les plus fortes! Je sais fort bien, que le comte Nicolas est trop jeune pour pouvoir jamais devenir pour moi quelque chose de plus qu’un ami, mais cette douce amitié, ces relations si poétiques et si pures ont été un besoin pour mon coeur. Mais n’en parlons plus. La grande nouvelle du jour qui occupe tout Moscou est la mort du vieux comte Безухов et son héritage. Figurez-vous que les trois princesses n’ont reçu que très peu de chose, le prince Basile rien, est que c’est M. Pierre qui a tout hérité, et qui par-dessus le marché a été reconnu pour fils légitime, par conséquent comte Безухов et possesseur de la plus belle fortune de la Russie. On prétend que le prince Basile a joué un très vilain rôle dans toute cette histoire et qu’il est reparti tout penaud pour Pétersbourg.\\n\\n«Je vous avoue, que je comprends très peu toutes ces affaires de legs et de testament; ce que je sais, c’est que depuis que le jeune homme que nous connaissions tous sous le nom de M. Pierre tout court est devenu comte Безухов et possesseur de l’une des plus grandes fortunes de la Russie, je m’amuse fort à observer les changements de ton et des manières des mamans accablées de filles à marier et des demoiselles elles-mêmes à l’égard de cet individu, qui, par parenthèse, m’a paru toujours être un pauvre sire. Gomme on s’amuse depuis deux ans à me donner des promis que je ne connais pas le plus souvent, la chronique matrimoniale de Moscou me fait comtesse Безуховой. Mais vous sentez bien que je ne me soucie nullement de le devenir. A propos de mariage, savez-vous que tout dernièrement la tante en général Анна Михайловна, m’a confié sous le sceau du plus grand secret un projet de mariage pour vous. Ce n’est ni plus ni moins, que le fils du prince Basile, Anatole, qu’on voudrait ranger en le mariant à une personne riche et distinguée, et c’est sur vous qu’est tombé le choix des parents. Je ne sais comment vous envisagerez la chose, mais j’ai cru de mon devoir de vous en avertir. On le dit très beau et très mauvais sujet; c’est tout ce que j’ai pu savoir sur son compte.\\n\\n«Mais assez de bavardage comme cela. Je finis mon second feuillet, et maman me fait chercher pour aller dîner chez les Apraksines. Lisez le livre mystique que je vous envoie et qui fait fureur chez nous. Quoiqu’il y ait des choses dans ce livre difficiles à atteindre avec la faible conception humaine, c’est un livre admirable dont la lecture calme et élève l’âme. Adieu. Mes respects à monsieur votre père et mes compliments à m-elle Bourienne. Je vous embrasse comme je vous aime.\\n\\nJulie».\\n\\n«P. S. Donnez-moi des nouvelles de votre frère et de sa charmante petite femme».\\n\\nКняжна подумала, задумчиво улыбнулась (причем лицо ее, освещенное лучистыми глазами, совершенно преобразилось), и, вдруг приподнявшись, тяжело ступая, перешла к столу. Она достала бумагу, и рука ее быстро начала ходить по ней. Так писала она в ответ:\\n\\n«Chère et excellente amie. Votre lettre du 13 m’a causé une grande joie. Vous m’aimez donc toujours, ma poétique Julie. L’absence, dont vous dites tant de mal, n’a donc pas eu son influence habituelle sur vous. Vous vous plaignez de l’absence — que devrai-je dire moi, si j’osais me plaindre, privée de tous ceux qui me sont chers? Ah! si nous n’avions pas la réligion pour nous consoler, la vie serait bien triste. Pourquoi me supposez-vous un regard sévère, quand vous me parlez de votre affection pour le jeune homme? Sous ce rapport je ne suis rigide que pour moi. Je comprends ces sentiments chez les autres et si je ne puis approuver ne les ayant jamais ressentis, je ne les condamne pas. Il me paraît seulement que l’amour chrétien, l’amour du prochain, l’amour pour ses ennemis est plus méritoire, plus doux et plus beau, que ne le sont les sentiments que peuvent inspirer les beaux yeux d’un jeune homme à une jeune fille poétique et aimante comme vous.\\n\\n«La nouvelle de la mort du comte Безухов nous est parvenue avant votre lettre, et mon père en a été très affecté. Il dit que c’était l’avant-dernier représentant du grand siècle, et qu’à présent c’est son tour; mais qu’il fera son possible pour que son tour vienne le plus tard possible. Que Dieu nous garde de ce terrible malheur! Je ne puis partager votre opinion sur Pierre que j’ai connu enfant. Il me paraissait toujours avoir un coeur excellent, et c’est la qualité que j’estime le plus dans les gens. Quant à son héritage et au rôle qu’y a joué le prince Basile, c’est bien triste pour tous les deux. Ah! chère amie, la parole de notre divin Sauveur qu’il est plus aisé à un chameau de passer par le trou d’une aiguille, qu’il ne l’est à un riche d’entrer dans le royaume de Dieu, cette parole est terriblement vraie; je plains le prince Basile et je regrette encore davantage Pierre. Si jeune et accablé de cette richesse, que de tentations n’aura-t-il pas à subir! Si on me demandait ce que je désirerais le plus au monde, ce serait d’être plus pauvre que le plus pauvre des mendiants.\\n\\nMille grâces, chère amie, pour l’ouvrage que vous m’envoyez, et qui fait si grande fureur chez vous. Cependant, puisque vous me dites qu’au milieu de plusieurs bonnes choses il y en a d’autres que la faible conception humaine ne peut atteindre, il me paraît assez inutile de s’occuper d’une lecture inintelligible; qui par là même ne pourrait être d’aucun fruit. Je n’ai jamais pu comprendre la passion qu’ont certaines personnes de s’embrouiller l’entendement, en s’attachant à des livres mystiques, qui n’élèvent que des doutes dans leurs esprits, exaltant leur imagination et leur donnent un caractère d’exagération tout-à-fait contraire à la simplicité chrétienne. Lisons les Apôtres et l’Evangile. Ne cherchons pas à pénétrer ce que ceux-là renferment de mystérieux, car, comment oserions-nous, misérables pécheurs que nous sommes, prétendre à nous initier dans les secrets terribles et sacrés de la Providence, tant que nous portons cette dépouille charnelle, qui élève entre nous et l’Eternel un voile impénétrable? Bornons-nous donc à étudier les principes sublimes que notre divin Sauveur nous a laissé pour notre conduite ici-bas; cherchons à nous y conformer et à les suivre, persuadons-nous que moins nous donnons d’essor à notre faible esprit humain et plus il est agréable à Dieu, Qui rejette toute science ne venant pas de Lui; que moins nous cherchons à approfondir ce qu’il Lui a plu de dérober à notre connaissance, et plutôt Il nous en accordera la découverte par Son divin esprit.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"“All Moscow talks of nothing but war. One of my two brothers is already abroad; the other is with the Guards, who are setting out for the frontier. Our dear Emperor has left Petersburg and, so it is said, intends himself to expose his precious life to the hazards of war. God grant that the Corsican monster, who is destroying the peace of Europe, may be struck down by the angel whom the Almighty, in His mercy, has given us as sovereign. Not to mention my brothers, this war has deprived me of a relationship most dear to my heart. I speak of young Nicholas Rostov, who, in his enthusiasm, could not endure inactivity and has left the university to enlist in the army. Well, dear Marie, I shall confess to you that, despite his extreme youth, his departure for the army has been a great sorrow to me. The young man of whom I spoke to you this summer has so much nobility, such genuine youth as one so rarely encounters in the age in which we live among our twenty-year-old old men. Above all, he has so much frankness and heart. He is so pure and poetic that my relations with him, however fleeting they may have been, have been one of the sweetest joys of my poor heart, which has already suffered so much. One day I shall tell you about our farewells and everything that was said as he was leaving. It is all still too fresh. Ah! dear friend, you are fortunate not to know these joys and these so poignant sorrows. You are fortunate, since the latter are usually the stronger! I know perfectly well that Count Nicholas is too young ever to become anything more to me than a friend, but this sweet friendship, these so poetic and so pure relations, were a need of my heart. But let us speak of it no more. The great news of the day, which occupies all Moscow, is the death of old Count Bezukhov and his inheritance. Just imagine: the three princesses received very little, Prince Vasili nothing, and it is Monsieur Pierre who has inherited everything and, into the bargain, has been recognized as a legitimate son and consequently as Count Bezukhov and the possessor of the finest fortune in Russia. It is said that Prince Vasili played a very ugly part in this whole affair and that he went back to Petersburg quite crestfallen.\\n\\n“I confess to you that I understand very little of all these matters of legacies and wills; what I do know is that, since the young man whom we all knew simply as Monsieur Pierre became Count Bezukhov and the possessor of one of the greatest fortunes in Russia, I have been greatly amused to observe the changes in the tone and manners of the mothers burdened with marriageable daughters, and of the young ladies themselves, toward this individual, who, incidentally, has always seemed to me a sorry fellow. Since for the past two years people have amused themselves by giving me prospective husbands whom, more often than not, I do not know, the matrimonial chronicle of Moscow is making me Countess Bezukhov. But you understand very well that I have no desire whatsoever to become her. Speaking of marriage, do you know that only very recently the aunt-in-general, Anna Mikhailovna, confided to me, under the seal of the greatest secrecy, a marriage plan for you? It is none other than Prince Vasili’s son Anatole, whom they would like to reform by marrying him to a rich and distinguished person, and it is upon you that the parents’ choice has fallen. I do not know how you will view the matter, but I thought it my duty to warn you of it. He is said to be very handsome and a very bad lot; that is all I have been able to learn about him.\\n\\n“But enough chatter of this sort. I am finishing my second sheet, and Mamma has sent for me to go and dine at the Apraksins’. Read the mystical book I am sending you, which is all the rage among us. Although there are things in this book difficult for the feeble human understanding to grasp, it is an admirable book, the reading of which calms and elevates the soul. Farewell. My respects to your father and my compliments to Mademoiselle Bourienne. I embrace you as I love you.\\n\\nJulie.”\\n\\n“P.S. Give me news of your brother and his charming little wife.”\\n\\nThe princess thought, smiled pensively—at which her face, illuminated by her radiant eyes, was completely transformed—and, suddenly rising slightly, walked heavily over to the table. She took out some paper, and her hand began moving rapidly over it. This is what she wrote in reply:\\n\\n“My dear and excellent friend. Your letter of the thirteenth has given me great joy. So you still love me, my poetic Julie. Absence, of which you say so much evil, has therefore not had its usual effect on you. You complain of absence—what should I say, if I dared complain, deprived as I am of all those who are dear to me? Ah! if we did not have religion to console us, life would be very sad. Why do you suppose that I look sternly upon you when you speak to me of your affection for the young man? In that respect I am strict only with myself. I understand these feelings in others and, though I cannot approve of them, never having felt them, I do not condemn them. It merely seems to me that Christian love, love of one’s neighbor, love for one’s enemies, is more meritorious, sweeter, and more beautiful than are the feelings that the fine eyes of a young man can inspire in a poetic and loving young girl such as you.\\n\\n“The news of Count Bezukhov’s death reached us before your letter, and my father was deeply affected by it. He says that the count was the penultimate representative of the great century and that now it is his turn, but that he will do all he can to make his turn come as late as possible. May God preserve us from this terrible misfortune! I cannot share your opinion of Pierre, whom I knew as a child. He always seemed to me to have an excellent heart, and that is the quality I esteem most in people. As for his inheritance and the part Prince Vasili played in it, it is very sad for them both. Ah! dear friend, the words of our divine Savior, that it is easier for a camel to pass through the eye of a needle than for a rich man to enter the kingdom of God, are terribly true; I pity Prince Vasili, and I am even sorrier for Pierre. So young and burdened with such wealth—how many temptations he will have to undergo! If I were asked what I desired most in the world, it would be to be poorer than the poorest of beggars.\\n\\n“A thousand thanks, dear friend, for the work you are sending me, which is so greatly in vogue among you. However, since you tell me that amid several good things there are others that the feeble human understanding cannot grasp, it seems to me rather pointless to occupy oneself with unintelligible reading, which for that very reason could bear no fruit. I have never been able to understand the passion certain people have for muddling their understanding by devoting themselves to mystical books, which merely raise doubts in their minds, excite their imagination, and give them a tendency toward exaggeration entirely contrary to Christian simplicity. Let us read the Apostles and the Gospel. Let us not seek to penetrate what mysteries they contain, for how could we, miserable sinners that we are, dare to claim initiation into the terrible and sacred secrets of Providence while we still bear this carnal covering, which raises an impenetrable veil between us and the Eternal? Let us therefore confine ourselves to studying the sublime principles our divine Savior left us for our conduct here below; let us seek to conform to them and follow them; let us persuade ourselves that the less scope we give to our feeble human mind, the more pleasing it is to God, Who rejects all knowledge not proceeding from Him; that the less we seek to fathom what it has pleased Him to conceal from our knowledge, the sooner He will grant us its discovery through His divine spirit.”\", \"source_occurrence_id\": \"tolstoy-war-and-peace-8607fd3b759f0ca3\", \"source_language\": \"ru\", \"source_language_text_sha256\": \"2749bc8e7fda63f792ea8df3b3c3f42ce8c2ef7006b0fe35a3bc9febe964efce\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-21T23:13:47.251822+00:00\", \"model_usage\": {\"input_tokens\": 2171, \"cached_input_tokens\": 0, \"output_tokens\": 1923}, \"estimated_cost_usd\": 0.047144000000000005, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"tolstoy-war-and-peace\", \"title\": \"Война и мир\", \"author\": \"Лев Толстой\", \"language\": \"ru\", \"source_type\": \"tolstoy_online\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.070198, \"source_start\": 204224, \"source_end\": 204236, \"source_length\": 2909261}, \"form\": {\"form_family\": \"present_or_imperfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": \"optional\", \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"ru_codeswitch_fr_present_past\", \"pattern_version\": \"0.13\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

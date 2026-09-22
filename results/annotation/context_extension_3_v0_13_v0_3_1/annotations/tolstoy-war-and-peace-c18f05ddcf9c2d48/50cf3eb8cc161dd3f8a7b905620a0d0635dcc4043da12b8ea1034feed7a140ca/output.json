@@ -1,0 +1,65 @@
+{
+  "occurrence_id": "tolstoy-war-and-peace-c18f05ddcf9c2d48",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 3,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.95,
+    "analysis": "The original “Je vous aime” presents Pierre as loving Hélène and therefore has strong truth-conditional avowal force even though he now judges it false. It also carries substantial performative force because, in his recollection, saying it helped bind him to her and led into marriage. Nothing supports expressive/reflexive discharge: the words are explicitly remembered as not coming from him and as insincere.",
+    "ambiguity": "The degree of P is somewhat uncertain because the words are not themselves an explicit promise or proposal, but Pierre treats their utterance as part of the act by which he relationally bound himself to Hélène."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "quoted_or_revoiced",
+    "description": "Pierre revoices in interior monologue an earlier declaration he made directly to Hélène; the classification concerns that remembered original utterance."
+  },
+  "contextual_interpretation": "Pierre retrospectively condemns the declaration as “a lie and worse than a lie.” He says he married Hélène without loving her, deceived both her and himself, and had already felt that he had no right to utter the words. Their falsity does not diminish their T mode; instead, it establishes insincerity and self-deception. His association of the declaration with binding himself to her and with the disastrous marriage supports P, while the description of the words as alien to his genuine feelings strongly opposes E.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "«зачем я себя связал с нею, зачем я ей сказал этот: “Je vous aime”, которое было ложь и еще хуже чем ложь» (“why did I bind myself to her, why did I say to her ‘I love you,’ which was a lie and worse than a lie?”)",
+      "supports": "The utterance was an avowal presented as true but retrospectively identified as false, supporting high T; its connection with binding himself to her supports P.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "Pierre recalls «слова: “Je vous aime”» as «невыходившие из него слова»—words that did not come from him.",
+      "supports": "Strongly weighs against E: the narrative characterizes the declaration as disconnected from spontaneous affective expression.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "The inner voice accuses Pierre of «женился не любя ее» and of deceiving both himself and her.",
+      "supports": "Establishes that the love declaration was insincere without changing its truth-conditional avowal force.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e4",
+      "source": "local_text",
+      "quotation_or_description": "Pierre remembers feeling at the time «что это было не то, что я не имел на это права» (“that it was not right, that I had no right to do it”).",
+      "supports": "Supports the declaration’s consequential relational force and Pierre’s recognition that he improperly invoked a basis for commitment.",
+      "confidence": 0.95
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T/P/E adequately distinguishes the false avowal, its role in relational commitment, and the absence of expressive/reflexive force. Insincerity and retrospective self-condemnation are contextual features rather than missing dimensions of core force.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": "The affirmative present-tense wording remains T despite being a lie; deception is orthogonal to utterance mode."
+}

@@ -116,7 +116,7 @@ def prepare(root=ROOT):
                 url = f'https://tolstoy.ru/online/90/{volume:02d}/'
                 path = raw_dir / f'volume-{volume:02d}.html'
                 raw = download(url, path)
-                downloads.append({'url': url, 'path': str(path.relative_to(root)), 'sha256': digest(raw)})
+                downloads.append({'url': url, 'path': path.relative_to(root).as_posix(), 'sha256': digest(raw)})
                 for identifier, part in tolstoy_volume(raw, volume):
                     if chunks:
                         chunks.append('\n\n'); offset += 2
@@ -129,7 +129,7 @@ def prepare(root=ROOT):
         else:
             path = raw_dir / ('source.html' if private else 'source-download.txt')
             raw = download(work['download_url'], path)
-            downloads.append({'url': work['download_url'], 'path': str(path.relative_to(root)), 'sha256': digest(raw)})
+            downloads.append({'url': work['download_url'], 'path': path.relative_to(root).as_posix(), 'sha256': digest(raw)})
             if private:
                 text = prince_text(raw)
                 sections = section_map(text, r'^(?:PREMIER CHAPITRE|CHAPITRE [IVX]+)$')
@@ -148,16 +148,16 @@ def prepare(root=ROOT):
         provenance = {k: v for k, v in work.items() if k != 'private'}
         provenance.update(downloads=downloads, canonical_sha256=digest(data),
                           derivation_version='context_sources_v1', retrieved_on=selection['selected_on'],
-                          section_map=str(map_path.relative_to(root)))
+                          section_map=map_path.relative_to(root).as_posix())
         stable_write(root / provenance_path, json_bytes(provenance))
         manifest = {'schema_version': '1.0', **{k: work[k] for k in ('work_id','title','author','language','source_type')},
                     'canonical_text': None if private else 'canonical.txt', 'canonical_sha256': digest(data),
-                    'source_references': [str(provenance_path), str(SELECTION)],
+                    'source_references': [provenance_path.as_posix(), SELECTION.as_posix()],
                     'rights': {'analysis_allowed': True, 'public_render_policy':
                                'LIMITED_QUOTATION_ONLY' if private else 'PUBLIC_DOMAIN_FULL_CONTEXT_OK'},
                     'notes': work['source_note']}
         if private:
-            manifest.update(canonical_storage='local_private', canonical_local_path=str(canonical.relative_to(root)))
+            manifest.update(canonical_storage='local_private', canonical_local_path=canonical.relative_to(root).as_posix())
             manifest['rights']['rights_review'] = {'status': 'REVIEW_REQUIRED', 'issue': 'territorial_copyright',
                 'note': 'Source designates public domain in Australia. Full-text redistribution elsewhere is not cleared; keep source and contexts in ignored local directories.'}
         work_dir = root / 'corpus/works' / wid

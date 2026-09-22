@@ -1,0 +1,731 @@
+{
+  "annotation_version": "0.3.1",
+  "status": "complete",
+  "requested": 40,
+  "valid": 40,
+  "failed": 0,
+  "resumed": 0,
+  "api_calls_this_run": 40,
+  "input_tokens": 261653,
+  "cached_input_tokens": 0,
+  "output_tokens": 47356,
+  "estimated_total_cost_usd": 1.9937319999999998,
+  "distributions": {
+    "T": {
+      "1": 1,
+      "4": 38,
+      "3": 1
+    },
+    "P": {
+      "3": 5,
+      "0": 23,
+      "2": 5,
+      "1": 7
+    },
+    "E": {
+      "0": 36,
+      "4": 1,
+      "3": 2,
+      "2": 1
+    },
+    "O": {
+      "0": 40
+    },
+    "ontology_fit": {
+      "natural": 40
+    },
+    "utterance_status": {
+      "direct": 28,
+      "nonverbal_verbalised": 3,
+      "quoted_or_revoiced": 4,
+      "imagined": 4,
+      "written": 1
+    },
+    "background_knowledge_used": {
+      "false": 40
+    }
+  },
+  "cases": [
+    {
+      "occurrence_id": "shakespeare-king-lear-1c492e4522915225",
+      "work_id": "shakespeare-king-lear",
+      "language": "en",
+      "scores": {
+        "truth_conditional": 1,
+        "performative": 3,
+        "exclamatory_reflexive": 0,
+        "other": 0
+      },
+      "confidence": 0.91,
+      "utterance_status": "direct",
+      "ontology_fit": "natural",
+      "background_knowledge_used": false,
+      "flags": [
+        "P>=2"
+      ]
+    },
+    {
+      "occurrence_id": "shakespeare-king-lear-97d3418f54f0370b",
+      "work_id": "shakespeare-king-lear",
+      "language": "en",
+      "scores": {
+        "truth_conditional": 4,
+        "performative": 3,
+        "exclamatory_reflexive": 0,
+        "other": 0
+      },
+      "confidence": 0.95,
+      "utterance_status": "direct",
+      "ontology_fit": "natural",
+      "background_knowledge_used": false,
+      "flags": [
+        "P>=2",
+        "mixed T/P/E"
+      ]
+    },
+    {
+      "occurrence_id": "shakespeare-king-lear-afbd3a1978a723e3",
+      "work_id": "shakespeare-king-lear",
+      "language": "en",
+      "scores": {
+        "truth_conditional": 4,
+        "performative": 0,
+        "exclamatory_reflexive": 0,
+        "other": 0
+      },
+      "confidence": 0.97,
+      "utterance_status": "direct",
+      "ontology_fit": "natural",
+      "background_knowledge_used": false,
+      "flags": []
+    },
+    {
+      "occurrence_id": "shakespeare-king-lear-cf26d564136c4590",
+      "work_id": "shakespeare-king-lear",
+      "language": "en",
+      "scores": {
+        "truth_conditional": 4,
+        "performative": 0,
+        "exclamatory_reflexive": 0,
+        "other": 0
+      },
+      "confidence": 0.96,
+      "utterance_status": "direct",
+      "ontology_fit": "natural",
+      "background_knowledge_used": false,
+      "flags": []
+    },
+    {
+      "occurrence_id": "tolstoy-war-and-peace-06d71e5250469d71",
+      "work_id": "tolstoy-war-and-peace",
+      "language": "ru",
+      "scores": {
+        "truth_conditional": 4,
+        "performative": 0,
+        "exclamatory_reflexive": 0,
+        "other": 0
+      },
+      "confidence": 0.96,
+      "utterance_status": "direct",
+      "ontology_fit": "natural",
+      "background_knowledge_used": false,
+      "flags": []
+    },
+    {
+      "occurrence_id": "tolstoy-war-and-peace-0c29fdb355707ad8",
+      "work_id": "tolstoy-war-and-peace",
+      "language": "ru",
+      "scores": {
+        "truth_conditional": 4,
+        "performative": 0,
+        "exclamatory_reflexive": 0,
+        "other": 0
+      },
+      "confidence": 0.98,
+      "utterance_status": "direct",
+      "ontology_fit": "natural",
+      "background_knowledge_used": false,
+      "flags": []
+    },
+    {
+      "occurrence_id": "tolstoy-war-and-peace-17abcfdad026ed90",
+      "work_id": "tolstoy-war-and-peace",
+      "language": "ru",
+      "scores": {
+        "truth_conditional": 4,
+        "performative": 0,
+        "exclamatory_reflexive": 0,
+        "other": 0
+      },
+      "confidence": 0.95,
+      "utterance_status": "direct",
+      "ontology_fit": "natural",
+      "background_knowledge_used": false,
+      "flags": []
+    },
+    {
+      "occurrence_id": "tolstoy-war-and-peace-1aa794a7bd4e9735",
+      "work_id": "tolstoy-war-and-peace",
+      "language": "ru",
+      "scores": {
+        "truth_conditional": 4,
+        "performative": 0,
+        "exclamatory_reflexive": 0,
+        "other": 0
+      },
+      "confidence": 0.95,
+      "utterance_status": "direct",
+      "ontology_fit": "natural",
+      "background_knowledge_used": false,
+      "flags": []
+    },
+    {
+      "occurrence_id": "tolstoy-war-and-peace-1cfaf0f75c6018e9",
+      "work_id": "tolstoy-war-and-peace",
+      "language": "ru",
+      "scores": {
+        "truth_conditional": 4,
+        "performative": 2,
+        "exclamatory_reflexive": 0,
+        "other": 0
+      },
+      "confidence": 0.95,
+      "utterance_status": "direct",
+      "ontology_fit": "natural",
+      "background_knowledge_used": false,
+      "flags": [
+        "P>=2",
+        "mixed T/P/E"
+      ]
+    },
+    {
+      "occurrence_id": "tolstoy-war-and-peace-236e475097c9ad71",
+      "work_id": "tolstoy-war-and-peace",
+      "language": "ru",
+      "scores": {
+        "truth_conditional": 4,
+        "performative": 0,
+        "exclamatory_reflexive": 0,
+        "other": 0
+      },
+      "confidence": 0.98,
+      "utterance_status": "direct",
+      "ontology_fit": "natural",
+      "background_knowledge_used": false,
+      "flags": []
+    },
+    {
+      "occurrence_id": "tolstoy-war-and-peace-2657bf026adaa944",
+      "work_id": "tolstoy-war-and-peace",
+      "language": "ru",
+      "scores": {
+        "truth_conditional": 4,
+        "performative": 1,
+        "exclamatory_reflexive": 0,
+        "other": 0
+      },
+      "confidence": 0.94,
+      "utterance_status": "direct",
+      "ontology_fit": "natural",
+      "background_knowledge_used": false,
+      "flags": []
+    },
+    {
+      "occurrence_id": "tolstoy-war-and-peace-2697357f44814321",
+      "work_id": "tolstoy-war-and-peace",
+      "language": "ru",
+      "scores": {
+        "truth_conditional": 4,
+        "performative": 0,
+        "exclamatory_reflexive": 0,
+        "other": 0
+      },
+      "confidence": 0.96,
+      "utterance_status": "nonverbal_verbalised",
+      "ontology_fit": "natural",
+      "background_knowledge_used": false,
+      "flags": []
+    },
+    {
+      "occurrence_id": "tolstoy-war-and-peace-2a9b6c844f229aa3",
+      "work_id": "tolstoy-war-and-peace",
+      "language": "ru",
+      "scores": {
+        "truth_conditional": 4,
+        "performative": 0,
+        "exclamatory_reflexive": 0,
+        "other": 0
+      },
+      "confidence": 0.96,
+      "utterance_status": "direct",
+      "ontology_fit": "natural",
+      "background_knowledge_used": false,
+      "flags": []
+    },
+    {
+      "occurrence_id": "tolstoy-war-and-peace-3264c6d1a54a8a65",
+      "work_id": "tolstoy-war-and-peace",
+      "language": "ru",
+      "scores": {
+        "truth_conditional": 3,
+        "performative": 0,
+        "exclamatory_reflexive": 4,
+        "other": 0
+      },
+      "confidence": 0.94,
+      "utterance_status": "direct",
+      "ontology_fit": "natural",
+      "background_knowledge_used": false,
+      "flags": [
+        "E>=2",
+        "mixed T/P/E"
+      ]
+    },
+    {
+      "occurrence_id": "tolstoy-war-and-peace-4266b8d63fd3c12f",
+      "work_id": "tolstoy-war-and-peace",
+      "language": "ru",
+      "scores": {
+        "truth_conditional": 4,
+        "performative": 0,
+        "exclamatory_reflexive": 3,
+        "other": 0
+      },
+      "confidence": 0.93,
+      "utterance_status": "direct",
+      "ontology_fit": "natural",
+      "background_knowledge_used": false,
+      "flags": [
+        "E>=2",
+        "mixed T/P/E"
+      ]
+    },
+    {
+      "occurrence_id": "tolstoy-war-and-peace-4fdc0eb6f1d52e8e",
+      "work_id": "tolstoy-war-and-peace",
+      "language": "ru",
+      "scores": {
+        "truth_conditional": 4,
+        "performative": 0,
+        "exclamatory_reflexive": 0,
+        "other": 0
+      },
+      "confidence": 0.92,
+      "utterance_status": "direct",
+      "ontology_fit": "natural",
+      "background_knowledge_used": false,
+      "flags": []
+    },
+    {
+      "occurrence_id": "tolstoy-war-and-peace-4fe2d8d695be8d2e",
+      "work_id": "tolstoy-war-and-peace",
+      "language": "ru",
+      "scores": {
+        "truth_conditional": 4,
+        "performative": 0,
+        "exclamatory_reflexive": 0,
+        "other": 0
+      },
+      "confidence": 0.97,
+      "utterance_status": "direct",
+      "ontology_fit": "natural",
+      "background_knowledge_used": false,
+      "flags": []
+    },
+    {
+      "occurrence_id": "tolstoy-war-and-peace-52d0036c945261b8",
+      "work_id": "tolstoy-war-and-peace",
+      "language": "ru",
+      "scores": {
+        "truth_conditional": 4,
+        "performative": 3,
+        "exclamatory_reflexive": 0,
+        "other": 0
+      },
+      "confidence": 0.96,
+      "utterance_status": "quoted_or_revoiced",
+      "ontology_fit": "natural",
+      "background_knowledge_used": false,
+      "flags": [
+        "P>=2",
+        "mixed T/P/E"
+      ]
+    },
+    {
+      "occurrence_id": "tolstoy-war-and-peace-59b432fefb8e03fe",
+      "work_id": "tolstoy-war-and-peace",
+      "language": "ru",
+      "scores": {
+        "truth_conditional": 4,
+        "performative": 1,
+        "exclamatory_reflexive": 0,
+        "other": 0
+      },
+      "confidence": 0.94,
+      "utterance_status": "direct",
+      "ontology_fit": "natural",
+      "background_knowledge_used": false,
+      "flags": []
+    },
+    {
+      "occurrence_id": "tolstoy-war-and-peace-5d3a51a3a6151f31",
+      "work_id": "tolstoy-war-and-peace",
+      "language": "ru",
+      "scores": {
+        "truth_conditional": 4,
+        "performative": 3,
+        "exclamatory_reflexive": 0,
+        "other": 0
+      },
+      "confidence": 0.96,
+      "utterance_status": "quoted_or_revoiced",
+      "ontology_fit": "natural",
+      "background_knowledge_used": false,
+      "flags": [
+        "P>=2",
+        "mixed T/P/E"
+      ]
+    },
+    {
+      "occurrence_id": "tolstoy-war-and-peace-63c8aa43804f6006",
+      "work_id": "tolstoy-war-and-peace",
+      "language": "ru",
+      "scores": {
+        "truth_conditional": 4,
+        "performative": 2,
+        "exclamatory_reflexive": 0,
+        "other": 0
+      },
+      "confidence": 0.93,
+      "utterance_status": "quoted_or_revoiced",
+      "ontology_fit": "natural",
+      "background_knowledge_used": false,
+      "flags": [
+        "P>=2",
+        "mixed T/P/E"
+      ]
+    },
+    {
+      "occurrence_id": "tolstoy-war-and-peace-688622e2fb7fe83d",
+      "work_id": "tolstoy-war-and-peace",
+      "language": "ru",
+      "scores": {
+        "truth_conditional": 4,
+        "performative": 0,
+        "exclamatory_reflexive": 0,
+        "other": 0
+      },
+      "confidence": 0.96,
+      "utterance_status": "imagined",
+      "ontology_fit": "natural",
+      "background_knowledge_used": false,
+      "flags": []
+    },
+    {
+      "occurrence_id": "tolstoy-war-and-peace-6c979cc65fb66878",
+      "work_id": "tolstoy-war-and-peace",
+      "language": "ru",
+      "scores": {
+        "truth_conditional": 4,
+        "performative": 1,
+        "exclamatory_reflexive": 0,
+        "other": 0
+      },
+      "confidence": 0.97,
+      "utterance_status": "direct",
+      "ontology_fit": "natural",
+      "background_knowledge_used": false,
+      "flags": []
+    },
+    {
+      "occurrence_id": "tolstoy-war-and-peace-6e44b2fdfbdbaa1d",
+      "work_id": "tolstoy-war-and-peace",
+      "language": "ru",
+      "scores": {
+        "truth_conditional": 4,
+        "performative": 1,
+        "exclamatory_reflexive": 0,
+        "other": 0
+      },
+      "confidence": 0.96,
+      "utterance_status": "direct",
+      "ontology_fit": "natural",
+      "background_knowledge_used": false,
+      "flags": []
+    },
+    {
+      "occurrence_id": "tolstoy-war-and-peace-73d98923c166b6da",
+      "work_id": "tolstoy-war-and-peace",
+      "language": "ru",
+      "scores": {
+        "truth_conditional": 4,
+        "performative": 2,
+        "exclamatory_reflexive": 0,
+        "other": 0
+      },
+      "confidence": 0.95,
+      "utterance_status": "direct",
+      "ontology_fit": "natural",
+      "background_knowledge_used": false,
+      "flags": [
+        "P>=2",
+        "mixed T/P/E"
+      ]
+    },
+    {
+      "occurrence_id": "tolstoy-war-and-peace-744e2a3bb39d2399",
+      "work_id": "tolstoy-war-and-peace",
+      "language": "ru",
+      "scores": {
+        "truth_conditional": 4,
+        "performative": 2,
+        "exclamatory_reflexive": 0,
+        "other": 0
+      },
+      "confidence": 0.94,
+      "utterance_status": "imagined",
+      "ontology_fit": "natural",
+      "background_knowledge_used": false,
+      "flags": [
+        "P>=2",
+        "mixed T/P/E"
+      ]
+    },
+    {
+      "occurrence_id": "tolstoy-war-and-peace-825337cf31d56b81",
+      "work_id": "tolstoy-war-and-peace",
+      "language": "ru",
+      "scores": {
+        "truth_conditional": 4,
+        "performative": 0,
+        "exclamatory_reflexive": 0,
+        "other": 0
+      },
+      "confidence": 0.98,
+      "utterance_status": "direct",
+      "ontology_fit": "natural",
+      "background_knowledge_used": false,
+      "flags": []
+    },
+    {
+      "occurrence_id": "tolstoy-war-and-peace-84d11ba0fe45ba21",
+      "work_id": "tolstoy-war-and-peace",
+      "language": "ru",
+      "scores": {
+        "truth_conditional": 4,
+        "performative": 1,
+        "exclamatory_reflexive": 0,
+        "other": 0
+      },
+      "confidence": 0.95,
+      "utterance_status": "direct",
+      "ontology_fit": "natural",
+      "background_knowledge_used": false,
+      "flags": []
+    },
+    {
+      "occurrence_id": "tolstoy-war-and-peace-8607fd3b759f0ca3",
+      "work_id": "tolstoy-war-and-peace",
+      "language": "ru",
+      "scores": {
+        "truth_conditional": 4,
+        "performative": 0,
+        "exclamatory_reflexive": 0,
+        "other": 0
+      },
+      "confidence": 0.96,
+      "utterance_status": "written",
+      "ontology_fit": "natural",
+      "background_knowledge_used": false,
+      "flags": []
+    },
+    {
+      "occurrence_id": "tolstoy-war-and-peace-8dd4aaa6bea98c65",
+      "work_id": "tolstoy-war-and-peace",
+      "language": "ru",
+      "scores": {
+        "truth_conditional": 4,
+        "performative": 0,
+        "exclamatory_reflexive": 0,
+        "other": 0
+      },
+      "confidence": 0.97,
+      "utterance_status": "direct",
+      "ontology_fit": "natural",
+      "background_knowledge_used": false,
+      "flags": []
+    },
+    {
+      "occurrence_id": "tolstoy-war-and-peace-97bb0f3373ee85cf",
+      "work_id": "tolstoy-war-and-peace",
+      "language": "ru",
+      "scores": {
+        "truth_conditional": 4,
+        "performative": 0,
+        "exclamatory_reflexive": 0,
+        "other": 0
+      },
+      "confidence": 0.96,
+      "utterance_status": "direct",
+      "ontology_fit": "natural",
+      "background_knowledge_used": false,
+      "flags": []
+    },
+    {
+      "occurrence_id": "tolstoy-war-and-peace-c0d16fe3e0bd1e4c",
+      "work_id": "tolstoy-war-and-peace",
+      "language": "ru",
+      "scores": {
+        "truth_conditional": 4,
+        "performative": 0,
+        "exclamatory_reflexive": 0,
+        "other": 0
+      },
+      "confidence": 0.97,
+      "utterance_status": "imagined",
+      "ontology_fit": "natural",
+      "background_knowledge_used": false,
+      "flags": []
+    },
+    {
+      "occurrence_id": "tolstoy-war-and-peace-c18f05ddcf9c2d48",
+      "work_id": "tolstoy-war-and-peace",
+      "language": "ru",
+      "scores": {
+        "truth_conditional": 4,
+        "performative": 3,
+        "exclamatory_reflexive": 0,
+        "other": 0
+      },
+      "confidence": 0.95,
+      "utterance_status": "quoted_or_revoiced",
+      "ontology_fit": "natural",
+      "background_knowledge_used": false,
+      "flags": [
+        "P>=2",
+        "mixed T/P/E"
+      ]
+    },
+    {
+      "occurrence_id": "tolstoy-war-and-peace-c93b9ce1720ccfb5",
+      "work_id": "tolstoy-war-and-peace",
+      "language": "ru",
+      "scores": {
+        "truth_conditional": 4,
+        "performative": 1,
+        "exclamatory_reflexive": 2,
+        "other": 0
+      },
+      "confidence": 0.9,
+      "utterance_status": "direct",
+      "ontology_fit": "natural",
+      "background_knowledge_used": false,
+      "flags": [
+        "E>=2",
+        "mixed T/P/E"
+      ]
+    },
+    {
+      "occurrence_id": "tolstoy-war-and-peace-c99d416e0700fb47",
+      "work_id": "tolstoy-war-and-peace",
+      "language": "ru",
+      "scores": {
+        "truth_conditional": 4,
+        "performative": 0,
+        "exclamatory_reflexive": 0,
+        "other": 0
+      },
+      "confidence": 0.97,
+      "utterance_status": "direct",
+      "ontology_fit": "natural",
+      "background_knowledge_used": false,
+      "flags": []
+    },
+    {
+      "occurrence_id": "tolstoy-war-and-peace-dbc4d1aefac8b7ce",
+      "work_id": "tolstoy-war-and-peace",
+      "language": "ru",
+      "scores": {
+        "truth_conditional": 4,
+        "performative": 1,
+        "exclamatory_reflexive": 0,
+        "other": 0
+      },
+      "confidence": 0.96,
+      "utterance_status": "direct",
+      "ontology_fit": "natural",
+      "background_knowledge_used": false,
+      "flags": []
+    },
+    {
+      "occurrence_id": "tolstoy-war-and-peace-e030d49aa60c49ae",
+      "work_id": "tolstoy-war-and-peace",
+      "language": "ru",
+      "scores": {
+        "truth_conditional": 4,
+        "performative": 0,
+        "exclamatory_reflexive": 3,
+        "other": 0
+      },
+      "confidence": 0.92,
+      "utterance_status": "nonverbal_verbalised",
+      "ontology_fit": "natural",
+      "background_knowledge_used": false,
+      "flags": [
+        "E>=2",
+        "mixed T/P/E"
+      ]
+    },
+    {
+      "occurrence_id": "tolstoy-war-and-peace-e29b4455dd5ee9fc",
+      "work_id": "tolstoy-war-and-peace",
+      "language": "ru",
+      "scores": {
+        "truth_conditional": 4,
+        "performative": 0,
+        "exclamatory_reflexive": 0,
+        "other": 0
+      },
+      "confidence": 0.97,
+      "utterance_status": "nonverbal_verbalised",
+      "ontology_fit": "natural",
+      "background_knowledge_used": false,
+      "flags": []
+    },
+    {
+      "occurrence_id": "tolstoy-war-and-peace-ea55392da1ec1d5f",
+      "work_id": "tolstoy-war-and-peace",
+      "language": "ru",
+      "scores": {
+        "truth_conditional": 4,
+        "performative": 2,
+        "exclamatory_reflexive": 0,
+        "other": 0
+      },
+      "confidence": 0.91,
+      "utterance_status": "imagined",
+      "ontology_fit": "natural",
+      "background_knowledge_used": false,
+      "flags": [
+        "P>=2",
+        "mixed T/P/E"
+      ]
+    },
+    {
+      "occurrence_id": "tolstoy-war-and-peace-f4a49ebc495938ce",
+      "work_id": "tolstoy-war-and-peace",
+      "language": "ru",
+      "scores": {
+        "truth_conditional": 4,
+        "performative": 0,
+        "exclamatory_reflexive": 0,
+        "other": 0
+      },
+      "confidence": 0.97,
+      "utterance_status": "direct",
+      "ontology_fit": "natural",
+      "background_knowledge_used": false,
+      "flags": []
+    }
+  ]
+}

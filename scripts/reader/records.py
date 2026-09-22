@@ -34,7 +34,7 @@ def load_collection(root=ROOT, config=None):
         summary = read(base / "summary.json")
         if summary["status"] != "complete" or summary["failed"]:
             raise ValueError("Incomplete annotation run: " + run)
-        hashes[str((base/"summary.json").relative_to(root))] = text_digest(base/"summary.json")
+        hashes[(base/"summary.json").relative_to(root).as_posix()] = text_digest(base/"summary.json")
         if summary["valid"] != len(summary["cases"]):
             raise ValueError("Summary count mismatch")
         for case in summary["cases"]:
@@ -60,7 +60,7 @@ def load_collection(root=ROOT, config=None):
                 if works[wid]["rights"]["public_render_policy"] not in PUBLIC:
                     raise ValueError("Public rendering not allowed: " + wid)
                 texts[wid] = canonical(root, works[wid])
-                hashes[str(wp.relative_to(root))] = text_digest(wp)
+                hashes[wp.relative_to(root).as_posix()] = text_digest(wp)
             if prepared["METADATA"]["work"]["rights"]["public_render_policy"] not in PUBLIC:
                 raise ValueError("Saved input cannot be publicly rendered: " + oid)
             text, source = texts[wid], prepared["SOURCE_TEXT"]
@@ -76,15 +76,15 @@ def load_collection(root=ROOT, config=None):
             if case["language"] != "en" and not (translation and translation.get("status")=="provided"):
                 raise ValueError("Missing saved translation: " + oid)
             for path in [request_path, output_path, provenance_path]:
-                hashes[str(path.relative_to(root))] = text_digest(path)
+                hashes[path.relative_to(root).as_posix()] = text_digest(path)
             prefix = "https://github.com/mannyrayner/let_me_count_the_ways/blob/" + config["data_commit"] + "/"
             records.append({"occurrence_id":oid, "work":works[wid], "source":source, "location":location,
                 "translation":translation, "output":output, "provenance":provenance,
                 "scores":{k:case["scores"][v] for k,v in FIELDS.items()},
-                "run":run, "request_path":str(request_path.relative_to(root)),
-                "output_path":str(output_path.relative_to(root)),
-                "request_url":prefix+str(request_path.relative_to(root)),
-                "output_url":prefix+str(output_path.relative_to(root)),
+                "run":run, "request_path":request_path.relative_to(root).as_posix(),
+                "output_path":output_path.relative_to(root).as_posix(),
+                "request_url":prefix+request_path.relative_to(root).as_posix(),
+                "output_url":prefix+output_path.relative_to(root).as_posix(),
                 "canonical_url":prefix+f"corpus/works/{wid}/canonical.txt",
                 "source_summary":prepared.get("MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY")})
             seen.add(oid)

@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"tolstoy-war-and-peace-84d11ba0fe45ba21\", \"SOURCE_TEXT\": {\"exact_match\": \"Я люблю вас\", \"local_text\": {\"context_start\": 777187, \"context_end\": 777304, \"text\": \"— Не говорите мне этого. Я ничего не хочу. Я люблю вас, как брата, и всегда буду любить, и больше мне ничего не надо.\"}, \"wider_canonical_context\": {\"context_start\": 774179, \"context_end\": 780308, \"text\": \"— А ты?... — обратился он к Долохову. И только что спросил это, заметил, что этого не надо было спрашивать.\\n\\n— Да, может быть... — холодно и сердито отвечал Долохов, взглянув на Соню и, нахмурившись, точно таким взглядом, каким он на клубном обеде смотрел на Пьера, опять взглянул на Николая.\\n\\n«Что-нибудь есть», подумал Николай и еще более утвердился в этом предположении тем, что Долохов тотчас же после обеда уехал. Он вызвал Наташу и спросил, чтò такое?\\n\\n— А я тебя искала, — сказала Наташа, выбежав к нему. — Я говорила, ты всё не хотел верить, — торжествующе сказала она, — он сделал предложение Соне.\\n\\nКак ни мало занимался Николай Соней за это время, но что-то как бы оторвалось в нем, когда он услыхал это. Долохов был приличная и в некоторых отношениях блестящая партия для бесприданной сироты-Сони. С точки зрения старой графини и света нельзя было отказать ему. И потому первое чувство Николая, когда он услыхал это, было озлобление против Сони. Он приготавливался к тому, чтобы сказать: «И прекрасно, разумеется, надо забыть детские обещания и принять предложение»; но не успел он еще сказать этого...\\n\\n— Можешь себе представить! она отказала, совсем отказала! — заговорила Наташа. — Она сказала, что любит другого, — прибавила она, помолчав немного.\\n\\n«Да иначе и не могла поступить моя Соня!» подумал Николай.\\n\\n— Сколько ее ни просила мама, она отказала, и я знаю, она не переменит, если чтò сказала...\\n\\n— А мама просила ее! — с упреком сказал Николай.\\n\\n— Да, — сказала Наташа. — Знаешь, Николинька, не сердись; но я знаю, что ты на ней не женишься. Я знаю, Бог знает отчего, я знаю верно, ты не женишься.\\n\\n— Ну, этого ты никак не знаешь, — сказал Николай; — но мне надо поговорить с ней. Чтò за прелесть, эта Соня! — прибавил он улыбаясь.\\n\\n— Это такая прелесть! Я тебе пришлю ее. — И Наташа, поцеловав брата, убежала.\\n\\nЧерез минуту вошла Соня, испуганная, растерянная и виноватая. Николай подошел к ней и поцеловал ее руку. Это был первый раз, что они в этот приезд говорили с глазу на глаз и о своей любви.\\n\\n— Sophie, — сказал он сначала робко, и потом всё смелее и смелее, — ежели вы хотите отказаться не только от блестящей, от выгодной партии; но он прекрасный, благородный человек... он мой друг...\\n\\nСоня перебила его.\\n\\n— Я уж отказалась, — сказала она поспешно.\\n\\n— Ежели вы отказываетесь для меня, то я боюсь, что на мне...\\n\\nСоня опять перебила его. Она умоляющим, испуганным взглядом посмотрела на него.\\n\\n— Nicolas, не говорите мне этого, — сказала она.\\n\\n— Нет, я должен. Может быть это suffisance с моей стороны, но всё лучше сказать. Ежели вы откажетесь для меня, то я должен вам сказать всю правду. Я вас люблю, я думаю, больше всех...\\n\\n— Мне и довольно, — вспыхнув, сказала Соня.\\n\\n— Нет, но я тысячу раз влюблялся и буду влюбляться, хотя такого чувства дружбы, доверия, любви, я ни к кому не имею, как к вам. Потом я молод. Maman не хочет этого. Ну, просто, я ничего не обещаю. И я прошу вас подумать о предложении Долохова, — сказал он, с трудом выговаривая фамилию своего друга.\\n\\n— Не говорите мне этого. Я ничего не хочу. Я люблю вас, как брата, и всегда буду любить, и больше мне ничего не надо.\\n\\n— Вы ангел, я вас не стòю, но я только боюсь обмануть вас. — Николай еще раз поцеловал ее руку.\\n\\nXII.\\n\\nУ Иогеля были самые веселые балы в Москве. Это говорили матушки, глядя на своих adolescentes, выделывающих свои только что выученные пà; это говорили и сами adolescentes и adolescents, танцовавшие до упаду; это говорили взрослые девицы и молодые люди, приезжавшие на эти балы с мыслию снизойти до них и находя в них самое лучшее веселье. В этот же год на этих балах сделалось два брака. Две хорошенькие княжны Горчаковы нашли женихов и вышли замуж, и тем еще более пустили в славу эти балы. Особенного на этих балах было то, что не было хозяина и хозяйки: был, как пух летающий, по правилам искусства расшаркивающийся, добродушный Иогель, который принимал билетики за уроки от всех своих гостей; было то, что на эти балы еще езжали только те, кто хотел танцовать и веселиться, как хотят этого 13-ти и 14-ти-летние девочки, в первый раз надевающие длинные платья. Все, за редкими исключениями, были или казались хорошенькими: так восторженно они все улыбались и так разгорались их глазки. Иногда танцовывали даже pas de châle лучшие ученицы, из которых лучшая была Наташа, отличавшаяся своею грациозностью; но на этом, последнем бале танцовали только экосезы, англезы и только что входящую в моду мазурку. Зала была взята Иогелем в доме Безухова, и бал очень удался, как говорили все. Много было хорошеньких девочек, и Ростовы барышни были из лучших. Они обе были особенно счастливы и веселы. В этот вечер Соня, гордая предложением Долохова, своим отказом и объяснением с Николаем, кружилась еще дома, не давая девушке дочесать свои косы, и теперь насквозь светилась порывистою радостью.\\n\\nНаташа, не менее гордая тем, что она в первый раз была в длинном платье, на настоящем бале, была еще счастливее. Они были в белых, кисейных платьях с розовыми лентами.\\n\\nНаташа сделалась влюблена с самой той минуты, как она вошла на бал. Она не была влюблена ни в кого в особенности, но влюблена была во всех. В того, на кого она смотрела в ту минуту, как она смотрела, в того она и была влюблена.\\n\\n— Ах, как хорошо! — всё говорила она, подбегая к Соне.\\n\\nНиколай с Денисовым ходили по залам, ласково и покровительственно оглядывая танцующих.\\n\\n— Как она мила, красавица будет, — сказал Денисов.\\n\\n— Кто?\\n\\n— Графиня Наташа, — отвечал Денисов.\\n\\n— И как она танцует, какая грация! — помолчав немного, опять сказал он.\\n\\n— Да про кого ты говоришь?\\n\\n— Про сестру про твою, — сердито крикнул Денисов.\\n\\nРостов усмехнулся.\\n\\n— Mon cher comte; vous êtes l’un de mes meilleurs écoliers, il faut que vous dansiez, — сказал маленький Иогель, подходя к Николаю. — Voyez combien de jolies demoiselles. — Он с тою же просьбой обратился и к Денисову, тоже своему бывшему ученику.\\n\\n— Non, mon cher, je ferai tapisserie, — сказал Денисов. — Разве вы не помните, как дурно я пользовался вашими уроками?...\\n\\n— О нет! — поспешно утешая его, сказал Иогель. — Вы только невнимательны были, а вы имели способности, да, вы имели способности.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"“And you?…” he said, turning to Dolokhov. No sooner had he asked this than he realized that it should not have been asked.\\n\\n“Yes, perhaps…” Dolokhov replied coldly and angrily. He glanced at Sonya and, frowning, looked at Nikolai again with exactly the same expression with which he had looked at Pierre at the club dinner.\\n\\n“There is something going on,” Nikolai thought, and he was confirmed still further in this supposition by the fact that Dolokhov left immediately after dinner. He called Natasha and asked what it was.\\n\\n“I was looking for you,” Natasha said, running out to him. “I told you, but you would never believe me,” she said triumphantly. “He proposed to Sonya.”\\n\\nLittle as Nikolai had concerned himself with Sonya during this time, something seemed to tear loose within him when he heard this. Dolokhov was a respectable and, in some respects, brilliant match for the orphan Sonya, who had no dowry. From the old countess’s point of view, and that of society, he could not be refused. And so Nikolai’s first feeling when he heard this was anger against Sonya. He prepared to say, “And a very good thing too; of course she must forget childhood promises and accept the proposal”; but before he had time to say it…\\n\\n“Can you imagine! She refused him, refused him outright!” Natasha began. “She said she loved someone else,” she added after a short pause.\\n\\n“My Sonya could not have acted otherwise!” Nikolai thought.\\n\\n“No matter how much Mama begged her, she refused, and I know she will not change her mind once she has said something…”\\n\\n“And Mama begged her!” Nikolai said reproachfully.\\n\\n“Yes,” Natasha said. “You know, Nikolenka, don’t be angry; but I know you will not marry her. I know—God knows why—but I know for certain that you will not marry her.”\\n\\n“Well, you cannot possibly know that,” Nikolai said. “But I must speak to her. What a darling Sonya is!” he added with a smile.\\n\\n“She is such a darling! I’ll send her to you.” And Natasha kissed her brother and ran away.\\n\\nA minute later Sonya entered, frightened, bewildered, and guilty. Nikolai went up to her and kissed her hand. This was the first time during this visit that they had spoken face to face and about their love.\\n\\n“Sophie,” he said, timidly at first and then more and more boldly, “if you wish to refuse not merely a brilliant and advantageous match; but he is a splendid, noble man… he is my friend…”\\n\\nSonya interrupted him.\\n\\n“I have already refused,” she said hastily.\\n\\n“If you are refusing for my sake, I am afraid that the responsibility…”\\n\\nSonya interrupted him again. She looked at him with a frightened, imploring gaze.\\n\\n“Nicolas, do not say that to me,” she said.\\n\\n“No, I must. Perhaps it is conceit on my part, but it is better to say it. If you refuse him for my sake, then I must tell you the whole truth. I love you, I think, more than anyone…”\\n\\n“That is enough for me,” Sonya said, flushing.\\n\\n“No, but I have fallen in love a thousand times and will fall in love again, though I have no such feeling of friendship, trust, and love for anyone as I have for you. Besides, I am young. Maman does not want it. Well, quite simply, I promise nothing. And I ask you to think about Dolokhov’s proposal,” he said, pronouncing his friend’s surname with difficulty.\\n\\n“Do not say that to me. I want nothing. I love you as a brother, and I always shall love you, and I need nothing more.”\\n\\n“You are an angel; I am not worthy of you, but I am only afraid of deceiving you.” Nikolai kissed her hand once more.\\n\\nXII\\n\\nIogel gave the merriest balls in Moscow. So said the mothers as they watched their adolescent daughters performing the steps they had only just learned; so said the adolescent girls and boys themselves, who danced until they dropped; so said the grown-up young ladies and young men who came to these balls intending to condescend to them and found in them the very best entertainment. That same year, two marriages resulted from these balls. Two pretty Princesses Gorchakov found suitors and married, thereby making the balls still more renowned. What was unusual about these balls was that there was neither host nor hostess: there was only the good-natured Iogel, flitting about like down and bowing and scraping according to all the rules of his art, who accepted lesson tickets from all his guests; and that only those who wanted to dance and enjoy themselves as thirteen- and fourteen-year-old girls do when putting on long dresses for the first time still attended these balls. With rare exceptions, everyone was, or appeared to be, pretty, so rapturously did they all smile and so brightly did their little eyes glow. Sometimes the best pupils even danced the shawl dance, and the best of them was Natasha, who was distinguished by her grace; but at this, the last ball, they danced only écossaises, anglaises, and the mazurka, which was just coming into fashion. Iogel had rented the ballroom in Bezukhov’s house, and the ball was a great success, as everyone said. There were many pretty girls, and the young Rostov ladies were among the prettiest. They were both especially happy and merry. That evening Sonya, proud of Dolokhov’s proposal, of her refusal, and of her explanation with Nikolai, had been whirling about even at home, not allowing the maid to finish braiding her hair, and now she glowed through and through with impetuous joy.\\n\\nNatasha, no less proud that she was wearing a long dress for the first time and attending a real ball, was happier still. They wore white muslin dresses with pink ribbons.\\n\\nNatasha fell in love from the very moment she entered the ball. She was not in love with anyone in particular, but she was in love with everyone. Whomever she was looking at at any given moment, she was in love with while she looked at him.\\n\\n“Oh, how wonderful!” she kept saying, running up to Sonya.\\n\\nNikolai and Denisov walked through the rooms, surveying the dancers with kindly, patronizing looks.\\n\\n“How sweet she is; she will be a beauty,” Denisov said.\\n\\n“Who?”\\n\\n“Countess Natasha,” Denisov replied.\\n\\n“And how she dances—what grace!” he said again after a short pause.\\n\\n“Yes, but whom are you talking about?”\\n\\n“Your sister!” Denisov shouted angrily.\\n\\nRostov chuckled.\\n\\n“My dear Count, you are one of my best pupils; you must dance,” little Iogel said, approaching Nikolai. “See how many pretty young ladies there are.” He addressed the same request to Denisov, who had also once been his pupil.\\n\\n“No, my dear fellow, I shall be a wallflower,” Denisov said. “Do you not remember how poorly I profited from your lessons?…”\\n\\n“Oh no!” Iogel said, hastening to reassure him. “You were merely inattentive, but you had ability; yes, you had ability.”\", \"source_occurrence_id\": \"tolstoy-war-and-peace-84d11ba0fe45ba21\", \"source_language\": \"ru\", \"source_language_text_sha256\": \"c5a2aed8292636998d96a5fb50caecaf4773b1f327acd94d949934ab869ddbab\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-21T23:13:13.637665+00:00\", \"model_usage\": {\"input_tokens\": 2097, \"cached_input_tokens\": 0, \"output_tokens\": 2007}, \"estimated_cost_usd\": 0.048528, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"tolstoy-war-and-peace\", \"title\": \"Война и мир\", \"author\": \"Лев Толстой\", \"language\": \"ru\", \"source_type\": \"tolstoy_online\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.267157, \"source_start\": 777230, \"source_end\": 777241, \"source_length\": 2909261}, \"form\": {\"form_family\": \"canonical_present\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": null, \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"ru_present_verb_first_affirmative\", \"pattern_version\": \"0.13\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

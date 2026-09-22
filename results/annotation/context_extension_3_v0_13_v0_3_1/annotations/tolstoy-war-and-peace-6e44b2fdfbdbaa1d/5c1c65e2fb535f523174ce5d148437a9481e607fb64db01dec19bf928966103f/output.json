@@ -1,0 +1,65 @@
+{
+  "occurrence_id": "tolstoy-war-and-peace-6e44b2fdfbdbaa1d",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 1,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.96,
+    "analysis": "Prince Andrei directly avows to Natasha that he loves her more than anything in the world. The utterance strongly presents his enduring emotional state as true. Its intimate relational setting and their prior bond give it slight commitment-invoking force, but it does not itself clearly promise or undertake a future relationship. Despite intense feeling, it is a considered avowal anticipated by explicit reflection, not an expressive or reflex-like verbal discharge.",
+    "ambiguity": "There is slight uncertainty about P: the avowal may implicitly renew their romantic bond, but the words contain no clear undertaking and are immediately framed by Andrei’s uncertainty about survival."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "Prince Andrei directly addresses Natasha: «Наташа, я слишком люблю вас. Больше всего на свете» (“Natasha, I love you too much. More than anything in the world”)."
+  },
+  "contextual_interpretation": "The dying Andrei has consciously recognized that love for Natasha binds him to life. Before speaking, he silently formulates that he loves her more than anything and wonders what to do about it; his spoken declaration then leads into a question about whether he will live. This supports a sincere, reflective avowal rather than a spontaneous affective discharge. Natasha receives it joyfully, but the scene remains dominated by mortality and does not establish an explicit new commitment to a shared future.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "«Наташа, я слишком люблю вас. Больше всего на свете.»",
+      "supports": "The explicit first-person declaration and superlative intensifier strongly support truth-conditional avowal.",
+      "confidence": 1.0
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "Immediately beforehand Andrei thinks: «Я люблю ее больше всего в мире. Но чтó же делать мне, ежели я люблю ее?»",
+      "supports": "His prior articulated reflection shows that the spoken words express a consciously recognized state rather than functioning primarily as a reflex-like discharge.",
+      "confidence": 0.98
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "The narration says that love for Natasha had entered his heart and bound him to life again; after the declaration he asks whether she feels that he will live.",
+      "supports": "The declaration is sincere and bound to his struggle between life and death, while the pivot to possible survival supplies only weak evidence of future-oriented relational force.",
+      "confidence": 0.97
+    },
+    {
+      "evidence_id": "e4",
+      "source": "local_text",
+      "quotation_or_description": "The pair had spoken of their past at the Trinity Lavra, but «с тех пор они никогда не говорили о будущем» (“since then they had never spoken of the future”).",
+      "supports": "The explicit absence of discussion about their future limits the case for a strong performative undertaking.",
+      "confidence": 0.96
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T captures the central avowal, with a small allowance for implicit relational invocation under P. Intensity and joy belong to contextual delivery and do not require E; no important core force remains outside T/P/E.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

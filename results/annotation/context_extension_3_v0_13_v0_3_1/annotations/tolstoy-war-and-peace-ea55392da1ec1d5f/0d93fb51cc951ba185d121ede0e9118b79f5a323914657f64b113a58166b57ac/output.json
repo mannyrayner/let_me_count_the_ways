@@ -1,0 +1,72 @@
+{
+  "occurrence_id": "tolstoy-war-and-peace-ea55392da1ec1d5f",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 2,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.91,
+    "analysis": "Natasha’s repeated “Я люблю тебя” is principally an avowal of love addressed in imagination to the dead Prince Andrei. It also has some undertaking force because it forms part of her corrective, counterfactual assurance that she would bind herself to him and share his suffering. The repetition, tears, and convulsive physical effort make the delivery intensely emotional but do not independently establish expressive/reflexive force: the words remain a contentful avowal within a consciously reconstructed conversation.",
+    "ambiguity": "The main uncertainty is the degree of P: the surrounding imagined reply strongly expresses lifelong solidarity, but the exact love formula itself does not explicitly make a promise. The narration also leaves some uncertainty about whether Natasha audibly voices the imagined address."
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "imagined",
+    "description": "Natasha addresses Prince Andrei within an imagined reconstruction of their final conversation, apparently forming or possibly speaking the words while alone after his death."
+  },
+  "contextual_interpretation": "Grieving Prince Andrei, Natasha mentally revises an earlier answer that she fears he misunderstood. She imagines telling him that life without him is nothing and that sharing his suffering would have been happiness, then repeats “I love you” as the tender declaration she wishes she had made. The utterance therefore combines retrospective avowal with a corrective assurance of relational devotion. Its anguish and repetition reflect bereavement and irreversible regret, but those delivery features do not require an independent E classification.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "“И в воображении своем она говорила ему еще другие нежные, любовные речи, которые она могла бы сказать тогда.”",
+      "supports": "Explicitly frames the utterance as imagined, retrospective loving speech that Natasha could have said earlier.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "“Я люблю тебя... тебя... люблю, люблю...”",
+      "supports": "The repeated formula directly presents Natasha’s love as true, strongly supporting T.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "Immediately beforehand Natasha imagines saying that without him she has nothing in life and that suffering with him would be her greatest happiness.",
+      "supports": "Places the love avowal within a corrective assurance of enduring solidarity, giving P some independent support.",
+      "confidence": 0.95
+    },
+    {
+      "evidence_id": "e4",
+      "source": "local_text",
+      "quotation_or_description": "She says the words while “судорожно сжимая руки, стискивая зубы с ожесточенным усилием,” and is then overcome by “сладкое горе” and rising tears.",
+      "supports": "Shows extreme affective intensity and grief, but not by itself a reflex-like core function; it is treated as contextual delivery evidence rather than grounds for E.",
+      "confidence": 0.97
+    },
+    {
+      "evidence_id": "e5",
+      "source": "local_text",
+      "quotation_or_description": "Natasha reflects that Prince Andrei never knew what she truly meant and that “никогда уже нельзя поправить этого” (“it can never, never be put right”).",
+      "supports": "Establishes the declaration as a deliberate imagined correction of a past communicative failure rather than an unstructured verbal discharge.",
+      "confidence": 0.96
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T captures the central avowal, while moderate P captures its place in an imagined assurance of devotion and willingness to share suffering. Emotional delivery and bereavement are adequately represented contextually; no residual core force requires E or O.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": "The analytical translation was used only as an aid to the supplied Russian passage; the classification is grounded in the source-language context."
+}

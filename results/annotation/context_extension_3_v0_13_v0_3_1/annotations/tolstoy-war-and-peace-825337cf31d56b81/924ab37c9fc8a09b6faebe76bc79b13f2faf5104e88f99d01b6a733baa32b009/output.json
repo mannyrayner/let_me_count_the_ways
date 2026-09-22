@@ -1,0 +1,65 @@
+{
+  "occurrence_id": "tolstoy-war-and-peace-825337cf31d56b81",
+  "core_classification": {
+    "label_support": {
+      "truth_conditional": 4,
+      "performative": 0,
+      "exclamatory_reflexive": 0,
+      "other": 0
+    },
+    "confidence": 0.98,
+    "analysis": "Sonya directly avows that she loves Natasha. The utterance primarily presents her affection as true, helping deny envy and affirm gratitude. It does not itself undertake a commitment, and although delivered while Sonya is distressed and crying, the words occur within a deliberate explanation after she has gathered her strength; there is no independent evidence of reflex-like expressive discharge.",
+    "ambiguity": null
+  },
+  "other_diagnosis": {
+    "tpe_failure": null,
+    "core_not_context": null
+  },
+  "utterance_status": {
+    "status": "direct",
+    "description": "Sonya addresses Natasha in direct dialogue: «я тебя люблю» (“I love you”)."
+  },
+  "contextual_interpretation": "Sonya contrasts Natasha’s unobstructed prospects with Boris against her own threatened relationship with Nikolai. Her avowal reassures Natasha that she is not envious and belongs to a broader declaration of love and gratitude toward the Rostov household. Her tears and emotional intensity concern her own predicament, but do not transform this considered avowal into an expressive/reflexive utterance or a relational undertaking.",
+  "evidence": [
+    {
+      "evidence_id": "e1",
+      "source": "local_text",
+      "quotation_or_description": "«Тебе хорошо... я не завидую... я тебя люблю, и Бориса тоже» (“It’s all right for you… I’m not envious… I love you, and Boris too”).",
+      "supports": "The explicit present-tense avowal strongly supports truth-conditional force; its immediate function is also to deny jealousy toward Natasha and Boris.",
+      "confidence": 0.99
+    },
+    {
+      "evidence_id": "e2",
+      "source": "local_text",
+      "quotation_or_description": "Sonya speaks «собравшись немного с силами» (“having gathered a little strength”) while explaining the obstacles to marrying Nikolai.",
+      "supports": "The utterance is part of an effortful, coherent explanation rather than positively marked as an involuntary or reflex-like verbal discharge.",
+      "confidence": 0.97
+    },
+    {
+      "evidence_id": "e3",
+      "source": "local_text",
+      "quotation_or_description": "Sonya continues: «я так люблю и ее, и всех вас» and says she is so grateful that she would gladly sacrifice everything.",
+      "supports": "The continuation corroborates the avowed affection and gratitude, while the separate hypothetical sacrifice does not make the highlighted core utterance itself a commitment.",
+      "confidence": 0.96
+    },
+    {
+      "evidence_id": "e4",
+      "source": "supplied_metadata",
+      "quotation_or_description": "The occurrence is marked as an affirmative, canonical-present, explicit Russian love construction and retained as VALID_EXPLICIT_LOVE_I_YOU.",
+      "supports": "Confirms that the highlighted phrase is an ordinary explicit first-person avowal directed to a second-person object.",
+      "confidence": 0.99
+    }
+  ],
+  "background_knowledge": {
+    "used": false,
+    "familiarity": "none",
+    "confidence": null,
+    "contribution": null
+  },
+  "ontology_assessment": {
+    "fit": "natural",
+    "diagnosis": "T naturally captures the core avowal. Sonya’s emotional distress, reassurance, and surrounding gratitude are adequately represented as context without adding P, E, or O.",
+    "candidate_recurrent_dimension": null
+  },
+  "notes": null
+}

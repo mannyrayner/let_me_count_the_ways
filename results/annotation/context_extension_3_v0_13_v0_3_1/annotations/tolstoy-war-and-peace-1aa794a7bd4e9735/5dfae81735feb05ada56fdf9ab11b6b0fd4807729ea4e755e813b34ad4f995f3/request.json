@@ -1,0 +1,267 @@
+{
+  "model": "gpt-5.6-sol",
+  "input": "# Passage classification prompt v0.3.1 — calibrated E\n\nAnalyse the highlighted direct or embedded equivalent of “I love you” in the\nsupplied passage. Return JSON matching `classification_schema_v0_3.json`.\n\nv0.3.1 retains the v0.3 schema and asks the same deliberately narrow question:\nhow well can the semantic/pragmatic force of the **core utterance** be\nrepresented by T/P/E, with O available to register genuine failure? Literary\ncontext is evidence for that judgement, not a second exhaustive ontology.\n\n## 1. Identify the core event\n\nState briefly which love utterance is being classified and give its\n`utterance_status`: `direct`, `quoted_or_revoiced`, `reported`, `imagined`,\n`written`, `nonverbal_verbalised`, `hypothetical`, or `other`. Choose the status\nthat best identifies the event; use its open description for combinations or\nimportant complications. Quotation alone does not imply O: a quoted utterance\nmay represent an original T, P, or E event.\n\n## 2. Score the compact core ontology\n\nGive four **independent integer support scores from 0 to 4**. They need not sum\nto anything, and several may receive substantial support.\n\n- **T — truth-conditional (`truth_conditional`):** the core utterance\n  substantially reports, avows, or presents as true a loving emotional or\n  mental state.\n- **P — performative (`performative`):** the core utterance substantially\n  undertakes, enacts, renews, or invokes a commitment, obligation, or\n  relational undertaking. Affection, reassurance, courtship, emotional impact,\n  or talk of a shared future does not by itself establish P.\n- **E — expressive/reflexive (`exclamatory_reflexive`):** the words substantially\n  function as an expressive discharge or reflex-like verbal response produced by\n  the speaker’s affective state, rather than merely as a passionately delivered\n  assertion or undertaking. The schema field retains its v0.3 name for data\n  compatibility; “expressive/reflexive” is the narrower human-readable label.\n- **O — other (`other`):** there is an important aspect of the core utterance\n  itself that no suitable combination of T/P/E adequately represents.\n\nT concerns mode, not truth: a lie can score T=4. P concerns undertaking force,\nnot whether a commitment is sincere or will be honoured. E concerns presented\nexpressive/reflexive force, not whether spontaneity is genuine. Deception,\nmanipulation, and calculation are therefore orthogonal contextual matters.\n\n### E requires independent core force\n\n**Passion is not E.** Do not assign E merely because the utterance is emotional,\nemphatic, apparently spontaneous, passionate, sexually charged, shouted,\nwhispered, gasped, repeated, punctuated as an exclamation, accompanied by crying\nor bodily arousal, or otherwise intense. T and P can themselves be expressed\nwith arbitrarily strong emotion. These features are contextual evidence about\ndelivery; none by itself establishes expressive/reflexive core force.\n\nAssign E > 0 only when there is positive evidence that producing the words\nfunctions, at least in part, as an expressive or reflex-like discharge **rather\nthan merely as an emotionally intense realisation of T and/or P**. Ask the\ncounterfactual diagnostic: would something important about the core utterance be\nlost if it were represented using only its T and P scores, plus contextual\ninformation about intensity, prosody, spontaneity, repetition, and delivery? If\nnot, assign E=0.\n\nE may coexist with T or P when each function has independent support. For\norientation only: T roughly says “I have loving feelings for you”; P roughly says\n“I commit myself to you or us”; E roughly says “the emotional state itself\nproduces the words.” These glosses clarify the contrast but do not replace the\ndefinitions. A genuine expressive/reflexive case belongs under E rather than O.\n\nCalibration contrasts:\n\n- “I LOVE YOU!” screamed through tears can remain high T and E=0 when it is an\n  emphatic avowal; typography, tears, and shouting do not supply E.\n- “I love you, and I will stay whatever happens” can support P and T without E.\n- after months of reflection, finally shouting “I love you!” can remain dominant\n  T despite its intensity.\n- “He heard himself blurt ‘I love you!’ before he had thought about what he was\n  saying” supplies positive evidence for E, perhaps alongside T if independently\n  supported.\n\n### O has a deliberately high burden of proof\n\n**Use O if and only if you believe there is an important aspect of the core\nutterance itself that cannot be adequately represented by any suitable\ncombination of T, P and E.**\n\nDo not use O merely because the surrounding context is ambiguous, deceptive,\nironic, quoted, hedged, manipulative, coercive, narratively complex, or\notherwise difficult. If uncertain between T/P/E, express that uncertainty in\ntheir scores, `confidence`, and `ambiguity`; do **not** use O to express doubt.\nEven O=1 must indicate genuine residual pressure against T/P/E, not merely a\nconceivable alternative.\n\nPlausible O cases include purely instrumental microphone testing, grammar or\npronunciation practice, rote imitation without semantic grounding, use as a\nlearned social token without ordinary love-related understanding, deliberately\nidiosyncratic meaning, or radically nonhuman/underdetermined production. These\nare examples, not a taxonomy.\n\nIf O > 0, `other_diagnosis` must explain precisely what T/P/E misses and why\nthe missing property belongs to core force rather than surrounding context. If\nO = 0, both diagnosis fields must be null.\n\nGive one confidence value from 0 to 1 for the complete T/P/E/O judgement, a\nconcise core analysis, and a short ambiguity note when significant. Ambiguity\nwithin T/P/E is not ontology failure.\n\n## 3. Interpret context without classifying all of it\n\nUse `contextual_interpretation` for a concise but informative open account of\nwhatever helps justify the scores: deception, self-deception, manipulation,\nirony, quotation, revoicing, hedging, participant disagreement, narrative\nirony, relationships, or framing. Do not force these potentially unlimited\nphenomena into fixed categories.\n\n## 4. Make evidence auditable\n\nUse all legitimately available information needed for the best interpretation:\n\n1. `local_text` in the passage;\n2. `supplied_metadata`, including bibliographic and location information; and\n3. reliable `background_knowledge` of the wider work.\n\nDo not invent events, wording, or plot facts. Mark uncertain memories as such.\nGive each important evidence item a unique ID, provenance, quotation or concise\ndescription, the claim it supports, and confidence. Do not present metadata or\nremembered paraphrase as passage wording.\n\nRecord separately whether background knowledge was used, familiarity,\nconfidence, and its contribution. If it was used, include at least one evidence\nitem with `background_knowledge` provenance; if not, use null confidence and\ncontribution.\n\n## 5. Assess the ontology, but do not proliferate categories\n\nState whether T/P/E/O gives a `natural`, `strained`, or `inadequate` account.\nDescribe any residual pressure. Name a candidate recurrent missing dimension\nonly when the case supplies one; do not promote an interesting single O case\nto a fifth category. O cases should first accumulate and then be compared\nacross independent examples.\n\nThe objective is controlled simplification: preserve nuance needed to explain\nthe core judgement, but do not attempt to formalise all the reasons literature\nis interesting. Do not perform or propose large-scale reannotation in this\nresponse.\n\n\n## Input\n\n{\"occurrence_id\": \"tolstoy-war-and-peace-1aa794a7bd4e9735\", \"SOURCE_TEXT\": {\"exact_match\": \"je vous aime\", \"local_text\": {\"context_start\": 2326371, \"context_end\": 2326452, \"text\": \"— Mon enfant! — проговорила она, — je vous aime et vous connais depuis longtemps.\"}, \"wider_canonical_context\": {\"context_start\": 2322773, \"context_end\": 2329693, \"text\": \"В последнее время своего пребывания в Воронеже, княжна Марья испытала лучшее счастие в своей жизни. Любовь ее к Ростову уже не мучила, не волновала ее. Любовь эта наполняла всю ее душу, сделалась нераздельною частью ее самой, и она не боролась более против нее. В последнее время княжна Марья убедилась — хотя она никогда ясно словами определенно не говорила себе этого — убедилась, что она была любима и любила. В этом она убедилась в последнее свое свидание с Николаем, когда он приехал ей объявить о том, что ее брат был с Ростовыми. Николай ни одним словом не намекнул на то, что теперь (в случае выздоровления князя Андрея) прежние отношения между ним и Наташей могли возобновиться, но княжна Марья видела по его лицу, что он знал и думал это. И, несмотря на то, его отношения к ней — осторожные, нежные и любовные, не только не изменились, но он, казалось, радовался тому, что теперь родство между ним и княжной Марьей позволяло ему свободнее выражать ей свою дружбу-любовь, как иногда думала княжна Марья. Княжна Марья знала, что она любила в первый и последний раз в жизни, и чувствовала, что она любима, и была счастлива, спокойна в этом отношении.\\n\\nНо это счастье одной стороны душевной не только не мешало ей во всей силе чувствовать горе о брате, но, напротив, это душевное спокойствие, в одном отношении, давало ей большую возможность отдаваться вполне своему чувству к брату. Чувство это было так сильно в первую минуту выезда из Воронежа, что провожавшие ее были уверены, глядя на ее измученное, отчаянное лицо, что она непременно заболеет дорогой; но именно трудности и заботы путешествия, за которые с такою деятельностью взялась княжна Марья, спасли ее на время от ее горя и придали ей силы.\\n\\nКак и всегда это бывает во время путешествия, княжна Марья думала только об одном путешествии, забывая о том, чтò было его целью. Но подъезжая к Ярославлю, когда открылось опять то, чтò могло предстоять ей и уже не через много дней, а нынче вечером, волнение княжны Марьи дошло до крайних пределов.\\n\\nКогда посланный вперед гайдук, чтоб узнать в Ярославле, где стоят Ростовы и в каком положении находится князь Андрей, встретил у заставы большую въезжавшую карету, он ужаснулся, увидав страшно-бледное лицо княжны, которое высунулось ему из окна.\\n\\n— Всё узнал, ваше сиятельство: Ростовские стоят на площади, в доме купца Бронникова. Недалече, над самой над Волгой, — сказал гайдук.\\n\\nКняжна Марья испуганно-вопросительно смотрела в его лицо, не понимая, почему он не отвечал на главный вопрос: чтò брат? М-llе Bourienne сделала этот вопрос за княжну.\\n\\n— Чтò князь? — спросила она.\\n\\n— Их сиятельство с ними в том же доме стоят.\\n\\n«Стало быть, он жив», подумала княжна и тихо спросила, — чтò он?\\n\\n— Люди сказывают: всё в том же положении.\\n\\nЧто значило «всё в том же положении», княжна не стала спрашивать и мельком только, незаметно взглянув на семилетнего Николушку, сидевшего перед нею и радовавшегося на город, опустила голову и не поднимала ее до тех пор, пока тяжелая карета, гремя, трясясь и колыхаясь, не остановилась где-то. Загремели откидываемые подножки.\\n\\nОтворились дверцы. Слева была вода — река большая, справа — крыльцо; на крыльце были люди, прислуга, и какая-то румяная, с большою черною косой, девушка, которая неприятно-притворно улыбалась, как показалось княжне Марье (это была Соня). Княжна взбежала по лестнице, притворно улыбавшаяся девушка сказала: сюда, сюда! и княжна очутилась, в передней перед старою женщиной с восточным типом лица, которая с растроганным выражением быстро шла ей навстречу. Это была старая графиня. Она обняла княжну Марью и стала целовать ее.\\n\\n— Mon enfant! — проговорила она, — je vous aime et vous connais depuis longtemps.\\n\\nНесмотря на всё свое волнение, княжна Марья поняла, что это была графиня, и что надо было ей сказать что-нибудь. Она, сама не зная как, проговорила какие-то учтивые французские слова, в том же тоне, в котором были те, которые ей говорили, и спросила: — чтò он?\\n\\n— Доктор говорит, что нет опасности, — сказала графиня, но в то время, как она говорила это, она со вздохом подняла глаза кверху, и в этом жесте было выражение, противуречащее ее словам.\\n\\n— Где он? Можно его видеть, можно? — спросила княжна.\\n\\n— Сейчас, княжна, сейчас, мой дружок. Это его сын? — сказала она, обращаясь к Николушке, который входил с Десалем. — Мы все поместимся, дом большой. О, какой прелестный мальчик!\\n\\nГрафиня ввела княжну в гостиную. Соня разговаривала с m-lle Bourienne. Графиня ласкала мальчика. Старый граф вошел в комнату, приветствуя княжну. Старый граф чрезвычайно переменился с тех пор, как его в последний раз видела княжна. Тогда он был бойкий, веселый, самоуверенный старичок, теперь он казался жалким, затерянным человеком. Он, говоря с княжной, беспрестанно оглядывался, как бы спрашивая у всех, то ли он делает, чтò надобно. После разорения Москвы и его имения, выбитый из привычной колеи, он видимо потерял сознание своего значения и чувствовал, что ему уже нет места в жизни.\\n\\nНесмотря на одно желание поскорее увидать брата и на досаду за то, что в эту минуту, когда ей одного хочется — увидать его — ее занимают и притворно хвалят ее племянника, княжна замечала всё, чтò делалось вокруг нее и чувствовала необходимость на время подчиниться этому новому порядку, в который она вступила. Она знала, что всё это необходимо, и хотя, ей было это трудно, но она не досадовала на них.\\n\\n— Это моя племянница, — сказал граф, представляя Соню, — вы не знаете ее, княжна?\\n\\nКняжна повернулась к ней и, стараясь затушить поднявшееся в ее душе враждебное чувство к этой девушке, поцеловала ее. Но ей становилось тяжело от того, что настроение всех окружающих было так далеко от того, чтò было в ее душе.\\n\\n— Где он? — спросила она еще раз, обращаясь ко всем.\\n\\n— Он внизу, Наташа с ним, — отвечала Соня краснея. — Пошли узнать. Вы, я думаю, устали, княжна?\\n\\nУ княжны выступили на глаза слезы досады. Она отвернулась и хотела опять спросить у графини, где пройти к нему, как в дверях послышались легкие, стремительные, как будто веселые шаги. Княжна оглянулась и увидела почти вбегающую Наташу, ту Наташу, которая в то давнишнее свидание в Москве так не понравилась ей.\\n\\nНо не успела княжна взглянуть на лицо этой Наташи, как она поняла, что это был ее искренний товарищ по горю, и потому ее друг. Она бросилась ей навстречу и, обняв ее, заплакала на ее плече.\\n\\nКак только Наташа, сидевшая у изголовья князя Андрея, узнала о приезде княжны Марьи, она тихо вышла из его комнаты теми быстрыми, как показалось княжне Марье, как будто веселыми шагами и побежала к ней.\\n\\nНа взволнованном лице ее, когда она вбежала в комнату, было только одно выражение — выражение любви, беспредельной любви к нему, к ней, ко всему тому, чтò было близко любимому человеку, выраженье жалости, страданья за других и страстного желанья отдать себя всю для того, чтобы помочь им. Видно было, что в эту минуту ни одной мысли о себе, о своих отношениях к нему, не было в душе Наташи.\", \"policy\": \"radius_3000_expanded_outward_to_paragraph_boundaries\"}}, \"TRANSLATION_ANALYTICAL_AID\": {\"status\": \"provided\", \"text\": \"During the last period of her stay in Voronezh, Princess Marya experienced the greatest happiness of her life. Her love for Rostov no longer tormented or agitated her. This love filled her whole soul, had become an inseparable part of her very self, and she no longer struggled against it. Lately Princess Marya had become convinced—although she had never clearly and explicitly put it into words to herself—convinced that she was loved and that she loved. She became convinced of this at her last meeting with Nikolai, when he came to tell her that her brother was with the Rostovs. Nikolai did not hint by a single word that now (if Prince Andrei recovered) the former relations between him and Natasha might be renewed, but Princess Marya saw from his face that he knew and thought this. And, despite that, his manner toward her—careful, tender, and loving—not only did not change, but he seemed to rejoice that the kinship now existing between him and Princess Marya allowed him to express more freely to her his friendship-love, as Princess Marya sometimes thought of it. Princess Marya knew that she loved for the first and last time in her life, and felt that she was loved, and was happy and at peace in that respect.\\n\\nBut this happiness of one side of her soul not only did not prevent her from feeling in all its force her grief over her brother; on the contrary, this peace of mind in one respect gave her a greater capacity to surrender herself wholly to her feeling for her brother. This feeling was so strong in the first moments after her departure from Voronezh that those seeing her off, looking at her tormented, despairing face, were certain that she would inevitably fall ill on the way; but it was precisely the difficulties and cares of the journey, which Princess Marya took up with such energy, that saved her for a time from her grief and gave her strength.\\n\\nAs always happens during a journey, Princess Marya thought only about the journey itself, forgetting what its purpose was. But as they approached Yaroslavl, when what might await her revealed itself again—and not many days hence, but that very evening—Princess Marya’s agitation reached its utmost limits.\\n\\nWhen the haiduk who had been sent ahead to find out where the Rostovs were staying in Yaroslavl and what condition Prince Andrei was in met the large arriving carriage at the town gate, he was horrified when he saw the princess’s terribly pale face thrust out toward him from the window.\\n\\n“I found out everything, Your Serene Highness: the Rostovs are staying on the square, in the house of the merchant Bronnikov. Not far away, right above the Volga,” said the haiduk.\\n\\nPrincess Marya looked into his face in frightened inquiry, not understanding why he did not answer the main question: what about her brother? Mademoiselle Bourienne asked the question for the princess.\\n\\n“What about the prince?” she asked.\\n\\n“His Serene Highness is staying with them in the same house.”\\n\\n“So he is alive,” thought the princess, and quietly asked, “How is he?”\\n\\n“The servants say he is still in the same condition.”\\n\\nThe princess did not ask what “still in the same condition” meant, and, merely casting a brief, unnoticed glance at seven-year-old Nikolushka, who sat before her rejoicing at the sight of the town, lowered her head and did not raise it until the heavy carriage, rumbling, jolting, and swaying, stopped somewhere. The folding steps clattered as they were let down.\\n\\nThe doors opened. To the left was water—a broad river; to the right, a porch; on the porch were people, servants, and a certain rosy-cheeked girl with a thick black braid, who smiled with unpleasant insincerity, as it seemed to Princess Marya (this was Sonya). The princess ran up the steps; the girl with the feigned smile said, “This way, this way!” and the princess found herself in the anteroom before an old woman with Oriental features, who came quickly toward her with a deeply moved expression. This was the old countess. She embraced Princess Marya and began kissing her.\\n\\n“My child!” she said. “I love you and have known you for a long time.”\\n\\nDespite all her agitation, Princess Marya understood that this was the countess and that she had to say something to her. Without herself knowing how, she uttered some courteous words in French, in the same tone as those that had been spoken to her, and asked, “How is he?”\\n\\n“The doctor says there is no danger,” said the countess, but as she said this, she raised her eyes with a sigh, and in that gesture was an expression that contradicted her words.\\n\\n“Where is he? May I see him, may I?” asked the princess.\\n\\n“In a moment, Princess, in a moment, my dear. Is this his son?” she said, turning to Nikolushka, who was coming in with Desalles. “There will be room for all of us; the house is large. Oh, what a charming boy!”\\n\\nThe countess led the princess into the drawing room. Sonya was talking with Mademoiselle Bourienne. The countess caressed the boy. The old count entered the room, greeting the princess. The old count had changed enormously since the princess had last seen him. Then he had been a lively, cheerful, self-assured old man; now he seemed a pitiful, lost man. As he spoke with the princess, he kept looking around, as though asking everyone whether he was doing what he ought to do. After the destruction of Moscow and of his estate, knocked out of his accustomed rut, he had evidently lost his sense of his own significance and felt that there was no longer any place for him in life.\\n\\nDespite her one desire to see her brother as soon as possible, and despite her vexation that at this moment, when all she wanted was to see him, they were occupying her and insincerely praising her nephew, the princess noticed everything that was happening around her and felt the necessity of submitting for a time to this new order into which she had entered. She knew that all this was necessary, and although it was difficult for her, she was not vexed with them.\\n\\n“This is my niece,” said the count, presenting Sonya. “You do not know her, Princess?”\\n\\nThe princess turned to her and, trying to stifle the hostile feeling toward this girl that had arisen in her soul, kissed her. But she found it oppressive that the state of mind of everyone around her was so far removed from what was in her own soul.\\n\\n“Where is he?” she asked once more, addressing everyone.\\n\\n“He is downstairs; Natasha is with him,” Sonya answered, blushing. “We have sent to find out. I think you must be tired, Princess?”\\n\\nTears of vexation came into the princess’s eyes. She turned away and was about to ask the countess again how to get to him when light, rapid, seemingly cheerful footsteps were heard at the door. The princess looked around and saw Natasha almost running in—that Natasha whom she had disliked so much at their long-ago meeting in Moscow.\\n\\nBut before the princess had time to look at this Natasha’s face, she understood that this was her sincere companion in grief, and therefore her friend. She rushed to meet her and, embracing her, began to weep on her shoulder.\\n\\nAs soon as Natasha, who had been sitting at Prince Andrei’s bedside, learned of Princess Marya’s arrival, she quietly left his room with those rapid, seemingly cheerful footsteps, as they had appeared to Princess Marya, and ran to her.\\n\\nOn her agitated face, when she ran into the room, there was only one expression—the expression of love, of boundless love for him, for her, for everything that was close to the man she loved; an expression of pity, of suffering for others, and of a passionate desire to give all of herself in order to help them. It was evident that at that moment there was not a single thought in Natasha’s soul about herself or about her relations with him.\", \"source_occurrence_id\": \"tolstoy-war-and-peace-1aa794a7bd4e9735\", \"source_language\": \"ru\", \"source_language_text_sha256\": \"e2d639c4d216f8b676d664db8be68c9070ef0c582b507daf32b0a357363de140\", \"scope\": \"wide_context\", \"model\": \"gpt-5.6-sol\", \"model_alias\": \"5.6\", \"prompt_version\": \"translate_context_v1\", \"prompt_sha256\": \"c0ead4c4bfa9ddb160fd4cd845b89dd995dea42ad48e651574d126010e7191be\", \"schema_sha256\": \"3f4d5caf8aa49d4f7890b0a39f96b7b8fa6c46ad4f9f10bfe7412a83a42afbb4\", \"translated_at\": \"2026-09-21T23:03:42.068763+00:00\", \"model_usage\": {\"input_tokens\": 2286, \"cached_input_tokens\": 0, \"output_tokens\": 1928}, \"estimated_cost_usd\": 0.047703999999999996, \"notice\": \"Analytical aid; not source text.\"}, \"MODEL_GENERATED_SOURCE_GROUNDED_SUMMARY\": null, \"METADATA\": {\"work\": {\"work_id\": \"tolstoy-war-and-peace\", \"title\": \"Война и мир\", \"author\": \"Лев Толстой\", \"language\": \"ru\", \"source_type\": \"tolstoy_online\", \"rights\": {\"public_render_policy\": \"PUBLIC_DOMAIN_FULL_CONTEXT_OK\"}}, \"location\": {\"chapter_or_section\": null, \"relative_position\": 0.799655, \"source_start\": 2326406, \"source_end\": 2326418, \"source_length\": 2909261}, \"form\": {\"form_family\": \"present_or_imperfect\", \"polarity\": \"affirmative\", \"tense_aspect\": \"present\", \"temporal_modifier\": \"optional\", \"syntactic_family\": \"main_or_embedded\"}, \"pattern\": {\"pattern_id\": \"ru_codeswitch_fr_present_past\", \"pattern_version\": \"0.13\"}, \"membership_review\": {\"decision\": \"KEEP\", \"confidence\": 0.99, \"reason_code\": \"VALID_EXPLICIT_LOVE_I_YOU\"}}, \"background_knowledge\": null}",
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "classification_v0_3",
+      "strict": true,
+      "schema": {
+        "title": "Compact T/P/E/O I-love-you classification v0.3",
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "occurrence_id",
+          "core_classification",
+          "other_diagnosis",
+          "utterance_status",
+          "contextual_interpretation",
+          "evidence",
+          "background_knowledge",
+          "ontology_assessment",
+          "notes"
+        ],
+        "properties": {
+          "occurrence_id": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "core_classification": {
+            "$ref": "#/$defs/coreClassification"
+          },
+          "other_diagnosis": {
+            "$ref": "#/$defs/otherDiagnosis"
+          },
+          "utterance_status": {
+            "$ref": "#/$defs/utteranceStatus"
+          },
+          "contextual_interpretation": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "$ref": "#/$defs/evidenceItem"
+            }
+          },
+          "background_knowledge": {
+            "$ref": "#/$defs/backgroundKnowledge"
+          },
+          "ontology_assessment": {
+            "$ref": "#/$defs/ontologyAssessment"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "$defs": {
+          "nonEmptyString": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "score": {
+            "type": "integer"
+          },
+          "coreClassification": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "label_support",
+              "confidence",
+              "analysis",
+              "ambiguity"
+            ],
+            "properties": {
+              "label_support": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "truth_conditional",
+                  "performative",
+                  "exclamatory_reflexive",
+                  "other"
+                ],
+                "properties": {
+                  "truth_conditional": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "performative": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "exclamatory_reflexive": {
+                    "$ref": "#/$defs/score"
+                  },
+                  "other": {
+                    "$ref": "#/$defs/score"
+                  }
+                }
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              },
+              "analysis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "ambiguity": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "otherDiagnosis": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "tpe_failure",
+              "core_not_context"
+            ],
+            "properties": {
+              "tpe_failure": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "core_not_context": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "utteranceStatus": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "status",
+              "description"
+            ],
+            "properties": {
+              "status": {
+                "enum": [
+                  "direct",
+                  "quoted_or_revoiced",
+                  "reported",
+                  "imagined",
+                  "written",
+                  "nonverbal_verbalised",
+                  "hypothetical",
+                  "other"
+                ]
+              },
+              "description": {
+                "$ref": "#/$defs/nonEmptyString"
+              }
+            }
+          },
+          "evidenceItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "evidence_id",
+              "source",
+              "quotation_or_description",
+              "supports",
+              "confidence"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "source": {
+                "enum": [
+                  "local_text",
+                  "supplied_metadata",
+                  "background_knowledge"
+                ]
+              },
+              "quotation_or_description": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "supports": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "confidence": {
+                "$ref": "#/$defs/confidence"
+              }
+            }
+          },
+          "backgroundKnowledge": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "used",
+              "familiarity",
+              "confidence",
+              "contribution"
+            ],
+            "properties": {
+              "used": {
+                "type": "boolean"
+              },
+              "familiarity": {
+                "enum": [
+                  "none",
+                  "limited",
+                  "moderate",
+                  "extensive"
+                ]
+              },
+              "confidence": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/confidence"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "contribution": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "ontologyAssessment": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "fit",
+              "diagnosis",
+              "candidate_recurrent_dimension"
+            ],
+            "properties": {
+              "fit": {
+                "enum": [
+                  "natural",
+                  "strained",
+                  "inadequate"
+                ]
+              },
+              "diagnosis": {
+                "$ref": "#/$defs/nonEmptyString"
+              },
+              "candidate_recurrent_dimension": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
