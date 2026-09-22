@@ -1,72 +1,404 @@
 {
-  "status": "not_run",
+  "status": "complete",
   "scope": "full_text",
   "expected": 24,
-  "valid": 0,
+  "valid": 24,
   "cases": [
     {
       "case_id": "C05",
       "label": "Goneril addressing Lear",
       "conditions": {
         "A": {
-          "valid": 0,
-          "P_distribution": {},
+          "valid": 3,
+          "P_distribution": {
+            "0": 3
+          },
           "P_nontrivial": 0,
           "P_strong": 0
         },
         "B": {
-          "valid": 0,
-          "P_distribution": {},
+          "valid": 3,
+          "P_distribution": {
+            "0": 3
+          },
           "P_nontrivial": 0,
           "P_strong": 0
         },
         "C": {
-          "valid": 0,
-          "P_distribution": {},
+          "valid": 3,
+          "P_distribution": {
+            "0": 3
+          },
           "P_nontrivial": 0,
           "P_strong": 0
         },
         "D": {
-          "valid": 0,
-          "P_distribution": {},
+          "valid": 3,
+          "P_distribution": {
+            "0": 3
+          },
           "P_nontrivial": 0,
           "P_strong": 0
         }
       },
-      "median_P_D_minus_B": null
+      "median_P_D_minus_B": 0
     },
     {
       "case_id": "C06",
       "label": "Cordelia addressing Lear",
       "conditions": {
         "A": {
-          "valid": 0,
-          "P_distribution": {},
+          "valid": 3,
+          "P_distribution": {
+            "0": 3
+          },
           "P_nontrivial": 0,
           "P_strong": 0
         },
         "B": {
-          "valid": 0,
-          "P_distribution": {},
-          "P_nontrivial": 0,
+          "valid": 3,
+          "P_distribution": {
+            "1": 1,
+            "0": 1,
+            "2": 1
+          },
+          "P_nontrivial": 1,
           "P_strong": 0
         },
         "C": {
-          "valid": 0,
-          "P_distribution": {},
-          "P_nontrivial": 0,
+          "valid": 3,
+          "P_distribution": {
+            "2": 2,
+            "1": 1
+          },
+          "P_nontrivial": 2,
           "P_strong": 0
         },
         "D": {
-          "valid": 0,
-          "P_distribution": {},
-          "P_nontrivial": 0,
+          "valid": 3,
+          "P_distribution": {
+            "2": 3
+          },
+          "P_nontrivial": 3,
           "P_strong": 0
         }
       },
-      "median_P_D_minus_B": null
+      "median_P_D_minus_B": 1
     }
   ],
-  "judgments": [],
+  "judgments": [
+    {
+      "case_id": "C06",
+      "condition": "D",
+      "repeat": 3,
+      "scores": {
+        "T": 4,
+        "P": 2,
+        "E": 0,
+        "O": 2
+      },
+      "recognised_work": true,
+      "artifact": "results/context_pilot/v1_full_text/calls/C06/D/r3-4aef8db9074e2526/output.json"
+    },
+    {
+      "case_id": "C05",
+      "condition": "B",
+      "repeat": 1,
+      "scores": {
+        "T": 4,
+        "P": 0,
+        "E": 0,
+        "O": 2
+      },
+      "recognised_work": true,
+      "artifact": "results/context_pilot/v1_full_text/calls/C05/B/r1-93ffdcbc13b0246f/output.json"
+    },
+    {
+      "case_id": "C06",
+      "condition": "C",
+      "repeat": 3,
+      "scores": {
+        "T": 4,
+        "P": 2,
+        "E": 0,
+        "O": 2
+      },
+      "recognised_work": true,
+      "artifact": "results/context_pilot/v1_full_text/calls/C06/C/r3-b324ddc37647930f/output.json"
+    },
+    {
+      "case_id": "C05",
+      "condition": "D",
+      "repeat": 2,
+      "scores": {
+        "T": 4,
+        "P": 0,
+        "E": 0,
+        "O": 2
+      },
+      "recognised_work": true,
+      "artifact": "results/context_pilot/v1_full_text/calls/C05/D/r2-1b85b28071614e15/output.json"
+    },
+    {
+      "case_id": "C05",
+      "condition": "A",
+      "repeat": 1,
+      "scores": {
+        "T": 4,
+        "P": 0,
+        "E": 0,
+        "O": 0
+      },
+      "recognised_work": false,
+      "artifact": "results/context_pilot/v1_full_text/calls/C05/A/r1-69b84665b65a8c4c/output.json"
+    },
+    {
+      "case_id": "C05",
+      "condition": "C",
+      "repeat": 3,
+      "scores": {
+        "T": 4,
+        "P": 0,
+        "E": 0,
+        "O": 1
+      },
+      "recognised_work": true,
+      "artifact": "results/context_pilot/v1_full_text/calls/C05/C/r3-5163cebd7e3d4180/output.json"
+    },
+    {
+      "case_id": "C05",
+      "condition": "D",
+      "repeat": 1,
+      "scores": {
+        "T": 4,
+        "P": 0,
+        "E": 0,
+        "O": 2
+      },
+      "recognised_work": true,
+      "artifact": "results/context_pilot/v1_full_text/calls/C05/D/r1-d79946025879acd6/output.json"
+    },
+    {
+      "case_id": "C06",
+      "condition": "B",
+      "repeat": 1,
+      "scores": {
+        "T": 4,
+        "P": 1,
+        "E": 0,
+        "O": 0
+      },
+      "recognised_work": true,
+      "artifact": "results/context_pilot/v1_full_text/calls/C06/B/r1-953baa75188b90fe/output.json"
+    },
+    {
+      "case_id": "C06",
+      "condition": "A",
+      "repeat": 3,
+      "scores": {
+        "T": 4,
+        "P": 0,
+        "E": 0,
+        "O": 0
+      },
+      "recognised_work": true,
+      "artifact": "results/context_pilot/v1_full_text/calls/C06/A/r3-98b022d7293a8f85/output.json"
+    },
+    {
+      "case_id": "C05",
+      "condition": "B",
+      "repeat": 2,
+      "scores": {
+        "T": 4,
+        "P": 0,
+        "E": 0,
+        "O": 0
+      },
+      "recognised_work": true,
+      "artifact": "results/context_pilot/v1_full_text/calls/C05/B/r2-45102eba06028f98/output.json"
+    },
+    {
+      "case_id": "C06",
+      "condition": "B",
+      "repeat": 3,
+      "scores": {
+        "T": 4,
+        "P": 0,
+        "E": 0,
+        "O": 0
+      },
+      "recognised_work": true,
+      "artifact": "results/context_pilot/v1_full_text/calls/C06/B/r3-929291bcbd119bd9/output.json"
+    },
+    {
+      "case_id": "C06",
+      "condition": "C",
+      "repeat": 2,
+      "scores": {
+        "T": 4,
+        "P": 2,
+        "E": 0,
+        "O": 2
+      },
+      "recognised_work": true,
+      "artifact": "results/context_pilot/v1_full_text/calls/C06/C/r2-7b818d3759573bcd/output.json"
+    },
+    {
+      "case_id": "C06",
+      "condition": "A",
+      "repeat": 2,
+      "scores": {
+        "T": 4,
+        "P": 0,
+        "E": 0,
+        "O": 0
+      },
+      "recognised_work": false,
+      "artifact": "results/context_pilot/v1_full_text/calls/C06/A/r2-60475f0e166487e0/output.json"
+    },
+    {
+      "case_id": "C06",
+      "condition": "C",
+      "repeat": 1,
+      "scores": {
+        "T": 4,
+        "P": 1,
+        "E": 0,
+        "O": 0
+      },
+      "recognised_work": true,
+      "artifact": "results/context_pilot/v1_full_text/calls/C06/C/r1-e2fe54601539b6af/output.json"
+    },
+    {
+      "case_id": "C06",
+      "condition": "B",
+      "repeat": 2,
+      "scores": {
+        "T": 4,
+        "P": 2,
+        "E": 0,
+        "O": 0
+      },
+      "recognised_work": true,
+      "artifact": "results/context_pilot/v1_full_text/calls/C06/B/r2-756c689d5578e96a/output.json"
+    },
+    {
+      "case_id": "C06",
+      "condition": "D",
+      "repeat": 1,
+      "scores": {
+        "T": 4,
+        "P": 2,
+        "E": 0,
+        "O": 2
+      },
+      "recognised_work": true,
+      "artifact": "results/context_pilot/v1_full_text/calls/C06/D/r1-dbfc640c5d012cfa/output.json"
+    },
+    {
+      "case_id": "C05",
+      "condition": "D",
+      "repeat": 3,
+      "scores": {
+        "T": 4,
+        "P": 0,
+        "E": 0,
+        "O": 2
+      },
+      "recognised_work": true,
+      "artifact": "results/context_pilot/v1_full_text/calls/C05/D/r3-f46a6600d9a15627/output.json"
+    },
+    {
+      "case_id": "C06",
+      "condition": "A",
+      "repeat": 1,
+      "scores": {
+        "T": 4,
+        "P": 0,
+        "E": 0,
+        "O": 0
+      },
+      "recognised_work": false,
+      "artifact": "results/context_pilot/v1_full_text/calls/C06/A/r1-ec7d4c616761b09a/output.json"
+    },
+    {
+      "case_id": "C05",
+      "condition": "B",
+      "repeat": 3,
+      "scores": {
+        "T": 4,
+        "P": 0,
+        "E": 0,
+        "O": 2
+      },
+      "recognised_work": true,
+      "artifact": "results/context_pilot/v1_full_text/calls/C05/B/r3-550180617fd05968/output.json"
+    },
+    {
+      "case_id": "C06",
+      "condition": "D",
+      "repeat": 2,
+      "scores": {
+        "T": 4,
+        "P": 2,
+        "E": 0,
+        "O": 2
+      },
+      "recognised_work": true,
+      "artifact": "results/context_pilot/v1_full_text/calls/C06/D/r2-a48fdec601f79f1f/output.json"
+    },
+    {
+      "case_id": "C05",
+      "condition": "A",
+      "repeat": 3,
+      "scores": {
+        "T": 4,
+        "P": 0,
+        "E": null,
+        "O": 0
+      },
+      "recognised_work": false,
+      "artifact": "results/context_pilot/v1_full_text/calls/C05/A/r3-f1c310f4fb923da4/output.json"
+    },
+    {
+      "case_id": "C05",
+      "condition": "C",
+      "repeat": 1,
+      "scores": {
+        "T": 4,
+        "P": 0,
+        "E": 0,
+        "O": 2
+      },
+      "recognised_work": true,
+      "artifact": "results/context_pilot/v1_full_text/calls/C05/C/r1-abd2d510cbbf2692/output.json"
+    },
+    {
+      "case_id": "C05",
+      "condition": "A",
+      "repeat": 2,
+      "scores": {
+        "T": 4,
+        "P": 0,
+        "E": 0,
+        "O": 0
+      },
+      "recognised_work": false,
+      "artifact": "results/context_pilot/v1_full_text/calls/C05/A/r2-81b4d001d3f1d3fa/output.json"
+    },
+    {
+      "case_id": "C05",
+      "condition": "C",
+      "repeat": 2,
+      "scores": {
+        "T": 4,
+        "P": 0,
+        "E": 0,
+        "O": 1
+      },
+      "recognised_work": true,
+      "artifact": "results/context_pilot/v1_full_text/calls/C05/C/r2-74e21ed283b94cb1/output.json"
+    }
+  ],
   "interpretation": "Purposive diagnostic cases. Repeats are not independent literary occurrences. Differences measure model judgments under supplied evidence, not human population effects."
 }
