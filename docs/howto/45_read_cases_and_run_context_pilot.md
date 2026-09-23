@@ -1,5 +1,11 @@
 # 45. Read the evidence and run the context pilot
 
+**Target-identification repair:** for new context judgments use
+[the v2 instructions](../notes/context_pilot_target_identification_v2.md).
+They preserve historical v1 results and prepare explicitly located, attributed
+targets. The v1 commands below document the original experiment.
+
+
 Run commands from the repository root. Python 3 and Git suffice for preparation;
 API stages use the existing OPENAI_API_KEY and model alias 5.6. The patch includes
 completed reader pages, public source texts and the initial candidate inventory.

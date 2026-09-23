@@ -1,0 +1,352 @@
+{
+  "protocol_version": "context_pilot_v2",
+  "selection_status": "same eight cases and source spans as v1; target identification repaired after inspecting v1 outcomes",
+  "repetitions": 3,
+  "order_seed": 20260921,
+  "default_scope": "dossier",
+  "conditions": {
+    "A": "extracted love expression alone, not the complete speech turn",
+    "B": "local scene or explicitly bounded exchange",
+    "C": "B plus prior narrative evidence",
+    "D": "C plus later narrative evidence"
+  },
+  "primary_comparison": "D versus B, reporting every case; exploratory diagnostic pilot, not an estimate of corpus prevalence",
+  "thresholds": {
+    "nontrivial": 2,
+    "strong": 3
+  },
+  "cases": [
+    {
+      "case_id": "C01",
+      "work_id": "bronte-jane-eyre",
+      "occurrence_id": "bronte-jane-eyre-5da4cfc02f8bc2c8",
+      "label": "Jane addressing St John",
+      "canonical_sha256": "13414dee2951c3ee731d76d2ffd822016b2479c892162760c5d0eb2aa5fa7631",
+      "target": [
+        936871,
+        936881
+      ],
+      "scene": [
+        933798,
+        939968
+      ],
+      "prior": [
+        [
+          877708,
+          928650
+        ]
+      ],
+      "later": [
+        [
+          1013491,
+          1041730
+        ]
+      ],
+      "dossier_note": "Local scene window from saved annotation; prior chapter XXXIV; later final chapter XXXVIII. Source excerpts, not a whole-work synopsis.",
+      "speech_unit_for_review": [
+        936632,
+        936978
+      ],
+      "reviewed_identity": {
+        "speaker": "Jane",
+        "addressee": "St John",
+        "basis": "First-person narrator Jane replies to St John in the proposal exchange.",
+        "review_method": "AI close reading of canonical source for this repair; open to human correction"
+      }
+    },
+    {
+      "case_id": "C02",
+      "work_id": "nansen-maria",
+      "occurrence_id": "nansen-maria-a95aa1804441024d",
+      "label": "The narrator addressing Maria",
+      "canonical_sha256": "3900722ea066addbf5935684421300822679e66cd629d8f9f170ed10a5400e41",
+      "target": [
+        89698,
+        89712
+      ],
+      "scene": [
+        86405,
+        90223
+      ],
+      "prior": [
+        [
+          76404,
+          86405
+        ]
+      ],
+      "later": [
+        [
+          90223,
+          94475
+        ]
+      ],
+      "dossier_note": "Chapters LX–LXI for the reunion, preceding 10,000 characters, and chapters LXII–end. Prior excerpt boundary may fall within a paragraph.",
+      "speech_unit_for_review": [
+        89623,
+        90112
+      ],
+      "reviewed_identity": {
+        "speaker": "Unnamed first-person narrator",
+        "addressee": "Maria",
+        "basis": "Jeg svarer introduces the reply; Men da jeg siger Maria dette identifies its recipient.",
+        "review_method": "AI close reading of canonical source for this repair; open to human correction"
+      }
+    },
+    {
+      "case_id": "C03",
+      "work_id": "skram-constance-ring",
+      "occurrence_id": "skram-constance-ring-2b09d5b293401db7",
+      "label": "Lorck addressing Constance",
+      "canonical_sha256": "49e81b7a6d20545c8c25c55267aa2deaad1f18f16b989b202a7d30a81a756aaa",
+      "target": [
+        139605,
+        139619
+      ],
+      "scene": [
+        136539,
+        142663
+      ],
+      "prior": [
+        [
+          124539,
+          136539
+        ]
+      ],
+      "later": [
+        [
+          142663,
+          154663
+        ],
+        [
+          532471,
+          540471
+        ]
+      ],
+      "dossier_note": "Saved local scene window; 12,000 characters immediately before and after, plus final 8,000 characters. This mechanically selected dossier is incomplete and contains OCR artifacts.",
+      "speech_unit_for_review": [
+        139605,
+        139760
+      ],
+      "reviewed_identity": {
+        "speaker": "Lorck",
+        "addressee": "Constance",
+        "basis": "Lorck is named immediately before the declaration; Constance is addressed within it.",
+        "review_method": "AI close reading of canonical source for this repair; open to human correction"
+      }
+    },
+    {
+      "case_id": "C04",
+      "work_id": "cofield-nikkis-touch",
+      "occurrence_id": "cofield-nikkis-touch-be393a6a3d4f0015",
+      "label": "Nikki addressing Keith",
+      "canonical_sha256": "047f6bf0f7d18253453e4bb6092701adc2818e6e52c5ce9c5fddc7101dcca69c",
+      "target": [
+        227229,
+        227239
+      ],
+      "scene": [
+        224182,
+        230265
+      ],
+      "prior": [
+        [
+          212182,
+          224182
+        ]
+      ],
+      "later": [
+        [
+          230265,
+          242265
+        ],
+        [
+          359442,
+          367442
+        ]
+      ],
+      "dossier_note": "Saved local scene window; 12,000 characters immediately before and after, plus final 8,000 characters. This mechanically selected dossier is incomplete.",
+      "speech_unit_for_review": [
+        227229,
+        227239
+      ],
+      "reviewed_identity": {
+        "speaker": "Nikki",
+        "addressee": "Keith",
+        "basis": "Nikki turns to Keith and says the words; Keith replies I love you too.",
+        "review_method": "AI close reading of canonical source for this repair; open to human correction"
+      }
+    },
+    {
+      "case_id": "C05",
+      "work_id": "shakespeare-king-lear",
+      "occurrence_id": "shakespeare-king-lear-afbd3a1978a723e3",
+      "label": "Goneril addressing Lear",
+      "canonical_sha256": "7af42d74a0657fb4f9b42d0ee03dcf176fbeab22a331185e001e9c44382472e0",
+      "target": [
+        4417,
+        4427
+      ],
+      "scene": [
+        3521,
+        6630
+      ],
+      "prior": [
+        [
+          1809,
+          3521
+        ]
+      ],
+      "later": [
+        [
+          130152,
+          134845
+        ],
+        [
+          139193,
+          155355
+        ]
+      ],
+      "dossier_note": "Love-test exchange; preceding opening of I.1; later IV.7 and V.3 in full. Not the complete play.",
+      "speech_unit_for_review": [
+        4412,
+        4738
+      ],
+      "reviewed_identity": {
+        "speaker": "Goneril",
+        "addressee": "Lear",
+        "basis": "The GONERIL speech label follows Lear asking his eldest daughter to speak. Target is the FIRST I love you in that speech.",
+        "review_method": "AI close reading of canonical source for this repair; open to human correction"
+      }
+    },
+    {
+      "case_id": "C06",
+      "work_id": "shakespeare-king-lear",
+      "occurrence_id": "shakespeare-king-lear-97d3418f54f0370b",
+      "label": "Cordelia addressing Lear",
+      "canonical_sha256": "7af42d74a0657fb4f9b42d0ee03dcf176fbeab22a331185e001e9c44382472e0",
+      "target": [
+        6087,
+        6106
+      ],
+      "scene": [
+        3521,
+        6630
+      ],
+      "prior": [
+        [
+          1809,
+          3521
+        ]
+      ],
+      "later": [
+        [
+          130152,
+          134845
+        ],
+        [
+          139193,
+          155355
+        ]
+      ],
+      "dossier_note": "Love-test exchange; preceding opening of I.1; later IV.7 and V.3 in full. Not the complete play.",
+      "speech_unit_for_review": [
+        6029,
+        6146
+      ],
+      "reviewed_identity": {
+        "speaker": "Cordelia",
+        "addressee": "Lear",
+        "basis": "The CORDELIA speech label introduces I love your majesty in reply to Lear.",
+        "review_method": "AI close reading of canonical source for this repair; open to human correction"
+      }
+    },
+    {
+      "case_id": "C07",
+      "work_id": "tolstoy-war-and-peace",
+      "occurrence_id": "tolstoy-war-and-peace-1cfaf0f75c6018e9",
+      "label": "Pierre addressing Hélène",
+      "canonical_sha256": "89c2922d192b9b90f34ed910a4b7680753fa72c6a03ae8bac685f1ff864eb929",
+      "target": [
+        490164,
+        490176
+      ],
+      "scene": [
+        473205,
+        490489
+      ],
+      "prior": [
+        [
+          455000,
+          473205
+        ]
+      ],
+      "later": [
+        [
+          737445,
+          746667
+        ]
+      ],
+      "dossier_note": "Volume I, part III, chapter II in full; preceding source excerpt; later volume II, part I, chapter VI with Pierre’s retrospective account. A diagnostic dossier, not the whole novel.",
+      "speech_unit_for_review": [
+        490164,
+        490177
+      ],
+      "reviewed_identity": {
+        "speaker": "Pierre",
+        "addressee": "Hélène",
+        "basis": "Pierre is the named focal character; the chapter establishes Hélène as the woman he addresses.",
+        "review_method": "AI close reading of canonical source for this repair; open to human correction"
+      }
+    },
+    {
+      "case_id": "C08",
+      "work_id": "saint-exupery-le-petit-prince",
+      "occurrence_id": "saint-exupery-le-petit-prince-30c49e98e5efaa7b",
+      "label": "The rose addressing the prince",
+      "canonical_sha256": "d87a714960737aaf9f40aa1c9df66d74beed2f42c5797b337ecd895d6b206b8d",
+      "target": [
+        28059,
+        28068
+      ],
+      "scene": [
+        26633,
+        28856
+      ],
+      "prior": [
+        [
+          22778,
+          26633
+        ]
+      ],
+      "later": [
+        [
+          57142,
+          63786
+        ],
+        [
+          73125,
+          80780
+        ]
+      ],
+      "dossier_note": "Chapter IX; prior VIII; later XXI and XXVI. Public output under the recorded project publication decision; historical rights metadata retained.",
+      "speech_unit_for_review": [
+        28059,
+        28068
+      ],
+      "reviewed_identity": {
+        "speaker": "The rose",
+        "addressee": "The little prince",
+        "basis": "Lui dit la fleur attributes the words to the flower; the departure scene identifies the little prince as recipient.",
+        "review_method": "AI close reading of canonical source for this repair; open to human correction"
+      }
+    }
+  ],
+  "target_boundary_policy": "Use frozen extraction match boundaries in every condition. Full speech-unit offsets are recorded for human review but are not separately supplied in A. This removes prosody, punctuation and modifiers outside the match in A, deliberately testing added textual evidence.",
+  "target_identification_policy": "B/C/D supply reviewed speaker and addressee labels, an exact source anchor, and markers inserted at the frozen target offsets. A supplies none of these contextual facts. Fresh calls in every condition; do not pool with v1.",
+  "publication_decisions": {
+    "saint-exupery-le-petit-prince": "provenance/publication/saint-exupery-le-petit-prince-2026-09-22.json"
+  },
+  "canonical_paths": {
+    "saint-exupery-le-petit-prince": "results/publication/petit_prince_v1/canonical.txt"
+  }
+}

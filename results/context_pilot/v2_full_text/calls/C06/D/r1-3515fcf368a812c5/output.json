@@ -1,0 +1,72 @@
+{
+  "target_identification": {
+    "speaker": "Cordelia",
+    "addressee": "Lear",
+    "anchor_quote": "Unhappy that I am, I cannot heave\nMy heart into my mouth: I love your majesty\nAccording to my bond; no more nor less."
+  },
+  "target_translation": "I love you, Your Majesty.",
+  "dimensions": {
+    "T": {
+      "score": 4,
+      "evidence_status": "assessable",
+      "confidence": 0.99,
+      "reason": "The focal declarative directly avows Cordelia’s present love for Lear. Her surrounding qualification limits its degree and manner of expression but does not change its truth-presenting form.",
+      "evidence": [
+        {
+          "block_id": "target",
+          "quotation": "I love your majesty"
+        },
+        {
+          "block_id": "scene",
+          "quotation": "I love your majesty\nAccording to my bond; no more nor less."
+        }
+      ]
+    },
+    "P": {
+      "score": 0,
+      "evidence_status": "assessable",
+      "confidence": 0.96,
+      "reason": "The focal words do not promise future conduct, assume a new obligation, or renew a commitment. The neighbouring reference to her existing filial bond explains the measure of the love she avows; it is not itself an undertaking made by “I love your majesty.”",
+      "evidence": [
+        {
+          "block_id": "target",
+          "quotation": "I love your majesty"
+        },
+        {
+          "block_id": "scene",
+          "quotation": "According to my bond; no more nor less."
+        }
+      ]
+    },
+    "E": {
+      "score": 0,
+      "evidence_status": "assessable",
+      "confidence": 0.94,
+      "reason": "This is a controlled declarative answer rather than a reflex-like discharge of affect. Cordelia explicitly describes herself as unable to pour her heart directly into speech, and the focal expression remains measured rather than eruptive.",
+      "evidence": [
+        {
+          "block_id": "scene",
+          "quotation": "Unhappy that I am, I cannot heave\nMy heart into my mouth: I love your majesty"
+        }
+      ]
+    },
+    "O": {
+      "score": 0,
+      "evidence_status": "assessable",
+      "confidence": 0.91,
+      "reason": "The focal expression’s core force is adequately captured as an avowal of love. Its respectful address and its role as an answer in Lear’s public test do not constitute a distinct core force beyond T.",
+      "evidence": [
+        {
+          "block_id": "target",
+          "quotation": "I love your majesty"
+        }
+      ]
+    }
+  },
+  "original_speech_situation": "In a public division of the kingdom, Lear asks Cordelia to say how much she loves him in order to obtain a richer portion. After initially answering “Nothing,” she gives this restrained avowal, contrasting with her sisters’ expansive declarations and measuring her love according to her filial bond.",
+  "affection_evidence": "present",
+  "undertaking_and_uptake": "The focal expression makes no undertaking; it avows existing filial love. Cordelia’s surrounding speech invokes already-existing duties to Lear rather than promising a new course of action. Lear does not accept her answer as adequate: he tells her to “Mend your speech a little” and subsequently repudiates her, but that rejection concerns the sufficiency of her declaration, not uptake of a promise.",
+  "recognised_work": true,
+  "recognition_note": "The supplied text is recognisable as William Shakespeare’s King Lear, Act I, Scene I.",
+  "limitations": "The classification is restricted to the marked occurrence and supplied passages. The evidence strongly supports sincere affection, including Cordelia’s aside that her love is “More ponderous than my tongue” and her later conduct, but sincerity is recorded separately from the utterance’s T force."
+}

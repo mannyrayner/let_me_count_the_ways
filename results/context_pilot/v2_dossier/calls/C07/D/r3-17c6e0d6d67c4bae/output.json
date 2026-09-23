@@ -1,0 +1,80 @@
+{
+  "target_identification": {
+    "speaker": "Pierre",
+    "addressee": "Hélène",
+    "anchor_quote": "Je vous aime!"
+  },
+  "target_translation": "I love you.",
+  "dimensions": {
+    "T": {
+      "score": 4,
+      "evidence_status": "assessable",
+      "confidence": 0.99,
+      "reason": "The focal expression directly presents Pierre's love for Hélène as true. Its conventional and potentially insincere character does not diminish its clear truth-conditional force as an avowal.",
+      "evidence": [
+        {
+          "block_id": "target",
+          "quotation": "Je vous aime"
+        },
+        {
+          "block_id": "scene",
+          "quotation": "— Je vous aime! — сказал он, вспомнив то, чтó нужно было говорить в этих случаях; но слова эти прозвучали так бедно, что ему стало стыдно за себя."
+        }
+      ]
+    },
+    "P": {
+      "score": 1,
+      "evidence_status": "assessable",
+      "confidence": 0.88,
+      "reason": "Spoken to Hélène while she is already treated as Pierre's fiancée, the conventional avowal weakly ratifies or invokes their emerging engagement. Pierre thereby aligns himself with the fiancé role, but the focal words contain no explicit promise, proposal, or defined obligation, so their undertaking force is limited and must not be borrowed from the surrounding engagement.",
+      "evidence": [
+        {
+          "block_id": "scene",
+          "quotation": "Пьер молча держал руку своей невесты"
+        },
+        {
+          "block_id": "scene",
+          "quotation": "Что-то такое особенное говорят в этих случаях"
+        },
+        {
+          "block_id": "target",
+          "quotation": "Je vous aime"
+        }
+      ]
+    },
+    "E": {
+      "score": 0,
+      "evidence_status": "assessable",
+      "confidence": 0.98,
+      "reason": "The expression is not represented as a reflexive affective outburst. Pierre deliberately recalls the socially expected formula and then feels ashamed of how poorly it sounds, supporting an avowal rather than expressive discharge.",
+      "evidence": [
+        {
+          "block_id": "scene",
+          "quotation": "сказал он, вспомнив то, чтó нужно было говорить в этих случаях; но слова эти прозвучали так бедно, что ему стало стыдно за себя."
+        }
+      ]
+    },
+    "O": {
+      "score": 0,
+      "evidence_status": "assessable",
+      "confidence": 0.93,
+      "reason": "No distinct core function remains outside T and the weak contextual P component. The utterance's irony, conventionality, and questionable sincerity qualify its avowal rather than constitute another force.",
+      "evidence": [
+        {
+          "block_id": "target",
+          "quotation": "Je vous aime"
+        },
+        {
+          "block_id": "scene",
+          "quotation": "слова эти прозвучали так бедно, что ему стало стыдно за себя"
+        }
+      ]
+    }
+  },
+  "original_speech_situation": "After the family has treated Pierre and Hélène as engaged and left them alone, Hélène kisses him. Pierre searches for what one is supposed to say on such occasions, recalls the formula, and tells her, “Je vous aime!” The narration emphasizes that the words sound poor and embarrass him.",
+  "affection_evidence": "mixed",
+  "undertaking_and_uptake": "Pierre's words weakly ratify his socially established position as Hélène's fiancé, but they specify no promise or obligation. Hélène gives no separate verbal response to the focal utterance in the supplied scene; her kiss precedes it, and their later marriage shows practical social uptake of the engagement without converting this avowal itself into a full promise. Evidence about actual affection is mixed: immediately beforehand Pierre thinks “да и я люблю ее,” whereas later he calls the statement a lie and says he never loved her.",
+  "recognised_work": true,
+  "recognition_note": "I recognise the supplied passages as Leo Tolstoy's War and Peace. The classification is based only on the supplied evidence.",
+  "limitations": "The evidence clearly establishes the utterance's wording and immediate ceremonial context, but Pierre's actual feeling is internally conflicted and later retrospectively denied. The precise sincerity of the statement at the instant of speaking therefore cannot be settled without qualification, although its avowal mode is clear."
+}

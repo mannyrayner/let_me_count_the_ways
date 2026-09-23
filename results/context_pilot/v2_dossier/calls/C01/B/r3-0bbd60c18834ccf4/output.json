@@ -1,0 +1,76 @@
+{
+  "target_identification": {
+    "speaker": "Jane",
+    "addressee": "St John",
+    "anchor_quote": "There is no dishonour, no breach of promise, no desertion in the case.\nI am not under the slightest obligation to go to India, especially with\nstrangers. With you I would have ventured much, because I admire,\nconfide in, and, as a sister, I love you; but I am convinced that, go\nwhen and with whom I would, I should not live long in that climate."
+  },
+  "target_translation": "I love you—in a sisterly way.",
+  "dimensions": {
+    "T": {
+      "score": 4,
+      "evidence_status": "assessable",
+      "confidence": 0.99,
+      "reason": "Jane directly avows love for St John, explicitly qualifying it as sisterly affection. The surrounding list of admiration and confidence presents this as a considered account of her feelings.",
+      "evidence": [
+        {
+          "block_id": "target",
+          "quotation": "I love you"
+        },
+        {
+          "block_id": "scene",
+          "quotation": "because I admire,\nconfide in, and, as a sister, I love you"
+        }
+      ]
+    },
+    "P": {
+      "score": 0,
+      "evidence_status": "assessable",
+      "confidence": 0.97,
+      "reason": "The focal expression does not itself undertake marriage, travel, service, or another future obligation. In this turn Jane instead denies being obligated to go to India; her avowal explains why she would have risked much with St John, rather than promising that she now will do so.",
+      "evidence": [
+        {
+          "block_id": "target",
+          "quotation": "I love you"
+        },
+        {
+          "block_id": "scene",
+          "quotation": "I am not under the slightest obligation to go to India, especially with\nstrangers."
+        },
+        {
+          "block_id": "scene",
+          "quotation": "With you I would have ventured much"
+        }
+      ]
+    },
+    "E": {
+      "score": 0,
+      "evidence_status": "assessable",
+      "confidence": 0.94,
+      "reason": "The expression appears within a reasoned explanation, coordinated with Jane's admiration and confidence and qualified as sisterly. Nothing in the supplied scene represents these words as a reflex-like or involuntary affective discharge.",
+      "evidence": [
+        {
+          "block_id": "scene",
+          "quotation": "because I admire,\nconfide in, and, as a sister, I love you"
+        }
+      ]
+    },
+    "O": {
+      "score": 0,
+      "evidence_status": "assessable",
+      "confidence": 0.95,
+      "reason": "The expression's core force is adequately captured as a truth-conditional avowal of sisterly love. Its explanatory role in Jane's argument does not constitute a separate core force beyond T/P/E.",
+      "evidence": [
+        {
+          "block_id": "scene",
+          "quotation": "With you I would have ventured much, because I admire,\nconfide in, and, as a sister, I love you"
+        }
+      ]
+    }
+  },
+  "original_speech_situation": "Jane is disputing St John's claim that she is obliged to go to India. She explains that her willingness to venture much with him arose from admiration, trust, and sisterly love, while maintaining that she will neither become his wife nor accept the asserted obligation.",
+  "affection_evidence": "present",
+  "undertaking_and_uptake": "The focal words undertake nothing; they avow sisterly affection. The broader turn denies any obligation to go to India and describes willingness retrospectively and conditionally (“would have ventured”), rather than renewing a promise. St John does not acknowledge or reciprocate the avowal; he answers by accusing Jane of fear.",
+  "recognised_work": true,
+  "recognition_note": "The supplied passage is recognisable as Charlotte Brontë's Jane Eyre.",
+  "limitations": "The passage supports sisterly affection and the absence of undertaking force in the focal words. It does not independently establish every aspect of Jane's inner sincerity or St John's private interpretation, and no omitted context is assumed absent from the work."
+}

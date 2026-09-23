@@ -1,0 +1,80 @@
+{
+  "target_identification": {
+    "speaker": "Pierre",
+    "addressee": "Hélène",
+    "anchor_quote": "Je vous aime!"
+  },
+  "target_translation": "I love you.",
+  "dimensions": {
+    "T": {
+      "score": 4,
+      "evidence_status": "assessable",
+      "confidence": 0.99,
+      "reason": "The expression directly presents Pierre as loving Hélène. Its force is a conventional first-person avowal even though the surrounding narration and Pierre's later retrospective judgment strongly question its sincerity.",
+      "evidence": [
+        {
+          "block_id": "target",
+          "quotation": "Je vous aime"
+        },
+        {
+          "block_id": "later_1",
+          "quotation": "когда он сказал эти невыходившие из него слова: «Je vous aime»"
+        }
+      ]
+    },
+    "P": {
+      "score": 1,
+      "evidence_status": "assessable",
+      "confidence": 0.88,
+      "reason": "In this betrothal setting the avowal weakly ratifies Pierre's socially established role as Hélène's fiancé and his apparent willingness to proceed toward marriage. Pierre is therefore the person weakly invoking that relational commitment. Nevertheless, the target itself neither proposes marriage nor explicitly promises future conduct, so the surrounding engagement must not be transferred wholesale onto it.",
+      "evidence": [
+        {
+          "block_id": "scene",
+          "quotation": "Пьер молча держал руку своей невесты"
+        },
+        {
+          "block_id": "scene",
+          "quotation": "«Что-то такое особенное говорят в этих случаях», думал он"
+        },
+        {
+          "block_id": "target",
+          "quotation": "Je vous aime"
+        }
+      ]
+    },
+    "E": {
+      "score": 0,
+      "evidence_status": "assessable",
+      "confidence": 0.99,
+      "reason": "The utterance is not represented as a reflexive affective outburst. Pierre pauses, deliberates, and retrieves a socially expected formula; its poor delivery embarrasses him.",
+      "evidence": [
+        {
+          "block_id": "scene",
+          "quotation": "сказал он, вспомнив то, чтó нужно было говорить в этих случаях; но слова эти прозвучали так бедно, что ему стало стыдно за себя."
+        }
+      ]
+    },
+    "O": {
+      "score": 2,
+      "evidence_status": "assessable",
+      "confidence": 0.94,
+      "reason": "Beyond avowing love and weakly ratifying the relationship, the expression substantially functions as scripted social compliance: Pierre says what he believes convention requires in this situation. That conformity to an expected courtship formula is not fully captured by T, P, or E.",
+      "evidence": [
+        {
+          "block_id": "scene",
+          "quotation": "«Что-то такое особенное говорят в этих случаях», думал он, но никак не мог вспомнить, чтò такое именно говорят в этих случаях."
+        },
+        {
+          "block_id": "scene",
+          "quotation": "сказал он, вспомнив то, чтó нужно было говорить в этих случаях"
+        }
+      ]
+    }
+  },
+  "original_speech_situation": "Pierre and Hélène have been left together after her family and guests have treated them as engaged. Following physical intimacy and while holding his fiancée's hand, Pierre struggles to supply the expected declaration and finally says the marked words as a conventional formula.",
+  "affection_evidence": "mixed",
+  "undertaking_and_uptake": "The target only weakly ratifies Pierre's apparent acceptance of being Hélène's fiancé and proceeding toward marriage; it contains no explicit proposal or promise. Hélène gives no separate verbal uptake after this exact utterance, although the supplied scene reports that they marry a month and a half later. Evidence about actual feeling is mixed: Pierre immediately thinks that he loves her, but later describes the declaration as a lie and says he never loved her; the scene also emphasizes attraction and social pressure.",
+  "recognised_work": true,
+  "recognition_note": "I recognize the supplied passages as Leo Tolstoy's War and Peace; the classification relies only on the supplied evidence.",
+  "limitations": "The later passage provides Pierre's retrospective interpretation and strongly bears on sincerity, but it does not alter the target's original avowal form. The evidence does not establish a precise promise made by the words themselves, nor does it provide an explicit verbal response from Hélène to this exact occurrence."
+}

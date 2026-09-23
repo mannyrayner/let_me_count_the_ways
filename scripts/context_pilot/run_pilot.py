@@ -36,11 +36,18 @@ def write(path, value):
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_bytes(json_bytes(value))
 
-def source(case):
+def source(case, config=None):
     manifest = read(ROOT / 'corpus/works' / case['work_id'] / 'work.json')
     if not manifest['rights']['analysis_allowed']:
         raise ValueError('Analysis not allowed: ' + case['work_id'])
-    path = ROOT / (manifest.get('canonical_local_path') or 'corpus/works/' + case['work_id'] + '/canonical.txt')
+    override = (config or {}).get('canonical_paths', {}).get(case['work_id'])
+    if override:
+        from scripts.reader.records import publication_approved, repository_path
+        if not publication_approved(ROOT, config, manifest, {}):
+            raise ValueError('Canonical override lacks matching publication decision')
+        path = repository_path(ROOT, override)
+    else:
+        path = ROOT / (manifest.get('canonical_local_path') or 'corpus/works/' + case['work_id'] + '/canonical.txt')
     raw = path.read_bytes()
     if sha(raw) != case['canonical_sha256'] or sha(raw) != manifest['canonical_sha256']:
         raise ValueError('Canonical bytes changed: ' + case['case_id'])
@@ -52,8 +59,8 @@ def range_text(text, span):
         raise ValueError('Invalid source span: ' + str(span))
     return text[a:b]
 
-def inputs(case, scope):
-    text, manifest = source(case)
+def inputs(case, scope, config=None):
+    text, manifest = source(case, config)
     target = range_text(text, case['target'])
     a, b = case['scene']
     if not a <= case['target'][0] < case['target'][1] <= b:
@@ -69,7 +76,11 @@ def inputs(case, scope):
     before = [{'block_id':f'prior_{i+1}', 'text':range_text(text,s)} for i,s in enumerate(prior)]
     after = [{'block_id':f'later_{i+1}', 'text':range_text(text,s)} for i,s in enumerate(later)]
     sequences = {'A':[], 'B':[scene], 'C':before+[scene], 'D':before+[scene]+after}
-    return {c:{'TARGET':target,'SOURCE_BLOCKS':blocks} for c,blocks in sequences.items()}, manifest
+    prepared = {c:{'TARGET':target,'SOURCE_BLOCKS':blocks} for c,blocks in sequences.items()}
+    if config and config['protocol_version'] == 'context_pilot_v2':
+        from scripts.context_pilot.target_grounding import ground_inputs
+        prepared = ground_inputs(prepared, case, text)
+    return prepared, manifest
 
 def validate_shape(value, schema, where='output'):
     types = schema.get('type'); types = types if isinstance(types,list) else [types]
@@ -99,6 +110,10 @@ def quote_matches(quotation, block):
 
 def validate(result, prepared, schema):
     validate_shape(result,schema)
+    if 'TARGET_REFERENCE' in prepared:
+        from scripts.context_pilot.target_grounding import validate_identification, unmark_inputs
+        validate_identification(result, prepared)
+        prepared = unmark_inputs(prepared)
     blocks = {'target':prepared['TARGET'], **{b['block_id']:b['text'] for b in prepared['SOURCE_BLOCKS']}}
     for name, dim in result['dimensions'].items():
         insufficient = dim['evidence_status'] == 'insufficient'
@@ -121,11 +136,20 @@ def result_for(call, schema):
     validate(result,call['prepared'],schema)
     return result
 
-def prepare(scope, model_alias, only_cases=None):
-    config = read(SELECTION)
-    prompt, schema = PROMPT.read_text(encoding='utf-8'), read(SCHEMA)
+def prepare(scope, model_alias, only_cases=None, version='v1'):
+    if version not in ('v1', 'v2'):
+        raise ValueError('Unknown protocol version')
+    selection_path = SELECTION if version == 'v1' else ROOT/'data/context_pilot/selection_v2.json'
+    prompt_path = PROMPT if version == 'v1' else ROOT/'prompts/context_pilot/classify_v2.md'
+    schema_path = SCHEMA if version == 'v1' else ROOT/'prompts/context_pilot/schema_v2.json'
+    config = read(selection_path)
+    prompt, schema = prompt_path.read_text(encoding='utf-8'), read(schema_path)
+    # Protocol documents are text; v2 hashes ignore checkout newline conversion.
+    # Retain the historical byte-hash contract for v1 resumption.
+    def document_hash(path):
+        return sha(path.read_text(encoding='utf-8').encode('utf-8')) if version == 'v2' else sha(path.read_bytes())
     model, pricing = resolve_model(ROOT/'config/api_models.json',model_alias,date.today())
-    base = ROOT / 'results/context_pilot' / ('v1_'+scope)
+    base = ROOT / 'results/context_pilot' / (version+'_'+scope)
     calls, overview, pages = [], [], []
     wanted = set(only_cases or [c['case_id'] for c in config['cases']])
     if wanted - {c['case_id'] for c in config['cases']}:
@@ -133,9 +157,12 @@ def prepare(scope, model_alias, only_cases=None):
     for case in config['cases']:
         if case['case_id'] not in wanted:
             continue
-        prepared, manifest = inputs(case,scope)
+        prepared, manifest = inputs(case,scope,config if version == 'v2' else None)
         public = manifest['rights']['public_render_policy'] in PUBLIC
-        target_base = base if public else ROOT/'results/context_pilot_private'/('v1_'+scope)
+        if version == 'v2' and not public:
+            from scripts.reader.records import publication_approved
+            public = publication_approved(ROOT, config, manifest, {})
+        target_base = base if public else ROOT/'results/context_pilot_private'/(version+'_'+scope)
         overview.append({'case_id':case['case_id'],'work_id':case['work_id'],'label':case['label'],
                          'public_context':public,'dossier_note':case['dossier_note'],
                          'input_characters':{c:len(json.dumps(p,ensure_ascii=False)) for c,p in prepared.items()}})
@@ -143,33 +170,38 @@ def prepare(scope, model_alias, only_cases=None):
             input_path = target_base/'inputs'/case['case_id']/(condition+'.json')
             stable_write(input_path,json_bytes(p))
             body = {'model':model,'input':prompt+'\n\n## Input\n\n'+json.dumps(p,ensure_ascii=False),
-                    'store':False,'max_output_tokens':2400,'text':structured_output_format(schema,'context_pilot_v1')}
+                    'store':False,'max_output_tokens':8000 if version == 'v2' else 2400,'text':structured_output_format(schema,config['protocol_version'])}
             review = '<!doctype html><meta charset="utf-8"><title>Context input</title><style>body{max-width:75ch;margin:3rem auto;padding:1rem;font:18px/1.6 Georgia}pre{white-space:pre-wrap}h2{font:1.1em system-ui}</style>'
             review += '<h1>'+html.escape(case['label'])+' — '+condition+'</h1><p>'+html.escape(config['conditions'][condition])+'</p>'
             review += '<p>Scope: '+scope+'. No scores or bibliographic labels are sent with the source input.</p><h2>Target</h2><pre>'+html.escape(p['TARGET'])+'</pre>'
+            if p.get('TARGET_REFERENCE') is not None:
+                review += '<h2>Reviewed target reference (sent to model)</h2><pre>'+html.escape(json.dumps(p['TARGET_REFERENCE'],ensure_ascii=False,indent=2))+'</pre>'
             for block in p['SOURCE_BLOCKS']:
                 review += '<h2>'+block['block_id']+'</h2><pre>'+html.escape(block['text'])+'</pre>'
             stable_write(input_path.with_suffix('.html'),review.encode('utf-8'))
             for repeat in range(1,config['repetitions']+1):
-                key = {'protocol_sha256':sha(SELECTION.read_bytes()),'request':body,'repeat':repeat}
+                key = {'protocol_sha256':document_hash(selection_path),'request':body,'repeat':repeat}
                 fingerprint = sha(json.dumps(key,ensure_ascii=False,sort_keys=True).encode('utf-8'))
                 directory = target_base/'calls'/case['case_id']/condition/f'r{repeat}-{fingerprint[:16]}'
                 calls.append({'case_id':case['case_id'],'condition':condition,'repeat':repeat,
                               'public':public,'prepared':p,'body':body,'fingerprint':fingerprint,'directory':directory})
     random.Random(config['order_seed']).shuffle(calls)
     protocol = {'protocol_version':config['protocol_version'],'scope':scope,'model_alias':model_alias,'api_model':model,
-                'selection_sha256':sha(SELECTION.read_bytes()),'prompt_sha256':sha(PROMPT.read_bytes()),'schema_sha256':sha(SCHEMA.read_bytes()),
+                'selection_sha256':document_hash(selection_path),'prompt_sha256':document_hash(prompt_path),'schema_sha256':document_hash(schema_path),
                 'conditions':config['conditions'],'repetitions':config['repetitions'],'order_seed':config['order_seed'],
                 'cases':overview,'call_order':[{'case_id':c['case_id'],'condition':c['condition'],'repeat':c['repeat'],'fingerprint':c['fingerprint']} for c in calls]}
     # A named scope/model plan has immutable inputs; subsets get their own manifest.
     manifest_name = 'protocol_'+model_alias+('_'+'-'.join(sorted(wanted)) if only_cases else '')+'.json'
+    if version == 'v2':
+        protocol['target_identification_policy'] = config['target_identification_policy']
+        protocol['validation_policy'] = 'reviewed_target_identity_and_literal_quote_v2'
     stable_write(base/manifest_name,json_bytes(protocol))
     links=['# Context input review','',f'Scope: **{scope}**. Each letter opens the exact input as HTML.','',
            '| Case | Work / speaker | A | B | C | D |','|---|---|---|---|---|---|']
     for c in overview:
         cells=[f'[{x}](inputs/{c["case_id"]}/{x}.html)' if c['public_context'] else 'local only' for x in 'ABCD']
         links.append('| '+c['case_id']+' | '+c['label']+' | '+' | '.join(cells)+' |')
-    links += ['','Private-case inputs are under results/context_pilot_private/'+('v1_'+scope)+'/inputs/.',
+    links += ['','Private-case inputs are under results/context_pilot_private/'+(version+'_'+scope)+'/inputs/.',
               'Dossier inputs are selected source excerpts, not a complete-work condition. Full-text scope supplies all canonical text in D.',
               'No external background knowledge is requested. Recognition of famous works can still affect judgments.']
     (base/'README.md').write_text('\n'.join(links)+'\n',encoding='utf-8')
@@ -184,6 +216,8 @@ def report(calls, base, schema, protocol):
                          'scores':{k:d['score'] for k,d in result['dimensions'].items()},
                          'recognised_work':result['recognised_work'],
                          'artifact':(call['directory']/'output.json').relative_to(ROOT).as_posix() if call['public'] else 'local-only'})
+            if protocol.get('protocol_version') == 'context_pilot_v2':
+                rows[-1]['target_identification'] = result['target_identification']
     cases=[]
     for case in protocol['cases']:
         by={c:[r for r in rows if r['case_id']==case['case_id'] and r['condition']==c] for c in 'ABCD'}
@@ -198,6 +232,9 @@ def report(calls, base, schema, protocol):
     result={'status':'complete' if len(rows)==len(calls) else 'not_run' if not rows else 'partial',
             'scope':protocol['scope'],'expected':len(calls),'valid':len(rows),'cases':cases,'judgments':rows,
             'interpretation':'Purposive diagnostic cases. Repeats are not independent literary occurrences. Differences measure model judgments under supplied evidence, not human population effects.'}
+    if protocol.get('protocol_version') == 'context_pilot_v2':
+        result['protocol_version'] = protocol['protocol_version']
+        result['validation_note'] = 'Accepted outputs pass exact reference-identity and quote checks. This is not a guarantee that every explanatory sentence is correctly grounded; review explanations.'
     write(base/'summary.json',result)
     lines=['# Context pilot results','',f'Status: **{result["status"]}** — {len(rows)}/{len(calls)} valid judgments.','',
            'P distributions show score:count; null means insufficient evidence. No missing score is imputed as zero.','',
@@ -227,6 +264,9 @@ def require_complete_response(response):
             raise ValueError('Response truncated at max_output_tokens. Original response saved; retry with a larger --max-output-tokens and --retry-failed. Completed judgments are preserved.')
         raise ValueError('API response is not complete: ' + str(reason))
 
+def validation_policy(prepared):
+    return 'reviewed_target_identity_and_literal_quote_v2' if 'TARGET_REFERENCE' in prepared else VALIDATION_POLICY
+
 def recover_saved(calls, schema):
     recovered = 0
     for call in calls:
@@ -250,7 +290,7 @@ def recover_saved(calls, schema):
             stable_write(call['directory']/'provenance.json', json_bytes({
                 'fingerprint':call['fingerprint'], 'attempt':attempt.name,
                 'recorded_at':datetime.now(timezone.utc).isoformat(),
-                'validation_policy':VALIDATION_POLICY,
+                'validation_policy':validation_policy(call['prepared']),
                 'recovered_from_saved_response':True,
                 'actual_request_sha256':sha(json_bytes(actual_request)),
                 'max_output_tokens':actual_request['max_output_tokens'],
@@ -262,13 +302,15 @@ def recover_saved(calls, schema):
     return recovered
 
 def run(args, caller=call_api):
-    calls,base,pricing,schema,protocol=prepare(args.scope,args.model,args.cases)
+    version = getattr(args, 'protocol', 'v1')
+    calls,base,pricing,schema,protocol=prepare(args.scope,args.model,args.cases,version)
     if getattr(args, 'recover_saved', False):
         print('Recovered saved responses: ' + str(recover_saved(calls, schema)))
     pending=[c for c in calls if result_for(c,schema) is None]
-    output_budget = getattr(args, 'max_output_tokens', 2400)
-    if output_budget < 2400:
-        raise ValueError('Output budget must be at least the original 2400-token ceiling')
+    minimum_budget = 8000 if version == 'v2' else 2400
+    output_budget = getattr(args, 'max_output_tokens', None) or minimum_budget
+    if output_budget < minimum_budget:
+        raise ValueError(f'Output budget must be at least the planned {minimum_budget}-token ceiling')
     estimated_input=sum(math.ceil(len(c['body']['input'].encode('utf-8'))/3) for c in pending)
     estimate=calculate_cost({'input_tokens':estimated_input,'output_tokens':output_budget*len(pending)},pricing)
     preflight={'status':'prepared','scope':args.scope,'cases':len(protocol['cases']),'planned_calls':len(calls),
@@ -278,6 +320,8 @@ def run(args, caller=call_api):
                'pricing_verified_on':pricing['pricing_verified_on'],'estimate_usd':estimate['estimated_total_cost'],
                'max_output_tokens_for_new_attempts':output_budget,
                'estimate_method':f'UTF-8 bytes / 3 input tokens (heuristic), {output_budget} output tokens per remaining call (ceiling, not predicted usage); not a billing or context-capacity guarantee.'}
+    if version == 'v2':
+        preflight['protocol_version'] = protocol['protocol_version']
     write(base/'preflight.json',preflight);print(json.dumps(preflight,indent=2))
     report(calls,base,schema,protocol)
     if not args.run or not pending:
@@ -308,7 +352,7 @@ def run(args, caller=call_api):
             parsed,_=parse_json_output(output_text(response));validate(parsed,c['prepared'],schema)
             stable_write(directory/'provenance.json',json_bytes({'fingerprint':c['fingerprint'],'attempt':attempt.name,
                          'recorded_at':datetime.now(timezone.utc).isoformat(),
-                         'validation_policy':VALIDATION_POLICY,
+                         'validation_policy':validation_policy(c['prepared']),
                          'actual_request_sha256':sha(json_bytes(actual_request)),
                          'max_output_tokens':output_budget}))
             stable_write(directory/'output.json',json_bytes(parsed))
@@ -324,16 +368,17 @@ def run(args, caller=call_api):
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--run',action='store_true');p.add_argument('--model',default='5.6')
+    p.add_argument('--protocol',choices=['v1','v2'],default='v1',help='v2 uses reviewed target identities and a separate result directory')
     p.add_argument('--scope',choices=['dossier','full_text'],default='dossier')
     p.add_argument('--cases',nargs='+',help='Optional case IDs; selection is recorded in the plan')
     p.add_argument('--max-estimate-usd',type=float,default=25)
     p.add_argument('--max-input-chars',type=int,default=250000)
-    p.add_argument('--max-output-tokens',type=int,default=2400,help='Output ceiling for new attempts only; completed judgments resume unchanged (minimum 2400)')
+    p.add_argument('--max-output-tokens',type=int,default=None,help='Default: 2400 for v1, 8000 for v2. Output ceiling for new attempts only; completed judgments resume unchanged (minimum 2400)')
     p.add_argument('--max-calls',type=int);p.add_argument('--timeout',type=float,default=300)
     p.add_argument('--retry-failed',action='store_true')
     p.add_argument('--recover-saved',action='store_true',help='Validate retained responses under the whitespace-tolerant quote check; no API calls unless --run is also given')
     args=p.parse_args()
-    if args.max_output_tokens<2400:p.error('--max-output-tokens must be at least 2400')
+    if args.max_output_tokens is not None and args.max_output_tokens<2400:p.error('--max-output-tokens must be at least 2400')
     if args.max_estimate_usd<=0 or args.max_input_chars<=0 or args.timeout<=0 or (args.max_calls is not None and args.max_calls<=0):
         p.error('Limits must be positive')
     try:run(args)

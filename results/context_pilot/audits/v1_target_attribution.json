@@ -1,0 +1,104 @@
+{
+  "audit_version": "target_attribution_review_v1",
+  "review_method": "AI close reading of retained outputs and canonical source, following identification of target drift; reviewable, not an independent human gold standard",
+  "scope": "Five identified wrong-target outputs in the v1 dossier. This list is not certification of every other explanatory claim.",
+  "hash_policy": "SHA-256 of UTF-8 output text with universal-newline decoding; protects content across checkout newline conversion.",
+  "historical_summary_note": "v1 valid means structural and quotation validation, not verified speaker identity. Its complete status does not establish semantic validity.",
+  "excluded_judgments": [
+    {
+      "case_id": "C05",
+      "condition": "C",
+      "repeat": 1,
+      "artifact": "results/context_pilot/v1_dossier/calls/C05/C/r1-fd6fc84ca0547cf8/output.json",
+      "output_text_sha256": "c7fa3ce96883fc24c1c3adc32e7ca4fa957ffa7dbed1ee477b51ea651b8f09d1",
+      "expected_speaker": "Goneril",
+      "analysed_speaker": "Cordelia",
+      "addressee": "Lear",
+      "status": "wrong_target_exclude_from_target_effect_analysis",
+      "original_scores": {
+        "T": 4,
+        "P": 3,
+        "E": 0,
+        "O": 2
+      },
+      "evidence_from_output": "Lear publicly asks his daughters to say which loves him most, linking their answers to his distribution of the kingdom. After initially answering “Nothing,” Cordelia is pressed to speak again and gives the focal avowal as a deliberately qualified account of a daughter's love and duty.",
+      "action": "Preserve original response and scores. Do not relabel as Cordelia data. Rerun in v2."
+    },
+    {
+      "case_id": "C05",
+      "condition": "C",
+      "repeat": 3,
+      "artifact": "results/context_pilot/v1_dossier/calls/C05/C/r3-85460a92a4f2c18b/output.json",
+      "output_text_sha256": "00ffda0df7fa28c2995a73b750d32287fd44dc03480ff4b13c856d569c96c3fa",
+      "expected_speaker": "Goneril",
+      "analysed_speaker": "Cordelia",
+      "addressee": "Lear",
+      "status": "wrong_target_exclude_from_target_effect_analysis",
+      "original_scores": {
+        "T": 4,
+        "P": 1,
+        "E": 0,
+        "O": 2
+      },
+      "evidence_from_output": "Lear publicly asks his daughters to say which loves him most, linking their answers to the distribution of his kingdom. After initially answering “Nothing,” Cordelia gives this restrained avowal to her father, defining her love by her filial bond rather than claiming limitless love.",
+      "action": "Preserve original response and scores. Do not relabel as Cordelia data. Rerun in v2."
+    },
+    {
+      "case_id": "C05",
+      "condition": "D",
+      "repeat": 1,
+      "artifact": "results/context_pilot/v1_dossier/calls/C05/D/r1-641786f9e52fa95f/output.json",
+      "output_text_sha256": "0a29d8df60dbf9120661ebae26d683dbd8f732cd6f26f8a088eca63fd233f0e6",
+      "expected_speaker": "Goneril",
+      "analysed_speaker": "Cordelia",
+      "addressee": "Lear",
+      "status": "wrong_target_exclude_from_target_effect_analysis",
+      "original_scores": {
+        "T": 4,
+        "P": 2,
+        "E": 0,
+        "O": 1
+      },
+      "evidence_from_output": "Lear publicly asks his daughters to declare which loves him most, linking their answers to the distribution of his kingdom. Cordelia answers her father with a restrained avowal, qualifying her love by her filial bond and rejecting the premise that a married daughter should give all love to her father.",
+      "action": "Preserve original response and scores. Do not relabel as Cordelia data. Rerun in v2."
+    },
+    {
+      "case_id": "C05",
+      "condition": "D",
+      "repeat": 2,
+      "artifact": "results/context_pilot/v1_dossier/calls/C05/D/r2-626e7a294af73fcf/output.json",
+      "output_text_sha256": "57ed7f455cd6b965dab303e1c84a088d3b6646eb1732c125e4c81628227de464",
+      "expected_speaker": "Goneril",
+      "analysed_speaker": "Cordelia",
+      "addressee": "Lear",
+      "status": "wrong_target_exclude_from_target_effect_analysis",
+      "original_scores": {
+        "T": 4,
+        "P": 3,
+        "E": 0,
+        "O": 0
+      },
+      "evidence_from_output": "Lear publicly asks his daughters to say which loves him most while allocating portions of his kingdom. After refusing inflated rhetoric, Cordelia answers that she loves him according to her filial bond, neither more nor less. She distinguishes this filial love and duty from the love she may owe a future husband. Lear treats her answer as inadequate and warns that it will damage her fortunes.",
+      "action": "Preserve original response and scores. Do not relabel as Cordelia data. Rerun in v2."
+    },
+    {
+      "case_id": "C05",
+      "condition": "D",
+      "repeat": 3,
+      "artifact": "results/context_pilot/v1_dossier/calls/C05/D/r3-6a78bd9f51a8a03d/output.json",
+      "output_text_sha256": "f575c607790f114e3bbacb7cb5b1a7f44e65ef995fc3adf18306f437571401b8",
+      "expected_speaker": "Goneril",
+      "analysed_speaker": "Cordelia",
+      "addressee": "Lear",
+      "status": "wrong_target_exclude_from_target_effect_analysis",
+      "original_scores": {
+        "T": 4,
+        "P": 2,
+        "E": 0,
+        "O": 1
+      },
+      "evidence_from_output": "Lear publicly asks his daughters to say which loves him most, linking their answers to the division of his kingdom. After initially answering “Nothing,” Cordelia states that she loves him according to her filial bond, neither more nor less. Lear treats this measured answer as inadequate and warns that it may damage her fortunes.",
+      "action": "Preserve original response and scores. Do not relabel as Cordelia data. Rerun in v2."
+    }
+  ]
+}

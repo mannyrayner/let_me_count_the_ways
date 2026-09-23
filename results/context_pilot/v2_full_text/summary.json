@@ -1,0 +1,527 @@
+{
+  "status": "complete",
+  "scope": "full_text",
+  "expected": 24,
+  "valid": 24,
+  "cases": [
+    {
+      "case_id": "C05",
+      "label": "Goneril addressing Lear",
+      "conditions": {
+        "A": {
+          "valid": 3,
+          "P_distribution": {
+            "0": 3
+          },
+          "P_nontrivial": 0,
+          "P_strong": 0
+        },
+        "B": {
+          "valid": 3,
+          "P_distribution": {
+            "0": 3
+          },
+          "P_nontrivial": 0,
+          "P_strong": 0
+        },
+        "C": {
+          "valid": 3,
+          "P_distribution": {
+            "0": 3
+          },
+          "P_nontrivial": 0,
+          "P_strong": 0
+        },
+        "D": {
+          "valid": 3,
+          "P_distribution": {
+            "0": 3
+          },
+          "P_nontrivial": 0,
+          "P_strong": 0
+        }
+      },
+      "median_P_D_minus_B": 0
+    },
+    {
+      "case_id": "C06",
+      "label": "Cordelia addressing Lear",
+      "conditions": {
+        "A": {
+          "valid": 3,
+          "P_distribution": {
+            "0": 3
+          },
+          "P_nontrivial": 0,
+          "P_strong": 0
+        },
+        "B": {
+          "valid": 3,
+          "P_distribution": {
+            "2": 2,
+            "3": 1
+          },
+          "P_nontrivial": 3,
+          "P_strong": 1
+        },
+        "C": {
+          "valid": 3,
+          "P_distribution": {
+            "1": 1,
+            "0": 1,
+            "2": 1
+          },
+          "P_nontrivial": 1,
+          "P_strong": 0
+        },
+        "D": {
+          "valid": 3,
+          "P_distribution": {
+            "2": 1,
+            "0": 2
+          },
+          "P_nontrivial": 1,
+          "P_strong": 0
+        }
+      },
+      "median_P_D_minus_B": -2
+    }
+  ],
+  "judgments": [
+    {
+      "case_id": "C06",
+      "condition": "D",
+      "repeat": 3,
+      "scores": {
+        "T": 4,
+        "P": 2,
+        "E": 0,
+        "O": 0
+      },
+      "recognised_work": true,
+      "artifact": "results/context_pilot/v2_full_text/calls/C06/D/r3-ae3bdf3f4a5146e3/output.json",
+      "target_identification": {
+        "speaker": "Cordelia",
+        "addressee": "Lear",
+        "anchor_quote": "Unhappy that I am, I cannot heave\nMy heart into my mouth: I love your majesty\nAccording to my bond; no more nor less."
+      }
+    },
+    {
+      "case_id": "C05",
+      "condition": "B",
+      "repeat": 1,
+      "scores": {
+        "T": 4,
+        "P": 0,
+        "E": 0,
+        "O": 2
+      },
+      "recognised_work": true,
+      "artifact": "results/context_pilot/v2_full_text/calls/C05/B/r1-b1ee98573bef73fa/output.json",
+      "target_identification": {
+        "speaker": "Goneril",
+        "addressee": "Lear",
+        "anchor_quote": "Sir, I love you more than word can wield the matter;\nDearer than eyesight, space, and liberty;\nBeyond what can be valu’d, rich or rare;\nNo less than life, with grace, health, beauty, honour;\nAs much as child e’er lov’d, or father found;\nA love that makes breath poor and speech unable;\nBeyond all manner of so much I love you."
+      }
+    },
+    {
+      "case_id": "C06",
+      "condition": "C",
+      "repeat": 3,
+      "scores": {
+        "T": 4,
+        "P": 1,
+        "E": 0,
+        "O": 0
+      },
+      "recognised_work": true,
+      "artifact": "results/context_pilot/v2_full_text/calls/C06/C/r3-aab141e97ff71853/output.json",
+      "target_identification": {
+        "speaker": "Cordelia",
+        "addressee": "Lear",
+        "anchor_quote": "Unhappy that I am, I cannot heave\nMy heart into my mouth: I love your majesty\nAccording to my bond; no more nor less."
+      }
+    },
+    {
+      "case_id": "C05",
+      "condition": "D",
+      "repeat": 2,
+      "scores": {
+        "T": 4,
+        "P": 0,
+        "E": 0,
+        "O": 2
+      },
+      "recognised_work": true,
+      "artifact": "results/context_pilot/v2_full_text/calls/C05/D/r2-71eccf28a383c0aa/output.json",
+      "target_identification": {
+        "speaker": "Goneril",
+        "addressee": "Lear",
+        "anchor_quote": "Sir, I love you more than word can wield the matter;\nDearer than eyesight, space, and liberty;\nBeyond what can be valu’d, rich or rare;\nNo less than life, with grace, health, beauty, honour;\nAs much as child e’er lov’d, or father found;\nA love that makes breath poor and speech unable;\nBeyond all manner of so much I love you."
+      }
+    },
+    {
+      "case_id": "C05",
+      "condition": "A",
+      "repeat": 1,
+      "scores": {
+        "T": 4,
+        "P": 0,
+        "E": 0,
+        "O": 0
+      },
+      "recognised_work": false,
+      "artifact": "results/context_pilot/v2_full_text/calls/C05/A/r1-19c19088b77aab71/output.json",
+      "target_identification": {
+        "speaker": null,
+        "addressee": null,
+        "anchor_quote": "I love you"
+      }
+    },
+    {
+      "case_id": "C05",
+      "condition": "C",
+      "repeat": 3,
+      "scores": {
+        "T": 4,
+        "P": 0,
+        "E": 0,
+        "O": 0
+      },
+      "recognised_work": true,
+      "artifact": "results/context_pilot/v2_full_text/calls/C05/C/r3-de6119d51c0edbb5/output.json",
+      "target_identification": {
+        "speaker": "Goneril",
+        "addressee": "Lear",
+        "anchor_quote": "Sir, I love you more than word can wield the matter;\nDearer than eyesight, space, and liberty;\nBeyond what can be valu’d, rich or rare;\nNo less than life, with grace, health, beauty, honour;\nAs much as child e’er lov’d, or father found;\nA love that makes breath poor and speech unable;\nBeyond all manner of so much I love you."
+      }
+    },
+    {
+      "case_id": "C05",
+      "condition": "D",
+      "repeat": 1,
+      "scores": {
+        "T": 4,
+        "P": 0,
+        "E": 0,
+        "O": 0
+      },
+      "recognised_work": true,
+      "artifact": "results/context_pilot/v2_full_text/calls/C05/D/r1-2b63dca23608d49b/output.json",
+      "target_identification": {
+        "speaker": "Goneril",
+        "addressee": "Lear",
+        "anchor_quote": "Sir, I love you more than word can wield the matter;\nDearer than eyesight, space, and liberty;\nBeyond what can be valu’d, rich or rare;\nNo less than life, with grace, health, beauty, honour;\nAs much as child e’er lov’d, or father found;\nA love that makes breath poor and speech unable;\nBeyond all manner of so much I love you."
+      }
+    },
+    {
+      "case_id": "C06",
+      "condition": "B",
+      "repeat": 1,
+      "scores": {
+        "T": 4,
+        "P": 2,
+        "E": 0,
+        "O": 2
+      },
+      "recognised_work": true,
+      "artifact": "results/context_pilot/v2_full_text/calls/C06/B/r1-c7cf95a55643eb2e/output.json",
+      "target_identification": {
+        "speaker": "Cordelia",
+        "addressee": "Lear",
+        "anchor_quote": "Unhappy that I am, I cannot heave\nMy heart into my mouth: I love your majesty\nAccording to my bond; no more nor less."
+      }
+    },
+    {
+      "case_id": "C06",
+      "condition": "A",
+      "repeat": 3,
+      "scores": {
+        "T": 4,
+        "P": 0,
+        "E": 0,
+        "O": 0
+      },
+      "recognised_work": false,
+      "artifact": "results/context_pilot/v2_full_text/calls/C06/A/r3-17b0987054433dd9/output.json",
+      "target_identification": {
+        "speaker": null,
+        "addressee": null,
+        "anchor_quote": "I love your majesty"
+      }
+    },
+    {
+      "case_id": "C05",
+      "condition": "B",
+      "repeat": 2,
+      "scores": {
+        "T": 4,
+        "P": 0,
+        "E": 0,
+        "O": 0
+      },
+      "recognised_work": true,
+      "artifact": "results/context_pilot/v2_full_text/calls/C05/B/r2-958b3a15d0305259/output.json",
+      "target_identification": {
+        "speaker": "Goneril",
+        "addressee": "Lear",
+        "anchor_quote": "Sir, I love you more than word can wield the matter;\nDearer than eyesight, space, and liberty;\nBeyond what can be valu’d, rich or rare;\nNo less than life, with grace, health, beauty, honour;\nAs much as child e’er lov’d, or father found;\nA love that makes breath poor and speech unable;\nBeyond all manner of so much I love you."
+      }
+    },
+    {
+      "case_id": "C06",
+      "condition": "B",
+      "repeat": 3,
+      "scores": {
+        "T": 4,
+        "P": 3,
+        "E": 0,
+        "O": 2
+      },
+      "recognised_work": true,
+      "artifact": "results/context_pilot/v2_full_text/calls/C06/B/r3-5733ab22ed66653f/output.json",
+      "target_identification": {
+        "speaker": "Cordelia",
+        "addressee": "Lear",
+        "anchor_quote": "Unhappy that I am, I cannot heave\nMy heart into my mouth: I love your majesty\nAccording to my bond; no more nor less."
+      }
+    },
+    {
+      "case_id": "C06",
+      "condition": "C",
+      "repeat": 2,
+      "scores": {
+        "T": 4,
+        "P": 0,
+        "E": 0,
+        "O": 0
+      },
+      "recognised_work": true,
+      "artifact": "results/context_pilot/v2_full_text/calls/C06/C/r2-7a1f0136f6572aab/output.json",
+      "target_identification": {
+        "speaker": "Cordelia",
+        "addressee": "Lear",
+        "anchor_quote": "Unhappy that I am, I cannot heave\nMy heart into my mouth: I love your majesty\nAccording to my bond; no more nor less."
+      }
+    },
+    {
+      "case_id": "C06",
+      "condition": "A",
+      "repeat": 2,
+      "scores": {
+        "T": 4,
+        "P": 0,
+        "E": 0,
+        "O": 0
+      },
+      "recognised_work": false,
+      "artifact": "results/context_pilot/v2_full_text/calls/C06/A/r2-a91f84113057b47e/output.json",
+      "target_identification": {
+        "speaker": null,
+        "addressee": null,
+        "anchor_quote": "I love your majesty"
+      }
+    },
+    {
+      "case_id": "C06",
+      "condition": "C",
+      "repeat": 1,
+      "scores": {
+        "T": 4,
+        "P": 2,
+        "E": 0,
+        "O": 0
+      },
+      "recognised_work": true,
+      "artifact": "results/context_pilot/v2_full_text/calls/C06/C/r1-92340f0e0ce361f8/output.json",
+      "target_identification": {
+        "speaker": "Cordelia",
+        "addressee": "Lear",
+        "anchor_quote": "Unhappy that I am, I cannot heave\nMy heart into my mouth: I love your majesty\nAccording to my bond; no more nor less."
+      }
+    },
+    {
+      "case_id": "C06",
+      "condition": "B",
+      "repeat": 2,
+      "scores": {
+        "T": 4,
+        "P": 2,
+        "E": 0,
+        "O": 2
+      },
+      "recognised_work": true,
+      "artifact": "results/context_pilot/v2_full_text/calls/C06/B/r2-29f21313d2a1dbe4/output.json",
+      "target_identification": {
+        "speaker": "Cordelia",
+        "addressee": "Lear",
+        "anchor_quote": "Unhappy that I am, I cannot heave\nMy heart into my mouth: I love your majesty\nAccording to my bond; no more nor less."
+      }
+    },
+    {
+      "case_id": "C06",
+      "condition": "D",
+      "repeat": 1,
+      "scores": {
+        "T": 4,
+        "P": 0,
+        "E": 0,
+        "O": 0
+      },
+      "recognised_work": true,
+      "artifact": "results/context_pilot/v2_full_text/calls/C06/D/r1-3515fcf368a812c5/output.json",
+      "target_identification": {
+        "speaker": "Cordelia",
+        "addressee": "Lear",
+        "anchor_quote": "Unhappy that I am, I cannot heave\nMy heart into my mouth: I love your majesty\nAccording to my bond; no more nor less."
+      }
+    },
+    {
+      "case_id": "C05",
+      "condition": "D",
+      "repeat": 3,
+      "scores": {
+        "T": 4,
+        "P": 0,
+        "E": 0,
+        "O": 2
+      },
+      "recognised_work": true,
+      "artifact": "results/context_pilot/v2_full_text/calls/C05/D/r3-72ed0929f4d4e701/output.json",
+      "target_identification": {
+        "speaker": "Goneril",
+        "addressee": "Lear",
+        "anchor_quote": "Sir, I love you more than word can wield the matter;\nDearer than eyesight, space, and liberty;\nBeyond what can be valu’d, rich or rare;\nNo less than life, with grace, health, beauty, honour;\nAs much as child e’er lov’d, or father found;\nA love that makes breath poor and speech unable;\nBeyond all manner of so much I love you."
+      }
+    },
+    {
+      "case_id": "C06",
+      "condition": "A",
+      "repeat": 1,
+      "scores": {
+        "T": 4,
+        "P": 0,
+        "E": 0,
+        "O": 0
+      },
+      "recognised_work": true,
+      "artifact": "results/context_pilot/v2_full_text/calls/C06/A/r1-c0e5411210038d6e/output.json",
+      "target_identification": {
+        "speaker": null,
+        "addressee": null,
+        "anchor_quote": "I love your majesty"
+      }
+    },
+    {
+      "case_id": "C05",
+      "condition": "B",
+      "repeat": 3,
+      "scores": {
+        "T": 4,
+        "P": 0,
+        "E": 0,
+        "O": 2
+      },
+      "recognised_work": true,
+      "artifact": "results/context_pilot/v2_full_text/calls/C05/B/r3-bfec4a37cff5024e/output.json",
+      "target_identification": {
+        "speaker": "Goneril",
+        "addressee": "Lear",
+        "anchor_quote": "Sir, I love you more than word can wield the matter;\nDearer than eyesight, space, and liberty;\nBeyond what can be valu’d, rich or rare;\nNo less than life, with grace, health, beauty, honour;\nAs much as child e’er lov’d, or father found;\nA love that makes breath poor and speech unable;\nBeyond all manner of so much I love you."
+      }
+    },
+    {
+      "case_id": "C06",
+      "condition": "D",
+      "repeat": 2,
+      "scores": {
+        "T": 4,
+        "P": 0,
+        "E": 0,
+        "O": 1
+      },
+      "recognised_work": true,
+      "artifact": "results/context_pilot/v2_full_text/calls/C06/D/r2-174b00406e81e50a/output.json",
+      "target_identification": {
+        "speaker": "Cordelia",
+        "addressee": "Lear",
+        "anchor_quote": "Unhappy that I am, I cannot heave\nMy heart into my mouth: I love your majesty\nAccording to my bond; no more nor less."
+      }
+    },
+    {
+      "case_id": "C05",
+      "condition": "A",
+      "repeat": 3,
+      "scores": {
+        "T": 4,
+        "P": 0,
+        "E": 0,
+        "O": 0
+      },
+      "recognised_work": false,
+      "artifact": "results/context_pilot/v2_full_text/calls/C05/A/r3-e46a3247a30050a3/output.json",
+      "target_identification": {
+        "speaker": null,
+        "addressee": null,
+        "anchor_quote": "I love you"
+      }
+    },
+    {
+      "case_id": "C05",
+      "condition": "C",
+      "repeat": 1,
+      "scores": {
+        "T": 4,
+        "P": 0,
+        "E": 0,
+        "O": 0
+      },
+      "recognised_work": true,
+      "artifact": "results/context_pilot/v2_full_text/calls/C05/C/r1-e993b887e8aee1c6/output.json",
+      "target_identification": {
+        "speaker": "Goneril",
+        "addressee": "Lear",
+        "anchor_quote": "Sir, I love you more than word can wield the matter;\nDearer than eyesight, space, and liberty;\nBeyond what can be valu’d, rich or rare;\nNo less than life, with grace, health, beauty, honour;\nAs much as child e’er lov’d, or father found;\nA love that makes breath poor and speech unable;\nBeyond all manner of so much I love you."
+      }
+    },
+    {
+      "case_id": "C05",
+      "condition": "A",
+      "repeat": 2,
+      "scores": {
+        "T": 4,
+        "P": 0,
+        "E": 0,
+        "O": 0
+      },
+      "recognised_work": false,
+      "artifact": "results/context_pilot/v2_full_text/calls/C05/A/r2-f4501f0527558ea8/output.json",
+      "target_identification": {
+        "speaker": null,
+        "addressee": null,
+        "anchor_quote": "I love you"
+      }
+    },
+    {
+      "case_id": "C05",
+      "condition": "C",
+      "repeat": 2,
+      "scores": {
+        "T": 4,
+        "P": 0,
+        "E": 0,
+        "O": 0
+      },
+      "recognised_work": true,
+      "artifact": "results/context_pilot/v2_full_text/calls/C05/C/r2-50e09aaf6d372c65/output.json",
+      "target_identification": {
+        "speaker": "Goneril",
+        "addressee": "Lear",
+        "anchor_quote": "Sir, I love you more than word can wield the matter;\nDearer than eyesight, space, and liberty;\nBeyond what can be valu’d, rich or rare;\nNo less than life, with grace, health, beauty, honour;\nAs much as child e’er lov’d, or father found;\nA love that makes breath poor and speech unable;\nBeyond all manner of so much I love you."
+      }
+    }
+  ],
+  "interpretation": "Purposive diagnostic cases. Repeats are not independent literary occurrences. Differences measure model judgments under supplied evidence, not human population effects.",
+  "protocol_version": "context_pilot_v2",
+  "validation_note": "Accepted outputs pass exact reference-identity and quote checks. This is not a guarantee that every explanatory sentence is correctly grounded; review explanations."
+}

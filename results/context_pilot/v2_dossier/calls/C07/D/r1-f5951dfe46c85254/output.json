@@ -1,0 +1,88 @@
+{
+  "target_identification": {
+    "speaker": "Pierre",
+    "addressee": "Hélène",
+    "anchor_quote": "Je vous aime!"
+  },
+  "target_translation": "I love you.",
+  "dimensions": {
+    "T": {
+      "score": 4,
+      "evidence_status": "assessable",
+      "confidence": 0.98,
+      "reason": "The focal expression is directly framed as Pierre's declaration that he loves Hélène. Its conventional truth-conditional force is an avowal of love even if insincere; Pierre's later description of it as a lie confirms that it purported to present love as true rather than removing its avowal force.",
+      "evidence": [
+        {
+          "block_id": "target",
+          "quotation": "Je vous aime"
+        },
+        {
+          "block_id": "later_1",
+          "quotation": "«Je vous aime», которое было ложь"
+        }
+      ]
+    },
+    "P": {
+      "score": 1,
+      "evidence_status": "assessable",
+      "confidence": 0.82,
+      "reason": "The words weakly invoke and ratify the already socially established engagement: immediately before them Pierre is holding his fiancée's hand and trying to say what the occasion requires. They do not themselves explicitly undertake marriage, fidelity, or any other future action, so the neighbouring engagement and subsequent wedding cannot justify a stronger commitment score.",
+      "evidence": [
+        {
+          "block_id": "scene",
+          "quotation": "Пьер молча держал руку своей невесты"
+        },
+        {
+          "block_id": "scene",
+          "quotation": "«Что-то такое особенное говорят в этих случаях», думал он"
+        },
+        {
+          "block_id": "target",
+          "quotation": "Je vous aime"
+        }
+      ]
+    },
+    "E": {
+      "score": 0,
+      "evidence_status": "assessable",
+      "confidence": 0.96,
+      "reason": "The declaration is not represented as a reflex-like affective outburst. Pierre pauses, searches for the socially expected formula, and then recalls it deliberately; its exclamation mark does not override that framing.",
+      "evidence": [
+        {
+          "block_id": "scene",
+          "quotation": "сказал он, вспомнив то, чтó нужно было говорить в этих случаях"
+        },
+        {
+          "block_id": "scene",
+          "quotation": "слова эти прозвучали так бедно, что ему стало стыдно за себя"
+        }
+      ]
+    },
+    "O": {
+      "score": 2,
+      "evidence_status": "assessable",
+      "confidence": 0.9,
+      "reason": "Beyond avowing love, the expression moderately functions as performance of a socially required courtship script. Pierre says it because he remembers what is conventionally said in such circumstances, thereby completing the expected scene despite his hesitation and shame. This formulaic social compliance is not fully captured by T, P, or E.",
+      "evidence": [
+        {
+          "block_id": "scene",
+          "quotation": "«Что-то такое особенное говорят в этих случаях», думал он, но никак не мог вспомнить, чтò такое именно говорят в этих случаях."
+        },
+        {
+          "block_id": "scene",
+          "quotation": "сказал он, вспомнив то, чтó нужно было говорить в этих случаях"
+        },
+        {
+          "block_id": "scene",
+          "quotation": "слова эти прозвучали так бедно, что ему стало стыдно за себя"
+        }
+      ]
+    }
+  },
+  "original_speech_situation": "Pierre addresses Hélène in French after her father and assembled society have effectively treated them as engaged. Once they are alone, Pierre hesitates over the expected declaration, Hélène kisses him, and he then produces the focal formula as something conventionally required in such a situation. His delivery is represented as poor and embarrassing rather than spontaneous. A later supplied passage has Pierre retrospectively call the declaration a lie and say that he married without loving her.",
+  "affection_evidence": "mixed",
+  "undertaking_and_uptake": "The target contains no explicit promise or independently specified undertaking. At most, Pierre weakly ratifies the engagement and accepts the relational role already imposed on the pair. Hélène gives no supplied verbal response to the focal words themselves, so their immediate uptake is not fully shown; the scene nevertheless continues to treat them as engaged, and the supplied text states that they marry a month and a half later. That subsequent marriage is uptake of the broader engagement situation, not proof that the love avowal itself was a marriage promise.",
+  "recognised_work": true,
+  "recognition_note": "The supplied passages are recognisable as Leo Tolstoy's War and Peace, depicting Pierre Bezukhov's courtship and marriage to Hélène Kuragina. The classification relies only on the supplied blocks.",
+  "limitations": "The evidence strongly establishes the utterance's avowal form and formulaic social setting, but sincerity is temporally conflicted: Pierre momentarily thinks he loves Hélène, while the later supplied passage calls the words a lie and denies that he ever loved her. The blocks show attraction and desire but do not provide Hélène's direct verbal uptake of this particular declaration."
+}

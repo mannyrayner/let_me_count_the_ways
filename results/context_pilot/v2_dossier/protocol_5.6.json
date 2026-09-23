@@ -1,0 +1,703 @@
+{
+  "protocol_version": "context_pilot_v2",
+  "scope": "dossier",
+  "model_alias": "5.6",
+  "api_model": "gpt-5.6-sol",
+  "selection_sha256": "14a5a0cddb24e057ed751cecbd76b62f9b40ae31e6b6d5d9a10bf63aa854556b",
+  "prompt_sha256": "18f7d80c62e2574b37d10094a09bbc997056c72ed31d05f34182e13a9738c58b",
+  "schema_sha256": "d7db889837f5a88c9ccf3c7669a607f53b9bccf646cc7026f092840a08869789",
+  "conditions": {
+    "A": "extracted love expression alone, not the complete speech turn",
+    "B": "local scene or explicitly bounded exchange",
+    "C": "B plus prior narrative evidence",
+    "D": "C plus later narrative evidence"
+  },
+  "repetitions": 3,
+  "order_seed": 20260921,
+  "cases": [
+    {
+      "case_id": "C01",
+      "work_id": "bronte-jane-eyre",
+      "label": "Jane addressing St John",
+      "public_context": true,
+      "dossier_note": "Local scene window from saved annotation; prior chapter XXXIV; later final chapter XXXVIII. Source excerpts, not a whole-work synopsis.",
+      "input_characters": {
+        "A": 71,
+        "B": 6968,
+        "C": 58918,
+        "D": 87727
+      }
+    },
+    {
+      "case_id": "C02",
+      "work_id": "nansen-maria",
+      "label": "The narrator addressing Maria",
+      "public_context": true,
+      "dossier_note": "Chapters LX–LXI for the reunion, preceding 10,000 characters, and chapters LXII–end. Prior excerpt boundary may fall within a paragraph.",
+      "input_characters": {
+        "A": 75,
+        "B": 4736,
+        "C": 15029,
+        "D": 19446
+      }
+    },
+    {
+      "case_id": "C03",
+      "work_id": "skram-constance-ring",
+      "label": "Lorck addressing Constance",
+      "public_context": true,
+      "dossier_note": "Saved local scene window; 12,000 characters immediately before and after, plus final 8,000 characters. This mechanically selected dossier is incomplete and contains OCR artifacts.",
+      "input_characters": {
+        "A": 75,
+        "B": 6821,
+        "C": 19303,
+        "D": 40014
+      }
+    },
+    {
+      "case_id": "C04",
+      "work_id": "cofield-nikkis-touch",
+      "label": "Nikki addressing Keith",
+      "public_context": true,
+      "dossier_note": "Saved local scene window; 12,000 characters immediately before and after, plus final 8,000 characters. This mechanically selected dossier is incomplete.",
+      "input_characters": {
+        "A": 71,
+        "B": 6528,
+        "C": 18760,
+        "D": 39175
+      }
+    },
+    {
+      "case_id": "C05",
+      "work_id": "shakespeare-king-lear",
+      "label": "Goneril addressing Lear",
+      "public_context": true,
+      "dossier_note": "Love-test exchange; preceding opening of I.1; later IV.7 and V.3 in full. Not the complete play.",
+      "input_characters": {
+        "A": 71,
+        "B": 3844,
+        "C": 5664,
+        "D": 27484
+      }
+    },
+    {
+      "case_id": "C06",
+      "work_id": "shakespeare-king-lear",
+      "label": "Cordelia addressing Lear",
+      "public_context": true,
+      "dossier_note": "Love-test exchange; preceding opening of I.1; later IV.7 and V.3 in full. Not the complete play.",
+      "input_characters": {
+        "A": 80,
+        "B": 3643,
+        "C": 5463,
+        "D": 27283
+      }
+    },
+    {
+      "case_id": "C07",
+      "work_id": "tolstoy-war-and-peace",
+      "label": "Pierre addressing Hélène",
+      "public_context": true,
+      "dossier_note": "Volume I, part III, chapter II in full; preceding source excerpt; later volume II, part I, chapter VI with Pierre’s retrospective account. A diagnostic dossier, not the whole novel.",
+      "input_characters": {
+        "A": 73,
+        "B": 17710,
+        "C": 36046,
+        "D": 45365
+      }
+    },
+    {
+      "case_id": "C08",
+      "work_id": "saint-exupery-le-petit-prince",
+      "label": "The rose addressing the prince",
+      "public_context": true,
+      "dossier_note": "Chapter IX; prior VIII; later XXI and XXVI. Public output under the recorded project publication decision; historical rights metadata retained.",
+      "input_characters": {
+        "A": 70,
+        "B": 2589,
+        "C": 6539,
+        "D": 21222
+      }
+    }
+  ],
+  "call_order": [
+    {
+      "case_id": "C08",
+      "condition": "B",
+      "repeat": 3,
+      "fingerprint": "a7b59670dcdb555da8f4519190742a9904cbed2d3f0105d81f12a1140d60689e"
+    },
+    {
+      "case_id": "C02",
+      "condition": "C",
+      "repeat": 2,
+      "fingerprint": "22f5ed0cf38ba80b7f5cc9f6f00593898f7929c426ee7d57dc09310af30179d7"
+    },
+    {
+      "case_id": "C05",
+      "condition": "B",
+      "repeat": 3,
+      "fingerprint": "bfec4a37cff5024efc3663c696d4704f3a287b2a476be260ad9d484acf277987"
+    },
+    {
+      "case_id": "C05",
+      "condition": "A",
+      "repeat": 2,
+      "fingerprint": "f4501f0527558ea877ee75e71ac44875792cba3ae32252f50cf33d17dd158fd1"
+    },
+    {
+      "case_id": "C02",
+      "condition": "D",
+      "repeat": 3,
+      "fingerprint": "5dea6b65d0011806ef98378acd0d11edb15314311978066c88c96679072fbc36"
+    },
+    {
+      "case_id": "C02",
+      "condition": "D",
+      "repeat": 1,
+      "fingerprint": "3a9093b16e7936b973a89daf93b33cee72e0c7b618aaa6951738ccb70ca46106"
+    },
+    {
+      "case_id": "C08",
+      "condition": "B",
+      "repeat": 2,
+      "fingerprint": "a24eefc361bf392355dfa405f89ddb8f92e1b5857943d76bfa90ba84a7667794"
+    },
+    {
+      "case_id": "C03",
+      "condition": "A",
+      "repeat": 3,
+      "fingerprint": "9b2e2014abf219e0d6e3dc3f156740be71a1bf58261cf68cac43e1b9b341e854"
+    },
+    {
+      "case_id": "C07",
+      "condition": "B",
+      "repeat": 2,
+      "fingerprint": "e90820c87a0acb309dc70c349f21eb7a02fa2a353b88b3193b7fc8de01a7359a"
+    },
+    {
+      "case_id": "C08",
+      "condition": "A",
+      "repeat": 1,
+      "fingerprint": "5e40a3f247ae5c750576f14278df9753b4e54fcfd2eb71d05a68e1504fd03ec4"
+    },
+    {
+      "case_id": "C01",
+      "condition": "C",
+      "repeat": 1,
+      "fingerprint": "14e66e581dc42bbbb855a7bc8aae10cb4bdc668acf8d7163eb77a3e23d6891be"
+    },
+    {
+      "case_id": "C04",
+      "condition": "D",
+      "repeat": 2,
+      "fingerprint": "92dad5b6a3484a55e3f9666d3c9601ab40f60f5b7c963adb38858d921a12a549"
+    },
+    {
+      "case_id": "C07",
+      "condition": "B",
+      "repeat": 1,
+      "fingerprint": "2ae3de48be4e3b7757b8f4479de532835a0fab0552a09ea2b0d442d0007f87e6"
+    },
+    {
+      "case_id": "C02",
+      "condition": "B",
+      "repeat": 1,
+      "fingerprint": "36b028364828780ac36baf55f00889820e401b4dc4d5f88b5950384ad7dadc93"
+    },
+    {
+      "case_id": "C05",
+      "condition": "C",
+      "repeat": 3,
+      "fingerprint": "adf4db82533666d65f53daa741b2ff1b95aea4bdda6692e0c87e8cc306b9ac6b"
+    },
+    {
+      "case_id": "C03",
+      "condition": "C",
+      "repeat": 3,
+      "fingerprint": "1f2d5ccf71451072d2440e9b0a3a47d86efa78324089980cc62e747c69dba0a6"
+    },
+    {
+      "case_id": "C02",
+      "condition": "D",
+      "repeat": 2,
+      "fingerprint": "a696b6f14472c9c225971bd2abebbe4fdf3b839ab2ae93ab257aa51fd682da34"
+    },
+    {
+      "case_id": "C07",
+      "condition": "C",
+      "repeat": 3,
+      "fingerprint": "187636e854ef72fe0496dad9fdefae30078ef97a339808d99b168fa3c2b21de4"
+    },
+    {
+      "case_id": "C06",
+      "condition": "A",
+      "repeat": 1,
+      "fingerprint": "c0e5411210038d6e5fe9120918802f1ec035baa35f24ee50e31da5ef5b1cb2c9"
+    },
+    {
+      "case_id": "C05",
+      "condition": "D",
+      "repeat": 1,
+      "fingerprint": "58c019647311fc5e7d0b4c9209a19faf32cb7b36494cb31194f661367f83f4ab"
+    },
+    {
+      "case_id": "C02",
+      "condition": "B",
+      "repeat": 3,
+      "fingerprint": "2b0868c0bdee98365b48456e6634bb00a05bd18d1de01de1c4fe753615194f28"
+    },
+    {
+      "case_id": "C02",
+      "condition": "A",
+      "repeat": 3,
+      "fingerprint": "86718c0756e88aab57d1260d7483caf6925a43eda029d232a579b366ef88ba5c"
+    },
+    {
+      "case_id": "C03",
+      "condition": "B",
+      "repeat": 3,
+      "fingerprint": "d8c39fd5c87328d411c025d8f49ac0a9fd84ca21059936a7b9e860baeff25732"
+    },
+    {
+      "case_id": "C08",
+      "condition": "A",
+      "repeat": 3,
+      "fingerprint": "7b78bda112aa8142a1543d3858ae96acb561c90c0498c6f187805cfdb96a6783"
+    },
+    {
+      "case_id": "C01",
+      "condition": "A",
+      "repeat": 1,
+      "fingerprint": "19c19088b77aab71fb5345b60b83e46baebe7e80967567a4fe63fb80119ad146"
+    },
+    {
+      "case_id": "C06",
+      "condition": "A",
+      "repeat": 3,
+      "fingerprint": "17b0987054433dd9ea87383a606214a0e869c64f1c8dbbc682cceca3df094231"
+    },
+    {
+      "case_id": "C05",
+      "condition": "A",
+      "repeat": 3,
+      "fingerprint": "e46a3247a30050a3d7544a6b743ab3063f7c138ea124f7a85b2f57e67acca84e"
+    },
+    {
+      "case_id": "C08",
+      "condition": "C",
+      "repeat": 2,
+      "fingerprint": "cc22f46ab5f8a086047edfe24698e1bc4c2cf844651ef62f4ef26d454f13442f"
+    },
+    {
+      "case_id": "C01",
+      "condition": "A",
+      "repeat": 2,
+      "fingerprint": "f4501f0527558ea877ee75e71ac44875792cba3ae32252f50cf33d17dd158fd1"
+    },
+    {
+      "case_id": "C06",
+      "condition": "C",
+      "repeat": 2,
+      "fingerprint": "38b94cf282a618bbde578458c0570a1de9e411ab30ae96bccbc41d8e8276a9f2"
+    },
+    {
+      "case_id": "C07",
+      "condition": "A",
+      "repeat": 2,
+      "fingerprint": "c762a191d1bc0069422b025e0a875abb8a877cd61662677979f39fd3778eec02"
+    },
+    {
+      "case_id": "C05",
+      "condition": "B",
+      "repeat": 2,
+      "fingerprint": "958b3a15d0305259e15c39879e283b78755642822e4ad84103bccee4edb233f9"
+    },
+    {
+      "case_id": "C02",
+      "condition": "C",
+      "repeat": 1,
+      "fingerprint": "a0ed66e2ae89bca165883d8f4a12e0c3a96da17b0a8c0d18b02caa0366377508"
+    },
+    {
+      "case_id": "C08",
+      "condition": "D",
+      "repeat": 3,
+      "fingerprint": "3c4c2b25935482bb60c92718f10eca7db8511232b8d260fda2b06ad947e86b9b"
+    },
+    {
+      "case_id": "C04",
+      "condition": "A",
+      "repeat": 3,
+      "fingerprint": "e46a3247a30050a3d7544a6b743ab3063f7c138ea124f7a85b2f57e67acca84e"
+    },
+    {
+      "case_id": "C06",
+      "condition": "C",
+      "repeat": 1,
+      "fingerprint": "12381f36bde11f9d12122b1a41268c7a2755b69611113b0e0a074d755c53dac9"
+    },
+    {
+      "case_id": "C06",
+      "condition": "D",
+      "repeat": 1,
+      "fingerprint": "4ae5e72939748c7dd877a1ed7e5409fbe4ccd845682a1e13064b756df28839fc"
+    },
+    {
+      "case_id": "C03",
+      "condition": "B",
+      "repeat": 2,
+      "fingerprint": "fba540051b25907ec18c6f530882ae96b22610a01af9341d22220f842485b939"
+    },
+    {
+      "case_id": "C08",
+      "condition": "A",
+      "repeat": 2,
+      "fingerprint": "585d19ca7c112d3c830ed687260c89ac8ce4d79520a2e4d3074ba955d7da12ee"
+    },
+    {
+      "case_id": "C04",
+      "condition": "B",
+      "repeat": 2,
+      "fingerprint": "b151b9bbf3f4d68c5bb2ae1e03b56cf5e35990f8dad4c757f19f2c614494acd0"
+    },
+    {
+      "case_id": "C02",
+      "condition": "A",
+      "repeat": 1,
+      "fingerprint": "febcea03a4af181e4eb748fb5f2f8f355a7f878df6335b582b00eef964661578"
+    },
+    {
+      "case_id": "C01",
+      "condition": "A",
+      "repeat": 3,
+      "fingerprint": "e46a3247a30050a3d7544a6b743ab3063f7c138ea124f7a85b2f57e67acca84e"
+    },
+    {
+      "case_id": "C06",
+      "condition": "B",
+      "repeat": 1,
+      "fingerprint": "c7cf95a55643eb2edf1645dbeac91c28fb664d218c9b12ad78df45525c3e1f1a"
+    },
+    {
+      "case_id": "C07",
+      "condition": "A",
+      "repeat": 3,
+      "fingerprint": "d9afb7a90460f85206b15643612e43c47c7dc9a6c31897650eed91bc8cd122b1"
+    },
+    {
+      "case_id": "C08",
+      "condition": "C",
+      "repeat": 1,
+      "fingerprint": "50fc6e9ad174b9e1f8d9b64c67cd3164e119f8f5f2d754590f5137023203304f"
+    },
+    {
+      "case_id": "C03",
+      "condition": "D",
+      "repeat": 1,
+      "fingerprint": "9d90c3417d62e1cdbb09b86d45ca0e878c6d8ff870a67e3c3fe5d55f5d1ba3b1"
+    },
+    {
+      "case_id": "C07",
+      "condition": "D",
+      "repeat": 1,
+      "fingerprint": "f5951dfe46c85254b52dec547ba3448647b16cca3b53fe707cf358099fb8e27a"
+    },
+    {
+      "case_id": "C04",
+      "condition": "C",
+      "repeat": 2,
+      "fingerprint": "15a7326fcc2bb197cd2dfe78329d7f07948a2f61b04728d035db2e1abda4f0cd"
+    },
+    {
+      "case_id": "C07",
+      "condition": "B",
+      "repeat": 3,
+      "fingerprint": "ad1245fa0585d16271855ddd1b4739c1ffcd8920bfa409538df2211e336a5917"
+    },
+    {
+      "case_id": "C07",
+      "condition": "D",
+      "repeat": 3,
+      "fingerprint": "17c6e0d6d67c4baeba5019c0d06221372ef435aa5c0642d5bb483bfac2de1044"
+    },
+    {
+      "case_id": "C01",
+      "condition": "D",
+      "repeat": 2,
+      "fingerprint": "104a4be01af0a03f9db9bc4f24476b473bfb27b05bff2363ae2635890e899aab"
+    },
+    {
+      "case_id": "C06",
+      "condition": "D",
+      "repeat": 3,
+      "fingerprint": "26842c593e9a670c9d2db7e4d9f6ed3fcb531e40d9c80133f87867b0764ba217"
+    },
+    {
+      "case_id": "C04",
+      "condition": "B",
+      "repeat": 1,
+      "fingerprint": "02fec40661696900008c54d4d1aab45c1e5ad0ee5a891d9632269959e77ab0ae"
+    },
+    {
+      "case_id": "C01",
+      "condition": "D",
+      "repeat": 3,
+      "fingerprint": "1b0d2bc1ed76c611d6875729a3b8915f7856ae8db29695c047d5a553bf6841d7"
+    },
+    {
+      "case_id": "C02",
+      "condition": "A",
+      "repeat": 2,
+      "fingerprint": "14eac1db27c53854b0e65b1c48e3253c5f701f6c44ecf5e16b94aff456cc63c1"
+    },
+    {
+      "case_id": "C03",
+      "condition": "C",
+      "repeat": 2,
+      "fingerprint": "f6a54a5ea1ad964b649fd3f8b60ea07a593f8a9d2edcaffad89dc9c308c9ddad"
+    },
+    {
+      "case_id": "C06",
+      "condition": "A",
+      "repeat": 2,
+      "fingerprint": "a91f84113057b47efb0785a8ef028f2ca29efc7ac543e10926fb018fe92f2e7c"
+    },
+    {
+      "case_id": "C07",
+      "condition": "C",
+      "repeat": 2,
+      "fingerprint": "a31d053b619bf7ce335855bb63a743d8e87583241b500efe9e6ae495449e41a2"
+    },
+    {
+      "case_id": "C03",
+      "condition": "D",
+      "repeat": 3,
+      "fingerprint": "174cbb072fe8b2b573b0d24ca216c80f33ef3d5896ea7835d14a3868e23f0d12"
+    },
+    {
+      "case_id": "C04",
+      "condition": "D",
+      "repeat": 3,
+      "fingerprint": "94db70921f4e5c6f59a2ec55f13839b6baee967784cf64f2f5d29541aa4ce80b"
+    },
+    {
+      "case_id": "C03",
+      "condition": "B",
+      "repeat": 1,
+      "fingerprint": "0fa71039e1ddeecc3e650b8eb85f5ffa240ea964733329728eb824f6800ed279"
+    },
+    {
+      "case_id": "C04",
+      "condition": "A",
+      "repeat": 2,
+      "fingerprint": "f4501f0527558ea877ee75e71ac44875792cba3ae32252f50cf33d17dd158fd1"
+    },
+    {
+      "case_id": "C05",
+      "condition": "D",
+      "repeat": 2,
+      "fingerprint": "742130b978d3f74921c566231b27e2f577f992b385dd2f73fa112c7f25ecdb11"
+    },
+    {
+      "case_id": "C08",
+      "condition": "B",
+      "repeat": 1,
+      "fingerprint": "0e259989bb83d8c7e8a8a9b16aa438aed8b6e83c4b1f00ac9f2cf9c583b02d63"
+    },
+    {
+      "case_id": "C03",
+      "condition": "D",
+      "repeat": 2,
+      "fingerprint": "f254321e9e81c47d899d26748d0941940bc96aeaf17c5c154010ab12e5194401"
+    },
+    {
+      "case_id": "C01",
+      "condition": "C",
+      "repeat": 2,
+      "fingerprint": "c89b3faaf17da7895ef3b20e41cc10acaa9dc37b6afcfab13f15e656484e99bd"
+    },
+    {
+      "case_id": "C05",
+      "condition": "C",
+      "repeat": 2,
+      "fingerprint": "bc88edee0aed31611e835d20ca47ebc26aadf0c609ce7cbbff8379888c96f12b"
+    },
+    {
+      "case_id": "C08",
+      "condition": "D",
+      "repeat": 2,
+      "fingerprint": "5222ec0e709a22575ad8d9d13e2c06b892829306ed80f97ba7d300589c83b716"
+    },
+    {
+      "case_id": "C02",
+      "condition": "B",
+      "repeat": 2,
+      "fingerprint": "6df238152e3a3a3010e21f6023ae7ee1b82fa17cf4332afdf44ab27da6103e25"
+    },
+    {
+      "case_id": "C06",
+      "condition": "B",
+      "repeat": 3,
+      "fingerprint": "5733ab22ed66653f39df32394bfd7fc7e144fc79297a354cf8d5889e2c07ba13"
+    },
+    {
+      "case_id": "C06",
+      "condition": "C",
+      "repeat": 3,
+      "fingerprint": "4ef279831efb3a68dce271f2d9e1ecee81a37ec0b4d8a1f802015713919bb8f3"
+    },
+    {
+      "case_id": "C05",
+      "condition": "D",
+      "repeat": 3,
+      "fingerprint": "3a143bd9d9e96e0cbf8f78e98b776e979b2d0f8f3cf0cbee1f4c561ca1c8efec"
+    },
+    {
+      "case_id": "C07",
+      "condition": "D",
+      "repeat": 2,
+      "fingerprint": "e8146ea7e60d135bea2ffd301928f2c46224b7d5e5f66e8465cad3a2e11a16a6"
+    },
+    {
+      "case_id": "C05",
+      "condition": "C",
+      "repeat": 1,
+      "fingerprint": "228f819752e1ae40b0cbec7da33deb7c9d0c391d6d59d45c52ff59275f96d2a7"
+    },
+    {
+      "case_id": "C07",
+      "condition": "C",
+      "repeat": 1,
+      "fingerprint": "2b00e8341929c5f51e9b6da5eab49c3fc895b6eea5b2e411706594f7b5a65b39"
+    },
+    {
+      "case_id": "C06",
+      "condition": "B",
+      "repeat": 2,
+      "fingerprint": "29f21313d2a1dbe4418a143240b360e1fda2a4150d2e411e38d3e70b7ab1d9b5"
+    },
+    {
+      "case_id": "C06",
+      "condition": "D",
+      "repeat": 2,
+      "fingerprint": "f6adcb9da572cf7053728f45a3074b430859f75a073ebc0f5c9ee9fb5ec98912"
+    },
+    {
+      "case_id": "C01",
+      "condition": "B",
+      "repeat": 1,
+      "fingerprint": "c7406b3196bf8a79db205be79e4a2afa7cb5588841753c6d881eaef6419b6817"
+    },
+    {
+      "case_id": "C03",
+      "condition": "A",
+      "repeat": 2,
+      "fingerprint": "2daf5aac0fbfc8ff5fd141486a89ac35dca28257664851eaf26472138321e9e3"
+    },
+    {
+      "case_id": "C07",
+      "condition": "A",
+      "repeat": 1,
+      "fingerprint": "f12c7ead238e0ca52e396c71da555658016300903040398ca5685dc3b08e8ffc"
+    },
+    {
+      "case_id": "C05",
+      "condition": "B",
+      "repeat": 1,
+      "fingerprint": "b1ee98573bef73fa83af8bab0f33d96e7da2e990433b434aa68ed0c1598dda40"
+    },
+    {
+      "case_id": "C01",
+      "condition": "C",
+      "repeat": 3,
+      "fingerprint": "8d52540bf7da3f251c7d81590febd2cce0199ab5d6c095687ec9912dabfcb003"
+    },
+    {
+      "case_id": "C04",
+      "condition": "A",
+      "repeat": 1,
+      "fingerprint": "19c19088b77aab71fb5345b60b83e46baebe7e80967567a4fe63fb80119ad146"
+    },
+    {
+      "case_id": "C04",
+      "condition": "D",
+      "repeat": 1,
+      "fingerprint": "57a0949ba2accb7ed33f3a188378283dd1658b8b2556897df0eecdb294f0f2d5"
+    },
+    {
+      "case_id": "C08",
+      "condition": "C",
+      "repeat": 3,
+      "fingerprint": "a8ba4c31573a6664eda19c06bf34c728ab95d5264f3115d3e498501d70b5478b"
+    },
+    {
+      "case_id": "C04",
+      "condition": "B",
+      "repeat": 3,
+      "fingerprint": "d2357ea1f7a32091a768ee70a1255956bb6834341cc217800daf2900584ebfb0"
+    },
+    {
+      "case_id": "C04",
+      "condition": "C",
+      "repeat": 1,
+      "fingerprint": "ee06e79facd347b87e4cb15b87be88017e6ea21f40c73c74c9357ac5a3596a4b"
+    },
+    {
+      "case_id": "C08",
+      "condition": "D",
+      "repeat": 1,
+      "fingerprint": "d42f1e1a7b751ed27712dc19a27fb446eff1c9c1ec79acd5fecbbd21e5e90a58"
+    },
+    {
+      "case_id": "C04",
+      "condition": "C",
+      "repeat": 3,
+      "fingerprint": "871da1b0c090c9b0d1d929c7748e84e9ae96a970b17fa10c9f97ac957680070b"
+    },
+    {
+      "case_id": "C05",
+      "condition": "A",
+      "repeat": 1,
+      "fingerprint": "19c19088b77aab71fb5345b60b83e46baebe7e80967567a4fe63fb80119ad146"
+    },
+    {
+      "case_id": "C02",
+      "condition": "C",
+      "repeat": 3,
+      "fingerprint": "a3f2c34fe48f3ca40b522630e91e417425e6f3f5258f3e5cc05345bac45ca65f"
+    },
+    {
+      "case_id": "C01",
+      "condition": "B",
+      "repeat": 3,
+      "fingerprint": "0bbd60c18834ccf4cfca50d4475a0b308c8fdb2e3742a988f784423f19888da0"
+    },
+    {
+      "case_id": "C01",
+      "condition": "D",
+      "repeat": 1,
+      "fingerprint": "dc6427f7a0f29c223c09ecc06a3c53ba6df669a0e3c2d18dc014df7a81a980ac"
+    },
+    {
+      "case_id": "C03",
+      "condition": "A",
+      "repeat": 1,
+      "fingerprint": "6e53bf95b5d3ad47332a011cd975b16ae5dbaf27cc4c52ac3fc97e4a86c78a6a"
+    },
+    {
+      "case_id": "C01",
+      "condition": "B",
+      "repeat": 2,
+      "fingerprint": "68b4c8e1739d1e19294a92e9e3ccf57eedd59ba2d24c9a7e4fa1a4fc40a4d236"
+    },
+    {
+      "case_id": "C03",
+      "condition": "C",
+      "repeat": 1,
+      "fingerprint": "cce292576b45f44e22de5fc903ebb527d996590800d841e445753a2a54e316e8"
+    }
+  ],
+  "target_identification_policy": "B/C/D supply reviewed speaker and addressee labels, an exact source anchor, and markers inserted at the frozen target offsets. A supplies none of these contextual facts. Fresh calls in every condition; do not pool with v1.",
+  "validation_policy": "reviewed_target_identity_and_literal_quote_v2"
+}

@@ -29,3 +29,7 @@ docs/reader/** whitespace=-trailing-space,-blank-at-eof
 results/context_pilot/**/*.html whitespace=-trailing-space,-blank-at-eof
 # Authorized publication copy retains the exact canonical source hash.
 results/publication/petit_prince_v1/canonical.txt -text whitespace=-trailing-space,-blank-at-eof,cr-at-eol
+
+# Keep new context-pilot artifacts byte-stable across Windows checkouts.
+results/context_pilot/v2_dossier/** -text
+results/context_pilot/v2_full_text/** -text

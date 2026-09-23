@@ -1,0 +1,193 @@
+{
+  "protocol_version": "context_pilot_v2",
+  "scope": "full_text",
+  "model_alias": "5.6",
+  "api_model": "gpt-5.6-sol",
+  "selection_sha256": "14a5a0cddb24e057ed751cecbd76b62f9b40ae31e6b6d5d9a10bf63aa854556b",
+  "prompt_sha256": "18f7d80c62e2574b37d10094a09bbc997056c72ed31d05f34182e13a9738c58b",
+  "schema_sha256": "d7db889837f5a88c9ccf3c7669a607f53b9bccf646cc7026f092840a08869789",
+  "conditions": {
+    "A": "extracted love expression alone, not the complete speech turn",
+    "B": "local scene or explicitly bounded exchange",
+    "C": "B plus prior narrative evidence",
+    "D": "C plus later narrative evidence"
+  },
+  "repetitions": 3,
+  "order_seed": 20260921,
+  "cases": [
+    {
+      "case_id": "C05",
+      "work_id": "shakespeare-king-lear",
+      "label": "Goneril addressing Lear",
+      "public_context": true,
+      "dossier_note": "Love-test exchange; preceding opening of I.1; later IV.7 and V.3 in full. Not the complete play.",
+      "input_characters": {
+        "A": 71,
+        "B": 3844,
+        "C": 7555,
+        "D": 162175
+      }
+    },
+    {
+      "case_id": "C06",
+      "work_id": "shakespeare-king-lear",
+      "label": "Cordelia addressing Lear",
+      "public_context": true,
+      "dossier_note": "Love-test exchange; preceding opening of I.1; later IV.7 and V.3 in full. Not the complete play.",
+      "input_characters": {
+        "A": 80,
+        "B": 3643,
+        "C": 7354,
+        "D": 161974
+      }
+    }
+  ],
+  "call_order": [
+    {
+      "case_id": "C06",
+      "condition": "D",
+      "repeat": 3,
+      "fingerprint": "ae3bdf3f4a5146e3bd2d21f5a1de8a3a17cb6ec657dc7e913ee5f63cd85a7cec"
+    },
+    {
+      "case_id": "C05",
+      "condition": "B",
+      "repeat": 1,
+      "fingerprint": "b1ee98573bef73fa83af8bab0f33d96e7da2e990433b434aa68ed0c1598dda40"
+    },
+    {
+      "case_id": "C06",
+      "condition": "C",
+      "repeat": 3,
+      "fingerprint": "aab141e97ff718539216ca4047b8925fcd286e1045e2270b0d79d9224c42e98a"
+    },
+    {
+      "case_id": "C05",
+      "condition": "D",
+      "repeat": 2,
+      "fingerprint": "71eccf28a383c0aac2f7e44d69f44d822e0f6d10e7b935a6e6b26c3f2136a6e7"
+    },
+    {
+      "case_id": "C05",
+      "condition": "A",
+      "repeat": 1,
+      "fingerprint": "19c19088b77aab71fb5345b60b83e46baebe7e80967567a4fe63fb80119ad146"
+    },
+    {
+      "case_id": "C05",
+      "condition": "C",
+      "repeat": 3,
+      "fingerprint": "de6119d51c0edbb515e50082db9cd9fb9d6591f4d5da7c1de848532c342328e0"
+    },
+    {
+      "case_id": "C05",
+      "condition": "D",
+      "repeat": 1,
+      "fingerprint": "2b63dca23608d49b5ce3ce835924655ca89fe793ea398757ba363e88a0deb15f"
+    },
+    {
+      "case_id": "C06",
+      "condition": "B",
+      "repeat": 1,
+      "fingerprint": "c7cf95a55643eb2edf1645dbeac91c28fb664d218c9b12ad78df45525c3e1f1a"
+    },
+    {
+      "case_id": "C06",
+      "condition": "A",
+      "repeat": 3,
+      "fingerprint": "17b0987054433dd9ea87383a606214a0e869c64f1c8dbbc682cceca3df094231"
+    },
+    {
+      "case_id": "C05",
+      "condition": "B",
+      "repeat": 2,
+      "fingerprint": "958b3a15d0305259e15c39879e283b78755642822e4ad84103bccee4edb233f9"
+    },
+    {
+      "case_id": "C06",
+      "condition": "B",
+      "repeat": 3,
+      "fingerprint": "5733ab22ed66653f39df32394bfd7fc7e144fc79297a354cf8d5889e2c07ba13"
+    },
+    {
+      "case_id": "C06",
+      "condition": "C",
+      "repeat": 2,
+      "fingerprint": "7a1f0136f6572aab9985bcbce41891b813b01e31db8ea6c8b333a40fffa3faed"
+    },
+    {
+      "case_id": "C06",
+      "condition": "A",
+      "repeat": 2,
+      "fingerprint": "a91f84113057b47efb0785a8ef028f2ca29efc7ac543e10926fb018fe92f2e7c"
+    },
+    {
+      "case_id": "C06",
+      "condition": "C",
+      "repeat": 1,
+      "fingerprint": "92340f0e0ce361f8b8e3093c4d20013532ab07eb0575eaf3cdd08ae7d4d02d07"
+    },
+    {
+      "case_id": "C06",
+      "condition": "B",
+      "repeat": 2,
+      "fingerprint": "29f21313d2a1dbe4418a143240b360e1fda2a4150d2e411e38d3e70b7ab1d9b5"
+    },
+    {
+      "case_id": "C06",
+      "condition": "D",
+      "repeat": 1,
+      "fingerprint": "3515fcf368a812c55b20b8d9882606e84bf387d5b068e25ab76413fdc72fae28"
+    },
+    {
+      "case_id": "C05",
+      "condition": "D",
+      "repeat": 3,
+      "fingerprint": "72ed0929f4d4e701102efab85ac5b939da903c1d0bd91b287d742d115fe7126c"
+    },
+    {
+      "case_id": "C06",
+      "condition": "A",
+      "repeat": 1,
+      "fingerprint": "c0e5411210038d6e5fe9120918802f1ec035baa35f24ee50e31da5ef5b1cb2c9"
+    },
+    {
+      "case_id": "C05",
+      "condition": "B",
+      "repeat": 3,
+      "fingerprint": "bfec4a37cff5024efc3663c696d4704f3a287b2a476be260ad9d484acf277987"
+    },
+    {
+      "case_id": "C06",
+      "condition": "D",
+      "repeat": 2,
+      "fingerprint": "174b00406e81e50a90dee0559d4209b82e5dbc6fc384b7759c6aebcbec0f491a"
+    },
+    {
+      "case_id": "C05",
+      "condition": "A",
+      "repeat": 3,
+      "fingerprint": "e46a3247a30050a3d7544a6b743ab3063f7c138ea124f7a85b2f57e67acca84e"
+    },
+    {
+      "case_id": "C05",
+      "condition": "C",
+      "repeat": 1,
+      "fingerprint": "e993b887e8aee1c6c84714ba3c477d17f43992287ae1659912c45d6c8a9b751b"
+    },
+    {
+      "case_id": "C05",
+      "condition": "A",
+      "repeat": 2,
+      "fingerprint": "f4501f0527558ea877ee75e71ac44875792cba3ae32252f50cf33d17dd158fd1"
+    },
+    {
+      "case_id": "C05",
+      "condition": "C",
+      "repeat": 2,
+      "fingerprint": "50e09aaf6d372c65ec343d780c0d7fdbf04944f2c741b34fe69eeda1bd2809c1"
+    }
+  ],
+  "target_identification_policy": "B/C/D supply reviewed speaker and addressee labels, an exact source anchor, and markers inserted at the frozen target offsets. A supplies none of these contextual facts. Fresh calls in every condition; do not pool with v1.",
+  "validation_policy": "reviewed_target_identity_and_literal_quote_v2"
+}

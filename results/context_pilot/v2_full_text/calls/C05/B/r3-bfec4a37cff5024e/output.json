@@ -1,0 +1,76 @@
+{
+  "target_identification": {
+    "speaker": "Goneril",
+    "addressee": "Lear",
+    "anchor_quote": "Sir, I love you more than word can wield the matter;\nDearer than eyesight, space, and liberty;\nBeyond what can be valu’d, rich or rare;\nNo less than life, with grace, health, beauty, honour;\nAs much as child e’er lov’d, or father found;\nA love that makes breath poor and speech unable;\nBeyond all manner of so much I love you."
+  },
+  "target_translation": "I love you.",
+  "dimensions": {
+    "T": {
+      "score": 4,
+      "evidence_status": "assessable",
+      "confidence": 0.99,
+      "reason": "Goneril directly presents her love for Lear as a true emotional state. The surrounding comparison with her sisters concerns how much each daughter loves him, reinforcing the target’s clear avowal force without establishing whether it is sincere.",
+      "evidence": [
+        {
+          "block_id": "target",
+          "quotation": "I love you"
+        },
+        {
+          "block_id": "scene",
+          "quotation": "Which of you shall we say doth love us most?"
+        }
+      ]
+    },
+    "P": {
+      "score": 0,
+      "evidence_status": "assessable",
+      "confidence": 0.94,
+      "reason": "The target is a present-tense avowal, not a promise or undertaking by Goneril to perform, continue, or assume any specified obligation. Lear’s subsequent grant rewards her answer but does not turn the target itself into a commitment.",
+      "evidence": [
+        {
+          "block_id": "target",
+          "quotation": "I love you"
+        },
+        {
+          "block_id": "scene",
+          "quotation": "We make thee lady: to thine and Albany’s issue\nBe this perpetual."
+        }
+      ]
+    },
+    "E": {
+      "score": 0,
+      "evidence_status": "assessable",
+      "confidence": 0.92,
+      "reason": "The expression is a composed answer to Lear’s formal request, embedded in an elaborate comparative speech. Nothing in the supplied event presents the exact target as a reflex-like affective discharge rather than an assertion.",
+      "evidence": [
+        {
+          "block_id": "scene",
+          "quotation": "Goneril,\nOur eldest born, speak first.\n\nGONERIL.\nSir, I love you more than word can wield the matter;"
+        }
+      ]
+    },
+    "O": {
+      "score": 2,
+      "evidence_status": "assessable",
+      "confidence": 0.84,
+      "reason": "Beyond avowing love, the target functions as a competitive and persuasive answer in Lear’s bounty-setting love test. It supports Goneril’s bid to be judged the most loving daughter and thus to receive the largest grant; this strategic function is not fully captured by T, P, or E.",
+      "evidence": [
+        {
+          "block_id": "scene",
+          "quotation": "Which of you shall we say doth love us most?\nThat we our largest bounty may extend"
+        },
+        {
+          "block_id": "scene",
+          "quotation": "Of all these bounds, even from this line to this,\nWith shadowy forests and with champains rich’d,\nWith plenteous rivers and wide-skirted meads,\nWe make thee lady"
+        }
+      ]
+    }
+  },
+  "original_speech_situation": "Lear publicly asks his daughters to say which loves him most while assigning their dowers and territory. Goneril, called upon first, addresses Lear with the focal avowal as the opening of an extravagant comparison of her love with other goods and relationships.",
+  "affection_evidence": "unknown",
+  "undertaking_and_uptake": "The focal expression contains no specified undertaking by Goneril. Lear accepts the answer for purposes of the love test and grants her territory, but this is uptake of her competitive avowal, not acceptance of a promise. The supplied scene does not settle the sincerity of her claimed affection.",
+  "recognised_work": true,
+  "recognition_note": "This is recognisable as the opening love-test scene from Shakespeare’s King Lear. The classification relies only on the supplied passage, not on later plot events.",
+  "limitations": "The passage establishes the target’s public avowal and strategic setting but does not independently establish Goneril’s actual feelings, private intention, or later conduct. Cordelia’s remarks create grounds for caution about the sisters’ rhetoric but do not conclusively prove Goneril’s sincerity or insincerity."
+}
