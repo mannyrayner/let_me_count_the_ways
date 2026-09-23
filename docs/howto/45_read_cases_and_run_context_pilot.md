@@ -1,5 +1,10 @@
 # 45. Read the evidence and run the context pilot
 
+**P-instruction experiment:** after completing v2, use
+[the v3 comparison instructions](../notes/context_pilot_p_clarification_v3.md)
+to test clarified P wording against the saved v2 baseline.
+
+
 **Target-identification repair:** for new context judgments use
 [the v2 instructions](../notes/context_pilot_target_identification_v2.md).
 They preserve historical v1 results and prepare explicitly located, attributed

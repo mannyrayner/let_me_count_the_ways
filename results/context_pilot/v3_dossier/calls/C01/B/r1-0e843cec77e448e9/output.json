@@ -1,0 +1,80 @@
+{
+  "target_identification": {
+    "speaker": "Jane",
+    "addressee": "St John",
+    "anchor_quote": "There is no dishonour, no breach of promise, no desertion in the case.\nI am not under the slightest obligation to go to India, especially with\nstrangers. With you I would have ventured much, because I admire,\nconfide in, and, as a sister, I love you; but I am convinced that, go\nwhen and with whom I would, I should not live long in that climate."
+  },
+  "target_translation": "I love you.",
+  "dimensions": {
+    "T": {
+      "score": 4,
+      "evidence_status": "assessable",
+      "confidence": 0.99,
+      "reason": "Jane directly avows love for St John, explicitly qualifying it as sisterly affection. The surrounding first-person statements of admiration and trust reinforce that this is presented as a true emotional and mental state.",
+      "evidence": [
+        {
+          "block_id": "target",
+          "quotation": "I love you"
+        },
+        {
+          "block_id": "scene",
+          "quotation": "because I admire,\nconfide in, and, as a sister, I love you"
+        }
+      ]
+    },
+    "P": {
+      "score": 1,
+      "evidence_status": "assessable",
+      "confidence": 0.84,
+      "reason": "The expression weakly affirms a sisterly relational bond and associates that bond with Jane's willingness to venture much with St John. It does not, however, undertake marriage, travel, or missionary service: Jane expressly denies any obligation, and her offer to serve as his assistant is a separate speech act that St John has already rejected unless she becomes his wife.",
+      "evidence": [
+        {
+          "block_id": "scene",
+          "quotation": "I am not under the slightest obligation to go to India, especially with\nstrangers. With you I would have ventured much, because I admire,\nconfide in, and, as a sister, I love you"
+        },
+        {
+          "block_id": "scene",
+          "quotation": "I say again, I will be your\ncurate, if you like, but never your wife."
+        }
+      ]
+    },
+    "E": {
+      "score": 0,
+      "evidence_status": "assessable",
+      "confidence": 0.96,
+      "reason": "The avowal occurs within a controlled, reasoned explanation of Jane's position rather than as a reflex-like affective outburst. Her agitation elsewhere does not turn this particular expression into expressive discharge.",
+      "evidence": [
+        {
+          "block_id": "scene",
+          "quotation": "There is no dishonour, no breach of promise, no desertion in the case.\nI am not under the slightest obligation to go to India, especially with\nstrangers."
+        },
+        {
+          "block_id": "scene",
+          "quotation": "With you I would have ventured much, because I admire,\nconfide in, and, as a sister, I love you"
+        }
+      ]
+    },
+    "O": {
+      "score": 2,
+      "evidence_status": "assessable",
+      "confidence": 0.91,
+      "reason": "Beyond avowing affection, the expression defines the kind and boundary of the relationship: Jane identifies her love as sisterly, not marital, and uses it to explain why she would have trusted St John more than strangers. This contrastive relationship clarification is not fully captured by T or the weak relational affirmation under P.",
+      "evidence": [
+        {
+          "block_id": "scene",
+          "quotation": "as a sister, I love you"
+        },
+        {
+          "block_id": "scene",
+          "quotation": "I will be your curate, if you like, but never your wife."
+        }
+      ]
+    }
+  },
+  "original_speech_situation": "Jane is resisting St John's claim that she is bound to go to India and his insistence that she accompany him only as his wife. She avows sisterly love while explaining her exceptional willingness to accompany him, but simultaneously rejects marriage, denies any obligation to travel, and raises the danger to her life.",
+  "affection_evidence": "present",
+  "undertaking_and_uptake": "The focal expression weakly affirms Jane's self-positioning toward St John as a loving sister. It does not itself promise marriage or travel. Her distinct offer to accompany him as an assistant or sister is rejected by St John as unsuitable unless she is his wife; his response to the focal turn does not accept the sisterly bond but instead challenges her motives and later withdraws.",
+  "recognised_work": true,
+  "recognition_note": "The supplied passage is recognisable as Charlotte Brontë's Jane Eyre.",
+  "limitations": "The excerpt strongly supports the represented sisterly avowal but cannot conclusively establish inner sincerity beyond Jane's words and narration. The exact obligations inherent in her asserted sisterly relationship are unspecified, and St John's uptake of that relational affirmation is not explicit."
+}

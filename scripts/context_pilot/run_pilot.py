@@ -77,7 +77,7 @@ def inputs(case, scope, config=None):
     after = [{'block_id':f'later_{i+1}', 'text':range_text(text,s)} for i,s in enumerate(later)]
     sequences = {'A':[], 'B':[scene], 'C':before+[scene], 'D':before+[scene]+after}
     prepared = {c:{'TARGET':target,'SOURCE_BLOCKS':blocks} for c,blocks in sequences.items()}
-    if config and config['protocol_version'] == 'context_pilot_v2':
+    if config and config['protocol_version'] in ('context_pilot_v2', 'context_pilot_v3'):
         from scripts.context_pilot.target_grounding import ground_inputs
         prepared = ground_inputs(prepared, case, text)
     return prepared, manifest
@@ -114,6 +114,8 @@ def validate(result, prepared, schema):
         from scripts.context_pilot.target_grounding import validate_identification, unmark_inputs
         validate_identification(result, prepared)
         prepared = unmark_inputs(prepared)
+    from scripts.context_pilot.quotation_matching import match
+    audit = []
     blocks = {'target':prepared['TARGET'], **{b['block_id']:b['text'] for b in prepared['SOURCE_BLOCKS']}}
     for name, dim in result['dimensions'].items():
         insufficient = dim['evidence_status'] == 'insufficient'
@@ -121,9 +123,12 @@ def validate(result, prepared, schema):
             raise ValueError(name + ': null score must mean insufficient evidence')
         if not dim['reason'].strip() or (not insufficient and not dim['evidence']):
             raise ValueError(name + ': missing reason/evidence')
-        for item in dim['evidence']:
-            if not quote_matches(item['quotation'], blocks.get(item['block_id'],'')):
-                raise ValueError(name + ': evidence does not match the named input block (whitespace normalization only)')
+        for index, item in enumerate(dim['evidence']):
+            found = match(item['quotation'], blocks.get(item['block_id'],''), allow_accents='TARGET_REFERENCE' in prepared)
+            if found is None:
+                raise ValueError(name + ': evidence does not match the named input block under the passage-matching policy')
+            audit.append(dict(found, dimension=name, evidence_index=index, block_id=item['block_id']))
+    return audit
 
 def result_for(call, schema):
     directory = call['directory']
@@ -133,21 +138,26 @@ def result_for(call, schema):
     result = read(output)
     if read(directory/'provenance.json')['fingerprint'] != call['fingerprint']:
         raise ValueError('Saved result fingerprint mismatch')
-    validate(result,call['prepared'],schema)
+    audit = validate(result,call['prepared'],schema)
+    audit_path = directory/'quotation_audit.json'
+    if audit_path.exists() and read(audit_path) != audit:
+        raise ValueError('Saved quotation audit differs from source alignment')
     return result
 
 def prepare(scope, model_alias, only_cases=None, version='v1'):
-    if version not in ('v1', 'v2'):
+    if version not in ('v1', 'v2', 'v3'):
         raise ValueError('Unknown protocol version')
     selection_path = SELECTION if version == 'v1' else ROOT/'data/context_pilot/selection_v2.json'
-    prompt_path = PROMPT if version == 'v1' else ROOT/'prompts/context_pilot/classify_v2.md'
+    prompt_path = PROMPT if version == 'v1' else ROOT/f'prompts/context_pilot/classify_{version}.md'
     schema_path = SCHEMA if version == 'v1' else ROOT/'prompts/context_pilot/schema_v2.json'
     config = read(selection_path)
+    if version == 'v3':
+        config['protocol_version'] = 'context_pilot_v3'
     prompt, schema = prompt_path.read_text(encoding='utf-8'), read(schema_path)
     # Protocol documents are text; v2 hashes ignore checkout newline conversion.
     # Retain the historical byte-hash contract for v1 resumption.
     def document_hash(path):
-        return sha(path.read_text(encoding='utf-8').encode('utf-8')) if version == 'v2' else sha(path.read_bytes())
+        return sha(path.read_text(encoding='utf-8').encode('utf-8')) if version in ('v2', 'v3') else sha(path.read_bytes())
     model, pricing = resolve_model(ROOT/'config/api_models.json',model_alias,date.today())
     base = ROOT / 'results/context_pilot' / (version+'_'+scope)
     calls, overview, pages = [], [], []
@@ -157,9 +167,9 @@ def prepare(scope, model_alias, only_cases=None, version='v1'):
     for case in config['cases']:
         if case['case_id'] not in wanted:
             continue
-        prepared, manifest = inputs(case,scope,config if version == 'v2' else None)
+        prepared, manifest = inputs(case,scope,config if version in ('v2', 'v3') else None)
         public = manifest['rights']['public_render_policy'] in PUBLIC
-        if version == 'v2' and not public:
+        if version in ('v2', 'v3') and not public:
             from scripts.reader.records import publication_approved
             public = publication_approved(ROOT, config, manifest, {})
         target_base = base if public else ROOT/'results/context_pilot_private'/(version+'_'+scope)
@@ -170,7 +180,7 @@ def prepare(scope, model_alias, only_cases=None, version='v1'):
             input_path = target_base/'inputs'/case['case_id']/(condition+'.json')
             stable_write(input_path,json_bytes(p))
             body = {'model':model,'input':prompt+'\n\n## Input\n\n'+json.dumps(p,ensure_ascii=False),
-                    'store':False,'max_output_tokens':8000 if version == 'v2' else 2400,'text':structured_output_format(schema,config['protocol_version'])}
+                    'store':False,'max_output_tokens':8000 if version in ('v2', 'v3') else 2400,'text':structured_output_format(schema,'context_pilot_v2' if version == 'v3' else config['protocol_version'])}
             review = '<!doctype html><meta charset="utf-8"><title>Context input</title><style>body{max-width:75ch;margin:3rem auto;padding:1rem;font:18px/1.6 Georgia}pre{white-space:pre-wrap}h2{font:1.1em system-ui}</style>'
             review += '<h1>'+html.escape(case['label'])+' — '+condition+'</h1><p>'+html.escape(config['conditions'][condition])+'</p>'
             review += '<p>Scope: '+scope+'. No scores or bibliographic labels are sent with the source input.</p><h2>Target</h2><pre>'+html.escape(p['TARGET'])+'</pre>'
@@ -192,7 +202,7 @@ def prepare(scope, model_alias, only_cases=None, version='v1'):
                 'cases':overview,'call_order':[{'case_id':c['case_id'],'condition':c['condition'],'repeat':c['repeat'],'fingerprint':c['fingerprint']} for c in calls]}
     # A named scope/model plan has immutable inputs; subsets get their own manifest.
     manifest_name = 'protocol_'+model_alias+('_'+'-'.join(sorted(wanted)) if only_cases else '')+'.json'
-    if version == 'v2':
+    if version in ('v2', 'v3'):
         protocol['target_identification_policy'] = config['target_identification_policy']
         protocol['validation_policy'] = 'reviewed_target_identity_and_literal_quote_v2'
     stable_write(base/manifest_name,json_bytes(protocol))
@@ -216,7 +226,7 @@ def report(calls, base, schema, protocol):
                          'scores':{k:d['score'] for k,d in result['dimensions'].items()},
                          'recognised_work':result['recognised_work'],
                          'artifact':(call['directory']/'output.json').relative_to(ROOT).as_posix() if call['public'] else 'local-only'})
-            if protocol.get('protocol_version') == 'context_pilot_v2':
+            if protocol.get('protocol_version') in ('context_pilot_v2', 'context_pilot_v3'):
                 rows[-1]['target_identification'] = result['target_identification']
     cases=[]
     for case in protocol['cases']:
@@ -232,9 +242,9 @@ def report(calls, base, schema, protocol):
     result={'status':'complete' if len(rows)==len(calls) else 'not_run' if not rows else 'partial',
             'scope':protocol['scope'],'expected':len(calls),'valid':len(rows),'cases':cases,'judgments':rows,
             'interpretation':'Purposive diagnostic cases. Repeats are not independent literary occurrences. Differences measure model judgments under supplied evidence, not human population effects.'}
-    if protocol.get('protocol_version') == 'context_pilot_v2':
+    if protocol.get('protocol_version') in ('context_pilot_v2', 'context_pilot_v3'):
         result['protocol_version'] = protocol['protocol_version']
-        result['validation_note'] = 'Accepted outputs pass exact reference-identity and quote checks. This is not a guarantee that every explanatory sentence is correctly grounded; review explanations.'
+        result['validation_note'] = 'Accepted outputs pass reference-identity and passage-matching checks. Long unique accent-only alignments are recorded separately; original responses are unchanged. Review explanations.'
     write(base/'summary.json',result)
     lines=['# Context pilot results','',f'Status: **{result["status"]}** — {len(rows)}/{len(calls)} valid judgments.','',
            'P distributions show score:count; null means insufficient evidence. No missing score is imputed as zero.','',
@@ -265,7 +275,7 @@ def require_complete_response(response):
         raise ValueError('API response is not complete: ' + str(reason))
 
 def validation_policy(prepared):
-    return 'reviewed_target_identity_and_literal_quote_v2' if 'TARGET_REFERENCE' in prepared else VALIDATION_POLICY
+    return 'reviewed_target_identity_and_long_unique_accent_alignment_v1' if 'TARGET_REFERENCE' in prepared else VALIDATION_POLICY
 
 def recover_saved(calls, schema):
     recovered = 0
@@ -284,9 +294,10 @@ def recover_saved(calls, schema):
                 continue
             try:
                 parsed, _ = parse_json_output(output_text(response))
-                validate(parsed, call['prepared'], schema)
+                audit = validate(parsed, call['prepared'], schema)
             except (ValueError, KeyError, TypeError):
                 continue
+            stable_write(call['directory']/'quotation_audit.json', json_bytes(audit))
             stable_write(call['directory']/'provenance.json', json_bytes({
                 'fingerprint':call['fingerprint'], 'attempt':attempt.name,
                 'recorded_at':datetime.now(timezone.utc).isoformat(),
@@ -301,13 +312,42 @@ def recover_saved(calls, schema):
             break
     return recovered
 
+def audit_saved_quotes(calls, base, schema):
+    rows=[]
+    for call in calls:
+        provenance_path=call['directory']/'provenance.json'
+        selected=read(provenance_path)['attempt'] if provenance_path.exists() else None
+        for attempt in sorted(call['directory'].glob('attempt-*')):
+            if not (attempt/'response.json').exists():
+                continue
+            row={'case_id':call['case_id'],'condition':call['condition'],'repeat':call['repeat'],
+                 'attempt':attempt.relative_to(ROOT).as_posix(),'selected':attempt.name==selected}
+            try:
+                request=read(attempt/'request.json')
+                if not compatible_attempt_request(request,call['body']):
+                    raise ValueError('Saved request differs from frozen plan')
+                response=read(attempt/'response.json');require_complete_response(response)
+                parsed,_=parse_json_output(output_text(response))
+                row['quotation_matches']=validate(parsed,call['prepared'],schema)
+                row['scores']={k:d['score'] for k,d in parsed['dimensions'].items()}
+                row['status']='valid_under_current_policy'
+            except (ValueError,KeyError,TypeError) as exc:
+                row['status']='invalid';row['error']=str(exc)
+            rows.append(row)
+    write(base/'quotation_attempt_audit.json',{'policy':validation_policy(calls[0]['prepared']) if calls else None,
+          'selection_policy':'Existing accepted judgments are preserved; superseded valid attempts are listed for sensitivity analysis, not substituted.',
+          'attempts':rows})
+    print('Audited retained attempts: '+str(len(rows)))
+
 def run(args, caller=call_api):
     version = getattr(args, 'protocol', 'v1')
     calls,base,pricing,schema,protocol=prepare(args.scope,args.model,args.cases,version)
     if getattr(args, 'recover_saved', False):
         print('Recovered saved responses: ' + str(recover_saved(calls, schema)))
+    if getattr(args, 'audit_saved_quotes', False):
+        audit_saved_quotes(calls,base,schema)
     pending=[c for c in calls if result_for(c,schema) is None]
-    minimum_budget = 8000 if version == 'v2' else 2400
+    minimum_budget = 8000 if version in ('v2', 'v3') else 2400
     output_budget = getattr(args, 'max_output_tokens', None) or minimum_budget
     if output_budget < minimum_budget:
         raise ValueError(f'Output budget must be at least the planned {minimum_budget}-token ceiling')
@@ -320,7 +360,7 @@ def run(args, caller=call_api):
                'pricing_verified_on':pricing['pricing_verified_on'],'estimate_usd':estimate['estimated_total_cost'],
                'max_output_tokens_for_new_attempts':output_budget,
                'estimate_method':f'UTF-8 bytes / 3 input tokens (heuristic), {output_budget} output tokens per remaining call (ceiling, not predicted usage); not a billing or context-capacity guarantee.'}
-    if version == 'v2':
+    if version in ('v2', 'v3'):
         preflight['protocol_version'] = protocol['protocol_version']
     write(base/'preflight.json',preflight);print(json.dumps(preflight,indent=2))
     report(calls,base,schema,protocol)
@@ -349,7 +389,8 @@ def run(args, caller=call_api):
             write(attempt/'response.json',response)
             write(attempt/'cost.json',calculate_cost(response.get('usage',{}),pricing))
             require_complete_response(response)
-            parsed,_=parse_json_output(output_text(response));validate(parsed,c['prepared'],schema)
+            parsed,_=parse_json_output(output_text(response));audit=validate(parsed,c['prepared'],schema)
+            stable_write(directory/'quotation_audit.json',json_bytes(audit))
             stable_write(directory/'provenance.json',json_bytes({'fingerprint':c['fingerprint'],'attempt':attempt.name,
                          'recorded_at':datetime.now(timezone.utc).isoformat(),
                          'validation_policy':validation_policy(c['prepared']),
@@ -368,14 +409,15 @@ def run(args, caller=call_api):
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--run',action='store_true');p.add_argument('--model',default='5.6')
-    p.add_argument('--protocol',choices=['v1','v2'],default='v1',help='v2 uses reviewed target identities and a separate result directory')
+    p.add_argument('--protocol',choices=['v1','v2','v3'],default='v1',help='v2: reviewed targets; v3: same inputs with clarified P instructions; separate result directories')
     p.add_argument('--scope',choices=['dossier','full_text'],default='dossier')
     p.add_argument('--cases',nargs='+',help='Optional case IDs; selection is recorded in the plan')
     p.add_argument('--max-estimate-usd',type=float,default=25)
     p.add_argument('--max-input-chars',type=int,default=250000)
-    p.add_argument('--max-output-tokens',type=int,default=None,help='Default: 2400 for v1, 8000 for v2. Output ceiling for new attempts only; completed judgments resume unchanged (minimum 2400)')
+    p.add_argument('--max-output-tokens',type=int,default=None,help='Default: 2400 for v1, 8000 for v2/v3. Output ceiling for new attempts only; completed judgments resume unchanged (minimum 2400)')
     p.add_argument('--max-calls',type=int);p.add_argument('--timeout',type=float,default=300)
     p.add_argument('--retry-failed',action='store_true')
+    p.add_argument('--audit-saved-quotes',action='store_true',help='Audit all retained attempts, including superseded responses, without replacing accepted judgments')
     p.add_argument('--recover-saved',action='store_true',help='Validate retained responses under the whitespace-tolerant quote check; no API calls unless --run is also given')
     args=p.parse_args()
     if args.max_output_tokens is not None and args.max_output_tokens<2400:p.error('--max-output-tokens must be at least 2400')

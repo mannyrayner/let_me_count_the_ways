@@ -1,0 +1,384 @@
+{
+  "id": "resp_0994e47083b78a85016ab3865c39b487d081aef42c8e5af3d2",
+  "object": "response",
+  "created_at": 1790150236,
+  "status": "completed",
+  "access_programs": null,
+  "background": false,
+  "billing": {
+    "payer": "openai"
+  },
+  "completed_at": 1790150244,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": 8000,
+  "max_tool_calls": null,
+  "model": "gpt-5.6-sol",
+  "moderation": null,
+  "output": [
+    {
+      "id": "msg_0994e47083b78a85016ab3865d446487d0ac1b748abc7e036f",
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "annotations": [],
+          "logprobs": [],
+          "text": "{\"target_identification\":{\"speaker\":null,\"addressee\":null,\"anchor_quote\":\"I love your majesty\"},\"target_translation\":\"I love your majesty.\",\"dimensions\":{\"T\":{\"score\":4,\"evidence_status\":\"assessable\",\"confidence\":0.98,\"reason\":\"The expression directly presents the speaker as having love for the addressee, addressed deferentially as “your majesty.” Its dominant linguistic force is an avowal of a loving state, irrespective of sincerity.\",\"evidence\":[{\"block_id\":\"target\",\"quotation\":\"I love your majesty\"}]},\"P\":{\"score\":0,\"evidence_status\":\"assessable\",\"confidence\":0.88,\"reason\":\"The bare avowal contains no language positioning the speaker as bound by a relational obligation or undertaking. With no surrounding discourse, there is no evidence that this occurrence creates, renews, affirms, or invokes a commitment.\",\"evidence\":[{\"block_id\":\"target\",\"quotation\":\"I love your majesty\"}]},\"E\":{\"score\":0,\"evidence_status\":\"assessable\",\"confidence\":0.82,\"reason\":\"The ordinary declarative wording supports an avowal but provides no sign of a reflex-like or affectively discharged response beyond that assertion.\",\"evidence\":[{\"block_id\":\"target\",\"quotation\":\"I love your majesty\"}]},\"O\":{\"score\":0,\"evidence_status\":\"assessable\",\"confidence\":0.9,\"reason\":\"No core force beyond the love avowal is established. The deferential form of address marks status or respect but does not supply a distinct dominant speech-act function.\",\"evidence\":[{\"block_id\":\"target\",\"quotation\":\"I love your majesty\"}]}},\"original_speech_situation\":\"An unidentified speaker directly addresses an unidentified royal addressee and avows love. No surrounding scene or discourse is supplied.\",\"affection_evidence\":\"unknown\",\"undertaking_and_uptake\":\"No undertaking is established by the supplied expression, and there is no evidence concerning uptake. The terms, relationship history, and sincerity are unknown.\",\"recognised_work\":false,\"recognition_note\":\"The isolated expression does not identify a recognised work.\",\"limitations\":\"Because the input is expression-only and contains no source blocks, speaker identity, addressee identity, dramatic circumstances, sincerity, relationship history, and response cannot be determined.\"}"
+        }
+      ],
+      "phase": "final_answer",
+      "role": "assistant"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "24h",
+  "reasoning": {
+    "context": "all_turns",
+    "effort": "medium",
+    "mode": "standard",
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": false,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "description": null,
+      "name": "context_pilot_v2",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "target_identification": {
+            "type": "object",
+            "properties": {
+              "speaker": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "addressee": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "anchor_quote": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "speaker",
+              "addressee",
+              "anchor_quote"
+            ],
+            "additionalProperties": false
+          },
+          "target_translation": {
+            "type": "string"
+          },
+          "dimensions": {
+            "type": "object",
+            "properties": {
+              "T": {
+                "type": "object",
+                "properties": {
+                  "score": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "evidence_status": {
+                    "type": "string",
+                    "enum": [
+                      "assessable",
+                      "insufficient"
+                    ]
+                  },
+                  "confidence": {
+                    "type": "number"
+                  },
+                  "reason": {
+                    "type": "string"
+                  },
+                  "evidence": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "block_id": {
+                          "type": "string"
+                        },
+                        "quotation": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "block_id",
+                        "quotation"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": [
+                  "score",
+                  "evidence_status",
+                  "confidence",
+                  "reason",
+                  "evidence"
+                ],
+                "additionalProperties": false
+              },
+              "P": {
+                "type": "object",
+                "properties": {
+                  "score": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "evidence_status": {
+                    "type": "string",
+                    "enum": [
+                      "assessable",
+                      "insufficient"
+                    ]
+                  },
+                  "confidence": {
+                    "type": "number"
+                  },
+                  "reason": {
+                    "type": "string"
+                  },
+                  "evidence": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "block_id": {
+                          "type": "string"
+                        },
+                        "quotation": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "block_id",
+                        "quotation"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": [
+                  "score",
+                  "evidence_status",
+                  "confidence",
+                  "reason",
+                  "evidence"
+                ],
+                "additionalProperties": false
+              },
+              "E": {
+                "type": "object",
+                "properties": {
+                  "score": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "evidence_status": {
+                    "type": "string",
+                    "enum": [
+                      "assessable",
+                      "insufficient"
+                    ]
+                  },
+                  "confidence": {
+                    "type": "number"
+                  },
+                  "reason": {
+                    "type": "string"
+                  },
+                  "evidence": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "block_id": {
+                          "type": "string"
+                        },
+                        "quotation": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "block_id",
+                        "quotation"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": [
+                  "score",
+                  "evidence_status",
+                  "confidence",
+                  "reason",
+                  "evidence"
+                ],
+                "additionalProperties": false
+              },
+              "O": {
+                "type": "object",
+                "properties": {
+                  "score": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "evidence_status": {
+                    "type": "string",
+                    "enum": [
+                      "assessable",
+                      "insufficient"
+                    ]
+                  },
+                  "confidence": {
+                    "type": "number"
+                  },
+                  "reason": {
+                    "type": "string"
+                  },
+                  "evidence": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "block_id": {
+                          "type": "string"
+                        },
+                        "quotation": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "block_id",
+                        "quotation"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": [
+                  "score",
+                  "evidence_status",
+                  "confidence",
+                  "reason",
+                  "evidence"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "T",
+              "P",
+              "E",
+              "O"
+            ],
+            "additionalProperties": false
+          },
+          "original_speech_situation": {
+            "type": "string"
+          },
+          "affection_evidence": {
+            "type": "string",
+            "enum": [
+              "present",
+              "absent",
+              "mixed",
+              "unknown"
+            ]
+          },
+          "undertaking_and_uptake": {
+            "type": "string"
+          },
+          "recognised_work": {
+            "type": "boolean"
+          },
+          "recognition_note": {
+            "type": "string"
+          },
+          "limitations": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "target_identification",
+          "target_translation",
+          "dimensions",
+          "original_speech_situation",
+          "affection_evidence",
+          "undertaking_and_uptake",
+          "recognised_work",
+          "recognition_note",
+          "limitations"
+        ],
+        "additionalProperties": false
+      },
+      "strict": true
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tool_usage": {
+    "image_gen": {
+      "input_tokens": 0,
+      "input_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "output_tokens": 0,
+      "output_tokens_details": {
+        "image_tokens": 0,
+        "text_tokens": 0
+      },
+      "total_tokens": 0
+    },
+    "web_search": {
+      "num_requests": 0
+    }
+  },
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 0.98,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 1635,
+    "input_tokens_details": {
+      "cache_write_tokens": 1632,
+      "cached_tokens": 0
+    },
+    "output_tokens": 489,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 2124
+  },
+  "user": null,
+  "metadata": {}
+}
